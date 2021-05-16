@@ -14,13 +14,11 @@
 #include<commons/string.h>
 #include<commons/config.h>
 #include<readline/readline.h>
-#include<utils/utils.h> // Cambiar nombre a utils mas adelante
+#include<utils/utils.h>
 
-//#include "utils.h"
 
-#endif /* DISCORDIADOR_H_ */
 t_log* iniciar_logger(void);
 t_config* leer_config(void);
 void leer_consola(t_log* logger);
 t_paquete* armar_paquete();
-#endif /* TP0_H_ */
+#endif /* DISCORDIADOR_H_ */
