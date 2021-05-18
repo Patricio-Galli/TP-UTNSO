@@ -15,7 +15,7 @@
 #include<commons/config.h>
 #include<readline/readline.h>
 #include<utils/utils.h>
-
+#include "consola.h"
 
 t_log* iniciar_logger(void);
 t_config* leer_config(void);

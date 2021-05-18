@@ -11,6 +11,11 @@
 #include "discordiador.h"
 
 int main(void) {
+
+
+	iniciarConsola();
+
+/*
 	// PARTE 2
 	t_log* logger = iniciar_logger();
 	log_info(logger, "Soy un log");
@@ -38,7 +43,7 @@ int main(void) {
 	eliminar_paquete(paquete);
 	log_destroy(logger);
 	config_destroy(config);
-	close(conexion_Ram_HQ);
+	close(conexion_Ram_HQ);*/
 }
 //conexion a iMongo_Store
 /*int conexion_Imongo_Store = crear_conexion(
