@@ -5,20 +5,60 @@
  *      Author: utnso
  */
 
-#ifndef DISCORDIADOR_H_
-#define DISCORDIADOR_H_
+#ifndef CONSOLA_H_
+#define CONSOLA_H_
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<commons/log.h>
-#include<commons/string.h>
-#include<commons/config.h>
-#include<readline/readline.h>
-#include<utils/utils.h>
-#include "consola.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <readline/readline.h>
+#include <readline/history.h>
+// bibliotecas para hilos
+#include <pthread.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include "string1.h"
+#include <semaphore.h>
 
-t_log* iniciar_logger(void);
-t_config* leer_config(void);
-void leer_consola(t_log* logger);
-t_paquete* armar_paquete();
-#endif /* DISCORDIADOR_H_ */
+typedef struct {
+    int id_trip;
+    int id_patota;
+    int estado; //ready, blocked, etc
+    pthread_t hilo;
+    struct tripulante *sig;
+}tripulante;
+
+typedef enum {
+    NEW,
+    BLOCKED,
+    READY,
+    RUNNING,
+    EXIT
+}estado_tarea;
+
+typedef struct {
+    tripulante* cabeza;
+}lista_tripulante;
+
+typedef enum{
+    ERROR_CONSOLA,
+	INICIAR_PATOTA,
+	LISTAR_TRIPULANTES,
+	EXPULSAR_TRIPULANTE,
+	INICIAR_PLANIFICACION,
+	PAUSAR_PLANIFICACION,
+	OBTENER_BITACORA,
+}command_code;
+
+void generar_posiciones(char** parametros, tripulante* nuevo);
+tripulante* crear_nodo_trip(int* posiciones);
+tripulante* _crear_nodo_trip(int posiciones[2]);
+void agregar_trip_a_lista(tripulante* nuevo_trip, lista_tripulante* lista, int patota_actual);
+void* rutina_hilos(int* posiciones);
+void* _rutina_hilos(int posiciones[2]);
+//void iniciarConsola();
+void iniciarConsola();
+command_code mapStringToEnum(char *s);
+
+#endif /* CONSOLA_H_ */
