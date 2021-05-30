@@ -52,7 +52,8 @@ typedef enum{
 	INICIAR_PLANIFICACION,
 	PAUSAR_PLANIFICACION,
 	OBTENER_BITACORA,
-	EXIT_DISCORDIADOR
+	EXIT_DISCORDIADOR,
+	ERROR
 }command_code;
 
 void generar_posiciones(char** parametros, tripulante* nuevo);

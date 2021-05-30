@@ -46,7 +46,7 @@ int main() {
 			case EXIT_DISCORDIADOR:
 				continuar = false;
 				break;
-			default:
+			case ERROR:
 				printf("COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
 		}
 		
@@ -96,6 +96,21 @@ command_code mapStringToEnum(char *string){
 	// hago que valide indistintamente las mayúsculas y minpusculas
 	string_to_upper(string);
 
+	//char listaDeStrings[7][]={"INICIAR_PATOTA", "LISTAR_TRIPULANTES", "EXPULSAR_TRIPULANTE", "INICIAR_PLANIFICACION", "PAUSAR_PLANIFICACION", "OBTENER_BITACORA", "EXIT"};
+	char** listaDeStrings;
+	char posiblesValores[]="INICIAR_PATOTA LISTAR_TRIPULANTES EXPULSAR_TRIPULANTE INICIAR_PLANIFICACION PAUSAR_PLANIFICACION OBTENER_BITACORA EXIT";
+	int i = 0;
+
+	listaDeStrings = string_split(posiblesValores," ");
+
+	while(listaDeStrings[i] != NULL){
+
+		if(!strcmp(string,listaDeStrings[i]))
+			return i;
+		i++;
+	}
+	return ERROR;
+	/*
 	if(strncmp(string,"INICIAR_PATOTA",strlen(string)) == 0 && strlen(string) == strlen("INICIAR_PATOTA")) {
 		return INICIAR_PATOTA;
 	}
@@ -116,7 +131,9 @@ command_code mapStringToEnum(char *string){
 	}
 	else if(strncmp(string,"EXIT",strlen(string)) == 0 && strlen(string) == strlen("EXIT")){
 			return EXIT_DISCORDIADOR;
-		}
+	}
+	*/
+
 }
 
 tripulante* crear_nodo_trip(int* posiciones) {
