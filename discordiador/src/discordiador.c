@@ -67,7 +67,7 @@ int main() {
 void iniciar_patota(char** input){
 
 	bool valida = true;
-	int* posiciones = malloc(2* sizeof(int));
+	int posiciones[2];
 	int cantidad_tripulantes = atoi(input[1]);
 	sem_init(&sem_posiciones, 0, 1);
 	lista_tripulante* lista_trip = malloc(sizeof(lista_tripulante));
@@ -76,8 +76,8 @@ void iniciar_patota(char** input){
 
 	for(int iterador = 0; iterador < cantidad_tripulantes; iterador++) { //atoi: ascii to int
 		sem_wait(&sem_posiciones);
-		if(valida && input[iterador+2] != NULL) { //iterador+2 nos estaria dando la direccion de inicio del tripulante
-			char** auxiliar = string_split(input[iterador+2], "|"); //divide la posicion de x|y a posiciones[0]=x y posiciones[1]=y
+		if(valida && input[iterador+3] != NULL) { //iterador+2 nos estaria dando la direccion de inicio del tripulante
+			char** auxiliar = string_split(input[iterador+3], "|"); //divide la posicion de x|y a posiciones[0]=x y posiciones[1]=y
 			posiciones[0] = atoi(auxiliar[0]);
 			posiciones[1] = atoi(auxiliar[1]);
 		}
@@ -94,49 +94,18 @@ void iniciar_patota(char** input){
 
 command_code mapStringToEnum(char *string){
 	// hago que valide indistintamente las mayúsculas y minpusculas
-	string_to_upper(string);
+	//string_to_upper(string);
 
-	//char listaDeStrings[7][]={"INICIAR_PATOTA", "LISTAR_TRIPULANTES", "EXPULSAR_TRIPULANTE", "INICIAR_PLANIFICACION", "PAUSAR_PLANIFICACION", "OBTENER_BITACORA", "EXIT"};
-	char** listaDeStrings;
-	char posiblesValores[]="INICIAR_PATOTA LISTAR_TRIPULANTES EXPULSAR_TRIPULANTE INICIAR_PLANIFICACION PAUSAR_PLANIFICACION OBTENER_BITACORA EXIT";
-	int i = 0;
+	char* listaDeStrings[]={"INICIAR_PATOTA", "LISTAR_TRIPULANTES", "EXPULSAR_TRIPULANTE", "INICIAR_PLANIFICACION", "PAUSAR_PLANIFICACION", "OBTENER_BITACORA", "EXIT"};
 
-	listaDeStrings = string_split(posiblesValores," ");
-
-	while(listaDeStrings[i] != NULL){
-
-		if(!strcmp(string,listaDeStrings[i]))
+	for(int i=0;i<7;i++){
+		if(!strcasecmp(string,listaDeStrings[i]))
 			return i;
-		i++;
 	}
 	return ERROR;
-	/*
-	if(strncmp(string,"INICIAR_PATOTA",strlen(string)) == 0 && strlen(string) == strlen("INICIAR_PATOTA")) {
-		return INICIAR_PATOTA;
-	}
-	else if(strncmp(string,"LISTAR_TRIPULANTES",strlen(string)) == 0 && strlen(string) == strlen("LISTAR_TRIPULANTES")){
-		return LISTAR_TRIPULANTES;
-	}
-	else if(strncmp(string,"EXPULSAR_TRIPULANTE",strlen(string)) == 0 && strlen(string) == strlen("EXPULSAR_TRIPULANTE")){
-		return EXPULSAR_TRIPULANTE;
-	}
-	else if(strncmp(string,"INICIAR_PLANIFICACION",strlen(string)) == 0 && strlen(string) == strlen("INICIAR_PLANIFICACION")){
-		return INICIAR_PLANIFICACION;
-	}
-	else if(strncmp(string,"PAUSAR_PLANIFICACION",strlen(string)) == 0 && strlen(string) == strlen("PAUSAR_PLANIFICACION")){
-		return PAUSAR_PLANIFICACION;
-	}
-	else if(strncmp(string,"OBTENER_BITACORA",strlen(string)) == 0 && strlen(string) == strlen("OBTENER_BITACORA")){
-		return OBTENER_BITACORA;
-	}
-	else if(strncmp(string,"EXIT",strlen(string)) == 0 && strlen(string) == strlen("EXIT")){
-			return EXIT_DISCORDIADOR;
-	}
-	*/
-
 }
 
-tripulante* crear_nodo_trip(int* posiciones) {
+tripulante* crear_nodo_trip(int posiciones[2]) {
 	printf("Creando tripulante pro\n");
 	tripulante* nuevo = malloc(sizeof(tripulante));
 	pthread_t nuevo_hilo;
