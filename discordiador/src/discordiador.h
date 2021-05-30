@@ -5,21 +5,25 @@
  *      Author: utnso
  */
 
-#ifndef CONSOLA_H_
-#define CONSOLA_H_
+#ifndef DISCORDIADOR_H_
+#define DISCORDIADOR_H_
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
-#include <readline/readline.h>
-#include <readline/history.h>
+
 // bibliotecas para hilos
 #include <pthread.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "string1.h"
+#include <commons/string.h>
+#include <utils/utils.h>
 #include <semaphore.h>
+
+#include "consola.h"
+
+
 
 typedef struct {
     int id_trip;
@@ -42,13 +46,13 @@ typedef struct {
 }lista_tripulante;
 
 typedef enum{
-    ERROR_CONSOLA,
 	INICIAR_PATOTA,
 	LISTAR_TRIPULANTES,
 	EXPULSAR_TRIPULANTE,
 	INICIAR_PLANIFICACION,
 	PAUSAR_PLANIFICACION,
 	OBTENER_BITACORA,
+	EXIT_DISCORDIADOR
 }command_code;
 
 void generar_posiciones(char** parametros, tripulante* nuevo);
@@ -61,4 +65,4 @@ void* _rutina_hilos(int posiciones[2]);
 void iniciarConsola();
 command_code mapStringToEnum(char *s);
 
-#endif /* CONSOLA_H_ */
+#endif /* DISCORDIADOR_H_ */

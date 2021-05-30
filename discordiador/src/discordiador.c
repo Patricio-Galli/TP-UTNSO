@@ -9,47 +9,24 @@
  */
 
 #include "discordiador.h"
+
 sem_t sem_posiciones;
 int variable = 0;
-int main() {
-	int patota_actual = 0;
-    char* linea;
-    char** input;
-    lista_tripulante* lista_trip = malloc(sizeof(lista_tripulante));
-	while(1) {
-		linea = readline(">");
-		if(!strncmp(linea,"exit", 4)) {
-			free(linea);
-			break;
-		}
-		if(linea)
-			add_history(linea);
 
-		input = string_split(linea," ");
+int patota_actual = 0;
+
+int main() {
+
+    char** input;
+    bool continuar = true;
+
+	while(continuar) {
+		input = leer_consola();
 		command_code command = mapStringToEnum(input[0]);
-		bool valida = true;
 
 		switch(command) {
 			case INICIAR_PATOTA:
-				printf("INICIAR PATOTA RUNNING\n");
-				sem_init(&sem_posiciones, 0, 1);
-				int* posiciones = malloc(2* sizeof(int));
-				for(int iterador = 0; iterador < atoi(input[1]); iterador++) {
-					sem_wait(&sem_posiciones);
-					if(input[iterador+2] != NULL && valida) {
-						char** auxiliar = string_split(input[iterador+2], "|");
-						posiciones[0] = atoi(auxiliar[0]);
-						posiciones[1] = atoi(auxiliar[1]);
-					}
-					else {
-						posiciones[0] = 0;
-						posiciones[1] = 0;
-						valida = false;
-					}
-					printf("(%d, %d)\n", posiciones[0], posiciones[1]);
-					tripulante* nuevo_trip = crear_nodo_trip(posiciones);
-					agregar_trip_a_lista(nuevo_trip, lista_trip, patota_actual);
-				}
+				iniciar_patota(input);
 				break;
 			case LISTAR_TRIPULANTES:
 				printf("LISTAR TRIPULANTES RUNNING");
@@ -66,7 +43,10 @@ int main() {
 			case OBTENER_BITACORA:
 				printf("OBTENER BITACORA");
 				break;
-			case ERROR_CONSOLA:
+			case EXIT_DISCORDIADOR:
+				continuar = false;
+				break;
+			default:
 				printf("COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
 		}
 		
@@ -78,12 +58,38 @@ int main() {
 				iterador = iterador->sig;
 			}
 		}*/
-		command = ERROR_CONSOLA;
 		free(*input);
 		free(input);
-		free(linea);
 	}
 	return 0;
+}
+
+void iniciar_patota(char** input){
+
+	bool valida = true;
+	int* posiciones = malloc(2* sizeof(int));
+	int cantidad_tripulantes = atoi(input[1]);
+	sem_init(&sem_posiciones, 0, 1);
+	lista_tripulante* lista_trip = malloc(sizeof(lista_tripulante));
+
+	printf("INICIAR PATOTA RUNNING\n");
+
+	for(int iterador = 0; iterador < cantidad_tripulantes; iterador++) { //atoi: ascii to int
+		sem_wait(&sem_posiciones);
+		if(valida && input[iterador+2] != NULL) { //iterador+2 nos estaria dando la direccion de inicio del tripulante
+			char** auxiliar = string_split(input[iterador+2], "|"); //divide la posicion de x|y a posiciones[0]=x y posiciones[1]=y
+			posiciones[0] = atoi(auxiliar[0]);
+			posiciones[1] = atoi(auxiliar[1]);
+		}
+		else {
+			posiciones[0] = 0;
+			posiciones[1] = 0;
+			valida = false;
+		}
+		printf("(%d, %d)\n", posiciones[0], posiciones[1]);
+		tripulante* nuevo_trip = crear_nodo_trip(posiciones);
+		agregar_trip_a_lista(nuevo_trip, lista_trip, patota_actual);
+	}
 }
 
 command_code mapStringToEnum(char *string){
@@ -108,8 +114,9 @@ command_code mapStringToEnum(char *string){
 	else if(strncmp(string,"OBTENER_BITACORA",strlen(string)) == 0 && strlen(string) == strlen("OBTENER_BITACORA")){
 		return OBTENER_BITACORA;
 	}
-	else
-		return ERROR_CONSOLA;
+	else if(strncmp(string,"EXIT",strlen(string)) == 0 && strlen(string) == strlen("EXIT")){
+			return EXIT_DISCORDIADOR;
+		}
 }
 
 tripulante* crear_nodo_trip(int* posiciones) {
