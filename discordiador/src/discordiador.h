@@ -8,17 +8,63 @@
 #ifndef DISCORDIADOR_H_
 #define DISCORDIADOR_H_
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<commons/log.h>
-#include<commons/string.h>
-#include<commons/config.h>
-#include<readline/readline.h>
-#include<utils/utils.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+
+// bibliotecas para hilos
+#include <pthread.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <commons/string.h>
+#include <utils/utils.h>
+#include <semaphore.h>
+
 #include "consola.h"
 
-t_log* iniciar_logger(void);
-t_config* leer_config(void);
-void leer_consola(t_log* logger);
-t_paquete* armar_paquete();
+
+typedef struct {
+	int id_trip;
+	int id_patota;
+	int estado; //ready, blocked, etc
+	pthread_t hilo;
+}tripulante;
+
+typedef struct {
+    tripulante data;
+    struct nodo_tripulante *sig;
+}nodo_tripulante;
+
+typedef enum {
+    NEW,
+    BLOCKED,
+    READY,
+    RUNNING,
+    EXIT
+}estado_tarea;
+/*
+typedef struct {
+    tripulante* cabeza;
+}lista_tripulante;
+*/
+typedef enum{
+	INICIAR_PATOTA,
+	LISTAR_TRIPULANTES,
+	EXPULSAR_TRIPULANTE,
+	INICIAR_PLANIFICACION,
+	PAUSAR_PLANIFICACION,
+	OBTENER_BITACORA,
+	EXIT_DISCORDIADOR,
+	ERROR
+}command_code;
+
+tripulante* crear_nodo_trip(int *posiciones);
+void agregar_trip_a_lista(tripulante* nuevo_trip);
+void* rutina_hilos(int* posiciones);
+command_code mapStringToEnum(char *s);
+void iniciar_patota(char** input);
+void listar_tripulantes();
+
+
 #endif /* DISCORDIADOR_H_ */
