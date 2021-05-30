@@ -67,7 +67,7 @@ int main() {
 void iniciar_patota(char** input){
 
 	bool valida = true;
-	int posiciones[2];
+	int *posiciones = malloc(2 * sizeof(int));
 	int cantidad_tripulantes = atoi(input[1]);
 	sem_init(&sem_posiciones, 0, 1);
 	lista_tripulante* lista_trip = malloc(sizeof(lista_tripulante));
@@ -75,7 +75,7 @@ void iniciar_patota(char** input){
 	printf("INICIAR PATOTA RUNNING\n");
 
 	for(int iterador = 0; iterador < cantidad_tripulantes; iterador++) { //atoi: ascii to int
-		sem_wait(&sem_posiciones);
+		//sem_wait(&sem_posiciones);
 		if(valida && input[iterador+3] != NULL) { //iterador+2 nos estaria dando la direccion de inicio del tripulante
 			char** auxiliar = string_split(input[iterador+3], "|"); //divide la posicion de x|y a posiciones[0]=x y posiciones[1]=y
 			posiciones[0] = atoi(auxiliar[0]);
@@ -87,15 +87,12 @@ void iniciar_patota(char** input){
 			valida = false;
 		}
 		printf("(%d, %d)\n", posiciones[0], posiciones[1]);
-		tripulante* nuevo_trip = crear_nodo_trip(posiciones);
-		agregar_trip_a_lista(nuevo_trip, lista_trip, patota_actual);
+		tripulante* nuevo_trip = crear_nodo_trip(&posiciones[0]);
+		//agregar_trip_a_lista(nuevo_trip, lista_trip, patota_actual);
 	}
 }
 
 command_code mapStringToEnum(char *string){
-	// hago que valide indistintamente las mayúsculas y minpusculas
-	//string_to_upper(string);
-
 	char* listaDeStrings[]={"INICIAR_PATOTA", "LISTAR_TRIPULANTES", "EXPULSAR_TRIPULANTE", "INICIAR_PLANIFICACION", "PAUSAR_PLANIFICACION", "OBTENER_BITACORA", "EXIT"};
 
 	for(int i=0;i<7;i++){
@@ -105,7 +102,7 @@ command_code mapStringToEnum(char *string){
 	return ERROR;
 }
 
-tripulante* crear_nodo_trip(int posiciones[2]) {
+tripulante* crear_nodo_trip(int *posiciones) {
 	printf("Creando tripulante pro\n");
 	tripulante* nuevo = malloc(sizeof(tripulante));
 	pthread_t nuevo_hilo;

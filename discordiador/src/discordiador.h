@@ -57,11 +57,9 @@ typedef enum{
 }command_code;
 
 void generar_posiciones(char** parametros, tripulante* nuevo);
-tripulante* crear_nodo_trip(int* posiciones);
-tripulante* _crear_nodo_trip(int posiciones[2]);
+tripulante* crear_nodo_trip(int *posiciones);
 void agregar_trip_a_lista(tripulante* nuevo_trip, lista_tripulante* lista, int patota_actual);
 void* rutina_hilos(int* posiciones);
-void* _rutina_hilos(int posiciones[2]);
 //void iniciarConsola();
 void iniciarConsola();
 command_code mapStringToEnum(char *s);
