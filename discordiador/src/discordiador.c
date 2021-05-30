@@ -10,10 +10,10 @@
 
 #include "discordiador.h"
 
-sem_t sem_posiciones;
 int variable = 0;
 
-int patota_actual = 0;
+int id_patota_actual = 0;
+nodo_tripulante *lista_tripulantes = NULL;
 
 int main() {
 
@@ -29,7 +29,7 @@ int main() {
 				iniciar_patota(input);
 				break;
 			case LISTAR_TRIPULANTES:
-				printf("LISTAR TRIPULANTES RUNNING");
+				listar_tripulantes();
 				break;
 			case EXPULSAR_TRIPULANTE:
 				printf("EXPULSAR");
@@ -49,16 +49,12 @@ int main() {
 			case ERROR:
 				printf("COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
 		}
-		
-		/*tripulante* iterador = lista_trip->cabeza;
-		if (iterador != NULL) {
-			while(iterador->sig != NULL) {
-				pthread_join(iterador->hilo, NULL);
-				printf("y\n");
-				iterador = iterador->sig;
-			}
-		}*/
-		free(*input);
+
+		int i = 0;
+		while(input[i] != NULL){
+			free(input[i]);
+			i++;
+		}
 		free(input);
 	}
 	return 0;
@@ -66,16 +62,14 @@ int main() {
 
 void iniciar_patota(char** input){
 
+	int id_trip_actual = 0;
 	bool valida = true;
 	int *posiciones = malloc(2 * sizeof(int));
 	int cantidad_tripulantes = atoi(input[1]);
-	sem_init(&sem_posiciones, 0, 1);
-	lista_tripulante* lista_trip = malloc(sizeof(lista_tripulante));
 
 	printf("INICIAR PATOTA RUNNING\n");
 
 	for(int iterador = 0; iterador < cantidad_tripulantes; iterador++) { //atoi: ascii to int
-		//sem_wait(&sem_posiciones);
 		if(valida && input[iterador+3] != NULL) { //iterador+2 nos estaria dando la direccion de inicio del tripulante
 			char** auxiliar = string_split(input[iterador+3], "|"); //divide la posicion de x|y a posiciones[0]=x y posiciones[1]=y
 			posiciones[0] = atoi(auxiliar[0]);
@@ -87,9 +81,15 @@ void iniciar_patota(char** input){
 			valida = false;
 		}
 		printf("(%d, %d)\n", posiciones[0], posiciones[1]);
-		tripulante* nuevo_trip = crear_nodo_trip(&posiciones[0]);
-		//agregar_trip_a_lista(nuevo_trip, lista_trip, patota_actual);
+		tripulante* nuevo_trip = crear_nodo_trip(posiciones);
+		nuevo_trip->id_trip = id_trip_actual;
+		nuevo_trip->id_patota = id_patota_actual;
+		agregar_trip_a_lista(nuevo_trip);
+		id_trip_actual++;
+		free(nuevo_trip);
 	}
+	free(posiciones);
+	id_patota_actual++;
 }
 
 command_code mapStringToEnum(char *string){
@@ -106,33 +106,46 @@ tripulante* crear_nodo_trip(int *posiciones) {
 	printf("Creando tripulante pro\n");
 	tripulante* nuevo = malloc(sizeof(tripulante));
 	pthread_t nuevo_hilo;
-	pthread_create(&nuevo_hilo, NULL, rutina_hilos, posiciones);
+	int *aux = malloc(2 * sizeof(int));
+	aux[0] = posiciones[0];
+	aux[1] = posiciones[1];
+	pthread_create(&nuevo_hilo, NULL, rutina_hilos, aux);
 
 	nuevo->estado = NEW;
 	nuevo->hilo = nuevo_hilo;
-	nuevo->sig = NULL;
+
 	return nuevo;
 }
 
-void agregar_trip_a_lista(tripulante* nuevo_trip, lista_tripulante* lista, int patota) {
-	int id = 0;
-	if(lista->cabeza == NULL) {
-		lista->cabeza = nuevo_trip;
+void agregar_trip_a_lista(tripulante* nuevo_trip) {
+
+	nodo_tripulante *nuevo_nodo = malloc(sizeof(nodo_tripulante));
+	nuevo_nodo->data = *nuevo_trip;
+	nuevo_nodo->sig = NULL;
+
+	if(lista_tripulantes == NULL){
+		lista_tripulantes = nuevo_nodo;
 	}
 	else {
-		tripulante* nodo = lista->cabeza;
-		while(nodo->sig) {
-			nodo = nodo->sig;
+		nodo_tripulante *aux = lista_tripulantes;
+		while(aux->sig != NULL){
+			aux = aux->sig;
 		}
-		nodo->sig = nuevo_trip;
+		aux->sig = nuevo_nodo;
 	}
-	nuevo_trip->id_trip = id;
-	nuevo_trip->id_patota = patota;
 }
 
 void* rutina_hilos(int* posiciones) {
 	printf("Hola soy el hilo %d, mi posición es (%d, %d)\n", variable, posiciones[0], posiciones[1]);
-	variable++;
-	sem_post(&sem_posiciones);
+	free(posiciones);
 	return 0;
+}
+
+void listar_tripulantes(){
+	nodo_tripulante* aux = lista_tripulantes;
+	while(aux != NULL){
+		printf("Patota: %d \t Tripulante: %d \n",aux->data.id_patota, aux->data.id_trip);
+		aux = aux->sig;
+	}
+	free(aux);
 }

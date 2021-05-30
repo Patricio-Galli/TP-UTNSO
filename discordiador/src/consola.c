@@ -10,6 +10,7 @@ char** leer_consola(){
 		add_history(linea);
 
 	input = string_split(linea," ");
+
 	free(linea);
 
 	return input;
