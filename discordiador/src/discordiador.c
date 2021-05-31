@@ -110,7 +110,7 @@ tripulante* crear_nodo_trip(int *posiciones) {
 	aux[0] = posiciones[0];
 	aux[1] = posiciones[1];
 	pthread_create(&nuevo_hilo, NULL, rutina_hilos, aux);
-
+	// Gran memory leak con nuestra variable AUX. RESOLVER!
 	nuevo->estado = NEW;
 	nuevo->hilo = nuevo_hilo;
 
@@ -135,7 +135,7 @@ void agregar_trip_a_lista(tripulante* nuevo_trip) {
 	}
 }
 
-void* rutina_hilos(int* posiciones) {
+void* rutina_hilos(void* posiciones) {
 	free(posiciones);
 	return 0;
 }

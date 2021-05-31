@@ -32,7 +32,7 @@ typedef struct {
 	pthread_t hilo;
 }tripulante;
 
-typedef struct {
+typedef struct nodo_tripulante{
     tripulante data;
     struct nodo_tripulante *sig;
 }nodo_tripulante;
@@ -44,11 +44,7 @@ typedef enum {
     RUNNING,
     EXIT
 }estado_tarea;
-/*
-typedef struct {
-    tripulante* cabeza;
-}lista_tripulante;
-*/
+
 typedef enum{
 	INICIAR_PATOTA,
 	LISTAR_TRIPULANTES,
@@ -62,7 +58,7 @@ typedef enum{
 
 tripulante* crear_nodo_trip(int *posiciones);
 void agregar_trip_a_lista(tripulante* nuevo_trip);
-void* rutina_hilos(int* posiciones);
+void* rutina_hilos(void* posiciones);
 command_code mapStringToEnum(char *s);
 void iniciar_patota(char** input, t_log* logger);
 void listar_tripulantes();
