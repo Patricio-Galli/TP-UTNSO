@@ -18,6 +18,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <commons/string.h>
+#include <commons/log.h>
 #include <utils/utils.h>
 #include <semaphore.h>
 
@@ -63,7 +64,7 @@ tripulante* crear_nodo_trip(int *posiciones);
 void agregar_trip_a_lista(tripulante* nuevo_trip);
 void* rutina_hilos(int* posiciones);
 command_code mapStringToEnum(char *s);
-void iniciar_patota(char** input);
+void iniciar_patota(char** input, t_log* logger);
 void listar_tripulantes();
 
 
