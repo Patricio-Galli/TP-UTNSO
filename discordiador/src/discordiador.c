@@ -14,9 +14,9 @@ int variable = 0;
 
 int id_patota_actual = 0;
 nodo_tripulante *lista_tripulantes = NULL;
-
 int main() {
 
+	t_log* logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
     char** input;
     bool continuar = true;
 
@@ -26,28 +26,28 @@ int main() {
 
 		switch(command) {
 			case INICIAR_PATOTA:
-				iniciar_patota(input);
+				iniciar_patota(input, logger);
 				break;
 			case LISTAR_TRIPULANTES:
 				listar_tripulantes();
 				break;
 			case EXPULSAR_TRIPULANTE:
-				printf("EXPULSAR");
+				log_info(logger,"Expulsar tripulante ...");
 				break;
 			case INICIAR_PLANIFICACION:
-				printf("INICIAR PLANIFICACION");
+				log_info(logger,"INICIAR PLANIFICACION");
 				break;
 			case PAUSAR_PLANIFICACION:
-				printf("PAUSAR PLANIFICACION");
+				log_info(logger,"PAUSAR PLANIFICACION");
 				break;
 			case OBTENER_BITACORA:
-				printf("OBTENER BITACORA");
+				log_info(logger,"OBTENER BITACORA");
 				break;
 			case EXIT_DISCORDIADOR:
 				continuar = false;
 				break;
 			case ERROR:
-				printf("COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
+				log_error(logger,"COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
 		}
 
 		int i = 0;
@@ -57,17 +57,18 @@ int main() {
 		}
 		free(input);
 	}
+	log_destroy(logger);
 	return 0;
 }
 
-void iniciar_patota(char** input){
+void iniciar_patota(char** input, t_log *logger){
 
 	int id_trip_actual = 0;
 	bool valida = true;
 	int *posiciones = malloc(2 * sizeof(int));
 	int cantidad_tripulantes = atoi(input[1]);
 
-	printf("INICIAR PATOTA RUNNING\n");
+	log_info(logger,"Iniciando creacion de Patota nro: %d", id_patota_actual);
 
 	for(int iterador = 0; iterador < cantidad_tripulantes; iterador++) { //atoi: ascii to int
 		if(valida && input[iterador+3] != NULL) { //iterador+2 nos estaria dando la direccion de inicio del tripulante
@@ -80,7 +81,6 @@ void iniciar_patota(char** input){
 			posiciones[1] = 0;
 			valida = false;
 		}
-		printf("(%d, %d)\n", posiciones[0], posiciones[1]);
 		tripulante* nuevo_trip = crear_nodo_trip(posiciones);
 		nuevo_trip->id_trip = id_trip_actual;
 		nuevo_trip->id_patota = id_patota_actual;
@@ -88,6 +88,7 @@ void iniciar_patota(char** input){
 		id_trip_actual++;
 		free(nuevo_trip);
 	}
+	log_info(logger,"Patota nro: %d iniciada. Cantidad de tripulantes: %d",id_patota_actual,id_trip_actual);
 	free(posiciones);
 	id_patota_actual++;
 }
@@ -103,14 +104,13 @@ command_code mapStringToEnum(char *string){
 }
 
 tripulante* crear_nodo_trip(int *posiciones) {
-	printf("Creando tripulante pro\n");
 	tripulante* nuevo = malloc(sizeof(tripulante));
 	pthread_t nuevo_hilo;
 	int *aux = malloc(2 * sizeof(int));
 	aux[0] = posiciones[0];
 	aux[1] = posiciones[1];
 	pthread_create(&nuevo_hilo, NULL, rutina_hilos, aux);
-
+	// Gran memory leak con nuestra variable AUX. RESOLVER!
 	nuevo->estado = NEW;
 	nuevo->hilo = nuevo_hilo;
 
@@ -135,17 +135,19 @@ void agregar_trip_a_lista(tripulante* nuevo_trip) {
 	}
 }
 
-void* rutina_hilos(int* posiciones) {
-	printf("Hola soy el hilo %d, mi posición es (%d, %d)\n", variable, posiciones[0], posiciones[1]);
+void* rutina_hilos(void* posiciones) {
 	free(posiciones);
 	return 0;
 }
 
 void listar_tripulantes(){
 	nodo_tripulante* aux = lista_tripulantes;
+	printf("----------------------------------------------------------------------------------\n");
+	printf("Estado de Tripulantes\n");
 	while(aux != NULL){
-		printf("Patota: %d \t Tripulante: %d \n",aux->data.id_patota, aux->data.id_trip);
+		printf("Patota: %d\tTripulante: %d\tEstado: %d\n",aux->data.id_patota, aux->data.id_trip,aux->data.estado);
 		aux = aux->sig;
 	}
+	printf("----------------------------------------------------------------------------------\n");
 	free(aux);
 }
