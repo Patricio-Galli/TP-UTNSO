@@ -14,19 +14,69 @@ int variable = 0;
 
 int id_patota_actual = 0;
 nodo_tripulante *lista_tripulantes = NULL;
-int main() {
 
+int main() {
 	t_log* logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
-    char** input;
-    bool continuar = true;
+
+    t_config* config = config_create("discordiador.config");
+	int socket_ram, socket_mongo = 0;
+
+	socket_ram = crear_conexion_cliente(
+		config_get_string_value(config, "IP_MI_RAM_HQ"),
+		config_get_string_value(config, "PUERTO_MI_RAM_HQ")
+		);
+	
+	/*socket_mongo = crear_conexion_cliente(
+		config_get_string_value(config, "IP_I_MONGO_STORE"),
+		config_get_string_value(config, "PUERTO_I_MONGO_STORE")
+		);*/
+	
+	if(socket_mongo < 0 || socket_ram < 0) {
+		if(socket_ram < 0)
+			log_info(logger, "Fallo en la conexión con Mi-RAM-HQ");
+		if(socket_mongo < 0)
+			log_info(logger, "Fallo en la conexión con I-Mongo-Store");
+		// close(socket_ram);
+		// close(socket_mongo);
+		// return ERROR_CONEXION;
+	}
+
+	bool continuar = true;
+	char* buffer_consola;
+	command_code funcion_consola;
 
 	while(continuar) {
-		input = leer_consola();
-		command_code command = mapStringToEnum(input[0]);
+		buffer_consola = leer_consola();
+		funcion_consola = mapStringToEnum(primer_palabra(buffer_consola));
+		char** input;
 
-		switch(command) {
+		switch(funcion_consola) {
 			case INICIAR_PATOTA:
-				iniciar_patota(input, logger);
+				input = string_split(buffer_consola, " ");
+				int* lista_puertos = malloc(sizeof(int) * atoi(input[1]));
+				enviar_mensaje(buffer_consola, socket_ram);
+				char* buffer_socket;
+				int i = 0;
+				while(i<10) {
+					
+					recibir_operacion(socket_ram);	// en este momento sirve por compatibilidad
+					buffer_socket = recibir_mensaje(socket_ram);
+					log_info(logger, "%s, directo del buffer", buffer_socket);
+					if(buffer_socket==NULL)
+						break;
+					*(lista_puertos+i) = atoi(buffer_socket);
+					log_info(logger, "%d, desde lista_puertos", lista_puertos[i]);
+					i++;
+				}
+				
+				/*
+				if(lista_puertos == NULL) {
+					log_info(logger, "no se recibieron puertos :/");
+					break;
+				}*/
+				
+				
+				iniciar_patota(input, lista_puertos, logger);
 				break;
 			case LISTAR_TRIPULANTES:
 				listar_tripulantes();
@@ -50,19 +100,18 @@ int main() {
 				log_error(logger,"COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
 		}
 
-		int i = 0;
+		/*int i = 0;
 		while(input[i] != NULL){
 			free(input[i]);
 			i++;
 		}
-		free(input);
+		free(input);*/
 	}
 	log_destroy(logger);
 	return 0;
 }
 
-void iniciar_patota(char** input, t_log *logger){
-
+void iniciar_patota(char**input, int* lista_puertos, t_log *logger) {
 	int id_trip_actual = 0;
 	bool valida = true;
 	int *posiciones = malloc(2 * sizeof(int));
@@ -91,16 +140,6 @@ void iniciar_patota(char** input, t_log *logger){
 	log_info(logger,"Patota nro: %d iniciada. Cantidad de tripulantes: %d",id_patota_actual,id_trip_actual);
 	free(posiciones);
 	id_patota_actual++;
-}
-
-command_code mapStringToEnum(char *string){
-	char* listaDeStrings[]={"INICIAR_PATOTA", "LISTAR_TRIPULANTES", "EXPULSAR_TRIPULANTE", "INICIAR_PLANIFICACION", "PAUSAR_PLANIFICACION", "OBTENER_BITACORA", "EXIT"};
-
-	for(int i=0;i<7;i++){
-		if(!strcasecmp(string,listaDeStrings[i]))
-			return i;
-	}
-	return ERROR;
 }
 
 tripulante* crear_nodo_trip(int *posiciones) {
