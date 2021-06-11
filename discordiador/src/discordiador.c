@@ -15,6 +15,7 @@ int variable = 0;
 int id_patota_actual = 0;
 nodo_tripulante *lista_tripulantes = NULL;
 
+
 int main() {
 	t_log* logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
 
@@ -36,9 +37,9 @@ int main() {
 			log_info(logger, "Fallo en la conexión con Mi-RAM-HQ");
 		if(socket_mongo < 0)
 			log_info(logger, "Fallo en la conexión con I-Mongo-Store");
-		// close(socket_ram);
-		// close(socket_mongo);
-		// return ERROR_CONEXION;
+		close(socket_ram);
+		close(socket_mongo);
+		return ERROR_CONEXION;
 	}
 
 	bool continuar = true;
@@ -54,17 +55,24 @@ int main() {
 			case INICIAR_PATOTA:
 				input = string_split(buffer_consola, " ");
 				int* lista_puertos = malloc(sizeof(int) * atoi(input[1]));
+				// iniciar_patota()
+				// hay que mandar. Op_code [int], cant_trip [int], cant_posicion_init [int], n * strings, (tareas)
+					// tareas: cant_tareas [int], strlen(tarea) [int], tarea [str]
+
+				// op_code → iniciar_patota, ubicacion_trip, eliminar_trip, proxima_tarea, etc. → ram... switch(op_code)
+				// iniciar_patota , cant_trip , 
+				// desde aca hasta el fin de este while
 				enviar_mensaje(buffer_consola, socket_ram);
 				char* buffer_socket;
 				int i = 0;
+				// en este while, recibo los puertos y los almaceno en lista_puertos
 				while(i<10) {
-					
 					recibir_operacion(socket_ram);	// en este momento sirve por compatibilidad
 					buffer_socket = recibir_mensaje(socket_ram);
 					log_info(logger, "%s, directo del buffer", buffer_socket);
 					if(buffer_socket==NULL)
 						break;
-					*(lista_puertos+i) = atoi(buffer_socket);
+					lista_puertos[i] = atoi(buffer_socket);
 					log_info(logger, "%d, desde lista_puertos", lista_puertos[i]);
 					i++;
 				}
@@ -74,7 +82,10 @@ int main() {
 					log_info(logger, "no se recibieron puertos :/");
 					break;
 				}*/
-				
+				// n hilos tripulante discordiador 	→ n hilos en el imongo store && n hilos en la ram
+				// n hilos tripulante discordiador 	→ 2*n sockets en el discordiador
+				//									→ n sockets en el mongo
+				//						   			→ n sockets en la ram
 				
 				iniciar_patota(input, lista_puertos, logger);
 				break;
@@ -99,13 +110,14 @@ int main() {
 			case ERROR:
 				log_error(logger,"COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
 		}
+		free(buffer_consola);
 
-		/*int i = 0;
+		int i = 0;
 		while(input[i] != NULL){
 			free(input[i]);
 			i++;
 		}
-		free(input);*/
+		free(input);
 	}
 	log_destroy(logger);
 	return 0;
@@ -175,9 +187,36 @@ void agregar_trip_a_lista(tripulante* nuevo_trip) {
 }
 
 void* rutina_hilos(void* posiciones) {
+	/*conectarse_con_ram(mongo);
+	conectarse_con_disco(ram);
+	// RR definido por el archivo de configuración
+	switch(PLANEACION) { // FIFO O RR
+
+	while(tengo_tareas) {
+		wait(puedo_trabajar);
+		wait(RR);
+		pedir_instruccion();
+		signal(RR);
+		
+		informar_bitacora();
+		
+		wait(RR);
+		recibir_instruccion();
+		
+		signal(puedo_trabajar);
+		ejecutar_instruccion();
+		signal(puedo_trabajar);
+
+		informar_bitacora();
+
+		if(instruccion == moverse) {
+			informar_bitacora();
+		}
+	}*/
 	free(posiciones);
 	return 0;
 }
+
 
 void listar_tripulantes(){
 	nodo_tripulante* aux = lista_tripulantes;

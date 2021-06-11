@@ -1,0 +1,290 @@
+[INFO] 01:33:36:508 Mi-RAM-HQ/(3740:3740): Servidor listo para recibir al cliente
+[INFO] 01:35:22:434 Mi-RAM-HQ/(3893:3893): Servidor listo para recibir al cliente
+[INFO] 01:39:54:357 Mi-RAM-HQ/(4007:4007): Servidor listo para recibir al cliente
+[INFO] 01:43:23:991 Mi-RAM-HQ/(4174:4174): Fallo en la conexión del servidor
+[INFO] 01:51:21:441 Mi-RAM-HQ/(4253:4253): Fallo en la conexión del servidor
+[INFO] 01:59:12:126 Mi-RAM-HQ/(4481:4481): Servidor listo para recibir al cliente
+[INFO] 02:18:33:122 Mi-RAM-HQ/(5088:5088): Fallo en la conexión del servidor
+[INFO] 02:18:42:806 Mi-RAM-HQ/(5089:5089): Fallo en la conexión del servidor
+[INFO] 02:20:03:029 Mi-RAM-HQ/(5240:5240): Fallo en la conexión del servidor
+[INFO] 02:23:06:835 Mi-RAM-HQ/(5408:5408): Fallo en la conexión del servidor
+[INFO] 02:25:01:135 Mi-RAM-HQ/(5861:5861): Fallo en la conexión del servidor
+[INFO] 02:33:11:886 Mi-RAM-HQ/(6010:6010): Fallo en la conexión del servidor
+[INFO] 02:34:07:785 Mi-RAM-HQ/(6039:6039): Fallo en la conexión del servidor
+[INFO] 02:34:52:171 Mi-RAM-HQ/(6165:6165): Servidor listo para recibir al cliente
+[INFO] 02:40:28:137 Mi-RAM-HQ/(6732:6732): Servidor listo para recibir al cliente
+[INFO] 02:40:37:467 Mi-RAM-HQ/(6732:6732): A llegado un nuevo cliente
+[ERROR] 02:40:46:285 Mi-RAM-HQ/(6732:6732): el cliente se desconecto. Terminando servidor
+[INFO] 16:42:14:652 Mi-RAM-HQ/(2696:2696): Servidor listo para recibir al cliente
+[INFO] 16:44:42:212 Mi-RAM-HQ/(2860:2860): Servidor listo para recibir al cliente
+[INFO] 16:47:03:159 Mi-RAM-HQ/(3290:3290): Servidor listo para recibir al cliente
+[INFO] 16:48:30:529 Mi-RAM-HQ/(3443:3443): Servidor listo para recibir al cliente
+[INFO] 16:59:27:853 Mi-RAM-HQ/(3616:3616): Servidor listo para recibir al cliente
+[INFO] 17:29:40:401 Mi-RAM-HQ/(4111:4111): Servidor listo para recibir al cliente
+[INFO] 20:22:01:256 Mi-RAM-HQ/(5323:5323): Creando conexiones
+[INFO] 20:23:07:057 Mi-RAM-HQ/(5465:5465): Creando conexiones
+[INFO] 20:25:47:907 Mi-RAM-HQ/(5642:5642): Creando conexiones
+[INFO] 20:25:47:911 Mi-RAM-HQ/(5642:5642): Servidor listo para recibir al cliente
+[INFO] 20:26:48:745 Mi-RAM-HQ/(5642:5642): A llegado un nuevo cliente
+[ERROR] 20:27:10:142 Mi-RAM-HQ/(5642:5642): el cliente se desconecto. Terminando servidor
+[INFO] 20:29:09:520 Mi-RAM-HQ/(5914:5914): Creando conexiones
+[INFO] 20:29:09:521 Mi-RAM-HQ/(5914:5914): Servidor listo para recibir al cliente
+[INFO] 20:29:38:248 Mi-RAM-HQ/(6014:6014): Creando conexiones
+[INFO] 20:30:41:863 Mi-RAM-HQ/(6157:6157): Creando conexiones
+[INFO] 20:42:57:851 Mi-RAM-HQ/(6342:6342): Creando conexiones
+[INFO] 20:42:57:855 Mi-RAM-HQ/(6342:6342): Servidor listo para recibir al cliente
+[INFO] 20:43:19:085 Mi-RAM-HQ/(6442:6442): Creando conexiones
+[INFO] 20:46:45:368 Mi-RAM-HQ/(6597:6597): Creando conexiones
+[INFO] 20:48:07:285 Mi-RAM-HQ/(6740:6740): Creando conexiones
+[INFO] 20:53:31:552 Mi-RAM-HQ/(6910:6910): Creando conexiones
+[INFO] 20:53:31:552 Mi-RAM-HQ/(6910:6910): Servidor listo para recibir al cliente
+[INFO] 20:55:01:247 Mi-RAM-HQ/(7052:7052): Creando conexiones
+[INFO] 20:55:01:251 Mi-RAM-HQ/(7052:7052): Servidor listo para recibir al cliente
+[INFO] 21:07:36:503 Mi-RAM-HQ/(7236:7236): Creando conexiones
+[INFO] 21:07:36:511 Mi-RAM-HQ/(7236:7236): Servidor listo para recibir al cliente
+[INFO] 21:08:21:004 Mi-RAM-HQ/(7237:7237): Creando conexiones
+[INFO] 21:08:21:007 Mi-RAM-HQ/(7237:7237): Servidor listo para recibir al cliente
+[INFO] 21:16:50:232 Mi-RAM-HQ/(7406:7406): Creando conexiones
+[INFO] 21:16:50:232 Mi-RAM-HQ/(7406:7406): Servidor listo para recibir al cliente
+[INFO] 21:17:33:852 Mi-RAM-HQ/(7412:7412): Creando conexiones
+[INFO] 21:17:33:852 Mi-RAM-HQ/(7412:7412): Servidor listo para recibir al cliente
+[INFO] 21:17:36:031 Mi-RAM-HQ/(7413:7413): Creando conexiones
+[INFO] 21:17:36:035 Mi-RAM-HQ/(7413:7413): Servidor listo para recibir al cliente
+[INFO] 21:18:11:100 Mi-RAM-HQ/(7554:7554): Creando conexiones
+[INFO] 21:18:11:100 Mi-RAM-HQ/(7554:7554): Servidor listo para recibir al cliente
+[INFO] 21:19:43:879 Mi-RAM-HQ/(7695:7695): Creando conexiones
+[INFO] 21:19:43:883 Mi-RAM-HQ/(7695:7695): Servidor listo para recibir al cliente
+[INFO] 21:26:35:055 Mi-RAM-HQ/(7862:7862): Creando conexiones
+[INFO] 21:26:35:059 Mi-RAM-HQ/(7862:7862): Servidor listo para recibir al cliente
+[INFO] 21:42:18:740 Mi-RAM-HQ/(8091:8091): Creando conexiones
+[INFO] 21:42:18:741 Mi-RAM-HQ/(8091:8091): Servidor listo para recibir al cliente
+[INFO] 21:42:24:591 Mi-RAM-HQ/(8092:8092): Creando conexiones
+[INFO] 21:42:24:599 Mi-RAM-HQ/(8092:8092): Servidor listo para recibir al cliente
+[INFO] 21:47:35:498 Mi-RAM-HQ/(8306:8306): Creando conexiones
+[INFO] 21:47:35:503 Mi-RAM-HQ/(8306:8306): Servidor listo para recibir al cliente
+[INFO] 21:49:22:938 Mi-RAM-HQ/(8460:8460): Creando conexiones
+[INFO] 21:49:22:943 Mi-RAM-HQ/(8460:8460): Servidor listo para recibir al cliente
+[INFO] 21:53:06:393 Mi-RAM-HQ/(8614:8614): Creando conexiones
+[INFO] 21:53:06:397 Mi-RAM-HQ/(8614:8614): Servidor listo para recibir al cliente
+[INFO] 21:54:30:529 Mi-RAM-HQ/(8756:8756): Creando conexiones
+[INFO] 21:54:30:533 Mi-RAM-HQ/(8756:8756): Servidor listo para recibir al cliente
+[INFO] 22:05:44:179 Mi-RAM-HQ/(8792:8792): Creando conexiones
+[INFO] 22:05:44:179 Mi-RAM-HQ/(8792:8792): Servidor listo para recibir al cliente
+[INFO] 22:07:02:947 Mi-RAM-HQ/(8905:8905): Creando conexiones
+[INFO] 22:07:02:951 Mi-RAM-HQ/(8905:8905): Servidor listo para recibir al cliente
+[INFO] 22:13:39:948 Mi-RAM-HQ/(9098:9098): Creando conexiones
+[INFO] 22:13:39:952 Mi-RAM-HQ/(9098:9098): Servidor listo para recibir al cliente
+[INFO] 22:14:24:252 Mi-RAM-HQ/(9113:9113): Creando conexiones
+[INFO] 22:14:24:255 Mi-RAM-HQ/(9113:9113): Servidor listo para recibir al cliente
+[INFO] 22:26:01:200 Mi-RAM-HQ/(9373:9373): Creando conexiones
+[INFO] 22:26:01:204 Mi-RAM-HQ/(9373:9373): Servidor listo para recibir al cliente
+[INFO] 22:26:18:510 Mi-RAM-HQ/(9373:9373): A llegado un nuevo cliente
+[INFO] 22:35:48:269 Mi-RAM-HQ/(9659:9659): Creando conexiones
+[INFO] 22:35:48:274 Mi-RAM-HQ/(9659:9659): Fallo en la conexión del servidor
+[INFO] 22:36:19:522 Mi-RAM-HQ/(9673:9673): Creando conexiones
+[INFO] 22:36:19:525 Mi-RAM-HQ/(9673:9673): Fallo en la conexión del servidor
+[INFO] 22:36:50:466 Mi-RAM-HQ/(9674:9674): Creando conexiones
+[INFO] 22:36:50:466 Mi-RAM-HQ/(9674:9674): Fallo en la conexión del servidor
+[INFO] 22:37:48:162 Mi-RAM-HQ/(9783:9783): Creando conexiones
+[INFO] 22:37:48:166 Mi-RAM-HQ/(9783:9783): Servidor listo para recibir al cliente
+[INFO] 22:41:20:152 Mi-RAM-HQ/(9895:9895): Creando conexiones
+[INFO] 22:41:20:156 Mi-RAM-HQ/(9895:9895): Fallo en la conexión del servidor
+[INFO] 22:41:58:568 Mi-RAM-HQ/(9996:9996): Creando conexiones
+[INFO] 22:41:58:571 Mi-RAM-HQ/(9996:9996): Servidor listo para recibir al cliente
+[INFO] 22:42:23:740 Mi-RAM-HQ/(9996:9996): A llegado un nuevo cliente
+[INFO] 22:45:49:676 Mi-RAM-HQ/(10192:10192): Creando conexiones
+[INFO] 22:45:49:676 Mi-RAM-HQ/(10192:10192): Fallo en la conexión del servidor
+[INFO] 22:46:09:007 Mi-RAM-HQ/(10292:10292): Creando conexiones
+[INFO] 22:46:09:010 Mi-RAM-HQ/(10292:10292): Servidor listo para recibir al cliente
+[INFO] 22:46:57:799 Mi-RAM-HQ/(10433:10433): Creando conexiones
+[INFO] 22:46:57:802 Mi-RAM-HQ/(10433:10433): Servidor listo para recibir al cliente
+[INFO] 22:47:47:454 Mi-RAM-HQ/(10533:10533): Creando conexiones
+[INFO] 22:47:47:457 Mi-RAM-HQ/(10533:10533): Servidor listo para recibir al cliente
+[INFO] 22:48:00:503 Mi-RAM-HQ/(10534:10534): Creando conexiones
+[INFO] 22:48:00:507 Mi-RAM-HQ/(10534:10534): Servidor listo para recibir al cliente
+[INFO] 22:51:32:242 Mi-RAM-HQ/(10647:10647): Creando conexiones
+[INFO] 22:51:32:247 Mi-RAM-HQ/(10647:10647): Servidor listo para recibir al cliente
+[INFO] 22:52:59:575 Mi-RAM-HQ/(10647:10647): A llegado un nuevo cliente
+[INFO] 23:00:01:139 Mi-RAM-HQ/(10961:10961): Creando conexiones
+[INFO] 23:00:01:142 Mi-RAM-HQ/(10961:10961): Servidor listo para recibir al cliente
+[INFO] 23:00:12:036 Mi-RAM-HQ/(10961:10961): A llegado un nuevo cliente
+[ERROR] 23:03:17:599 Mi-RAM-HQ/(10961:10961): el cliente se desconecto. Terminando servidor
+[INFO] 23:24:45:359 Mi-RAM-HQ/(11540:11540): Creando conexiones
+[INFO] 23:24:45:361 Mi-RAM-HQ/(11540:11540): Servidor listo para recibir al cliente
+[INFO] 23:25:54:260 Mi-RAM-HQ/(11776:11776): Creando conexiones
+[INFO] 23:25:54:263 Mi-RAM-HQ/(11776:11776): Servidor listo para recibir al cliente
+[INFO] 23:27:10:112 Mi-RAM-HQ/(11776:11776): A llegado un nuevo cliente
+[INFO] 15:33:50:539 Mi-RAM-HQ/(2550:2550): Creando conexiones
+[INFO] 15:33:50:545 Mi-RAM-HQ/(2550:2550): Servidor listo para recibir al cliente
+[INFO] 15:34:32:857 Mi-RAM-HQ/(2550:2550): A llegado un nuevo cliente
+[ERROR] 15:54:35:331 Mi-RAM-HQ/(2550:2550): el cliente se desconecto. Terminando servidor
+[INFO] 15:55:33:644 Mi-RAM-HQ/(2981:2981): Creando conexiones
+[INFO] 15:55:33:644 Mi-RAM-HQ/(2981:2981): Servidor listo para recibir al cliente
+[INFO] 15:56:09:521 Mi-RAM-HQ/(2981:2981): A llegado un nuevo cliente
+[INFO] 22:46:34:650 Mi-RAM-HQ/(4744:4744): Creando conexiones
+[INFO] 22:46:34:693 Mi-RAM-HQ/(4744:4744): Servidor listo para recibir al cliente
+[INFO] 23:07:10:608 Mi-RAM-HQ/(5190:5190): Creando conexiones
+[INFO] 23:07:10:611 Mi-RAM-HQ/(5190:5190): Fallo en la conexión del servidor
+[INFO] 23:09:08:200 Mi-RAM-HQ/(5389:5389): Creando conexiones
+[INFO] 23:09:08:200 Mi-RAM-HQ/(5389:5389): Servidor listo para recibir al cliente
+[INFO] 23:09:19:441 Mi-RAM-HQ/(5389:5389): A llegado un nuevo cliente
+[ERROR] 23:13:36:950 Mi-RAM-HQ/(5389:5389): el cliente se desconecto. Terminando servidor
+[INFO] 23:16:13:352 Mi-RAM-HQ/(6242:6242): Creando conexiones
+[INFO] 23:16:13:353 Mi-RAM-HQ/(6242:6242): Servidor listo para recibir al cliente
+[INFO] 23:16:24:460 Mi-RAM-HQ/(6242:6242): A llegado un nuevo cliente
+[INFO] 23:16:42:255 Mi-RAM-HQ/(6242:6242): iniciar_patota 3 0|1 0|2 0|3
+[INFO] 00:09:13:449 Mi-RAM-HQ/(6811:6811): Creando conexiones
+[INFO] 00:09:13:453 Mi-RAM-HQ/(6811:6811): Servidor listo para recibir al cliente
+[INFO] 00:09:29:950 Mi-RAM-HQ/(6811:6811): A llegado un nuevo cliente
+[INFO] 00:10:32:786 Mi-RAM-HQ/(6811:6811): iniciar_patota 3 0|1 0|2 0|3
+[INFO] 00:16:49:279 Mi-RAM-HQ/(7452:7452): Creando conexiones
+[INFO] 00:16:49:279 Mi-RAM-HQ/(7452:7452): Servidor listo para recibir al cliente
+[INFO] 00:17:21:439 Mi-RAM-HQ/(7452:7452): A llegado un nuevo cliente
+[INFO] 00:17:38:985 Mi-RAM-HQ/(7452:7452): iniciar_patota 3 0|1 0|2 0|3
+[INFO] 00:24:14:424 Mi-RAM-HQ/(7847:7847): Creando conexiones
+[INFO] 00:24:14:424 Mi-RAM-HQ/(7847:7847): Servidor listo para recibir al cliente
+[INFO] 00:24:22:859 Mi-RAM-HQ/(7847:7847): A llegado un nuevo cliente
+[INFO] 00:24:36:617 Mi-RAM-HQ/(7847:7847): iniciar_patota 3 0|1 0|2 0|3
+[INFO] 00:29:53:223 Mi-RAM-HQ/(8054:8054): Creando conexiones
+[INFO] 00:29:53:227 Mi-RAM-HQ/(8054:8054): Servidor listo para recibir al cliente
+[INFO] 00:29:56:343 Mi-RAM-HQ/(8054:8054): A llegado un nuevo cliente
+[INFO] 00:30:20:209 Mi-RAM-HQ/(8054:8054): iniciar_patota 3 0|1 0|2 0|3
+[INFO] 00:44:45:095 Mi-RAM-HQ/(8373:8373): Creando conexiones
+[INFO] 00:44:45:099 Mi-RAM-HQ/(8373:8373): Servidor listo para recibir al cliente
+[INFO] 00:44:52:258 Mi-RAM-HQ/(8373:8373): A llegado un nuevo cliente
+[INFO] 00:46:33:583 Mi-RAM-HQ/(8373:8373): iniciar_patota 3 0|1 0|2 0|3
+[INFO] 01:01:56:347 Mi-RAM-HQ/(8688:8688): Creando conexiones
+[INFO] 01:01:56:351 Mi-RAM-HQ/(8688:8688): Servidor listo para recibir al cliente
+[INFO] 01:14:53:600 Mi-RAM-HQ/(8986:8986): Creando conexiones
+[INFO] 01:14:53:600 Mi-RAM-HQ/(8986:8986): Fallo en la conexión del servidor
+[INFO] 01:15:20:628 Mi-RAM-HQ/(9086:9086): Creando conexiones
+[INFO] 01:15:20:628 Mi-RAM-HQ/(9086:9086): Fallo en la conexión del servidor
+[INFO] 01:15:33:096 Mi-RAM-HQ/(9186:9186): Creando conexiones
+[INFO] 01:15:33:100 Mi-RAM-HQ/(9186:9186): Servidor listo para recibir al cliente
+[INFO] 01:16:07:092 Mi-RAM-HQ/(9186:9186): A llegado un nuevo cliente
+[INFO] 01:16:23:335 Mi-RAM-HQ/(9186:9186): Recibi un mensaje: iniciar_patota 3 0|1 0|2 0|3
+[INFO] 01:17:03:323 Mi-RAM-HQ/(9300:9300): Creando conexiones
+[INFO] 01:17:03:326 Mi-RAM-HQ/(9300:9300): Servidor listo para recibir al cliente
+[INFO] 01:17:10:482 Mi-RAM-HQ/(9300:9300): A llegado un nuevo cliente
+[INFO] 01:17:18:849 Mi-RAM-HQ/(9300:9300): Recibi un mensaje: iniciar_patota 3 0|1 0|2 0|3
+[INFO] 01:17:18:849 Mi-RAM-HQ/(9300:9300): 236.176.84.183:0
+
+[INFO] 01:17:18:849 Mi-RAM-HQ/(9300:9300): 236.176.84.183:0
+
+[INFO] 01:17:18:849 Mi-RAM-HQ/(9300:9300): 236.176.84.183:0
+
+[INFO] 01:24:17:002 Mi-RAM-HQ/(9518:9518): Creando conexiones
+[INFO] 01:24:17:005 Mi-RAM-HQ/(9518:9518): Servidor listo para recibir al cliente
+[INFO] 01:24:21:245 Mi-RAM-HQ/(9518:9518): A llegado un nuevo cliente
+[INFO] 01:24:31:321 Mi-RAM-HQ/(9518:9518): Recibi un mensaje: iniciar_patota 3 0|1 0|2 0|3
+[INFO] 01:29:56:397 Mi-RAM-HQ/(9636:9636): Creando conexiones
+[INFO] 01:29:56:401 Mi-RAM-HQ/(9636:9636): Servidor listo para recibir al cliente
+[INFO] 01:30:00:828 Mi-RAM-HQ/(9636:9636): A llegado un nuevo cliente
+[INFO] 01:30:09:032 Mi-RAM-HQ/(9636:9636): Recibi un mensaje: iniciar_patota 3 0|1 0|2 0|3
+[INFO] 01:32:34:984 Mi-RAM-HQ/(9751:9751): Creando conexiones
+[INFO] 01:32:34:987 Mi-RAM-HQ/(9751:9751): Servidor listo para recibir al cliente
+[INFO] 01:32:38:998 Mi-RAM-HQ/(9751:9751): A llegado un nuevo cliente
+[INFO] 01:32:46:099 Mi-RAM-HQ/(9751:9751): Recibi un mensaje: iniciar_patota 3
+[INFO] 01:35:49:995 Mi-RAM-HQ/(9866:9866): Creando conexiones
+[INFO] 01:35:49:998 Mi-RAM-HQ/(9866:9866): Servidor listo para recibir al cliente
+[INFO] 01:35:54:427 Mi-RAM-HQ/(9866:9866): A llegado un nuevo cliente
+[INFO] 01:36:00:309 Mi-RAM-HQ/(9866:9866): Recibi un mensaje: iniciar_patota 3
+[INFO] 01:39:16:538 Mi-RAM-HQ/(9968:9968): Creando conexiones
+[INFO] 01:39:16:542 Mi-RAM-HQ/(9968:9968): Servidor listo para recibir al cliente
+[INFO] 01:39:23:999 Mi-RAM-HQ/(9968:9968): A llegado un nuevo cliente
+[INFO] 01:39:28:667 Mi-RAM-HQ/(9968:9968): Recibi un mensaje: iniciar_patota 3
+[INFO] 01:39:28:667 Mi-RAM-HQ/(9968:9968): 236.224.94.183:0
+
+[INFO] 01:39:28:667 Mi-RAM-HQ/(9968:9968): 236.224.94.183:0
+
+[INFO] 01:39:28:667 Mi-RAM-HQ/(9968:9968): 236.224.94.183:0
+
+[INFO] 01:45:06:719 Mi-RAM-HQ/(10097:10097): Creando conexiones
+[INFO] 01:45:06:722 Mi-RAM-HQ/(10097:10097): Servidor listo para recibir al cliente
+[INFO] 01:45:10:192 Mi-RAM-HQ/(10097:10097): A llegado un nuevo cliente
+[INFO] 01:45:15:141 Mi-RAM-HQ/(10097:10097): Recibi un mensaje: iniciar_patota 3
+[INFO] 01:45:15:142 Mi-RAM-HQ/(10097:10097): 150.39.127.0:38439
+
+[INFO] 01:45:15:142 Mi-RAM-HQ/(10097:10097): 147.184.127.0:37816
+
+[INFO] 01:45:15:142 Mi-RAM-HQ/(10097:10097): 144.100.127.0:36964
+
+[INFO] 01:46:38:977 Mi-RAM-HQ/(10199:10199): Creando conexiones
+[INFO] 01:46:38:977 Mi-RAM-HQ/(10199:10199): Servidor listo para recibir al cliente
+[INFO] 01:46:40:666 Mi-RAM-HQ/(10199:10199): A llegado un nuevo cliente
+[INFO] 01:46:46:742 Mi-RAM-HQ/(10199:10199): Recibi un mensaje: iniciar_patota 3
+[INFO] 01:46:46:743 Mi-RAM-HQ/(10199:10199): 127.0.0.1:40642
+
+[INFO] 01:46:46:744 Mi-RAM-HQ/(10199:10199): 127.0.0.1:41921
+
+[INFO] 01:46:46:744 Mi-RAM-HQ/(10199:10199): 127.0.0.1:36296
+
+[INFO] 01:50:57:888 Mi-RAM-HQ/(10312:10312): Creando conexiones
+[INFO] 01:50:57:888 Mi-RAM-HQ/(10312:10312): Servidor listo para recibir al cliente
+[INFO] 01:51:01:516 Mi-RAM-HQ/(10312:10312): A llegado un nuevo cliente
+[INFO] 01:51:07:471 Mi-RAM-HQ/(10312:10312): Recibi un mensaje: iniciar_patota 3
+[INFO] 01:51:07:471 Mi-RAM-HQ/(10312:10312): 127.0.0.1:38179
+
+[INFO] 01:51:07:471 Mi-RAM-HQ/(10312:10312): 127.0.0.1:46161
+
+[INFO] 01:51:07:471 Mi-RAM-HQ/(10312:10312): 127.0.0.1:46765
+
+[INFO] 01:54:23:807 Mi-RAM-HQ/(10425:10425): Creando conexiones
+[INFO] 01:54:23:813 Mi-RAM-HQ/(10425:10425): Servidor listo para recibir al cliente
+[INFO] 01:54:28:427 Mi-RAM-HQ/(10425:10425): A llegado un nuevo cliente
+[INFO] 01:54:34:664 Mi-RAM-HQ/(10425:10425): Recibi un mensaje: iniciar_patota 3
+[INFO] 01:54:34:666 Mi-RAM-HQ/(10425:10425): 127.0.0.1:41873
+
+[INFO] 01:54:34:666 Mi-RAM-HQ/(10425:10425): 127.0.0.1:42848
+
+[INFO] 01:54:34:666 Mi-RAM-HQ/(10425:10425): 127.0.0.1:42235
+
+[INFO] 01:55:50:455 Mi-RAM-HQ/(10683:10683): Creando conexiones
+[INFO] 01:55:50:459 Mi-RAM-HQ/(10683:10683): Servidor listo para recibir al cliente
+[INFO] 01:55:58:926 Mi-RAM-HQ/(10683:10683): A llegado un nuevo cliente
+[INFO] 01:56:04:516 Mi-RAM-HQ/(10683:10683): Recibi un mensaje: iniciar_patota 3
+[INFO] 01:56:04:517 Mi-RAM-HQ/(10683:10683): 127.0.0.1:33019
+
+[INFO] 01:56:04:517 Mi-RAM-HQ/(10683:10683): 127.0.0.1:35773
+
+[INFO] 01:56:04:517 Mi-RAM-HQ/(10683:10683): 127.0.0.1:37007
+
+[INFO] 01:59:22:762 Mi-RAM-HQ/(10893:10893): Creando conexiones
+[INFO] 01:59:22:766 Mi-RAM-HQ/(10893:10893): Servidor listo para recibir al cliente
+[INFO] 01:59:25:904 Mi-RAM-HQ/(10893:10893): A llegado un nuevo cliente
+[INFO] 01:59:30:087 Mi-RAM-HQ/(10893:10893): Recibi un mensaje: iniciar_patota 3
+[INFO] 01:59:30:088 Mi-RAM-HQ/(10893:10893): 127.0.0.1:35470
+
+[INFO] 01:59:30:088 Mi-RAM-HQ/(10893:10893): 127.0.0.1:33402
+
+[INFO] 01:59:30:088 Mi-RAM-HQ/(10893:10893): 127.0.0.1:34129
+
+[INFO] 02:11:07:495 Mi-RAM-HQ/(11531:11531): Creando conexiones
+[INFO] 02:11:07:498 Mi-RAM-HQ/(11531:11531): Servidor listo para recibir al cliente
+[INFO] 02:11:19:893 Mi-RAM-HQ/(11531:11531): A llegado un nuevo cliente
+[INFO] 02:11:33:046 Mi-RAM-HQ/(11531:11531): Recibi un mensaje: iniciar_patota 3
+[INFO] 02:13:10:460 Mi-RAM-HQ/(11803:11803): Creando conexiones
+[INFO] 02:13:10:463 Mi-RAM-HQ/(11803:11803): Servidor listo para recibir al cliente
+[INFO] 02:13:14:408 Mi-RAM-HQ/(11803:11803): A llegado un nuevo cliente
+[INFO] 02:13:20:259 Mi-RAM-HQ/(11803:11803): Recibi un mensaje: iniciar_patota 3
+[INFO] 02:20:55:577 Mi-RAM-HQ/(12354:12354): Creando conexiones
+[INFO] 02:20:55:581 Mi-RAM-HQ/(12354:12354): Servidor listo para recibir al cliente
+[INFO] 02:21:00:336 Mi-RAM-HQ/(12354:12354): A llegado un nuevo cliente
+[INFO] 02:21:07:196 Mi-RAM-HQ/(12354:12354): Recibi un mensaje: iniciar_patota 3
+[INFO] 02:39:18:615 Mi-RAM-HQ/(12895:12895): Creando conexiones
+[INFO] 02:39:18:618 Mi-RAM-HQ/(12895:12895): Servidor listo para recibir al cliente
+[INFO] 02:39:30:442 Mi-RAM-HQ/(12895:12895): A llegado un nuevo cliente
+[INFO] 02:39:36:894 Mi-RAM-HQ/(12895:12895): Recibi un mensaje: iniciar_patota 3
+[INFO] 02:41:20:851 Mi-RAM-HQ/(13270:13270): Creando conexiones
+[INFO] 02:41:20:854 Mi-RAM-HQ/(13270:13270): Servidor listo para recibir al cliente
+[INFO] 02:41:25:620 Mi-RAM-HQ/(13270:13270): A llegado un nuevo cliente
+[INFO] 02:41:30:792 Mi-RAM-HQ/(13270:13270): Recibi un mensaje: iniciar_patota 3
+[INFO] 19:54:05:715 Mi-RAM-HQ/(3227:3227): Creando conexiones
+[INFO] 19:54:05:718 Mi-RAM-HQ/(3227:3227): Servidor listo para recibir al cliente
+[INFO] 19:54:32:900 Mi-RAM-HQ/(3227:3227): A llegado un nuevo cliente
+[INFO] 19:55:15:027 Mi-RAM-HQ/(3239:3239): Creando conexiones
+[INFO] 19:55:15:030 Mi-RAM-HQ/(3239:3239): Fallo en la conexión del servidor
+[INFO] 19:56:36:528 Mi-RAM-HQ/(3442:3442): Creando conexiones
+[INFO] 19:56:36:528 Mi-RAM-HQ/(3442:3442): Servidor listo para recibir al cliente
+[INFO] 19:57:05:855 Mi-RAM-HQ/(3442:3442): A llegado un nuevo cliente
+[INFO] 19:57:49:283 Mi-RAM-HQ/(3442:3442): Recibi un mensaje: iniciar_patota 3 0|1
