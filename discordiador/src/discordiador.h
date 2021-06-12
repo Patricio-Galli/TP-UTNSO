@@ -70,7 +70,7 @@ typedef enum{
 
 char* seleccionar_funcion(char* buffer);
 
-parametros_iniciar_patota* obtener_parametros(char* buffer_consola, t_log* logger);
+parametros_iniciar_patota* obtener_parametros(char* buffer_consola);
 tripulante* crear_nodo_trip(int *posiciones);
 void agregar_trip_a_lista(tripulante* nuevo_trip);
 void* rutina_hilos(void* posiciones);

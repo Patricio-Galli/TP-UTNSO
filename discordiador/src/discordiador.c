@@ -1,16 +1,14 @@
 /*
- ============================================================================
- Name        : discordiador.c
- Author      : 
- Version     :
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
- ============================================================================
- */
+	============================================================================
+	Name        : discordiador.c
+	Author      :
+	Version     :
+	Copyright   : Your copyright notice
+	Description : Hello World in C, Ansi-style
+	============================================================================
+*/
 
 #include "discordiador.h"
-
-int variable = 0;
 
 int id_patota_actual = 0;
 nodo_tripulante *lista_tripulantes = NULL;
@@ -45,7 +43,7 @@ int main() {
 	*/
 
 	bool continuar = true;
-	char* buffer_consola; //iniciar_patota 4 /home/utnso/tareas_tp_so/tareas.txt 5|3 5|2
+	char* buffer_consola;
 	command_code funcion;
 
 	while(continuar) {
@@ -57,8 +55,16 @@ int main() {
 
 				log_info(logger,"Se cargan los parametros en el struct");
 
-				parametros = obtener_parametros(buffer_consola, logger);
+				parametros = obtener_parametros(buffer_consola); //buffer_consola -> iniciar_patota 4 /home/utnso/tareas_tp_so/tareas.txt 5|3 5|2
+				/*
+				t_mensaje* mensaje = crear_mensaje("INIT_P");
+
+				agregar_parametro(mensaje, parametro_a_enviar, tipo); //parametro a enviar seria un puntero a void y el tipo es para saaber si es string o int
+
+				send(mensaje, socket, tamanio_mensaje);
+				*/
 				
+
 				log_info(logger,"Cantidad de tripulantes: %d", parametros->cantidad_tripulantes);
 
 				for(int i = 0; i < parametros->cantidad_tripulantes; i++)
@@ -69,7 +75,6 @@ int main() {
 				for(int i = 0; i < parametros->cantidad_tareas; i++)
 					log_info(logger,"Tarea %d: %s", i, parametros->tareas[i]);
 
-				log_info(logger,"continuar");
 				// iniciar_patota(input, lista_puertos, logger);
 				break;
 			case LISTAR_TRIPULANTES:
@@ -94,7 +99,6 @@ int main() {
 			case ERROR:
 				log_error(logger,"COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
 		}
-		log_info(logger,"continuar2");
 		free(buffer_consola);
 	}
 	log_destroy(logger);
@@ -195,7 +199,7 @@ void* rutina_hilos(void* posiciones) {
 	return 0;
 }
 
-parametros_iniciar_patota* obtener_parametros(char* buffer_consola, t_log* logger) {
+parametros_iniciar_patota* obtener_parametros(char* buffer_consola) {//todo realizar validaciones para lectura de archivos y parametros validos
 
 	parametros_iniciar_patota* parametros = malloc(sizeof(parametros_iniciar_patota));
 	bool valida = true;
@@ -207,8 +211,6 @@ parametros_iniciar_patota* obtener_parametros(char* buffer_consola, t_log* logge
 	parametros->cantidad_tripulantes = cantidad_tripulantes;
 	parametros->posiciones_tripulantes_x = malloc(cantidad_tripulantes * sizeof(int));
 	parametros->posiciones_tripulantes_y = malloc(cantidad_tripulantes * sizeof(int));
-
-	//log_info(logger,"Cantidad de tripulantes: %d",parametros->cantidad_tripulantes);
 
 	for(int iterador = 0; iterador < cantidad_tripulantes; iterador++) { // completo las posiciones del struct
 
@@ -222,10 +224,7 @@ parametros_iniciar_patota* obtener_parametros(char* buffer_consola, t_log* logge
 			parametros->posiciones_tripulantes_y[iterador] = 0;
 			valida = false;
 		}
-		//log_info(logger,"Tripulante: %d  posicion x: %d  posicion y: %d",iterador, parametros->posiciones_tripulantes_x[iterador], parametros->posiciones_tripulantes_y[iterador]);
 	}
-
-	//log_info(logger,"Path del archivo tareas: %s",input[2]);
 
 	FILE *archivo_tareas = fopen (input[2], "r");
 	char buffer_tarea[40];
@@ -233,17 +232,12 @@ parametros_iniciar_patota* obtener_parametros(char* buffer_consola, t_log* logge
 	parametros->tareas = NULL;
 
 	while (fgets(buffer_tarea, 100, archivo_tareas)) {
-
 		strtok(buffer_tarea, "\n"); //strtok le saca el \n al string de buffer_tarea que es agregado por fgets al leer del archivo
-		//log_info(logger,"Buffer tarea %d: %s",parametros->cantidad_tareas, buffer_tarea);
 
 		parametros->tareas = realloc(parametros->tareas, (parametros->cantidad_tareas + 1) * sizeof(char*)); //le agrego a mi vector de tareas[str] un nuevo valor para colocar una nueva tarea
-
 		parametros->tareas[parametros->cantidad_tareas] = malloc(sizeof(buffer_tarea));
 
 		memcpy(parametros->tareas[parametros->cantidad_tareas], &buffer_tarea, sizeof(buffer_tarea));
-
-		//log_info(logger,"nueva tarea numero %d cargada en el struct: %s",parametros->cantidad_tareas,parametros->tareas[parametros->cantidad_tareas]);
 
 		parametros->cantidad_tareas++;
 	}
