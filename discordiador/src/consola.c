@@ -1,6 +1,6 @@
 #include "consola.h"
 
-char* primer_palabra(char* buffer) {
+char* seleccionar_funcion(char* buffer) {
 	int iterador = 0;
 	while(iterador < strlen(buffer) && buffer[iterador] != ' ' && buffer[iterador] != '\n' && buffer[iterador] != '\0') {
 		iterador++;

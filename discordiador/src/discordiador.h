@@ -24,6 +24,13 @@
 #include <semaphore.h>
 #include "consola.h"
 
+typedef struct {
+	int cantidad_tripulantes;
+	int* posiciones_tripulantes_x;
+	int* posiciones_tripulantes_y;
+	int cantidad_tareas;
+	char** tareas;
+}parametros_iniciar_patota;
 
 typedef struct {
 	int id_trip;
@@ -61,9 +68,9 @@ typedef enum{
 
 #define ERROR_CONEXION -1
 
-char* primer_palabra(char* buffer);
+char* seleccionar_funcion(char* buffer);
 
-
+parametros_iniciar_patota* obtener_parametros(char* buffer_consola, t_log* logger);
 tripulante* crear_nodo_trip(int *posiciones);
 void agregar_trip_a_lista(tripulante* nuevo_trip);
 void* rutina_hilos(void* posiciones);
