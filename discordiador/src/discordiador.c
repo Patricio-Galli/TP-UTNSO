@@ -20,7 +20,7 @@ int main() {
 				parametros = obtener_parametros(buffer_consola); //buffer_consola -> iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 5|3 5|2
 				loggear_parametros(parametros);
 
-				//iniciar_patota(parametros);
+				iniciar_patota(parametros);
 				break;
 			case LISTAR_TRIPULANTES:
 				//listar_tripulantes();
@@ -67,8 +67,6 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 
 	id_patota_actual++;
 }
-
-
 
 parametros_iniciar_patota* obtener_parametros(char* buffer_consola) {//todo realizar validaciones para lectura de archivos y parametros validos
 

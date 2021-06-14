@@ -19,7 +19,7 @@
 
 
 #include "consola.h"
-#include "hilos.h"
+#include "tripulante.h"
 
 typedef struct {
 	int cantidad_tripulantes;
@@ -29,20 +29,9 @@ typedef struct {
 	char** tareas;
 }parametros_iniciar_patota;
 
-typedef struct {
-	int cantidad_tripulantes;
-	int* posicion_x;
-	int* posicion_y;
-	int cantidad_tareas;
-	char** tareas;
-}tripulante;
-
-#define ERROR_CONEXION -1
-
 parametros_iniciar_patota* obtener_parametros(char*);
 
 void iniciar_patota(parametros_iniciar_patota*);
-int establecer_conexiones(int*, int*, t_config*);
 void loggear_parametros(parametros_iniciar_patota*);
 
 
