@@ -1,27 +1,23 @@
 #include "discordiador.h"
 
 int id_patota_actual = 0;
+t_list *lista_tripulantes;
 t_log* logger;
 
 int main() {
 	logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
-
-
+	lista_tripulantes = list_create();
 	bool continuar = true;
-	char* buffer_consola;
-	command_code funcion;
 
 	while(continuar) {
-		buffer_consola = leer_consola();
-		funcion = mapStringToEnum(seleccionar_funcion(buffer_consola));
+		char* buffer_consola = leer_consola();
+		command_code funcion = mapStringToEnum(seleccionar_funcion(buffer_consola));
+
 		parametros_iniciar_patota* parametros;
 		switch(funcion) {
 			case INICIAR_PATOTA:
 
-				log_info(logger,"Se cargan los parametros en el struct");
-
 				parametros = obtener_parametros(buffer_consola); //buffer_consola -> iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 5|3 5|2
-
 				loggear_parametros(parametros);
 
 				//iniciar_patota(parametros);
@@ -50,39 +46,25 @@ int main() {
 		}
 		free(buffer_consola);
 	}
+	//list_destroy_and_destroy_elements(lista_tripulantes, free()); podria ser esta la funcion pero no estoy seguro que funcione
 	log_destroy(logger);
 	return 0;
 }
 
-void iniciar_patota(char**input, int* lista_puertos, t_log *logger) {
+void iniciar_patota(parametros_iniciar_patota* parametros) {
 	int id_trip_actual = 0;
-	bool valida = true;
-	int *posiciones = malloc(2 * sizeof(int));
-	int cantidad_tripulantes = atoi(input[1]);
-	nodo_tripulante *lista_tripulantes = NULL;
 
 	log_info(logger,"Iniciando creacion de Patota nro: %d", id_patota_actual);
 
-	for(int iterador = 0; iterador < cantidad_tripulantes; iterador++) { //atoi: ascii to int
-		if(valida && input[iterador+3] != NULL) { //iterador+2 nos estaria dando la direccion de inicio del tripulante
-			char** auxiliar = string_split(input[iterador+3], "|"); //divide la posicion de x|y a posiciones[0]=x y posiciones[1]=y
-			posiciones[0] = atoi(auxiliar[0]);
-			posiciones[1] = atoi(auxiliar[1]);
-		}
-		else {
-			posiciones[0] = 0;
-			posiciones[1] = 0;
-			valida = false;
-		}
-		tripulante* nuevo_trip = crear_nodo_trip(posiciones);
-		nuevo_trip->id_trip = id_trip_actual;
-		nuevo_trip->id_patota = id_patota_actual;
-		agregar_trip_a_lista(nuevo_trip, lista_tripulantes);
+	for(int iterador = 0; iterador < parametros->cantidad_tripulantes; iterador++) {
+		tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_tripulantes_x[iterador], parametros->posiciones_tripulantes_y[iterador], id_patota_actual, id_trip_actual);
+
+		list_add(lista_tripulantes, nuevo_tripulante);
 		id_trip_actual++;
-		free(nuevo_trip);
+		free(nuevo_tripulante);
 	}
 	log_info(logger,"Patota nro: %d iniciada. Cantidad de tripulantes: %d",id_patota_actual,id_trip_actual);
-	free(posiciones);
+
 	id_patota_actual++;
 }
 

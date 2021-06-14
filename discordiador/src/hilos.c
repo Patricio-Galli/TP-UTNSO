@@ -1,17 +1,16 @@
 #include "hilos.h"
 
-
-
-tripulante* crear_nodo_trip(int *posiciones) {
+tripulante* crear_tripulante(int x, int y, int patota, int id) {
 	tripulante* nuevo = malloc(sizeof(tripulante));
 	pthread_t nuevo_hilo;
 	int *aux = malloc(2 * sizeof(int));
-	aux[0] = posiciones[0];
-	aux[1] = posiciones[1];
+	aux[0] = x;
+	aux[1] = y;
 	pthread_create(&nuevo_hilo, NULL, rutina_hilos, aux);
-	// Gran memory leak con nuestra variable AUX. RESOLVER!
 	nuevo->estado = NEW;
 	nuevo->hilo = nuevo_hilo;
+	nuevo->id_patota = patota;
+	nuevo->id_trip = id;
 
 	return nuevo;
 }

@@ -5,6 +5,7 @@
 
 #include <pthread.h>
 #include <semaphore.h>
+#include <commons/collections/list.h>
 
 typedef struct {
 	int id_trip;
@@ -26,7 +27,7 @@ typedef enum {
     EXIT
 }estado_tarea;
 
-tripulante* crear_nodo_trip(int*);
+tripulante* crear_tripulante(int, int, int, int);
 void agregar_trip_a_lista(tripulante*, nodo_tripulante*);
 void* rutina_hilos(void*);
 
