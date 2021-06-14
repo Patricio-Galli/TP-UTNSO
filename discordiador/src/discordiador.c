@@ -16,31 +16,6 @@ nodo_tripulante *lista_tripulantes = NULL;
 int main() {
 	t_log* logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
 
-	/*
-    t_config* config = config_create("discordiador.config");
-
-    int socket_ram, socket_mongo = 0;
-
-	socket_ram = crear_conexion_cliente(
-		config_get_string_value(config, "IP_MI_RAM_HQ"),
-		config_get_string_value(config, "PUERTO_MI_RAM_HQ")
-		);
-	
-	socket_mongo = crear_conexion_cliente(
-		config_get_string_value(config, "IP_I_MONGO_STORE"),
-		config_get_string_value(config, "PUERTO_I_MONGO_STORE")
-		);
-	
-	if(socket_mongo < 0 || socket_ram < 0) {
-		if(socket_ram < 0)
-			log_info(logger, "Fallo en la conexión con Mi-RAM-HQ");
-		if(socket_mongo < 0)
-			log_info(logger, "Fallo en la conexión con I-Mongo-Store");
-		//close(socket_ram);
-		//close(socket_mongo);
-		//return ERROR_CONEXION;
-	}
-	*/
 
 	bool continuar = true;
 	char* buffer_consola;
@@ -55,15 +30,7 @@ int main() {
 
 				log_info(logger,"Se cargan los parametros en el struct");
 
-				parametros = obtener_parametros(buffer_consola); //buffer_consola -> iniciar_patota 4 /home/utnso/tareas_tp_so/tareas.txt 5|3 5|2
-				/*
-				t_mensaje* mensaje = crear_mensaje("INIT_P");
-
-				agregar_parametro(mensaje, parametro_a_enviar, tipo); //parametro a enviar seria un puntero a void y el tipo es para saaber si es string o int
-
-				send(mensaje, socket, tamanio_mensaje);
-				*/
-				
+				parametros = obtener_parametros(buffer_consola); //buffer_consola -> iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 5|3 5|2
 
 				log_info(logger,"Cantidad de tripulantes: %d", parametros->cantidad_tripulantes);
 

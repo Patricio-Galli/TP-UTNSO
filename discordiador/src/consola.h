@@ -13,8 +13,7 @@
 
 #include "discordiador.h"
 
-#ifndef COMMAND_CODE_
-#define COMMAND_CODE_
+
 typedef enum{
 	INICIAR_PATOTA,
 	LISTAR_TRIPULANTES,
@@ -25,9 +24,9 @@ typedef enum{
 	EXIT_DISCORDIADOR,
 	ERROR
 }command_code;
-#endif /* COMMAND_CODE_ */
 
 char* leer_consola();
 command_code mapStringToEnum(char *string);
+char* seleccionar_funcion(char* buffer);
 
 #endif /* CONSOLA_H_ */

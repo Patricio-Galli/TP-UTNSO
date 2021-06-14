@@ -52,29 +52,12 @@ typedef enum {
     EXIT
 }estado_tarea;
 
-#ifndef COMMAND_CODE_
-#define COMMAND_CODE_
-typedef enum{
-	INICIAR_PATOTA,
-	LISTAR_TRIPULANTES,
-	EXPULSAR_TRIPULANTE,
-	INICIAR_PLANIFICACION,
-	PAUSAR_PLANIFICACION,
-	OBTENER_BITACORA,
-	EXIT_DISCORDIADOR,
-	ERROR
-}command_code;
-#endif /* COMMAND_CODE_ */
-
 #define ERROR_CONEXION -1
-
-char* seleccionar_funcion(char* buffer);
 
 parametros_iniciar_patota* obtener_parametros(char* buffer_consola);
 tripulante* crear_nodo_trip(int *posiciones);
 void agregar_trip_a_lista(tripulante* nuevo_trip);
 void* rutina_hilos(void* posiciones);
-// command_code mapStringToEnum(char *s);
 void iniciar_patota(char** input, int* lista_puertos, t_log* logger);
 void listar_tripulantes();
 int establecer_conexiones(int* ram, int* mongo, t_config* config);
