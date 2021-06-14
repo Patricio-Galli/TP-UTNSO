@@ -25,5 +25,6 @@ typedef enum {
 
 tripulante* crear_tripulante(int, int, int, int);
 void* rutina_hilos(void*);
+char* enumToString(int);
 
 #endif /* TRIPULANTE_H_ */

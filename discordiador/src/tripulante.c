@@ -46,3 +46,9 @@ void* rutina_hilos(void* tripulante) {
 	}*/
 	return 0;
 }
+
+char* enumToString(int estadoEnum) {
+	char* listaDeStrings[] = {"NEW", "BLOCKED", "READY", "RUNNING", "EXIT"};
+
+	return listaDeStrings[estadoEnum];
+}

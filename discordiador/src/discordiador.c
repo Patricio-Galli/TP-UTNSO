@@ -23,7 +23,7 @@ int main() {
 				iniciar_patota(parametros);
 				break;
 			case LISTAR_TRIPULANTES:
-				//listar_tripulantes();
+				listar_tripulantes();
 				break;
 			case EXPULSAR_TRIPULANTE:
 				log_info(logger,"Expulsar tripulante ...");
@@ -66,6 +66,16 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 	log_info(logger,"Patota nro: %d iniciada. Cantidad de tripulantes: %d",id_patota_actual,id_trip_actual);
 
 	id_patota_actual++;
+}
+
+void listar_tripulantes() {
+	t_link_element* elemento = lista_tripulantes->head;
+	while(elemento->data != NULL) {
+		tripulante* tripulante = elemento->data;
+		char* estado = enumToString(tripulante->estado);
+
+		log_info(logger,"Tripulante: %d    Patota: %d    Status: %s", tripulante->id_trip, tripulante->id_patota, estado);
+	}
 }
 
 parametros_iniciar_patota* obtener_parametros(char* buffer_consola) {//todo realizar validaciones para lectura de archivos y parametros validos
