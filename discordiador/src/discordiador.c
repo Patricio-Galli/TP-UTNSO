@@ -1,17 +1,6 @@
-/*
-	============================================================================
-	Name        : discordiador.c
-	Author      :
-	Version     :
-	Copyright   : Your copyright notice
-	Description : Hello World in C, Ansi-style
-	============================================================================
-*/
-
 #include "discordiador.h"
 
 int id_patota_actual = 0;
-nodo_tripulante *lista_tripulantes = NULL;
 
 int main() {
 	t_log* logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
@@ -45,7 +34,7 @@ int main() {
 				// iniciar_patota(input, lista_puertos, logger);
 				break;
 			case LISTAR_TRIPULANTES:
-				listar_tripulantes();
+				//listar_tripulantes();
 				break;
 			case EXPULSAR_TRIPULANTE:
 				log_info(logger,"Expulsar tripulante ...");
@@ -77,6 +66,7 @@ void iniciar_patota(char**input, int* lista_puertos, t_log *logger) {
 	bool valida = true;
 	int *posiciones = malloc(2 * sizeof(int));
 	int cantidad_tripulantes = atoi(input[1]);
+	nodo_tripulante *lista_tripulantes = NULL;
 
 	log_info(logger,"Iniciando creacion de Patota nro: %d", id_patota_actual);
 
@@ -94,7 +84,7 @@ void iniciar_patota(char**input, int* lista_puertos, t_log *logger) {
 		tripulante* nuevo_trip = crear_nodo_trip(posiciones);
 		nuevo_trip->id_trip = id_trip_actual;
 		nuevo_trip->id_patota = id_patota_actual;
-		agregar_trip_a_lista(nuevo_trip);
+		agregar_trip_a_lista(nuevo_trip, lista_tripulantes);
 		id_trip_actual++;
 		free(nuevo_trip);
 	}
@@ -103,68 +93,7 @@ void iniciar_patota(char**input, int* lista_puertos, t_log *logger) {
 	id_patota_actual++;
 }
 
-tripulante* crear_nodo_trip(int *posiciones) {
-	tripulante* nuevo = malloc(sizeof(tripulante));
-	pthread_t nuevo_hilo;
-	int *aux = malloc(2 * sizeof(int));
-	aux[0] = posiciones[0];
-	aux[1] = posiciones[1];
-	pthread_create(&nuevo_hilo, NULL, rutina_hilos, aux);
-	// Gran memory leak con nuestra variable AUX. RESOLVER!
-	nuevo->estado = NEW;
-	nuevo->hilo = nuevo_hilo;
 
-	return nuevo;
-}
-
-void agregar_trip_a_lista(tripulante* nuevo_trip) {
-
-	nodo_tripulante *nuevo_nodo = malloc(sizeof(nodo_tripulante));
-	nuevo_nodo->data = *nuevo_trip;
-	nuevo_nodo->sig = NULL;
-
-	if(lista_tripulantes == NULL){
-		lista_tripulantes = nuevo_nodo;
-	}
-	else {
-		nodo_tripulante *aux = lista_tripulantes;
-		while(aux->sig != NULL){
-			aux = aux->sig;
-		}
-		aux->sig = nuevo_nodo;
-	}
-}
-
-void* rutina_hilos(void* posiciones) {
-	/*conectarse_con_ram(mongo);
-	conectarse_con_disco(ram);
-	// RR definido por el archivo de configuración
-	switch(PLANEACION) { // FIFO O RR
-
-	while(tengo_tareas) {
-		wait(puedo_trabajar);
-		wait(RR);
-		pedir_instruccion();
-		signal(RR);
-		
-		informar_bitacora();
-		
-		wait(RR);
-		recibir_instruccion();
-		
-		signal(puedo_trabajar);
-		ejecutar_instruccion();
-		signal(puedo_trabajar);
-
-		informar_bitacora();
-
-		if(instruccion == moverse) {
-			informar_bitacora();
-		}
-	}*/
-	free(posiciones);
-	return 0;
-}
 
 parametros_iniciar_patota* obtener_parametros(char* buffer_consola) {//todo realizar validaciones para lectura de archivos y parametros validos
 
@@ -212,16 +141,4 @@ parametros_iniciar_patota* obtener_parametros(char* buffer_consola) {//todo real
 	fclose(archivo_tareas);
 
 	return parametros;
-}
-
-void listar_tripulantes(){
-	nodo_tripulante* aux = lista_tripulantes;
-	printf("----------------------------------------------------------------------------------\n");
-	printf("Estado de Tripulantes\n");
-	while(aux != NULL){
-		printf("Patota: %d\tTripulante: %d\tEstado: %d\n",aux->data.id_patota, aux->data.id_trip,aux->data.estado);
-		aux = aux->sig;
-	}
-	printf("----------------------------------------------------------------------------------\n");
-	free(aux);
 }

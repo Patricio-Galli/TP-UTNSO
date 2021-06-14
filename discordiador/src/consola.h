@@ -11,9 +11,6 @@
 #include <commons/string.h>
 #include <stdlib.h>
 
-#include "discordiador.h"
-
-
 typedef enum{
 	INICIAR_PATOTA,
 	LISTAR_TRIPULANTES,
