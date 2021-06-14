@@ -24,7 +24,7 @@ int main() {
 
 				loggear_parametros(parametros);
 
-				// iniciar_patota(input, lista_puertos, logger);
+				//iniciar_patota(parametros);
 				break;
 			case LISTAR_TRIPULANTES:
 				//listar_tripulantes();

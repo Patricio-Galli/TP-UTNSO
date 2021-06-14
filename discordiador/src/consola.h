@@ -1,15 +1,16 @@
 #ifndef CONSOLA_H_
 #define CONSOLA_H_
 
-#include <readline/readline.h>
-#include <readline/history.h>
-#include <unistd.h>
+
 #include <string.h>
 #include <stdio.h>
-#include <commons/string.h>
+#include <stdlib.h>
+
+#include <readline/readline.h>
+#include <readline/history.h>
 
 #include <commons/string.h>
-#include <stdlib.h>
+
 
 typedef enum{
 	INICIAR_PATOTA,
@@ -22,8 +23,9 @@ typedef enum{
 	ERROR
 }command_code;
 
+command_code mapStringToEnum(char*);
+
 char* leer_consola();
-command_code mapStringToEnum(char *string);
-char* seleccionar_funcion(char* buffer);
+char* seleccionar_funcion(char*);
 
 #endif /* CONSOLA_H_ */

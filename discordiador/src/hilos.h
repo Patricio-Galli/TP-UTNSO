@@ -1,15 +1,10 @@
 #ifndef HILOS_H_
 #define HILOS_H_
 
-#include <pthread.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <semaphore.h>
-
 #include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
+
+#include <pthread.h>
+#include <semaphore.h>
 
 typedef struct {
 	int id_trip;
@@ -31,8 +26,8 @@ typedef enum {
     EXIT
 }estado_tarea;
 
-tripulante* crear_nodo_trip(int *posiciones);
-void agregar_trip_a_lista(tripulante* nuevo_trip, nodo_tripulante *lista_tripulantes);
-void* rutina_hilos(void* posiciones);
+tripulante* crear_nodo_trip(int*);
+void agregar_trip_a_lista(tripulante*, nodo_tripulante*);
+void* rutina_hilos(void*);
 
 #endif /* HILOS_H_ */

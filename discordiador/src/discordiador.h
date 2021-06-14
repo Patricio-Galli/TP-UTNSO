@@ -10,12 +10,9 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <unistd.h>
-#include <string.h>
 
-// bibliotecas para hilos
 
-#include <commons/string.h>
+#include <commons/string.h> //string_split
 #include <commons/log.h>
 #include <commons/config.h>
 #include <utils/utils-client.h>
@@ -34,11 +31,11 @@ typedef struct {
 
 #define ERROR_CONEXION -1
 
-parametros_iniciar_patota* obtener_parametros(char* buffer_consola);
+parametros_iniciar_patota* obtener_parametros(char*);
 
-void iniciar_patota(char** input, int* lista_puertos, t_log* logger);
-int establecer_conexiones(int* ram, int* mongo, t_config* config);
-void loggear_parametros(parametros_iniciar_patota* parametros);
+//void iniciar_patota(parametros_iniciar_patota);
+int establecer_conexiones(int*, int*, t_config*);
+void loggear_parametros(parametros_iniciar_patota*);
 
 
 #endif /* DISCORDIADOR_H_ */
