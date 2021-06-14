@@ -37,8 +37,8 @@ typedef struct {
 parametros_iniciar_patota* obtener_parametros(char* buffer_consola);
 
 void iniciar_patota(char** input, int* lista_puertos, t_log* logger);
-//void listar_tripulantes();
 int establecer_conexiones(int* ram, int* mongo, t_config* config);
+void loggear_parametros(parametros_iniciar_patota* parametros);
 
 
 #endif /* DISCORDIADOR_H_ */

@@ -1,9 +1,10 @@
 #include "discordiador.h"
 
 int id_patota_actual = 0;
+t_log* logger;
 
 int main() {
-	t_log* logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
+	logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
 
 
 	bool continuar = true;
@@ -21,15 +22,7 @@ int main() {
 
 				parametros = obtener_parametros(buffer_consola); //buffer_consola -> iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 5|3 5|2
 
-				log_info(logger,"Cantidad de tripulantes: %d", parametros->cantidad_tripulantes);
-
-				for(int i = 0; i < parametros->cantidad_tripulantes; i++)
-					log_info(logger,"Tripulante: %d  |  Posicion x: %d  |  Posicion y: %d", i, parametros->posiciones_tripulantes_x[i], parametros->posiciones_tripulantes_y[i]);
-
-				log_info(logger,"Cantidad de tareas: %d", parametros->cantidad_tareas);
-
-				for(int i = 0; i < parametros->cantidad_tareas; i++)
-					log_info(logger,"Tarea %d: %s", i, parametros->tareas[i]);
+				loggear_parametros(parametros);
 
 				// iniciar_patota(input, lista_puertos, logger);
 				break;
@@ -141,4 +134,17 @@ parametros_iniciar_patota* obtener_parametros(char* buffer_consola) {//todo real
 	fclose(archivo_tareas);
 
 	return parametros;
+}
+
+void loggear_parametros(parametros_iniciar_patota* parametros) {
+	log_info(logger,"Cantidad de tripulantes: %d", parametros->cantidad_tripulantes);
+
+	for(int i = 0; i < parametros->cantidad_tripulantes; i++)
+		log_info(logger,"Tripulante: %d  |  Posicion x: %d  |  Posicion y: %d", i, parametros->posiciones_tripulantes_x[i], parametros->posiciones_tripulantes_y[i]);
+
+	log_info(logger,"Cantidad de tareas: %d", parametros->cantidad_tareas);
+
+	for(int i = 0; i < parametros->cantidad_tareas; i++)
+		log_info(logger,"Tarea %d: %s", i, parametros->tareas[i]);
+
 }
