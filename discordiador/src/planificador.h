@@ -1,0 +1,11 @@
+#ifndef PLANIFICADOR_H_
+#define PLANIFICADOR_H_
+
+#include <commons/collections/list.h>
+#include <commons/collections/queue.h>
+#include <commons/log.h>
+
+void iniciar_FIFO(int, t_list*, bool*, t_log*);
+void iniciar_RR(int, int, t_list*, bool*, t_log*);
+
+#endif /* PLANIFICADOR_H_ */

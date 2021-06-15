@@ -20,7 +20,7 @@ char* leer_consola() {
 }
 
 command_code mapStringToEnum(char *string){
-	char* listaDeStrings[]={"INICIAR_PATOTA", "L", "E", "INICIAR_PLANIFICACION", "PAUSAR_PLANIFICACION", "OBTENER_BITACORA", "EXIT"};
+	char* listaDeStrings[]={"INICIAR_PATOTA", "L", "E", "IP", "PAUSAR_PLANIFICACION", "OBTENER_BITACORA", "EXIT"};
 
 	for(int i=0;i<7;i++){
 		if(!strcasecmp(string,listaDeStrings[i])) {
@@ -31,5 +31,6 @@ command_code mapStringToEnum(char *string){
 	free(string);
 	return ERROR;
 }
-//ISTAR_TRIPULANTES
-//XPULSAR_TRIPULANTE
+//LISTAR_TRIPULANTES
+//EXPULSAR_TRIPULANTE
+//INICIAR_PLANIFICACION

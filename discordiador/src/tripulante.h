@@ -2,6 +2,7 @@
 #define TRIPULANTE_H_
 
 #include <stdlib.h>
+//#include <stdio.h>
 
 #include <pthread.h>
 #include <semaphore.h>
@@ -14,6 +15,7 @@ typedef struct {
 	int id_patota;
 	int estado; //ready, blocked, etc
 	pthread_t hilo;
+	int posicion_lista;
 }tripulante;
 
 typedef enum {
@@ -24,8 +26,8 @@ typedef enum {
     EXIT
 }estado_tarea;
 
-tripulante* crear_tripulante(int, int, int, int,t_log* logger);
-void* rutina_hilos(void*);
-char* enumToString(int);
+tripulante* crear_tripulante(int, int, int, int, t_log*);
+void* rutina_tripulante(void*);
+char* estado_enumToString(int);
 
 #endif /* TRIPULANTE_H_ */

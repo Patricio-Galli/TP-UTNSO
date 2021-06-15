@@ -1,10 +1,13 @@
 #include "tripulante.h"
 
-tripulante* crear_tripulante(int x, int y, int patota, int id,t_log* logger) {
+t_log* logger;
+
+tripulante* crear_tripulante(int x, int y, int patota, int id, t_log* log) {
+	logger = log;
 	tripulante* nuevo_tripulante = malloc(sizeof(tripulante));
 	pthread_t nuevo_hilo;
 
-	pthread_create(&nuevo_hilo, NULL, rutina_hilos, nuevo_tripulante);
+	pthread_create(&nuevo_hilo, NULL, rutina_tripulante, nuevo_tripulante);
 
 	nuevo_tripulante->id_trip = id;
 	nuevo_tripulante->id_patota = patota;
@@ -16,7 +19,9 @@ tripulante* crear_tripulante(int x, int y, int patota, int id,t_log* logger) {
 	return nuevo_tripulante;
 }
 
-void* rutina_hilos(void* tripulante) {
+void* rutina_tripulante(void* trip) {
+	tripulante* nuevo_tripulante = (tripulante*) trip; //si modifico el interior de ese puntero se modifica de mi lista tambien
+
 	/*conectarse_con_ram(mongo);
 	conectarse_con_disco(ram);
 	// RR definido por el archivo de configuración
@@ -43,10 +48,23 @@ void* rutina_hilos(void* tripulante) {
 			informar_bitacora();
 		}
 	}*/
+	/*
+	if(nuevo_tripulante->id_trip == 1) {
+		int i = 0;
+
+		while(i<10) {
+			log_info(logger,"continua ...");
+			i++;
+			sleep(5);
+		}
+
+		log_info(logger,"termine de contar");
+	}
+	*/
 	return 0;
 }
 
-char* enumToString(int estadoEnum) {
+char* estado_enumToString(int estadoEnum) {
 	char* listaDeStrings[] = {"NEW", "BLOCKED", "READY", "RUNNING", "EXIT"};
 
 	return listaDeStrings[estadoEnum];

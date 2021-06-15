@@ -3,9 +3,12 @@
 int id_patota_actual = 0;
 t_list* lista_tripulantes;
 t_log* logger;
+t_config* config;
+bool planificacion_activada;
 
 int main() {
 	logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
+	config = config_create("discordiador.config");
 	lista_tripulantes = list_create();
 	bool continuar = true;
 
@@ -24,31 +27,38 @@ int main() {
 
 		switch(funcion) {
 			case INICIAR_PATOTA:
-
 				parametros = obtener_parametros(input); //buffer_consola -> iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 5|3 5|2
 				loggear_parametros(parametros);
 
 				iniciar_patota(parametros);
+				//liberar_parametros(parametros);
 				break;
+
 			case LISTAR_TRIPULANTES:
 				listar_tripulantes();
 				break;
+
 			case EXPULSAR_TRIPULANTE:
 				expulsar_tripulante(atoi(input[1]));
 				break;
+
 			case INICIAR_PLANIFICACION:
-				log_info(logger,"INICIAR PLANIFICACION");
+				iniciar_planificacion();
 				break;
+
 			case PAUSAR_PLANIFICACION:
 				log_info(logger,"PAUSAR PLANIFICACION");
 				break;
+
 			case OBTENER_BITACORA:
 				log_info(logger,"OBTENER BITACORA");
 				break;
+
 			case EXIT_DISCORDIADOR:
 				log_info(logger,"Exit Discordiador");
 				continuar = false;
 				break;
+
 			case ERROR:
 				log_error(logger,"COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
 		}
@@ -63,9 +73,9 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 	log_info(logger,"Iniciando creacion de Patota nro: %d", id_patota_actual);
 
 	for(int iterador = 0; iterador < parametros->cantidad_tripulantes; iterador++) {
-		tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_tripulantes_x[iterador], parametros->posiciones_tripulantes_y[iterador], id_patota_actual, iterador, logger);
+		tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_x[iterador], parametros->posiciones_y[iterador], id_patota_actual, iterador, logger);
 
-		list_add(lista_tripulantes, nuevo_tripulante); //devuelve la posicion en la que se agrego
+		nuevo_tripulante->posicion_lista = list_add(lista_tripulantes, nuevo_tripulante); //devuelve la posicion en la que se agrego
 	}
 	log_info(logger,"Patota nro: %d iniciada.",id_patota_actual);
 
@@ -73,15 +83,13 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 }
 
 void listar_tripulantes() {
-	log_info(logger,"Listando tripulantes ...");
-
 	int cantidad_elementos = lista_tripulantes->elements_count;
 
 	log_info(logger,"Cantidad de nodos: %d", cantidad_elementos);
 
 	for(int i=0; i < cantidad_elementos; i++) {
 		tripulante* nuevo_tripulante = (tripulante*)list_get(lista_tripulantes, i);
-		char* estado = enumToString(nuevo_tripulante->estado);
+		char* estado = estado_enumToString(nuevo_tripulante->estado);
 
 		log_info(logger,"Tripulante: %d    Patota: %d    Status: %s", nuevo_tripulante->id_trip, nuevo_tripulante->id_patota, estado);
 	}
@@ -100,11 +108,14 @@ void expulsar_tripulante(int id_tripulante) {
 
 		if(nuevo_tripulante->id_trip == id_tripulante) {
 			continuar = false;
-			log_info(logger,"Expulsando al hijo de puta");
 
 			tripulante* tripulante_expulsado = (tripulante*)list_remove(lista_tripulantes, index);
-			//free_(tripulante_expulsado);
-			//avisar a la ram
+
+			free(tripulante_expulsado);
+
+			log_info(logger,"El tripulante %d ha sido expulsado", id_tripulante);
+
+			//todo avisar a la ram
 		}
 		else {
 			index++;
@@ -117,6 +128,17 @@ void expulsar_tripulante(int id_tripulante) {
 	}
 }
 
+void iniciar_planificacion() {
+	int multiprogramacion = atoi(config_get_string_value(config, "GRADO_MULTITAREA"));
+	char* algoritmo = config_get_string_value(config, "ALGORITMO");
+	planificacion_activada = true;
+
+	if(!strcmp(algoritmo,"FIFO"))
+		iniciar_FIFO(multiprogramacion, lista_tripulantes, &planificacion_activada, logger);
+	else
+		iniciar_RR(multiprogramacion, atoi(config_get_string_value(config, "QUANTUM")), lista_tripulantes, &planificacion_activada, logger);
+}
+
 parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar validaciones para lectura de archivos y parametros validos
 	log_info(logger,"Obteniendo parametros ...");
 
@@ -126,19 +148,19 @@ parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar val
 	int cantidad_tripulantes = atoi(input[1]);
 
 	parametros->cantidad_tripulantes = cantidad_tripulantes;
-	parametros->posiciones_tripulantes_x = malloc(cantidad_tripulantes * sizeof(int));
-	parametros->posiciones_tripulantes_y = malloc(cantidad_tripulantes * sizeof(int));
+	parametros->posiciones_x = malloc(cantidad_tripulantes * sizeof(int));
+	parametros->posiciones_y = malloc(cantidad_tripulantes * sizeof(int));
 
 	for(int iterador = 0; iterador < cantidad_tripulantes; iterador++) { // completo las posiciones del struct
 
 		if(valida && input[iterador+3] != NULL) { //iterador+3 nos estaria dando la ubicacion de inicio del tripulante
 			char** auxiliar = string_split(input[iterador+3], "|"); //divide la posicion de "x|y" a auxiliar[0]=x y auxiliar[1]=y
-			parametros->posiciones_tripulantes_x[iterador] = atoi(auxiliar[0]);
-			parametros->posiciones_tripulantes_y[iterador] = atoi(auxiliar[1]);
+			parametros->posiciones_x[iterador] = atoi(auxiliar[0]);
+			parametros->posiciones_y[iterador] = atoi(auxiliar[1]);
 		}
 		else {
-			parametros->posiciones_tripulantes_x[iterador] = 0;
-			parametros->posiciones_tripulantes_y[iterador] = 0;
+			parametros->posiciones_x[iterador] = 0;
+			parametros->posiciones_y[iterador] = 0;
 			valida = false;
 		}
 	}
@@ -168,7 +190,7 @@ void loggear_parametros(parametros_iniciar_patota* parametros) {
 	log_info(logger,"Cantidad de tripulantes: %d", parametros->cantidad_tripulantes);
 
 	for(int i = 0; i < parametros->cantidad_tripulantes; i++)
-		log_info(logger,"Tripulante: %d  |  Posicion x: %d  |  Posicion y: %d", i, parametros->posiciones_tripulantes_x[i], parametros->posiciones_tripulantes_y[i]);
+		log_info(logger,"Tripulante: %d  |  Posicion x: %d  |  Posicion y: %d", i, parametros->posiciones_x[i], parametros->posiciones_y[i]);
 
 	log_info(logger,"Cantidad de tareas: %d", parametros->cantidad_tareas);
 
