@@ -11,13 +11,21 @@ int main() {
 
 	while(continuar) {
 		char* buffer_consola = leer_consola();
-		command_code funcion = mapStringToEnum(seleccionar_funcion(buffer_consola));
+		char** input = string_split(buffer_consola, " ");
+
+		command_code funcion = mapStringToEnum(input[0]);
 
 		parametros_iniciar_patota* parametros;
+
+		if (!strcmp(buffer_consola,"ini")) {
+			input = string_split("iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 5|3 5|2", " ");
+			funcion = mapStringToEnum(input[0]);
+		}
+
 		switch(funcion) {
 			case INICIAR_PATOTA:
 
-				parametros = obtener_parametros(buffer_consola); //buffer_consola -> iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 5|3 5|2
+				parametros = obtener_parametros(input); //buffer_consola -> iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 5|3 5|2
 				loggear_parametros(parametros);
 
 				iniciar_patota(parametros);
@@ -26,7 +34,7 @@ int main() {
 				listar_tripulantes();
 				break;
 			case EXPULSAR_TRIPULANTE:
-				log_info(logger,"Expulsar tripulante ...");
+				expulsar_tripulante(atoi(input[1]));
 				break;
 			case INICIAR_PLANIFICACION:
 				log_info(logger,"INICIAR PLANIFICACION");
@@ -79,13 +87,41 @@ void listar_tripulantes() {
 	}
 }
 
-parametros_iniciar_patota* obtener_parametros(char* buffer_consola) {//todo realizar validaciones para lectura de archivos y parametros validos
+void expulsar_tripulante(int id_tripulante) {
+	log_info(logger,"Expulsando al tripulante %d", id_tripulante);
+
+	bool continuar = true;
+	int index = 0;
+
+	while(continuar) {
+		tripulante* nuevo_tripulante = (tripulante*)list_get(lista_tripulantes, index);
+
+		log_info(logger,"Tripulante: %d    Patota: %d", nuevo_tripulante->id_trip, nuevo_tripulante->id_patota);
+
+		if(nuevo_tripulante->id_trip == id_tripulante) {
+			continuar = false;
+			log_info(logger,"Expulsando al hijo de puta");
+
+			tripulante* tripulante_expulsado = (tripulante*)list_remove(lista_tripulantes, index);
+			//free_(tripulante_expulsado);
+			//avisar a la ram
+		}
+		else {
+			index++;
+
+			if(index == lista_tripulantes->elements_count) {
+				continuar = false;
+				log_info(logger,"No existe el tripulante %d", id_tripulante);
+			}
+		}
+	}
+}
+
+parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar validaciones para lectura de archivos y parametros validos
 	log_info(logger,"Obteniendo parametros ...");
 
 	parametros_iniciar_patota* parametros = malloc(sizeof(parametros_iniciar_patota));
 	bool valida = true;
-
-	char** input = string_split(buffer_consola, " ");
 
 	int cantidad_tripulantes = atoi(input[1]);
 

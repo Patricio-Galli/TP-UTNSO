@@ -29,10 +29,11 @@ typedef struct {
 	char** tareas;
 }parametros_iniciar_patota;
 
-parametros_iniciar_patota* obtener_parametros(char*);
+parametros_iniciar_patota* obtener_parametros(char**);
 void loggear_parametros(parametros_iniciar_patota*);
 
 void iniciar_patota(parametros_iniciar_patota*);
 void listar_tripulantes();
+void expulsar_tripulante(int);
 
 #endif /* DISCORDIADOR_H_ */
