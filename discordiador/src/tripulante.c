@@ -1,9 +1,8 @@
 #include "tripulante.h"
 
-tripulante* crear_tripulante(int x, int y, int patota, int id) {
+tripulante* crear_tripulante(int x, int y, int patota, int id,t_log* logger) {
 	tripulante* nuevo_tripulante = malloc(sizeof(tripulante));
 	pthread_t nuevo_hilo;
-
 
 	pthread_create(&nuevo_hilo, NULL, rutina_hilos, nuevo_tripulante);
 
@@ -12,7 +11,7 @@ tripulante* crear_tripulante(int x, int y, int patota, int id) {
 	nuevo_tripulante->estado = NEW;
 	nuevo_tripulante->hilo = nuevo_hilo;
 	nuevo_tripulante->posicion[0] = x;
-	nuevo_tripulante->posicion[y] = y;
+	nuevo_tripulante->posicion[1] = y;
 
 	return nuevo_tripulante;
 }

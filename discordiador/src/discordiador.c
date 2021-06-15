@@ -1,7 +1,7 @@
 #include "discordiador.h"
 
 int id_patota_actual = 0;
-t_list *lista_tripulantes;
+t_list* lista_tripulantes;
 t_log* logger;
 
 int main() {
@@ -52,33 +52,35 @@ int main() {
 }
 
 void iniciar_patota(parametros_iniciar_patota* parametros) {
-	int id_trip_actual = 0;
-
 	log_info(logger,"Iniciando creacion de Patota nro: %d", id_patota_actual);
 
 	for(int iterador = 0; iterador < parametros->cantidad_tripulantes; iterador++) {
-		tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_tripulantes_x[iterador], parametros->posiciones_tripulantes_y[iterador], id_patota_actual, id_trip_actual);
+		tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_tripulantes_x[iterador], parametros->posiciones_tripulantes_y[iterador], id_patota_actual, iterador, logger);
 
-		list_add(lista_tripulantes, nuevo_tripulante);
-		id_trip_actual++;
-		free(nuevo_tripulante);
+		list_add(lista_tripulantes, nuevo_tripulante); //devuelve la posicion en la que se agrego
 	}
-	log_info(logger,"Patota nro: %d iniciada. Cantidad de tripulantes: %d",id_patota_actual,id_trip_actual);
+	log_info(logger,"Patota nro: %d iniciada.",id_patota_actual);
 
 	id_patota_actual++;
 }
 
 void listar_tripulantes() {
-	t_link_element* elemento = lista_tripulantes->head;
-	while(elemento->data != NULL) {
-		tripulante* tripulante = elemento->data;
-		char* estado = enumToString(tripulante->estado);
+	log_info(logger,"Listando tripulantes ...");
 
-		log_info(logger,"Tripulante: %d    Patota: %d    Status: %s", tripulante->id_trip, tripulante->id_patota, estado);
+	int cantidad_elementos = lista_tripulantes->elements_count;
+
+	log_info(logger,"Cantidad de nodos: %d", cantidad_elementos);
+
+	for(int i=0; i < cantidad_elementos; i++) {
+		tripulante* nuevo_tripulante = (tripulante*)list_get(lista_tripulantes, i);
+		char* estado = enumToString(nuevo_tripulante->estado);
+
+		log_info(logger,"Tripulante: %d    Patota: %d    Status: %s", nuevo_tripulante->id_trip, nuevo_tripulante->id_patota, estado);
 	}
 }
 
 parametros_iniciar_patota* obtener_parametros(char* buffer_consola) {//todo realizar validaciones para lectura de archivos y parametros validos
+	log_info(logger,"Obteniendo parametros ...");
 
 	parametros_iniciar_patota* parametros = malloc(sizeof(parametros_iniciar_patota));
 	bool valida = true;

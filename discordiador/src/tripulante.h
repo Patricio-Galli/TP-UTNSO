@@ -6,6 +6,7 @@
 #include <pthread.h>
 #include <semaphore.h>
 #include <commons/collections/list.h>
+#include <commons/log.h>
 
 typedef struct {
 	int posicion[2];
@@ -23,7 +24,7 @@ typedef enum {
     EXIT
 }estado_tarea;
 
-tripulante* crear_tripulante(int, int, int, int);
+tripulante* crear_tripulante(int, int, int, int,t_log* logger);
 void* rutina_hilos(void*);
 char* enumToString(int);
 
