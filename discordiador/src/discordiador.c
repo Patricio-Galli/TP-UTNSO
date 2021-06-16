@@ -47,7 +47,7 @@ int main() {
 				break;
 
 			case PAUSAR_PLANIFICACION:
-				log_info(logger,"PAUSAR PLANIFICACION");
+				pausar_planificacion();
 				break;
 
 			case OBTENER_BITACORA:
@@ -129,18 +129,30 @@ void expulsar_tripulante(int id_tripulante) {
 }
 
 void iniciar_planificacion() {
+	log_info(logger,"Iniciando planificacion...");
+
 	int multiprogramacion = atoi(config_get_string_value(config, "GRADO_MULTITAREA"));
 	char* algoritmo = config_get_string_value(config, "ALGORITMO");
+	int quantum = atoi(config_get_string_value(config, "QUANTUM"));
 	planificacion_activada = true;
 
+	planificador(lista_tripulantes, multiprogramacion, algoritmo, quantum, &planificacion_activada, logger);
+
+	 /*
 	if(!strcmp(algoritmo,"FIFO"))
 		iniciar_FIFO(multiprogramacion, lista_tripulantes, &planificacion_activada, logger);
 	else
 		iniciar_RR(multiprogramacion, atoi(config_get_string_value(config, "QUANTUM")), lista_tripulantes, &planificacion_activada, logger);
+	*/
+}
+
+void pausar_planificacion() {
+	log_info(logger,"Pausando planificacion...");
+	planificacion_activada = false;
 }
 
 parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar validaciones para lectura de archivos y parametros validos
-	log_info(logger,"Obteniendo parametros ...");
+	log_info(logger,"Obteniendo parametros...");
 
 	parametros_iniciar_patota* parametros = malloc(sizeof(parametros_iniciar_patota));
 	bool valida = true;

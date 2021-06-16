@@ -1,10 +1,3 @@
-/*
- * discordiador.h
- *
- *  Created on: 13 may. 2021
- *      Author: utnso
- */
-
 #ifndef DISCORDIADOR_H_
 #define DISCORDIADOR_H_
 
@@ -30,5 +23,6 @@ void iniciar_patota(parametros_iniciar_patota*);
 void listar_tripulantes();
 void expulsar_tripulante(int);
 void iniciar_planificacion();
+void pausar_planificacion();
 
 #endif /* DISCORDIADOR_H_ */
