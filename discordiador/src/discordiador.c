@@ -37,14 +37,15 @@ int main() {
 			log_info(logger, "Fallo en la conexión con Mi-RAM-HQ");
 		if(socket_mongo < 0)
 			log_info(logger, "Fallo en la conexión con I-Mongo-Store");
-		close(socket_ram);
-		close(socket_mongo);
-		return ERROR_CONEXION;
+		// close(socket_ram);
+		// close(socket_mongo);
+		// return ERROR_CONEXION;
 	}
 
 	bool continuar = true;
 	char* buffer_consola;
 	command_code funcion_consola;
+	t_mensaje* mensaje;
 
 	while(continuar) {
 		buffer_consola = leer_consola();
@@ -53,15 +54,9 @@ int main() {
 
 		switch(funcion_consola) {
 			case INICIAR_PATOTA:
-				input = string_split(buffer_consola, " ");
+				/*input = string_split(buffer_consola, " ");
 				int* lista_puertos = malloc(sizeof(int) * atoi(input[1]));
-				// iniciar_patota()
-				// hay que mandar. Op_code [int], cant_trip [int], cant_posicion_init [int], n * strings, (tareas)
-					// tareas: cant_tareas [int], strlen(tarea) [int], tarea [str]
 
-				// op_code → iniciar_patota, ubicacion_trip, eliminar_trip, proxima_tarea, etc. → ram... switch(op_code)
-				// iniciar_patota , cant_trip , 
-				// desde aca hasta el fin de este while
 				enviar_mensaje(buffer_consola, socket_ram);
 				char* buffer_socket;
 				int i = 0;
@@ -77,17 +72,36 @@ int main() {
 					i++;
 				}
 				
-				/*
-				if(lista_puertos == NULL) {
-					log_info(logger, "no se recibieron puertos :/");
-					break;
-				}*/
-				// n hilos tripulante discordiador 	→ n hilos en el imongo store && n hilos en la ram
-				// n hilos tripulante discordiador 	→ 2*n sockets en el discordiador
-				//									→ n sockets en el mongo
-				//						   			→ n sockets en la ram
+				iniciar_patota(input, lista_puertos, logger);*/
+				log_info(logger, "tarea agregado.\nValor %s\n", buffer_consola);
+				mensaje = crear_mensaje(INIT_P);
+				int valor[3] = {6, 2, 2};
+				int muestra = 0;
+				memcpy(&muestra, &(mensaje->op_code), sizeof(int));
+				log_info(logger, "parametro op: %d", muestra);
+				muestra = 0;
 				
-				iniciar_patota(input, lista_puertos, logger);
+				agregar_parametro_a_mensaje(mensaje, &valor[0], ENTERO, logger);
+				memcpy(&muestra, mensaje->buffer->contenido, sizeof(int));
+				log_info(logger, "parametro id_patota %d", muestra);
+				muestra = 0;
+				
+				agregar_parametro_a_mensaje(mensaje, &valor[1], ENTERO, logger);
+				memcpy(&muestra, mensaje->buffer->contenido + mensaje->buffer->tamanio, sizeof(int));
+				log_info(logger, "parametro cant_tripulantes %d", muestra);
+				muestra = 0;
+
+				agregar_parametro_a_mensaje(mensaje, &valor[2], ENTERO, logger);
+
+				agregar_parametro_a_mensaje(mensaje, buffer_consola, BUFFER, logger);
+				agregar_parametro_a_mensaje(mensaje, buffer_consola, BUFFER, logger);
+
+				memcpy(&muestra, mensaje->buffer->contenido + mensaje->buffer->tamanio, sizeof(int));
+				log_info(logger, "parametro cant_tareas %d", muestra);
+				// log_info(logger, "%d", mensaje->buffer);
+				// send(socket_ram, mensaje, mensaje->buffer->tamanio + 2 * sizeof(int), 0);
+				enviar_mensaje(socket_ram, mensaje);
+				return 0;
 				break;
 			case LISTAR_TRIPULANTES:
 				listar_tripulantes();

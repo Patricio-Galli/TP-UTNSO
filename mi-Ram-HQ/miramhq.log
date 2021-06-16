@@ -288,3 +288,499 @@
 [INFO] 19:56:36:528 Mi-RAM-HQ/(3442:3442): Servidor listo para recibir al cliente
 [INFO] 19:57:05:855 Mi-RAM-HQ/(3442:3442): A llegado un nuevo cliente
 [INFO] 19:57:49:283 Mi-RAM-HQ/(3442:3442): Recibi un mensaje: iniciar_patota 3 0|1
+[INFO] 14:09:21:099 Mi-RAM-HQ/(6675:6675): Creando conexiones
+[INFO] 14:09:21:153 Mi-RAM-HQ/(6675:6675): Servidor listo para recibir al cliente
+[INFO] 14:10:45:160 Mi-RAM-HQ/(6675:6675): A llegado un nuevo cliente
+[INFO] 14:10:45:160 Mi-RAM-HQ/(6675:6675): ENtro a recibir mensaje
+[INFO] 14:10:58:210 Mi-RAM-HQ/(6675:6675): Recibi mensaje, op_code = 17
+[WARNING] 14:10:58:210 Mi-RAM-HQ/(6675:6675): Operacion desconocida. No quieras meter la pata
+[INFO] 14:15:54:077 Mi-RAM-HQ/(6997:6997): Creando conexiones
+[INFO] 14:15:54:081 Mi-RAM-HQ/(6997:6997): Servidor listo para recibir al cliente
+[INFO] 14:15:58:732 Mi-RAM-HQ/(6997:6997): A llegado un nuevo cliente
+[INFO] 14:15:58:732 Mi-RAM-HQ/(6997:6997): ENtro a recibir mensaje
+[INFO] 14:16:06:065 Mi-RAM-HQ/(6997:6997): Recibi mensaje, op_code = 17
+[WARNING] 14:16:06:068 Mi-RAM-HQ/(6997:6997): Operacion desconocida. No quieras meter la pata
+[INFO] 14:16:37:160 Mi-RAM-HQ/(7100:7100): Creando conexiones
+[INFO] 14:16:37:167 Mi-RAM-HQ/(7100:7100): Servidor listo para recibir al cliente
+[INFO] 14:16:42:956 Mi-RAM-HQ/(7100:7100): A llegado un nuevo cliente
+[INFO] 14:16:42:956 Mi-RAM-HQ/(7100:7100): ENtro a recibir mensaje
+[INFO] 14:16:42:956 Mi-RAM-HQ/(7100:7100): Recibi mensaje, op_code = -1218618800
+[WARNING] 14:16:42:956 Mi-RAM-HQ/(7100:7100): Operacion desconocida. No quieras meter la pata
+[INFO] 14:16:42:956 Mi-RAM-HQ/(7100:7100): Hemos vencido al recibir mensaje : -1218618800
+[INFO] 14:16:42:956 Mi-RAM-HQ/(7100:7100): Hemos vencido al recibir mensaje : -1218618800
+[INFO] 14:17:47:883 Mi-RAM-HQ/(7106:7106): Creando conexiones
+[INFO] 14:17:47:886 Mi-RAM-HQ/(7106:7106): Servidor listo para recibir al cliente
+[INFO] 14:17:51:266 Mi-RAM-HQ/(7106:7106): A llegado un nuevo cliente
+[INFO] 14:17:51:266 Mi-RAM-HQ/(7106:7106): ENtro a recibir mensaje
+[INFO] 14:17:51:266 Mi-RAM-HQ/(7106:7106): Recibi mensaje, op_code = -1218639280
+[WARNING] 14:17:51:266 Mi-RAM-HQ/(7106:7106): Operacion desconocida. No quieras meter la pata
+[INFO] 14:17:51:266 Mi-RAM-HQ/(7106:7106): Hemos vencido al recibir mensaje : -1218639280
+[INFO] 14:17:51:267 Mi-RAM-HQ/(7106:7106): Hemos vencido al recibir mensaje : -1218639280
+[INFO] 14:22:00:760 Mi-RAM-HQ/(7220:7220): Creando conexiones
+[INFO] 14:22:00:760 Mi-RAM-HQ/(7220:7220): Servidor listo para recibir al cliente
+[INFO] 14:22:05:837 Mi-RAM-HQ/(7220:7220): A llegado un nuevo cliente
+[INFO] 14:22:05:837 Mi-RAM-HQ/(7220:7220): ENtro a recibir mensaje
+[INFO] 14:22:05:837 Mi-RAM-HQ/(7220:7220): Recibi mensaje, op_code = -1219204528
+[WARNING] 14:22:05:837 Mi-RAM-HQ/(7220:7220): Operacion desconocida. No quieras meter la pata
+[INFO] 14:22:05:837 Mi-RAM-HQ/(7220:7220): Hemos vencido al recibir mensaje : -1219204528
+[INFO] 14:22:05:837 Mi-RAM-HQ/(7220:7220): Hemos vencido al recibir mensaje : -1219204528
+[INFO] 14:22:50:157 Mi-RAM-HQ/(7323:7323): Creando conexiones
+[INFO] 14:22:50:161 Mi-RAM-HQ/(7323:7323): Servidor listo para recibir al cliente
+[INFO] 14:22:57:824 Mi-RAM-HQ/(7323:7323): A llegado un nuevo cliente
+[INFO] 14:22:57:824 Mi-RAM-HQ/(7323:7323): ENtro a recibir mensaje
+[INFO] 14:22:57:824 Mi-RAM-HQ/(7323:7323): Recibi mensaje, op_code = -1218438576
+[INFO] 14:23:13:619 Mi-RAM-HQ/(7323:7323): Hemos vencido al recibir mensaje
+[INFO] 14:23:57:364 Mi-RAM-HQ/(7526:7526): Creando conexiones
+[INFO] 14:23:57:368 Mi-RAM-HQ/(7526:7526): Servidor listo para recibir al cliente
+[INFO] 14:24:02:334 Mi-RAM-HQ/(7526:7526): A llegado un nuevo cliente
+[INFO] 14:24:02:334 Mi-RAM-HQ/(7526:7526): ENtro a recibir mensaje
+[INFO] 14:24:02:334 Mi-RAM-HQ/(7526:7526): Recibi mensaje, op_code = -1219012016
+[INFO] 14:24:08:026 Mi-RAM-HQ/(7526:7526): Hemos vencido al recibir mensaje
+[INFO] 14:45:43:485 Mi-RAM-HQ/(7840:7840): Creando conexiones
+[INFO] 14:45:43:489 Mi-RAM-HQ/(7840:7840): Servidor listo para recibir al cliente
+[INFO] 14:45:51:256 Mi-RAM-HQ/(7840:7840): A llegado un nuevo cliente
+[INFO] 14:45:51:256 Mi-RAM-HQ/(7840:7840): ENtro a recibir mensaje
+[INFO] 14:45:51:256 Mi-RAM-HQ/(7840:7840): Recibi mensaje, op_code = -1218905520
+[INFO] 14:45:57:364 Mi-RAM-HQ/(7840:7840): Hemos vencido al recibir mensaje
+[INFO] 14:49:54:639 Mi-RAM-HQ/(8217:8217): Creando conexiones
+[INFO] 14:49:54:643 Mi-RAM-HQ/(8217:8217): Servidor listo para recibir al cliente
+[INFO] 14:50:01:178 Mi-RAM-HQ/(8217:8217): A llegado un nuevo cliente
+[INFO] 14:50:01:178 Mi-RAM-HQ/(8217:8217): ENtro a recibir mensaje
+[INFO] 14:50:01:178 Mi-RAM-HQ/(8217:8217): Recibi mensaje, op_code = -1218934192
+[INFO] 14:50:09:473 Mi-RAM-HQ/(8217:8217): Hemos vencido al recibir mensaje
+[INFO] 14:58:06:093 Mi-RAM-HQ/(8888:8888): Creando conexiones
+[INFO] 14:58:06:098 Mi-RAM-HQ/(8888:8888): Servidor listo para recibir al cliente
+[INFO] 14:58:10:637 Mi-RAM-HQ/(8888:8888): A llegado un nuevo cliente
+[INFO] 14:58:10:637 Mi-RAM-HQ/(8888:8888): ENtro a recibir mensaje
+[INFO] 15:00:29:415 Mi-RAM-HQ/(9362:9362): Creando conexiones
+[INFO] 15:00:29:419 Mi-RAM-HQ/(9362:9362): Servidor listo para recibir al cliente
+[INFO] 15:00:32:586 Mi-RAM-HQ/(9362:9362): A llegado un nuevo cliente
+[INFO] 15:00:32:586 Mi-RAM-HQ/(9362:9362): ENtro a recibir mensaje
+[INFO] 15:05:56:159 Mi-RAM-HQ/(9519:9519): Creando conexiones
+[INFO] 15:05:56:163 Mi-RAM-HQ/(9519:9519): Servidor listo para recibir al cliente
+[INFO] 15:06:01:725 Mi-RAM-HQ/(9519:9519): A llegado un nuevo cliente
+[INFO] 15:06:01:725 Mi-RAM-HQ/(9519:9519): ENtro a recibir mensaje
+[INFO] 15:11:37:756 Mi-RAM-HQ/(9781:9781): Creando conexiones
+[INFO] 15:11:37:760 Mi-RAM-HQ/(9781:9781): Servidor listo para recibir al cliente
+[INFO] 15:11:43:075 Mi-RAM-HQ/(9781:9781): A llegado un nuevo cliente
+[INFO] 15:11:43:075 Mi-RAM-HQ/(9781:9781): ENtro a recibir mensaje
+[INFO] 15:16:40:605 Mi-RAM-HQ/(10052:10052): Creando conexiones
+[INFO] 15:16:40:608 Mi-RAM-HQ/(10052:10052): Servidor listo para recibir al cliente
+[INFO] 15:16:45:928 Mi-RAM-HQ/(10052:10052): A llegado un nuevo cliente
+[INFO] 15:16:45:928 Mi-RAM-HQ/(10052:10052): ENtro a recibir mensaje
+[INFO] 15:16:51:562 Mi-RAM-HQ/(10052:10052): Recibi id_ patota -1074281048
+[INFO] 15:16:51:562 Mi-RAM-HQ/(10052:10052): Recibi cant_tripulantes -1074281044
+[INFO] 15:16:51:562 Mi-RAM-HQ/(10052:10052): Recibi cant_tareas -1074281040
+[WARNING] 15:16:51:562 Mi-RAM-HQ/(10052:10052): Operacion desconocida. No quieras meter la pata
+[INFO] 15:16:51:562 Mi-RAM-HQ/(10052:10052): Hemos vencido al recibir mensaje : 4
+[INFO] 15:16:51:562 Mi-RAM-HQ/(10052:10052): Hemos vencido al recibir mensaje : 4
+[INFO] 15:19:14:368 Mi-RAM-HQ/(10405:10405): Creando conexiones
+[INFO] 15:19:14:372 Mi-RAM-HQ/(10405:10405): Servidor listo para recibir al cliente
+[INFO] 15:19:17:052 Mi-RAM-HQ/(10405:10405): A llegado un nuevo cliente
+[INFO] 15:19:17:052 Mi-RAM-HQ/(10405:10405): ENtro a recibir mensaje
+[INFO] 15:19:24:610 Mi-RAM-HQ/(10405:10405): Recibi id_ patota -1080362008
+[INFO] 15:19:24:611 Mi-RAM-HQ/(10405:10405): Recibi cant_tripulantes -1080362004
+[INFO] 15:19:24:611 Mi-RAM-HQ/(10405:10405): Recibi cant_tareas -1080362000
+[INFO] 15:19:24:611 Mi-RAM-HQ/(10405:10405): Hemos vencido al recibir mensaje
+[INFO] 15:42:04:075 Mi-RAM-HQ/(11224:11224): Creando conexiones
+[INFO] 15:42:04:079 Mi-RAM-HQ/(11224:11224): Servidor listo para recibir al cliente
+[INFO] 15:42:06:649 Mi-RAM-HQ/(11224:11224): A llegado un nuevo cliente
+[INFO] 15:42:06:649 Mi-RAM-HQ/(11224:11224): ENtro a recibir mensaje
+[INFO] 15:42:11:511 Mi-RAM-HQ/(11224:11224): Recibi id_ patota -1079248344
+[INFO] 15:42:11:511 Mi-RAM-HQ/(11224:11224): Recibi cant_tripulantes -1079248340
+[INFO] 15:42:11:511 Mi-RAM-HQ/(11224:11224): Recibi cant_tareas -1079248336
+[INFO] 15:42:11:511 Mi-RAM-HQ/(11224:11224): Hemos vencido al recibir mensaje
+[INFO] 15:43:00:740 Mi-RAM-HQ/(11325:11325): Creando conexiones
+[INFO] 15:43:00:740 Mi-RAM-HQ/(11325:11325): Servidor listo para recibir al cliente
+[INFO] 15:43:05:579 Mi-RAM-HQ/(11325:11325): A llegado un nuevo cliente
+[INFO] 15:43:05:579 Mi-RAM-HQ/(11325:11325): ENtro a recibir mensaje
+[INFO] 15:43:11:823 Mi-RAM-HQ/(11325:11325): Largo de lista 5
+[INFO] 15:43:11:823 Mi-RAM-HQ/(11325:11325): Recibi id_ patota -1074935976
+[INFO] 15:43:11:824 Mi-RAM-HQ/(11325:11325): Recibi cant_tripulantes -1074935972
+[INFO] 15:43:11:824 Mi-RAM-HQ/(11325:11325): Recibi cant_tareas -1074935968
+[INFO] 15:43:11:824 Mi-RAM-HQ/(11325:11325): Hemos vencido al recibir mensaje
+[INFO] 15:44:08:803 Mi-RAM-HQ/(11426:11426): Creando conexiones
+[INFO] 15:44:08:807 Mi-RAM-HQ/(11426:11426): Servidor listo para recibir al cliente
+[INFO] 15:44:11:587 Mi-RAM-HQ/(11426:11426): A llegado un nuevo cliente
+[INFO] 15:44:11:587 Mi-RAM-HQ/(11426:11426): ENtro a recibir mensaje
+[INFO] 15:44:11:587 Mi-RAM-HQ/(11426:11426): Largo de lista 0
+[INFO] 15:44:17:727 Mi-RAM-HQ/(11426:11426): Largo de lista 5
+[INFO] 15:44:17:727 Mi-RAM-HQ/(11426:11426): Recibi id_ patota -1077162264
+[INFO] 15:44:17:727 Mi-RAM-HQ/(11426:11426): Recibi cant_tripulantes -1077162260
+[INFO] 15:44:17:727 Mi-RAM-HQ/(11426:11426): Recibi cant_tareas -1077162256
+[INFO] 15:44:17:727 Mi-RAM-HQ/(11426:11426): Hemos vencido al recibir mensaje
+[INFO] 15:45:38:448 Mi-RAM-HQ/(11581:11581): Creando conexiones
+[INFO] 15:45:38:448 Mi-RAM-HQ/(11581:11581): Servidor listo para recibir al cliente
+[INFO] 15:45:44:996 Mi-RAM-HQ/(11581:11581): A llegado un nuevo cliente
+[INFO] 15:45:44:996 Mi-RAM-HQ/(11581:11581): ENtro a recibir mensaje
+[INFO] 15:45:44:996 Mi-RAM-HQ/(11581:11581): Largo de lista 0
+[INFO] 15:45:53:330 Mi-RAM-HQ/(11581:11581): Largo de lista 4
+[INFO] 15:45:53:330 Mi-RAM-HQ/(11581:11581): Recibi id_ patota -1078472408
+[INFO] 15:45:53:330 Mi-RAM-HQ/(11581:11581): Recibi cant_tripulantes -1078472404
+[INFO] 15:45:53:330 Mi-RAM-HQ/(11581:11581): Recibi cant_tareas -1078472400
+[INFO] 15:45:53:330 Mi-RAM-HQ/(11581:11581): Hemos vencido al recibir mensaje
+[INFO] 15:47:49:215 Mi-RAM-HQ/(11827:11827): Creando conexiones
+[INFO] 15:47:49:219 Mi-RAM-HQ/(11827:11827): Servidor listo para recibir al cliente
+[INFO] 15:47:57:693 Mi-RAM-HQ/(11827:11827): A llegado un nuevo cliente
+[INFO] 15:47:57:694 Mi-RAM-HQ/(11827:11827): ENtro a recibir mensaje
+[INFO] 15:47:57:694 Mi-RAM-HQ/(11827:11827): Largo de lista 0
+[INFO] 15:48:06:391 Mi-RAM-HQ/(11827:11827): Largo de lista 1
+[INFO] 15:48:06:391 Mi-RAM-HQ/(11827:11827): Recibi id_ patota -1074636952
+[INFO] 15:53:57:539 Mi-RAM-HQ/(12192:12192): Creando conexiones
+[INFO] 15:53:57:539 Mi-RAM-HQ/(12192:12192): Servidor listo para recibir al cliente
+[INFO] 15:54:00:054 Mi-RAM-HQ/(12192:12192): A llegado un nuevo cliente
+[INFO] 15:54:00:054 Mi-RAM-HQ/(12192:12192): ENtro a recibir mensaje
+[INFO] 15:54:00:054 Mi-RAM-HQ/(12192:12192): Largo de lista 0
+[INFO] 15:54:05:358 Mi-RAM-HQ/(12192:12192): Largo de lista 4
+[INFO] 15:54:05:358 Mi-RAM-HQ/(12192:12192): Recibi id_ patota -1074505528
+[INFO] 15:54:05:358 Mi-RAM-HQ/(12192:12192): Recibi cant_tripulantes -1074505524
+[INFO] 15:54:05:358 Mi-RAM-HQ/(12192:12192): Recibi cant_tareas -1074505520
+[INFO] 15:54:05:358 Mi-RAM-HQ/(12192:12192): Hemos vencido al recibir mensaje
+[INFO] 15:55:29:626 Mi-RAM-HQ/(12348:12348): Creando conexiones
+[INFO] 15:55:29:629 Mi-RAM-HQ/(12348:12348): Servidor listo para recibir al cliente
+[INFO] 15:55:34:782 Mi-RAM-HQ/(12348:12348): A llegado un nuevo cliente
+[INFO] 15:55:34:782 Mi-RAM-HQ/(12348:12348): ENtro a recibir mensaje
+[INFO] 15:55:34:782 Mi-RAM-HQ/(12348:12348): Largo de lista 0
+[INFO] 15:55:39:258 Mi-RAM-HQ/(12348:12348): Largo de lista 4
+[INFO] 15:55:39:258 Mi-RAM-HQ/(12348:12348): Recibi id_ patota -1077386984
+[INFO] 15:55:39:259 Mi-RAM-HQ/(12348:12348): Recibi cant_tripulantes -1077386980
+[INFO] 15:55:39:259 Mi-RAM-HQ/(12348:12348): Recibi cant_tareas -1077386976
+[INFO] 15:55:39:259 Mi-RAM-HQ/(12348:12348): Hemos vencido al recibir mensaje
+[INFO] 15:58:58:440 Mi-RAM-HQ/(12582:12582): Creando conexiones
+[INFO] 15:58:58:443 Mi-RAM-HQ/(12582:12582): Servidor listo para recibir al cliente
+[INFO] 15:59:02:729 Mi-RAM-HQ/(12582:12582): A llegado un nuevo cliente
+[INFO] 15:59:02:731 Mi-RAM-HQ/(12582:12582): ENtro a recibir mensaje
+[INFO] 15:59:02:731 Mi-RAM-HQ/(12582:12582): Largo de lista 0
+[INFO] 15:59:09:252 Mi-RAM-HQ/(12582:12582): Largo de lista 4
+[INFO] 15:59:09:252 Mi-RAM-HQ/(12582:12582): op code: -1077341224
+[INFO] 15:59:09:252 Mi-RAM-HQ/(12582:12582): Recibi id_ patota -1077341220
+[INFO] 15:59:09:252 Mi-RAM-HQ/(12582:12582): Recibi cant_tripulantes -1077341216
+[INFO] 15:59:09:252 Mi-RAM-HQ/(12582:12582): Recibi cant_tareas -1077341212
+[INFO] 15:59:09:252 Mi-RAM-HQ/(12582:12582): Hemos vencido al recibir mensaje
+[INFO] 16:03:19:797 Mi-RAM-HQ/(12814:12814): Creando conexiones
+[INFO] 16:03:19:801 Mi-RAM-HQ/(12814:12814): Servidor listo para recibir al cliente
+[INFO] 16:03:25:216 Mi-RAM-HQ/(12814:12814): A llegado un nuevo cliente
+[INFO] 16:03:25:216 Mi-RAM-HQ/(12814:12814): ENtro a recibir mensaje
+[INFO] 16:03:25:216 Mi-RAM-HQ/(12814:12814): Largo de lista 0
+[INFO] 16:03:31:437 Mi-RAM-HQ/(12814:12814): Largo de lista 4
+[INFO] 16:03:31:437 Mi-RAM-HQ/(12814:12814): op code: -1078565720
+[INFO] 16:03:31:437 Mi-RAM-HQ/(12814:12814): Recibi id_ patota -1078565716
+[INFO] 16:03:31:437 Mi-RAM-HQ/(12814:12814): Recibi cant_tripulantes -1078565712
+[INFO] 16:03:31:437 Mi-RAM-HQ/(12814:12814): Recibi cant_tareas -1078565708
+[INFO] 16:03:31:437 Mi-RAM-HQ/(12814:12814): Hemos vencido al recibir mensaje
+[INFO] 16:07:12:476 Mi-RAM-HQ/(13161:13161): Creando conexiones
+[INFO] 16:07:12:480 Mi-RAM-HQ/(13161:13161): Servidor listo para recibir al cliente
+[INFO] 16:07:14:850 Mi-RAM-HQ/(13161:13161): A llegado un nuevo cliente
+[INFO] 16:07:14:850 Mi-RAM-HQ/(13161:13161): ENtro a recibir mensaje
+[INFO] 16:07:14:850 Mi-RAM-HQ/(13161:13161): Largo de lista 0
+[INFO] 16:07:20:095 Mi-RAM-HQ/(13161:13161): Largo de lista 4
+[INFO] 16:07:20:095 Mi-RAM-HQ/(13161:13161): op code: -1074145368
+[INFO] 16:07:20:095 Mi-RAM-HQ/(13161:13161): Recibi id_ patota -1074145364
+[INFO] 16:07:20:095 Mi-RAM-HQ/(13161:13161): Recibi cant_tripulantes -1074145360
+[INFO] 16:07:20:096 Mi-RAM-HQ/(13161:13161): Recibi cant_tareas -1074145356
+[INFO] 16:07:20:096 Mi-RAM-HQ/(13161:13161): Hemos vencido al recibir mensaje
+[INFO] 16:18:47:411 Mi-RAM-HQ/(13389:13389): Creando conexiones
+[INFO] 16:18:47:414 Mi-RAM-HQ/(13389:13389): Servidor listo para recibir al cliente
+[INFO] 16:19:23:957 Mi-RAM-HQ/(13389:13389): A llegado un nuevo cliente
+[INFO] 16:19:23:957 Mi-RAM-HQ/(13389:13389): ENtro a recibir mensaje
+[INFO] 16:19:23:957 Mi-RAM-HQ/(13389:13389): Largo de lista 0
+[INFO] 16:19:32:622 Mi-RAM-HQ/(13389:13389): Largo de lista 4
+[INFO] 16:19:32:622 Mi-RAM-HQ/(13389:13389): op code: -1076533176
+[INFO] 16:19:32:622 Mi-RAM-HQ/(13389:13389): Recibi id_ patota -1076533172
+[INFO] 16:19:32:622 Mi-RAM-HQ/(13389:13389): Recibi cant_tripulantes -1076533168
+[INFO] 16:19:32:622 Mi-RAM-HQ/(13389:13389): Recibi cant_tareas -1076533164
+[INFO] 16:19:32:622 Mi-RAM-HQ/(13389:13389): Hemos vencido al recibir mensaje
+[INFO] 16:29:16:434 Mi-RAM-HQ/(13755:13755): Creando conexiones
+[INFO] 16:29:16:438 Mi-RAM-HQ/(13755:13755): Servidor listo para recibir al cliente
+[INFO] 16:29:22:597 Mi-RAM-HQ/(13755:13755): A llegado un nuevo cliente
+[INFO] 16:29:22:598 Mi-RAM-HQ/(13755:13755): ENtro a recibir mensaje
+[INFO] 16:29:22:598 Mi-RAM-HQ/(13755:13755): Largo de lista 0
+[INFO] 16:29:26:568 Mi-RAM-HQ/(13755:13755): Largo de lista 4
+[INFO] 16:29:26:568 Mi-RAM-HQ/(13755:13755): op code: -1075477416
+[INFO] 16:29:26:568 Mi-RAM-HQ/(13755:13755): Recibi id_ patota -1075477412
+[INFO] 16:29:26:568 Mi-RAM-HQ/(13755:13755): Recibi cant_tripulantes -1075477408
+[INFO] 16:29:26:568 Mi-RAM-HQ/(13755:13755): Recibi cant_tareas -1075477404
+[INFO] 16:29:26:568 Mi-RAM-HQ/(13755:13755): Hemos vencido al recibir mensaje
+[INFO] 16:30:04:620 Mi-RAM-HQ/(13871:13871): Creando conexiones
+[INFO] 16:30:04:620 Mi-RAM-HQ/(13871:13871): Servidor listo para recibir al cliente
+[INFO] 16:30:06:494 Mi-RAM-HQ/(13871:13871): A llegado un nuevo cliente
+[INFO] 16:30:06:494 Mi-RAM-HQ/(13871:13871): ENtro a recibir mensaje
+[INFO] 16:30:06:494 Mi-RAM-HQ/(13871:13871): Largo de lista 0
+[INFO] 16:30:11:069 Mi-RAM-HQ/(13871:13871): Largo de lista 4
+[INFO] 16:30:11:069 Mi-RAM-HQ/(13871:13871): op code: -1080484616
+[INFO] 16:30:11:069 Mi-RAM-HQ/(13871:13871): Recibi id_ patota -1080484612
+[INFO] 16:30:11:069 Mi-RAM-HQ/(13871:13871): Recibi cant_tripulantes -1080484608
+[INFO] 16:30:11:069 Mi-RAM-HQ/(13871:13871): Recibi cant_tareas -1080484604
+[INFO] 16:30:11:069 Mi-RAM-HQ/(13871:13871): Hemos vencido al recibir mensaje
+[INFO] 16:34:22:011 Mi-RAM-HQ/(14061:14061): Creando conexiones
+[INFO] 16:34:22:015 Mi-RAM-HQ/(14061:14061): Servidor listo para recibir al cliente
+[INFO] 16:34:28:182 Mi-RAM-HQ/(14061:14061): A llegado un nuevo cliente
+[INFO] 16:34:28:182 Mi-RAM-HQ/(14061:14061): ENtro a recibir mensaje
+[INFO] 16:34:28:183 Mi-RAM-HQ/(14061:14061): Largo de lista 0
+[INFO] 16:34:32:144 Mi-RAM-HQ/(14061:14061): Largo de lista 4
+[INFO] 16:34:32:145 Mi-RAM-HQ/(14061:14061): op code: -1081052088
+[INFO] 16:34:32:145 Mi-RAM-HQ/(14061:14061): Recibi id_ patota -1081052084
+[INFO] 16:34:32:145 Mi-RAM-HQ/(14061:14061): Recibi cant_tripulantes -1081052080
+[INFO] 16:34:32:145 Mi-RAM-HQ/(14061:14061): Recibi cant_tareas -1081052076
+[INFO] 16:34:32:145 Mi-RAM-HQ/(14061:14061): Hemos vencido al recibir mensaje
+[INFO] 16:38:37:083 Mi-RAM-HQ/(14454:14454): Creando conexiones
+[INFO] 16:38:37:086 Mi-RAM-HQ/(14454:14454): Servidor listo para recibir al cliente
+[INFO] 16:38:39:194 Mi-RAM-HQ/(14454:14454): A llegado un nuevo cliente
+[INFO] 16:38:39:195 Mi-RAM-HQ/(14454:14454): ENtro a recibir mensaje
+[INFO] 16:38:39:195 Mi-RAM-HQ/(14454:14454): Largo de lista 0
+[INFO] 16:38:43:645 Mi-RAM-HQ/(14454:14454): Largo de lista 4
+[INFO] 16:38:43:646 Mi-RAM-HQ/(14454:14454): op code: -1074051208
+[INFO] 16:38:43:646 Mi-RAM-HQ/(14454:14454): Recibi id_ patota -1074051204
+[INFO] 16:38:43:646 Mi-RAM-HQ/(14454:14454): Recibi cant_tripulantes -1074051200
+[INFO] 16:38:43:646 Mi-RAM-HQ/(14454:14454): Recibi cant_tareas -1074051196
+[INFO] 16:38:43:646 Mi-RAM-HQ/(14454:14454): Hemos vencido al recibir mensaje
+[INFO] 16:47:43:706 Mi-RAM-HQ/(15031:15031): Creando conexiones
+[INFO] 16:47:43:711 Mi-RAM-HQ/(15031:15031): Servidor listo para recibir al cliente
+[INFO] 16:47:48:533 Mi-RAM-HQ/(15031:15031): A llegado un nuevo cliente
+[INFO] 16:47:48:533 Mi-RAM-HQ/(15031:15031): ENtro a recibir mensaje
+[INFO] 16:47:52:251 Mi-RAM-HQ/(15031:15031): Largo de lista 4
+[INFO] 16:47:52:251 Mi-RAM-HQ/(15031:15031): op code: -1080699336
+[INFO] 16:47:52:251 Mi-RAM-HQ/(15031:15031): Recibi id_ patota -1080699332
+[INFO] 16:47:52:251 Mi-RAM-HQ/(15031:15031): Recibi cant_tripulantes -1080699328
+[INFO] 16:47:52:251 Mi-RAM-HQ/(15031:15031): Recibi cant_tareas -1080699324
+[WARNING] 16:47:52:251 Mi-RAM-HQ/(15031:15031): Operacion desconocida. No quieras meter la pata
+[INFO] 11:06:57:266 Mi-RAM-HQ/(2583:2583): Creando conexiones
+[INFO] 11:06:57:296 Mi-RAM-HQ/(2583:2583): Servidor listo para recibir al cliente
+[INFO] 11:07:13:670 Mi-RAM-HQ/(2583:2583): A llegado un nuevo cliente
+[INFO] 11:07:13:670 Mi-RAM-HQ/(2583:2583): ENtro a recibir mensaje
+[INFO] 11:07:20:492 Mi-RAM-HQ/(2583:2583): Largo de lista 4
+[INFO] 11:07:20:492 Mi-RAM-HQ/(2583:2583): op code: -1077427992
+[INFO] 11:07:20:492 Mi-RAM-HQ/(2583:2583): Recibi id_ patota -1077427988
+[INFO] 11:07:20:492 Mi-RAM-HQ/(2583:2583): Recibi cant_tripulantes -1077427984
+[INFO] 11:07:20:492 Mi-RAM-HQ/(2583:2583): Recibi cant_tareas -1077427980
+[WARNING] 11:07:20:492 Mi-RAM-HQ/(2583:2583): Operacion desconocida. No quieras meter la pata
+[INFO] 11:10:54:850 Mi-RAM-HQ/(2795:2795): Creando conexiones
+[INFO] 11:10:54:854 Mi-RAM-HQ/(2795:2795): Servidor listo para recibir al cliente
+[INFO] 11:10:58:142 Mi-RAM-HQ/(2795:2795): A llegado un nuevo cliente
+[INFO] 11:10:58:142 Mi-RAM-HQ/(2795:2795): ENtro a recibir mensaje
+[INFO] 11:11:03:305 Mi-RAM-HQ/(2795:2795): Largo de lista 4
+[INFO] 11:11:03:305 Mi-RAM-HQ/(2795:2795): op code: -1078281992
+[INFO] 11:11:03:305 Mi-RAM-HQ/(2795:2795): Recibi id_ patota -1078281988
+[INFO] 11:11:03:305 Mi-RAM-HQ/(2795:2795): Recibi cant_tripulantes -1078281984
+[INFO] 11:11:03:305 Mi-RAM-HQ/(2795:2795): Recibi cant_tareas -1078281980
+[WARNING] 11:11:03:305 Mi-RAM-HQ/(2795:2795): Operacion desconocida. No quieras meter la pata
+[INFO] 11:12:46:110 Mi-RAM-HQ/(2898:2898): Creando conexiones
+[INFO] 11:12:46:114 Mi-RAM-HQ/(2898:2898): Servidor listo para recibir al cliente
+[INFO] 11:12:51:061 Mi-RAM-HQ/(2898:2898): A llegado un nuevo cliente
+[INFO] 11:12:51:061 Mi-RAM-HQ/(2898:2898): ENtro a recibir mensaje
+[INFO] 11:12:57:940 Mi-RAM-HQ/(2898:2898): Largo de lista 4
+[INFO] 11:12:57:940 Mi-RAM-HQ/(2898:2898): op code: -1082050024
+[INFO] 11:12:57:940 Mi-RAM-HQ/(2898:2898): Recibi id_ patota -1082050020
+[INFO] 11:12:57:940 Mi-RAM-HQ/(2898:2898): Recibi cant_tripulantes -1082050016
+[INFO] 11:12:57:940 Mi-RAM-HQ/(2898:2898): Recibi cant_tareas -1082050012
+[WARNING] 11:12:57:940 Mi-RAM-HQ/(2898:2898): Operacion desconocida. No quieras meter la pata
+[INFO] 11:16:07:214 Mi-RAM-HQ/(3011:3011): Creando conexiones
+[INFO] 11:16:07:215 Mi-RAM-HQ/(3011:3011): Servidor listo para recibir al cliente
+[INFO] 11:16:33:648 Mi-RAM-HQ/(3011:3011): A llegado un nuevo cliente
+[INFO] 11:16:33:648 Mi-RAM-HQ/(3011:3011): ENtro a recibir mensaje
+[INFO] 11:16:38:241 Mi-RAM-HQ/(3011:3011): Largo de lista 4
+[INFO] 11:16:38:241 Mi-RAM-HQ/(3011:3011): op code: -1080886136
+[INFO] 11:16:38:241 Mi-RAM-HQ/(3011:3011): Recibi id_ patota -1080886132
+[INFO] 11:16:38:241 Mi-RAM-HQ/(3011:3011): Recibi cant_tripulantes -1080886128
+[INFO] 11:16:38:241 Mi-RAM-HQ/(3011:3011): Recibi cant_tareas -1080886124
+[WARNING] 11:16:38:241 Mi-RAM-HQ/(3011:3011): Operacion desconocida. No quieras meter la pata
+[INFO] 11:17:56:540 Mi-RAM-HQ/(3207:3207): Creando conexiones
+[INFO] 11:17:56:543 Mi-RAM-HQ/(3207:3207): Servidor listo para recibir al cliente
+[INFO] 11:18:00:898 Mi-RAM-HQ/(3207:3207): A llegado un nuevo cliente
+[INFO] 11:18:00:898 Mi-RAM-HQ/(3207:3207): ENtro a recibir mensaje
+[INFO] 11:18:04:984 Mi-RAM-HQ/(3207:3207): Largo de lista 4
+[INFO] 11:18:04:984 Mi-RAM-HQ/(3207:3207): op code: -1076479688
+[INFO] 11:18:04:985 Mi-RAM-HQ/(3207:3207): Recibi id_ patota -1076479684
+[INFO] 11:18:04:985 Mi-RAM-HQ/(3207:3207): Recibi cant_tripulantes -1076479680
+[INFO] 11:18:04:985 Mi-RAM-HQ/(3207:3207): Recibi cant_tareas -1076479676
+[WARNING] 11:18:04:985 Mi-RAM-HQ/(3207:3207): Operacion desconocida. No quieras meter la pata
+[INFO] 11:27:42:929 Mi-RAM-HQ/(3493:3493): Creando conexiones
+[INFO] 11:27:42:933 Mi-RAM-HQ/(3493:3493): Servidor listo para recibir al cliente
+[INFO] 11:27:48:806 Mi-RAM-HQ/(3493:3493): A llegado un nuevo cliente
+[INFO] 11:27:48:806 Mi-RAM-HQ/(3493:3493): ENtro a recibir mensaje
+[INFO] 11:27:53:687 Mi-RAM-HQ/(3493:3493): Largo de lista 4
+[INFO] 11:27:53:688 Mi-RAM-HQ/(3493:3493): op code: -1078239624
+[INFO] 11:27:53:688 Mi-RAM-HQ/(3493:3493): Recibi id_ patota -1078239620
+[INFO] 11:27:53:688 Mi-RAM-HQ/(3493:3493): Recibi cant_tripulantes -1078239616
+[INFO] 11:27:53:688 Mi-RAM-HQ/(3493:3493): Recibi cant_tareas -1078239612
+[WARNING] 11:27:53:688 Mi-RAM-HQ/(3493:3493): Operacion desconocida. No quieras meter la pata
+[INFO] 11:28:28:718 Mi-RAM-HQ/(4076:4076): Creando conexiones
+[INFO] 11:28:28:722 Mi-RAM-HQ/(4076:4076): Servidor listo para recibir al cliente
+[INFO] 11:28:31:248 Mi-RAM-HQ/(4076:4076): A llegado un nuevo cliente
+[INFO] 11:28:31:248 Mi-RAM-HQ/(4076:4076): ENtro a recibir mensaje
+[INFO] 11:28:39:848 Mi-RAM-HQ/(4076:4076): Largo de lista 4
+[INFO] 11:28:39:849 Mi-RAM-HQ/(4076:4076): op code: -1078123896
+[INFO] 11:28:39:849 Mi-RAM-HQ/(4076:4076): Recibi id_ patota -1078123892
+[INFO] 11:28:39:849 Mi-RAM-HQ/(4076:4076): Recibi cant_tripulantes -1078123888
+[INFO] 11:28:39:849 Mi-RAM-HQ/(4076:4076): Recibi cant_tareas -1078123884
+[WARNING] 11:28:39:849 Mi-RAM-HQ/(4076:4076): Operacion desconocida. No quieras meter la pata
+[INFO] 11:29:31:278 Mi-RAM-HQ/(4245:4245): Creando conexiones
+[INFO] 11:29:31:282 Mi-RAM-HQ/(4245:4245): Servidor listo para recibir al cliente
+[INFO] 11:29:37:329 Mi-RAM-HQ/(4245:4245): A llegado un nuevo cliente
+[INFO] 11:29:37:329 Mi-RAM-HQ/(4245:4245): ENtro a recibir mensaje
+[INFO] 11:29:41:322 Mi-RAM-HQ/(4245:4245): Largo de lista 4
+[INFO] 11:29:41:322 Mi-RAM-HQ/(4245:4245): op code: -1081947240
+[INFO] 11:29:41:322 Mi-RAM-HQ/(4245:4245): Recibi id_ patota -1081947236
+[INFO] 11:29:41:322 Mi-RAM-HQ/(4245:4245): Recibi cant_tripulantes -1081947232
+[INFO] 11:29:41:322 Mi-RAM-HQ/(4245:4245): Recibi cant_tareas -1081947228
+[WARNING] 11:29:41:322 Mi-RAM-HQ/(4245:4245): Operacion desconocida. No quieras meter la pata
+[INFO] 11:30:56:806 Mi-RAM-HQ/(4608:4608): Creando conexiones
+[INFO] 11:30:56:809 Mi-RAM-HQ/(4608:4608): Servidor listo para recibir al cliente
+[INFO] 11:30:59:985 Mi-RAM-HQ/(4608:4608): A llegado un nuevo cliente
+[INFO] 11:30:59:985 Mi-RAM-HQ/(4608:4608): ENtro a recibir mensaje
+[INFO] 11:31:03:958 Mi-RAM-HQ/(4608:4608): Largo de lista 4
+[INFO] 11:31:03:958 Mi-RAM-HQ/(4608:4608): op code: -1077048552
+[INFO] 11:31:03:958 Mi-RAM-HQ/(4608:4608): Recibi id_ patota -1077048548
+[INFO] 11:31:03:958 Mi-RAM-HQ/(4608:4608): Recibi cant_tripulantes -1077048544
+[INFO] 11:31:03:958 Mi-RAM-HQ/(4608:4608): Recibi cant_tareas -1077048540
+[WARNING] 11:31:03:958 Mi-RAM-HQ/(4608:4608): Operacion desconocida. No quieras meter la pata
+[INFO] 11:35:41:438 Mi-RAM-HQ/(4774:4774): Creando conexiones
+[INFO] 11:35:41:442 Mi-RAM-HQ/(4774:4774): Servidor listo para recibir al cliente
+[INFO] 11:35:46:330 Mi-RAM-HQ/(4774:4774): A llegado un nuevo cliente
+[INFO] 11:35:46:331 Mi-RAM-HQ/(4774:4774): ENtro a recibir mensaje
+[INFO] 11:35:50:113 Mi-RAM-HQ/(4774:4774): Largo de lista 4
+[INFO] 11:35:50:113 Mi-RAM-HQ/(4774:4774): op code: -1078982392
+[INFO] 11:35:50:113 Mi-RAM-HQ/(4774:4774): Recibi id_ patota -1078982388
+[INFO] 11:35:50:113 Mi-RAM-HQ/(4774:4774): Recibi cant_tripulantes -1078982384
+[INFO] 11:35:50:113 Mi-RAM-HQ/(4774:4774): Recibi cant_tareas -1078982380
+[WARNING] 11:35:50:113 Mi-RAM-HQ/(4774:4774): Operacion desconocida. No quieras meter la pata
+[INFO] 11:38:16:653 Mi-RAM-HQ/(4978:4978): Creando conexiones
+[INFO] 11:38:16:657 Mi-RAM-HQ/(4978:4978): Servidor listo para recibir al cliente
+[INFO] 11:38:22:188 Mi-RAM-HQ/(4978:4978): A llegado un nuevo cliente
+[INFO] 11:38:22:188 Mi-RAM-HQ/(4978:4978): ENtro a recibir mensaje
+[INFO] 11:38:25:875 Mi-RAM-HQ/(4978:4978): Largo de lista 4
+[INFO] 11:38:25:876 Mi-RAM-HQ/(4978:4978): op code: 149614992
+[INFO] 11:38:25:876 Mi-RAM-HQ/(4978:4978): Recibi id_ patota 1
+[INFO] 11:38:25:876 Mi-RAM-HQ/(4978:4978): Recibi cant_tripulantes -1704969031
+[INFO] 11:38:25:876 Mi-RAM-HQ/(4978:4978): Recibi cant_tareas 1089071551
+[WARNING] 11:38:25:876 Mi-RAM-HQ/(4978:4978): Operacion desconocida. No quieras meter la pata
+[INFO] 11:42:28:324 Mi-RAM-HQ/(5182:5182): Creando conexiones
+[INFO] 11:42:28:328 Mi-RAM-HQ/(5182:5182): Servidor listo para recibir al cliente
+[INFO] 11:42:35:200 Mi-RAM-HQ/(5182:5182): A llegado un nuevo cliente
+[INFO] 11:42:35:200 Mi-RAM-HQ/(5182:5182): ENtro a recibir mensaje
+[INFO] 11:42:42:186 Mi-RAM-HQ/(5182:5182): Largo de lista 1
+[INFO] 11:42:42:186 Mi-RAM-HQ/(5182:5182): op code: 137339280
+[INFO] 11:42:47:277 Mi-RAM-HQ/(5274:5274): Creando conexiones
+[INFO] 11:42:47:281 Mi-RAM-HQ/(5274:5274): Servidor listo para recibir al cliente
+[INFO] 11:42:49:764 Mi-RAM-HQ/(5274:5274): A llegado un nuevo cliente
+[INFO] 11:42:49:764 Mi-RAM-HQ/(5274:5274): ENtro a recibir mensaje
+[INFO] 11:42:55:110 Mi-RAM-HQ/(5274:5274): Largo de lista 4
+[INFO] 11:42:55:110 Mi-RAM-HQ/(5274:5274): op code: 153018768
+[INFO] 11:42:55:110 Mi-RAM-HQ/(5274:5274): Recibi id_ patota 1
+[INFO] 11:42:55:110 Mi-RAM-HQ/(5274:5274): Recibi cant_tripulantes -1289540423
+[INFO] 11:42:55:110 Mi-RAM-HQ/(5274:5274): Recibi cant_tareas -570824257
+[WARNING] 11:42:55:110 Mi-RAM-HQ/(5274:5274): Operacion desconocida. No quieras meter la pata
+[INFO] 11:44:06:524 Mi-RAM-HQ/(5389:5389): Creando conexiones
+[INFO] 11:44:06:528 Mi-RAM-HQ/(5389:5389): Servidor listo para recibir al cliente
+[INFO] 11:44:10:936 Mi-RAM-HQ/(5389:5389): A llegado un nuevo cliente
+[INFO] 11:44:10:936 Mi-RAM-HQ/(5389:5389): ENtro a recibir mensaje
+[INFO] 11:44:16:825 Mi-RAM-HQ/(5389:5389): Largo de lista 4
+[INFO] 11:44:16:825 Mi-RAM-HQ/(5389:5389): op code: 136483216
+[INFO] 11:44:16:825 Mi-RAM-HQ/(5389:5389): Recibi id_ patota 1
+[INFO] 11:44:16:825 Mi-RAM-HQ/(5389:5389): Recibi cant_tripulantes -910934855
+[INFO] 11:44:16:825 Mi-RAM-HQ/(5389:5389): Recibi cant_tareas 1290398143
+[INFO] 11:44:16:825 Mi-RAM-HQ/(5389:5389): Y el verdadero op_code es... 136483216
+[WARNING] 11:44:16:825 Mi-RAM-HQ/(5389:5389): Operacion desconocida. No quieras meter la pata
+[INFO] 11:48:24:039 Mi-RAM-HQ/(5713:5713): Creando conexiones
+[INFO] 11:48:24:043 Mi-RAM-HQ/(5713:5713): Servidor listo para recibir al cliente
+[INFO] 11:48:31:878 Mi-RAM-HQ/(5713:5713): A llegado un nuevo cliente
+[INFO] 11:48:31:878 Mi-RAM-HQ/(5713:5713): ENtro a recibir mensaje
+[INFO] 11:48:36:724 Mi-RAM-HQ/(5713:5713): Largo de lista 4
+[INFO] 11:49:56:081 Mi-RAM-HQ/(5920:5920): Creando conexiones
+[INFO] 11:49:56:085 Mi-RAM-HQ/(5920:5920): Servidor listo para recibir al cliente
+[INFO] 11:50:01:872 Mi-RAM-HQ/(5920:5920): A llegado un nuevo cliente
+[INFO] 11:50:01:872 Mi-RAM-HQ/(5920:5920): ENtro a recibir mensaje
+[INFO] 11:50:05:737 Mi-RAM-HQ/(5920:5920): Largo de lista 4
+[INFO] 11:50:05:737 Mi-RAM-HQ/(5920:5920): op code: 0
+[INFO] 11:50:37:752 Mi-RAM-HQ/(6110:6110): Creando conexiones
+[INFO] 11:50:37:755 Mi-RAM-HQ/(6110:6110): Servidor listo para recibir al cliente
+[INFO] 11:50:42:675 Mi-RAM-HQ/(6110:6110): A llegado un nuevo cliente
+[INFO] 11:50:42:675 Mi-RAM-HQ/(6110:6110): ENtro a recibir mensaje
+[INFO] 11:50:47:557 Mi-RAM-HQ/(6110:6110): Largo de lista 4
+[INFO] 11:50:47:557 Mi-RAM-HQ/(6110:6110): op code: 0
+[INFO] 11:50:47:557 Mi-RAM-HQ/(6110:6110): Recibi id_ patota 6
+[INFO] 11:50:47:557 Mi-RAM-HQ/(6110:6110): Recibi cant_tripulantes 2
+[INFO] 11:50:47:557 Mi-RAM-HQ/(6110:6110): Recibi cant_tareas 7
+[INFO] 11:50:47:557 Mi-RAM-HQ/(6110:6110): Hemos vencido al recibir mensaje
+[INFO] 12:11:54:978 Mi-RAM-HQ/(6462:6462): Creando conexiones
+[INFO] 12:11:54:978 Mi-RAM-HQ/(6462:6462): Servidor listo para recibir al cliente
+[INFO] 12:12:02:519 Mi-RAM-HQ/(6462:6462): A llegado un nuevo cliente
+[INFO] 12:12:02:520 Mi-RAM-HQ/(6462:6462): ENtro a recibir mensaje
+[INFO] 12:12:07:340 Mi-RAM-HQ/(6462:6462): Largo de lista 4
+[INFO] 12:12:07:340 Mi-RAM-HQ/(6462:6462): op code: 0
+[INFO] 12:12:07:340 Mi-RAM-HQ/(6462:6462): Recibi id_ patota 6
+[INFO] 12:12:07:340 Mi-RAM-HQ/(6462:6462): Recibi cant_tripulantes 2
+[INFO] 12:12:07:340 Mi-RAM-HQ/(6462:6462): Recibi cant_tareas 7
+[INFO] 12:12:07:340 Mi-RAM-HQ/(6462:6462): Hemos vencido al recibir mensaje
+[INFO] 12:14:46:467 Mi-RAM-HQ/(6667:6667): Creando conexiones
+[INFO] 12:14:46:470 Mi-RAM-HQ/(6667:6667): Servidor listo para recibir al cliente
+[INFO] 12:14:53:400 Mi-RAM-HQ/(6667:6667): A llegado un nuevo cliente
+[INFO] 12:14:53:400 Mi-RAM-HQ/(6667:6667): ENtro a recibir mensaje
+[INFO] 12:14:59:864 Mi-RAM-HQ/(6667:6667): Largo de lista 4
+[INFO] 12:14:59:864 Mi-RAM-HQ/(6667:6667): op code: 0
+[INFO] 12:14:59:864 Mi-RAM-HQ/(6667:6667): Recibi id_ patota 6
+[INFO] 12:14:59:864 Mi-RAM-HQ/(6667:6667): Recibi cant_tripulantes 2
+[INFO] 12:14:59:864 Mi-RAM-HQ/(6667:6667): Recibi cant_tareas 7
+[INFO] 12:14:59:864 Mi-RAM-HQ/(6667:6667): Hemos vencido al recibir mensaje
+[INFO] 12:18:04:235 Mi-RAM-HQ/(6924:6924): Creando conexiones
+[INFO] 12:18:04:239 Mi-RAM-HQ/(6924:6924): Servidor listo para recibir al cliente
+[INFO] 12:18:13:752 Mi-RAM-HQ/(6924:6924): A llegado un nuevo cliente
+[INFO] 12:18:13:752 Mi-RAM-HQ/(6924:6924): ENtro a recibir mensaje
+[INFO] 12:18:26:933 Mi-RAM-HQ/(6924:6924): Largo de lista 4
+[INFO] 12:18:26:934 Mi-RAM-HQ/(6924:6924): op code: 0
+[INFO] 12:18:26:934 Mi-RAM-HQ/(6924:6924): Recibi id_ patota 6
+[INFO] 12:18:26:934 Mi-RAM-HQ/(6924:6924): Recibi cant_tripulantes 2
+[INFO] 12:18:26:934 Mi-RAM-HQ/(6924:6924): Recibi cant_tareas 7
+[INFO] 12:18:26:934 Mi-RAM-HQ/(6924:6924): Hemos vencido al recibir mensaje
+[INFO] 12:24:27:261 Mi-RAM-HQ/(7207:7207): Creando conexiones
+[INFO] 12:24:27:264 Mi-RAM-HQ/(7207:7207): Servidor listo para recibir al cliente
+[INFO] 12:24:32:568 Mi-RAM-HQ/(7207:7207): A llegado un nuevo cliente
+[INFO] 12:24:32:568 Mi-RAM-HQ/(7207:7207): Entro a recibir mensaje
+[INFO] 12:24:42:653 Mi-RAM-HQ/(7207:7207): Largo de lista 4
+[INFO] 12:24:42:653 Mi-RAM-HQ/(7207:7207): op code: 0
+[INFO] 12:24:42:654 Mi-RAM-HQ/(7207:7207): Recibi id_ patota 6
+[INFO] 12:24:42:654 Mi-RAM-HQ/(7207:7207): Recibi cant_tripulantes 2
+[INFO] 12:24:42:654 Mi-RAM-HQ/(7207:7207): Recibi cant_tareas 2
+[INFO] 12:24:42:654 Mi-RAM-HQ/(7207:7207): Hemos vencido al recibir mensaje
+[INFO] 12:27:40:454 Mi-RAM-HQ/(7476:7476): Creando conexiones
+[INFO] 12:27:40:454 Mi-RAM-HQ/(7476:7476): Servidor listo para recibir al cliente
+[INFO] 12:27:45:388 Mi-RAM-HQ/(7476:7476): A llegado un nuevo cliente
+[INFO] 12:27:45:388 Mi-RAM-HQ/(7476:7476): Entro a recibir mensaje
+[INFO] 12:27:57:128 Mi-RAM-HQ/(7476:7476): Largo de lista 6
+[INFO] 12:27:57:128 Mi-RAM-HQ/(7476:7476): op code: 0
+[INFO] 12:27:57:128 Mi-RAM-HQ/(7476:7476): Recibi id_ patota 6
+[INFO] 12:27:57:128 Mi-RAM-HQ/(7476:7476): Recibi cant_tripulantes 2
+[INFO] 12:27:57:128 Mi-RAM-HQ/(7476:7476): Recibi cant_tareas 2
+[INFO] 12:27:57:128 Mi-RAM-HQ/(7476:7476): Tarea 1: iniciar_patota 12345678910
+[INFO] 12:27:57:128 Mi-RAM-HQ/(7476:7476): Y el verdadero op_code es... 156173104
+[INFO] 12:27:57:128 Mi-RAM-HQ/(7476:7476): Hemos vencido al recibir mensaje
+[INFO] 12:28:47:872 Mi-RAM-HQ/(7681:7681): Creando conexiones
+[INFO] 12:28:47:875 Mi-RAM-HQ/(7681:7681): Servidor listo para recibir al cliente
+[INFO] 12:28:52:773 Mi-RAM-HQ/(7681:7681): A llegado un nuevo cliente
+[INFO] 12:28:52:773 Mi-RAM-HQ/(7681:7681): Entro a recibir mensaje
+[INFO] 12:28:57:914 Mi-RAM-HQ/(7681:7681): Largo de lista 1
+[INFO] 12:28:57:914 Mi-RAM-HQ/(7681:7681): op code: 16777343
+[INFO] 12:29:02:457 Mi-RAM-HQ/(7685:7685): Creando conexiones
+[INFO] 12:29:02:461 Mi-RAM-HQ/(7685:7685): Servidor listo para recibir al cliente
+[INFO] 12:29:04:522 Mi-RAM-HQ/(7685:7685): A llegado un nuevo cliente
+[INFO] 12:29:04:522 Mi-RAM-HQ/(7685:7685): Entro a recibir mensaje
+[INFO] 12:29:10:759 Mi-RAM-HQ/(7685:7685): Largo de lista 6
+[INFO] 12:29:10:759 Mi-RAM-HQ/(7685:7685): op code: 0
+[INFO] 12:29:10:759 Mi-RAM-HQ/(7685:7685): Recibi id_ patota 6
+[INFO] 12:29:10:759 Mi-RAM-HQ/(7685:7685): Recibi cant_tripulantes 2
+[INFO] 12:29:10:759 Mi-RAM-HQ/(7685:7685): Recibi cant_tareas 2
+[INFO] 12:29:10:759 Mi-RAM-HQ/(7685:7685): Tarea 1: iniciar_patota 123
+[INFO] 12:29:10:759 Mi-RAM-HQ/(7685:7685): Tarea 2: iniciar_patota 123
+[INFO] 12:29:10:759 Mi-RAM-HQ/(7685:7685): Hemos vencido al recibir mensaje
+[INFO] 12:34:17:365 Mi-RAM-HQ/(7856:7856): Creando conexiones
+[INFO] 12:34:17:369 Mi-RAM-HQ/(7856:7856): Servidor listo para recibir al cliente
+[INFO] 12:34:22:757 Mi-RAM-HQ/(7856:7856): Ha llegado un nuevo cliente
+[INFO] 12:34:22:758 Mi-RAM-HQ/(7856:7856): Entro a recibir mensaje
+[INFO] 12:34:28:720 Mi-RAM-HQ/(7856:7856): Largo de lista 6
+[INFO] 12:34:28:720 Mi-RAM-HQ/(7856:7856): op code: 0
+[INFO] 12:34:28:720 Mi-RAM-HQ/(7856:7856): Recibi id_ patota 6
+[INFO] 12:34:28:720 Mi-RAM-HQ/(7856:7856): Recibi cant_tripulantes 2
+[INFO] 12:34:28:720 Mi-RAM-HQ/(7856:7856): Recibi cant_tareas 2
+[INFO] 12:34:28:720 Mi-RAM-HQ/(7856:7856): Tarea 1: iniciar_patota 123
+[INFO] 12:34:28:720 Mi-RAM-HQ/(7856:7856): Tarea 2: iniciar_patota 123
+[INFO] 12:34:28:720 Mi-RAM-HQ/(7856:7856): Hemos vencido al recibir mensaje

@@ -1,0 +1,881 @@
+[INFO] 23:35:35:547 DISCORDIADOR/(4573:4573): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 23:36:35:060 DISCORDIADOR/(4675:4675): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 23:36:43:059 DISCORDIADOR/(4675:4675): sobrevivi al crear_mensaje
+[INFO] 11:44:04:667 DISCORDIADOR/(2587:2587): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 11:44:25:168 DISCORDIADOR/(2587:2587): sobrevivi al crear_mensaje
+[INFO] 11:44:25:168 DISCORDIADOR/(2587:2587): case: ENTERO
+[INFO] 11:44:25:168 DISCORDIADOR/(2587:2587): Pase realloc
+[INFO] 11:44:25:168 DISCORDIADOR/(2587:2587): memcpy del valor
+[INFO] 11:45:32:975 DISCORDIADOR/(2753:2753): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 11:45:40:920 DISCORDIADOR/(2753:2753): sobrevivi al crear_mensaje
+[INFO] 11:45:40:920 DISCORDIADOR/(2753:2753): case: ENTERO
+[INFO] 11:45:40:920 DISCORDIADOR/(2753:2753): Pase realloc
+[INFO] 11:45:40:920 DISCORDIADOR/(2753:2753): memcpy del valor
+[INFO] 11:52:56:431 DISCORDIADOR/(2915:2915): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 11:53:00:931 DISCORDIADOR/(2915:2915): sobrevivi al crear_mensaje
+[INFO] 11:53:00:931 DISCORDIADOR/(2915:2915): case: ENTERO
+[INFO] 11:53:00:931 DISCORDIADOR/(2915:2915): Pase realloc, 1
+[INFO] 11:53:00:931 DISCORDIADOR/(2915:2915): memcpy del valor: tamanio = 4
+[INFO] 11:54:02:411 DISCORDIADOR/(3075:3075): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 11:54:06:789 DISCORDIADOR/(3075:3075): sobrevivi al crear_mensaje
+[INFO] 11:54:06:789 DISCORDIADOR/(3075:3075): case: ENTERO tamanio = 0
+[INFO] 11:54:06:789 DISCORDIADOR/(3075:3075): Pase realloc, 1
+[INFO] 11:54:06:789 DISCORDIADOR/(3075:3075): memcpy del valor: tamanio = 4
+[INFO] 11:54:38:611 DISCORDIADOR/(3221:3221): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 11:54:42:253 DISCORDIADOR/(3221:3221): sobrevivi al crear_mensaje
+[INFO] 11:54:42:253 DISCORDIADOR/(3221:3221): case: ENTERO tamanio = 0
+[INFO] 11:54:42:253 DISCORDIADOR/(3221:3221): Pase realloc, 4
+[INFO] 11:54:42:253 DISCORDIADOR/(3221:3221): memcpy del valor: tamanio = 4
+[INFO] 11:56:24:276 DISCORDIADOR/(3367:3367): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 11:56:29:465 DISCORDIADOR/(3367:3367): sobrevivi al crear_mensaje
+[INFO] 11:56:29:465 DISCORDIADOR/(3367:3367): case: ENTERO tamanio = 0, contenido = 1
+[INFO] 11:56:29:465 DISCORDIADOR/(3367:3367): Pase realloc, 1
+[INFO] 11:56:29:465 DISCORDIADOR/(3367:3367): memcpy del valor: tamanio = 4
+[INFO] 12:00:23:036 DISCORDIADOR/(3526:3526): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 12:00:28:075 DISCORDIADOR/(3526:3526): sobrevivi al crear_mensaje
+[INFO] 12:00:28:075 DISCORDIADOR/(3526:3526): case: ENTERO tamanio = 0/4, contenido = 1
+[INFO] 12:00:28:075 DISCORDIADOR/(3526:3526): Pase realloc, 1
+[INFO] 12:00:28:075 DISCORDIADOR/(3526:3526): memcpy del valor: tamanio = 4
+[INFO] 12:01:18:146 DISCORDIADOR/(3672:3672): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 12:01:22:811 DISCORDIADOR/(3672:3672): sobrevivi al crear_mensaje
+[INFO] 12:01:22:811 DISCORDIADOR/(3672:3672): case: ENTERO tamanio = 0/4, contenido = 1
+[INFO] 12:04:26:721 DISCORDIADOR/(3832:3832): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 12:04:31:103 DISCORDIADOR/(3832:3832): sobrevivi al crear_mensaje
+[INFO] 12:04:31:103 DISCORDIADOR/(3832:3832): case: ENTERO tamanio = 0/1, contenido = 137691832
+[INFO] 12:04:31:103 DISCORDIADOR/(3832:3832): Pase realloc, 1
+[INFO] 12:04:31:103 DISCORDIADOR/(3832:3832): memcpy del valor: tamanio = 4
+[INFO] 12:04:31:103 DISCORDIADOR/(3832:3832): break
+[INFO] 12:04:31:103 DISCORDIADOR/(3832:3832): Agregue parametro 0: 
+[INFO] 12:04:31:103 DISCORDIADOR/(3832:3832): agregar_parametro_a_mensaje
+[INFO] 12:06:06:964 DISCORDIADOR/(3978:3978): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 12:06:11:828 DISCORDIADOR/(3978:3978): sobrevivi al crear_mensaje
+[INFO] 12:06:11:828 DISCORDIADOR/(3978:3978): case: ENTERO tamanio = 0/1, contenido = 162812600
+[INFO] 12:06:11:828 DISCORDIADOR/(3978:3978): Pase realloc, 1
+[INFO] 12:06:11:828 DISCORDIADOR/(3978:3978): memcpy del valor: tamanio = 4
+[INFO] 12:06:11:828 DISCORDIADOR/(3978:3978): break
+[INFO] 12:06:11:828 DISCORDIADOR/(3978:3978): Agregue parametro 0: 
+[INFO] 12:06:11:828 DISCORDIADOR/(3978:3978): agregar_parametro_a_mensaje
+[INFO] 12:08:25:472 DISCORDIADOR/(4138:4138): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 12:08:29:318 DISCORDIADOR/(4138:4138): sobrevivi al crear_mensaje
+[INFO] 12:08:29:318 DISCORDIADOR/(4138:4138): case: ENTERO tamanio = 0/1, contenido = 165532344
+[INFO] 12:08:29:319 DISCORDIADOR/(4138:4138): Pase realloc, 1
+[INFO] 12:08:29:319 DISCORDIADOR/(4138:4138): memcpy del valor: tamanio = 4
+[INFO] 12:08:29:319 DISCORDIADOR/(4138:4138): break
+[INFO] 12:08:29:319 DISCORDIADOR/(4138:4138): agregar_parametro_a_mensaje 165532376
+[INFO] 12:10:52:403 DISCORDIADOR/(4239:4239): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 12:10:56:247 DISCORDIADOR/(4239:4239): sobrevivi al crear_mensaje
+[INFO] 12:10:56:249 DISCORDIADOR/(4239:4239): case: ENTERO tamanio = 0/1, contenido = 155198136
+[INFO] 12:10:56:250 DISCORDIADOR/(4239:4239): Pase realloc, 1
+[INFO] 12:10:56:250 DISCORDIADOR/(4239:4239): memcpy del valor: tamanio = 4
+[INFO] 12:10:56:250 DISCORDIADOR/(4239:4239): break
+[INFO] 12:10:56:250 DISCORDIADOR/(4239:4239): agregar_parametro_a_mensaje 155219984
+[INFO] 12:21:56:778 DISCORDIADOR/(4428:4428): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 12:22:01:380 DISCORDIADOR/(4428:4428): sobrevivi al crear_mensaje
+[INFO] 12:22:01:380 DISCORDIADOR/(4428:4428): case: ENTERO tamanio = 0/1, contenido = 155996856
+[INFO] 12:22:01:380 DISCORDIADOR/(4428:4428): Pase realloc, 1
+[INFO] 12:22:01:380 DISCORDIADOR/(4428:4428): memcpy del valor: tamanio = 4
+[INFO] 12:22:01:380 DISCORDIADOR/(4428:4428): break
+[INFO] 12:22:01:380 DISCORDIADOR/(4428:4428): agregar_parametro_a_mensaje 156018704
+[INFO] 12:26:44:940 DISCORDIADOR/(4589:4589): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 12:26:50:173 DISCORDIADOR/(4589:4589): sobrevivi al crear_mensaje
+[INFO] 12:26:50:173 DISCORDIADOR/(4589:4589): case: ENTERO tamanio = 0/1, contenido = 4, 2
+[INFO] 12:26:50:173 DISCORDIADOR/(4589:4589): Pase realloc, 1
+[INFO] 12:26:50:173 DISCORDIADOR/(4589:4589): memcpy del valor: tamanio = 4
+[INFO] 12:26:50:173 DISCORDIADOR/(4589:4589): break
+[INFO] 12:26:50:173 DISCORDIADOR/(4589:4589): case: ENTERO tamanio = 4/1, contenido = 4, 134519399
+[INFO] 12:26:50:173 DISCORDIADOR/(4589:4589): Pase realloc, 1
+[INFO] 12:26:50:173 DISCORDIADOR/(4589:4589): memcpy del valor: tamanio = 8
+[INFO] 12:26:50:173 DISCORDIADOR/(4589:4589): break
+[INFO] 12:26:50:173 DISCORDIADOR/(4589:4589): case: ENTERO tamanio = 8/1, contenido = 4, 134519399
+[INFO] 12:26:50:173 DISCORDIADOR/(4589:4589): Pase realloc, 1
+[INFO] 12:26:50:173 DISCORDIADOR/(4589:4589): memcpy del valor: tamanio = 12
+[INFO] 12:26:50:173 DISCORDIADOR/(4589:4589): break
+[INFO] 12:31:58:908 DISCORDIADOR/(4749:4749): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 12:32:03:277 DISCORDIADOR/(4749:4749): sobrevivi al crear_mensaje
+[INFO] 12:32:03:277 DISCORDIADOR/(4749:4749): case: ENTERO tamanio = 0/4, contenido = 1/4
+[INFO] 12:32:03:277 DISCORDIADOR/(4749:4749): Pase realloc, 1
+[INFO] 12:32:03:277 DISCORDIADOR/(4749:4749): memcpy del valor: tamanio = 4
+[INFO] 12:32:03:277 DISCORDIADOR/(4749:4749): break
+[INFO] 12:32:03:277 DISCORDIADOR/(4749:4749): case: ENTERO tamanio = 4/4, contenido = 1/4
+[INFO] 12:32:03:277 DISCORDIADOR/(4749:4749): Pase realloc, 1
+[INFO] 12:32:03:277 DISCORDIADOR/(4749:4749): memcpy del valor: tamanio = 8
+[INFO] 12:32:03:277 DISCORDIADOR/(4749:4749): break
+[INFO] 12:32:03:277 DISCORDIADOR/(4749:4749): case: ENTERO tamanio = 8/4, contenido = 1/4
+[INFO] 12:32:03:277 DISCORDIADOR/(4749:4749): Pase realloc, 1
+[INFO] 12:32:03:277 DISCORDIADOR/(4749:4749): memcpy del valor: tamanio = 12
+[INFO] 12:32:03:277 DISCORDIADOR/(4749:4749): break
+[INFO] 12:41:10:312 DISCORDIADOR/(4992:4992): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 12:41:14:352 DISCORDIADOR/(4992:4992): sobrevivi al crear_mensaje
+[INFO] 12:41:14:352 DISCORDIADOR/(4992:4992): case: ENTERO tamanio = 0
+[INFO] 12:41:14:352 DISCORDIADOR/(4992:4992): Pase realloc, 1
+[INFO] 12:41:14:352 DISCORDIADOR/(4992:4992): memcpy del valor: tamanio = 4
+[INFO] 12:41:14:352 DISCORDIADOR/(4992:4992): case: ENTERO tamanio = 4
+[INFO] 12:41:14:352 DISCORDIADOR/(4992:4992): Pase realloc, 1
+[INFO] 12:41:14:352 DISCORDIADOR/(4992:4992): memcpy del valor: tamanio = 8
+[INFO] 12:41:14:352 DISCORDIADOR/(4992:4992): case: ENTERO tamanio = 8
+[INFO] 12:41:14:352 DISCORDIADOR/(4992:4992): Pase realloc, 1
+[INFO] 12:41:14:352 DISCORDIADOR/(4992:4992): memcpy del valor: tamanio = 12
+[INFO] 12:44:14:360 DISCORDIADOR/(5150:5150): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 12:44:19:753 DISCORDIADOR/(5150:5150): sobrevivi al crear_mensaje
+[INFO] 12:44:19:755 DISCORDIADOR/(5150:5150): case: ENTERO tamanio = 0
+[INFO] 12:44:19:755 DISCORDIADOR/(5150:5150): memcpy del valor: tamanio = 4
+[INFO] 12:44:19:755 DISCORDIADOR/(5150:5150): agregar_parametro_a_mensaje 145855304
+[INFO] 12:44:19:755 DISCORDIADOR/(5150:5150): case: ENTERO tamanio = 4
+[INFO] 12:44:19:755 DISCORDIADOR/(5150:5150): memcpy del valor: tamanio = 8
+[INFO] 12:44:19:755 DISCORDIADOR/(5150:5150): agregar_parametro_a_mensaje 6
+[INFO] 12:44:19:755 DISCORDIADOR/(5150:5150): case: ENTERO tamanio = 8
+[INFO] 12:44:19:755 DISCORDIADOR/(5150:5150): memcpy del valor: tamanio = 12
+[INFO] 12:50:06:111 DISCORDIADOR/(5310:5310): Fallo en la conexión con Mi-RAM-HQ
+[INFO] 12:50:11:004 DISCORDIADOR/(5310:5310): sobrevivi al crear_mensaje
+[INFO] 12:50:11:004 DISCORDIADOR/(5310:5310): case: ENTERO tamanio = 0
+[INFO] 12:50:11:004 DISCORDIADOR/(5310:5310): memcpy del valor: tamanio = 4
+[INFO] 12:50:11:004 DISCORDIADOR/(5310:5310): sobrevivi al agegar_parametro
+[INFO] 12:50:11:004 DISCORDIADOR/(5310:5310): parametro nuevo 136267792
+[INFO] 12:50:11:004 DISCORDIADOR/(5310:5310): case: ENTERO tamanio = 4
+[INFO] 12:50:11:004 DISCORDIADOR/(5310:5310): memcpy del valor: tamanio = 8
+[INFO] 12:50:11:004 DISCORDIADOR/(5310:5310): sobrevivi al agegar_parametro
+[INFO] 12:50:11:004 DISCORDIADOR/(5310:5310): parametro nuevo 6
+[INFO] 12:50:11:004 DISCORDIADOR/(5310:5310): case: ENTERO tamanio = 8
+[INFO] 12:50:11:004 DISCORDIADOR/(5310:5310): memcpy del valor: tamanio = 12
+[INFO] 12:50:11:004 DISCORDIADOR/(5310:5310): sobrevivi al agegar_parametro
+[INFO] 12:50:11:004 DISCORDIADOR/(5310:5310): parametro nuevo 6
+[INFO] 14:10:58:066 DISCORDIADOR/(6871:6871): sobrevivi al crear_mensaje
+[INFO] 14:10:58:067 DISCORDIADOR/(6871:6871): case: ENTERO tamanio = 0
+[INFO] 14:10:58:067 DISCORDIADOR/(6871:6871): memcpy del valor: tamanio = 4
+[INFO] 14:10:58:067 DISCORDIADOR/(6871:6871): sobrevivi al agegar_parametro
+[INFO] 14:10:58:067 DISCORDIADOR/(6871:6871): parametro nuevo 164083208
+[INFO] 14:10:58:067 DISCORDIADOR/(6871:6871): case: ENTERO tamanio = 4
+[INFO] 14:10:58:067 DISCORDIADOR/(6871:6871): memcpy del valor: tamanio = 8
+[INFO] 14:10:58:067 DISCORDIADOR/(6871:6871): sobrevivi al agegar_parametro
+[INFO] 14:10:58:067 DISCORDIADOR/(6871:6871): parametro nuevo 6
+[INFO] 14:10:58:067 DISCORDIADOR/(6871:6871): case: ENTERO tamanio = 8
+[INFO] 14:10:58:067 DISCORDIADOR/(6871:6871): memcpy del valor: tamanio = 12
+[INFO] 14:10:58:067 DISCORDIADOR/(6871:6871): sobrevivi al agegar_parametro
+[INFO] 14:10:58:067 DISCORDIADOR/(6871:6871): parametro nuevo 6
+[INFO] 14:16:06:064 DISCORDIADOR/(6998:6998): sobrevivi al crear_mensaje
+[INFO] 14:16:06:064 DISCORDIADOR/(6998:6998): case: ENTERO tamanio = 0
+[INFO] 14:16:06:064 DISCORDIADOR/(6998:6998): memcpy del valor: tamanio = 4
+[INFO] 14:16:06:064 DISCORDIADOR/(6998:6998): sobrevivi al agegar_parametro
+[INFO] 14:16:06:064 DISCORDIADOR/(6998:6998): parametro nuevo 160144680
+[INFO] 14:16:06:064 DISCORDIADOR/(6998:6998): case: ENTERO tamanio = 4
+[INFO] 14:16:06:064 DISCORDIADOR/(6998:6998): memcpy del valor: tamanio = 8
+[INFO] 14:16:06:064 DISCORDIADOR/(6998:6998): sobrevivi al agegar_parametro
+[INFO] 14:16:06:064 DISCORDIADOR/(6998:6998): parametro nuevo 6
+[INFO] 14:16:06:064 DISCORDIADOR/(6998:6998): case: ENTERO tamanio = 8
+[INFO] 14:16:06:064 DISCORDIADOR/(6998:6998): memcpy del valor: tamanio = 12
+[INFO] 14:16:06:064 DISCORDIADOR/(6998:6998): sobrevivi al agegar_parametro
+[INFO] 14:16:06:064 DISCORDIADOR/(6998:6998): parametro nuevo 6
+[ERROR] 14:17:05:074 DISCORDIADOR/(7101:7101): COMANDO INVÁLIDO, INTENTE NUEVAMENTE
+[ERROR] 14:17:58:101 DISCORDIADOR/(7107:7107): COMANDO INVÁLIDO, INTENTE NUEVAMENTE
+[INFO] 14:23:13:618 DISCORDIADOR/(7412:7412): sobrevivi al crear_mensaje
+[INFO] 14:23:13:618 DISCORDIADOR/(7412:7412): case: ENTERO tamanio = 0
+[INFO] 14:23:13:618 DISCORDIADOR/(7412:7412): memcpy del valor: tamanio = 4
+[INFO] 14:23:13:618 DISCORDIADOR/(7412:7412): sobrevivi al agegar_parametro
+[INFO] 14:23:13:618 DISCORDIADOR/(7412:7412): parametro nuevo 135894536
+[INFO] 14:23:13:618 DISCORDIADOR/(7412:7412): case: ENTERO tamanio = 4
+[INFO] 14:23:13:619 DISCORDIADOR/(7412:7412): memcpy del valor: tamanio = 8
+[INFO] 14:23:13:619 DISCORDIADOR/(7412:7412): sobrevivi al agegar_parametro
+[INFO] 14:23:13:619 DISCORDIADOR/(7412:7412): parametro nuevo 6
+[INFO] 14:23:13:619 DISCORDIADOR/(7412:7412): case: ENTERO tamanio = 8
+[INFO] 14:23:13:619 DISCORDIADOR/(7412:7412): memcpy del valor: tamanio = 12
+[INFO] 14:23:13:619 DISCORDIADOR/(7412:7412): sobrevivi al agegar_parametro
+[INFO] 14:23:13:619 DISCORDIADOR/(7412:7412): parametro nuevo 6
+[INFO] 14:24:08:026 DISCORDIADOR/(7528:7528): sobrevivi al crear_mensaje
+[INFO] 14:24:08:026 DISCORDIADOR/(7528:7528): case: ENTERO tamanio = 0
+[INFO] 14:24:08:026 DISCORDIADOR/(7528:7528): memcpy del valor: tamanio = 4
+[INFO] 14:24:08:026 DISCORDIADOR/(7528:7528): sobrevivi al agegar_parametro
+[INFO] 14:24:08:026 DISCORDIADOR/(7528:7528): parametro nuevo 150500872
+[INFO] 14:24:08:026 DISCORDIADOR/(7528:7528): case: ENTERO tamanio = 4
+[INFO] 14:24:08:026 DISCORDIADOR/(7528:7528): memcpy del valor: tamanio = 8
+[INFO] 14:24:08:026 DISCORDIADOR/(7528:7528): sobrevivi al agegar_parametro
+[INFO] 14:24:08:026 DISCORDIADOR/(7528:7528): parametro nuevo 6
+[INFO] 14:24:08:026 DISCORDIADOR/(7528:7528): case: ENTERO tamanio = 8
+[INFO] 14:24:08:026 DISCORDIADOR/(7528:7528): memcpy del valor: tamanio = 12
+[INFO] 14:24:08:026 DISCORDIADOR/(7528:7528): sobrevivi al agegar_parametro
+[INFO] 14:24:08:026 DISCORDIADOR/(7528:7528): parametro nuevo 6
+[INFO] 14:45:57:363 DISCORDIADOR/(7955:7955): sobrevivi al crear_mensaje
+[INFO] 14:45:57:363 DISCORDIADOR/(7955:7955): case: ENTERO tamanio = 0
+[INFO] 14:45:57:363 DISCORDIADOR/(7955:7955): memcpy del valor: tamanio = 4
+[INFO] 14:45:57:363 DISCORDIADOR/(7955:7955): sobrevivi al agegar_parametro
+[INFO] 14:45:57:363 DISCORDIADOR/(7955:7955): parametro nuevo 157042184
+[INFO] 14:45:57:363 DISCORDIADOR/(7955:7955): case: ENTERO tamanio = 4
+[INFO] 14:45:57:363 DISCORDIADOR/(7955:7955): memcpy del valor: tamanio = 8
+[INFO] 14:45:57:363 DISCORDIADOR/(7955:7955): sobrevivi al agegar_parametro
+[INFO] 14:45:57:363 DISCORDIADOR/(7955:7955): parametro nuevo 6
+[INFO] 14:45:57:363 DISCORDIADOR/(7955:7955): case: ENTERO tamanio = 8
+[INFO] 14:45:57:363 DISCORDIADOR/(7955:7955): memcpy del valor: tamanio = 12
+[INFO] 14:45:57:364 DISCORDIADOR/(7955:7955): sobrevivi al agegar_parametro
+[INFO] 14:45:57:364 DISCORDIADOR/(7955:7955): parametro nuevo 6
+[INFO] 14:50:09:472 DISCORDIADOR/(8321:8321): sobrevivi al crear_mensaje
+[INFO] 14:50:09:472 DISCORDIADOR/(8321:8321): case: ENTERO tamanio = 0
+[INFO] 14:50:09:472 DISCORDIADOR/(8321:8321): memcpy del valor: tamanio = 4
+[INFO] 14:50:09:472 DISCORDIADOR/(8321:8321): sobrevivi al agegar_parametro
+[INFO] 14:50:09:473 DISCORDIADOR/(8321:8321): parametro nuevo 166382904
+[INFO] 14:50:09:473 DISCORDIADOR/(8321:8321): case: ENTERO tamanio = 4
+[INFO] 14:50:09:473 DISCORDIADOR/(8321:8321): memcpy del valor: tamanio = 8
+[INFO] 14:50:09:473 DISCORDIADOR/(8321:8321): sobrevivi al agegar_parametro
+[INFO] 14:50:09:473 DISCORDIADOR/(8321:8321): parametro nuevo 6
+[INFO] 14:50:09:473 DISCORDIADOR/(8321:8321): case: ENTERO tamanio = 8
+[INFO] 14:50:09:473 DISCORDIADOR/(8321:8321): memcpy del valor: tamanio = 12
+[INFO] 14:50:09:473 DISCORDIADOR/(8321:8321): sobrevivi al agegar_parametro
+[INFO] 14:50:09:473 DISCORDIADOR/(8321:8321): parametro nuevo 6
+[INFO] 14:58:15:756 DISCORDIADOR/(8889:8889): sobrevivi al crear_mensaje
+[INFO] 14:58:15:758 DISCORDIADOR/(8889:8889): case: ENTERO tamanio = 0
+[INFO] 14:58:15:758 DISCORDIADOR/(8889:8889): memcpy del valor: tamanio = 4
+[INFO] 14:58:15:758 DISCORDIADOR/(8889:8889): sobrevivi al agegar_parametro
+[INFO] 14:58:15:758 DISCORDIADOR/(8889:8889): parametro nuevo 148694536
+[INFO] 14:58:15:758 DISCORDIADOR/(8889:8889): case: ENTERO tamanio = 4
+[INFO] 14:58:15:758 DISCORDIADOR/(8889:8889): memcpy del valor: tamanio = 8
+[INFO] 14:58:15:758 DISCORDIADOR/(8889:8889): sobrevivi al agegar_parametro
+[INFO] 14:58:15:759 DISCORDIADOR/(8889:8889): parametro nuevo 6
+[INFO] 14:58:15:759 DISCORDIADOR/(8889:8889): case: ENTERO tamanio = 8
+[INFO] 14:58:15:759 DISCORDIADOR/(8889:8889): memcpy del valor: tamanio = 12
+[INFO] 14:58:15:759 DISCORDIADOR/(8889:8889): sobrevivi al agegar_parametro
+[INFO] 14:58:15:759 DISCORDIADOR/(8889:8889): parametro nuevo 6
+[INFO] 15:00:37:422 DISCORDIADOR/(9363:9363): sobrevivi al crear_mensaje
+[INFO] 15:00:37:422 DISCORDIADOR/(9363:9363): case: ENTERO tamanio = 0
+[INFO] 15:00:37:422 DISCORDIADOR/(9363:9363): memcpy del valor: tamanio = 4
+[INFO] 15:00:37:422 DISCORDIADOR/(9363:9363): sobrevivi al agegar_parametro
+[INFO] 15:00:37:422 DISCORDIADOR/(9363:9363): parametro nuevo 154848552
+[INFO] 15:00:37:422 DISCORDIADOR/(9363:9363): case: ENTERO tamanio = 4
+[INFO] 15:00:37:422 DISCORDIADOR/(9363:9363): memcpy del valor: tamanio = 8
+[INFO] 15:00:37:423 DISCORDIADOR/(9363:9363): sobrevivi al agegar_parametro
+[INFO] 15:00:37:423 DISCORDIADOR/(9363:9363): parametro nuevo 6
+[INFO] 15:00:37:423 DISCORDIADOR/(9363:9363): case: ENTERO tamanio = 8
+[INFO] 15:00:37:423 DISCORDIADOR/(9363:9363): memcpy del valor: tamanio = 12
+[INFO] 15:00:37:423 DISCORDIADOR/(9363:9363): sobrevivi al agegar_parametro
+[INFO] 15:00:37:423 DISCORDIADOR/(9363:9363): parametro nuevo 6
+[INFO] 15:06:08:276 DISCORDIADOR/(9623:9623): sobrevivi al crear_mensaje
+[INFO] 15:06:08:276 DISCORDIADOR/(9623:9623): case: ENTERO tamanio = 0
+[INFO] 15:06:08:276 DISCORDIADOR/(9623:9623): memcpy del valor: tamanio = 4
+[INFO] 15:06:08:276 DISCORDIADOR/(9623:9623): sobrevivi al agegar_parametro
+[INFO] 15:06:08:276 DISCORDIADOR/(9623:9623): parametro nuevo 159948088
+[INFO] 15:06:08:276 DISCORDIADOR/(9623:9623): case: ENTERO tamanio = 4
+[INFO] 15:06:08:276 DISCORDIADOR/(9623:9623): memcpy del valor: tamanio = 8
+[INFO] 15:06:08:276 DISCORDIADOR/(9623:9623): sobrevivi al agegar_parametro
+[INFO] 15:06:08:276 DISCORDIADOR/(9623:9623): parametro nuevo 6
+[INFO] 15:06:08:276 DISCORDIADOR/(9623:9623): case: ENTERO tamanio = 8
+[INFO] 15:06:08:276 DISCORDIADOR/(9623:9623): memcpy del valor: tamanio = 12
+[INFO] 15:06:08:276 DISCORDIADOR/(9623:9623): sobrevivi al agegar_parametro
+[INFO] 15:06:08:276 DISCORDIADOR/(9623:9623): parametro nuevo 6
+[INFO] 15:11:47:658 DISCORDIADOR/(9885:9885): sobrevivi al crear_mensaje
+[INFO] 15:11:47:658 DISCORDIADOR/(9885:9885): case: ENTERO tamanio = 0
+[INFO] 15:11:47:658 DISCORDIADOR/(9885:9885): memcpy del valor: tamanio = 4
+[INFO] 15:11:47:658 DISCORDIADOR/(9885:9885): sobrevivi al agegar_parametro
+[INFO] 15:11:47:658 DISCORDIADOR/(9885:9885): parametro nuevo 168072712
+[INFO] 15:11:47:658 DISCORDIADOR/(9885:9885): case: ENTERO tamanio = 4
+[INFO] 15:11:47:658 DISCORDIADOR/(9885:9885): memcpy del valor: tamanio = 8
+[INFO] 15:11:47:658 DISCORDIADOR/(9885:9885): sobrevivi al agegar_parametro
+[INFO] 15:11:47:658 DISCORDIADOR/(9885:9885): parametro nuevo 6
+[INFO] 15:11:47:658 DISCORDIADOR/(9885:9885): case: ENTERO tamanio = 8
+[INFO] 15:11:47:658 DISCORDIADOR/(9885:9885): memcpy del valor: tamanio = 12
+[INFO] 15:11:47:658 DISCORDIADOR/(9885:9885): sobrevivi al agegar_parametro
+[INFO] 15:11:47:658 DISCORDIADOR/(9885:9885): parametro nuevo 6
+[INFO] 15:16:51:561 DISCORDIADOR/(10156:10156): sobrevivi al crear_mensaje
+[INFO] 15:16:51:562 DISCORDIADOR/(10156:10156): case: ENTERO tamanio = 0
+[INFO] 15:16:51:562 DISCORDIADOR/(10156:10156): memcpy del valor: tamanio = 4
+[INFO] 15:16:51:562 DISCORDIADOR/(10156:10156): sobrevivi al agegar_parametro
+[INFO] 15:16:51:562 DISCORDIADOR/(10156:10156): parametro nuevo 152692232
+[INFO] 15:16:51:562 DISCORDIADOR/(10156:10156): case: ENTERO tamanio = 4
+[INFO] 15:16:51:562 DISCORDIADOR/(10156:10156): memcpy del valor: tamanio = 8
+[INFO] 15:16:51:562 DISCORDIADOR/(10156:10156): sobrevivi al agegar_parametro
+[INFO] 15:16:51:562 DISCORDIADOR/(10156:10156): parametro nuevo 6
+[INFO] 15:16:51:562 DISCORDIADOR/(10156:10156): case: ENTERO tamanio = 8
+[INFO] 15:16:51:562 DISCORDIADOR/(10156:10156): memcpy del valor: tamanio = 12
+[INFO] 15:16:51:562 DISCORDIADOR/(10156:10156): sobrevivi al agegar_parametro
+[INFO] 15:16:51:562 DISCORDIADOR/(10156:10156): parametro nuevo 6
+[INFO] 15:19:24:606 DISCORDIADOR/(10406:10406): sobrevivi al crear_mensaje
+[INFO] 15:19:24:607 DISCORDIADOR/(10406:10406): case: ENTERO tamanio = 0
+[INFO] 15:19:24:607 DISCORDIADOR/(10406:10406): memcpy del valor: tamanio = 4
+[INFO] 15:19:24:607 DISCORDIADOR/(10406:10406): sobrevivi al agegar_parametro
+[INFO] 15:19:24:607 DISCORDIADOR/(10406:10406): parametro nuevo 160345400
+[INFO] 15:19:24:607 DISCORDIADOR/(10406:10406): case: ENTERO tamanio = 4
+[INFO] 15:19:24:607 DISCORDIADOR/(10406:10406): memcpy del valor: tamanio = 8
+[INFO] 15:19:24:607 DISCORDIADOR/(10406:10406): sobrevivi al agegar_parametro
+[INFO] 15:19:24:607 DISCORDIADOR/(10406:10406): parametro nuevo 6
+[INFO] 15:19:24:607 DISCORDIADOR/(10406:10406): case: ENTERO tamanio = 8
+[INFO] 15:19:24:607 DISCORDIADOR/(10406:10406): memcpy del valor: tamanio = 12
+[INFO] 15:19:24:607 DISCORDIADOR/(10406:10406): sobrevivi al agegar_parametro
+[INFO] 15:19:24:607 DISCORDIADOR/(10406:10406): parametro nuevo 6
+[INFO] 15:42:11:509 DISCORDIADOR/(11225:11225): sobrevivi al crear_mensaje
+[INFO] 15:42:11:510 DISCORDIADOR/(11225:11225): case: ENTERO tamanio = 0
+[INFO] 15:42:11:510 DISCORDIADOR/(11225:11225): memcpy del valor: tamanio = 4
+[INFO] 15:42:11:510 DISCORDIADOR/(11225:11225): sobrevivi al agegar_parametro
+[INFO] 15:42:11:510 DISCORDIADOR/(11225:11225): parametro nuevo 167073288
+[INFO] 15:42:11:510 DISCORDIADOR/(11225:11225): case: ENTERO tamanio = 4
+[INFO] 15:42:11:510 DISCORDIADOR/(11225:11225): memcpy del valor: tamanio = 8
+[INFO] 15:42:11:510 DISCORDIADOR/(11225:11225): sobrevivi al agegar_parametro
+[INFO] 15:42:11:510 DISCORDIADOR/(11225:11225): parametro nuevo 6
+[INFO] 15:42:11:510 DISCORDIADOR/(11225:11225): case: ENTERO tamanio = 8
+[INFO] 15:42:11:510 DISCORDIADOR/(11225:11225): memcpy del valor: tamanio = 12
+[INFO] 15:42:11:510 DISCORDIADOR/(11225:11225): sobrevivi al agegar_parametro
+[INFO] 15:42:11:510 DISCORDIADOR/(11225:11225): parametro nuevo 6
+[INFO] 15:43:11:820 DISCORDIADOR/(11326:11326): sobrevivi al crear_mensaje
+[INFO] 15:43:11:820 DISCORDIADOR/(11326:11326): case: ENTERO tamanio = 0
+[INFO] 15:43:11:820 DISCORDIADOR/(11326:11326): memcpy del valor: tamanio = 4
+[INFO] 15:43:11:820 DISCORDIADOR/(11326:11326): sobrevivi al agegar_parametro
+[INFO] 15:43:11:820 DISCORDIADOR/(11326:11326): parametro nuevo 142763856
+[INFO] 15:43:11:820 DISCORDIADOR/(11326:11326): case: ENTERO tamanio = 4
+[INFO] 15:43:11:820 DISCORDIADOR/(11326:11326): memcpy del valor: tamanio = 8
+[INFO] 15:43:11:820 DISCORDIADOR/(11326:11326): sobrevivi al agegar_parametro
+[INFO] 15:43:11:820 DISCORDIADOR/(11326:11326): parametro nuevo 6
+[INFO] 15:43:11:820 DISCORDIADOR/(11326:11326): case: ENTERO tamanio = 8
+[INFO] 15:43:11:820 DISCORDIADOR/(11326:11326): memcpy del valor: tamanio = 12
+[INFO] 15:43:11:820 DISCORDIADOR/(11326:11326): sobrevivi al agegar_parametro
+[INFO] 15:43:11:820 DISCORDIADOR/(11326:11326): parametro nuevo 6
+[INFO] 15:44:17:723 DISCORDIADOR/(11427:11427): sobrevivi al crear_mensaje
+[INFO] 15:44:17:723 DISCORDIADOR/(11427:11427): case: ENTERO tamanio = 0
+[INFO] 15:44:17:723 DISCORDIADOR/(11427:11427): memcpy del valor: tamanio = 4
+[INFO] 15:44:17:723 DISCORDIADOR/(11427:11427): sobrevivi al agegar_parametro
+[INFO] 15:44:17:723 DISCORDIADOR/(11427:11427): parametro nuevo 163456520
+[INFO] 15:44:17:723 DISCORDIADOR/(11427:11427): case: ENTERO tamanio = 4
+[INFO] 15:44:17:723 DISCORDIADOR/(11427:11427): memcpy del valor: tamanio = 8
+[INFO] 15:44:17:723 DISCORDIADOR/(11427:11427): sobrevivi al agegar_parametro
+[INFO] 15:44:17:723 DISCORDIADOR/(11427:11427): parametro nuevo 6
+[INFO] 15:44:17:723 DISCORDIADOR/(11427:11427): case: ENTERO tamanio = 8
+[INFO] 15:44:17:723 DISCORDIADOR/(11427:11427): memcpy del valor: tamanio = 12
+[INFO] 15:44:17:723 DISCORDIADOR/(11427:11427): sobrevivi al agegar_parametro
+[INFO] 15:44:17:723 DISCORDIADOR/(11427:11427): parametro nuevo 6
+[INFO] 15:45:53:329 DISCORDIADOR/(11686:11686): sobrevivi al crear_mensaje
+[INFO] 15:45:53:329 DISCORDIADOR/(11686:11686): case: ENTERO tamanio = 0
+[INFO] 15:45:53:329 DISCORDIADOR/(11686:11686): memcpy del valor: tamanio = 4
+[INFO] 15:45:53:329 DISCORDIADOR/(11686:11686): sobrevivi al agegar_parametro
+[INFO] 15:45:53:329 DISCORDIADOR/(11686:11686): parametro nuevo 153409032
+[INFO] 15:45:53:329 DISCORDIADOR/(11686:11686): case: ENTERO tamanio = 4
+[INFO] 15:45:53:329 DISCORDIADOR/(11686:11686): memcpy del valor: tamanio = 8
+[INFO] 15:45:53:329 DISCORDIADOR/(11686:11686): sobrevivi al agegar_parametro
+[INFO] 15:45:53:329 DISCORDIADOR/(11686:11686): parametro nuevo 6
+[INFO] 15:45:53:329 DISCORDIADOR/(11686:11686): case: ENTERO tamanio = 8
+[INFO] 15:45:53:329 DISCORDIADOR/(11686:11686): memcpy del valor: tamanio = 12
+[INFO] 15:45:53:329 DISCORDIADOR/(11686:11686): sobrevivi al agegar_parametro
+[INFO] 15:45:53:329 DISCORDIADOR/(11686:11686): parametro nuevo 6
+[INFO] 15:48:06:247 DISCORDIADOR/(11931:11931): sobrevivi al crear_mensaje
+[INFO] 15:48:06:247 DISCORDIADOR/(11931:11931): case: ENTERO tamanio = 0
+[INFO] 15:48:06:247 DISCORDIADOR/(11931:11931): memcpy del valor: tamanio = 4
+[INFO] 15:48:06:247 DISCORDIADOR/(11931:11931): sobrevivi al agegar_parametro
+[INFO] 15:48:06:247 DISCORDIADOR/(11931:11931): parametro nuevo 135558936
+[INFO] 15:48:06:247 DISCORDIADOR/(11931:11931): case: ENTERO tamanio = 4
+[INFO] 15:48:06:247 DISCORDIADOR/(11931:11931): memcpy del valor: tamanio = 8
+[INFO] 15:48:06:247 DISCORDIADOR/(11931:11931): sobrevivi al agegar_parametro
+[INFO] 15:48:06:247 DISCORDIADOR/(11931:11931): parametro nuevo 6
+[INFO] 15:48:06:247 DISCORDIADOR/(11931:11931): case: ENTERO tamanio = 8
+[INFO] 15:48:06:247 DISCORDIADOR/(11931:11931): memcpy del valor: tamanio = 12
+[INFO] 15:54:05:351 DISCORDIADOR/(12193:12193): sobrevivi al crear_mensaje
+[INFO] 15:54:05:353 DISCORDIADOR/(12193:12193): case: ENTERO tamanio = 0
+[INFO] 15:54:05:353 DISCORDIADOR/(12193:12193): memcpy del valor: tamanio = 4
+[INFO] 15:54:05:353 DISCORDIADOR/(12193:12193): sobrevivi al agegar_parametro
+[INFO] 15:54:05:353 DISCORDIADOR/(12193:12193): parametro nuevo 137971208
+[INFO] 15:54:05:353 DISCORDIADOR/(12193:12193): case: ENTERO tamanio = 4
+[INFO] 15:54:05:353 DISCORDIADOR/(12193:12193): memcpy del valor: tamanio = 8
+[INFO] 15:54:05:353 DISCORDIADOR/(12193:12193): sobrevivi al agegar_parametro
+[INFO] 15:54:05:353 DISCORDIADOR/(12193:12193): parametro nuevo 6
+[INFO] 15:54:05:353 DISCORDIADOR/(12193:12193): case: ENTERO tamanio = 8
+[INFO] 15:54:05:354 DISCORDIADOR/(12193:12193): memcpy del valor: tamanio = 12
+[INFO] 15:54:05:354 DISCORDIADOR/(12193:12193): sobrevivi al agegar_parametro
+[INFO] 15:54:05:354 DISCORDIADOR/(12193:12193): parametro nuevo 6
+[INFO] 15:55:39:252 DISCORDIADOR/(12452:12452): sobrevivi al crear_mensaje
+[INFO] 15:55:39:254 DISCORDIADOR/(12452:12452): case: ENTERO tamanio = 0
+[INFO] 15:55:39:255 DISCORDIADOR/(12452:12452): memcpy del valor: tamanio = 4
+[INFO] 15:55:39:255 DISCORDIADOR/(12452:12452): sobrevivi al agegar_parametro
+[INFO] 15:55:39:255 DISCORDIADOR/(12452:12452): parametro nuevo 154387976
+[INFO] 15:55:39:255 DISCORDIADOR/(12452:12452): case: ENTERO tamanio = 4
+[INFO] 15:55:39:255 DISCORDIADOR/(12452:12452): memcpy del valor: tamanio = 8
+[INFO] 15:55:39:255 DISCORDIADOR/(12452:12452): sobrevivi al agegar_parametro
+[INFO] 15:55:39:255 DISCORDIADOR/(12452:12452): parametro nuevo 6
+[INFO] 15:55:39:255 DISCORDIADOR/(12452:12452): case: ENTERO tamanio = 8
+[INFO] 15:55:39:255 DISCORDIADOR/(12452:12452): memcpy del valor: tamanio = 12
+[INFO] 15:55:39:255 DISCORDIADOR/(12452:12452): sobrevivi al agegar_parametro
+[INFO] 15:55:39:255 DISCORDIADOR/(12452:12452): parametro nuevo 6
+[INFO] 15:59:09:248 DISCORDIADOR/(12671:12671): sobrevivi al crear_mensaje
+[INFO] 15:59:09:248 DISCORDIADOR/(12671:12671): case: ENTERO tamanio = 0
+[INFO] 15:59:09:248 DISCORDIADOR/(12671:12671): memcpy del valor: tamanio = 4
+[INFO] 15:59:09:248 DISCORDIADOR/(12671:12671): sobrevivi al agegar_parametro
+[INFO] 15:59:09:248 DISCORDIADOR/(12671:12671): parametro nuevo 161176872
+[INFO] 15:59:09:248 DISCORDIADOR/(12671:12671): case: ENTERO tamanio = 4
+[INFO] 15:59:09:248 DISCORDIADOR/(12671:12671): memcpy del valor: tamanio = 8
+[INFO] 15:59:09:248 DISCORDIADOR/(12671:12671): sobrevivi al agegar_parametro
+[INFO] 15:59:09:248 DISCORDIADOR/(12671:12671): parametro nuevo 6
+[INFO] 15:59:09:248 DISCORDIADOR/(12671:12671): case: ENTERO tamanio = 8
+[INFO] 15:59:09:248 DISCORDIADOR/(12671:12671): memcpy del valor: tamanio = 12
+[INFO] 15:59:09:248 DISCORDIADOR/(12671:12671): sobrevivi al agegar_parametro
+[INFO] 15:59:09:248 DISCORDIADOR/(12671:12671): parametro nuevo 6
+[INFO] 16:03:31:433 DISCORDIADOR/(12903:12903): sobrevivi al crear_mensaje
+[INFO] 16:03:31:433 DISCORDIADOR/(12903:12903): case: ENTERO tamanio = 0
+[INFO] 16:03:31:433 DISCORDIADOR/(12903:12903): memcpy del valor: tamanio = 4
+[INFO] 16:03:31:433 DISCORDIADOR/(12903:12903): sobrevivi al agegar_parametro
+[INFO] 16:03:31:433 DISCORDIADOR/(12903:12903): parametro nuevo 141805064
+[INFO] 16:03:31:433 DISCORDIADOR/(12903:12903): case: ENTERO tamanio = 4
+[INFO] 16:03:31:433 DISCORDIADOR/(12903:12903): memcpy del valor: tamanio = 8
+[INFO] 16:03:31:433 DISCORDIADOR/(12903:12903): sobrevivi al agegar_parametro
+[INFO] 16:03:31:433 DISCORDIADOR/(12903:12903): parametro nuevo 6
+[INFO] 16:03:31:433 DISCORDIADOR/(12903:12903): case: ENTERO tamanio = 8
+[INFO] 16:03:31:433 DISCORDIADOR/(12903:12903): memcpy del valor: tamanio = 12
+[INFO] 16:03:31:433 DISCORDIADOR/(12903:12903): sobrevivi al agegar_parametro
+[INFO] 16:03:31:433 DISCORDIADOR/(12903:12903): parametro nuevo 6
+[INFO] 16:07:20:095 DISCORDIADOR/(13162:13162): sobrevivi al crear_mensaje
+[INFO] 16:07:20:095 DISCORDIADOR/(13162:13162): case: ENTERO tamanio = 0
+[INFO] 16:07:20:095 DISCORDIADOR/(13162:13162): memcpy del valor: tamanio = 4
+[INFO] 16:07:20:095 DISCORDIADOR/(13162:13162): sobrevivi al agegar_parametro
+[INFO] 16:07:20:095 DISCORDIADOR/(13162:13162): parametro nuevo 156026376
+[INFO] 16:07:20:095 DISCORDIADOR/(13162:13162): case: ENTERO tamanio = 4
+[INFO] 16:07:20:095 DISCORDIADOR/(13162:13162): memcpy del valor: tamanio = 8
+[INFO] 16:07:20:095 DISCORDIADOR/(13162:13162): sobrevivi al agegar_parametro
+[INFO] 16:07:20:095 DISCORDIADOR/(13162:13162): parametro nuevo 6
+[INFO] 16:07:20:095 DISCORDIADOR/(13162:13162): case: ENTERO tamanio = 8
+[INFO] 16:07:20:095 DISCORDIADOR/(13162:13162): memcpy del valor: tamanio = 12
+[INFO] 16:07:20:095 DISCORDIADOR/(13162:13162): sobrevivi al agegar_parametro
+[INFO] 16:07:20:095 DISCORDIADOR/(13162:13162): parametro nuevo 6
+[INFO] 16:19:32:619 DISCORDIADOR/(13585:13585): sobrevivi al crear_mensaje
+[INFO] 16:19:32:619 DISCORDIADOR/(13585:13585): case: ENTERO tamanio = 0
+[INFO] 16:19:32:619 DISCORDIADOR/(13585:13585): memcpy del valor: tamanio = 4
+[INFO] 16:19:32:619 DISCORDIADOR/(13585:13585): sobrevivi al agegar_parametro
+[INFO] 16:19:32:619 DISCORDIADOR/(13585:13585): parametro nuevo 149067272
+[INFO] 16:19:32:619 DISCORDIADOR/(13585:13585): case: ENTERO tamanio = 4
+[INFO] 16:19:32:619 DISCORDIADOR/(13585:13585): memcpy del valor: tamanio = 8
+[INFO] 16:19:32:619 DISCORDIADOR/(13585:13585): sobrevivi al agegar_parametro
+[INFO] 16:19:32:619 DISCORDIADOR/(13585:13585): parametro nuevo 6
+[INFO] 16:19:32:619 DISCORDIADOR/(13585:13585): case: ENTERO tamanio = 8
+[INFO] 16:19:32:619 DISCORDIADOR/(13585:13585): memcpy del valor: tamanio = 12
+[INFO] 16:19:32:619 DISCORDIADOR/(13585:13585): sobrevivi al agegar_parametro
+[INFO] 16:19:32:619 DISCORDIADOR/(13585:13585): parametro nuevo 6
+[INFO] 16:29:26:560 DISCORDIADOR/(13859:13859): sobrevivi al crear_mensaje
+[INFO] 16:29:26:562 DISCORDIADOR/(13859:13859): case: ENTERO tamanio = 0
+[INFO] 16:29:26:563 DISCORDIADOR/(13859:13859): memcpy del valor: tamanio = 4
+[INFO] 16:29:26:563 DISCORDIADOR/(13859:13859): sobrevivi al agegar_parametro
+[INFO] 16:29:26:563 DISCORDIADOR/(13859:13859): parametro nuevo 6
+[INFO] 16:29:26:563 DISCORDIADOR/(13859:13859): case: ENTERO tamanio = 4
+[INFO] 16:29:26:563 DISCORDIADOR/(13859:13859): memcpy del valor: tamanio = 8
+[INFO] 16:29:26:563 DISCORDIADOR/(13859:13859): sobrevivi al agegar_parametro
+[INFO] 16:29:26:563 DISCORDIADOR/(13859:13859): parametro nuevo 16
+[INFO] 16:29:26:563 DISCORDIADOR/(13859:13859): case: ENTERO tamanio = 8
+[INFO] 16:29:26:563 DISCORDIADOR/(13859:13859): memcpy del valor: tamanio = 12
+[INFO] 16:29:26:563 DISCORDIADOR/(13859:13859): sobrevivi al agegar_parametro
+[INFO] 16:29:26:563 DISCORDIADOR/(13859:13859): parametro nuevo 33
+[INFO] 16:30:11:065 DISCORDIADOR/(13872:13872): sobrevivi al crear_mensaje
+[INFO] 16:30:11:065 DISCORDIADOR/(13872:13872): case: ENTERO tamanio = 0
+[INFO] 16:30:11:065 DISCORDIADOR/(13872:13872): memcpy del valor: tamanio = 4
+[INFO] 16:30:11:065 DISCORDIADOR/(13872:13872): sobrevivi al agegar_parametro
+[INFO] 16:30:11:065 DISCORDIADOR/(13872:13872): parametro nuevo 6
+[INFO] 16:30:11:065 DISCORDIADOR/(13872:13872): case: ENTERO tamanio = 4
+[INFO] 16:30:11:065 DISCORDIADOR/(13872:13872): memcpy del valor: tamanio = 8
+[INFO] 16:30:11:065 DISCORDIADOR/(13872:13872): sobrevivi al agegar_parametro
+[INFO] 16:30:11:065 DISCORDIADOR/(13872:13872): parametro nuevo 16
+[INFO] 16:30:11:066 DISCORDIADOR/(13872:13872): case: ENTERO tamanio = 8
+[INFO] 16:30:11:066 DISCORDIADOR/(13872:13872): memcpy del valor: tamanio = 12
+[INFO] 16:30:11:066 DISCORDIADOR/(13872:13872): sobrevivi al agegar_parametro
+[INFO] 16:30:11:066 DISCORDIADOR/(13872:13872): parametro nuevo 33
+[INFO] 16:34:32:141 DISCORDIADOR/(14166:14166): sobrevivi al crear_mensaje
+[INFO] 16:34:32:141 DISCORDIADOR/(14166:14166): case: ENTERO tamanio = 0
+[INFO] 16:34:32:141 DISCORDIADOR/(14166:14166): memcpy del valor: tamanio = 4
+[INFO] 16:34:32:141 DISCORDIADOR/(14166:14166): sobrevivi al agegar_parametro
+[INFO] 16:34:32:141 DISCORDIADOR/(14166:14166): parametro nuevo 6
+[INFO] 16:34:32:141 DISCORDIADOR/(14166:14166): case: ENTERO tamanio = 4
+[INFO] 16:34:32:141 DISCORDIADOR/(14166:14166): memcpy del valor: tamanio = 8
+[INFO] 16:34:32:141 DISCORDIADOR/(14166:14166): sobrevivi al agegar_parametro
+[INFO] 16:34:32:141 DISCORDIADOR/(14166:14166): parametro nuevo 16
+[INFO] 16:34:32:141 DISCORDIADOR/(14166:14166): case: ENTERO tamanio = 8
+[INFO] 16:34:32:141 DISCORDIADOR/(14166:14166): memcpy del valor: tamanio = 12
+[INFO] 16:34:32:141 DISCORDIADOR/(14166:14166): sobrevivi al agegar_parametro
+[INFO] 16:34:32:141 DISCORDIADOR/(14166:14166): parametro nuevo 33
+[INFO] 16:38:43:642 DISCORDIADOR/(14455:14455): sobrevivi al crear_mensaje
+[INFO] 16:38:43:642 DISCORDIADOR/(14455:14455): case: ENTERO tamanio = 0
+[INFO] 16:38:43:642 DISCORDIADOR/(14455:14455): memcpy del valor: tamanio = 4
+[INFO] 16:38:43:642 DISCORDIADOR/(14455:14455): sobrevivi al agegar_parametro
+[INFO] 16:38:43:642 DISCORDIADOR/(14455:14455): parametro nuevo 6
+[INFO] 16:38:43:642 DISCORDIADOR/(14455:14455): case: ENTERO tamanio = 4
+[INFO] 16:38:43:642 DISCORDIADOR/(14455:14455): memcpy del valor: tamanio = 8
+[INFO] 16:38:43:642 DISCORDIADOR/(14455:14455): sobrevivi al agegar_parametro
+[INFO] 16:38:43:642 DISCORDIADOR/(14455:14455): parametro nuevo 16
+[INFO] 16:38:43:642 DISCORDIADOR/(14455:14455): case: ENTERO tamanio = 8
+[INFO] 16:38:43:642 DISCORDIADOR/(14455:14455): memcpy del valor: tamanio = 12
+[INFO] 16:38:43:642 DISCORDIADOR/(14455:14455): sobrevivi al agegar_parametro
+[INFO] 16:38:43:642 DISCORDIADOR/(14455:14455): parametro nuevo 33
+[INFO] 16:47:52:247 DISCORDIADOR/(15136:15136): sobrevivi al crear_mensaje
+[INFO] 16:47:52:247 DISCORDIADOR/(15136:15136): case: ENTERO tamanio = 0
+[INFO] 16:47:52:247 DISCORDIADOR/(15136:15136): memcpy del valor: tamanio = 4
+[INFO] 16:47:52:247 DISCORDIADOR/(15136:15136): sobrevivi al agegar_parametro
+[INFO] 16:47:52:247 DISCORDIADOR/(15136:15136): parametro nuevo 6
+[INFO] 16:47:52:247 DISCORDIADOR/(15136:15136): case: ENTERO tamanio = 4
+[INFO] 16:47:52:247 DISCORDIADOR/(15136:15136): memcpy del valor: tamanio = 8
+[INFO] 16:47:52:247 DISCORDIADOR/(15136:15136): sobrevivi al agegar_parametro
+[INFO] 16:47:52:247 DISCORDIADOR/(15136:15136): parametro nuevo 16
+[INFO] 16:47:52:247 DISCORDIADOR/(15136:15136): case: ENTERO tamanio = 8
+[INFO] 16:47:52:247 DISCORDIADOR/(15136:15136): memcpy del valor: tamanio = 12
+[INFO] 16:47:52:247 DISCORDIADOR/(15136:15136): sobrevivi al agegar_parametro
+[INFO] 16:47:52:247 DISCORDIADOR/(15136:15136): parametro nuevo 33
+[INFO] 11:07:20:357 DISCORDIADOR/(2695:2695): sobrevivi al crear_mensaje
+[INFO] 11:07:20:488 DISCORDIADOR/(2695:2695): case: ENTERO tamanio = 0. Parametro -1076140616
+[INFO] 11:07:20:488 DISCORDIADOR/(2695:2695): memcpy del valor: tamanio = 4
+[INFO] 11:07:20:488 DISCORDIADOR/(2695:2695): sobrevivi al agegar_parametro
+[INFO] 11:07:20:488 DISCORDIADOR/(2695:2695): parametro nuevo 6
+[INFO] 11:07:20:488 DISCORDIADOR/(2695:2695): case: ENTERO tamanio = 4. Parametro -1076140616
+[INFO] 11:07:20:488 DISCORDIADOR/(2695:2695): memcpy del valor: tamanio = 8
+[INFO] 11:07:20:488 DISCORDIADOR/(2695:2695): sobrevivi al agegar_parametro
+[INFO] 11:07:20:488 DISCORDIADOR/(2695:2695): parametro nuevo 16
+[INFO] 11:07:20:488 DISCORDIADOR/(2695:2695): case: ENTERO tamanio = 8. Parametro -1076140616
+[INFO] 11:07:20:488 DISCORDIADOR/(2695:2695): memcpy del valor: tamanio = 12
+[INFO] 11:07:20:488 DISCORDIADOR/(2695:2695): sobrevivi al agregar_parametro
+[INFO] 11:07:20:488 DISCORDIADOR/(2695:2695): parametro nuevo 209
+[INFO] 11:11:03:301 DISCORDIADOR/(2884:2884): sobrevivi al crear_mensaje
+[INFO] 11:11:03:301 DISCORDIADOR/(2884:2884): case: ENTERO tamanio = 0. Parametro -1079553848
+[INFO] 11:11:03:301 DISCORDIADOR/(2884:2884): memcpy del valor: tamanio = 4
+[INFO] 11:11:03:301 DISCORDIADOR/(2884:2884): sobrevivi al agegar_parametro
+[INFO] 11:11:03:301 DISCORDIADOR/(2884:2884): parametro nuevo 6
+[INFO] 11:11:03:301 DISCORDIADOR/(2884:2884): case: ENTERO tamanio = 4. Parametro -1079553848
+[INFO] 11:11:03:301 DISCORDIADOR/(2884:2884): memcpy del valor: tamanio = 8
+[INFO] 11:11:03:301 DISCORDIADOR/(2884:2884): sobrevivi al agegar_parametro
+[INFO] 11:11:03:301 DISCORDIADOR/(2884:2884): parametro nuevo 16
+[INFO] 11:11:03:301 DISCORDIADOR/(2884:2884): case: ENTERO tamanio = 8. Parametro -1079553848
+[INFO] 11:11:03:301 DISCORDIADOR/(2884:2884): memcpy del valor: tamanio = 12
+[INFO] 11:11:03:301 DISCORDIADOR/(2884:2884): sobrevivi al agregar_parametro
+[INFO] 11:11:03:301 DISCORDIADOR/(2884:2884): parametro nuevo 33
+[INFO] 11:12:57:936 DISCORDIADOR/(2998:2998): sobrevivi al crear_mensaje
+[INFO] 11:12:57:936 DISCORDIADOR/(2998:2998): case: ENTERO tamanio = 0. Parametro -1074380344
+[INFO] 11:12:57:937 DISCORDIADOR/(2998:2998): memcpy del valor: tamanio = 4
+[INFO] 11:12:57:937 DISCORDIADOR/(2998:2998): sobrevivi al agegar_parametro
+[INFO] 11:12:57:937 DISCORDIADOR/(2998:2998): parametro nuevo 6 dado 4
+[INFO] 11:12:57:937 DISCORDIADOR/(2998:2998): case: ENTERO tamanio = 4. Parametro -1074380344
+[INFO] 11:12:57:937 DISCORDIADOR/(2998:2998): memcpy del valor: tamanio = 8
+[INFO] 11:12:57:937 DISCORDIADOR/(2998:2998): sobrevivi al agegar_parametro
+[INFO] 11:12:57:937 DISCORDIADOR/(2998:2998): parametro nuevo 16
+[INFO] 11:12:57:937 DISCORDIADOR/(2998:2998): case: ENTERO tamanio = 8. Parametro -1074380344
+[INFO] 11:12:57:937 DISCORDIADOR/(2998:2998): memcpy del valor: tamanio = 12
+[INFO] 11:12:57:937 DISCORDIADOR/(2998:2998): sobrevivi al agregar_parametro
+[INFO] 11:12:57:937 DISCORDIADOR/(2998:2998): parametro nuevo 33
+[INFO] 11:16:38:237 DISCORDIADOR/(3203:3203): sobrevivi al crear_mensaje
+[INFO] 11:16:38:238 DISCORDIADOR/(3203:3203): parametro nuevo 0
+[INFO] 11:16:38:238 DISCORDIADOR/(3203:3203): case: ENTERO tamanio = 0. Parametro -1077482104
+[INFO] 11:16:38:238 DISCORDIADOR/(3203:3203): memcpy del valor: tamanio = 4
+[INFO] 11:16:38:238 DISCORDIADOR/(3203:3203): sobrevivi al agegar_parametro
+[INFO] 11:16:38:238 DISCORDIADOR/(3203:3203): parametro nuevo 6
+[INFO] 11:16:38:238 DISCORDIADOR/(3203:3203): case: ENTERO tamanio = 4. Parametro -1077482104
+[INFO] 11:16:38:238 DISCORDIADOR/(3203:3203): memcpy del valor: tamanio = 8
+[INFO] 11:16:38:238 DISCORDIADOR/(3203:3203): sobrevivi al agegar_parametro
+[INFO] 11:16:38:238 DISCORDIADOR/(3203:3203): parametro nuevo 16
+[INFO] 11:16:38:238 DISCORDIADOR/(3203:3203): case: ENTERO tamanio = 8. Parametro -1077482104
+[INFO] 11:16:38:238 DISCORDIADOR/(3203:3203): memcpy del valor: tamanio = 12
+[INFO] 11:16:38:238 DISCORDIADOR/(3203:3203): sobrevivi al agregar_parametro
+[INFO] 11:16:38:238 DISCORDIADOR/(3203:3203): parametro nuevo 33
+[INFO] 11:18:04:981 DISCORDIADOR/(3307:3307): sobrevivi al crear_mensaje
+[INFO] 11:18:04:981 DISCORDIADOR/(3307:3307): parametro nuevo 0
+[INFO] 11:18:04:981 DISCORDIADOR/(3307:3307): case: ENTERO tamanio = 0. Parametro -1075455160
+[INFO] 11:18:04:981 DISCORDIADOR/(3307:3307): memcpy del valor: tamanio = 4
+[INFO] 11:18:04:981 DISCORDIADOR/(3307:3307): sobrevivi al agegar_parametro
+[INFO] 11:18:04:981 DISCORDIADOR/(3307:3307): parametro nuevo 6
+[INFO] 11:18:04:981 DISCORDIADOR/(3307:3307): case: ENTERO tamanio = 4. Parametro -1075455160
+[INFO] 11:18:04:981 DISCORDIADOR/(3307:3307): memcpy del valor: tamanio = 8
+[INFO] 11:18:04:981 DISCORDIADOR/(3307:3307): sobrevivi al agegar_parametro
+[INFO] 11:18:04:981 DISCORDIADOR/(3307:3307): parametro nuevo 16
+[INFO] 11:18:04:981 DISCORDIADOR/(3307:3307): case: ENTERO tamanio = 8. Parametro -1075455160
+[INFO] 11:18:04:981 DISCORDIADOR/(3307:3307): memcpy del valor: tamanio = 12
+[INFO] 11:18:04:981 DISCORDIADOR/(3307:3307): sobrevivi al agregar_parametro
+[INFO] 11:18:04:981 DISCORDIADOR/(3307:3307): parametro nuevo 33
+[INFO] 11:27:53:684 DISCORDIADOR/(3597:3597): parametro op: 0
+[INFO] 11:27:53:684 DISCORDIADOR/(3597:3597): case: ENTERO tamanio = 0. Parametro -1079829952
+[INFO] 11:27:53:684 DISCORDIADOR/(3597:3597): memcpy del valor: tamanio = 4
+[INFO] 11:27:53:684 DISCORDIADOR/(3597:3597): sobrevivi al agegar_parametro
+[INFO] 11:27:53:684 DISCORDIADOR/(3597:3597): parametro id_patota 6
+[INFO] 11:27:53:684 DISCORDIADOR/(3597:3597): case: ENTERO tamanio = 4. Parametro -1079829948
+[INFO] 11:27:53:684 DISCORDIADOR/(3597:3597): memcpy del valor: tamanio = 8
+[INFO] 11:27:53:684 DISCORDIADOR/(3597:3597): sobrevivi al agegar_parametro
+[INFO] 11:27:53:684 DISCORDIADOR/(3597:3597): parametro cant_tripulantes 926038577
+[INFO] 11:27:53:684 DISCORDIADOR/(3597:3597): case: ENTERO tamanio = 8. Parametro -1079829944
+[INFO] 11:27:53:684 DISCORDIADOR/(3597:3597): memcpy del valor: tamanio = 12
+[INFO] 11:27:53:684 DISCORDIADOR/(3597:3597): sobrevivi al agregar_parametro
+[INFO] 11:27:53:684 DISCORDIADOR/(3597:3597): parametro cant_tareas 65
+[INFO] 11:28:39:845 DISCORDIADOR/(4077:4077): parametro op: 0
+[INFO] 11:28:39:845 DISCORDIADOR/(4077:4077): case: ENTERO tamanio = 0. Parametro -1079131184
+[INFO] 11:28:39:845 DISCORDIADOR/(4077:4077): memcpy del valor: tamanio = 4
+[INFO] 11:28:39:845 DISCORDIADOR/(4077:4077): sobrevivi al agegar_parametro
+[INFO] 11:28:39:845 DISCORDIADOR/(4077:4077): parametro id_patota 6
+[INFO] 11:28:39:845 DISCORDIADOR/(4077:4077): case: ENTERO tamanio = 4. Parametro -1079131180
+[INFO] 11:28:39:845 DISCORDIADOR/(4077:4077): memcpy del valor: tamanio = 8
+[INFO] 11:28:39:845 DISCORDIADOR/(4077:4077): sobrevivi al agegar_parametro
+[INFO] 11:28:39:845 DISCORDIADOR/(4077:4077): parametro cant_tripulantes 16
+[INFO] 11:28:39:845 DISCORDIADOR/(4077:4077): case: ENTERO tamanio = 8. Parametro -1079131176
+[INFO] 11:28:39:845 DISCORDIADOR/(4077:4077): memcpy del valor: tamanio = 12
+[INFO] 11:28:39:845 DISCORDIADOR/(4077:4077): sobrevivi al agregar_parametro
+[INFO] 11:28:39:845 DISCORDIADOR/(4077:4077): parametro cant_tareas 2065
+[INFO] 11:29:41:321 DISCORDIADOR/(4349:4349): parametro op: 0
+[INFO] 11:29:41:321 DISCORDIADOR/(4349:4349): case: ENTERO tamanio = 0. Parametro -1077002896/-1077003000
+[INFO] 11:29:41:321 DISCORDIADOR/(4349:4349): memcpy del valor: tamanio = 4
+[INFO] 11:29:41:321 DISCORDIADOR/(4349:4349): sobrevivi al agegar_parametro
+[INFO] 11:29:41:321 DISCORDIADOR/(4349:4349): parametro id_patota 6
+[INFO] 11:29:41:321 DISCORDIADOR/(4349:4349): case: ENTERO tamanio = 4. Parametro -1077002892/-1077003000
+[INFO] 11:29:41:321 DISCORDIADOR/(4349:4349): memcpy del valor: tamanio = 8
+[INFO] 11:29:41:321 DISCORDIADOR/(4349:4349): sobrevivi al agegar_parametro
+[INFO] 11:29:41:321 DISCORDIADOR/(4349:4349): parametro cant_tripulantes 959593009
+[INFO] 11:29:41:321 DISCORDIADOR/(4349:4349): case: ENTERO tamanio = 8. Parametro -1077002888/-1077003000
+[INFO] 11:29:41:321 DISCORDIADOR/(4349:4349): memcpy del valor: tamanio = 12
+[INFO] 11:29:41:321 DISCORDIADOR/(4349:4349): sobrevivi al agregar_parametro
+[INFO] 11:29:41:321 DISCORDIADOR/(4349:4349): parametro cant_tareas 65
+[INFO] 11:31:03:957 DISCORDIADOR/(4609:4609): parametro op: 0
+[INFO] 11:31:03:957 DISCORDIADOR/(4609:4609): case: ENTERO tamanio = 0. Parametro 6/-1075558952
+[INFO] 11:31:03:957 DISCORDIADOR/(4609:4609): memcpy del valor: tamanio = 4
+[INFO] 11:31:03:957 DISCORDIADOR/(4609:4609): sobrevivi al agegar_parametro
+[INFO] 11:31:03:957 DISCORDIADOR/(4609:4609): parametro id_patota 6
+[INFO] 11:31:03:957 DISCORDIADOR/(4609:4609): case: ENTERO tamanio = 4. Parametro 2/-1075558952
+[INFO] 11:31:03:957 DISCORDIADOR/(4609:4609): memcpy del valor: tamanio = 8
+[INFO] 11:31:03:957 DISCORDIADOR/(4609:4609): sobrevivi al agegar_parametro
+[INFO] 11:31:03:957 DISCORDIADOR/(4609:4609): parametro cant_tripulantes 825440817
+[INFO] 11:31:03:957 DISCORDIADOR/(4609:4609): case: ENTERO tamanio = 8. Parametro 7/-1075558952
+[INFO] 11:31:03:957 DISCORDIADOR/(4609:4609): memcpy del valor: tamanio = 12
+[INFO] 11:31:03:957 DISCORDIADOR/(4609:4609): sobrevivi al agregar_parametro
+[INFO] 11:31:03:957 DISCORDIADOR/(4609:4609): parametro cant_tareas 65
+[INFO] 11:35:50:110 DISCORDIADOR/(4878:4878): parametro op: 0
+[INFO] 11:35:50:110 DISCORDIADOR/(4878:4878): case: ENTERO tamanio = 0
+[INFO] 11:35:50:110 DISCORDIADOR/(4878:4878): Parametro 6
+[INFO] 11:35:50:110 DISCORDIADOR/(4878:4878): memcpy del valor: tamanio = 4
+[INFO] 11:35:50:110 DISCORDIADOR/(4878:4878): parametro id_patota 6
+[INFO] 11:35:50:110 DISCORDIADOR/(4878:4878): case: ENTERO tamanio = 4
+[INFO] 11:35:50:110 DISCORDIADOR/(4878:4878): Parametro 2
+[INFO] 11:35:50:110 DISCORDIADOR/(4878:4878): memcpy del valor: tamanio = 8
+[INFO] 11:35:50:110 DISCORDIADOR/(4878:4878): parametro cant_tripulantes 3547247
+[INFO] 11:35:50:110 DISCORDIADOR/(4878:4878): case: ENTERO tamanio = 8
+[INFO] 11:35:50:110 DISCORDIADOR/(4878:4878): Parametro 7
+[INFO] 11:35:50:110 DISCORDIADOR/(4878:4878): memcpy del valor: tamanio = 12
+[INFO] 11:35:50:110 DISCORDIADOR/(4878:4878): parametro cant_tareas 33
+[INFO] 11:38:25:872 DISCORDIADOR/(5080:5080): parametro op: 0
+[INFO] 11:38:25:872 DISCORDIADOR/(5080:5080): case: ENTERO tamanio = 0
+[INFO] 11:38:25:872 DISCORDIADOR/(5080:5080): Parametro 6
+[INFO] 11:38:25:872 DISCORDIADOR/(5080:5080): memcpy del valor: tamanio = 4
+[INFO] 11:38:25:872 DISCORDIADOR/(5080:5080): parametro id_patota 6
+[INFO] 11:38:25:872 DISCORDIADOR/(5080:5080): case: ENTERO tamanio = 4
+[INFO] 11:38:25:872 DISCORDIADOR/(5080:5080): Parametro 2
+[INFO] 11:38:25:872 DISCORDIADOR/(5080:5080): memcpy del valor: tamanio = 8
+[INFO] 11:38:25:872 DISCORDIADOR/(5080:5080): parametro cant_tripulantes 3547247
+[INFO] 11:38:25:872 DISCORDIADOR/(5080:5080): case: ENTERO tamanio = 8
+[INFO] 11:38:25:872 DISCORDIADOR/(5080:5080): Parametro 7
+[INFO] 11:38:25:872 DISCORDIADOR/(5080:5080): memcpy del valor: tamanio = 12
+[INFO] 11:38:25:872 DISCORDIADOR/(5080:5080): parametro cant_tareas 33
+[ERROR] 11:42:40:598 DISCORDIADOR/(5271:5271): COMANDO INVÁLIDO, INTENTE NUEVAMENTE
+[INFO] 11:42:55:106 DISCORDIADOR/(5275:5275): parametro op: 0
+[INFO] 11:42:55:106 DISCORDIADOR/(5275:5275): case: ENTERO tamanio = 0
+[INFO] 11:42:55:106 DISCORDIADOR/(5275:5275): Parametro 6
+[INFO] 11:42:55:106 DISCORDIADOR/(5275:5275): memcpy del valor: tamanio = 4
+[INFO] 11:42:55:106 DISCORDIADOR/(5275:5275): parametro id_patota 6
+[INFO] 11:42:55:106 DISCORDIADOR/(5275:5275): case: ENTERO tamanio = 4
+[INFO] 11:42:55:106 DISCORDIADOR/(5275:5275): Parametro 2
+[INFO] 11:42:55:106 DISCORDIADOR/(5275:5275): memcpy del valor: tamanio = 8
+[INFO] 11:42:55:106 DISCORDIADOR/(5275:5275): parametro cant_tripulantes 3547247
+[INFO] 11:42:55:106 DISCORDIADOR/(5275:5275): case: ENTERO tamanio = 8
+[INFO] 11:42:55:106 DISCORDIADOR/(5275:5275): Parametro 7
+[INFO] 11:42:55:106 DISCORDIADOR/(5275:5275): memcpy del valor: tamanio = 12
+[INFO] 11:42:55:106 DISCORDIADOR/(5275:5275): parametro cant_tareas 33
+[INFO] 11:44:16:824 DISCORDIADOR/(5478:5478): parametro op: 0
+[INFO] 11:44:16:824 DISCORDIADOR/(5478:5478): case: ENTERO tamanio = 0
+[INFO] 11:44:16:824 DISCORDIADOR/(5478:5478): Parametro 6
+[INFO] 11:44:16:824 DISCORDIADOR/(5478:5478): memcpy del valor: tamanio = 4
+[INFO] 11:44:16:824 DISCORDIADOR/(5478:5478): parametro id_patota 6
+[INFO] 11:44:16:824 DISCORDIADOR/(5478:5478): case: ENTERO tamanio = 4
+[INFO] 11:44:16:824 DISCORDIADOR/(5478:5478): Parametro 2
+[INFO] 11:44:16:824 DISCORDIADOR/(5478:5478): memcpy del valor: tamanio = 8
+[INFO] 11:44:16:824 DISCORDIADOR/(5478:5478): parametro cant_tripulantes 3547247
+[INFO] 11:44:16:824 DISCORDIADOR/(5478:5478): case: ENTERO tamanio = 8
+[INFO] 11:44:16:824 DISCORDIADOR/(5478:5478): Parametro 7
+[INFO] 11:44:16:824 DISCORDIADOR/(5478:5478): memcpy del valor: tamanio = 12
+[INFO] 11:44:16:824 DISCORDIADOR/(5478:5478): parametro cant_tareas 33
+[INFO] 11:48:36:723 DISCORDIADOR/(5817:5817): parametro op: 0
+[INFO] 11:48:36:723 DISCORDIADOR/(5817:5817): case: ENTERO tamanio = 0
+[INFO] 11:48:36:723 DISCORDIADOR/(5817:5817): Parametro 6
+[INFO] 11:48:36:723 DISCORDIADOR/(5817:5817): memcpy del valor: tamanio = 4
+[INFO] 11:48:36:723 DISCORDIADOR/(5817:5817): parametro id_patota 6
+[INFO] 11:48:36:723 DISCORDIADOR/(5817:5817): case: ENTERO tamanio = 4
+[INFO] 11:48:36:723 DISCORDIADOR/(5817:5817): Parametro 2
+[INFO] 11:48:36:723 DISCORDIADOR/(5817:5817): memcpy del valor: tamanio = 8
+[INFO] 11:48:36:723 DISCORDIADOR/(5817:5817): parametro cant_tripulantes 3547247
+[INFO] 11:48:36:723 DISCORDIADOR/(5817:5817): case: ENTERO tamanio = 8
+[INFO] 11:48:36:723 DISCORDIADOR/(5817:5817): Parametro 7
+[INFO] 11:48:36:723 DISCORDIADOR/(5817:5817): memcpy del valor: tamanio = 12
+[INFO] 11:48:36:723 DISCORDIADOR/(5817:5817): parametro cant_tareas 33
+[INFO] 11:50:05:733 DISCORDIADOR/(6009:6009): parametro op: 0
+[INFO] 11:50:05:733 DISCORDIADOR/(6009:6009): case: ENTERO tamanio = 0
+[INFO] 11:50:05:733 DISCORDIADOR/(6009:6009): Parametro 6
+[INFO] 11:50:05:733 DISCORDIADOR/(6009:6009): memcpy del valor: tamanio = 4
+[INFO] 11:50:05:733 DISCORDIADOR/(6009:6009): parametro id_patota 6
+[INFO] 11:50:05:733 DISCORDIADOR/(6009:6009): case: ENTERO tamanio = 4
+[INFO] 11:50:05:733 DISCORDIADOR/(6009:6009): Parametro 2
+[INFO] 11:50:05:734 DISCORDIADOR/(6009:6009): memcpy del valor: tamanio = 8
+[INFO] 11:50:05:734 DISCORDIADOR/(6009:6009): parametro cant_tripulantes 3547247
+[INFO] 11:50:05:734 DISCORDIADOR/(6009:6009): case: ENTERO tamanio = 8
+[INFO] 11:50:05:734 DISCORDIADOR/(6009:6009): Parametro 7
+[INFO] 11:50:05:734 DISCORDIADOR/(6009:6009): memcpy del valor: tamanio = 12
+[INFO] 11:50:05:734 DISCORDIADOR/(6009:6009): parametro cant_tareas 33
+[INFO] 11:50:47:556 DISCORDIADOR/(6199:6199): parametro op: 0
+[INFO] 11:50:47:556 DISCORDIADOR/(6199:6199): case: ENTERO tamanio = 0
+[INFO] 11:50:47:556 DISCORDIADOR/(6199:6199): Parametro 6
+[INFO] 11:50:47:556 DISCORDIADOR/(6199:6199): memcpy del valor: tamanio = 4
+[INFO] 11:50:47:556 DISCORDIADOR/(6199:6199): parametro id_patota 6
+[INFO] 11:50:47:556 DISCORDIADOR/(6199:6199): case: ENTERO tamanio = 4
+[INFO] 11:50:47:556 DISCORDIADOR/(6199:6199): Parametro 2
+[INFO] 11:50:47:556 DISCORDIADOR/(6199:6199): memcpy del valor: tamanio = 8
+[INFO] 11:50:47:556 DISCORDIADOR/(6199:6199): parametro cant_tripulantes 3547247
+[INFO] 11:50:47:556 DISCORDIADOR/(6199:6199): case: ENTERO tamanio = 8
+[INFO] 11:50:47:556 DISCORDIADOR/(6199:6199): Parametro 7
+[INFO] 11:50:47:556 DISCORDIADOR/(6199:6199): memcpy del valor: tamanio = 12
+[INFO] 11:50:47:556 DISCORDIADOR/(6199:6199): parametro cant_tareas 33
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): parametro op: 0
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): case: ENTERO tamanio = 0
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): Parametro 6
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): memcpy del valor: tamanio = 4
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): parametro id_patota 6
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): case: ENTERO tamanio = 4
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): Parametro 2
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): memcpy del valor: tamanio = 8
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): parametro cant_tripulantes 3547247
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): case: ENTERO tamanio = 8
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): Parametro 7
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): memcpy del valor: tamanio = 12
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): case: BUFFER tamanio = 12. Parametro �;��<�X߶�pt�߶�
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): realloc
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): memcpy's
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): iniciar_patota, 15
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): break
+[INFO] 12:12:07:336 DISCORDIADOR/(6566:6566): parametro cant_tareas 3617842
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): tarea agregado.
+Valor iniciar_patota
+
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): parametro op: 0
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): case: ENTERO tamanio = 0
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): Parametro 6
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): memcpy del valor: tamanio = 4
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): parametro id_patota 6
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): case: ENTERO tamanio = 4
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): Parametro 2
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): memcpy del valor: tamanio = 8
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): parametro cant_tripulantes 3547247
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): case: ENTERO tamanio = 8
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): Parametro 7
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): memcpy del valor: tamanio = 12
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): case: BUFFER tamanio = 12. Parametro ��	�	�¿pt��¿
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): realloc
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): memcpy's
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): iniciar_patota, 15
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): break
+[INFO] 12:14:59:863 DISCORDIADOR/(6767:6767): parametro cant_tareas 3617842
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): tarea agregado.
+Valor iniciar_patota pepe mujica se la come
+
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): parametro op: 0
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): case: ENTERO tamanio = 0
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): Parametro 6
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): memcpy del valor: tamanio = 4
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): parametro id_patota 6
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): case: ENTERO tamanio = 4
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): Parametro 2
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): memcpy del valor: tamanio = 8
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): parametro cant_tripulantes 3547247
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): case: ENTERO tamanio = 8
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): Parametro 7
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): memcpy del valor: tamanio = 12
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): case: BUFFER tamanio = 12. Parametro iniciar_patota pepe mujica se la come
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): realloc
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): memcpy's
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): iniciar_patota pepe mujica se la come, 38
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): break
+[INFO] 12:18:26:930 DISCORDIADOR/(7028:7028): parametro cant_tareas 171384943
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): tarea agregado.
+Valor iniciar_patota todo ok bro
+
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): parametro op: 0
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): case: ENTERO tamanio = 0
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): Parametro 6
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): memcpy del valor: tamanio = 4
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): parametro id_patota 6
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): case: ENTERO tamanio = 4
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): Parametro 2
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): memcpy del valor: tamanio = 8
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): parametro cant_tripulantes 3547247
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): case: ENTERO tamanio = 8
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): Parametro 2
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): memcpy del valor: tamanio = 12
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): case: BUFFER tamanio = 12. Parametro iniciar_patota todo ok bro
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): realloc
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): memcpy's
+[INFO] 12:24:42:649 DISCORDIADOR/(7311:7311): iniciar_patota todo ok bro, 27
+[INFO] 12:24:42:650 DISCORDIADOR/(7311:7311): break
+[INFO] 12:24:42:650 DISCORDIADOR/(7311:7311): case: BUFFER tamanio = 43. Parametro iniciar_patota todo ok bro
+[INFO] 12:24:42:650 DISCORDIADOR/(7311:7311): realloc
+[INFO] 12:24:42:650 DISCORDIADOR/(7311:7311): memcpy's
+[INFO] 12:24:42:650 DISCORDIADOR/(7311:7311): iniciar_patota todo ok bro, 27
+[INFO] 12:24:42:650 DISCORDIADOR/(7311:7311): break
+[INFO] 12:24:42:650 DISCORDIADOR/(7311:7311): parametro cant_tareas -442931853
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): tarea agregado.
+Valor iniciar_patota 12345678910
+
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): parametro op: 0
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): case: ENTERO tamanio = 0
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): Parametro 6
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): memcpy del valor: tamanio = 4
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): parametro id_patota 6
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): case: ENTERO tamanio = 4
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): Parametro 2
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): memcpy del valor: tamanio = 8
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): parametro cant_tripulantes 3547247
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): case: ENTERO tamanio = 8
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): Parametro 2
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): memcpy del valor: tamanio = 12
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): case: BUFFER tamanio = 12. Parametro iniciar_patota 12345678910
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): realloc
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): memcpy's
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): iniciar_patota 12345678910, 27
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): break
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): case: BUFFER tamanio = 43. Parametro iniciar_patota 12345678910
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): realloc
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): memcpy's
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): iniciar_patota 12345678910, 27
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): break
+[INFO] 12:27:57:127 DISCORDIADOR/(7580:7580): parametro cant_tareas -441358989
+[ERROR] 12:28:57:683 DISCORDIADOR/(7682:7682): COMANDO INVÁLIDO, INTENTE NUEVAMENTE
+[INFO] 12:29:10:755 DISCORDIADOR/(7686:7686): tarea agregado.
+Valor iniciar_patota 123
+
+[INFO] 12:29:10:755 DISCORDIADOR/(7686:7686): parametro op: 0
+[INFO] 12:29:10:755 DISCORDIADOR/(7686:7686): case: ENTERO tamanio = 0
+[INFO] 12:29:10:755 DISCORDIADOR/(7686:7686): Parametro 6
+[INFO] 12:29:10:755 DISCORDIADOR/(7686:7686): memcpy del valor: tamanio = 4
+[INFO] 12:29:10:755 DISCORDIADOR/(7686:7686): parametro id_patota 6
+[INFO] 12:29:10:755 DISCORDIADOR/(7686:7686): case: ENTERO tamanio = 4
+[INFO] 12:29:10:755 DISCORDIADOR/(7686:7686): Parametro 2
+[INFO] 12:29:10:755 DISCORDIADOR/(7686:7686): memcpy del valor: tamanio = 8
+[INFO] 12:29:10:755 DISCORDIADOR/(7686:7686): parametro cant_tripulantes 3547247
+[INFO] 12:29:10:755 DISCORDIADOR/(7686:7686): case: ENTERO tamanio = 8
+[INFO] 12:29:10:755 DISCORDIADOR/(7686:7686): Parametro 2
+[INFO] 12:29:10:755 DISCORDIADOR/(7686:7686): memcpy del valor: tamanio = 12
+[INFO] 12:29:10:755 DISCORDIADOR/(7686:7686): case: BUFFER tamanio = 12. Parametro iniciar_patota 123
+[INFO] 12:29:10:755 DISCORDIADOR/(7686:7686): realloc
+[INFO] 12:29:10:755 DISCORDIADOR/(7686:7686): memcpy's
+[INFO] 12:29:10:756 DISCORDIADOR/(7686:7686): iniciar_patota 123, 19
+[INFO] 12:29:10:756 DISCORDIADOR/(7686:7686): break
+[INFO] 12:29:10:756 DISCORDIADOR/(7686:7686): case: BUFFER tamanio = 35. Parametro iniciar_patota 123
+[INFO] 12:29:10:756 DISCORDIADOR/(7686:7686): realloc
+[INFO] 12:29:10:756 DISCORDIADOR/(7686:7686): memcpy's
+[INFO] 12:29:10:756 DISCORDIADOR/(7686:7686): iniciar_patota 123, 19
+[INFO] 12:29:10:756 DISCORDIADOR/(7686:7686): break
+[INFO] 12:29:10:756 DISCORDIADOR/(7686:7686): parametro cant_tareas 1114221
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): tarea agregado.
+Valor iniciar_patota 123
+
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): parametro op: 0
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): case: ENTERO tamanio = 0
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): Parametro 6
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): memcpy del valor: tamanio = 4
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): parametro id_patota 6
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): case: ENTERO tamanio = 4
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): Parametro 2
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): memcpy del valor: tamanio = 8
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): parametro cant_tripulantes 3547247
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): case: ENTERO tamanio = 8
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): Parametro 2
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): memcpy del valor: tamanio = 12
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): case: BUFFER tamanio = 12. Parametro iniciar_patota 123
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): realloc
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): memcpy's
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): iniciar_patota 123, 19
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): break
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): case: BUFFER tamanio = 35. Parametro iniciar_patota 123
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): realloc
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): memcpy's
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): iniciar_patota 123, 19
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): break
+[INFO] 12:34:28:716 DISCORDIADOR/(7961:7961): parametro cant_tareas 1114221
