@@ -33,11 +33,16 @@ int main(void) {
 			log_info(logger, "Tarea 1: %s", (char *)list_get(lista_parametros, 4));
 			log_info(logger, "Tarea 2: %s", (char *)list_get(lista_parametros, 5));
 			log_info(logger, "Hemos vencido al recibir mensaje");
+
+			t_mensaje* respuesta;
+			respuesta = crear_mensaje(TODOOK);
+			enviar_mensaje(socket_discord, respuesta);
 			return 0;
 			break;
 		case INIT_T:
 			//lista = recibir_paquete(socket_discord);
-			printf("Me llegaron los siguientes valores:\n");
+			
+			return 0;
 			break;
 		default:
 			log_warning(logger, "Operacion desconocida. No quieras meter la pata");

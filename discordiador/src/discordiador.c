@@ -51,78 +51,66 @@ int main() {
 		buffer_consola = leer_consola();
 		funcion_consola = mapStringToEnum(primer_palabra(buffer_consola));
 		char** input;
-
+		t_list *respuesta;
 		switch(funcion_consola) {
-			case INICIAR_PATOTA:
-				/*input = string_split(buffer_consola, " ");
-				int* lista_puertos = malloc(sizeof(int) * atoi(input[1]));
+		case INICIAR_PATOTA:
+			// iniciar_patota(input, lista_puertos, logger);
+			// log_info(logger, "tarea agregado.\nValor %s\n", buffer_consola);
+			mensaje = crear_mensaje(INIT_P);
+			int valor[3] = {6, 3, 2};
+			int muestra = 0;
+			memcpy(&muestra, &(mensaje->op_code), sizeof(int));
+			log_info(logger, "parametro op: %d", muestra);
+			muestra = 0;
+			
+			agregar_parametro_a_mensaje(mensaje, &valor[0], ENTERO, logger);
+			memcpy(&muestra, mensaje->buffer->contenido, sizeof(int));
+			log_info(logger, "parametro id_patota %d", muestra);
+			muestra = 0;
+			
+			agregar_parametro_a_mensaje(mensaje, &valor[1], ENTERO, logger);
+			memcpy(&muestra, mensaje->buffer->contenido + mensaje->buffer->tamanio, sizeof(int));
+			log_info(logger, "parametro cant_tripulantes %d", muestra);
+			muestra = 0;
 
-				enviar_mensaje(buffer_consola, socket_ram);
-				char* buffer_socket;
-				int i = 0;
-				// en este while, recibo los puertos y los almaceno en lista_puertos
-				while(i<10) {
-					recibir_operacion(socket_ram);	// en este momento sirve por compatibilidad
-					buffer_socket = recibir_mensaje(socket_ram);
-					log_info(logger, "%s, directo del buffer", buffer_socket);
-					if(buffer_socket==NULL)
-						break;
-					lista_puertos[i] = atoi(buffer_socket);
-					log_info(logger, "%d, desde lista_puertos", lista_puertos[i]);
-					i++;
-				}
-				
-				iniciar_patota(input, lista_puertos, logger);*/
-				log_info(logger, "tarea agregado.\nValor %s\n", buffer_consola);
-				mensaje = crear_mensaje(INIT_P);
-				int valor[3] = {6, 3, 2};
-				int muestra = 0;
-				memcpy(&muestra, &(mensaje->op_code), sizeof(int));
-				log_info(logger, "parametro op: %d", muestra);
-				muestra = 0;
-				
-				agregar_parametro_a_mensaje(mensaje, &valor[0], ENTERO, logger);
-				memcpy(&muestra, mensaje->buffer->contenido, sizeof(int));
-				log_info(logger, "parametro id_patota %d", muestra);
-				muestra = 0;
-				
-				agregar_parametro_a_mensaje(mensaje, &valor[1], ENTERO, logger);
-				memcpy(&muestra, mensaje->buffer->contenido + mensaje->buffer->tamanio, sizeof(int));
-				log_info(logger, "parametro cant_tripulantes %d", muestra);
-				muestra = 0;
+			agregar_parametro_a_mensaje(mensaje, &valor[2], ENTERO, logger);
 
-				agregar_parametro_a_mensaje(mensaje, &valor[2], ENTERO, logger);
+			agregar_parametro_a_mensaje(mensaje, buffer_consola, BUFFER, logger);
+			agregar_parametro_a_mensaje(mensaje, buffer_consola, BUFFER, logger);
 
-				agregar_parametro_a_mensaje(mensaje, buffer_consola, BUFFER, logger);
-				agregar_parametro_a_mensaje(mensaje, buffer_consola, BUFFER, logger);
-
-				memcpy(&muestra, mensaje->buffer->contenido + mensaje->buffer->tamanio, sizeof(int));
-				log_info(logger, "parametro cant_tareas %d", muestra);
-				// log_info(logger, "%d", mensaje->buffer);
-				// send(socket_ram, mensaje, mensaje->buffer->tamanio + 2 * sizeof(int), 0);
-				enviar_mensaje(socket_ram, mensaje);
-				return 0;
-				break;
-			case LISTAR_TRIPULANTES:
-				listar_tripulantes();
-				break;
-			case EXPULSAR_TRIPULANTE:
-				log_info(logger,"Expulsar tripulante ...");
-				break;
-			case INICIAR_PLANIFICACION:
-				log_info(logger,"INICIAR PLANIFICACION");
-				break;
-			case PAUSAR_PLANIFICACION:
-				log_info(logger,"PAUSAR PLANIFICACION");
-				break;
-			case OBTENER_BITACORA:
-				log_info(logger,"OBTENER BITACORA");
-				break;
-			case EXIT_DISCORDIADOR:
-				continuar = false;
-				break;
-			case ERROR:
-				log_error(logger,"COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
+			memcpy(&muestra, mensaje->buffer->contenido + mensaje->buffer->tamanio, sizeof(int));
+			log_info(logger, "parametro cant_tareas %d", muestra);
+			
+			enviar_mensaje(socket_ram, mensaje);
+			
+			respuesta = recibir_mensaje(socket_ram);
+			if((int)list_get(respuesta, 0) == TODOOK) {
+				log_info(logger, "aeeea, sabalero, sabalero");
+			}
+			else
+				log_info(logger, "aeeea, NO SOY sabalero");
+			return 0;
+			break;
+		case LISTAR_TRIPULANTES:
+			listar_tripulantes();
+			break;
+		case EXPULSAR_TRIPULANTE:
+			log_info(logger,"Expulsar tripulante ...");
+			break;
+		case INICIAR_PLANIFICACION:
+			log_info(logger,"INICIAR PLANIFICACION");
+			break;
+		case PAUSAR_PLANIFICACION:
+			log_info(logger,"PAUSAR PLANIFICACION");
+			break;
+		case OBTENER_BITACORA:
+			log_info(logger,"OBTENER BITACORA");
+			break;
+		case EXIT_DISCORDIADOR:
+			continuar = false;
+			break;
+		case ERROR:
+			log_error(logger,"COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
 		}
 		free(buffer_consola);
 

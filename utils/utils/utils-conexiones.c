@@ -1,35 +1,13 @@
 #include "utils-conexiones.h"
-/*
-void* serializar_paquete(t_paquete* paquete, int bytes) {
-	void * magic = malloc(bytes);
-	int desplazamiento = 0;
-	memcpy(magic + desplazamiento, &(paquete->codigo_operacion), sizeof(int));
-	desplazamiento+= sizeof(int);
-	memcpy(magic + desplazamiento, &(paquete->buffer->size), sizeof(int));
-	desplazamiento+= sizeof(int);
-	memcpy(magic + desplazamiento, paquete->buffer->stream, paquete->buffer->size);
-	desplazamiento+= paquete->buffer->size;
 
-	return magic;
-}
-
-*/
 void crear_buffer(t_mensaje* mensaje) {
 	mensaje->buffer = malloc(sizeof(t_buffer));
 	mensaje->buffer->tamanio = 0;
 	mensaje->buffer->contenido = NULL;
 }
-/*
-t_paquete* crear_paquete(void) {
-	t_paquete* paquete = malloc(sizeof(t_paquete));
-	paquete->codigo_operacion = PAQUETE;
-	crear_buffer(paquete);
-	return paquete;
-}
-*/
+
 t_mensaje* crear_mensaje(protocolo_msj cod_op) {
 	t_mensaje* mensaje = malloc(sizeof(t_mensaje));
-	// memcpy(&(mensaje->op_code), &cod_op, sizeof(int));
 	mensaje->op_code = cod_op;
 	crear_buffer(mensaje);
 	return mensaje;
@@ -41,7 +19,6 @@ void agregar_parametro_a_mensaje(t_mensaje* mensaje, void* parametro, int tipo_p
 		log_info(logger, "case: ENTERO tamanio = %d", mensaje->buffer->tamanio);
 		log_info(logger, "Parametro %d", *(int *)parametro);
 		mensaje->buffer->contenido = realloc(mensaje->buffer->contenido, mensaje->buffer->tamanio + sizeof(int));
-		// log_info(logger, "Pase realloc, %d", sizeof(*(mensaje->buffer->contenido)));
 		
 		memcpy(mensaje->buffer->contenido + mensaje->buffer->tamanio, parametro, sizeof(int));
 		mensaje->buffer->tamanio = mensaje->buffer->tamanio + sizeof(int);
@@ -95,155 +72,92 @@ void* recibir_parametro(int socket, tipo_msj tipo) {
 t_list* recibir_mensaje(int socket) {
 	protocolo_msj op_code;
 	t_list* lista_parametros = list_create();
+
 	recv(socket, &op_code, sizeof(int), MSG_WAITALL);
 	list_add(lista_parametros, (void *)op_code);
-	printf("OP CODE agregado. Valor: %d\n", op_code);
 	
-	// int id_patota;
-	// int cant_tripulantes;
-	// int cant_tareas;
 	switch(op_code) {
-	case INIT_P:
-		/*
-		id_patota = (int)recibir_parametro(socket, ENTERO);
-		list_add(lista_parametros, (void *)id_patota);
-		printf("Id patota agregado. Valor %d\n", id_patota);
-		
-		cant_tripulantes = (int)recibir_parametro(socket, ENTERO);
-		list_add(lista_parametros, (void *)cant_tripulantes);
-		printf("cant trip agregado. Valor %d\n", cant_tripulantes);
-
-		cant_tareas = (int)recibir_parametro(socket, ENTERO);
-		list_add(lista_parametros, (void *)cant_tareas);
-		printf("cant tareas agregado. Valor %d\n", cant_tareas);
-		*/
+	case INIT_P:	// Iniciar patota
+	// INIT_P | id_patota [int] | cantidad_tripulantes [int] | cant_tareas [int] | (tareas)
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
-		printf("Id patota agregado. Valor %d\n", (int)list_get(lista_parametros, 1));
-
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
-		printf("cant trip agregado. Valor %d\n", (int)list_get(lista_parametros, 2));
-
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
-		printf("cant tareas agregado. Valor %d\n", (int)list_get(lista_parametros, 3));
+
 		int cant_tareas = (int)list_get(lista_parametros, 3);
 		for(int iterador = 0; iterador < cant_tareas; iterador++) {
-			/*char * tarea = recibir_parametro(socket, BUFFER);
-			list_add(lista_parametros, (void *)tarea);
-			printf("Tarea agregada: %s\n", tarea);*/
 			list_add(lista_parametros, recibir_parametro(socket, BUFFER));
-			printf("Tarea agregada: %s\n", (char *)list_get(lista_parametros, 4 + iterador));
 		}
 		break;
-	case INIT_T:
+	
+	case INIT_T:	// Iniciar tripulante
+	// INIT_T | id_patota [int] | id_trip [int] | posicion_x [int] | posicion_y [int]
+	case SABO_P:	// Nuevo Sabotaje
+	// SABO_P | id_patota [int] | id_trip [int] | posicion_x [int] | posicion_y [int]
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		break;
-	case DATA_T:
+	
+	case SHOW_T:	// Mostrar información de tripulante
+	// SHOW_T | estado [int] | posicion_x [int] | posicion_y [int]
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		break;
-	case ELIM_T:
+	
+	case DATA_T:	// Conocer tripulante
+	// DATA_T | id_tripulante [int] | id_patota [int]
+	case ELIM_T:	// Expulsar tripulante
+	// ELIM_T | id_tripulante [int] | id_patota [int]
+	case ACTU_T:	// Actualizar ubicación
+	// ACTU_T | posicion_x [int] | posicion_y [int]
+	case BITA_D:	// Obtener bitácora
+	// BITA_D | id_trip [int] | id_patota [int]
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		break;
-	case NEW_PO:
+	
+	case BITA_C:	// Mostrar Bitácora
+	// BITA_C | cant_lineas [int] | (líneas)
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
+
+		int cant_lineas = (int)list_get(lista_parametros, 1);
+		for(int iterador = 0; iterador < cant_lineas; iterador++) {
+			list_add(lista_parametros, recibir_parametro(socket, BUFFER));
+		}
 		break;
-	case ACTU_T:
+	
+	case SND_PO:	// Enviar puerto
+	// SND_PO | puerto [int]
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		break;
-	case NEXT_T:
+	
+	case TASK_T:	// Enviar tarea
+	// TASK_T | largo_tarea [int] | tarea [str]
+		list_add(lista_parametros, recibir_parametro(socket, BUFFER));
 		break;
+
+	case NEW_PO:	// Solicitar Puerto
+	// NEW_PO
+	case NEXT_T:	// Próxima tarea
+	// NEXT_T	
+	case TODOOK:	// Validación correcta
+	// TODOOK
+		break;
+	
+	case BITA_T:	// Actualizar bitácora
+	// BITA_T | largo_mensaje [int] | mensaje [str]
+		// por definir
+		break;
+	
+	case TAR_ES:	// Tarea E/S
+	// TAR_ES | tarea_code [str] | parametro_tarea [int]
+		// por definir
+		break;
+	
 	default:
 		printf("default !!!\n");
 	}
 	return lista_parametros;
 }
-/*
-void agregar_a_paquete(t_paquete* paquete, void* valor, int tamanio) {
-	paquete->buffer->stream = realloc(paquete->buffer->stream, paquete->buffer->size + tamanio + sizeof(int));
-
-	memcpy(paquete->buffer->stream + paquete->buffer->size, &tamanio, sizeof(int));
-	memcpy(paquete->buffer->stream + paquete->buffer->size + sizeof(int), valor, tamanio);
-
-	paquete->buffer->size += tamanio + sizeof(int);
-}
-
-void enviar_mensaje(char* mensaje, int socket_cliente) {
-	t_paquete* paquete = malloc(sizeof(t_paquete));
-
-	paquete->codigo_operacion = MENSAJE;
-	paquete->buffer = malloc(sizeof(t_buffer));
-	paquete->buffer->size = strlen(mensaje) + 1;
-	paquete->buffer->stream = malloc(paquete->buffer->size);
-	memcpy(paquete->buffer->stream, mensaje, paquete->buffer->size);
-
-	int bytes = paquete->buffer->size + 2*sizeof(int);
-
-	void* a_enviar = serializar_paquete(paquete, bytes);
-
-	send(socket_cliente, a_enviar, bytes, 0);
-
-	free(a_enviar);
-	eliminar_paquete(paquete);
-}
-
-void enviar_paquete(t_paquete* paquete, int socket_cliente) {
-	int bytes = paquete->buffer->size + 2*sizeof(int);
-	void* a_enviar = serializar_paquete(paquete, bytes);
-
-	send(socket_cliente, a_enviar, bytes, 0);
-
-	free(a_enviar);
-}
-
-
-char* recibir_buffer(int* size, int socket_cliente) {
-	void * buffer;
-	recv(socket_cliente, size, sizeof(int), MSG_WAITALL);
-	printf("Recivo op: %d\n", *size);
-	buffer = malloc(*size);
-	recv(socket_cliente, buffer, *size, MSG_WAITALL);
-	//printf("Recivo buffer: %s\n", (char*)buffer);
-	return buffer;
-}
-
-char* recibir_mensaje(int socket_cliente) {
-	int size;
-	char* buffer = recibir_buffer(&size, socket_cliente);
-	printf("Me llego el mensaje %s\n", buffer);
-	return buffer;
-}
-
-int recibir_operacion(int socket_cliente) {
-	int cod_op;
-	if(recv(socket_cliente, &cod_op, sizeof(int), MSG_WAITALL) != 0)
-		return cod_op;
-	else
-	{
-		close(socket_cliente);
-		return -1;
-	}
-}
-
-void eliminar_paquete(t_paquete* paquete) {
-	free(paquete->buffer->stream);
-	free(paquete->buffer);
-	free(paquete);
-}
-
-t_list* recibir_paquete(int socket_cliente) {
-	int size;
-	int desplazamiento = 0;
-	void * buffer;
-	t_list* valores = list_create();
-	int tamanio;
-
-	buffer = recibir_buffer(&size, socket_cliente);
-	while(desplazamiento < size)
-	{
-		memcpy(&tamanio, buffer + desplazamiento, sizeof(int));
-		desplazamiento+=sizeof(int);
-		char* valor = malloc(tamanio);
-		memcpy(valor, buffer+desplazamiento, tamanio);
-		desplazamiento+=tamanio;
-		list_add(valores, valor);
-	}
-	free(buffer);
-	return valores;
-	return NULL;
-}
-
-*/
