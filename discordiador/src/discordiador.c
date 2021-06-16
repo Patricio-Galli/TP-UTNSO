@@ -75,7 +75,7 @@ int main() {
 				iniciar_patota(input, lista_puertos, logger);*/
 				log_info(logger, "tarea agregado.\nValor %s\n", buffer_consola);
 				mensaje = crear_mensaje(INIT_P);
-				int valor[3] = {6, 2, 2};
+				int valor[3] = {6, 3, 2};
 				int muestra = 0;
 				memcpy(&muestra, &(mensaje->op_code), sizeof(int));
 				log_info(logger, "parametro op: %d", muestra);

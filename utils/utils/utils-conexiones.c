@@ -50,22 +50,15 @@ void agregar_parametro_a_mensaje(t_mensaje* mensaje, void* parametro, int tipo_p
 	case BUFFER:
 		log_info(logger, "case: BUFFER tamanio = %d. Parametro %s", mensaje->buffer->tamanio, parametro);
 		int tamanio_buffer = (strlen(parametro) + 1) * sizeof(char);
-		// memcpy(&(tamanio_buffer), &tamanio_buffer, sizeof(int));
-		// log_info(logger, "hice el memcpy");
-		// char* buffer = malloc(sizeof(char) * tamanio_buffer);
-		// memcpy(buffer, parametro, tamanio_buffer);
-		// log_info(logger, "asigne variables");
 		mensaje->buffer->contenido = realloc(mensaje->buffer->contenido, mensaje->buffer->tamanio + sizeof(int) + tamanio_buffer);
-		log_info(logger, "realloc");
+		
 		memcpy(mensaje->buffer->contenido + mensaje->buffer->tamanio, &tamanio_buffer, sizeof(int));
 		memcpy(mensaje->buffer->contenido + mensaje->buffer->tamanio + sizeof(int), parametro, tamanio_buffer);
-		log_info(logger, "memcpy's");
 		mensaje->buffer->tamanio = mensaje->buffer->tamanio + sizeof(int) + tamanio_buffer;
 		log_info(logger, "%s, %d", parametro, tamanio_buffer);
-		log_info(logger, "break");
 		break;
 	default:
-		log_info(logger, "Guarda, estoy en deafult");
+		log_error(logger, "Mal uso de la función agregar_parametro_a_mensaje en el parámetro tipo");
 		break;
 	}
 }
@@ -106,25 +99,39 @@ t_list* recibir_mensaje(int socket) {
 	list_add(lista_parametros, (void *)op_code);
 	printf("OP CODE agregado. Valor: %d\n", op_code);
 	
-	int id_patota, cant_tripulantes, cant_tareas;
+	// int id_patota;
+	// int cant_tripulantes;
+	// int cant_tareas;
 	switch(op_code) {
 	case INIT_P:
+		/*
 		id_patota = (int)recibir_parametro(socket, ENTERO);
 		list_add(lista_parametros, (void *)id_patota);
 		printf("Id patota agregado. Valor %d\n", id_patota);
-
+		
 		cant_tripulantes = (int)recibir_parametro(socket, ENTERO);
 		list_add(lista_parametros, (void *)cant_tripulantes);
 		printf("cant trip agregado. Valor %d\n", cant_tripulantes);
-		
+
 		cant_tareas = (int)recibir_parametro(socket, ENTERO);
 		list_add(lista_parametros, (void *)cant_tareas);
 		printf("cant tareas agregado. Valor %d\n", cant_tareas);
-		
+		*/
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
+		printf("Id patota agregado. Valor %d\n", (int)list_get(lista_parametros, 1));
+
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
+		printf("cant trip agregado. Valor %d\n", (int)list_get(lista_parametros, 2));
+
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
+		printf("cant tareas agregado. Valor %d\n", (int)list_get(lista_parametros, 3));
+		int cant_tareas = (int)list_get(lista_parametros, 3);
 		for(int iterador = 0; iterador < cant_tareas; iterador++) {
-			char * tarea = recibir_parametro(socket, BUFFER);
+			/*char * tarea = recibir_parametro(socket, BUFFER);
 			list_add(lista_parametros, (void *)tarea);
-			printf("Tarea agregada: %s\n", tarea);
+			printf("Tarea agregada: %s\n", tarea);*/
+			list_add(lista_parametros, recibir_parametro(socket, BUFFER));
+			printf("Tarea agregada: %s\n", (char *)list_get(lista_parametros, 4 + iterador));
 		}
 		break;
 	case INIT_T:
