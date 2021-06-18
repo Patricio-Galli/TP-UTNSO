@@ -6,14 +6,9 @@
 #include <commons/log.h>
 #include <pthread.h>
 
-void planificador(t_list*, int, char*, int, bool*, t_log*);
+void planificador(int, char*, int, int, bool*, t_log*);
 
 void* fifo();
 void* rr();
-
-/*
-void iniciar_FIFO(int, t_list*, bool*, t_log*);
-void iniciar_RR(int, int, t_list*, bool*, t_log*);
-*/
 
 #endif /* PLANIFICADOR_H_ */

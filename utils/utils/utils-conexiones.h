@@ -16,32 +16,30 @@
 #include<netdb.h>
 #include<string.h>
 #include<commons/collections/list.h>
+#include<commons/log.h>
+
+typedef enum { 	INIT_P, INIT_T, DATA_T, SHOW_T, ELIM_T, NEW_PO, SND_PO, ACTU_T,
+				NEXT_T,	TASK_T,	BITA_D,	BITA_T,	BITA_C,	TAR_ES,	SABO_P,	TODOOK
+} protocolo_msj;
 
 typedef enum {
-	MENSAJE,
-	PAQUETE
-} op_code;
+	ENTERO,
+	BUFFER
+} tipo_msj;
 
 typedef struct {
-	int size;
-	void* stream;
+	int tamanio;
+	void* contenido;
 } t_buffer;
 
 typedef struct {
-	op_code codigo_operacion;
+	protocolo_msj op_code;
 	t_buffer* buffer;
-} t_paquete;
+} t_mensaje;
 
-void* serializar_paquete(t_paquete* paquete, int bytes);
+t_mensaje* crear_mensaje(protocolo_msj cod_op);
+void agregar_parametro_a_mensaje(t_mensaje* mensaje, void* parametro, int tipo_parametro, t_log* logger);
+void enviar_mensaje(int socket, t_mensaje* mensaje);
 
-char* recibir_mensaje(int);
-char* recibir_buffer(int* size, int socket);
-int recibir_operacion(int);
-void eliminar_paquete(t_paquete* paquete);
-
-void enviar_mensaje(char* mensaje, int socket);
-t_paquete* crear_paquete(void);
-void agregar_a_paquete(t_paquete* paquete, void* valor, int tamanio);
-void enviar_paquete(t_paquete* paquete, int socket_cliente);
-
+t_list* recibir_mensaje(int socket);
 #endif /* UTILS_CONEXIONES_H_ */

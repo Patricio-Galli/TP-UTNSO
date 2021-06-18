@@ -1,7 +1,6 @@
 #include "miramhq.h"
 
-int main(void)
-{
+int main(void) {
 	t_log* logger = log_create("miramhq.log", "Mi-RAM-HQ", 1, LOG_LEVEL_DEBUG);
 	log_info(logger, "Creando conexiones");
 	int server_fd = crear_conexion_servidor(IP_RAM, PUERTO_RAM);
@@ -14,59 +13,46 @@ int main(void)
 
 	log_info(logger, "Servidor listo para recibir al cliente");
 	int socket_discord = esperar_cliente(server_fd);
-	log_info(logger, "A llegado un nuevo cliente");
-
-
-	// crear_memoria(); → malloc(fruta);
-	// 
-	// crear_pcb();
-	// crear_tcb();
-
+	log_info(logger, "Ha llegado un nuevo cliente");
 
 	t_list* lista;
 	char* buffer;
-	while(1) {
-		int cod_op = recibir_operacion(socket_discord);
-		switch(cod_op) {
-		case MENSAJE:
-			buffer = recibir_mensaje(socket_discord);
-			int cantidad_detectada = 0;
-			log_info(logger, "Recibi un mensaje: %s", buffer);
+	// while(1) {
+		log_info(logger, "Entro a recibir mensaje");
+		t_list* lista_parametros = recibir_mensaje(socket_discord);
 
-			char** input = string_split(buffer, " ");
-			int* lista_sockets = crear_conexiones_hilos(input, &cantidad_detectada);
-			printf("tripulantes a crear: %d, pude crear:%d\n", atoi(input[1]), cantidad_detectada);
-			
-			struct sockaddr_in addr_aux;
-			socklen_t largo = sizeof(struct addrinfo);
-			char ipstr[INET_ADDRSTRLEN];
+		switch((int)list_get(lista_parametros, 0)) { // protocolo del mensaje
+		case INIT_P:
+			log_info(logger, "Largo de lista %d", lista_parametros->elements_count);
+			int largo_lista = lista_parametros->elements_count;
+			log_info(logger, "op code: %d", (int )list_get(lista_parametros, 0));
+			// memcpy(&op_code, (int *)list_get(lista_parametros, 0), sizeof(int));
+			log_info(logger, "Recibi id_ patota %d", (int)list_get(lista_parametros, 1));
+			log_info(logger, "Recibi cant_tripulantes %d", (int)list_get(lista_parametros, 2));
+			log_info(logger, "Recibi cant_tareas %d", (int)list_get(lista_parametros, 3));
+			log_info(logger, "Tarea 1: %s", (char *)list_get(lista_parametros, 4));
+			log_info(logger, "Tarea 2: %s", (char *)list_get(lista_parametros, 5));
+			log_info(logger, "Hemos vencido al recibir mensaje");
 
-			for(int i=0; i < atoi(input[1]); i++) {
-				printf("VOY a enviar un puerto, del socket %d\n", lista_sockets[i]);
-				getsockname(lista_sockets[i], (struct sockaddr*)&addr_aux, &largo);
-				inet_ntop(AF_INET, &(addr_aux.sin_addr), ipstr, sizeof ipstr);
-				char str_puerto[7];
-				sprintf(str_puerto, "%d", ntohs(addr_aux.sin_port));
-				printf("VOY a enviar un puerto, %s\n", str_puerto);
-				// log_info(logger,"%s:%d\n", ipstr, ntohs(addr_aux.sin_port));
-				
-				enviar_mensaje(str_puerto, socket_discord);
-			}
+			t_mensaje* respuesta;
+			respuesta = crear_mensaje(TODOOK);
+			enviar_mensaje(socket_discord, respuesta);
+			return 0;
+			break;
+		case INIT_T:
+			//lista = recibir_paquete(socket_discord);
 			
+			return 0;
 			break;
-		case PAQUETE:
-			lista = recibir_paquete(socket_discord);
-			printf("Me llegaron los siguientes valores:\n");
-			break;
-		case -1:
-			log_error(logger, "el cliente se desconecto. Terminando servidor");
-			return EXIT_FAILURE;
 		default:
 			log_warning(logger, "Operacion desconocida. No quieras meter la pata");
+			return -1;
+			/*recv(socket_discord, &cod_op, sizeof(int), MSG_WAITALL);
+			log_info(logger, "Hemos vencido al recibir mensaje : %d", cod_op);
+			recv(socket_discord, &cod_op, sizeof(int), MSG_WAITALL);
+			log_info(logger, "Hemos vencido al recibir mensaje : %d", cod_op);*/
 			break;
 		}
-		break;
-	}
 	return EXIT_SUCCESS;
 }
 

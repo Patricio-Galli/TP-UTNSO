@@ -7,14 +7,14 @@ tripulante* crear_tripulante(int x, int y, int patota, int id, t_log* log) {
 	tripulante* nuevo_tripulante = malloc(sizeof(tripulante));
 	pthread_t nuevo_hilo;
 
-	pthread_create(&nuevo_hilo, NULL, rutina_tripulante, nuevo_tripulante);
-
 	nuevo_tripulante->id_trip = id;
 	nuevo_tripulante->id_patota = patota;
 	nuevo_tripulante->estado = NEW;
 	nuevo_tripulante->hilo = nuevo_hilo;
 	nuevo_tripulante->posicion[0] = x;
 	nuevo_tripulante->posicion[1] = y;
+
+	pthread_create(&nuevo_hilo, NULL, rutina_tripulante, nuevo_tripulante);
 
 	return nuevo_tripulante;
 }

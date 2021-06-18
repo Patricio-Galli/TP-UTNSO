@@ -21,7 +21,7 @@ void loggear_parametros(parametros_iniciar_patota*);
 
 void iniciar_patota(parametros_iniciar_patota*);
 void listar_tripulantes();
-void expulsar_tripulante(int);
+void expulsar_tripulante(int, int);
 void iniciar_planificacion();
 void pausar_planificacion();
 
