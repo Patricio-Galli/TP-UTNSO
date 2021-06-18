@@ -14,25 +14,22 @@ t_mensaje* crear_mensaje(protocolo_msj cod_op) {
 }
 
 void agregar_parametro_a_mensaje(t_mensaje* mensaje, void* parametro, int tipo_parametro, t_log* logger) {
+	int tamanio_buffer;
 	switch (tipo_parametro) {
 	case ENTERO:
-		log_info(logger, "case: ENTERO tamanio = %d", mensaje->buffer->tamanio);
-		log_info(logger, "Parametro %d", *(int *)parametro);
+
 		mensaje->buffer->contenido = realloc(mensaje->buffer->contenido, mensaje->buffer->tamanio + sizeof(int));
 		
 		memcpy(mensaje->buffer->contenido + mensaje->buffer->tamanio, parametro, sizeof(int));
 		mensaje->buffer->tamanio = mensaje->buffer->tamanio + sizeof(int);
-		log_info(logger, "memcpy del valor: tamanio = %d", mensaje->buffer->tamanio);
 		break;
 	case BUFFER:
-		log_info(logger, "case: BUFFER tamanio = %d. Parametro %s", mensaje->buffer->tamanio, parametro);
-		int tamanio_buffer = (strlen(parametro) + 1) * sizeof(char);
+		tamanio_buffer = (strlen(parametro) + 1) * sizeof(char);
 		mensaje->buffer->contenido = realloc(mensaje->buffer->contenido, mensaje->buffer->tamanio + sizeof(int) + tamanio_buffer);
 		
 		memcpy(mensaje->buffer->contenido + mensaje->buffer->tamanio, &tamanio_buffer, sizeof(int));
 		memcpy(mensaje->buffer->contenido + mensaje->buffer->tamanio + sizeof(int), parametro, tamanio_buffer);
 		mensaje->buffer->tamanio = mensaje->buffer->tamanio + sizeof(int) + tamanio_buffer;
-		log_info(logger, "%s, %d", parametro, tamanio_buffer);
 		break;
 	default:
 		log_error(logger, "Mal uso de la función agregar_parametro_a_mensaje en el parámetro tipo");

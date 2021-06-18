@@ -30,8 +30,10 @@ int main(void) {
 			log_info(logger, "Recibi id_ patota %d", (int)list_get(lista_parametros, 1));
 			log_info(logger, "Recibi cant_tripulantes %d", (int)list_get(lista_parametros, 2));
 			log_info(logger, "Recibi cant_tareas %d", (int)list_get(lista_parametros, 3));
-			log_info(logger, "Tarea 1: %s", (char *)list_get(lista_parametros, 4));
-			log_info(logger, "Tarea 2: %s", (char *)list_get(lista_parametros, 5));
+
+			for(int i = 0; i < (int)list_get(lista_parametros, 3); i++)
+				log_info(logger, "Tarea %d: %s",i+1, (char *)list_get(lista_parametros, 4+i));
+
 			log_info(logger, "Hemos vencido al recibir mensaje");
 
 			t_mensaje* respuesta;

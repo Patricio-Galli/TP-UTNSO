@@ -26,7 +26,7 @@ int crear_conexion_cliente(char *ip, char* puerto) {
 	socket_cliente = socket(server_info->ai_family, server_info->ai_socktype, server_info->ai_protocol);
 	
 	if(socket_cliente == -1) {
-		printf("error en socket\n");
+		//printf("error en socket\n");
 		freeaddrinfo(server_info);
 		return -2;
 	}

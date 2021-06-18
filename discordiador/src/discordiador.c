@@ -4,13 +4,40 @@ int id_patota_actual = 1;
 t_list* lista_tripulantes;
 t_log* logger;
 t_config* config;
-bool planificacion_activada;
+bool planificacion_activada = false;
+int socket_ram = 0, socket_mongo = 0;
 
 int main() {
 	logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
 	config = config_create("discordiador.config");
+
 	lista_tripulantes = list_create();
+
 	bool continuar = true;
+	/*
+	t_mensaje* mensaje;
+	t_list *respuesta;
+
+	socket_ram = crear_conexion_cliente(
+		config_get_string_value(config, "IP_MI_RAM_HQ"),
+		config_get_string_value(config, "PUERTO_MI_RAM_HQ")
+		);
+
+	socket_mongo = crear_conexion_cliente(
+		config_get_string_value(config, "IP_I_MONGO_STORE"),
+		config_get_string_value(config, "PUERTO_I_MONGO_STORE")
+		);
+
+	if(socket_mongo < 0 || socket_ram < 0) { //todo usar funcion validar socket
+		if(socket_ram < 0)
+			log_info(logger, "Fallo en la conexión con Mi-RAM-HQ");
+		if(socket_mongo < 0)
+			log_info(logger, "Fallo en la conexión con I-Mongo-Store");
+		// close(socket_ram);
+		// close(socket_mongo);
+		// return ERROR_CONEXION;
+	}
+	*/
 
 	while(continuar) {
 		char* buffer_consola = leer_consola();
@@ -30,8 +57,30 @@ int main() {
 				parametros = obtener_parametros(input);
 				loggear_parametros(parametros);
 
+				/*
+				mensaje = crear_mensaje(INIT_P);
+
+				agregar_parametro_a_mensaje(mensaje, &id_patota_actual, ENTERO, logger);
+				agregar_parametro_a_mensaje(mensaje, &parametros->cantidad_tripulantes, ENTERO, logger);
+				agregar_parametro_a_mensaje(mensaje, &parametros->cantidad_tareas, ENTERO, logger);
+
+				for(int i = 0; i < parametros->cantidad_tareas; i++)
+					agregar_parametro_a_mensaje(mensaje, parametros->tareas[i], BUFFER, logger);
+
+				enviar_mensaje(socket_ram, mensaje);
+
+				respuesta = recibir_mensaje(socket_ram);
+
+				if((int)list_get(respuesta, 0) == TODOOK)
+					iniciar_patota(parametros);
+				else
+					log_error(logger, "No se pudo iniciar patota, no hay suficiente memoria.");
+
+				liberar_parametros(parametros);
+				*/
+
 				iniciar_patota(parametros);
-				//liberar_parametros(parametros);
+				liberar_parametros(parametros);
 				break;
 
 			case LISTAR_TRIPULANTES:
@@ -72,11 +121,30 @@ int main() {
 void iniciar_patota(parametros_iniciar_patota* parametros) {
 	log_info(logger,"Iniciando creacion de Patota nro: %d", id_patota_actual);
 
-	for(int iterador = 0; iterador < parametros->cantidad_tripulantes; iterador++) {
-		//pedir puerto para el tripulante
+	for(int iterador = 1; iterador <= parametros->cantidad_tripulantes; iterador++) {
+		/*
+		t_mensaje* mensaje;
+		t_list *respuesta;
 
-		tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_x[iterador], parametros->posiciones_y[iterador], id_patota_actual, iterador +1, logger);
+		mensaje = crear_mensaje(INIT_T);
 
+		agregar_parametro_a_mensaje(mensaje, &id_patota_actual, ENTERO, logger);
+		agregar_parametro_a_mensaje(mensaje, &iterador, ENTERO, logger);
+		agregar_parametro_a_mensaje(mensaje, &parametros->posiciones_x[iterador-1], ENTERO, logger);
+		agregar_parametro_a_mensaje(mensaje, &parametros->posiciones_y[iterador-1], ENTERO, logger);
+
+		enviar_mensaje(socket_ram, mensaje);
+		respuesta = recibir_mensaje(socket_ram);
+
+		if((int)list_get(respuesta, 0) == SND_PO) { //todo pedir puerto mongo antes de mandar las cosas al tripulante
+			tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_x[iterador-1], parametros->posiciones_y[iterador-1], id_patota_actual, iterador, (int)list_get(respuesta, 1), 0, logger);
+			list_add(lista_tripulantes, nuevo_tripulante);
+		}
+		else
+			log_error(logger, "No se pudo crear al tripulante, no hay suficiente memoria.");
+		*/
+
+		tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_x[iterador-1], parametros->posiciones_y[iterador-1], id_patota_actual, iterador, 0, 0, logger);
 		list_add(lista_tripulantes, nuevo_tripulante); //devuelve la posicion en la que se agrego
 	}
 	log_info(logger,"Patota nro: %d iniciada.",id_patota_actual);
@@ -111,12 +179,28 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 		if(nuevo_tripulante->id_trip == id_tripulante && nuevo_tripulante->id_patota == id_patota) {
 			continuar = false;
 
+			/*
 			tripulante* tripulante_expulsado = (tripulante*)list_remove(lista_tripulantes, index);
 
-			//todo avisar a la ram
+			t_mensaje* mensaje;
+			t_list *respuesta;
 
+			mensaje = crear_mensaje(ELIM_T);
+
+			agregar_parametro_a_mensaje(mensaje, &id_tripulante, ENTERO, logger);
+			agregar_parametro_a_mensaje(mensaje, &id_patota, ENTERO, logger);
+
+			respuesta = recibir_mensaje(socket_ram);
+
+			if((int)list_get(respuesta, 0) == TODOOK) {
+				free(tripulante_expulsado);
+				log_info(logger,"El tripulante %d de la patota %d ha sido expulsado", id_tripulante, id_patota);
+			}else
+				log_error(logger, "No se pudo expulsar al tripulante.");
+			*/
+
+			tripulante* tripulante_expulsado = (tripulante*)list_remove(lista_tripulantes, index);
 			free(tripulante_expulsado);
-
 			log_info(logger,"El tripulante %d de la patota %d ha sido expulsado", id_tripulante, id_patota);
 		}
 		else {
@@ -124,7 +208,7 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 
 			if(index == lista_tripulantes->elements_count) {
 				continuar = false;
-				log_info(logger,"No existe el tripulante %d de la patota %d", id_tripulante, id_patota);
+				log_error(logger,"No existe el tripulante %d de la patota %d", id_tripulante, id_patota);
 			}
 		}
 	}
@@ -194,15 +278,28 @@ parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar val
 	return parametros;
 }
 
+void liberar_parametros(parametros_iniciar_patota* parametros) {
+	free(parametros->posiciones_x);
+	free(parametros->posiciones_y);
+
+	while(parametros->cantidad_tareas > 0){
+		free(parametros->tareas[parametros->cantidad_tareas-1]);
+		(parametros->cantidad_tareas)--;
+	}
+
+	free(parametros->tareas);
+	free(parametros);
+}
+
 void loggear_parametros(parametros_iniciar_patota* parametros) {
 	log_info(logger,"Cantidad de tripulantes: %d", parametros->cantidad_tripulantes);
 
 	for(int i = 0; i < parametros->cantidad_tripulantes; i++)
-		log_info(logger,"Tripulante: %d  |  Posicion x: %d  |  Posicion y: %d", i+1, parametros->posiciones_x[i], parametros->posiciones_y[i]);
+		log_info(logger,"	Tripulante: %d  |  Posicion x: %d  |  Posicion y: %d", i+1, parametros->posiciones_x[i], parametros->posiciones_y[i]);
 
 	log_info(logger,"Cantidad de tareas: %d", parametros->cantidad_tareas);
 
 	for(int i = 0; i < parametros->cantidad_tareas; i++)
-		log_info(logger,"Tarea %d: %s", i, parametros->tareas[i]);
+		log_info(logger,"	Tarea %d: %s", i, parametros->tareas[i]);
 
 }

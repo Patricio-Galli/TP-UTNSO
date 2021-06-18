@@ -5,6 +5,8 @@
 #include <commons/collections/queue.h>
 #include <commons/log.h>
 #include <pthread.h>
+#include <string.h>
+#include <unistd.h>
 
 void planificador(int, char*, int, int, bool*, t_log*);
 

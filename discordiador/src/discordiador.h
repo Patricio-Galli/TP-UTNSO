@@ -17,6 +17,7 @@ typedef struct {
 }parametros_iniciar_patota;
 
 parametros_iniciar_patota* obtener_parametros(char**);
+void liberar_parametros(parametros_iniciar_patota*);
 void loggear_parametros(parametros_iniciar_patota*);
 
 void iniciar_patota(parametros_iniciar_patota*);

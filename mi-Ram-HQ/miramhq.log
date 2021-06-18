@@ -832,3 +832,16 @@
 [INFO] 13:00:07:373 Mi-RAM-HQ/(8857:8857): Tarea 1: iniciar_patota 123
 [INFO] 13:00:07:373 Mi-RAM-HQ/(8857:8857): Tarea 2: iniciar_patota 123
 [INFO] 13:00:07:373 Mi-RAM-HQ/(8857:8857): Hemos vencido al recibir mensaje
+[INFO] 16:29:50:865 Mi-RAM-HQ/(7092:7092): Creando conexiones
+[INFO] 16:29:50:866 Mi-RAM-HQ/(7092:7092): Servidor listo para recibir al cliente
+[INFO] 16:30:29:639 Mi-RAM-HQ/(7092:7092): Ha llegado un nuevo cliente
+[INFO] 16:30:29:639 Mi-RAM-HQ/(7092:7092): Entro a recibir mensaje
+[INFO] 16:30:43:053 Mi-RAM-HQ/(7092:7092): Largo de lista 7
+[INFO] 16:30:43:053 Mi-RAM-HQ/(7092:7092): op code: 0
+[INFO] 16:30:43:054 Mi-RAM-HQ/(7092:7092): Recibi id_ patota 1
+[INFO] 16:30:43:054 Mi-RAM-HQ/(7092:7092): Recibi cant_tripulantes 4
+[INFO] 16:30:43:054 Mi-RAM-HQ/(7092:7092): Recibi cant_tareas 3
+[INFO] 16:30:43:054 Mi-RAM-HQ/(7092:7092): Tarea 1: generar_oxigeno 1;2;3;4
+[INFO] 16:30:43:054 Mi-RAM-HQ/(7092:7092): Tarea 2: consumir_oxigeno 4;3;2;1
+[INFO] 16:30:43:054 Mi-RAM-HQ/(7092:7092): Tarea 3: vamo lo pibe
+[INFO] 16:30:43:054 Mi-RAM-HQ/(7092:7092): Hemos vencido al recibir mensaje

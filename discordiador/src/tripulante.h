@@ -16,6 +16,9 @@ typedef struct {
 	int estado; //ready, blocked, etc
 	pthread_t hilo;
 	int posicion_lista;
+	int socket_ram;
+	int socket_mongo;
+	//sem_t es_mi_turno
 }tripulante;
 
 typedef enum {
@@ -26,7 +29,7 @@ typedef enum {
     EXIT
 }estado_tarea;
 
-tripulante* crear_tripulante(int, int, int, int, t_log*);
+tripulante* crear_tripulante(int, int, int, int, int, int, t_log*);
 void* rutina_tripulante(void*);
 char* estado_enumToString(int);
 

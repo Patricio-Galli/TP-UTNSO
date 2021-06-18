@@ -2,7 +2,7 @@
 
 t_log* logger;
 
-tripulante* crear_tripulante(int x, int y, int patota, int id, t_log* log) {
+tripulante* crear_tripulante(int x, int y, int patota, int id, int socket_ram, int socket_mongo, t_log* log) {
 	logger = log;
 	tripulante* nuevo_tripulante = malloc(sizeof(tripulante));
 	pthread_t nuevo_hilo;
@@ -13,6 +13,8 @@ tripulante* crear_tripulante(int x, int y, int patota, int id, t_log* log) {
 	nuevo_tripulante->hilo = nuevo_hilo;
 	nuevo_tripulante->posicion[0] = x;
 	nuevo_tripulante->posicion[1] = y;
+	nuevo_tripulante->socket_ram = socket_ram;
+	nuevo_tripulante->socket_mongo = socket_mongo;
 
 	pthread_create(&nuevo_hilo, NULL, rutina_tripulante, nuevo_tripulante);
 
