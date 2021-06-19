@@ -74,6 +74,24 @@ void* rr() {
 		sleep(ciclo_CPU);
 	}
 
+	/*
+	bool continuar = true;
+	log_info(logger,"Panificando con algoritmo RR con multiprogramacion %d y quantum %d ...", multiprogramacion, quantum);
+
+	while(continuar) {
+		sem_wait(tripulantes_ready);
+		sem_wait(tripulante_running);
+			sem_wait(mutex_cola_ready);
+				tripulante* trip_disponible = (tripulante*)queue_pop(cola_ready);
+				sem_post(trip_disponible->sem_running);
+			sem_post(mutex_cola_ready);
+		while(trip_disponible->estado == RUNNING) {
+			if(trip_disponible->contador_ciclos == quantum)
+				trip_disponible->estado = BLOCKED;
+		}
+	}
+	*/
+
 	log_info(logger,"Planificacion pausada");
 
 	return 0;

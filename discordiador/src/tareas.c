@@ -24,8 +24,10 @@ void ejecutar(char* input, tripulante* tripulante) {
 
 	if(tripulante->estado == RUNNING) {
 		if(tarea == ESPERAR) {
-			while(buffer[3] != tripulante->contador_ciclos + buffer[3] && tripulante->estado == RUNNING) {
+			int i = 0;
+			while(i < buffer[3] && tripulante->estado == RUNNING) {
 				tripulante->contador_ciclos++;
+				i++;
 				sleep(ciclo_CPU);
 			}
 		}
