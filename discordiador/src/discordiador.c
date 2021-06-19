@@ -116,6 +116,10 @@ int main() {
 		}
 		free(buffer_consola);
 	}
+	//pthread_mutex_destroy(&mutex_cola_ready);
+	//pthread_mutex_destroy(&mutex_cola_running);
+	//pthread_mutex_destroy(&mutex_cola_blocked);
+
 	//list_destroy_and_destroy_elements(lista_tripulantes, free()); podria ser esta la funcion pero no estoy seguro que funcione
 	log_destroy(logger);
 	return 0;
@@ -147,7 +151,7 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 			log_error(logger, "No se pudo crear al tripulante, no hay suficiente memoria.");
 		*/
 
-		tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_x[iterador-1], parametros->posiciones_y[iterador-1], id_patota_actual, iterador, 0, 0, logger);
+		tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_x[iterador-1], parametros->posiciones_y[iterador-1], id_patota_actual, iterador, 0, 0);
 		list_add(lista_tripulantes, nuevo_tripulante); //devuelve la posicion en la que se agrego
 	}
 	log_info(logger,"Patota nro: %d iniciada.",id_patota_actual);
@@ -219,12 +223,12 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 
 void iniciar_planificacion() {
 	log_info(logger,"Iniciando planificacion...");
-	sem_post(activar_planificacion);
+	sem_post(&activar_planificacion);
 }
 
 void pausar_planificacion() {
 	log_info(logger,"Pausando planificacion...");
-	continuar_planificacion = false;
+	sem_post(&desactivar_planificacion);
 }
 
 parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar validaciones para lectura de archivos y parametros validos

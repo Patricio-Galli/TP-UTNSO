@@ -9,13 +9,16 @@ void ejecutar(char* input, tripulante* tripulante) {
 
 	//todo  avisar al mongo que se empezo a ejecutar esa tarea
 
-	while(tripulante->posicion[0] != comando_tarea[1] && tripulante->estado == RUNNING) {
+	int pos_x = atoi(comando_tarea[1]);
+	int pos_y = atoi(comando_tarea[2]);
+
+	while(tripulante->posicion[0] != pos_x && tripulante->estado == RUNNING) {
 		tripulante->posicion[0]++;
 		//todo avisar a ram
 		//todo avisar a mongo
 		tripulante->contador_ciclos++;
 	}
-	while(tripulante->posicion[1] != comando_tarea[2] && tripulante->estado == RUNNING) {
+	while(tripulante->posicion[1] != pos_y && tripulante->estado == RUNNING) {
 			tripulante->posicion[1]++;
 			//todo avisar a ram
 			//todo avisar a mongo
@@ -25,7 +28,8 @@ void ejecutar(char* input, tripulante* tripulante) {
 	if(tripulante->estado == RUNNING) {
 		if(tarea == ESPERAR) {
 			int i = 0;
-			while(i < buffer[3] && tripulante->estado == RUNNING) {
+			int tiempo_espera = atoi(buffer[3]);
+			while(i < tiempo_espera && tripulante->estado == RUNNING) {
 				tripulante->contador_ciclos++;
 				i++;
 				sleep(ciclo_CPU);
@@ -47,6 +51,8 @@ void ejecutar(char* input, tripulante* tripulante) {
 				case GENERAR_BASURA:
 					break;
 				case DESCARTAR_BASURA:
+					break;
+				case ESPERAR:
 					break;
 			}
 		}

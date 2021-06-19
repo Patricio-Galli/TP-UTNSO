@@ -1,9 +1,6 @@
 #include "tripulante.h"
 
-t_log* logger;
-
-tripulante* crear_tripulante(int x, int y, int patota, int id, int socket_ram, int socket_mongo, t_log* log) {
-	logger = log;
+tripulante* crear_tripulante(int x, int y, int patota, int id, int socket_ram, int socket_mongo) {
 	tripulante* nuevo_tripulante = malloc(sizeof(tripulante));
 	pthread_t nuevo_hilo;
 
@@ -16,8 +13,8 @@ tripulante* crear_tripulante(int x, int y, int patota, int id, int socket_ram, i
 	nuevo_tripulante->socket_ram = socket_ram;
 	nuevo_tripulante->socket_mongo = socket_mongo;
 
-	sem_init(nuevo_tripulante->sem_ready, 0, 0);
-	sem_init(nuevo_tripulante->sem_running, 0, 0);
+	sem_init(&nuevo_tripulante->sem_blocked, 0, 0);
+	sem_init(&nuevo_tripulante->sem_running, 0, 0);
 
 	pthread_create(&nuevo_hilo, NULL, rutina_tripulante, nuevo_tripulante);
 
@@ -27,40 +24,57 @@ tripulante* crear_tripulante(int x, int y, int patota, int id, int socket_ram, i
 void* rutina_tripulante(void* trip) {
 	tripulante* nuevo_tripulante = (tripulante*) trip; //si modifico el interior de ese puntero se modifica de mi lista tambien
 
-
 	//todo conectarse_con_ram(mongo);
 	//todo conectarse_con_disco(ram);
 
-	char* nueva_tarea = NULL;
 	//nueva_tarea = solicitar_tarea(); -> solicita la tarea a la ram
-	nueva_tarea = "Tarea 1";
 
-	while(nueva_tarea != NULL) {
+	int tiene_tareas = 4;
 
-		sem_wait(mutex_cola_espera);
-			queue_push(cola_espera, nuevo_tripulante);
-			sem_post(tripulantes_new);
-		sem_post(mutex_cola_espera);
+	while(tiene_tareas > 0) {
 
-		sem_wait(nuevo_tripulante->sem_ready);
-			//todo avisar a la ram
+		//todo avisar a la ram
+		pthread_mutex_lock(&mutex_cola_ready);
+			queue_push(cola_ready, nuevo_tripulante);
+			sem_post(&tripulantes_ready);
 			nuevo_tripulante->estado = READY;
-			sem_wait(mutex_cola_ready);
-				queue_push(cola_ready, nuevo_tripulante);
-				sem_post(tripulantes_ready);
-			sem_post(mutex_cola_ready);
+			log_info(logger,"Tripulante %d ready", nuevo_tripulante->id_trip);
+		pthread_mutex_unlock(&mutex_cola_ready);
 
-		sem_wait(nuevo_tripulante->sem_running);
-			//todo avisar a la ram
-			nuevo_tripulante->estado = RUNNING;
-			//ejecutar(nueva_tarea, nuevo_tripulante);
-			sem_post(tripulante_running);
+		sem_wait(&nuevo_tripulante->sem_running);
+
+		//todo avisar a la ram
+		nuevo_tripulante->estado = RUNNING;
+		log_info(logger,"Tripulante %d running", nuevo_tripulante->id_trip);
+		sleep(ciclo_CPU);
+		//ejecutar(nueva_tarea, nuevo_tripulante);
+		log_info(logger,"Tripulante %d finalizo trabajo", nuevo_tripulante->id_trip);
+
+		pthread_mutex_lock(&mutex_tripulantes_running);
+			quitar(nuevo_tripulante, tripulantes_running);
+			sem_post(&multiprocesamiento);
+		pthread_mutex_unlock(&mutex_tripulantes_running);
 
 		//nueva_tarea = solicitar_tarea(); -> solicita la tarea a la ram
+		tiene_tareas--;
 	}
 	nuevo_tripulante->estado = EXIT;
-	sem_post(multiprogramacion);
 	return 0;
+}
+
+void quitar(tripulante* trip, t_list* list) {
+	int index = 0;
+	bool continuar = true;
+
+	while(continuar) {
+		tripulante* nuevo_tripulante = (tripulante*)list_get(list, index);
+
+		if(nuevo_tripulante->id_trip == trip->id_trip && nuevo_tripulante->id_patota == trip->id_patota) {
+			continuar = false;
+			list_remove(list, index);
+		}
+		index++;
+	}
 }
 
 char* estado_enumToString(int estadoEnum) {

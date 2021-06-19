@@ -1,67 +1,64 @@
 #include "planificador.h"
 
-t_log* logger;
-
-int ciclo_CPU;
-int quantum;
-
-void inicializar_planificador(int grado_multiprogramacion, char* algoritmo, int ciclo, int q, t_log* log) {
+void inicializar_planificador(int grado_multiprocesamiento, char* algoritmo, int ciclo, int q, t_log* log) {
 	ciclo_CPU = ciclo;
 	quantum = q;
 	logger = log;
-
-	queue_create(cola_espera);
-	queue_create(cola_ready);
-	queue_create(cola_blocked);
-
-	sem_init(mutex_cola_espera, 0, 1);
-	sem_init(mutex_cola_ready, 0, 1);
-	sem_init(mutex_cola_blocked, 0, 1);
-
-	sem_init(activar_planificacion, 0, 0);
-	sem_init(multiprogramacion, 0, grado_multiprogramacion);
-	sem_init(tripulantes_new, 0, 0);
-	sem_init(tripulantes_ready, 0, 0);
-	sem_init(tripulante_running, 0, 1);
-
-	pthread_t hilo_planificador;
-	pthread_create(&hilo_planificador, NULL, planificador, algoritmo);
-}
-
-void* planificador(void* parametro) {
-	sem_wait(activar_planificacion);
-
-	char* algoritmo = (char*) parametro;
-	pthread_t hilo_algoritmo;
 	continuar_planificacion = true;
 
+	cola_ready = queue_create();
+	cola_blocked = queue_create();
+
+	tripulantes_running = list_create();
+
+	pthread_mutex_init(&mutex_cola_ready, NULL);
+	pthread_mutex_init(&mutex_tripulantes_running, NULL);
+	pthread_mutex_init(&mutex_cola_blocked, NULL);
+
+	sem_init(&activar_planificacion, 0, 0);
+	sem_init(&desactivar_planificacion, 0, 0);
+
+	sem_init(&multiprocesamiento, 0, grado_multiprocesamiento);
+	sem_init(&tripulantes_ready, 0, 0);
+
+	pthread_t hilo_planificador;
+	pthread_t hilo_finalizador;
+
 	if(!strcmp(algoritmo,"FIFO"))
-		pthread_create(&hilo_algoritmo, NULL, fifo, NULL);
+		pthread_create(&hilo_planificador, NULL, fifo, NULL);
 	else
-		pthread_create(&hilo_algoritmo, NULL, rr, NULL);
+		pthread_create(&hilo_planificador, NULL, rr, NULL);
 
-	while(continuar_planificacion) {
-		sem_wait(tripulantes_new);
-		sem_wait(multiprogramacion);
-
-		sem_wait(mutex_cola_espera);
-			tripulante* trip_disponible = (tripulante*)queue_pop(cola_espera);
-			sem_post(trip_disponible->sem_ready);
-		sem_post(mutex_cola_espera);
-	}
+	pthread_create(&hilo_finalizador, NULL, finalizador, algoritmo);
 }
 
 void* fifo() {
+	sem_wait(&activar_planificacion);
 	bool continuar = true;
-	log_info(logger,"Panificando con algoritmo FIFO con multiprogramacion %d...", multiprogramacion);
+	tripulantes_trabajando = 0;
+	log_info(logger,"Panificando con algoritmo FIFO ...");
 
 	while(continuar) {
-		sem_wait(tripulantes_ready);
-		sem_wait(tripulante_running);
-			sem_wait(mutex_cola_ready);
-				tripulante* trip_disponible = (tripulante*)queue_pop(cola_ready);
-				sem_post(trip_disponible->sem_running);
-			sem_post(mutex_cola_ready);
+		sem_wait(&tripulantes_ready);
+		sem_wait(&multiprocesamiento);
+			if(continuar_planificacion) {
+				pthread_mutex_lock(&mutex_cola_ready);
+					tripulante* trip = (tripulante*)queue_pop(cola_ready);
+					sem_post(&trip->sem_running);
+					list_add(tripulantes_running, trip);
+					tripulantes_trabajando++;
+				pthread_mutex_unlock(&mutex_cola_ready);
+			}
+			else {
+				continuar = false;
+				sem_post(&tripulantes_ready);
+				sem_post(&multiprocesamiento);
+				while(tripulantes_trabajando != 0) {
+					tripulante* trip = (tripulante*)list_remove(tripulantes_running, tripulantes_trabajando-1);
+					trip->estado = READY;
+					tripulantes_trabajando--;
+				}
+			}
 	}
 	log_info(logger,"Planificacion pausada");
 
@@ -69,31 +66,21 @@ void* fifo() {
 }
 
 void* rr() {
+	sem_wait(&activar_planificacion);
+
 	while(continuar_planificacion) {
-		log_info(logger,"Panificando con algoritmo RR con multiprogramacion %d y quantum %d ...", multiprogramacion, quantum);
+		log_info(logger,"Panificando con algoritmo RR quantum %d ...", quantum);
 		sleep(ciclo_CPU);
 	}
-
-	/*
-	bool continuar = true;
-	log_info(logger,"Panificando con algoritmo RR con multiprogramacion %d y quantum %d ...", multiprogramacion, quantum);
-
-	while(continuar) {
-		sem_wait(tripulantes_ready);
-		sem_wait(tripulante_running);
-			sem_wait(mutex_cola_ready);
-				tripulante* trip_disponible = (tripulante*)queue_pop(cola_ready);
-				sem_post(trip_disponible->sem_running);
-			sem_post(mutex_cola_ready);
-		while(trip_disponible->estado == RUNNING) {
-			if(trip_disponible->contador_ciclos == quantum)
-				trip_disponible->estado = BLOCKED;
-		}
-	}
-	*/
 
 	log_info(logger,"Planificacion pausada");
 
 	return 0;
 }
 
+void* finalizador(void* parametro) {
+	sem_wait(&desactivar_planificacion);
+	continuar_planificacion = false;
+
+	return 0;
+}
