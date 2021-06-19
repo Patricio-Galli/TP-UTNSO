@@ -19,6 +19,7 @@ typedef struct {
 	int socket_mongo;
 	sem_t sem_ready;
 	sem_t sem_running;
+	int contador_ciclos;
 }tripulante;
 
 typedef enum {
