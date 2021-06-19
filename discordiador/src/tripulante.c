@@ -16,6 +16,9 @@ tripulante* crear_tripulante(int x, int y, int patota, int id, int socket_ram, i
 	nuevo_tripulante->socket_ram = socket_ram;
 	nuevo_tripulante->socket_mongo = socket_mongo;
 
+	sem_init(nuevo_tripulante->sem_ready, 0, 0);
+	sem_init(nuevo_tripulante->sem_running, 0, 0);
+
 	pthread_create(&nuevo_hilo, NULL, rutina_tripulante, nuevo_tripulante);
 
 	return nuevo_tripulante;
@@ -24,45 +27,39 @@ tripulante* crear_tripulante(int x, int y, int patota, int id, int socket_ram, i
 void* rutina_tripulante(void* trip) {
 	tripulante* nuevo_tripulante = (tripulante*) trip; //si modifico el interior de ese puntero se modifica de mi lista tambien
 
-	/*conectarse_con_ram(mongo);
-	conectarse_con_disco(ram);
-	// RR definido por el archivo de configuración
-	switch(PLANEACION) { // FIFO O RR
 
-	while(tengo_tareas) {
-		wait(puedo_trabajar);
-		wait(RR);
-		pedir_instruccion();
-		signal(RR);
+	//todo conectarse_con_ram(mongo);
+	//todo conectarse_con_disco(ram);
 
-		informar_bitacora();
+	char* nueva_tarea = NULL;
+	//nueva_tarea = solicitar_tarea(); -> solicita la tarea a la ram
+	nueva_tarea = "Tarea 1";
 
-		wait(RR);
-		recibir_instruccion();
+	while(nueva_tarea != NULL) {
 
-		signal(puedo_trabajar);
-		ejecutar_instruccion();
-		signal(puedo_trabajar);
+		sem_wait(mutex_cola_espera);
+			queue_push(cola_espera, nuevo_tripulante);
+			sem_post(tripulantes_new);
+		sem_post(mutex_cola_espera);
 
-		informar_bitacora();
+		sem_wait(nuevo_tripulante->sem_ready);
+			//todo avisar a la ram
+			nuevo_tripulante->estado = READY;
+			sem_wait(mutex_cola_ready);
+				queue_push(cola_ready, nuevo_tripulante);
+				sem_post(tripulantes_ready);
+			sem_post(mutex_cola_ready);
 
-		if(instruccion == moverse) {
-			informar_bitacora();
-		}
-	}*/
-	/*
-	if(nuevo_tripulante->id_trip == 1) {
-		int i = 0;
+		sem_wait(nuevo_tripulante->sem_running);
+			//todo avisar a la ram
+			nuevo_tripulante->estado = RUNNING;
+			//ejecutar(nueva_tarea, nuevo_tripulante);
+			sem_post(tripulante_running);
 
-		while(i<10) {
-			log_info(logger,"continua ...");
-			i++;
-			sleep(5);
-		}
-
-		log_info(logger,"termine de contar");
+		//nueva_tarea = solicitar_tarea(); -> solicita la tarea a la ram
 	}
-	*/
+	nuevo_tripulante->estado = EXIT;
+	sem_post(multiprogramacion);
 	return 0;
 }
 

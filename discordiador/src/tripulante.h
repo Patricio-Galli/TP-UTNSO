@@ -2,12 +2,11 @@
 #define TRIPULANTE_H_
 
 #include <stdlib.h>
-//#include <stdio.h>
 
 #include <pthread.h>
 #include <semaphore.h>
-#include <commons/collections/list.h>
 #include <commons/log.h>
+#include "planificador.h"
 
 typedef struct {
 	int posicion[2];
@@ -18,7 +17,8 @@ typedef struct {
 	int posicion_lista;
 	int socket_ram;
 	int socket_mongo;
-	//sem_t es_mi_turno
+	sem_t sem_ready;
+	sem_t sem_running;
 }tripulante;
 
 typedef enum {
@@ -27,7 +27,7 @@ typedef enum {
     READY,
     RUNNING,
     EXIT
-}estado_tarea;
+}estado;
 
 tripulante* crear_tripulante(int, int, int, int, int, int, t_log*);
 void* rutina_tripulante(void*);

@@ -4,7 +4,6 @@ int id_patota_actual = 1;
 t_list* lista_tripulantes;
 t_log* logger;
 t_config* config;
-bool planificacion_activada = false;
 int socket_ram = 0, socket_mongo = 0;
 
 int main() {
@@ -12,21 +11,25 @@ int main() {
 	config = config_create("discordiador.config");
 
 	lista_tripulantes = list_create();
-
 	bool continuar = true;
+
+	inicializar_planificador(
+			atoi(config_get_string_value(config, "GRADO_MULTITAREA")),
+			config_get_string_value(config, "ALGORITMO"),
+			atoi(config_get_string_value(config, "RETARDO_CICLO_CPU")),
+			atoi(config_get_string_value(config, "QUANTUM")),
+			logger);
 	/*
 	t_mensaje* mensaje;
 	t_list *respuesta;
 
 	socket_ram = crear_conexion_cliente(
 		config_get_string_value(config, "IP_MI_RAM_HQ"),
-		config_get_string_value(config, "PUERTO_MI_RAM_HQ")
-		);
+		config_get_string_value(config, "PUERTO_MI_RAM_HQ"));
 
 	socket_mongo = crear_conexion_cliente(
 		config_get_string_value(config, "IP_I_MONGO_STORE"),
-		config_get_string_value(config, "PUERTO_I_MONGO_STORE")
-		);
+		config_get_string_value(config, "PUERTO_I_MONGO_STORE"));
 
 	if(socket_mongo < 0 || socket_ram < 0) { //todo usar funcion validar socket
 		if(socket_ram < 0)
@@ -216,19 +219,12 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 
 void iniciar_planificacion() {
 	log_info(logger,"Iniciando planificacion...");
-
-	int multiprogramacion = atoi(config_get_string_value(config, "GRADO_MULTITAREA"));
-	char* algoritmo = config_get_string_value(config, "ALGORITMO");
-	int ciclo_CPU = atoi(config_get_string_value(config, "RETARDO_CICLO_CPU"));
-	int quantum = atoi(config_get_string_value(config, "QUANTUM"));
-	planificacion_activada = true;
-
-	planificador(multiprogramacion, algoritmo, ciclo_CPU, quantum, &planificacion_activada, logger);
+	sem_post(activar_planificacion);
 }
 
 void pausar_planificacion() {
 	log_info(logger,"Pausando planificacion...");
-	planificacion_activada = false;
+	continuar_planificacion = false;
 }
 
 parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar validaciones para lectura de archivos y parametros validos
