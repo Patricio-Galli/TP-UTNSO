@@ -16,7 +16,6 @@
 #include <arpa/inet.h>
 #include<commons/log.h>
 
-
 /**
 * @NAME: puerto_desde_socket
 * @DESC: Toma un socket y devuelve el puerto en el que está activo
@@ -26,15 +25,14 @@ int puerto_desde_socket(int socket);
 
 /**
 * @NAME: validar_socket
-* @DESC: Recibe la salida de un crear_conexion_* e informa si se realizó correctamente
-* @OUTP: -
+* @DESC: Recibe la salida de un crear_conexion_* e informa si hubo errores
+* @OUTP: Devuelve true si el socket es válido
 */
 bool validar_socket(int socket, t_log* logger);
 
 /**
 * @NAME: data_socket
 * @DESC: Muestra en pantalla la información del socket recibido por parámetro
-* @OUTP: -
 */
 void data_socket(int socket, t_log* logger);
 
