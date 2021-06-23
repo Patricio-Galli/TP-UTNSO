@@ -6,6 +6,7 @@
 #include <pthread.h>
 #include <semaphore.h>
 #include <commons/log.h>
+#include <commons/string.h>
 
 #include "planificador.h"
 
@@ -21,6 +22,7 @@ typedef struct {
 	sem_t sem_blocked;
 	sem_t sem_running;
 	int contador_ciclos;
+	int tiempo_esperado;
 }tripulante;
 
 typedef enum {
@@ -31,9 +33,22 @@ typedef enum {
     EXIT
 }estado;
 
+typedef enum {
+	GENERAR_OXIGENO,
+	CONSUMIR_OXIGENO,
+	GENERAR_COMIDA,
+	CONSUMIR_COMIDA,
+	GENERAR_BASURA,
+	DESCARTAR_BASURA,
+	ESPERAR
+}tareas;
+
 tripulante* crear_tripulante(int, int, int, int, int, int);
 void* rutina_tripulante(void*);
 char* estado_enumToString(int);
+
+tareas stringToEnum(char *);
+int ejecutar(char*, tripulante*);
 void quitar(tripulante*, t_list*);
 
 #endif /* TRIPULANTE_H_ */

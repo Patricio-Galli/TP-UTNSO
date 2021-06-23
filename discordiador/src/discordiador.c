@@ -5,19 +5,21 @@ t_list* lista_tripulantes;
 t_log* logger;
 t_config* config;
 int socket_ram = 0, socket_mongo = 0;
+bool salir;
 
 int main() {
 	logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
 	config = config_create("discordiador.config");
 
 	lista_tripulantes = list_create();
-	bool continuar = true;
+	salir = false;
 
 	inicializar_planificador(
 			atoi(config_get_string_value(config, "GRADO_MULTITAREA")),
 			config_get_string_value(config, "ALGORITMO"),
 			atoi(config_get_string_value(config, "RETARDO_CICLO_CPU")),
 			atoi(config_get_string_value(config, "QUANTUM")),
+			&salir,
 			logger);
 	/*
 	t_mensaje* mensaje;
@@ -42,7 +44,7 @@ int main() {
 	}
 	*/
 
-	while(continuar) {
+	while(!salir) {
 		char* buffer_consola = leer_consola();
 		char** input = string_split(buffer_consola, " ");
 
@@ -108,7 +110,7 @@ int main() {
 
 			case EXIT_DISCORDIADOR:
 				log_info(logger,"Exit Discordiador");
-				continuar = false;
+				salir = true;
 				break;
 
 			case ERROR:
@@ -168,7 +170,7 @@ void listar_tripulantes() {
 		tripulante* nuevo_tripulante = (tripulante*)list_get(lista_tripulantes, i);
 		char* estado = estado_enumToString(nuevo_tripulante->estado);
 
-		log_info(logger,"Tripulante: %d    Patota: %d    Status: %s", nuevo_tripulante->id_trip, nuevo_tripulante->id_patota, estado);
+		log_info(logger,"Tripulante: %d    Patota: %d    Posicion: %d|%d    Status: %s", nuevo_tripulante->id_trip, nuevo_tripulante->id_patota, nuevo_tripulante->posicion[0], nuevo_tripulante->posicion[1], estado);
 	}
 }
 

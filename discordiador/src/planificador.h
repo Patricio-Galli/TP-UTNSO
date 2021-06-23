@@ -27,10 +27,10 @@ sem_t tripulantes_ready;
 
 int ciclo_CPU;
 int quantum;
-bool continuar_planificacion;
 int tripulantes_trabajando;
+bool continuar_planificacion;
 
-void inicializar_planificador(int, char*, int, int, t_log*);
+void inicializar_planificador(int, char*, int, int, bool*, t_log*);
 
 void* fifo();
 void* rr();

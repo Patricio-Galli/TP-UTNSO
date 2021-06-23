@@ -1,10 +1,11 @@
 #include "planificador.h"
+bool* salir;
 
-void inicializar_planificador(int grado_multiprocesamiento, char* algoritmo, int ciclo, int q, t_log* log) {
+void inicializar_planificador(int grado_multiprocesamiento, char* algoritmo, int ciclo, int q, bool* salida, t_log* log) {
 	ciclo_CPU = ciclo;
 	quantum = q;
 	logger = log;
-	continuar_planificacion = true;
+	salir = salida;
 
 	cola_ready = queue_create();
 	cola_blocked = queue_create();
@@ -33,35 +34,32 @@ void inicializar_planificador(int grado_multiprocesamiento, char* algoritmo, int
 }
 
 void* fifo() {
-	sem_wait(&activar_planificacion);
-	bool continuar = true;
-	tripulantes_trabajando = 0;
-	log_info(logger,"Panificando con algoritmo FIFO ...");
+	while(!*salir){
+		sem_wait(&activar_planificacion);
+		bool continuar = true;
+		continuar_planificacion = true;
+		tripulantes_trabajando = 0;
+		log_info(logger,"Panificando con algoritmo FIFO ...");
 
-	while(continuar) {
-		sem_wait(&tripulantes_ready);
-		sem_wait(&multiprocesamiento);
-			if(continuar_planificacion) {
-				pthread_mutex_lock(&mutex_cola_ready);
-					tripulante* trip = (tripulante*)queue_pop(cola_ready);
-					sem_post(&trip->sem_running);
-					list_add(tripulantes_running, trip);
-					tripulantes_trabajando++;
-				pthread_mutex_unlock(&mutex_cola_ready);
-			}
-			else {
-				continuar = false;
-				sem_post(&tripulantes_ready);
-				sem_post(&multiprocesamiento);
-				while(tripulantes_trabajando != 0) {
-					tripulante* trip = (tripulante*)list_remove(tripulantes_running, tripulantes_trabajando-1);
-					trip->estado = READY;
-					tripulantes_trabajando--;
+		while(continuar) {
+			sem_wait(&tripulantes_ready);
+			sem_wait(&multiprocesamiento);
+				if(continuar_planificacion) {
+					pthread_mutex_lock(&mutex_cola_ready);
+						tripulante* trip = (tripulante*)queue_pop(cola_ready);
+						sem_post(&trip->sem_running);
+						list_add(tripulantes_running, trip);
+						tripulantes_trabajando++;
+					pthread_mutex_unlock(&mutex_cola_ready);
 				}
-			}
+				else {
+					continuar = false;
+					sem_post(&tripulantes_ready);
+					sem_post(&multiprocesamiento);
+				}
+		}
+		log_info(logger,"Planificacion pausada :(");
 	}
-	log_info(logger,"Planificacion pausada");
-
 	return 0;
 }
 
@@ -79,8 +77,16 @@ void* rr() {
 }
 
 void* finalizador(void* parametro) {
-	sem_wait(&desactivar_planificacion);
-	continuar_planificacion = false;
+	while(!*salir){
+		sem_wait(&desactivar_planificacion);
+		continuar_planificacion = false;
 
+		pthread_mutex_lock(&mutex_tripulantes_running);
+		for(int i = 0; i < tripulantes_trabajando; i++) {
+			tripulante* trip = (tripulante*)list_get(tripulantes_running, i);//creo que el index se va actualizando, por ende sacaria siempre el primero
+			trip->estado = READY;
+		}
+		pthread_mutex_unlock(&mutex_tripulantes_running);
+	}
 	return 0;
 }
