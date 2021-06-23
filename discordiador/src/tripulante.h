@@ -49,6 +49,8 @@ char* estado_enumToString(int);
 
 tareas stringToEnum(char *);
 int ejecutar(char*, tripulante*);
+void moverse(tripulante*, int, int);
+bool esperar(int, tripulante*);
 void quitar(tripulante*, t_list*);
 
 #endif /* TRIPULANTE_H_ */

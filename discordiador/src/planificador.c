@@ -82,10 +82,10 @@ void* finalizador(void* parametro) {
 		continuar_planificacion = false;
 
 		pthread_mutex_lock(&mutex_tripulantes_running);
-		for(int i = 0; i < tripulantes_trabajando; i++) {
-			tripulante* trip = (tripulante*)list_get(tripulantes_running, i);//creo que el index se va actualizando, por ende sacaria siempre el primero
-			trip->estado = READY;
-		}
+			for(int i = 0; i < tripulantes_trabajando; i++) {
+				tripulante* trip = (tripulante*)list_get(tripulantes_running, i);
+				trip->estado = READY;
+			}
 		pthread_mutex_unlock(&mutex_tripulantes_running);
 	}
 	return 0;

@@ -73,31 +73,7 @@ int ejecutar(char* input, tripulante* trip) {
 
 	//todo  avisar al mongo que se empezo a ejecutar esa tarea
 
-	int pos_x = atoi(buffer[1]);
-	int pos_y = atoi(buffer[2]);
-
-	while(trip->posicion[0] != pos_x && trip->estado == RUNNING) {
-		log_info(logger,"Tripulante %d posicion: %d|%d y busca: %d|%d",trip->id_trip, trip->posicion[0], trip->posicion[1], pos_x, pos_y);
-		if(trip->posicion[0] < pos_x)
-			trip->posicion[0]++;
-		else
-			trip->posicion[0]--;
-		sleep(ciclo_CPU);
-		trip->contador_ciclos++;
-		//todo avisar a ram
-		//todo avisar a mongo
-	}
-	while(trip->posicion[1] != pos_y && trip->estado == RUNNING) {
-		log_info(logger,"Tripulante %d posicion: %d|%d y busca: %d|%d",trip->id_trip, trip->posicion[0], trip->posicion[1], pos_x, pos_y);
-		if(trip->posicion[1] < pos_y)
-			trip->posicion[1]++;
-		else
-			trip->posicion[1]--;
-		sleep(ciclo_CPU);
-		trip->contador_ciclos++;
-		//todo avisar a ram
-		//todo avisar a mongo
-	}
+	moverse(trip, atoi(buffer[1]), atoi(buffer[2]));
 
 	if(trip->estado == RUNNING) {
 		int cantidad = atoi(buffer[3]);
@@ -117,23 +93,11 @@ int ejecutar(char* input, tripulante* trip) {
 			case DESCARTAR_BASURA:
 				break;
 			case ESPERAR:
-				while(trip->tiempo_esperado < cantidad && trip->estado == RUNNING) {
-					log_info(logger,"Tripulante %d ESPERANDO %d de %d",trip->id_trip, trip->tiempo_esperado, cantidad);
-					trip->contador_ciclos++;
-					trip->tiempo_esperado++;
-					sleep(ciclo_CPU);
-				}
-				if(trip->tiempo_esperado == cantidad){
-					tarea_concretada = true;
-					trip->tiempo_esperado = 0;
-				}
+				tarea_concretada = esperar(cantidad, trip);
 				break;
 		}
-	}
-
-	if(trip->estado != RUNNING){
+	}else
 		trip->contador_ciclos = 0;
-	}
 
 	pthread_mutex_lock(&mutex_tripulantes_running);
 		quitar(trip, tripulantes_running);
@@ -149,6 +113,55 @@ int ejecutar(char* input, tripulante* trip) {
 		log_info(logger,"Tripulante %d pauso trabajo", trip->id_trip);
 		return 0;
 	}
+}
+
+void moverse(tripulante* trip, int pos_x, int pos_y) {
+	while(trip->posicion[0] != pos_x && trip->estado == RUNNING) {
+		if(trip->posicion[0] < pos_x)
+			trip->posicion[0]++;
+		else
+			trip->posicion[0]--;
+		sleep(ciclo_CPU);
+		trip->contador_ciclos++;
+		//todo avisar a ram
+		//todo avisar a mongo
+	}
+
+	if(trip->posicion[0] != pos_x)
+		log_info(logger,"Tripulante %d llego a x", trip->id_trip);
+	else
+		log_info(logger,"Tripulante %d llego hasta %d de %d", trip->id_trip, trip->posicion[0], pos_x);
+
+	while(trip->posicion[1] != pos_y && trip->estado == RUNNING) {
+		if(trip->posicion[1] < pos_y)
+			trip->posicion[1]++;
+		else
+			trip->posicion[1]--;
+		sleep(ciclo_CPU);
+		trip->contador_ciclos++;
+		//todo avisar a ram
+		//todo avisar a mongo
+	}
+
+	if(trip->posicion[1] != pos_y)
+		log_info(logger,"Tripulante %d llego a x", trip->id_trip);
+	else
+		log_info(logger,"Tripulante %d llego hasta %d de %d", trip->id_trip, trip->posicion[1], pos_y);
+}
+
+bool esperar(int tiempo, tripulante* trip) {
+	while(trip->tiempo_esperado < tiempo && trip->estado == RUNNING) {
+		log_info(logger,"Tripulante %d ESPERANDO %d de %d",trip->id_trip, trip->tiempo_esperado, tiempo);
+		trip->contador_ciclos++;
+		trip->tiempo_esperado++;
+		sleep(ciclo_CPU);
+	}
+	if(trip->tiempo_esperado == tiempo){
+		return true;
+		trip->tiempo_esperado = 0;
+	}
+	else
+		return false;
 }
 
 void quitar(tripulante* trip, t_list* list) {
@@ -171,11 +184,9 @@ tareas stringToEnum(char *string){
 
 	for(int i=0;i<6;i++){
 		if(!strcasecmp(string,listaDeStrings[i])) {
-			free(string);
 			return i;
 		}
 	}
-	free(string);
 	return ESPERAR;
 }
 
