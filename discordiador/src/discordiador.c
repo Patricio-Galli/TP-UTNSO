@@ -14,55 +14,107 @@ int variable = 0;
 
 int id_patota_actual = 0;
 nodo_tripulante *lista_tripulantes = NULL;
-int main() {
 
+int main() {
 	t_log* logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
-    char** input;
-    bool continuar = true;
+
+    t_config* config = config_create("discordiador.config");
+	int socket_ram, socket_mongo = 0;
+
+	socket_ram = crear_conexion_cliente(
+		config_get_string_value(config, "IP_MI_RAM_HQ"),
+		config_get_string_value(config, "PUERTO_MI_RAM_HQ")
+		);
+	
+	/*socket_mongo = crear_conexion_cliente(
+		config_get_string_value(config, "IP_I_MONGO_STORE"),
+		config_get_string_value(config, "PUERTO_I_MONGO_STORE")
+		);*/
+	
+	if(socket_mongo < 0 || socket_ram < 0) {
+		if(socket_ram < 0)
+			log_info(logger, "Fallo en la conexión con Mi-RAM-HQ");
+		if(socket_mongo < 0)
+			log_info(logger, "Fallo en la conexión con I-Mongo-Store");
+		close(socket_ram);
+		close(socket_mongo);
+		return ERROR_CONEXION;
+	}
+
+	bool continuar = true;
+	char* buffer_consola;
+	command_code funcion_consola;
+	t_mensaje* mensaje;
 
 	while(continuar) {
-		input = leer_consola();
-		command_code command = mapStringToEnum(input[0]);
-
-		switch(command) {
-			case INICIAR_PATOTA:
-				iniciar_patota(input, logger);
-				break;
-			case LISTAR_TRIPULANTES:
-				listar_tripulantes();
-				break;
-			case EXPULSAR_TRIPULANTE:
-				log_info(logger,"Expulsar tripulante ...");
-				break;
-			case INICIAR_PLANIFICACION:
-				log_info(logger,"INICIAR PLANIFICACION");
-				break;
-			case PAUSAR_PLANIFICACION:
-				log_info(logger,"PAUSAR PLANIFICACION");
-				break;
-			case OBTENER_BITACORA:
-				log_info(logger,"OBTENER BITACORA");
-				break;
-			case EXIT_DISCORDIADOR:
-				continuar = false;
-				break;
-			case ERROR:
-				log_error(logger,"COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
+		log_info(logger, "entro al while y voy a leer consola");
+		buffer_consola = leer_consola();
+		funcion_consola = mapStringToEnum(primer_palabra(buffer_consola));
+		char** input;
+		t_list *respuesta;
+		switch(funcion_consola) {
+		case INICIAR_PATOTA:
+			log_info(logger, "Iniciar patota. Creando mensaje");
+			mensaje = crear_mensaje(INIT_P);
+			// int valor[3] = {6, 3, 2};
+			
+			// OJO, hay que mandar un puntero al entero o un puntero al primer elemento si es string
+			agregar_parametro_a_mensaje(mensaje, (void *)6, ENTERO);		// id_patota			
+			agregar_parametro_a_mensaje(mensaje, (void *)6, ENTERO);		// cant_trip
+			agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);		// cant_tareas
+			agregar_parametro_a_mensaje(mensaje, buffer_consola, BUFFER);	// tarea 1
+			agregar_parametro_a_mensaje(mensaje, buffer_consola, BUFFER);	// tarea 2
+			
+			enviar_mensaje(socket_ram, mensaje);
+			
+			respuesta = recibir_mensaje(socket_ram);
+			if((int)list_get(respuesta, 0) == TODOOK) {
+				log_info(logger, "aeeea, sabalero, sabalero");
+			}
+			if((int)list_get(respuesta, 0) == NO_SPC) {
+				log_info(logger, "aeeea, NO SOY sabalero");
+			}
+			log_info(logger, "Libero mensaje");
+			free(mensaje);
+			log_info(logger, "Destruyo respuesta");
+			list_destroy(respuesta);
+			break;
+		case LISTAR_TRIPULANTES:
+			listar_tripulantes();
+			break;
+		case EXPULSAR_TRIPULANTE:
+			log_info(logger,"Expulsar tripulante ...");
+			break;
+		case INICIAR_PLANIFICACION:
+			log_info(logger,"INICIAR PLANIFICACION");
+			break;
+		case PAUSAR_PLANIFICACION:
+			log_info(logger,"PAUSAR PLANIFICACION");
+			break;
+		case OBTENER_BITACORA:
+			log_info(logger,"OBTENER BITACORA");
+			break;
+		case EXIT_DISCORDIADOR:
+			continuar = false;
+			break;
+		case ERROR:
+			log_error(logger,"COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
 		}
-
+		log_info(logger, "Libero buffer");
+		free(buffer_consola);
+		/*
 		int i = 0;
 		while(input[i] != NULL){
 			free(input[i]);
 			i++;
 		}
-		free(input);
+		free(input);*/
 	}
 	log_destroy(logger);
 	return 0;
 }
 
-void iniciar_patota(char** input, t_log *logger){
-
+void iniciar_patota(char**input, int* lista_puertos, t_log *logger) {
 	int id_trip_actual = 0;
 	bool valida = true;
 	int *posiciones = malloc(2 * sizeof(int));
@@ -93,16 +145,6 @@ void iniciar_patota(char** input, t_log *logger){
 	id_patota_actual++;
 }
 
-command_code mapStringToEnum(char *string){
-	char* listaDeStrings[]={"INICIAR_PATOTA", "LISTAR_TRIPULANTES", "EXPULSAR_TRIPULANTE", "INICIAR_PLANIFICACION", "PAUSAR_PLANIFICACION", "OBTENER_BITACORA", "EXIT"};
-
-	for(int i=0;i<7;i++){
-		if(!strcasecmp(string,listaDeStrings[i]))
-			return i;
-	}
-	return ERROR;
-}
-
 tripulante* crear_nodo_trip(int *posiciones) {
 	tripulante* nuevo = malloc(sizeof(tripulante));
 	pthread_t nuevo_hilo;
@@ -113,7 +155,6 @@ tripulante* crear_nodo_trip(int *posiciones) {
 	// Gran memory leak con nuestra variable AUX. RESOLVER!
 	nuevo->estado = NEW;
 	nuevo->hilo = nuevo_hilo;
-
 	return nuevo;
 }
 
@@ -136,9 +177,36 @@ void agregar_trip_a_lista(tripulante* nuevo_trip) {
 }
 
 void* rutina_hilos(void* posiciones) {
+	/*conectarse_con_ram(mongo);
+	conectarse_con_disco(ram);
+	// RR definido por el archivo de configuración
+	switch(PLANEACION) { // FIFO O RR
+
+	while(tengo_tareas) {
+		wait(puedo_trabajar);
+		wait(RR);
+		pedir_instruccion();
+		signal(RR);
+		
+		informar_bitacora();
+		
+		wait(RR);
+		recibir_instruccion();
+		
+		signal(puedo_trabajar);
+		ejecutar_instruccion();
+		signal(puedo_trabajar);
+
+		informar_bitacora();
+
+		if(instruccion == moverse) {
+			informar_bitacora();
+		}
+	}*/
 	free(posiciones);
 	return 0;
 }
+
 
 void listar_tripulantes(){
 	nodo_tripulante* aux = lista_tripulantes;

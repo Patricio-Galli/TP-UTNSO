@@ -14,7 +14,7 @@ int main(void)
 	int cliente_fd = esperar_cliente(server_fd);
 
 	t_list* lista;
-	while(1)
+	while(1)dd
 	{
 		int cod_op = recibir_operacion(cliente_fd);
 		switch(cod_op)
