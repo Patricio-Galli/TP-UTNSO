@@ -55,7 +55,7 @@ int main() {
 		parametros_iniciar_patota* parametros;
 
 		if (!strcmp(buffer_consola,"ini")) {
-			input = string_split("iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 5|3 5|2", " ");
+			input = string_split("iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 9|3 9|2", " ");
 			funcion = mapStringToEnum(input[0]);
 		}
 
@@ -236,8 +236,9 @@ void iniciar_planificacion() {
 		continuar_planificacion = true;
 		for(int i = 0; i < tripulantes_trabajando; i++) {
 			tripulante* trip = (tripulante*)list_get(tripulantes_running, i);
-			log_info(logger,"Reanudando tripulante %d", trip->id_trip);
+			//log_info(logger,"Reanudando tripulante %d", trip->id_trip);
 			sem_post(&trip->sem_running);
+			//log_info(logger,"mandado running al tripulante %d", trip->id_trip);
 		}
 	}
 }

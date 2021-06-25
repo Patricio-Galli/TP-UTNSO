@@ -15,14 +15,17 @@ typedef struct {
 	int id_trip;
 	int id_patota;
 	int estado; //ready, blocked, etc
+
 	pthread_t hilo;
-	int posicion_lista;
+
 	int socket_ram;
 	int socket_mongo;
+
 	sem_t sem_blocked;
 	sem_t sem_running;
 	int contador_ciclos;
 	int tiempo_esperado;
+	bool quantum_disponible;
 }tripulante;
 
 typedef enum {
@@ -48,9 +51,11 @@ void* rutina_tripulante(void*);
 char* estado_enumToString(int);
 
 tareas stringToEnum(char *);
-void ejecutar(char*, tripulante*);
+bool ejecutar(char*, tripulante*);
 void moverse(tripulante*, int, int);
 void esperar(int, tripulante*);
+bool corroborar_quantum(tripulante*);
+void corroborar_planificacion(tripulante*);
 void quitar(tripulante*, t_list*);
 
 #endif /* TRIPULANTE_H_ */

@@ -14,6 +14,7 @@ tripulante* crear_tripulante(int x, int y, int patota, int id, int socket_ram, i
 	nuevo_tripulante->socket_mongo = socket_mongo;
 	nuevo_tripulante->contador_ciclos = 0;
 	nuevo_tripulante->tiempo_esperado = 0;
+	nuevo_tripulante->quantum_disponible = true;
 
 	sem_init(&nuevo_tripulante->sem_blocked, 0, 0);
 	sem_init(&nuevo_tripulante->sem_running, 0, 0);
@@ -34,6 +35,7 @@ void* rutina_tripulante(void* trip) {
 	int tiene_tareas = 4;
 
 	while(tiene_tareas > 0) {
+		bool termino_ejecucion;
 
 		//todo avisar a la ram
 		pthread_mutex_lock(&mutex_cola_ready);
@@ -46,19 +48,22 @@ void* rutina_tripulante(void* trip) {
 		sem_wait(&nuevo_tripulante->sem_running);
 
 		//todo avisar a la ram
-		if(tiene_tareas%2 == 0)
-			ejecutar("ESPERAR;3;3;3", nuevo_tripulante);//devuelve 1 si la termino y 0 si no
-		else
-			ejecutar("ESPERAR;0;2;4", nuevo_tripulante);
 
-		tiene_tareas--;
+		if(tiene_tareas%2 == 0)
+			termino_ejecucion = ejecutar("ESPERAR;3;3;3", nuevo_tripulante);//devuelve true si la termino y false si no
+		else
+			termino_ejecucion = ejecutar("ESPERAR;0;2;4", nuevo_tripulante);
+
+		if(termino_ejecucion)
+			tiene_tareas--;
 	}
 	nuevo_tripulante->estado = EXIT;
 	return 0;
 }
 
-void ejecutar(char* input, tripulante* trip) {
-	log_info(logger,"Tripulante %d running", trip->id_trip);
+bool ejecutar(char* input, tripulante* trip) {
+	log_info(logger,"Tripulante %d comienza a ejecutar tarea %s  -  Posicion actual: %d|%d  -  Tiempo esperado previamente:%d  -  Quantum disponible: %d", trip->id_trip, input, trip->posicion[0], trip->posicion[1], trip->tiempo_esperado, quantum - trip->contador_ciclos);
+
 	trip->estado = RUNNING;
 
 	char** buffer = string_split(input, ";");
@@ -70,76 +75,125 @@ void ejecutar(char* input, tripulante* trip) {
 
 	moverse(trip, atoi(buffer[1]), atoi(buffer[2]));
 
-	switch(tarea){
-		case GENERAR_OXIGENO:
-			//activar_io
-			//generar_oxigeno
-			break;
-		case CONSUMIR_OXIGENO:
-			break;
-		case GENERAR_COMIDA:
-			break;
-		case CONSUMIR_COMIDA:
-			break;
-		case GENERAR_BASURA:
-			break;
-		case DESCARTAR_BASURA:
-			break;
-		case ESPERAR:
-			break;
+	if(trip->quantum_disponible){
+		switch(tarea){
+			case GENERAR_OXIGENO:
+				//activar_io
+				//generar_oxigeno
+				break;
+			case CONSUMIR_OXIGENO:
+				break;
+			case GENERAR_COMIDA:
+				break;
+			case CONSUMIR_COMIDA:
+				break;
+			case GENERAR_BASURA:
+				break;
+			case DESCARTAR_BASURA:
+				break;
+			case ESPERAR:
+				break;
+		}
 	}
 
 	esperar(atoi(buffer[3]), trip);
 
 	pthread_mutex_lock(&mutex_tripulantes_running);
 		quitar(trip, tripulantes_running);
-		sem_post(&multiprocesamiento);
 		tripulantes_trabajando--;
+		sem_post(&multiprocesamiento);
 	pthread_mutex_unlock(&mutex_tripulantes_running);
 
-	log_info(logger,"Tripulante %d termino de ejecutar", trip->id_trip);
+	if(trip->quantum_disponible) {
+		log_info(logger,"Tripulante %d termino de ejecutar  -  Quantum disponible %d", trip->id_trip, quantum - trip->contador_ciclos);
+		return true;
+	}
+	else {
+		log_info(logger,"Tripulante %d se quedo sin quantum", trip->id_trip);
+		trip->quantum_disponible = true;
+		trip->contador_ciclos = 0;
+		return false;
+	}
 }
 
 void moverse(tripulante* trip, int pos_x, int pos_y) {
-	while(trip->posicion[0] != pos_x) {
-		(trip->posicion[0] < pos_x) ? trip->posicion[0]++ : trip->posicion[0]--;
-		sleep(ciclo_CPU);
-		trip->contador_ciclos++;
-		//todo avisar a ram
-		//todo avisar a mongo
+	bool completo_movimiento = true;
 
-		 if(!continuar_planificacion)
-			sem_wait(&trip->sem_running);
+	while(trip->posicion[0] != pos_x && trip->quantum_disponible) {
+
+		if(corroborar_quantum(trip)) {
+			(trip->posicion[0] < pos_x) ? trip->posicion[0]++ : trip->posicion[0]--;
+			sleep(ciclo_CPU);
+			trip->contador_ciclos++;
+			//todo avisar a ram
+			//todo avisar a mongo
+		}
+		else
+			completo_movimiento = false;
+
+		corroborar_planificacion(trip);
 	}
 
-	log_info(logger,"Tripulante %d llego a x", trip->id_trip);
+	if(completo_movimiento)
+		log_info(logger,"Tripulante %d llego a x", trip->id_trip);
+	else
+		log_info(logger,"Tripulante %d se quedo en %d de x en vez de llegar a %d por fin de quantum", trip->id_trip, trip->posicion[0], pos_x);
 
-	while(trip->posicion[1] != pos_y) {
-		(trip->posicion[1] < pos_x) ? trip->posicion[1]++ : trip->posicion[1]--;
-		sleep(ciclo_CPU);
-		trip->contador_ciclos++;
-		//todo avisar a ram
-		//todo avisar a mongo
+	while(trip->posicion[1] != pos_y && trip->quantum_disponible) {
+		if(corroborar_quantum(trip)) {
+			(trip->posicion[1] < pos_y) ? trip->posicion[1]++ : trip->posicion[1]--;
+			sleep(ciclo_CPU);
+			trip->contador_ciclos++;
+			//todo avisar a ram
+			//todo avisar a mongo
+		}
+		else
+			completo_movimiento = false;
 
-		if(!continuar_planificacion)
-			sem_wait(&trip->sem_running);
+		corroborar_planificacion(trip);
 	}
 
-	log_info(logger,"Tripulante %d llego a y", trip->id_trip);
+	if(completo_movimiento)
+		log_info(logger,"Tripulante %d llego a y", trip->id_trip);
+	else
+		log_info(logger,"Tripulante %d se quedo en %d de y en vez de llegar a %d por fin de quantum", trip->id_trip, trip->posicion[1], pos_y);
 }
 
 void esperar(int tiempo, tripulante* trip) {
-	while(trip->tiempo_esperado < tiempo) {
-		log_info(logger,"Tripulante %d ESPERANDO %d de %d",trip->id_trip, trip->tiempo_esperado, tiempo);
-		trip->contador_ciclos++;
-		trip->tiempo_esperado++;
-		sleep(ciclo_CPU);
+	bool completo_espera = true;
 
-		if(!continuar_planificacion)
-			sem_wait(&trip->sem_running);
+	while(trip->tiempo_esperado < tiempo && trip->quantum_disponible) {
+		if(corroborar_quantum(trip)) {
+			log_info(logger,"Tripulante %d ESPERANDO %d de %d",trip->id_trip, trip->tiempo_esperado, tiempo);
+			trip->contador_ciclos++;
+			trip->tiempo_esperado++;
+			sleep(ciclo_CPU);
+		}
+		else
+			completo_espera = false;
+
+		corroborar_planificacion(trip);
 	}
 
-	trip->tiempo_esperado = 0;
+	if(completo_espera)
+		trip->tiempo_esperado = 0;
+}
+
+bool corroborar_quantum(tripulante* trip) {
+	if(analizar_quantum && trip->contador_ciclos == quantum) {
+		trip->quantum_disponible = false;
+		return false;
+	}
+	else
+		return true;
+}
+
+void corroborar_planificacion(tripulante* trip) {
+	if(!continuar_planificacion) {
+		log_info(logger,"Tripulante %d pausado", trip->id_trip);
+		sem_wait(&trip->sem_running);
+		log_info(logger,"Tripulante %d reactivado", trip->id_trip);
+	}
 }
 
 void quitar(tripulante* trip, t_list* list) {

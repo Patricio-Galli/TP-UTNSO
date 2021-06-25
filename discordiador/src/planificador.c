@@ -22,18 +22,22 @@ void inicializar_planificador(int grado_multiprocesamiento, char* algoritmo, int
 	sem_init(&tripulantes_ready, 0, 0);
 
 	pthread_t hilo_planificador;
-
-	if(!strcmp(algoritmo,"FIFO"))
-		pthread_create(&hilo_planificador, NULL, fifo, NULL);
-	else
-		log_info(logger,"Panificando con algoritmo RR quantum %d ...", quantum);
+	pthread_create(&hilo_planificador, NULL, planificador, algoritmo);
 }
 
-void* fifo() {
+void* planificador(void* algoritmo) {
 	sem_wait(&activar_planificacion);
 	continuar_planificacion = true;
 	tripulantes_trabajando = 0;
-	log_info(logger,"Panificando con algoritmo FIFO ...");
+
+	if(!strcmp(algoritmo,"FIFO")) {
+		log_info(logger,"Panificando con algoritmo FIFO ...");
+		analizar_quantum = false;
+	}
+	else {
+		log_info(logger,"Panificando con algoritmo RR quantum %d ...", quantum);
+		analizar_quantum = true;
+	}
 
 	while(!*salir) {
 		sem_wait(&tripulantes_ready);
@@ -41,9 +45,10 @@ void* fifo() {
 
 		pthread_mutex_lock(&mutex_cola_ready);
 			tripulante* trip = (tripulante*)queue_pop(cola_ready);
-			sem_post(&trip->sem_running);
 			list_add(tripulantes_running, trip);
+			sem_post(&trip->sem_running);
 			tripulantes_trabajando++;
+			//log_info(logger,"Tripulante %d running", trip->id_trip);
 		pthread_mutex_unlock(&mutex_cola_ready);
 	}
 	return 0;
