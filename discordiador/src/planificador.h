@@ -11,8 +11,7 @@
 t_log* logger;
 
 t_queue* cola_ready;
-t_queue* cola_blocked;
-
+//t_queue* cola_blocked;
 t_list* tripulantes_running;
 
 pthread_mutex_t mutex_cola_ready;
@@ -20,7 +19,6 @@ pthread_mutex_t mutex_tripulantes_running;
 pthread_mutex_t mutex_cola_blocked;
 
 sem_t activar_planificacion;
-sem_t desactivar_planificacion;
 
 sem_t multiprocesamiento;
 sem_t tripulantes_ready;
@@ -34,6 +32,5 @@ void inicializar_planificador(int, char*, int, int, bool*, t_log*);
 
 void* fifo();
 void* rr();
-void* finalizador(void*);
 
 #endif /* PLANIFICADOR_H_ */

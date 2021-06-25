@@ -6,6 +6,7 @@ t_log* logger;
 t_config* config;
 int socket_ram = 0, socket_mongo = 0;
 bool salir;
+bool planificacion_inicializada;
 
 int main() {
 	logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
@@ -13,6 +14,7 @@ int main() {
 
 	lista_tripulantes = list_create();
 	salir = false;
+	planificacion_inicializada = false;
 
 	inicializar_planificador(
 			atoi(config_get_string_value(config, "GRADO_MULTITAREA")),
@@ -224,13 +226,25 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 }
 
 void iniciar_planificacion() {
-	log_info(logger,"Iniciando planificacion...");
-	sem_post(&activar_planificacion);
+	if(!planificacion_inicializada) {
+		log_info(logger,"Iniciando planificacion...");
+		planificacion_inicializada = true;
+		sem_post(&activar_planificacion);
+	}
+	else{
+		log_info(logger,"Reiniciando planificacion...");
+		continuar_planificacion = true;
+		for(int i = 0; i < tripulantes_trabajando; i++) {
+			tripulante* trip = (tripulante*)list_get(tripulantes_running, i);
+			log_info(logger,"Reanudando tripulante %d", trip->id_trip);
+			sem_post(&trip->sem_running);
+		}
+	}
 }
 
 void pausar_planificacion() {
 	log_info(logger,"Pausando planificacion...");
-	sem_post(&desactivar_planificacion);
+	continuar_planificacion = false;
 }
 
 parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar validaciones para lectura de archivos y parametros validos

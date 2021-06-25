@@ -32,7 +32,6 @@ void* rutina_tripulante(void* trip) {
 	//nueva_tarea = solicitar_tarea(); //solicita la tarea a la ram
 
 	int tiene_tareas = 4;
-	int termino_tarea;
 
 	while(tiene_tareas > 0) {
 
@@ -41,33 +40,29 @@ void* rutina_tripulante(void* trip) {
 			queue_push(cola_ready, nuevo_tripulante);
 			sem_post(&tripulantes_ready);
 			nuevo_tripulante->estado = READY;
-			log_info(logger,"Tripulante %d ready", nuevo_tripulante->id_trip);
+			//log_info(logger,"Tripulante %d ready", nuevo_tripulante->id_trip);
 		pthread_mutex_unlock(&mutex_cola_ready);
 
 		sem_wait(&nuevo_tripulante->sem_running);
 
 		//todo avisar a la ram
 		if(tiene_tareas%2 == 0)
-			termino_tarea = ejecutar("ESPERAR;3;3;3", nuevo_tripulante);//devuelve 1 si la termino y 0 si no
+			ejecutar("ESPERAR;3;3;3", nuevo_tripulante);//devuelve 1 si la termino y 0 si no
 		else
-			termino_tarea = ejecutar("ESPERAR;0;2;4", nuevo_tripulante);
+			ejecutar("ESPERAR;0;2;4", nuevo_tripulante);
 
-		if(termino_tarea){
-			//nueva_tarea = solicitar_tarea();
-			tiene_tareas--;
-		}
+		tiene_tareas--;
 	}
 	nuevo_tripulante->estado = EXIT;
 	return 0;
 }
 
-int ejecutar(char* input, tripulante* trip) {
+void ejecutar(char* input, tripulante* trip) {
 	log_info(logger,"Tripulante %d running", trip->id_trip);
 	trip->estado = RUNNING;
 
 	char** buffer = string_split(input, ";");
 	char** comando_tarea = string_split(buffer[0], " ");
-	bool tarea_concretada = false;
 
 	tareas tarea = stringToEnum(comando_tarea[0]);
 
@@ -75,29 +70,26 @@ int ejecutar(char* input, tripulante* trip) {
 
 	moverse(trip, atoi(buffer[1]), atoi(buffer[2]));
 
-	if(trip->estado == RUNNING) {
-		int cantidad = atoi(buffer[3]);
-		switch(tarea){
-			case GENERAR_OXIGENO:
-				//activar_io
-				//generar_oxigeno
-				break;
-			case CONSUMIR_OXIGENO:
-				break;
-			case GENERAR_COMIDA:
-				break;
-			case CONSUMIR_COMIDA:
-				break;
-			case GENERAR_BASURA:
-				break;
-			case DESCARTAR_BASURA:
-				break;
-			case ESPERAR:
-				tarea_concretada = esperar(cantidad, trip);
-				break;
-		}
-	}else
-		trip->contador_ciclos = 0;
+	switch(tarea){
+		case GENERAR_OXIGENO:
+			//activar_io
+			//generar_oxigeno
+			break;
+		case CONSUMIR_OXIGENO:
+			break;
+		case GENERAR_COMIDA:
+			break;
+		case CONSUMIR_COMIDA:
+			break;
+		case GENERAR_BASURA:
+			break;
+		case DESCARTAR_BASURA:
+			break;
+		case ESPERAR:
+			break;
+	}
+
+	esperar(atoi(buffer[3]), trip);
 
 	pthread_mutex_lock(&mutex_tripulantes_running);
 		quitar(trip, tripulantes_running);
@@ -105,63 +97,49 @@ int ejecutar(char* input, tripulante* trip) {
 		tripulantes_trabajando--;
 	pthread_mutex_unlock(&mutex_tripulantes_running);
 
-	if(tarea_concretada) {
-		log_info(logger,"Tripulante %d finalizo trabajo", trip->id_trip);//todo avisar al mongo que se termino de ejecutar la tarea
-		return 1;
-	}
-	else {
-		log_info(logger,"Tripulante %d pauso trabajo", trip->id_trip);
-		return 0;
-	}
+	log_info(logger,"Tripulante %d termino de ejecutar", trip->id_trip);
 }
 
 void moverse(tripulante* trip, int pos_x, int pos_y) {
-	while(trip->posicion[0] != pos_x && trip->estado == RUNNING) {
-		if(trip->posicion[0] < pos_x)
-			trip->posicion[0]++;
-		else
-			trip->posicion[0]--;
+	while(trip->posicion[0] != pos_x) {
+		(trip->posicion[0] < pos_x) ? trip->posicion[0]++ : trip->posicion[0]--;
 		sleep(ciclo_CPU);
 		trip->contador_ciclos++;
 		//todo avisar a ram
 		//todo avisar a mongo
+
+		 if(!continuar_planificacion)
+			sem_wait(&trip->sem_running);
 	}
 
-	if(trip->posicion[0] != pos_x)
-		log_info(logger,"Tripulante %d llego a x", trip->id_trip);
-	else
-		log_info(logger,"Tripulante %d llego hasta %d de %d", trip->id_trip, trip->posicion[0], pos_x);
+	log_info(logger,"Tripulante %d llego a x", trip->id_trip);
 
-	while(trip->posicion[1] != pos_y && trip->estado == RUNNING) {
-		if(trip->posicion[1] < pos_y)
-			trip->posicion[1]++;
-		else
-			trip->posicion[1]--;
+	while(trip->posicion[1] != pos_y) {
+		(trip->posicion[1] < pos_x) ? trip->posicion[1]++ : trip->posicion[1]--;
 		sleep(ciclo_CPU);
 		trip->contador_ciclos++;
 		//todo avisar a ram
 		//todo avisar a mongo
+
+		if(!continuar_planificacion)
+			sem_wait(&trip->sem_running);
 	}
 
-	if(trip->posicion[1] != pos_y)
-		log_info(logger,"Tripulante %d llego a x", trip->id_trip);
-	else
-		log_info(logger,"Tripulante %d llego hasta %d de %d", trip->id_trip, trip->posicion[1], pos_y);
+	log_info(logger,"Tripulante %d llego a y", trip->id_trip);
 }
 
-bool esperar(int tiempo, tripulante* trip) {
-	while(trip->tiempo_esperado < tiempo && trip->estado == RUNNING) {
+void esperar(int tiempo, tripulante* trip) {
+	while(trip->tiempo_esperado < tiempo) {
 		log_info(logger,"Tripulante %d ESPERANDO %d de %d",trip->id_trip, trip->tiempo_esperado, tiempo);
 		trip->contador_ciclos++;
 		trip->tiempo_esperado++;
 		sleep(ciclo_CPU);
+
+		if(!continuar_planificacion)
+			sem_wait(&trip->sem_running);
 	}
-	if(trip->tiempo_esperado == tiempo){
-		return true;
-		trip->tiempo_esperado = 0;
-	}
-	else
-		return false;
+
+	trip->tiempo_esperado = 0;
 }
 
 void quitar(tripulante* trip, t_list* list) {
