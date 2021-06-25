@@ -63,17 +63,25 @@ void* recibir_parametro(int socket, tipo_msj tipo) {
 t_list* recibir_mensaje(int socket) {
 	protocolo_msj op_code;
 	t_list* lista_parametros = list_create();
-	int pepe;
-	pepe = recv(socket, &op_code, sizeof(int), MSG_WAITALL);
-	if(pepe == 0) {
-		printf("DOY 0\n");
-		return NULL;
+	int error;
+	error = recv(socket, &op_code, sizeof(int), MSG_WAITALL);
+	
+	if(error == 0) {
+		op_code = ER_SOC;
+		list_add(lista_parametros, (void *)ER_SOC);
+		// fprintf(stderr, "%d", error);
+		// perror("read");
 	}
-	if(pepe == -1) {
-		printf("DOY NULL\n");
-		return NULL;
-	}	
-	list_add(lista_parametros, (void *)op_code);
+		
+	if(error == -1) {
+		op_code = ER_RCV;
+		list_add(lista_parametros, (void *)ER_RCV);
+		// fprintf(stderr, "%d", error);
+		// perror("read");
+	}
+		
+	if(error > 0)
+		list_add(lista_parametros, (void *)op_code);
 	
 	switch(op_code) {
 	case INIT_P:
@@ -130,6 +138,8 @@ t_list* recibir_mensaje(int socket) {
 	case TODOOK:
 	case NO_SPC:
 	case ER_MSJ:
+	case ER_RCV:
+	case ER_SOC:
 		break;
 	
 	case BITA_T:
@@ -151,4 +161,18 @@ void liberar_mensaje(t_mensaje* mensaje) {
 	free(mensaje->buffer->contenido);
 	free(mensaje->buffer);
 	free(mensaje);
+}
+
+bool validar_mensaje(t_list* mensaje_in, t_log* logger) {
+	switch ((int)list_get(mensaje_in, 0)) {
+	case ER_RCV:
+		log_warning(logger, "Ha ocurrido un fallo inesperado en la recepción del mensaje.");
+		return false;
+		break;
+	case ER_SOC:
+		log_warning(logger, "La conexión remota se ha desconectado.");
+		return false;
+		break;
+	}
+	return true;
 }

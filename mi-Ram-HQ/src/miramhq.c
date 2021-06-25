@@ -52,12 +52,11 @@ int main(void) {
 	
 	bool inicio_correcto;
 	bool conexion_activa_discord = true;
-	log_info(logger, "Entro al while");
+
 	while(conexion_activa_discord == true) {
 		log_info(logger, "Esperando información del discordiador");
 		mensaje_discor = recibir_mensaje(socket_discord);
-		if (mensaje_discor == NULL) {
-			log_info(logger, "Ocurrió un error inesperado, el discordiador se desconectó");
+		if (!validar_mensaje(mensaje_discor, logger)) {
 			close(server_fd);
 			log_destroy(logger);
 			return ERROR_CONEXION;
@@ -68,19 +67,16 @@ int main(void) {
 			log_info(logger, "Discordiador solicitó iniciar_patota");
 			
 			inicio_correcto = iniciar_patota(logger, mensaje_discor, mapa_segmentos, lista_patotas, patota_actual);
-			log_info(logger, "Discordiador solicitó iniciar_patota");
 			if(!inicio_correcto) {
 				log_error(logger, "No hay tamanio suficiente");
 				respuesta = crear_mensaje(NO_SPC);
 			}
 			else {
-				log_info(logger, "Patota creada correctamente");
 				respuesta = crear_mensaje(TODOOK);
 			}
 
 			enviar_mensaje(socket_discord, respuesta);
 			patota_actual++;
-			log_info(logger, "Envío respuesta al discordiador");
 			liberar_mensaje(respuesta);				// debe estar fuera del switch
 			list_destroy(mensaje_discor);	// debe estar fuera del switch
 			break;
@@ -88,24 +84,21 @@ int main(void) {
 			log_info(logger, "Discordiador solicitó iniciar_tripulante");
 			
 			inicio_correcto = iniciar_tripulante(logger, mensaje_discor, mapa_segmentos, lista_tripulantes, lista_patotas);
-			log_info(logger, "El servidor logró iniciar_tripulante");
 			if(inicio_correcto == false) {
 				log_error(logger, "No hay tamanio suficiente");
 				respuesta = crear_mensaje(NO_SPC);
 			}
 			else {
-				log_info(logger, "Tripulante creado correctamente");
 				int socket_nuevo = crear_conexion_servidor(IP_RAM, 0, 1);
 				
-				log_info(logger, "Creo hilo");
 				pthread_t* hilo_nuevo = malloc(sizeof(pthread_t));
 
-				log_info(logger, "Phread");
 				pthread_create(hilo_nuevo, NULL, rutina_hilos, (void *)socket_nuevo);
-				
+				// close(socket_nuevo);
 				respuesta = crear_mensaje(SND_PO);
 				agregar_parametro_a_mensaje(respuesta, (void *)puerto_desde_socket(socket_nuevo), ENTERO);
 			}
+			
 			log_info(logger, "Envío respuesta al discordiador");
 			enviar_mensaje(socket_discord, respuesta);
 			liberar_mensaje(respuesta);
@@ -113,6 +106,7 @@ int main(void) {
 			
 			break;
 		case 64:
+			log_info(logger, "Cliente desconectado");
 			conexion_activa_discord = false;
 			break;
 		default:
@@ -120,16 +114,29 @@ int main(void) {
 			conexion_activa_discord = false;
 			break;
 		}
-		log_info(logger, "Resultados");
-		log_info(logger, "Lista de patotas: %d", lista_patotas->elements_count);
-		log_info(logger, "Lista segmentos: %d", mapa_segmentos->elements_count);
-		for (int i = 0; i < mapa_segmentos->elements_count; i++) {
-			log_info(logger, "Segmento %d", i + 1);
-			log_info(logger, "Duenio: %d", ((t_segmento *)list_get(mapa_segmentos, i))->duenio);
-			log_info(logger, "Inicio: %d", ((t_segmento *)list_get(mapa_segmentos, i))->inicio);
-			log_info(logger, "N segmento: %d", ((t_segmento *)list_get(mapa_segmentos, i))->n_segmento);
-			log_info(logger, "Tamanio: %d", ((t_segmento *)list_get(mapa_segmentos, i))->tamanio);
+		
+	}
+	log_info(logger, "Resultados");
+	
+	log_info(logger, "Lista segmentos: %d", mapa_segmentos->elements_count);
+	for (int i = 0; i < mapa_segmentos->elements_count; i++) {
+		log_info(logger, "Segmento %d %d", i + 1, ((t_segmento *)list_get(mapa_segmentos, i))->n_segmento);
+		log_info(logger, "Duenio: %d", ((t_segmento *)list_get(mapa_segmentos, i))->duenio);
+		log_info(logger, "Inicio: %d", ((t_segmento *)list_get(mapa_segmentos, i))->inicio);
+		log_info(logger, "Tamanio: %d", ((t_segmento *)list_get(mapa_segmentos, i))->tamanio);
+	}
+	log_info(logger, "Lista de patotas: %d", lista_patotas->elements_count);
+	for (int i = 0; i < lista_patotas->elements_count; i++) {
+		log_info(logger, "Patota %d, %d", i + 1, ((patota_data *)list_get(lista_patotas, i))->PID);
+		log_info(logger, "Tamanio tabla: %d", ((patota_data *)list_get(lista_patotas, i))->tamanio_tabla);
+		for(int b = 0; b < ((patota_data *)list_get(lista_patotas, i))->tamanio_tabla; b++) {
+			log_info(logger, "Inicio elemento %d: %d", b +1, ((patota_data *)list_get(lista_patotas, i))->tabla_segmentos[b]);	
 		}
+	}
+	log_info(logger, "Lista de tripulantes: %d", lista_tripulantes->elements_count);
+	for (int i = 0; i < lista_tripulantes->elements_count; i++) {
+		log_info(logger, "TID %d", ((trip_data *)list_get(lista_tripulantes, i))->TID);
+		log_info(logger, "PID: %d", ((trip_data *)list_get(lista_tripulantes, i))->PID);
 	}
 	return EXIT_SUCCESS;
 }
@@ -139,19 +146,21 @@ void* rutina_hilos(void* socket, t_tripulante* mi_tripulante) {
 	log_info(logger, "HOLA MUNDO, SOY UN HILO");
 	
 	int socket_cliente = esperar_cliente((int)socket);
-	data_socket((int)socket, logger);
-	data_socket((int)socket_cliente, logger);
+	// data_socket((int)socket, logger);
+	// data_socket((int)socket_cliente, logger);
 
-	t_list* mensaje_in = recibir_mensaje((int)socket);
-		if(mensaje_in == NULL) {
+	while(1) {
+		t_list* mensaje_in = recibir_mensaje((int)socket_cliente);
+		if(!validar_mensaje(mensaje_in, logger)) {
 			printf("FALLO EN MENSAJE CON HILO RAM\n");
 		}
 		else
 			printf("EL HILO DISCORD ME DIJO: %d\n", (int)list_get(mensaje_in, 0));
-
-	t_mensaje* mensaje_out = crear_mensaje(TODOOK);
-	enviar_mensaje((int)socket, mensaje_out);
-	
+		
+		t_mensaje* mensaje_out = crear_mensaje(TODOOK);
+		enviar_mensaje((int)socket_cliente, mensaje_out);
+		liberar_mensaje(mensaje_out);
+	}
 	return 0;
 }
 
@@ -186,12 +195,9 @@ bool iniciar_patota(t_log* logger, t_list* parametros, t_list* mapa_segmentos, t
 		vector_tareas[i] = tarea_i;
 	}
 
-	log_info(logger, "Entro a encontrar bloque, memoria libre: %d", memoria_libre);
-	log_info(logger, "tamanio_pcb = %d, tamanio_tareas = %d", tamanio_pcb, tamanio_tareas);
 	if (tamanio_pcb + tamanio_tareas > memoria_libre) {
 		return false;
 	}
-	log_info(logger, "Segmento PCB");
 	t_segmento* segmento_pcb = crear_segmento(mapa_segmentos, tamanio_pcb, algoritmo);
 	if(segmento_pcb == NULL) {
 		log_info(logger, "Entro a realizar compactacion");
@@ -199,19 +205,15 @@ bool iniciar_patota(t_log* logger, t_list* parametros, t_list* mapa_segmentos, t
 		segmento_pcb = crear_segmento(mapa_segmentos, tamanio_pcb, algoritmo);
 	}
 	
-	log_info(logger, "Segmento tareas");
 	t_segmento* segmento_tareas = crear_segmento(mapa_segmentos, tamanio_tareas, algoritmo);
 	if(segmento_tareas == NULL) {	
 		log_info(logger, "Entro a realizar compactacion");
 		// uint32_t final_memoria = realizar_compactacion();
 		segmento_tareas = crear_segmento(mapa_segmentos, tamanio_tareas, algoritmo);
 	}
-	log_info(logger, "Segmentar pcb");
 
 	segmentar_pcb(segmento_pcb, patota, segmento_tareas);
-	log_info(logger, "Segmentar tareas");
 	segmentar_tareas(segmento_tareas, patota, vector_tareas);
-	log_info(logger, "Agrego nueva_patota");
 	patota_data* nueva_patota = malloc(sizeof(patota_data));
 	nueva_patota->PID = patota;
 	nueva_patota->tabla_segmentos = malloc(2 * sizeof(uint32_t));
@@ -227,8 +229,8 @@ bool iniciar_tripulante(t_log* logger, t_list* parametros, t_list* mapa_segmento
 	if (tamanio_tcb > memoria_libre) {
 		return false;
 	}
-	log_info(logger, "Voy a iniciar_segmento");
 	t_segmento* segmento_tcb = crear_segmento(mapa_segmentos, sizeof(t_tripulante), algoritmo);
+	
 	if(segmento_tcb == NULL) {
 		// uint32_t final_memoria = realizar_compactacion();
 		segmento_tcb = crear_segmento(mapa_segmentos, sizeof(t_tripulante), algoritmo);
@@ -249,11 +251,11 @@ bool iniciar_tripulante(t_log* logger, t_list* parametros, t_list* mapa_segmento
 	nuevo_trip->PID = (uint32_t)list_get(parametros, 1);
 	nuevo_trip->hilo = hilo_nuevo;
 	nuevo_trip->TID = (uint32_t)list_get(parametros, 2);
-	if(patota->tamanio_tabla - 2 <= nuevo_tripulante->TID) {
+	if(patota->tamanio_tabla - 2 < nuevo_tripulante->TID) {
 		patota->tabla_segmentos = realloc(patota->tabla_segmentos, sizeof(uint32_t *) * nuevo_tripulante->TID + 2);
 	}
-	patota->tabla_segmentos[nuevo_tripulante->TID] = segmento_tcb->inicio;
+	patota->tabla_segmentos[nuevo_tripulante->TID + 1] = segmento_tcb->inicio;
+	patota->tamanio_tabla++;
 	list_add(lista_tripulantes, nuevo_trip);
-
 	return true;
 }
