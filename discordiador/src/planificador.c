@@ -53,19 +53,3 @@ void* planificador(void* algoritmo) {
 	}
 	return 0;
 }
-
-/*
-void* finalizador(void* parametro) {
-	while(!*salir){
-		sem_wait(&desactivar_planificacion);
-		continuar_planificacion = false;
-
-		pthread_mutex_lock(&mutex_tripulantes_running);
-			for(int i = 0; i < tripulantes_trabajando; i++) {
-				tripulante* trip = (tripulante*)list_get(tripulantes_running, i);
-				trip->estado = READY;
-			}
-		pthread_mutex_unlock(&mutex_tripulantes_running);
-	}
-	return 0;
-}*/
