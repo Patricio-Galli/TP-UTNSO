@@ -32,12 +32,11 @@ int main(void) {
 	int server_fd = crear_conexion_servidor(
 		IP_RAM,	config_get_int_value(config, "PUERTO"), 1);
 	
-	if(server_fd < 0) {
-		log_info(logger, "Fallo en la conexión del servidor");
+	if(!validar_socket(server_fd, logger)) {
 		close(server_fd);
+		log_destroy(logger);
 		return ERROR_CONEXION;
 	}
-
 	log_info(logger, "Servidor listo");
 	int socket_discord = esperar_cliente(server_fd);
 	log_info(logger, "Conexión establecida con el discordiador");
@@ -53,18 +52,24 @@ int main(void) {
 	
 	bool inicio_correcto;
 	bool conexion_activa_discord = true;
-	
+	log_info(logger, "Entro al while");
 	while(conexion_activa_discord == true) {
 		log_info(logger, "Esperando información del discordiador");
 		mensaje_discor = recibir_mensaje(socket_discord);
+		if (mensaje_discor == NULL) {
+			log_info(logger, "Ocurrió un error inesperado, el discordiador se desconectó");
+			close(server_fd);
+			log_destroy(logger);
+			return ERROR_CONEXION;
+		}
 		
 		switch((int)list_get(mensaje_discor, 0)) { // protocolo del mensaje
 		case INIT_P:
 			log_info(logger, "Discordiador solicitó iniciar_patota");
 			
 			inicio_correcto = iniciar_patota(logger, mensaje_discor, mapa_segmentos, lista_patotas, patota_actual);
-
-			if(inicio_correcto == false) {
+			log_info(logger, "Discordiador solicitó iniciar_patota");
+			if(!inicio_correcto) {
 				log_error(logger, "No hay tamanio suficiente");
 				respuesta = crear_mensaje(NO_SPC);
 			}
@@ -76,38 +81,39 @@ int main(void) {
 			enviar_mensaje(socket_discord, respuesta);
 			patota_actual++;
 			log_info(logger, "Envío respuesta al discordiador");
-			free(respuesta);				// debe estar fuera del switch
+			liberar_mensaje(respuesta);				// debe estar fuera del switch
 			list_destroy(mensaje_discor);	// debe estar fuera del switch
 			break;
 		case INIT_T:
 			log_info(logger, "Discordiador solicitó iniciar_tripulante");
 			
-			inicio_correcto = iniciar_tripulante(logger, mensaje_discor, mapa_segmentos, lista_tripulantes);
-
+			inicio_correcto = iniciar_tripulante(logger, mensaje_discor, mapa_segmentos, lista_tripulantes, lista_patotas);
+			log_info(logger, "El servidor logró iniciar_tripulante");
 			if(inicio_correcto == false) {
 				log_error(logger, "No hay tamanio suficiente");
 				respuesta = crear_mensaje(NO_SPC);
 			}
 			else {
-				log_info(logger, "Patota creada correctamente");
+				log_info(logger, "Tripulante creado correctamente");
 				int socket_nuevo = crear_conexion_servidor(IP_RAM, 0, 1);
 				
+				log_info(logger, "Creo hilo");
 				pthread_t* hilo_nuevo = malloc(sizeof(pthread_t));
+
+				log_info(logger, "Phread");
 				pthread_create(hilo_nuevo, NULL, rutina_hilos, (void *)socket_nuevo);
 				
-				int nuevo_puerto = puerto_desde_socket(socket_nuevo);
 				respuesta = crear_mensaje(SND_PO);
-				agregar_parametro_a_mensaje(respuesta, (void *)nuevo_puerto, ENTERO);
+				agregar_parametro_a_mensaje(respuesta, (void *)puerto_desde_socket(socket_nuevo), ENTERO);
 			}
+			log_info(logger, "Envío respuesta al discordiador");
 			enviar_mensaje(socket_discord, respuesta);
 			liberar_mensaje(respuesta);
-			log_info(logger, "Envío respuesta al discordiador");
 			list_destroy(mensaje_discor);
 			
 			break;
-		case ELIM_T:
-			// elimino el tcb del tripulante correspondiente
-			return 0;
+		case 64:
+			conexion_activa_discord = false;
 			break;
 		default:
 			log_warning(logger, "Operacion desconocida. No quieras meter la pata");
@@ -133,32 +139,19 @@ void* rutina_hilos(void* socket, t_tripulante* mi_tripulante) {
 	log_info(logger, "HOLA MUNDO, SOY UN HILO");
 	
 	int socket_cliente = esperar_cliente((int)socket);
+	data_socket((int)socket, logger);
+	data_socket((int)socket_cliente, logger);
 
-	// t_mensaje* mensaje;
-	// t_list* mensaje_discor = list_create();
-	// mensaje_discor = recibir_mensaje(socket_cliente);
-	
-	/*char* tarea;
-	// while(tripulante.estado != EXIT) {
-	while(1) {
-		mensaje_discor = recibir_mensaje(socket_cliente);
-		switch((int)list_get(mensaje_discor, 0)) {
-		case ACTU_T:
-
-			break;
-		case NEXT_T:
-			char* tarea;
-			int n_tarea;
-			obtener_proxima_tarea(p_pcb, n_tarea);
-			mensaje = crear_mensaje(TASK_T);
-			agregar_parametro_a_mensaje(mensaje, tarea, BUFFER, logger);
-			enviar_mensaje(socket_cliente, mensaje);
-			free(mensaje);
-			break;
-		
+	t_list* mensaje_in = recibir_mensaje((int)socket);
+		if(mensaje_in == NULL) {
+			printf("FALLO EN MENSAJE CON HILO RAM\n");
 		}
-	}*/
+		else
+			printf("EL HILO DISCORD ME DIJO: %d\n", (int)list_get(mensaje_in, 0));
 
+	t_mensaje* mensaje_out = crear_mensaje(TODOOK);
+	enviar_mensaje((int)socket, mensaje_out);
+	
 	return 0;
 }
 
@@ -224,15 +217,17 @@ bool iniciar_patota(t_log* logger, t_list* parametros, t_list* mapa_segmentos, t
 	nueva_patota->tabla_segmentos = malloc(2 * sizeof(uint32_t));
 	nueva_patota->tabla_segmentos[0] = segmento_pcb->inicio;
 	nueva_patota->tabla_segmentos[1] = segmento_tareas->inicio;
+	nueva_patota->tamanio_tabla = 2;
 	list_add(lista_patotas, nueva_patota);
 	return true;
 }
 
-bool iniciar_tripulante(t_log* logger, t_list* parametros, t_list* mapa_segmentos, t_list* lista_tripulantes) {
+bool iniciar_tripulante(t_log* logger, t_list* parametros, t_list* mapa_segmentos, t_list* lista_tripulantes, t_list* lista_patotas) {
 	int tamanio_tcb = sizeof(t_tripulante);
 	if (tamanio_tcb > memoria_libre) {
 		return false;
 	}
+	log_info(logger, "Voy a iniciar_segmento");
 	t_segmento* segmento_tcb = crear_segmento(mapa_segmentos, sizeof(t_tripulante), algoritmo);
 	if(segmento_tcb == NULL) {
 		// uint32_t final_memoria = realizar_compactacion();
@@ -240,24 +235,24 @@ bool iniciar_tripulante(t_log* logger, t_list* parametros, t_list* mapa_segmento
 	}
 	
 	t_tripulante* nuevo_tripulante = malloc(sizeof(t_tripulante));
-	/*
-	t_patota* patota = (t_patota *)list_get(patotas);*/
 	nuevo_tripulante->estado = 'N';
 	nuevo_tripulante->TID = (int)list_get(parametros, 2);
 	nuevo_tripulante->posicion_x = (int)list_get(parametros, 3);
 	nuevo_tripulante->posicion_y = (int)list_get(parametros, 4);
 	nuevo_tripulante->proxima_tarea = 0;
-	// INIT_T | id_patota [int] | id_trip [int] | posicion_x [int] | posicion_y [int]
-	// segmentar_tcb(segmento_tcb, TID, estado, posicion_x, posicion_y, proxima_tarea, pcb);
+	int id_patota = (int)list_get(parametros, 1);
+	patota_data* patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
+	nuevo_tripulante->pcb = patota->tabla_segmentos[0];
 	segmentar_tcb(segmento_tcb, (int)list_get(parametros, 1), nuevo_tripulante);
-
 	pthread_t* hilo_nuevo = malloc(sizeof(pthread_t));
 	trip_data* nuevo_trip = malloc(sizeof(trip_data));
 	nuevo_trip->PID = (uint32_t)list_get(parametros, 1);
 	nuevo_trip->hilo = hilo_nuevo;
 	nuevo_trip->TID = (uint32_t)list_get(parametros, 2);
-	// TODO realloc() nueva_patota->PID = patota_actual;
-	// nueva_patota->tabla_segmentos[TID + 1] = segmento_tcb->inicio;
+	if(patota->tamanio_tabla - 2 <= nuevo_tripulante->TID) {
+		patota->tabla_segmentos = realloc(patota->tabla_segmentos, sizeof(uint32_t *) * nuevo_tripulante->TID + 2);
+	}
+	patota->tabla_segmentos[nuevo_tripulante->TID] = segmento_tcb->inicio;
 	list_add(lista_tripulantes, nuevo_trip);
 
 	return true;

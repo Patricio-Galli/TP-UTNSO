@@ -63,8 +63,16 @@ void* recibir_parametro(int socket, tipo_msj tipo) {
 t_list* recibir_mensaje(int socket) {
 	protocolo_msj op_code;
 	t_list* lista_parametros = list_create();
-
-	recv(socket, &op_code, sizeof(int), MSG_WAITALL);
+	int pepe;
+	pepe = recv(socket, &op_code, sizeof(int), MSG_WAITALL);
+	if(pepe == 0) {
+		printf("DOY 0\n");
+		return NULL;
+	}
+	if(pepe == -1) {
+		printf("DOY NULL\n");
+		return NULL;
+	}	
 	list_add(lista_parametros, (void *)op_code);
 	
 	switch(op_code) {

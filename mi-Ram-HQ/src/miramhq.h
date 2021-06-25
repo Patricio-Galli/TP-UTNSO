@@ -40,20 +40,21 @@ typedef struct {
 } t_tripulante;
 
 typedef struct {
-    uint32_t TID;
     uint32_t PID;
+    uint32_t TID;
     pthread_t* hilo;
     // puntero a espacio de memoria, o a tabla de segmentos
 } trip_data;
 
 typedef struct {
     uint32_t PID;
+    uint32_t tamanio_tabla;
     int* tabla_segmentos;    // puede ser un vector variable
 } patota_data;
 
 void* rutina_hilos(void* socket, t_tripulante* mi_tripulante);
 bool iniciar_patota(t_log* logger, t_list* parametros, t_list* mapa_segmentos, t_list* lista_patotas, int patota_actual);
-bool iniciar_tripulante(t_log* logger, t_list* parametros, t_list* mapa_segmentos, t_list* lista_tripulantes);
+bool iniciar_tripulante(t_log* logger, t_list* parametros, t_list* mapa_segmentos, t_list* lista_tripulantes, t_list* lista_patotas);
 // uint32_t obtener_pcb(int id_patota, int id_tripulante);
 
 void segmentar_pcb(t_segmento* segmento_pcb, uint32_t patota, t_segmento* segmento_tareas);

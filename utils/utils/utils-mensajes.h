@@ -15,6 +15,8 @@
 #include<string.h>
 #include<commons/collections/list.h>
 
+#include<stdio.h>
+
 typedef enum {
 	INIT_P,	// Iniciar patota
 		// INIT_P | id_patota [int] | cantidad_tripulantes [int] | cant_tareas [int] | (tareas)

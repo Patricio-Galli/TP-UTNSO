@@ -12,13 +12,14 @@
 
 int variable = 0;
 
-int id_patota_actual = 0;
+int id_patota_actual = 1;
 nodo_tripulante *lista_tripulantes = NULL;
+t_config* config;
 
 int main() {
 	t_log* logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
 
-    t_config* config = config_create("discordiador.config");
+    config = config_create("discordiador.config");
 	int socket_ram, socket_mongo = 0;
 
 	socket_ram = crear_conexion_cliente(
@@ -31,13 +32,10 @@ int main() {
 		config_get_string_value(config, "PUERTO_I_MONGO_STORE")
 		);*/
 	
-	if(socket_mongo < 0 || socket_ram < 0) {
-		if(socket_ram < 0)
-			log_info(logger, "Fallo en la conexión con Mi-RAM-HQ");
-		if(socket_mongo < 0)
-			log_info(logger, "Fallo en la conexión con I-Mongo-Store");
+	if(!validar_socket(socket_ram, logger) || !validar_socket(socket_mongo, logger)) {
 		close(socket_ram);
 		close(socket_mongo);
+		log_destroy(logger);
 		return ERROR_CONEXION;
 	}
 
@@ -50,7 +48,6 @@ int main() {
 		log_info(logger, "entro al while y voy a leer consola");
 		buffer_consola = leer_consola();
 		funcion_consola = mapStringToEnum(primer_palabra(buffer_consola));
-		char** input;
 		t_list *respuesta;
 		switch(funcion_consola) {
 		case INICIAR_PATOTA:
@@ -59,7 +56,7 @@ int main() {
 			// int valor[3] = {6, 3, 2};
 			
 			// OJO, hay que mandar un puntero al entero o un puntero al primer elemento si es string
-			agregar_parametro_a_mensaje(mensaje, (void *)6, ENTERO);		// id_patota			
+			agregar_parametro_a_mensaje(mensaje, (void *)id_patota_actual, ENTERO);		// id_patota			
 			agregar_parametro_a_mensaje(mensaje, (void *)6, ENTERO);		// cant_trip
 			agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);		// cant_tareas
 			agregar_parametro_a_mensaje(mensaje, buffer_consola, BUFFER);	// tarea 1
@@ -78,9 +75,45 @@ int main() {
 			free(mensaje);
 			log_info(logger, "Destruyo respuesta");
 			list_destroy(respuesta);
+			id_patota_actual++;
 			break;
-		case LISTAR_TRIPULANTES:
-			listar_tripulantes();
+		case INICIAR_TRIPULANTE:
+			log_info(logger, "Iniciar tripulante. Creando mensaje");
+			mensaje = crear_mensaje(INIT_T);
+
+			agregar_parametro_a_mensaje(mensaje, (void *)id_patota_actual - 1, ENTERO);		// id_patota			
+			agregar_parametro_a_mensaje(mensaje, (void *)1, ENTERO);					// id_trip
+			agregar_parametro_a_mensaje(mensaje, (void *)3, ENTERO);					// posicion_x
+			agregar_parametro_a_mensaje(mensaje, (void *)4, ENTERO);					// posicion_y
+			
+			enviar_mensaje(socket_ram, mensaje);
+			
+			respuesta = recibir_mensaje(socket_ram);
+			if(respuesta == NULL) {
+				log_info(logger, "El servidor ha muerto, doy por finalizada esta wea");
+				close(socket_ram);
+				close(socket_mongo);
+				log_destroy(logger);
+				return ERROR_CONEXION;
+			}
+			
+			if((int)list_get(respuesta, 0) == SND_PO) {
+				int nuevo_puerto = (int)list_get(respuesta, 1);
+				
+				pthread_t* nuevo_hilo = malloc(sizeof(pthread_t));
+				char str_puerto[7];
+				sprintf(str_puerto, "%d", (int)nuevo_puerto);
+				int socket = crear_conexion_cliente(config_get_string_value(config, "IP_MI_RAM_HQ"), str_puerto);
+
+				pthread_create(nuevo_hilo, NULL, rutina_hilos, (void *)socket);
+			}
+			if((int)list_get(respuesta, 0) == NO_SPC) {
+				log_info(logger, "aeeea, NO SOY sabalero");
+			}
+			log_info(logger, "Libero mensaje");
+			free(mensaje);
+			log_info(logger, "Destruyo respuesta");
+			list_destroy(respuesta);
 			break;
 		case EXPULSAR_TRIPULANTE:
 			log_info(logger,"Expulsar tripulante ...");
@@ -95,6 +128,8 @@ int main() {
 			log_info(logger,"OBTENER BITACORA");
 			break;
 		case EXIT_DISCORDIADOR:
+			mensaje = crear_mensaje(64);
+			enviar_mensaje(socket_ram, mensaje);
 			continuar = false;
 			break;
 		case ERROR:
@@ -176,34 +211,18 @@ void agregar_trip_a_lista(tripulante* nuevo_trip) {
 	}
 }
 
-void* rutina_hilos(void* posiciones) {
-	/*conectarse_con_ram(mongo);
-	conectarse_con_disco(ram);
-	// RR definido por el archivo de configuración
-	switch(PLANEACION) { // FIFO O RR
-
-	while(tengo_tareas) {
-		wait(puedo_trabajar);
-		wait(RR);
-		pedir_instruccion();
-		signal(RR);
-		
-		informar_bitacora();
-		
-		wait(RR);
-		recibir_instruccion();
-		
-		signal(puedo_trabajar);
-		ejecutar_instruccion();
-		signal(puedo_trabajar);
-
-		informar_bitacora();
-
-		if(instruccion == moverse) {
-			informar_bitacora();
-		}
-	}*/
-	free(posiciones);
+void* rutina_hilos(void* socket) {
+	t_log* logger = log_create("discordiador.log", "HILOX", 1, LOG_LEVEL_DEBUG);
+	
+	data_socket(socket, logger);
+	t_mensaje* mensaje_out = crear_mensaje(TODOOK);
+	enviar_mensaje(socket, mensaje_out);
+	t_list* mensaje_in = recibir_mensaje(socket);
+	if(mensaje_in == NULL) {
+		printf("FALLO EN MENSAJE CON HILO RAM\n");
+	}
+	else
+		printf("EL HILO RAM ME RESPONDIO: %d\n", (int)list_get(mensaje_in, 0));
 	return 0;
 }
 
