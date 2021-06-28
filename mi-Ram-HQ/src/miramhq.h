@@ -48,6 +48,13 @@ typedef struct {
 
 typedef struct {
     uint32_t PID;
+    uint32_t cant_tareas;
+    uint32_t* inicio_tareas;
+    uint32_t* tamanio_tareas;
+} tareas_data;
+
+typedef struct {
+    uint32_t PID;
     uint32_t tamanio_tabla;
     int* tabla_segmentos;    // puede ser un vector variable
 } patota_data;
@@ -57,9 +64,5 @@ bool iniciar_patota(t_log* logger, t_list* parametros, t_list* mapa_segmentos, t
 bool iniciar_tripulante(t_log* logger, t_list* parametros, t_list* mapa_segmentos, t_list* lista_tripulantes, t_list* lista_patotas);
 // uint32_t obtener_pcb(int id_patota, int id_tripulante);
 
-void segmentar_pcb(t_segmento* segmento_pcb, uint32_t patota, t_segmento* segmento_tareas);
-
-void segmentar_tareas(t_segmento* segmento_tareas, uint32_t patota, char** vector_tareas);
-
-void segmentar_tcb(t_segmento* segmento_tcb, uint32_t patota, t_tripulante* nuevo_tripulante);
+void agregar_parametro_a_segmento(t_list* parametros, void* data, uint32_t tamanio);
 #endif /* _MIRAMHQ_H_ */

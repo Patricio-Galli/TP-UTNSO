@@ -1,0 +1,666 @@
+[INFO] 19:49:19:102 DISCORDIADOR/(3052:3052): Iniciar patota. Creando mensaje
+[INFO] 19:49:19:108 DISCORDIADOR/(3052:3052): aeeea, sabalero, sabalero
+[INFO] 19:49:27:218 DISCORDIADOR/(3052:3052): Iniciar tripulante. Creando mensaje
+[INFO] 19:49:27:223 HILOX/(3052:3054): HOLA MUNDO, SOY UN HILO 1
+[INFO] 19:49:27:223 HILOX/(3052:3054): Dirección local: 127.0.0.1:56862
+[INFO] 19:49:27:224 HILOX/(3052:3054): Dirección remota: 127.0.0.1:46842
+[INFO] 19:49:38:112 DISCORDIADOR/(3052:3052): Iniciar tripulante. Creando mensaje
+[INFO] 19:49:38:116 HILOX/(3052:3056): HOLA MUNDO, SOY UN HILO 2
+[INFO] 19:49:38:116 HILOX/(3052:3056): Dirección local: 127.0.0.1:33680
+[INFO] 19:49:38:118 HILOX/(3052:3056): Dirección remota: 127.0.0.1:40144
+[INFO] 19:49:41:962 DISCORDIADOR/(3052:3052): Iniciar tripulante. Creando mensaje
+[WARNING] 19:49:43:351 DISCORDIADOR/(3052:3052): La conexión remota se ha desconectado.
+[INFO] 19:49:43:351 DISCORDIADOR/(3052:3052): El servidor ha muerto, doy por finalizada esta wea
+[INFO] 19:50:43:746 DISCORDIADOR/(3074:3074): Iniciar patota. Creando mensaje
+[INFO] 19:50:43:747 DISCORDIADOR/(3074:3074): aeeea, sabalero, sabalero
+[INFO] 19:50:48:259 DISCORDIADOR/(3074:3074): Iniciar tripulante. Creando mensaje
+[INFO] 19:50:48:264 HILOX/(3074:3076): HOLA MUNDO, SOY UN HILO 1
+[INFO] 19:50:48:264 HILOX/(3074:3076): Dirección local: 127.0.0.1:58288
+[INFO] 19:50:48:266 HILOX/(3074:3076): Dirección remota: 127.0.0.1:42030
+[INFO] 19:50:49:337 DISCORDIADOR/(3074:3074): Iniciar tripulante. Creando mensaje
+[INFO] 19:50:49:350 HILOX/(3074:3078): HOLA MUNDO, SOY UN HILO 2
+[INFO] 19:50:49:350 HILOX/(3074:3078): Dirección local: 127.0.0.1:32892
+[INFO] 19:50:49:350 HILOX/(3074:3078): Dirección remota: 127.0.0.1:40295
+[INFO] 19:50:50:434 DISCORDIADOR/(3074:3074): Iniciar tripulante. Creando mensaje
+[WARNING] 19:50:50:569 DISCORDIADOR/(3074:3074): La conexión remota se ha desconectado.
+[INFO] 19:50:50:569 DISCORDIADOR/(3074:3074): El servidor ha muerto, doy por finalizada esta wea
+[INFO] 19:51:05:649 DISCORDIADOR/(3081:3081): Iniciar patota. Creando mensaje
+[INFO] 19:51:05:650 DISCORDIADOR/(3081:3081): aeeea, sabalero, sabalero
+[INFO] 19:51:11:267 DISCORDIADOR/(3081:3081): Iniciar tripulante. Creando mensaje
+[INFO] 19:51:11:272 HILOX/(3081:3083): HOLA MUNDO, SOY UN HILO 1
+[INFO] 19:51:11:274 HILOX/(3081:3083): Dirección local: 127.0.0.1:43214
+[INFO] 19:51:11:274 HILOX/(3081:3083): Dirección remota: 127.0.0.1:33162
+[INFO] 19:51:12:864 DISCORDIADOR/(3081:3081): Iniciar tripulante. Creando mensaje
+[INFO] 19:51:12:868 HILOX/(3081:3085): HOLA MUNDO, SOY UN HILO 2
+[INFO] 19:51:12:870 HILOX/(3081:3085): Dirección local: 127.0.0.1:43050
+[INFO] 19:51:12:870 HILOX/(3081:3085): Dirección remota: 127.0.0.1:35556
+[INFO] 19:51:19:370 DISCORDIADOR/(3081:3081): Iniciar patota. Creando mensaje
+[INFO] 19:51:19:371 DISCORDIADOR/(3081:3081): aeeea, sabalero, sabalero
+[INFO] 19:51:21:766 DISCORDIADOR/(3081:3081): Iniciar tripulante. Creando mensaje
+[INFO] 19:51:21:771 HILOX/(3081:3087): HOLA MUNDO, SOY UN HILO 3
+[INFO] 19:51:21:772 HILOX/(3081:3087): Dirección local: 127.0.0.1:38318
+[INFO] 19:51:21:772 HILOX/(3081:3087): Dirección remota: 127.0.0.1:46367
+[INFO] 19:51:23:921 DISCORDIADOR/(3081:3081): Iniciar tripulante. Creando mensaje
+[INFO] 19:51:23:924 HILOX/(3081:3089): HOLA MUNDO, SOY UN HILO 4
+[INFO] 19:51:23:924 HILOX/(3081:3089): Dirección local: 127.0.0.1:47850
+[INFO] 19:51:23:924 HILOX/(3081:3089): Dirección remota: 127.0.0.1:32780
+[INFO] 19:51:27:980 DISCORDIADOR/(3081:3081): Iniciar tripulante. Creando mensaje
+[INFO] 19:51:27:983 HILOX/(3081:3091): HOLA MUNDO, SOY UN HILO 5
+[INFO] 19:51:27:984 HILOX/(3081:3091): Dirección local: 127.0.0.1:45818
+[INFO] 19:51:27:984 HILOX/(3081:3091): Dirección remota: 127.0.0.1:38794
+[INFO] 19:51:30:522 DISCORDIADOR/(3081:3081): Iniciar tripulante. Creando mensaje
+[INFO] 19:51:30:525 HILOX/(3081:3093): HOLA MUNDO, SOY UN HILO 6
+[INFO] 19:51:30:531 HILOX/(3081:3093): Dirección local: 127.0.0.1:58752
+[INFO] 19:51:30:531 HILOX/(3081:3093): Dirección remota: 127.0.0.1:41291
+[INFO] 19:51:31:712 DISCORDIADOR/(3081:3081): Iniciar tripulante. Creando mensaje
+[WARNING] 19:51:31:850 DISCORDIADOR/(3081:3081): La conexión remota se ha desconectado.
+[INFO] 19:51:31:850 DISCORDIADOR/(3081:3081): El servidor ha muerto, doy por finalizada esta wea
+[INFO] 19:52:49:851 DISCORDIADOR/(3098:3098): Iniciar patota. Creando mensaje
+[INFO] 19:52:49:853 DISCORDIADOR/(3098:3098): aeeea, sabalero, sabalero
+[INFO] 19:52:51:372 DISCORDIADOR/(3098:3098): Iniciar patota. Creando mensaje
+[INFO] 19:52:51:372 DISCORDIADOR/(3098:3098): aeeea, sabalero, sabalero
+[INFO] 19:52:55:307 DISCORDIADOR/(3098:3098): Iniciar tripulante. Creando mensaje
+[INFO] 19:52:55:320 HILOX/(3098:3100): HOLA MUNDO, SOY UN HILO 1
+[INFO] 19:52:55:320 HILOX/(3098:3100): Dirección local: 127.0.0.1:32846
+[INFO] 19:52:55:320 HILOX/(3098:3100): Dirección remota: 127.0.0.1:39655
+[INFO] 19:52:56:383 DISCORDIADOR/(3098:3098): Iniciar tripulante. Creando mensaje
+[INFO] 19:52:56:385 HILOX/(3098:3102): HOLA MUNDO, SOY UN HILO 2
+[INFO] 19:52:56:388 HILOX/(3098:3102): Dirección local: 127.0.0.1:42744
+[INFO] 19:52:56:388 HILOX/(3098:3102): Dirección remota: 127.0.0.1:46183
+[INFO] 19:52:57:068 DISCORDIADOR/(3098:3098): Iniciar tripulante. Creando mensaje
+[INFO] 19:52:57:073 HILOX/(3098:3104): HOLA MUNDO, SOY UN HILO 3
+[INFO] 19:52:57:073 HILOX/(3098:3104): Dirección local: 127.0.0.1:58728
+[INFO] 19:52:57:073 HILOX/(3098:3104): Dirección remota: 127.0.0.1:37215
+[INFO] 19:52:57:685 DISCORDIADOR/(3098:3098): Iniciar tripulante. Creando mensaje
+[INFO] 19:52:57:688 HILOX/(3098:3106): HOLA MUNDO, SOY UN HILO 4
+[INFO] 19:52:57:694 HILOX/(3098:3106): Dirección local: 127.0.0.1:49330
+[INFO] 19:52:57:694 HILOX/(3098:3106): Dirección remota: 127.0.0.1:37896
+[INFO] 19:52:58:334 DISCORDIADOR/(3098:3098): Iniciar tripulante. Creando mensaje
+[WARNING] 19:52:58:466 DISCORDIADOR/(3098:3098): La conexión remota se ha desconectado.
+[INFO] 19:52:58:466 DISCORDIADOR/(3098:3098): El servidor ha muerto, doy por finalizada esta wea
+[INFO] 19:53:11:324 DISCORDIADOR/(3109:3109): Iniciar patota. Creando mensaje
+[INFO] 19:53:11:326 DISCORDIADOR/(3109:3109): aeeea, sabalero, sabalero
+[INFO] 19:53:12:226 DISCORDIADOR/(3109:3109): Iniciar patota. Creando mensaje
+[INFO] 19:53:12:227 DISCORDIADOR/(3109:3109): aeeea, sabalero, sabalero
+[INFO] 19:53:12:908 DISCORDIADOR/(3109:3109): Iniciar patota. Creando mensaje
+[INFO] 19:53:12:909 DISCORDIADOR/(3109:3109): aeeea, sabalero, sabalero
+[INFO] 19:53:16:773 DISCORDIADOR/(3109:3109): Iniciar tripulante. Creando mensaje
+[INFO] 19:53:16:776 HILOX/(3109:3111): HOLA MUNDO, SOY UN HILO 1
+[INFO] 19:53:16:781 HILOX/(3109:3111): Dirección local: 127.0.0.1:33732
+[INFO] 19:53:16:781 HILOX/(3109:3111): Dirección remota: 127.0.0.1:38312
+[INFO] 19:53:17:610 DISCORDIADOR/(3109:3109): Iniciar tripulante. Creando mensaje
+[INFO] 19:53:17:614 HILOX/(3109:3113): HOLA MUNDO, SOY UN HILO 2
+[INFO] 19:53:17:614 HILOX/(3109:3113): Dirección local: 127.0.0.1:58020
+[INFO] 19:53:17:614 HILOX/(3109:3113): Dirección remota: 127.0.0.1:36768
+[INFO] 19:53:18:981 DISCORDIADOR/(3109:3109): Iniciar tripulante. Creando mensaje
+[INFO] 19:53:18:984 HILOX/(3109:3115): HOLA MUNDO, SOY UN HILO 3
+[INFO] 19:53:18:988 HILOX/(3109:3115): Dirección local: 127.0.0.1:36580
+[INFO] 19:53:18:988 HILOX/(3109:3115): Dirección remota: 127.0.0.1:46867
+[INFO] 19:53:19:688 DISCORDIADOR/(3109:3109): Iniciar tripulante. Creando mensaje
+[INFO] 19:53:19:692 HILOX/(3109:3117): HOLA MUNDO, SOY UN HILO 4
+[INFO] 19:53:19:693 HILOX/(3109:3117): Dirección local: 127.0.0.1:47140
+[INFO] 19:53:19:693 HILOX/(3109:3117): Dirección remota: 127.0.0.1:41985
+[INFO] 19:53:20:335 DISCORDIADOR/(3109:3109): Iniciar tripulante. Creando mensaje
+[WARNING] 19:53:20:335 DISCORDIADOR/(3109:3109): La conexión remota se ha desconectado.
+[INFO] 19:53:20:335 DISCORDIADOR/(3109:3109): El servidor ha muerto, doy por finalizada esta wea
+[INFO] 19:53:37:922 DISCORDIADOR/(3120:3120): Iniciar patota. Creando mensaje
+[INFO] 19:53:37:924 DISCORDIADOR/(3120:3120): aeeea, sabalero, sabalero
+[INFO] 19:53:42:110 DISCORDIADOR/(3120:3120): Iniciar tripulante. Creando mensaje
+[INFO] 19:53:42:115 HILOX/(3120:3122): HOLA MUNDO, SOY UN HILO 1
+[INFO] 19:53:42:117 HILOX/(3120:3122): Dirección local: 127.0.0.1:52880
+[INFO] 19:53:42:119 HILOX/(3120:3122): Dirección remota: 127.0.0.1:34549
+[INFO] 19:53:43:759 DISCORDIADOR/(3120:3120): Iniciar tripulante. Creando mensaje
+[INFO] 19:53:43:763 HILOX/(3120:3124): HOLA MUNDO, SOY UN HILO 2
+[INFO] 19:53:43:763 HILOX/(3120:3124): Dirección local: 127.0.0.1:45696
+[INFO] 19:53:43:764 HILOX/(3120:3124): Dirección remota: 127.0.0.1:33440
+[INFO] 19:53:47:094 DISCORDIADOR/(3120:3120): Iniciar patota. Creando mensaje
+[INFO] 19:53:47:094 DISCORDIADOR/(3120:3120): aeeea, sabalero, sabalero
+[INFO] 19:53:48:418 DISCORDIADOR/(3120:3120): Iniciar tripulante. Creando mensaje
+[INFO] 19:53:48:422 HILOX/(3120:3126): HOLA MUNDO, SOY UN HILO 3
+[INFO] 19:53:48:426 HILOX/(3120:3126): Dirección local: 127.0.0.1:42686
+[INFO] 19:53:48:426 HILOX/(3120:3126): Dirección remota: 127.0.0.1:44581
+[INFO] 19:53:50:492 DISCORDIADOR/(3120:3120): Iniciar tripulante. Creando mensaje
+[INFO] 19:53:50:496 HILOX/(3120:3128): HOLA MUNDO, SOY UN HILO 4
+[INFO] 19:53:50:498 HILOX/(3120:3128): Dirección local: 127.0.0.1:59424
+[INFO] 19:53:50:498 HILOX/(3120:3128): Dirección remota: 127.0.0.1:37774
+[INFO] 19:53:52:182 DISCORDIADOR/(3120:3120): Iniciar tripulante. Creando mensaje
+[INFO] 19:53:52:187 HILOX/(3120:3130): HOLA MUNDO, SOY UN HILO 5
+[INFO] 19:53:52:189 HILOX/(3120:3130): Dirección local: 127.0.0.1:46126
+[INFO] 19:53:52:189 HILOX/(3120:3130): Dirección remota: 127.0.0.1:44346
+[INFO] 19:53:52:856 DISCORDIADOR/(3120:3120): Iniciar tripulante. Creando mensaje
+[INFO] 19:53:52:859 HILOX/(3120:3132): HOLA MUNDO, SOY UN HILO 6
+[INFO] 19:53:52:861 HILOX/(3120:3132): Dirección local: 127.0.0.1:47512
+[INFO] 19:53:52:861 HILOX/(3120:3132): Dirección remota: 127.0.0.1:36637
+[INFO] 20:02:51:319 DISCORDIADOR/(3160:3160): Iniciar patota. Creando mensaje
+[INFO] 20:02:51:319 DISCORDIADOR/(3160:3160): aeeea, sabalero, sabalero
+[INFO] 20:02:57:469 DISCORDIADOR/(3160:3160): Iniciar tripulante. Creando mensaje
+[INFO] 20:02:57:472 HILOX/(3160:3162): HOLA MUNDO, SOY UN HILO 1
+[INFO] 20:02:57:478 HILOX/(3160:3162): Dirección local: 127.0.0.1:49050
+[INFO] 20:02:57:478 HILOX/(3160:3162): Dirección remota: 127.0.0.1:35186
+[INFO] 20:02:58:448 DISCORDIADOR/(3160:3160): Iniciar tripulante. Creando mensaje
+[INFO] 20:02:58:450 HILOX/(3160:3164): HOLA MUNDO, SOY UN HILO 2
+[INFO] 20:02:58:451 HILOX/(3160:3164): Dirección local: 127.0.0.1:37092
+[INFO] 20:02:58:451 HILOX/(3160:3164): Dirección remota: 127.0.0.1:45107
+[INFO] 20:02:59:751 DISCORDIADOR/(3160:3160): Iniciar patota. Creando mensaje
+[INFO] 20:02:59:752 DISCORDIADOR/(3160:3160): aeeea, sabalero, sabalero
+[INFO] 20:03:00:891 DISCORDIADOR/(3160:3160): Iniciar tripulante. Creando mensaje
+[INFO] 20:03:00:894 HILOX/(3160:3166): HOLA MUNDO, SOY UN HILO 3
+[INFO] 20:03:00:901 HILOX/(3160:3166): Dirección local: 127.0.0.1:41602
+[INFO] 20:03:00:901 HILOX/(3160:3166): Dirección remota: 127.0.0.1:42967
+[INFO] 20:03:01:575 DISCORDIADOR/(3160:3160): Iniciar tripulante. Creando mensaje
+[INFO] 20:03:01:579 HILOX/(3160:3168): HOLA MUNDO, SOY UN HILO 4
+[INFO] 20:03:01:581 HILOX/(3160:3168): Dirección local: 127.0.0.1:47916
+[INFO] 20:03:01:581 HILOX/(3160:3168): Dirección remota: 127.0.0.1:44009
+[INFO] 20:03:02:531 DISCORDIADOR/(3160:3160): Iniciar tripulante. Creando mensaje
+[INFO] 20:03:02:542 HILOX/(3160:3170): HOLA MUNDO, SOY UN HILO 5
+[INFO] 20:03:02:542 HILOX/(3160:3170): Dirección local: 127.0.0.1:35478
+[INFO] 20:03:02:542 HILOX/(3160:3170): Dirección remota: 127.0.0.1:40343
+[INFO] 20:03:03:228 DISCORDIADOR/(3160:3160): Iniciar tripulante. Creando mensaje
+[INFO] 20:03:03:231 HILOX/(3160:3172): HOLA MUNDO, SOY UN HILO 6
+[INFO] 20:03:03:233 HILOX/(3160:3172): Dirección local: 127.0.0.1:57338
+[INFO] 20:03:03:233 HILOX/(3160:3172): Dirección remota: 127.0.0.1:42671
+[INFO] 20:03:05:261 DISCORDIADOR/(3160:3160): Iniciar patota. Creando mensaje
+[INFO] 20:03:05:263 DISCORDIADOR/(3160:3160): aeeea, sabalero, sabalero
+[INFO] 20:03:07:041 DISCORDIADOR/(3160:3160): Iniciar tripulante. Creando mensaje
+[INFO] 20:03:07:044 HILOX/(3160:3174): HOLA MUNDO, SOY UN HILO 7
+[INFO] 20:03:07:050 HILOX/(3160:3174): Dirección local: 127.0.0.1:46826
+[INFO] 20:03:07:050 HILOX/(3160:3174): Dirección remota: 127.0.0.1:32890
+[INFO] 20:03:07:779 DISCORDIADOR/(3160:3160): Iniciar tripulante. Creando mensaje
+[INFO] 20:03:07:783 HILOX/(3160:3176): HOLA MUNDO, SOY UN HILO 8
+[INFO] 20:03:07:783 HILOX/(3160:3176): Dirección local: 127.0.0.1:47184
+[INFO] 20:03:07:783 HILOX/(3160:3176): Dirección remota: 127.0.0.1:37462
+[INFO] 20:03:08:449 DISCORDIADOR/(3160:3160): Iniciar tripulante. Creando mensaje
+[WARNING] 20:03:08:591 DISCORDIADOR/(3160:3160): La conexión remota se ha desconectado.
+[INFO] 20:03:08:591 DISCORDIADOR/(3160:3160): El servidor ha muerto, doy por finalizada esta wea
+[INFO] 20:03:33:162 DISCORDIADOR/(3179:3179): Iniciar patota. Creando mensaje
+[INFO] 20:03:33:162 DISCORDIADOR/(3179:3179): aeeea, sabalero, sabalero
+[INFO] 20:03:39:696 DISCORDIADOR/(3179:3179): Iniciar tripulante. Creando mensaje
+[INFO] 20:03:39:701 HILOX/(3179:3181): HOLA MUNDO, SOY UN HILO 1
+[INFO] 20:03:39:702 HILOX/(3179:3181): Dirección local: 127.0.0.1:54996
+[INFO] 20:03:39:702 HILOX/(3179:3181): Dirección remota: 127.0.0.1:36880
+[INFO] 20:03:40:747 DISCORDIADOR/(3179:3179): Iniciar tripulante. Creando mensaje
+[INFO] 20:03:40:751 HILOX/(3179:3183): HOLA MUNDO, SOY UN HILO 2
+[INFO] 20:03:40:753 HILOX/(3179:3183): Dirección local: 127.0.0.1:36400
+[INFO] 20:03:40:753 HILOX/(3179:3183): Dirección remota: 127.0.0.1:37847
+[INFO] 20:03:42:244 DISCORDIADOR/(3179:3179): Iniciar patota. Creando mensaje
+[INFO] 20:03:42:244 DISCORDIADOR/(3179:3179): aeeea, sabalero, sabalero
+[INFO] 20:03:43:302 DISCORDIADOR/(3179:3179): Iniciar tripulante. Creando mensaje
+[INFO] 20:03:43:306 HILOX/(3179:3185): HOLA MUNDO, SOY UN HILO 3
+[INFO] 20:03:43:306 HILOX/(3179:3185): Dirección local: 127.0.0.1:54414
+[INFO] 20:03:43:306 HILOX/(3179:3185): Dirección remota: 127.0.0.1:39601
+[INFO] 20:03:43:894 DISCORDIADOR/(3179:3179): Iniciar tripulante. Creando mensaje
+[INFO] 20:03:43:897 HILOX/(3179:3187): HOLA MUNDO, SOY UN HILO 4
+[INFO] 20:03:43:899 HILOX/(3179:3187): Dirección local: 127.0.0.1:46262
+[INFO] 20:03:43:899 HILOX/(3179:3187): Dirección remota: 127.0.0.1:43525
+[INFO] 20:03:44:495 DISCORDIADOR/(3179:3179): Iniciar tripulante. Creando mensaje
+[INFO] 20:03:44:500 HILOX/(3179:3189): HOLA MUNDO, SOY UN HILO 5
+[INFO] 20:03:44:500 HILOX/(3179:3189): Dirección local: 127.0.0.1:50798
+[INFO] 20:03:44:500 HILOX/(3179:3189): Dirección remota: 127.0.0.1:40950
+[INFO] 20:03:45:062 DISCORDIADOR/(3179:3179): Iniciar tripulante. Creando mensaje
+[INFO] 20:03:45:071 HILOX/(3179:3191): HOLA MUNDO, SOY UN HILO 6
+[INFO] 20:03:45:072 HILOX/(3179:3191): Dirección local: 127.0.0.1:40380
+[INFO] 20:03:45:072 HILOX/(3179:3191): Dirección remota: 127.0.0.1:34143
+[INFO] 20:03:47:061 DISCORDIADOR/(3179:3179): Iniciar patota. Creando mensaje
+[INFO] 20:03:47:061 DISCORDIADOR/(3179:3179): aeeea, sabalero, sabalero
+[INFO] 20:03:48:261 DISCORDIADOR/(3179:3179): Iniciar tripulante. Creando mensaje
+[INFO] 20:03:48:265 HILOX/(3179:3193): HOLA MUNDO, SOY UN HILO 7
+[INFO] 20:03:48:266 HILOX/(3179:3193): Dirección local: 127.0.0.1:35180
+[INFO] 20:03:48:266 HILOX/(3179:3193): Dirección remota: 127.0.0.1:35125
+[INFO] 20:03:49:181 DISCORDIADOR/(3179:3179): Iniciar tripulante. Creando mensaje
+[INFO] 20:03:49:183 HILOX/(3179:3195): HOLA MUNDO, SOY UN HILO 8
+[INFO] 20:03:49:184 HILOX/(3179:3195): Dirección local: 127.0.0.1:45530
+[INFO] 20:03:49:184 HILOX/(3179:3195): Dirección remota: 127.0.0.1:38266
+[INFO] 20:03:50:011 DISCORDIADOR/(3179:3179): Iniciar tripulante. Creando mensaje
+[WARNING] 20:03:50:150 DISCORDIADOR/(3179:3179): La conexión remota se ha desconectado.
+[INFO] 20:03:50:150 DISCORDIADOR/(3179:3179): El servidor ha muerto, doy por finalizada esta wea
+[INFO] 20:04:01:676 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:01:676 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:06:810 DISCORDIADOR/(3210:3210): Iniciar tripulante. Creando mensaje
+[INFO] 20:04:06:813 HILOX/(3210:3214): HOLA MUNDO, SOY UN HILO 1
+[INFO] 20:04:06:817 HILOX/(3210:3214): Dirección local: 127.0.0.1:38116
+[INFO] 20:04:06:818 HILOX/(3210:3214): Dirección remota: 127.0.0.1:44047
+[INFO] 20:04:07:605 DISCORDIADOR/(3210:3210): Iniciar tripulante. Creando mensaje
+[INFO] 20:04:07:606 HILOX/(3210:3216): HOLA MUNDO, SOY UN HILO 2
+[INFO] 20:04:07:607 HILOX/(3210:3216): Dirección local: 127.0.0.1:50726
+[INFO] 20:04:07:607 HILOX/(3210:3216): Dirección remota: 127.0.0.1:39890
+[INFO] 20:04:08:690 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:08:690 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:11:378 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:11:379 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:13:940 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:13:941 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:14:616 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:14:617 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:15:150 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:15:151 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:15:659 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:15:661 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:16:155 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:16:155 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:16:672 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:16:674 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:17:174 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:17:176 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:17:637 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:17:639 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:18:128 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:18:129 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:18:591 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:18:592 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:19:066 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:19:070 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:19:533 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:19:535 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:19:981 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:19:983 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:20:437 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:20:438 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:20:887 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:20:888 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:21:314 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:21:314 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:21:748 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:21:750 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:22:147 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:22:147 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:22:562 DISCORDIADOR/(3210:3210): Iniciar patota. Creando mensaje
+[INFO] 20:04:22:564 DISCORDIADOR/(3210:3210): aeeea, sabalero, sabalero
+[INFO] 20:04:27:896 DISCORDIADOR/(3210:3210): Iniciar tripulante. Creando mensaje
+[INFO] 20:04:27:901 HILOX/(3210:3218): HOLA MUNDO, SOY UN HILO 3
+[INFO] 20:04:27:908 HILOX/(3210:3218): Dirección local: 127.0.0.1:49942
+[INFO] 20:04:27:908 HILOX/(3210:3218): Dirección remota: 127.0.0.1:44815
+[INFO] 20:04:28:993 DISCORDIADOR/(3210:3210): Iniciar tripulante. Creando mensaje
+[INFO] 20:04:28:998 HILOX/(3210:3220): HOLA MUNDO, SOY UN HILO 4
+[INFO] 20:04:28:998 HILOX/(3210:3220): Dirección local: 127.0.0.1:52860
+[INFO] 20:04:28:998 HILOX/(3210:3220): Dirección remota: 127.0.0.1:43458
+[INFO] 20:04:29:688 DISCORDIADOR/(3210:3210): Iniciar tripulante. Creando mensaje
+[INFO] 20:04:29:692 HILOX/(3210:3222): HOLA MUNDO, SOY UN HILO 5
+[INFO] 20:04:29:693 HILOX/(3210:3222): Dirección local: 127.0.0.1:50810
+[INFO] 20:04:29:693 HILOX/(3210:3222): Dirección remota: 127.0.0.1:46338
+[INFO] 20:04:30:354 DISCORDIADOR/(3210:3210): Iniciar tripulante. Creando mensaje
+[INFO] 20:04:30:359 HILOX/(3210:3224): HOLA MUNDO, SOY UN HILO 6
+[INFO] 20:04:30:360 HILOX/(3210:3224): Dirección local: 127.0.0.1:53178
+[INFO] 20:04:30:360 HILOX/(3210:3224): Dirección remota: 127.0.0.1:46279
+[INFO] 20:04:31:918 DISCORDIADOR/(3210:3210): Iniciar tripulante. Creando mensaje
+[WARNING] 20:04:32:061 DISCORDIADOR/(3210:3210): La conexión remota se ha desconectado.
+[INFO] 20:04:32:061 DISCORDIADOR/(3210:3210): El servidor ha muerto, doy por finalizada esta wea
+[INFO] 20:04:49:689 DISCORDIADOR/(3227:3227): Iniciar patota. Creando mensaje
+[INFO] 20:04:49:690 DISCORDIADOR/(3227:3227): aeeea, sabalero, sabalero
+[INFO] 20:04:54:957 DISCORDIADOR/(3227:3227): Iniciar tripulante. Creando mensaje
+[INFO] 20:04:54:965 HILOX/(3227:3229): HOLA MUNDO, SOY UN HILO 1
+[INFO] 20:04:54:965 HILOX/(3227:3229): Dirección local: 127.0.0.1:55196
+[INFO] 20:04:54:965 HILOX/(3227:3229): Dirección remota: 127.0.0.1:45058
+[INFO] 20:04:56:170 DISCORDIADOR/(3227:3227): Iniciar tripulante. Creando mensaje
+[INFO] 20:04:56:173 HILOX/(3227:3231): HOLA MUNDO, SOY UN HILO 2
+[INFO] 20:04:56:173 HILOX/(3227:3231): Dirección local: 127.0.0.1:44642
+[INFO] 20:04:56:173 HILOX/(3227:3231): Dirección remota: 127.0.0.1:35763
+[INFO] 20:04:57:310 DISCORDIADOR/(3227:3227): Iniciar patota. Creando mensaje
+[INFO] 20:04:57:311 DISCORDIADOR/(3227:3227): aeeea, sabalero, sabalero
+[INFO] 20:04:58:331 DISCORDIADOR/(3227:3227): Iniciar tripulante. Creando mensaje
+[INFO] 20:04:58:336 HILOX/(3227:3233): HOLA MUNDO, SOY UN HILO 3
+[INFO] 20:04:58:338 HILOX/(3227:3233): Dirección local: 127.0.0.1:42728
+[INFO] 20:04:58:338 HILOX/(3227:3233): Dirección remota: 127.0.0.1:42687
+[INFO] 20:04:58:996 DISCORDIADOR/(3227:3227): Iniciar tripulante. Creando mensaje
+[INFO] 20:04:59:000 HILOX/(3227:3235): HOLA MUNDO, SOY UN HILO 4
+[INFO] 20:04:59:000 HILOX/(3227:3235): Dirección local: 127.0.0.1:50948
+[INFO] 20:04:59:000 HILOX/(3227:3235): Dirección remota: 127.0.0.1:34137
+[INFO] 20:04:59:605 DISCORDIADOR/(3227:3227): Iniciar tripulante. Creando mensaje
+[INFO] 20:04:59:608 HILOX/(3227:3237): HOLA MUNDO, SOY UN HILO 5
+[INFO] 20:04:59:610 HILOX/(3227:3237): Dirección local: 127.0.0.1:39712
+[INFO] 20:04:59:610 HILOX/(3227:3237): Dirección remota: 127.0.0.1:36271
+[INFO] 20:05:00:231 DISCORDIADOR/(3227:3227): Iniciar tripulante. Creando mensaje
+[INFO] 20:05:00:240 HILOX/(3227:3239): HOLA MUNDO, SOY UN HILO 6
+[INFO] 20:05:00:240 HILOX/(3227:3239): Dirección local: 127.0.0.1:59822
+[INFO] 20:05:00:240 HILOX/(3227:3239): Dirección remota: 127.0.0.1:42136
+[INFO] 20:05:02:004 DISCORDIADOR/(3227:3227): Iniciar patota. Creando mensaje
+[INFO] 20:05:02:006 DISCORDIADOR/(3227:3227): aeeea, sabalero, sabalero
+[INFO] 20:05:02:826 DISCORDIADOR/(3227:3227): Iniciar patota. Creando mensaje
+[INFO] 20:05:02:826 DISCORDIADOR/(3227:3227): aeeea, sabalero, sabalero
+[INFO] 20:05:07:055 DISCORDIADOR/(3227:3227): Iniciar tripulante. Creando mensaje
+[INFO] 20:05:07:062 HILOX/(3227:3241): HOLA MUNDO, SOY UN HILO 7
+[INFO] 20:05:07:062 HILOX/(3227:3241): Dirección local: 127.0.0.1:55202
+[INFO] 20:05:07:063 HILOX/(3227:3241): Dirección remota: 127.0.0.1:43901
+[INFO] 20:05:07:952 DISCORDIADOR/(3227:3227): Iniciar tripulante. Creando mensaje
+[INFO] 20:05:07:955 HILOX/(3227:3243): HOLA MUNDO, SOY UN HILO 8
+[INFO] 20:05:07:956 HILOX/(3227:3243): Dirección local: 127.0.0.1:58454
+[INFO] 20:05:07:956 HILOX/(3227:3243): Dirección remota: 127.0.0.1:34258
+[INFO] 20:05:08:577 DISCORDIADOR/(3227:3227): Iniciar tripulante. Creando mensaje
+[WARNING] 20:05:08:713 DISCORDIADOR/(3227:3227): La conexión remota se ha desconectado.
+[INFO] 20:05:08:713 DISCORDIADOR/(3227:3227): El servidor ha muerto, doy por finalizada esta wea
+[INFO] 20:05:29:159 DISCORDIADOR/(3246:3246): Iniciar patota. Creando mensaje
+[INFO] 20:05:29:161 DISCORDIADOR/(3246:3246): aeeea, sabalero, sabalero
+[INFO] 20:05:33:887 DISCORDIADOR/(3246:3246): Iniciar tripulante. Creando mensaje
+[INFO] 20:05:33:890 HILOX/(3246:3248): HOLA MUNDO, SOY UN HILO 1
+[INFO] 20:05:33:891 HILOX/(3246:3248): Dirección local: 127.0.0.1:37472
+[INFO] 20:05:33:891 HILOX/(3246:3248): Dirección remota: 127.0.0.1:35444
+[INFO] 20:05:34:794 DISCORDIADOR/(3246:3246): Iniciar tripulante. Creando mensaje
+[INFO] 20:05:34:799 HILOX/(3246:3250): HOLA MUNDO, SOY UN HILO 2
+[INFO] 20:05:34:799 HILOX/(3246:3250): Dirección local: 127.0.0.1:57290
+[INFO] 20:05:34:801 HILOX/(3246:3250): Dirección remota: 127.0.0.1:33267
+[INFO] 20:05:36:676 DISCORDIADOR/(3246:3246): Iniciar patota. Creando mensaje
+[INFO] 20:05:36:676 DISCORDIADOR/(3246:3246): aeeea, sabalero, sabalero
+[INFO] 20:05:37:679 DISCORDIADOR/(3246:3246): Iniciar tripulante. Creando mensaje
+[INFO] 20:05:37:680 HILOX/(3246:3252): HOLA MUNDO, SOY UN HILO 3
+[INFO] 20:05:37:680 HILOX/(3246:3252): Dirección local: 127.0.0.1:39372
+[INFO] 20:05:37:680 HILOX/(3246:3252): Dirección remota: 127.0.0.1:43114
+[INFO] 20:05:38:281 DISCORDIADOR/(3246:3246): Iniciar tripulante. Creando mensaje
+[INFO] 20:05:38:283 HILOX/(3246:3254): HOLA MUNDO, SOY UN HILO 4
+[INFO] 20:05:38:284 HILOX/(3246:3254): Dirección local: 127.0.0.1:33548
+[INFO] 20:05:38:284 HILOX/(3246:3254): Dirección remota: 127.0.0.1:45765
+[INFO] 20:05:38:866 DISCORDIADOR/(3246:3246): Iniciar tripulante. Creando mensaje
+[INFO] 20:05:38:869 HILOX/(3246:3256): HOLA MUNDO, SOY UN HILO 5
+[INFO] 20:05:38:873 HILOX/(3246:3256): Dirección local: 127.0.0.1:37236
+[INFO] 20:05:38:873 HILOX/(3246:3256): Dirección remota: 127.0.0.1:42313
+[INFO] 20:05:39:451 DISCORDIADOR/(3246:3246): Iniciar tripulante. Creando mensaje
+[INFO] 20:05:39:453 HILOX/(3246:3258): HOLA MUNDO, SOY UN HILO 6
+[INFO] 20:05:39:454 HILOX/(3246:3258): Dirección local: 127.0.0.1:36126
+[INFO] 20:05:39:454 HILOX/(3246:3258): Dirección remota: 127.0.0.1:46549
+[INFO] 20:05:41:278 DISCORDIADOR/(3246:3246): Iniciar patota. Creando mensaje
+[INFO] 20:05:41:279 DISCORDIADOR/(3246:3246): aeeea, sabalero, sabalero
+[INFO] 20:05:42:952 DISCORDIADOR/(3246:3246): Iniciar tripulante. Creando mensaje
+[INFO] 20:05:42:955 HILOX/(3246:3260): HOLA MUNDO, SOY UN HILO 7
+[INFO] 20:05:42:957 HILOX/(3246:3260): Dirección local: 127.0.0.1:50382
+[INFO] 20:05:42:957 HILOX/(3246:3260): Dirección remota: 127.0.0.1:39738
+[INFO] 20:05:43:630 DISCORDIADOR/(3246:3246): Iniciar tripulante. Creando mensaje
+[INFO] 20:05:43:634 HILOX/(3246:3262): HOLA MUNDO, SOY UN HILO 8
+[INFO] 20:05:43:636 HILOX/(3246:3262): Dirección local: 127.0.0.1:43115
+[INFO] 20:05:43:636 HILOX/(3246:3262): Dirección remota: 127.0.0.1:41734
+[INFO] 20:05:45:128 DISCORDIADOR/(3246:3246): Iniciar patota. Creando mensaje
+[INFO] 20:05:45:128 DISCORDIADOR/(3246:3246): aeeea, sabalero, sabalero
+[INFO] 20:05:46:344 DISCORDIADOR/(3246:3246): Iniciar tripulante. Creando mensaje
+[INFO] 20:05:46:353 HILOX/(3246:3264): HOLA MUNDO, SOY UN HILO 9
+[INFO] 20:05:46:354 HILOX/(3246:3264): Dirección local: 127.0.0.1:48904
+[INFO] 20:05:46:354 HILOX/(3246:3264): Dirección remota: 127.0.0.1:37397
+[INFO] 20:05:47:175 DISCORDIADOR/(3246:3246): Iniciar tripulante. Creando mensaje
+[INFO] 20:05:47:178 HILOX/(3246:3266): HOLA MUNDO, SOY UN HILO 10
+[INFO] 20:05:47:179 HILOX/(3246:3266): Dirección local: 127.0.0.1:38714
+[INFO] 20:05:47:179 HILOX/(3246:3266): Dirección remota: 127.0.0.1:37770
+[INFO] 20:05:47:953 DISCORDIADOR/(3246:3246): Iniciar tripulante. Creando mensaje
+[WARNING] 20:05:48:092 DISCORDIADOR/(3246:3246): La conexión remota se ha desconectado.
+[INFO] 20:05:48:092 DISCORDIADOR/(3246:3246): El servidor ha muerto, doy por finalizada esta wea
+[INFO] 20:06:48:590 DISCORDIADOR/(3269:3269): Iniciar patota. Creando mensaje
+[INFO] 20:06:48:590 DISCORDIADOR/(3269:3269): aeeea, sabalero, sabalero
+[INFO] 20:06:53:284 DISCORDIADOR/(3269:3269): Iniciar tripulante. Creando mensaje
+[INFO] 20:06:53:289 HILOX/(3269:3273): HOLA MUNDO, SOY UN HILO 1
+[INFO] 20:06:53:289 HILOX/(3269:3273): Dirección local: 127.0.0.1:41192
+[INFO] 20:06:53:289 HILOX/(3269:3273): Dirección remota: 127.0.0.1:40576
+[INFO] 20:06:55:081 DISCORDIADOR/(3269:3269): Iniciar tripulante. Creando mensaje
+[INFO] 20:06:55:084 HILOX/(3269:3275): HOLA MUNDO, SOY UN HILO 2
+[INFO] 20:06:55:084 HILOX/(3269:3275): Dirección local: 127.0.0.1:45674
+[INFO] 20:06:55:085 HILOX/(3269:3275): Dirección remota: 127.0.0.1:43530
+[INFO] 20:06:56:498 DISCORDIADOR/(3269:3269): Iniciar patota. Creando mensaje
+[INFO] 20:06:56:500 DISCORDIADOR/(3269:3269): aeeea, sabalero, sabalero
+[INFO] 20:06:58:313 DISCORDIADOR/(3269:3269): Iniciar tripulante. Creando mensaje
+[INFO] 20:06:58:320 HILOX/(3269:3277): HOLA MUNDO, SOY UN HILO 3
+[INFO] 20:06:58:320 HILOX/(3269:3277): Dirección local: 127.0.0.1:57644
+[INFO] 20:06:58:320 HILOX/(3269:3277): Dirección remota: 127.0.0.1:33977
+[INFO] 20:06:59:432 DISCORDIADOR/(3269:3269): Iniciar tripulante. Creando mensaje
+[INFO] 20:06:59:436 HILOX/(3269:3279): HOLA MUNDO, SOY UN HILO 4
+[INFO] 20:06:59:438 HILOX/(3269:3279): Dirección local: 127.0.0.1:35302
+[INFO] 20:06:59:438 HILOX/(3269:3279): Dirección remota: 127.0.0.1:34158
+[INFO] 20:07:00:033 DISCORDIADOR/(3269:3269): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:00:038 HILOX/(3269:3281): HOLA MUNDO, SOY UN HILO 5
+[INFO] 20:07:00:038 HILOX/(3269:3281): Dirección local: 127.0.0.1:52732
+[INFO] 20:07:00:038 HILOX/(3269:3281): Dirección remota: 127.0.0.1:34500
+[INFO] 20:07:00:528 DISCORDIADOR/(3269:3269): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:00:533 HILOX/(3269:3283): HOLA MUNDO, SOY UN HILO 6
+[INFO] 20:07:00:535 HILOX/(3269:3283): Dirección local: 127.0.0.1:50798
+[INFO] 20:07:00:535 HILOX/(3269:3283): Dirección remota: 127.0.0.1:45481
+[INFO] 20:07:02:619 DISCORDIADOR/(3269:3269): Iniciar patota. Creando mensaje
+[INFO] 20:07:02:620 DISCORDIADOR/(3269:3269): aeeea, sabalero, sabalero
+[INFO] 20:07:04:274 DISCORDIADOR/(3269:3269): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:04:277 HILOX/(3269:3285): HOLA MUNDO, SOY UN HILO 7
+[INFO] 20:07:04:282 HILOX/(3269:3285): Dirección local: 127.0.0.1:46764
+[INFO] 20:07:04:282 HILOX/(3269:3285): Dirección remota: 127.0.0.1:46243
+[INFO] 20:07:04:983 DISCORDIADOR/(3269:3269): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:04:988 HILOX/(3269:3287): HOLA MUNDO, SOY UN HILO 8
+[INFO] 20:07:04:990 HILOX/(3269:3287): Dirección local: 127.0.0.1:53736
+[INFO] 20:07:04:990 HILOX/(3269:3287): Dirección remota: 127.0.0.1:42378
+[INFO] 20:07:08:493 DISCORDIADOR/(3269:3269): Iniciar patota. Creando mensaje
+[INFO] 20:07:08:493 DISCORDIADOR/(3269:3269): aeeea, sabalero, sabalero
+[INFO] 20:07:09:800 DISCORDIADOR/(3269:3269): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:09:800 HILOX/(3269:3289): HOLA MUNDO, SOY UN HILO 9
+[INFO] 20:07:09:800 HILOX/(3269:3289): Dirección local: 127.0.0.1:60366
+[INFO] 20:07:09:800 HILOX/(3269:3289): Dirección remota: 127.0.0.1:44003
+[INFO] 20:07:10:472 DISCORDIADOR/(3269:3269): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:10:475 HILOX/(3269:3291): HOLA MUNDO, SOY UN HILO 10
+[INFO] 20:07:10:477 HILOX/(3269:3291): Dirección local: 127.0.0.1:32954
+[INFO] 20:07:10:477 HILOX/(3269:3291): Dirección remota: 127.0.0.1:37149
+[INFO] 20:07:11:148 DISCORDIADOR/(3269:3269): Iniciar tripulante. Creando mensaje
+[WARNING] 20:07:11:286 DISCORDIADOR/(3269:3269): La conexión remota se ha desconectado.
+[INFO] 20:07:11:287 DISCORDIADOR/(3269:3269): El servidor ha muerto, doy por finalizada esta wea
+[INFO] 20:07:31:024 DISCORDIADOR/(3294:3294): Iniciar patota. Creando mensaje
+[INFO] 20:07:31:026 DISCORDIADOR/(3294:3294): aeeea, sabalero, sabalero
+[INFO] 20:07:35:334 DISCORDIADOR/(3294:3294): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:35:339 HILOX/(3294:3296): HOLA MUNDO, SOY UN HILO 1
+[INFO] 20:07:35:339 HILOX/(3294:3296): Dirección local: 127.0.0.1:39184
+[INFO] 20:07:35:341 HILOX/(3294:3296): Dirección remota: 127.0.0.1:37249
+[INFO] 20:07:36:230 DISCORDIADOR/(3294:3294): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:36:238 HILOX/(3294:3298): HOLA MUNDO, SOY UN HILO 2
+[INFO] 20:07:36:238 HILOX/(3294:3298): Dirección local: 127.0.0.1:47090
+[INFO] 20:07:36:238 HILOX/(3294:3298): Dirección remota: 127.0.0.1:41787
+[INFO] 20:07:37:698 DISCORDIADOR/(3294:3294): Iniciar patota. Creando mensaje
+[INFO] 20:07:37:699 DISCORDIADOR/(3294:3294): aeeea, sabalero, sabalero
+[INFO] 20:07:39:227 DISCORDIADOR/(3294:3294): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:39:230 HILOX/(3294:3300): HOLA MUNDO, SOY UN HILO 3
+[INFO] 20:07:39:232 HILOX/(3294:3300): Dirección local: 127.0.0.1:35944
+[INFO] 20:07:39:232 HILOX/(3294:3300): Dirección remota: 127.0.0.1:40664
+[INFO] 20:07:41:646 DISCORDIADOR/(3294:3294): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:41:653 HILOX/(3294:3302): HOLA MUNDO, SOY UN HILO 4
+[INFO] 20:07:41:653 HILOX/(3294:3302): Dirección local: 127.0.0.1:51228
+[INFO] 20:07:41:653 HILOX/(3294:3302): Dirección remota: 127.0.0.1:39643
+[INFO] 20:07:42:527 DISCORDIADOR/(3294:3294): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:42:527 HILOX/(3294:3304): HOLA MUNDO, SOY UN HILO 5
+[INFO] 20:07:42:528 HILOX/(3294:3304): Dirección local: 127.0.0.1:47836
+[INFO] 20:07:42:528 HILOX/(3294:3304): Dirección remota: 127.0.0.1:46342
+[INFO] 20:07:43:214 DISCORDIADOR/(3294:3294): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:43:218 HILOX/(3294:3306): HOLA MUNDO, SOY UN HILO 6
+[INFO] 20:07:43:222 HILOX/(3294:3306): Dirección local: 127.0.0.1:57484
+[INFO] 20:07:43:223 HILOX/(3294:3306): Dirección remota: 127.0.0.1:39627
+[INFO] 20:07:45:137 DISCORDIADOR/(3294:3294): Iniciar patota. Creando mensaje
+[INFO] 20:07:45:137 DISCORDIADOR/(3294:3294): aeeea, sabalero, sabalero
+[INFO] 20:07:47:256 DISCORDIADOR/(3294:3294): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:47:263 HILOX/(3294:3308): HOLA MUNDO, SOY UN HILO 7
+[INFO] 20:07:47:264 HILOX/(3294:3308): Dirección local: 127.0.0.1:59088
+[INFO] 20:07:47:264 HILOX/(3294:3308): Dirección remota: 127.0.0.1:45339
+[INFO] 20:07:48:047 DISCORDIADOR/(3294:3294): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:48:050 HILOX/(3294:3310): HOLA MUNDO, SOY UN HILO 8
+[INFO] 20:07:48:050 HILOX/(3294:3310): Dirección local: 127.0.0.1:59334
+[INFO] 20:07:48:050 HILOX/(3294:3310): Dirección remota: 127.0.0.1:39831
+[INFO] 20:07:49:370 DISCORDIADOR/(3294:3294): Iniciar patota. Creando mensaje
+[INFO] 20:07:49:372 DISCORDIADOR/(3294:3294): aeeea, sabalero, sabalero
+[INFO] 20:07:50:484 DISCORDIADOR/(3294:3294): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:50:488 HILOX/(3294:3312): HOLA MUNDO, SOY UN HILO 9
+[INFO] 20:07:50:489 HILOX/(3294:3312): Dirección local: 127.0.0.1:50368
+[INFO] 20:07:50:489 HILOX/(3294:3312): Dirección remota: 127.0.0.1:40524
+[INFO] 20:07:51:134 DISCORDIADOR/(3294:3294): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:51:139 HILOX/(3294:3314): HOLA MUNDO, SOY UN HILO 10
+[INFO] 20:07:51:139 HILOX/(3294:3314): Dirección local: 127.0.0.1:45114
+[INFO] 20:07:51:139 HILOX/(3294:3314): Dirección remota: 127.0.0.1:36609
+[INFO] 20:07:52:461 DISCORDIADOR/(3294:3294): Iniciar patota. Creando mensaje
+[INFO] 20:07:52:462 DISCORDIADOR/(3294:3294): aeeea, sabalero, sabalero
+[INFO] 20:07:54:099 DISCORDIADOR/(3294:3294): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:54:101 HILOX/(3294:3316): HOLA MUNDO, SOY UN HILO 11
+[INFO] 20:07:54:102 HILOX/(3294:3316): Dirección local: 127.0.0.1:46822
+[INFO] 20:07:54:102 HILOX/(3294:3316): Dirección remota: 127.0.0.1:41358
+[INFO] 20:07:55:588 DISCORDIADOR/(3294:3294): Iniciar tripulante. Creando mensaje
+[INFO] 20:07:55:592 HILOX/(3294:3318): HOLA MUNDO, SOY UN HILO 12
+[INFO] 20:07:55:594 HILOX/(3294:3318): Dirección local: 127.0.0.1:59802
+[INFO] 20:07:55:594 HILOX/(3294:3318): Dirección remota: 127.0.0.1:42494
+[INFO] 22:11:43:586 DISCORDIADOR/(4129:4129): Iniciar patota. Creando mensaje
+[INFO] 22:11:43:589 DISCORDIADOR/(4129:4129): aeeea, sabalero, sabalero
+[INFO] 22:11:58:096 DISCORDIADOR/(4129:4129): Iniciar patota. Creando mensaje
+[INFO] 22:11:58:096 DISCORDIADOR/(4129:4129): aeeea, sabalero, sabalero
+[INFO] 22:12:04:640 DISCORDIADOR/(4129:4129): Iniciar tripulante. Creando mensaje
+[WARNING] 22:12:04:812 DISCORDIADOR/(4129:4129): La conexión remota se ha desconectado.
+[INFO] 22:12:04:812 DISCORDIADOR/(4129:4129): El servidor ha muerto, doy por finalizada esta wea
+[INFO] 22:34:19:402 DISCORDIADOR/(4793:4793): Iniciar patota. Creando mensaje
+[INFO] 22:34:19:403 DISCORDIADOR/(4793:4793): aeeea, sabalero, sabalero
+[INFO] 22:34:29:711 DISCORDIADOR/(4793:4793): Iniciar tripulante. Creando mensaje
+[WARNING] 22:34:29:846 DISCORDIADOR/(4793:4793): La conexión remota se ha desconectado.
+[INFO] 22:34:29:846 DISCORDIADOR/(4793:4793): El servidor ha muerto, doy por finalizada esta wea
+[INFO] 22:42:57:322 DISCORDIADOR/(5570:5570): Iniciar patota. Creando mensaje
+[INFO] 22:42:57:323 DISCORDIADOR/(5570:5570): aeeea, sabalero, sabalero
+[INFO] 22:45:05:431 DISCORDIADOR/(5570:5570): Iniciar patota. Creando mensaje
+[INFO] 22:45:05:431 DISCORDIADOR/(5570:5570): aeeea, sabalero, sabalero
+[INFO] 22:45:14:501 DISCORDIADOR/(5570:5570): Iniciar tripulante. Creando mensaje
+[WARNING] 22:45:14:747 DISCORDIADOR/(5570:5570): La conexión remota se ha desconectado.
+[INFO] 22:45:14:747 DISCORDIADOR/(5570:5570): El servidor ha muerto, doy por finalizada esta wea
+[INFO] 22:45:41:679 DISCORDIADOR/(5774:5774): Iniciar patota. Creando mensaje
+[INFO] 22:45:41:679 DISCORDIADOR/(5774:5774): aeeea, sabalero, sabalero
+[INFO] 22:52:58:195 DISCORDIADOR/(5774:5774): Iniciar patota. Creando mensaje
+[INFO] 22:52:58:196 DISCORDIADOR/(5774:5774): aeeea, sabalero, sabalero
+[INFO] 22:53:06:137 DISCORDIADOR/(5774:5774): Iniciar tripulante. Creando mensaje
+[WARNING] 22:53:06:501 DISCORDIADOR/(5774:5774): La conexión remota se ha desconectado.
+[INFO] 22:53:06:501 DISCORDIADOR/(5774:5774): El servidor ha muerto, doy por finalizada esta wea
+[ERROR] 22:53:40:436 DISCORDIADOR/(6007:6007): Error al crear socket. Fallo al conectarse al servidor
+[INFO] 22:53:48:314 DISCORDIADOR/(6009:6009): Iniciar patota. Creando mensaje
+[INFO] 22:56:02:974 DISCORDIADOR/(6112:6112): Iniciar patota. Creando mensaje
+[INFO] 22:57:20:115 DISCORDIADOR/(6214:6214): Iniciar patota. Creando mensaje
+[INFO] 22:58:32:869 DISCORDIADOR/(6416:6416): Iniciar patota. Creando mensaje
+[INFO] 22:58:32:870 DISCORDIADOR/(6416:6416): aeeea, sabalero, sabalero
+[INFO] 23:01:50:845 DISCORDIADOR/(6606:6606): Iniciar patota. Creando mensaje
+[INFO] 23:01:50:848 DISCORDIADOR/(6606:6606): aeeea, sabalero, sabalero
+[INFO] 23:04:21:865 DISCORDIADOR/(6606:6606): Iniciar tripulante. Creando mensaje
+[INFO] 23:04:21:870 HILOX/(6606:6622): HOLA MUNDO, SOY UN HILO 1
+[INFO] 23:04:21:870 HILOX/(6606:6622): Dirección local: 127.0.0.1:56538
+[INFO] 23:04:21:870 HILOX/(6606:6622): Dirección remota: 127.0.0.1:42394
+[INFO] 23:07:08:537 DISCORDIADOR/(6606:6606): Iniciar tripulante. Creando mensaje
+[INFO] 23:07:08:539 HILOX/(6606:6626): HOLA MUNDO, SOY UN HILO 2
+[INFO] 23:07:08:540 HILOX/(6606:6626): Dirección local: 127.0.0.1:33402
+[INFO] 23:07:08:540 HILOX/(6606:6626): Dirección remota: 127.0.0.1:35494
+[INFO] 23:07:09:306 DISCORDIADOR/(6606:6606): Iniciar tripulante. Creando mensaje
+[INFO] 23:07:09:313 HILOX/(6606:6628): HOLA MUNDO, SOY UN HILO 3
+[INFO] 23:07:09:313 HILOX/(6606:6628): Dirección local: 127.0.0.1:33096
+[INFO] 23:07:09:315 HILOX/(6606:6628): Dirección remota: 127.0.0.1:46647
+[INFO] 23:07:10:026 DISCORDIADOR/(6606:6606): Iniciar tripulante. Creando mensaje
+[INFO] 23:07:10:030 HILOX/(6606:6630): HOLA MUNDO, SOY UN HILO 4
+[INFO] 23:07:10:030 HILOX/(6606:6630): Dirección local: 127.0.0.1:53766
+[INFO] 23:07:10:030 HILOX/(6606:6630): Dirección remota: 127.0.0.1:33254
+[INFO] 23:07:10:620 DISCORDIADOR/(6606:6606): Iniciar tripulante. Creando mensaje
+[INFO] 23:07:10:622 HILOX/(6606:6632): HOLA MUNDO, SOY UN HILO 5
+[INFO] 23:07:10:623 HILOX/(6606:6632): Dirección local: 127.0.0.1:34142
+[INFO] 23:07:10:623 HILOX/(6606:6632): Dirección remota: 127.0.0.1:38160
+[INFO] 23:07:11:124 DISCORDIADOR/(6606:6606): Iniciar tripulante. Creando mensaje
+[INFO] 23:07:11:130 HILOX/(6606:6634): HOLA MUNDO, SOY UN HILO 6
+[INFO] 23:07:11:132 HILOX/(6606:6634): Dirección local: 127.0.0.1:54508
+[INFO] 23:07:11:132 HILOX/(6606:6634): Dirección remota: 127.0.0.1:37002
+[INFO] 23:07:26:737 DISCORDIADOR/(6606:6606): Iniciar tripulante. Creando mensaje
+[WARNING] 23:07:26:737 DISCORDIADOR/(6606:6606): La conexión remota se ha desconectado.
+[INFO] 23:07:26:737 DISCORDIADOR/(6606:6606): El servidor ha muerto, doy por finalizada esta wea
+[INFO] 23:07:35:893 DISCORDIADOR/(6736:6736): Iniciar patota. Creando mensaje
+[INFO] 23:07:35:895 DISCORDIADOR/(6736:6736): aeeea, sabalero, sabalero
+[INFO] 23:50:06:757 DISCORDIADOR/(7900:7900): Iniciar patota. Creando mensaje
+[INFO] 23:53:34:836 DISCORDIADOR/(8218:8218): Iniciar patota. Creando mensaje
+[ERROR] 23:54:33:502 DISCORDIADOR/(8407:8407): Error al crear socket. Fallo al conectarse al servidor
+[INFO] 23:54:42:260 DISCORDIADOR/(8498:8498): Iniciar patota. Creando mensaje
+[INFO] 23:57:03:808 DISCORDIADOR/(8614:8614): Iniciar patota. Creando mensaje
+[INFO] 00:12:22:560 DISCORDIADOR/(9591:9591): Iniciar patota. Creando mensaje
+[INFO] 00:12:22:561 DISCORDIADOR/(9591:9591): aeeea, sabalero, sabalero
+[INFO] 00:12:32:962 DISCORDIADOR/(9591:9591): Iniciar patota. Creando mensaje
+[INFO] 00:12:32:962 DISCORDIADOR/(9591:9591): aeeea, sabalero, sabalero
+[INFO] 00:12:40:387 DISCORDIADOR/(9591:9591): Iniciar tripulante. Creando mensaje
+[INFO] 00:12:40:390 HILOX/(9591:9594): HOLA MUNDO, SOY UN HILO 1
+[INFO] 00:12:40:391 HILOX/(9591:9594): Dirección local: 127.0.0.1:50270
+[INFO] 00:12:40:391 HILOX/(9591:9594): Dirección remota: 127.0.0.1:35575
+[INFO] 00:12:45:026 DISCORDIADOR/(9591:9591): Iniciar tripulante. Creando mensaje
+[INFO] 00:12:45:030 HILOX/(9591:9596): HOLA MUNDO, SOY UN HILO 2
+[INFO] 00:12:45:034 HILOX/(9591:9596): Dirección local: 127.0.0.1:41614
+[INFO] 00:12:45:035 HILOX/(9591:9596): Dirección remota: 127.0.0.1:44342
+[INFO] 00:12:45:697 DISCORDIADOR/(9591:9591): Iniciar tripulante. Creando mensaje
+[WARNING] 00:12:45:826 DISCORDIADOR/(9591:9591): La conexión remota se ha desconectado.
+[INFO] 00:12:45:826 DISCORDIADOR/(9591:9591): El servidor ha muerto, doy por finalizada esta wea
+                                                                                                      [INFO] 12:07:40:975 DISCORDIADOR/(2559:2559): Iniciar patota. Creando mensaje
+[INFO] 12:07:41:020 DISCORDIADOR/(2559:2559): aeeea, sabalero, sabalero
+[INFO] 12:57:59:292 DISCORDIADOR/(3320:3320): Iniciar patota. Creando mensaje
+[INFO] 12:57:59:293 DISCORDIADOR/(3320:3320): aeeea, sabalero, sabalero
+[INFO] 12:58:07:852 DISCORDIADOR/(3320:3320): Iniciar patota. Creando mensaje
+[INFO] 12:58:07:853 DISCORDIADOR/(3320:3320): aeeea, sabalero, sabalero
+[INFO] 12:58:15:343 DISCORDIADOR/(3320:3320): Iniciar tripulante. Creando mensaje
+[INFO] 12:58:15:348 HILOX/(3320:3322): HOLA MUNDO, SOY UN HILO 1
+[INFO] 12:58:15:348 HILOX/(3320:3322): Dirección local: 127.0.0.1:56402
+[INFO] 12:58:15:348 HILOX/(3320:3322): Dirección remota: 127.0.0.1:33074
+[INFO] 12:58:17:191 DISCORDIADOR/(3320:3320): Iniciar tripulante. Creando mensaje
+[INFO] 12:58:17:194 HILOX/(3320:3324): HOLA MUNDO, SOY UN HILO 2
+[INFO] 12:58:17:195 HILOX/(3320:3324): Dirección local: 127.0.0.1:60088
+[INFO] 12:58:17:195 HILOX/(3320:3324): Dirección remota: 127.0.0.1:45343
+[INFO] 12:58:17:726 DISCORDIADOR/(3320:3320): Iniciar tripulante. Creando mensaje
+[INFO] 12:58:17:729 HILOX/(3320:3326): HOLA MUNDO, SOY UN HILO 3
+[INFO] 12:58:17:730 HILOX/(3320:3326): Dirección local: 127.0.0.1:58976
+[INFO] 12:58:17:730 HILOX/(3320:3326): Dirección remota: 127.0.0.1:45694
+[INFO] 12:58:18:307 DISCORDIADOR/(3320:3320): Iniciar tripulante. Creando mensaje
+[INFO] 12:58:18:308 HILOX/(3320:3328): HOLA MUNDO, SOY UN HILO 4
+[INFO] 12:58:18:311 HILOX/(3320:3328): Dirección local: 127.0.0.1:37806
+[INFO] 12:58:18:311 HILOX/(3320:3328): Dirección remota: 127.0.0.1:46485
+[INFO] 12:58:18:876 DISCORDIADOR/(3320:3320): Iniciar tripulante. Creando mensaje
+[INFO] 12:58:18:881 HILOX/(3320:3330): HOLA MUNDO, SOY UN HILO 5
+[INFO] 12:58:18:882 HILOX/(3320:3330): Dirección local: 127.0.0.1:48206
+[INFO] 12:58:18:882 HILOX/(3320:3330): Dirección remota: 127.0.0.1:46012
+[INFO] 12:58:19:442 DISCORDIADOR/(3320:3320): Iniciar tripulante. Creando mensaje
+[INFO] 12:58:19:446 HILOX/(3320:3332): HOLA MUNDO, SOY UN HILO 6
+[INFO] 12:58:19:447 HILOX/(3320:3332): Dirección local: 127.0.0.1:60636
+[INFO] 12:58:19:448 HILOX/(3320:3332): Dirección remota: 127.0.0.1:42899
+[INFO] 12:58:19:908 DISCORDIADOR/(3320:3320): Iniciar tripulante. Creando mensaje
+[INFO] 12:58:19:911 HILOX/(3320:3334): HOLA MUNDO, SOY UN HILO 7
+[INFO] 12:58:19:912 HILOX/(3320:3334): Dirección local: 127.0.0.1:39084
+[INFO] 12:58:19:912 HILOX/(3320:3334): Dirección remota: 127.0.0.1:42157
+[INFO] 12:58:20:328 DISCORDIADOR/(3320:3320): Iniciar tripulante. Creando mensaje
+[INFO] 12:58:20:333 HILOX/(3320:3336): HOLA MUNDO, SOY UN HILO 8
+[INFO] 12:58:20:333 HILOX/(3320:3336): Dirección local: 127.0.0.1:59506
+[INFO] 12:58:20:333 HILOX/(3320:3336): Dirección remota: 127.0.0.1:38734
+[INFO] 12:58:20:734 DISCORDIADOR/(3320:3320): Iniciar tripulante. Creando mensaje
+[INFO] 12:58:20:737 HILOX/(3320:3338): HOLA MUNDO, SOY UN HILO 9
+[INFO] 12:58:20:742 HILOX/(3320:3338): Dirección local: 127.0.0.1:59128
+[INFO] 12:58:20:742 HILOX/(3320:3338): Dirección remota: 127.0.0.1:46312
+[INFO] 12:58:21:202 DISCORDIADOR/(3320:3320): Iniciar tripulante. Creando mensaje
+[INFO] 12:58:21:207 HILOX/(3320:3340): HOLA MUNDO, SOY UN HILO 10
+[INFO] 12:58:21:207 HILOX/(3320:3340): Dirección local: 127.0.0.1:39336
+[INFO] 12:58:21:207 HILOX/(3320:3340): Dirección remota: 127.0.0.1:43147
+[INFO] 12:58:21:697 DISCORDIADOR/(3320:3320): Iniciar tripulante. Creando mensaje
+[INFO] 12:58:21:700 HILOX/(3320:3342): HOLA MUNDO, SOY UN HILO 11
+[INFO] 12:58:21:702 HILOX/(3320:3342): Dirección local: 127.0.0.1:53916
+[INFO] 12:58:21:702 HILOX/(3320:3342): Dirección remota: 127.0.0.1:33088
+[INFO] 12:58:22:189 DISCORDIADOR/(3320:3320): Iniciar tripulante. Creando mensaje
+[INFO] 12:58:22:194 HILOX/(3320:3344): HOLA MUNDO, SOY UN HILO 12
+[INFO] 12:58:22:196 HILOX/(3320:3344): Dirección local: 127.0.0.1:47336
+[INFO] 12:58:22:196 HILOX/(3320:3344): Dirección remota: 127.0.0.1:45106
+[INFO] 12:58:22:661 DISCORDIADOR/(3320:3320): Iniciar tripulante. Creando mensaje
+[INFO] 12:58:22:664 HILOX/(3320:3346): HOLA MUNDO, SOY UN HILO 13
+[INFO] 12:58:22:669 HILOX/(3320:3346): Dirección local: 127.0.0.1:48960
+[INFO] 12:58:22:669 HILOX/(3320:3346): Dirección remota: 127.0.0.1:44002
+[INFO] 12:58:23:141 DISCORDIADOR/(3320:3320): Iniciar tripulante. Creando mensaje
+[INFO] 12:58:23:145 HILOX/(3320:3348): HOLA MUNDO, SOY UN HILO 14
+[INFO] 12:58:23:146 HILOX/(3320:3348): Dirección local: 127.0.0.1:59360
+[INFO] 12:58:23:147 HILOX/(3320:3348): Dirección remota: 127.0.0.1:44575
+[INFO] 12:58:23:575 DISCORDIADOR/(3320:3320): Iniciar tripulante. Creando mensaje
+[WARNING] 12:58:24:407 DISCORDIADOR/(3320:3320): La conexión remota se ha desconectado.
+[INFO] 12:58:24:416 DISCORDIADOR/(3320:3320): El servidor ha muerto, doy por finalizada esta wea
+[INFO] 13:01:13:276 DISCORDIADOR/(3551:3551): Iniciar patota. Creando mensaje
+[INFO] 13:01:13:278 DISCORDIADOR/(3551:3551): aeeea, sabalero, sabalero
+[ERROR] 13:01:19:906 DISCORDIADOR/(3551:3551): COMANDO INVÁLIDO, INTENTE NUEVAMENTE
+[INFO] 13:01:21:499 DISCORDIADOR/(3551:3551): Iniciar tripulante. Creando mensaje
+[INFO] 13:01:21:502 HILOX/(3551:3553): HOLA MUNDO, SOY UN HILO 1
+[INFO] 13:01:21:506 HILOX/(3551:3553): Dirección local: 127.0.0.1:54594
+[INFO] 13:01:21:506 HILOX/(3551:3553): Dirección remota: 127.0.0.1:35722
+[INFO] 13:01:23:356 DISCORDIADOR/(3551:3551): Iniciar tripulante. Creando mensaje
+[INFO] 13:01:23:359 HILOX/(3551:3555): HOLA MUNDO, SOY UN HILO 2
+[INFO] 13:01:23:365 HILOX/(3551:3555): Dirección local: 127.0.0.1:34932
+[INFO] 13:01:23:365 HILOX/(3551:3555): Dirección remota: 127.0.0.1:40417
+[INFO] 13:02:54:659 DISCORDIADOR/(3658:3658): Iniciar patota. Creando mensaje
+[INFO] 13:02:54:661 DISCORDIADOR/(3658:3658): aeeea, sabalero, sabalero
+[INFO] 13:03:00:633 DISCORDIADOR/(3658:3658): Iniciar tripulante. Creando mensaje
+[INFO] 13:03:00:634 HILOX/(3658:3661): HOLA MUNDO, SOY UN HILO 1
+[INFO] 13:03:00:634 HILOX/(3658:3661): Dirección local: 127.0.0.1:32948
+[INFO] 13:03:00:634 HILOX/(3658:3661): Dirección remota: 127.0.0.1:43679
+[INFO] 13:05:43:284 DISCORDIADOR/(3874:3874): Iniciar patota. Creando mensaje
+[INFO] 13:05:43:285 DISCORDIADOR/(3874:3874): aeeea, sabalero, sabalero
+[INFO] 13:05:45:493 DISCORDIADOR/(3874:3874): Iniciar patota. Creando mensaje
+[INFO] 13:05:45:493 DISCORDIADOR/(3874:3874): aeeea, sabalero, sabalero
+[INFO] 13:05:49:475 DISCORDIADOR/(3874:3874): Iniciar tripulante. Creando mensaje
+[INFO] 13:05:49:480 HILOX/(3874:3876): HOLA MUNDO, SOY UN HILO 1
+[INFO] 13:05:49:482 HILOX/(3874:3876): Dirección local: 127.0.0.1:47168
+[INFO] 13:05:49:482 HILOX/(3874:3876): Dirección remota: 127.0.0.1:37799
+[INFO] 13:05:51:058 DISCORDIADOR/(3874:3874): Iniciar tripulante. Creando mensaje
+[INFO] 13:05:51:061 HILOX/(3874:3878): HOLA MUNDO, SOY UN HILO 2
+[INFO] 13:05:51:062 HILOX/(3874:3878): Dirección local: 127.0.0.1:35772
+[INFO] 13:05:51:062 HILOX/(3874:3878): Dirección remota: 127.0.0.1:42416

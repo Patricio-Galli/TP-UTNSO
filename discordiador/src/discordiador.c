@@ -1,20 +1,22 @@
 /*
- ============================================================================
- Name        : discordiador.c
- Author      : 
- Version     :
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
- ============================================================================
- */
+	============================================================================
+	Name		:	discordiador.c
+	Author		: 
+	Version		:
+	Copyright	:	Your copyright notice
+	Description	:	Hello World in C, Ansi-style
+	============================================================================
+*/
 
 #include "discordiador.h"
 
 sem_t semaforo_tripulante;
 
 int id_patota_actual = 1;
+int id_tripulante = 1;
 nodo_tripulante *lista_tripulantes = NULL;
 t_config* config;
+int variable = 1;
 
 int main() {
 	t_log* logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
@@ -67,13 +69,14 @@ int main() {
 			free(mensaje);
 			list_destroy(respuesta);
 			id_patota_actual++;
+			id_tripulante = 1;
 			break;
 		case INICIAR_TRIPULANTE:
 			log_info(logger, "Iniciar tripulante. Creando mensaje");
 			mensaje = crear_mensaje(INIT_T);
 
 			agregar_parametro_a_mensaje(mensaje, (void *)id_patota_actual - 1, ENTERO);		// id_patota			
-			agregar_parametro_a_mensaje(mensaje, (void *)1, ENTERO);						// id_trip
+			agregar_parametro_a_mensaje(mensaje, (void *)id_tripulante, ENTERO);			// id_trip
 			agregar_parametro_a_mensaje(mensaje, (void *)3, ENTERO);						// posicion_x
 			agregar_parametro_a_mensaje(mensaje, (void *)4, ENTERO);						// posicion_y
 			
@@ -88,6 +91,7 @@ int main() {
 				return ERROR_CONEXION;
 			}
 			
+			id_tripulante++;
 			if((int)list_get(respuesta, 0) == SND_PO) {
 				int nuevo_puerto = (int)list_get(respuesta, 1);
 				
@@ -203,6 +207,8 @@ void agregar_trip_a_lista(tripulante* nuevo_trip) {
 
 void* rutina_hilos(void* socket) {
 	t_log* logger = log_create("discordiador.log", "HILOX", 1, LOG_LEVEL_DEBUG);
+	log_info(logger, "HOLA MUNDO, SOY UN HILO %d", variable);
+	variable++;
 	
 	data_socket((int)socket, logger);
 	while(1) {
@@ -230,3 +236,10 @@ void listar_tripulantes(){
 	printf("----------------------------------------------------------------------------------\n");
 	free(aux);
 }
+
+/*
+patota 1 -> dos hilos
+patota 2 o cualquiera -> cuatro hilos
+dos hilos siempre
+
+*/

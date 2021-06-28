@@ -1,0 +1,1274 @@
+[INFO] 19:49:04:026 Mi-RAM-HQ/(3050:3050): Iniciando memoria RAM de 1000 bytes
+[INFO] 19:49:04:029 Mi-RAM-HQ/(3050:3050): Servidor listo
+[INFO] 19:49:13:947 Mi-RAM-HQ/(3050:3050): Conexión establecida con el discordiador
+[INFO] 19:49:13:948 Mi-RAM-HQ/(3050:3050): Esperando información del discordiador
+[INFO] 19:49:19:105 Mi-RAM-HQ/(3050:3050): Discordiador solicitó iniciar_patota
+[INFO] 19:49:19:108 Mi-RAM-HQ/(3050:3050): Esperando información del discordiador
+[INFO] 19:49:27:218 Mi-RAM-HQ/(3050:3050): Discordiador solicitó iniciar_tripulante
+[INFO] 19:49:27:220 Mi-RAM-HQ/(3050:3050): Envío respuesta al discordiador
+[INFO] 19:49:27:220 Mi-RAM-HQ/(3050:3050): Esperando información del discordiador
+[INFO] 19:49:27:224 HILOX/(3050:3053): HOLA MUNDO, SOY UN HILO 1
+[INFO] 19:49:38:112 Mi-RAM-HQ/(3050:3050): Discordiador solicitó iniciar_tripulante
+[INFO] 19:49:38:113 Mi-RAM-HQ/(3050:3050): Envío respuesta al discordiador
+[INFO] 19:49:38:113 Mi-RAM-HQ/(3050:3050): Esperando información del discordiador
+[INFO] 19:49:38:118 HILOX/(3050:3055): HOLA MUNDO, SOY UN HILO 2
+[INFO] 19:49:41:962 Mi-RAM-HQ/(3050:3050): Discordiador solicitó iniciar_tripulante
+[INFO] 19:50:22:746 Mi-RAM-HQ/(3058:3058): Iniciando memoria RAM de 1000 bytes
+[INFO] 19:50:22:748 Mi-RAM-HQ/(3058:3058): Servidor listo
+[INFO] 19:50:35:992 Mi-RAM-HQ/(3058:3058): Conexión establecida con el discordiador
+[INFO] 19:50:35:994 Mi-RAM-HQ/(3058:3058): Esperando información del discordiador
+[INFO] 19:50:43:746 Mi-RAM-HQ/(3058:3058): Discordiador solicitó iniciar_patota
+[INFO] 19:50:43:747 Mi-RAM-HQ/(3058:3058): Esperando información del discordiador
+[INFO] 19:50:48:259 Mi-RAM-HQ/(3058:3058): Discordiador solicitó iniciar_tripulante
+[INFO] 19:50:48:261 Mi-RAM-HQ/(3058:3058): Envío respuesta al discordiador
+[INFO] 19:50:48:261 Mi-RAM-HQ/(3058:3058): Esperando información del discordiador
+[INFO] 19:50:48:267 HILOX/(3058:3075): HOLA MUNDO, SOY UN HILO 1
+[INFO] 19:50:49:340 Mi-RAM-HQ/(3058:3058): Discordiador solicitó iniciar_tripulante
+[INFO] 19:50:49:341 Mi-RAM-HQ/(3058:3058): Envío respuesta al discordiador
+[INFO] 19:50:49:346 Mi-RAM-HQ/(3058:3058): Esperando información del discordiador
+[INFO] 19:50:49:351 HILOX/(3058:3077): HOLA MUNDO, SOY UN HILO 2
+[INFO] 19:50:50:434 Mi-RAM-HQ/(3058:3058): Discordiador solicitó iniciar_tripulante
+[INFO] 19:50:56:412 Mi-RAM-HQ/(3080:3080): Iniciando memoria RAM de 1000 bytes
+[INFO] 19:50:56:412 Mi-RAM-HQ/(3080:3080): Servidor listo
+[INFO] 19:51:00:260 Mi-RAM-HQ/(3080:3080): Conexión establecida con el discordiador
+[INFO] 19:51:00:263 Mi-RAM-HQ/(3080:3080): Esperando información del discordiador
+[INFO] 19:51:05:649 Mi-RAM-HQ/(3080:3080): Discordiador solicitó iniciar_patota
+[INFO] 19:51:05:649 Mi-RAM-HQ/(3080:3080): Esperando información del discordiador
+[INFO] 19:51:11:269 Mi-RAM-HQ/(3080:3080): Discordiador solicitó iniciar_tripulante
+[INFO] 19:51:11:270 Mi-RAM-HQ/(3080:3080): Envío respuesta al discordiador
+[INFO] 19:51:11:270 Mi-RAM-HQ/(3080:3080): Esperando información del discordiador
+[INFO] 19:51:11:274 HILOX/(3080:3082): HOLA MUNDO, SOY UN HILO 1
+[INFO] 19:51:12:864 Mi-RAM-HQ/(3080:3080): Discordiador solicitó iniciar_tripulante
+[INFO] 19:51:12:865 Mi-RAM-HQ/(3080:3080): Envío respuesta al discordiador
+[INFO] 19:51:12:865 Mi-RAM-HQ/(3080:3080): Esperando información del discordiador
+[INFO] 19:51:12:870 HILOX/(3080:3084): HOLA MUNDO, SOY UN HILO 2
+[INFO] 19:51:19:370 Mi-RAM-HQ/(3080:3080): Discordiador solicitó iniciar_patota
+[INFO] 19:51:19:371 Mi-RAM-HQ/(3080:3080): Esperando información del discordiador
+[INFO] 19:51:21:766 Mi-RAM-HQ/(3080:3080): Discordiador solicitó iniciar_tripulante
+[INFO] 19:51:21:768 Mi-RAM-HQ/(3080:3080): Envío respuesta al discordiador
+[INFO] 19:51:21:768 Mi-RAM-HQ/(3080:3080): Esperando información del discordiador
+[INFO] 19:51:21:772 HILOX/(3080:3086): HOLA MUNDO, SOY UN HILO 3
+[INFO] 19:51:23:921 Mi-RAM-HQ/(3080:3080): Discordiador solicitó iniciar_tripulante
+[INFO] 19:51:23:921 Mi-RAM-HQ/(3080:3080): Envío respuesta al discordiador
+[INFO] 19:51:23:921 Mi-RAM-HQ/(3080:3080): Esperando información del discordiador
+[INFO] 19:51:23:923 HILOX/(3080:3088): HOLA MUNDO, SOY UN HILO 4
+[INFO] 19:51:27:980 Mi-RAM-HQ/(3080:3080): Discordiador solicitó iniciar_tripulante
+[INFO] 19:51:27:980 Mi-RAM-HQ/(3080:3080): Envío respuesta al discordiador
+[INFO] 19:51:27:980 Mi-RAM-HQ/(3080:3080): Esperando información del discordiador
+[INFO] 19:51:27:984 HILOX/(3080:3090): HOLA MUNDO, SOY UN HILO 5
+[INFO] 19:51:30:522 Mi-RAM-HQ/(3080:3080): Discordiador solicitó iniciar_tripulante
+[INFO] 19:51:30:522 Mi-RAM-HQ/(3080:3080): Envío respuesta al discordiador
+[INFO] 19:51:30:522 Mi-RAM-HQ/(3080:3080): Esperando información del discordiador
+[INFO] 19:51:30:526 HILOX/(3080:3092): HOLA MUNDO, SOY UN HILO 6
+[INFO] 19:51:31:712 Mi-RAM-HQ/(3080:3080): Discordiador solicitó iniciar_tripulante
+[INFO] 19:52:38:759 Mi-RAM-HQ/(3097:3097): Iniciando memoria RAM de 1000 bytes
+[INFO] 19:52:38:763 Mi-RAM-HQ/(3097:3097): Servidor listo
+[INFO] 19:52:43:676 Mi-RAM-HQ/(3097:3097): Conexión establecida con el discordiador
+[INFO] 19:52:43:679 Mi-RAM-HQ/(3097:3097): Esperando información del discordiador
+[INFO] 19:52:49:852 Mi-RAM-HQ/(3097:3097): Discordiador solicitó iniciar_patota
+[INFO] 19:52:49:853 Mi-RAM-HQ/(3097:3097): Esperando información del discordiador
+[INFO] 19:52:51:372 Mi-RAM-HQ/(3097:3097): Discordiador solicitó iniciar_patota
+[INFO] 19:52:51:372 Mi-RAM-HQ/(3097:3097): Esperando información del discordiador
+[INFO] 19:52:55:309 Mi-RAM-HQ/(3097:3097): Discordiador solicitó iniciar_tripulante
+[INFO] 19:52:55:310 Mi-RAM-HQ/(3097:3097): Envío respuesta al discordiador
+[INFO] 19:52:55:310 Mi-RAM-HQ/(3097:3097): Esperando información del discordiador
+[INFO] 19:52:55:317 HILOX/(3097:3099): HOLA MUNDO, SOY UN HILO 1
+[INFO] 19:52:56:383 Mi-RAM-HQ/(3097:3097): Discordiador solicitó iniciar_tripulante
+[INFO] 19:52:56:383 Mi-RAM-HQ/(3097:3097): Envío respuesta al discordiador
+[INFO] 19:52:56:383 Mi-RAM-HQ/(3097:3097): Esperando información del discordiador
+[INFO] 19:52:56:386 HILOX/(3097:3101): HOLA MUNDO, SOY UN HILO 2
+[INFO] 19:52:57:069 Mi-RAM-HQ/(3097:3097): Discordiador solicitó iniciar_tripulante
+[INFO] 19:52:57:070 Mi-RAM-HQ/(3097:3097): Envío respuesta al discordiador
+[INFO] 19:52:57:070 Mi-RAM-HQ/(3097:3097): Esperando información del discordiador
+[INFO] 19:52:57:074 HILOX/(3097:3103): HOLA MUNDO, SOY UN HILO 3
+[INFO] 19:52:57:685 Mi-RAM-HQ/(3097:3097): Discordiador solicitó iniciar_tripulante
+[INFO] 19:52:57:685 Mi-RAM-HQ/(3097:3097): Envío respuesta al discordiador
+[INFO] 19:52:57:685 Mi-RAM-HQ/(3097:3097): Esperando información del discordiador
+[INFO] 19:52:57:690 HILOX/(3097:3105): HOLA MUNDO, SOY UN HILO 4
+[INFO] 19:52:58:334 Mi-RAM-HQ/(3097:3097): Discordiador solicitó iniciar_tripulante
+[INFO] 19:53:04:683 Mi-RAM-HQ/(3108:3108): Iniciando memoria RAM de 1000 bytes
+[INFO] 19:53:04:687 Mi-RAM-HQ/(3108:3108): Servidor listo
+[INFO] 19:53:07:052 Mi-RAM-HQ/(3108:3108): Conexión establecida con el discordiador
+[INFO] 19:53:07:055 Mi-RAM-HQ/(3108:3108): Esperando información del discordiador
+[INFO] 19:53:11:324 Mi-RAM-HQ/(3108:3108): Discordiador solicitó iniciar_patota
+[INFO] 19:53:11:326 Mi-RAM-HQ/(3108:3108): Esperando información del discordiador
+[INFO] 19:53:12:226 Mi-RAM-HQ/(3108:3108): Discordiador solicitó iniciar_patota
+[INFO] 19:53:12:227 Mi-RAM-HQ/(3108:3108): Esperando información del discordiador
+[INFO] 19:53:12:908 Mi-RAM-HQ/(3108:3108): Discordiador solicitó iniciar_patota
+[INFO] 19:53:12:909 Mi-RAM-HQ/(3108:3108): Esperando información del discordiador
+[INFO] 19:53:16:773 Mi-RAM-HQ/(3108:3108): Discordiador solicitó iniciar_tripulante
+[INFO] 19:53:16:773 Mi-RAM-HQ/(3108:3108): Envío respuesta al discordiador
+[INFO] 19:53:16:774 Mi-RAM-HQ/(3108:3108): Esperando información del discordiador
+[INFO] 19:53:16:778 HILOX/(3108:3110): HOLA MUNDO, SOY UN HILO 1
+[INFO] 19:53:17:610 Mi-RAM-HQ/(3108:3108): Discordiador solicitó iniciar_tripulante
+[INFO] 19:53:17:611 Mi-RAM-HQ/(3108:3108): Envío respuesta al discordiador
+[INFO] 19:53:17:611 Mi-RAM-HQ/(3108:3108): Esperando información del discordiador
+[INFO] 19:53:17:614 HILOX/(3108:3112): HOLA MUNDO, SOY UN HILO 2
+[INFO] 19:53:18:981 Mi-RAM-HQ/(3108:3108): Discordiador solicitó iniciar_tripulante
+[INFO] 19:53:18:981 Mi-RAM-HQ/(3108:3108): Envío respuesta al discordiador
+[INFO] 19:53:18:981 Mi-RAM-HQ/(3108:3108): Esperando información del discordiador
+[INFO] 19:53:18:985 HILOX/(3108:3114): HOLA MUNDO, SOY UN HILO 3
+[INFO] 19:53:19:688 Mi-RAM-HQ/(3108:3108): Discordiador solicitó iniciar_tripulante
+[INFO] 19:53:19:689 Mi-RAM-HQ/(3108:3108): Envío respuesta al discordiador
+[INFO] 19:53:32:031 Mi-RAM-HQ/(3119:3119): Iniciando memoria RAM de 1000 bytes
+[INFO] 19:53:32:034 Mi-RAM-HQ/(3119:3119): Servidor listo
+[INFO] 19:53:34:372 Mi-RAM-HQ/(3119:3119): Conexión establecida con el discordiador
+[INFO] 19:53:34:372 Mi-RAM-HQ/(3119:3119): Esperando información del discordiador
+[INFO] 19:53:37:923 Mi-RAM-HQ/(3119:3119): Discordiador solicitó iniciar_patota
+[INFO] 19:53:37:924 Mi-RAM-HQ/(3119:3119): Esperando información del discordiador
+[INFO] 19:53:42:110 Mi-RAM-HQ/(3119:3119): Discordiador solicitó iniciar_tripulante
+[INFO] 19:53:42:112 Mi-RAM-HQ/(3119:3119): Envío respuesta al discordiador
+[INFO] 19:53:42:112 Mi-RAM-HQ/(3119:3119): Esperando información del discordiador
+[INFO] 19:53:42:117 HILOX/(3119:3121): HOLA MUNDO, SOY UN HILO 1
+[INFO] 19:53:43:760 Mi-RAM-HQ/(3119:3119): Discordiador solicitó iniciar_tripulante
+[INFO] 19:53:43:760 Mi-RAM-HQ/(3119:3119): Envío respuesta al discordiador
+[INFO] 19:53:43:760 Mi-RAM-HQ/(3119:3119): Esperando información del discordiador
+[INFO] 19:53:43:764 HILOX/(3119:3123): HOLA MUNDO, SOY UN HILO 2
+[INFO] 19:53:47:094 Mi-RAM-HQ/(3119:3119): Discordiador solicitó iniciar_patota
+[INFO] 19:53:47:094 Mi-RAM-HQ/(3119:3119): Esperando información del discordiador
+[INFO] 19:53:48:419 Mi-RAM-HQ/(3119:3119): Discordiador solicitó iniciar_tripulante
+[INFO] 19:53:48:419 Mi-RAM-HQ/(3119:3119): Envío respuesta al discordiador
+[INFO] 19:53:48:419 Mi-RAM-HQ/(3119:3119): Esperando información del discordiador
+[INFO] 19:53:48:423 HILOX/(3119:3125): HOLA MUNDO, SOY UN HILO 3
+[INFO] 19:53:50:492 Mi-RAM-HQ/(3119:3119): Discordiador solicitó iniciar_tripulante
+[INFO] 19:53:50:493 Mi-RAM-HQ/(3119:3119): Envío respuesta al discordiador
+[INFO] 19:53:50:493 Mi-RAM-HQ/(3119:3119): Esperando información del discordiador
+[INFO] 19:53:50:498 HILOX/(3119:3127): HOLA MUNDO, SOY UN HILO 4
+[INFO] 19:53:52:182 Mi-RAM-HQ/(3119:3119): Discordiador solicitó iniciar_tripulante
+[INFO] 19:53:52:184 Mi-RAM-HQ/(3119:3119): Envío respuesta al discordiador
+[INFO] 19:53:52:184 Mi-RAM-HQ/(3119:3119): Esperando información del discordiador
+[INFO] 19:53:52:189 HILOX/(3119:3129): HOLA MUNDO, SOY UN HILO 5
+[INFO] 19:53:52:856 Mi-RAM-HQ/(3119:3119): Discordiador solicitó iniciar_tripulante
+[INFO] 19:53:52:856 Mi-RAM-HQ/(3119:3119): Envío respuesta al discordiador
+[INFO] 19:53:52:856 Mi-RAM-HQ/(3119:3119): Esperando información del discordiador
+[INFO] 19:53:52:861 HILOX/(3119:3131): HOLA MUNDO, SOY UN HILO 6
+[INFO] 19:53:54:959 Mi-RAM-HQ/(3119:3119): Cliente desconectado
+[WARNING] 19:53:54:960 HILOX/(3119:3131): La conexión remota se ha desconectado.
+[WARNING] 19:53:54:960 HILOX/(3119:3129): La conexión remota se ha desconectado.
+[WARNING] 19:53:54:960 HILOX/(3119:3127): La conexión remota se ha desconectado.
+[WARNING] 19:53:54:960 HILOX/(3119:3125): La conexión remota se ha desconectado.
+[WARNING] 19:53:54:960 HILOX/(3119:3123): La conexión remota se ha desconectado.
+[WARNING] 19:53:54:960 HILOX/(3119:3121): La conexión remota se ha desconectado.
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Resultados
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Lista segmentos: 11
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Segmento 1 0
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Duenio: 1
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Inicio: 0
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Tamanio: 8
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Segmento 2 1
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Duenio: 1
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Inicio: 8
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Tamanio: 30
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Segmento 3 2
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Duenio: 1
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Inicio: 38
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Tamanio: 24
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Segmento 4 3
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Duenio: 1
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Inicio: 62
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Tamanio: 24
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Segmento 5 4
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Duenio: 2
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Inicio: 86
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Tamanio: 8
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Segmento 6 5
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Duenio: 2
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Inicio: 94
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Tamanio: 30
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Segmento 7 6
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Duenio: 2
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Inicio: 124
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Tamanio: 24
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Segmento 8 7
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Duenio: 2
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Inicio: 148
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Tamanio: 24
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Segmento 9 8
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Duenio: 2
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Inicio: 172
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Tamanio: 24
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Segmento 10 9
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Duenio: 2
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Inicio: 196
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Tamanio: 24
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Segmento 11 10
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Duenio: 0
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Inicio: 220
+[INFO] 19:53:54:961 Mi-RAM-HQ/(3119:3119): Tamanio: 780
+[INFO] 19:53:54:962 Mi-RAM-HQ/(3119:3119): Lista de patotas: 2
+[INFO] 19:53:54:962 Mi-RAM-HQ/(3119:3119): Patota 1, 1
+[INFO] 19:53:54:962 Mi-RAM-HQ/(3119:3119): Tamanio tabla: 4
+[INFO] 19:53:54:962 Mi-RAM-HQ/(3119:3119): Inicio elemento 1: 0
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): Inicio elemento 2: 8
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): Inicio elemento 3: 38
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): Inicio elemento 4: 62
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): Patota 2, 2
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): Tamanio tabla: 6
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): Inicio elemento 1: 86
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): Inicio elemento 2: 94
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): Inicio elemento 3: 124
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): Inicio elemento 4: -10800
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): Inicio elemento 5: 172
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): Inicio elemento 6: 196
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): Lista de tripulantes: 6
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): TID 1
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): PID: 1
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): TID 2
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): PID: 1
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): TID 1
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): PID: 2
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): TID 2
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): PID: 2
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): TID 3
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): PID: 2
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): TID 4
+[INFO] 19:53:54:963 Mi-RAM-HQ/(3119:3119): PID: 2
+[INFO] 20:02:42:632 Mi-RAM-HQ/(3159:3159): Iniciando memoria RAM de 1000 bytes
+[INFO] 20:02:42:633 Mi-RAM-HQ/(3159:3159): Servidor listo
+[INFO] 20:02:44:992 Mi-RAM-HQ/(3159:3159): Conexión establecida con el discordiador
+[INFO] 20:02:44:993 Mi-RAM-HQ/(3159:3159): Esperando información del discordiador
+[INFO] 20:02:51:319 Mi-RAM-HQ/(3159:3159): Discordiador solicitó iniciar_patota
+[INFO] 20:02:51:319 Mi-RAM-HQ/(3159:3159): Esperando información del discordiador
+[INFO] 20:02:57:469 Mi-RAM-HQ/(3159:3159): Discordiador solicitó iniciar_tripulante
+[INFO] 20:02:57:469 Mi-RAM-HQ/(3159:3159): Envío respuesta al discordiador
+[INFO] 20:02:57:469 Mi-RAM-HQ/(3159:3159): Esperando información del discordiador
+[INFO] 20:02:57:474 HILOX/(3159:3161): HOLA MUNDO, SOY UN HILO 1
+[INFO] 20:02:58:448 Mi-RAM-HQ/(3159:3159): Discordiador solicitó iniciar_tripulante
+[INFO] 20:02:58:449 Mi-RAM-HQ/(3159:3159): Envío respuesta al discordiador
+[INFO] 20:02:58:449 Mi-RAM-HQ/(3159:3159): Esperando información del discordiador
+[INFO] 20:02:58:452 HILOX/(3159:3163): HOLA MUNDO, SOY UN HILO 2
+[INFO] 20:02:59:751 Mi-RAM-HQ/(3159:3159): Discordiador solicitó iniciar_patota
+[INFO] 20:02:59:752 Mi-RAM-HQ/(3159:3159): Esperando información del discordiador
+[INFO] 20:03:00:891 Mi-RAM-HQ/(3159:3159): Discordiador solicitó iniciar_tripulante
+[INFO] 20:03:00:891 Mi-RAM-HQ/(3159:3159): Envío respuesta al discordiador
+[INFO] 20:03:00:891 Mi-RAM-HQ/(3159:3159): Esperando información del discordiador
+[INFO] 20:03:00:896 HILOX/(3159:3165): HOLA MUNDO, SOY UN HILO 3
+[INFO] 20:03:01:575 Mi-RAM-HQ/(3159:3159): Discordiador solicitó iniciar_tripulante
+[INFO] 20:03:01:576 Mi-RAM-HQ/(3159:3159): Envío respuesta al discordiador
+[INFO] 20:03:01:576 Mi-RAM-HQ/(3159:3159): Esperando información del discordiador
+[INFO] 20:03:01:581 HILOX/(3159:3167): HOLA MUNDO, SOY UN HILO 4
+[INFO] 20:03:02:531 Mi-RAM-HQ/(3159:3159): Discordiador solicitó iniciar_tripulante
+[INFO] 20:03:02:531 Mi-RAM-HQ/(3159:3159): Envío respuesta al discordiador
+[INFO] 20:03:02:531 Mi-RAM-HQ/(3159:3159): Esperando información del discordiador
+[INFO] 20:03:02:540 HILOX/(3159:3169): HOLA MUNDO, SOY UN HILO 5
+[INFO] 20:03:03:228 Mi-RAM-HQ/(3159:3159): Discordiador solicitó iniciar_tripulante
+[INFO] 20:03:03:228 Mi-RAM-HQ/(3159:3159): Envío respuesta al discordiador
+[INFO] 20:03:03:228 Mi-RAM-HQ/(3159:3159): Esperando información del discordiador
+[INFO] 20:03:03:233 HILOX/(3159:3171): HOLA MUNDO, SOY UN HILO 6
+[INFO] 20:03:05:261 Mi-RAM-HQ/(3159:3159): Discordiador solicitó iniciar_patota
+[INFO] 20:03:05:263 Mi-RAM-HQ/(3159:3159): Esperando información del discordiador
+[INFO] 20:03:07:041 Mi-RAM-HQ/(3159:3159): Discordiador solicitó iniciar_tripulante
+[INFO] 20:03:07:041 Mi-RAM-HQ/(3159:3159): Envío respuesta al discordiador
+[INFO] 20:03:07:041 Mi-RAM-HQ/(3159:3159): Esperando información del discordiador
+[INFO] 20:03:07:046 HILOX/(3159:3173): HOLA MUNDO, SOY UN HILO 7
+[INFO] 20:03:07:779 Mi-RAM-HQ/(3159:3159): Discordiador solicitó iniciar_tripulante
+[INFO] 20:03:07:780 Mi-RAM-HQ/(3159:3159): Envío respuesta al discordiador
+[INFO] 20:03:07:780 Mi-RAM-HQ/(3159:3159): Esperando información del discordiador
+[INFO] 20:03:07:785 HILOX/(3159:3175): HOLA MUNDO, SOY UN HILO 8
+[INFO] 20:03:08:449 Mi-RAM-HQ/(3159:3159): Discordiador solicitó iniciar_tripulante
+[INFO] 20:03:24:620 Mi-RAM-HQ/(3178:3178): Iniciando memoria RAM de 1000 bytes
+[INFO] 20:03:24:623 Mi-RAM-HQ/(3178:3178): Servidor listo
+[INFO] 20:03:29:008 Mi-RAM-HQ/(3178:3178): Conexión establecida con el discordiador
+[INFO] 20:03:29:009 Mi-RAM-HQ/(3178:3178): Esperando información del discordiador
+[INFO] 20:03:33:162 Mi-RAM-HQ/(3178:3178): Discordiador solicitó iniciar_patota
+[INFO] 20:03:33:162 Mi-RAM-HQ/(3178:3178): Esperando información del discordiador
+[INFO] 20:03:39:696 Mi-RAM-HQ/(3178:3178): Discordiador solicitó iniciar_tripulante
+[INFO] 20:03:39:698 Mi-RAM-HQ/(3178:3178): Envío respuesta al discordiador
+[INFO] 20:03:39:698 Mi-RAM-HQ/(3178:3178): Esperando información del discordiador
+[INFO] 20:03:39:702 HILOX/(3178:3180): HOLA MUNDO, SOY UN HILO 1
+[INFO] 20:03:40:747 Mi-RAM-HQ/(3178:3178): Discordiador solicitó iniciar_tripulante
+[INFO] 20:03:40:748 Mi-RAM-HQ/(3178:3178): Envío respuesta al discordiador
+[INFO] 20:03:40:748 Mi-RAM-HQ/(3178:3178): Esperando información del discordiador
+[INFO] 20:03:40:753 HILOX/(3178:3182): HOLA MUNDO, SOY UN HILO 2
+[INFO] 20:03:42:244 Mi-RAM-HQ/(3178:3178): Discordiador solicitó iniciar_patota
+[INFO] 20:03:42:244 Mi-RAM-HQ/(3178:3178): Esperando información del discordiador
+[INFO] 20:03:43:302 Mi-RAM-HQ/(3178:3178): Discordiador solicitó iniciar_tripulante
+[INFO] 20:03:43:303 Mi-RAM-HQ/(3178:3178): Envío respuesta al discordiador
+[INFO] 20:03:43:303 Mi-RAM-HQ/(3178:3178): Esperando información del discordiador
+[INFO] 20:03:43:308 HILOX/(3178:3184): HOLA MUNDO, SOY UN HILO 3
+[INFO] 20:03:43:894 Mi-RAM-HQ/(3178:3178): Discordiador solicitó iniciar_tripulante
+[INFO] 20:03:43:894 Mi-RAM-HQ/(3178:3178): Envío respuesta al discordiador
+[INFO] 20:03:43:894 Mi-RAM-HQ/(3178:3178): Esperando información del discordiador
+[INFO] 20:03:43:899 HILOX/(3178:3186): HOLA MUNDO, SOY UN HILO 4
+[INFO] 20:03:44:495 Mi-RAM-HQ/(3178:3178): Discordiador solicitó iniciar_tripulante
+[INFO] 20:03:44:496 Mi-RAM-HQ/(3178:3178): Envío respuesta al discordiador
+[INFO] 20:03:44:496 Mi-RAM-HQ/(3178:3178): Esperando información del discordiador
+[INFO] 20:03:44:500 HILOX/(3178:3188): HOLA MUNDO, SOY UN HILO 5
+[INFO] 20:03:45:065 Mi-RAM-HQ/(3178:3178): Discordiador solicitó iniciar_tripulante
+[INFO] 20:03:45:068 Mi-RAM-HQ/(3178:3178): Envío respuesta al discordiador
+[INFO] 20:03:45:068 Mi-RAM-HQ/(3178:3178): Esperando información del discordiador
+[INFO] 20:03:45:072 HILOX/(3178:3190): HOLA MUNDO, SOY UN HILO 6
+[INFO] 20:03:47:061 Mi-RAM-HQ/(3178:3178): Discordiador solicitó iniciar_patota
+[INFO] 20:03:47:061 Mi-RAM-HQ/(3178:3178): Esperando información del discordiador
+[INFO] 20:03:48:261 Mi-RAM-HQ/(3178:3178): Discordiador solicitó iniciar_tripulante
+[INFO] 20:03:48:263 Mi-RAM-HQ/(3178:3178): Envío respuesta al discordiador
+[INFO] 20:03:48:263 Mi-RAM-HQ/(3178:3178): Esperando información del discordiador
+[INFO] 20:03:48:267 HILOX/(3178:3192): HOLA MUNDO, SOY UN HILO 7
+[INFO] 20:03:49:181 Mi-RAM-HQ/(3178:3178): Discordiador solicitó iniciar_tripulante
+[INFO] 20:03:49:181 Mi-RAM-HQ/(3178:3178): Envío respuesta al discordiador
+[INFO] 20:03:49:181 Mi-RAM-HQ/(3178:3178): Esperando información del discordiador
+[INFO] 20:03:49:184 HILOX/(3178:3194): HOLA MUNDO, SOY UN HILO 8
+[INFO] 20:03:50:011 Mi-RAM-HQ/(3178:3178): Discordiador solicitó iniciar_tripulante
+[INFO] 20:03:55:214 Mi-RAM-HQ/(3209:3209): Iniciando memoria RAM de 1000 bytes
+[INFO] 20:03:55:218 Mi-RAM-HQ/(3209:3209): Servidor listo
+[INFO] 20:03:56:976 Mi-RAM-HQ/(3209:3209): Conexión establecida con el discordiador
+[INFO] 20:03:56:977 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:01:676 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:01:676 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:06:810 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_tripulante
+[INFO] 20:04:06:810 Mi-RAM-HQ/(3209:3209): Envío respuesta al discordiador
+[INFO] 20:04:06:810 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:06:813 HILOX/(3209:3213): HOLA MUNDO, SOY UN HILO 1
+[INFO] 20:04:07:605 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_tripulante
+[INFO] 20:04:07:605 Mi-RAM-HQ/(3209:3209): Envío respuesta al discordiador
+[INFO] 20:04:07:605 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:07:607 HILOX/(3209:3215): HOLA MUNDO, SOY UN HILO 2
+[INFO] 20:04:08:690 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:08:690 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:11:378 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:11:379 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:13:941 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:13:941 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:14:616 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:14:617 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:15:150 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:15:151 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:15:659 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:15:661 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:16:155 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:16:155 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:16:672 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:16:674 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:17:174 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:17:175 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:17:637 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:17:639 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:18:128 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:18:129 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:18:591 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:18:592 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:19:068 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:19:070 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:19:533 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:19:534 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:19:981 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:19:983 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:20:437 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:20:438 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:20:887 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:20:888 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:21:314 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:21:314 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:21:749 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:21:750 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:22:147 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:22:147 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:22:562 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_patota
+[INFO] 20:04:22:563 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:27:897 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_tripulante
+[INFO] 20:04:27:898 Mi-RAM-HQ/(3209:3209): Envío respuesta al discordiador
+[INFO] 20:04:27:898 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:27:904 HILOX/(3209:3217): HOLA MUNDO, SOY UN HILO 3
+[INFO] 20:04:28:994 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_tripulante
+[INFO] 20:04:28:995 Mi-RAM-HQ/(3209:3209): Envío respuesta al discordiador
+[INFO] 20:04:28:995 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:28:998 HILOX/(3209:3219): HOLA MUNDO, SOY UN HILO 4
+[INFO] 20:04:29:689 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_tripulante
+[INFO] 20:04:29:689 Mi-RAM-HQ/(3209:3209): Envío respuesta al discordiador
+[INFO] 20:04:29:689 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:29:693 HILOX/(3209:3221): HOLA MUNDO, SOY UN HILO 5
+[INFO] 20:04:30:354 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_tripulante
+[INFO] 20:04:30:356 Mi-RAM-HQ/(3209:3209): Envío respuesta al discordiador
+[INFO] 20:04:30:356 Mi-RAM-HQ/(3209:3209): Esperando información del discordiador
+[INFO] 20:04:30:361 HILOX/(3209:3223): HOLA MUNDO, SOY UN HILO 6
+[INFO] 20:04:31:918 Mi-RAM-HQ/(3209:3209): Discordiador solicitó iniciar_tripulante
+[INFO] 20:04:42:496 Mi-RAM-HQ/(3226:3226): Iniciando memoria RAM de 1000 bytes
+[INFO] 20:04:42:500 Mi-RAM-HQ/(3226:3226): Servidor listo
+[INFO] 20:04:45:122 Mi-RAM-HQ/(3226:3226): Conexión establecida con el discordiador
+[INFO] 20:04:45:123 Mi-RAM-HQ/(3226:3226): Esperando información del discordiador
+[INFO] 20:04:49:689 Mi-RAM-HQ/(3226:3226): Discordiador solicitó iniciar_patota
+[INFO] 20:04:49:690 Mi-RAM-HQ/(3226:3226): Esperando información del discordiador
+[INFO] 20:04:54:957 Mi-RAM-HQ/(3226:3226): Discordiador solicitó iniciar_tripulante
+[INFO] 20:04:54:957 Mi-RAM-HQ/(3226:3226): Envío respuesta al discordiador
+[INFO] 20:04:54:957 Mi-RAM-HQ/(3226:3226): Esperando información del discordiador
+[INFO] 20:04:54:962 HILOX/(3226:3228): HOLA MUNDO, SOY UN HILO 1
+[INFO] 20:04:56:170 Mi-RAM-HQ/(3226:3226): Discordiador solicitó iniciar_tripulante
+[INFO] 20:04:56:170 Mi-RAM-HQ/(3226:3226): Envío respuesta al discordiador
+[INFO] 20:04:56:170 Mi-RAM-HQ/(3226:3226): Esperando información del discordiador
+[INFO] 20:04:56:174 HILOX/(3226:3230): HOLA MUNDO, SOY UN HILO 2
+[INFO] 20:04:57:310 Mi-RAM-HQ/(3226:3226): Discordiador solicitó iniciar_patota
+[INFO] 20:04:57:311 Mi-RAM-HQ/(3226:3226): Esperando información del discordiador
+[INFO] 20:04:58:331 Mi-RAM-HQ/(3226:3226): Discordiador solicitó iniciar_tripulante
+[INFO] 20:04:58:333 Mi-RAM-HQ/(3226:3226): Envío respuesta al discordiador
+[INFO] 20:04:58:333 Mi-RAM-HQ/(3226:3226): Esperando información del discordiador
+[INFO] 20:04:58:338 HILOX/(3226:3232): HOLA MUNDO, SOY UN HILO 3
+[INFO] 20:04:58:996 Mi-RAM-HQ/(3226:3226): Discordiador solicitó iniciar_tripulante
+[INFO] 20:04:58:996 Mi-RAM-HQ/(3226:3226): Envío respuesta al discordiador
+[INFO] 20:04:58:996 Mi-RAM-HQ/(3226:3226): Esperando información del discordiador
+[INFO] 20:04:59:000 HILOX/(3226:3234): HOLA MUNDO, SOY UN HILO 4
+[INFO] 20:04:59:605 Mi-RAM-HQ/(3226:3226): Discordiador solicitó iniciar_tripulante
+[INFO] 20:04:59:605 Mi-RAM-HQ/(3226:3226): Envío respuesta al discordiador
+[INFO] 20:04:59:605 Mi-RAM-HQ/(3226:3226): Esperando información del discordiador
+[INFO] 20:04:59:610 HILOX/(3226:3236): HOLA MUNDO, SOY UN HILO 5
+[INFO] 20:05:00:231 Mi-RAM-HQ/(3226:3226): Discordiador solicitó iniciar_tripulante
+[INFO] 20:05:00:238 Mi-RAM-HQ/(3226:3226): Envío respuesta al discordiador
+[INFO] 20:05:00:238 Mi-RAM-HQ/(3226:3226): Esperando información del discordiador
+[INFO] 20:05:00:242 HILOX/(3226:3238): HOLA MUNDO, SOY UN HILO 6
+[INFO] 20:05:02:004 Mi-RAM-HQ/(3226:3226): Discordiador solicitó iniciar_patota
+[INFO] 20:05:02:006 Mi-RAM-HQ/(3226:3226): Esperando información del discordiador
+[INFO] 20:05:02:826 Mi-RAM-HQ/(3226:3226): Discordiador solicitó iniciar_patota
+[INFO] 20:05:02:826 Mi-RAM-HQ/(3226:3226): Esperando información del discordiador
+[INFO] 20:05:07:055 Mi-RAM-HQ/(3226:3226): Discordiador solicitó iniciar_tripulante
+[INFO] 20:05:07:055 Mi-RAM-HQ/(3226:3226): Envío respuesta al discordiador
+[INFO] 20:05:07:056 Mi-RAM-HQ/(3226:3226): Esperando información del discordiador
+[INFO] 20:05:07:063 HILOX/(3226:3240): HOLA MUNDO, SOY UN HILO 7
+[INFO] 20:05:07:952 Mi-RAM-HQ/(3226:3226): Discordiador solicitó iniciar_tripulante
+[INFO] 20:05:07:952 Mi-RAM-HQ/(3226:3226): Envío respuesta al discordiador
+[INFO] 20:05:07:952 Mi-RAM-HQ/(3226:3226): Esperando información del discordiador
+[INFO] 20:05:07:956 HILOX/(3226:3242): HOLA MUNDO, SOY UN HILO 8
+[INFO] 20:05:08:577 Mi-RAM-HQ/(3226:3226): Discordiador solicitó iniciar_tripulante
+[INFO] 20:05:22:971 Mi-RAM-HQ/(3245:3245): Iniciando memoria RAM de 1000 bytes
+[INFO] 20:05:22:972 Mi-RAM-HQ/(3245:3245): Servidor listo
+[INFO] 20:05:25:979 Mi-RAM-HQ/(3245:3245): Conexión establecida con el discordiador
+[INFO] 20:05:25:980 Mi-RAM-HQ/(3245:3245): Esperando información del discordiador
+[INFO] 20:05:29:159 Mi-RAM-HQ/(3245:3245): Discordiador solicitó iniciar_patota
+[INFO] 20:05:29:161 Mi-RAM-HQ/(3245:3245): Esperando información del discordiador
+[INFO] 20:05:33:887 Mi-RAM-HQ/(3245:3245): Discordiador solicitó iniciar_tripulante
+[INFO] 20:05:33:889 Mi-RAM-HQ/(3245:3245): Envío respuesta al discordiador
+[INFO] 20:05:33:889 Mi-RAM-HQ/(3245:3245): Esperando información del discordiador
+[INFO] 20:05:33:891 HILOX/(3245:3247): HOLA MUNDO, SOY UN HILO 1
+[INFO] 20:05:34:795 Mi-RAM-HQ/(3245:3245): Discordiador solicitó iniciar_tripulante
+[INFO] 20:05:34:796 Mi-RAM-HQ/(3245:3245): Envío respuesta al discordiador
+[INFO] 20:05:34:796 Mi-RAM-HQ/(3245:3245): Esperando información del discordiador
+[INFO] 20:05:34:801 HILOX/(3245:3249): HOLA MUNDO, SOY UN HILO 2
+[INFO] 20:05:36:676 Mi-RAM-HQ/(3245:3245): Discordiador solicitó iniciar_patota
+[INFO] 20:05:36:676 Mi-RAM-HQ/(3245:3245): Esperando información del discordiador
+[INFO] 20:05:37:680 Mi-RAM-HQ/(3245:3245): Discordiador solicitó iniciar_tripulante
+[INFO] 20:05:37:680 Mi-RAM-HQ/(3245:3245): Envío respuesta al discordiador
+[INFO] 20:05:37:680 Mi-RAM-HQ/(3245:3245): Esperando información del discordiador
+[INFO] 20:05:37:680 HILOX/(3245:3251): HOLA MUNDO, SOY UN HILO 3
+[INFO] 20:05:38:281 Mi-RAM-HQ/(3245:3245): Discordiador solicitó iniciar_tripulante
+[INFO] 20:05:38:282 Mi-RAM-HQ/(3245:3245): Envío respuesta al discordiador
+[INFO] 20:05:38:282 Mi-RAM-HQ/(3245:3245): Esperando información del discordiador
+[INFO] 20:05:38:285 HILOX/(3245:3253): HOLA MUNDO, SOY UN HILO 4
+[INFO] 20:05:38:866 Mi-RAM-HQ/(3245:3245): Discordiador solicitó iniciar_tripulante
+[INFO] 20:05:38:866 Mi-RAM-HQ/(3245:3245): Envío respuesta al discordiador
+[INFO] 20:05:38:866 Mi-RAM-HQ/(3245:3245): Esperando información del discordiador
+[INFO] 20:05:38:869 HILOX/(3245:3255): HOLA MUNDO, SOY UN HILO 5
+[INFO] 20:05:39:451 Mi-RAM-HQ/(3245:3245): Discordiador solicitó iniciar_tripulante
+[INFO] 20:05:39:452 Mi-RAM-HQ/(3245:3245): Envío respuesta al discordiador
+[INFO] 20:05:39:452 Mi-RAM-HQ/(3245:3245): Esperando información del discordiador
+[INFO] 20:05:39:454 HILOX/(3245:3257): HOLA MUNDO, SOY UN HILO 6
+[INFO] 20:05:41:278 Mi-RAM-HQ/(3245:3245): Discordiador solicitó iniciar_patota
+[INFO] 20:05:41:279 Mi-RAM-HQ/(3245:3245): Esperando información del discordiador
+[INFO] 20:05:42:952 Mi-RAM-HQ/(3245:3245): Discordiador solicitó iniciar_tripulante
+[INFO] 20:05:42:952 Mi-RAM-HQ/(3245:3245): Envío respuesta al discordiador
+[INFO] 20:05:42:952 Mi-RAM-HQ/(3245:3245): Esperando información del discordiador
+[INFO] 20:05:42:957 HILOX/(3245:3259): HOLA MUNDO, SOY UN HILO 7
+[INFO] 20:05:43:630 Mi-RAM-HQ/(3245:3245): Discordiador solicitó iniciar_tripulante
+[INFO] 20:05:43:631 Mi-RAM-HQ/(3245:3245): Envío respuesta al discordiador
+[INFO] 20:05:43:631 Mi-RAM-HQ/(3245:3245): Esperando información del discordiador
+[INFO] 20:05:43:636 HILOX/(3245:3261): HOLA MUNDO, SOY UN HILO 8
+[INFO] 20:05:45:128 Mi-RAM-HQ/(3245:3245): Discordiador solicitó iniciar_patota
+[INFO] 20:05:45:128 Mi-RAM-HQ/(3245:3245): Esperando información del discordiador
+[INFO] 20:05:46:346 Mi-RAM-HQ/(3245:3245): Discordiador solicitó iniciar_tripulante
+[INFO] 20:05:46:347 Mi-RAM-HQ/(3245:3245): Envío respuesta al discordiador
+[INFO] 20:05:46:347 Mi-RAM-HQ/(3245:3245): Esperando información del discordiador
+[INFO] 20:05:46:354 HILOX/(3245:3263): HOLA MUNDO, SOY UN HILO 9
+[INFO] 20:05:47:175 Mi-RAM-HQ/(3245:3245): Discordiador solicitó iniciar_tripulante
+[INFO] 20:05:47:176 Mi-RAM-HQ/(3245:3245): Envío respuesta al discordiador
+[INFO] 20:05:47:176 Mi-RAM-HQ/(3245:3245): Esperando información del discordiador
+[INFO] 20:05:47:179 HILOX/(3245:3265): HOLA MUNDO, SOY UN HILO 10
+[INFO] 20:05:47:953 Mi-RAM-HQ/(3245:3245): Discordiador solicitó iniciar_tripulante
+[INFO] 20:06:41:443 Mi-RAM-HQ/(3268:3268): Iniciando memoria RAM de 1000 bytes
+[INFO] 20:06:41:447 Mi-RAM-HQ/(3268:3268): Servidor listo
+[INFO] 20:06:44:313 Mi-RAM-HQ/(3268:3268): Conexión establecida con el discordiador
+[INFO] 20:06:44:315 Mi-RAM-HQ/(3268:3268): Esperando información del discordiador
+[INFO] 20:06:48:590 Mi-RAM-HQ/(3268:3268): Discordiador solicitó iniciar_patota
+[INFO] 20:06:48:590 Mi-RAM-HQ/(3268:3268): Esperando información del discordiador
+[INFO] 20:06:53:284 Mi-RAM-HQ/(3268:3268): Discordiador solicitó iniciar_tripulante
+[INFO] 20:06:53:286 Mi-RAM-HQ/(3268:3268): Envío respuesta al discordiador
+[INFO] 20:06:53:286 Mi-RAM-HQ/(3268:3268): Esperando información del discordiador
+[INFO] 20:06:53:291 HILOX/(3268:3272): HOLA MUNDO, SOY UN HILO 1
+[INFO] 20:06:55:081 Mi-RAM-HQ/(3268:3268): Discordiador solicitó iniciar_tripulante
+[INFO] 20:06:55:081 Mi-RAM-HQ/(3268:3268): Envío respuesta al discordiador
+[INFO] 20:06:55:081 Mi-RAM-HQ/(3268:3268): Esperando información del discordiador
+[INFO] 20:06:55:086 HILOX/(3268:3274): HOLA MUNDO, SOY UN HILO 2
+[INFO] 20:06:56:499 Mi-RAM-HQ/(3268:3268): Discordiador solicitó iniciar_patota
+[INFO] 20:06:56:500 Mi-RAM-HQ/(3268:3268): Esperando información del discordiador
+[INFO] 20:06:58:313 Mi-RAM-HQ/(3268:3268): Discordiador solicitó iniciar_tripulante
+[INFO] 20:06:58:313 Mi-RAM-HQ/(3268:3268): Envío respuesta al discordiador
+[INFO] 20:06:58:313 Mi-RAM-HQ/(3268:3268): Esperando información del discordiador
+[INFO] 20:06:58:320 HILOX/(3268:3276): HOLA MUNDO, SOY UN HILO 3
+[INFO] 20:06:59:432 Mi-RAM-HQ/(3268:3268): Discordiador solicitó iniciar_tripulante
+[INFO] 20:06:59:432 Mi-RAM-HQ/(3268:3268): Envío respuesta al discordiador
+[INFO] 20:06:59:433 Mi-RAM-HQ/(3268:3268): Esperando información del discordiador
+[INFO] 20:06:59:438 HILOX/(3268:3278): HOLA MUNDO, SOY UN HILO 4
+[INFO] 20:07:00:033 Mi-RAM-HQ/(3268:3268): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:00:035 Mi-RAM-HQ/(3268:3268): Envío respuesta al discordiador
+[INFO] 20:07:00:035 Mi-RAM-HQ/(3268:3268): Esperando información del discordiador
+[INFO] 20:07:00:038 HILOX/(3268:3280): HOLA MUNDO, SOY UN HILO 5
+[INFO] 20:07:00:528 Mi-RAM-HQ/(3268:3268): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:00:528 Mi-RAM-HQ/(3268:3268): Envío respuesta al discordiador
+[INFO] 20:07:00:530 Mi-RAM-HQ/(3268:3268): Esperando información del discordiador
+[INFO] 20:07:00:535 HILOX/(3268:3282): HOLA MUNDO, SOY UN HILO 6
+[INFO] 20:07:02:619 Mi-RAM-HQ/(3268:3268): Discordiador solicitó iniciar_patota
+[INFO] 20:07:02:619 Mi-RAM-HQ/(3268:3268): Esperando información del discordiador
+[INFO] 20:07:04:274 Mi-RAM-HQ/(3268:3268): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:04:274 Mi-RAM-HQ/(3268:3268): Envío respuesta al discordiador
+[INFO] 20:07:04:274 Mi-RAM-HQ/(3268:3268): Esperando información del discordiador
+[INFO] 20:07:04:278 HILOX/(3268:3284): HOLA MUNDO, SOY UN HILO 7
+[INFO] 20:07:04:983 Mi-RAM-HQ/(3268:3268): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:04:985 Mi-RAM-HQ/(3268:3268): Envío respuesta al discordiador
+[INFO] 20:07:04:985 Mi-RAM-HQ/(3268:3268): Esperando información del discordiador
+[INFO] 20:07:04:990 HILOX/(3268:3286): HOLA MUNDO, SOY UN HILO 8
+[INFO] 20:07:08:493 Mi-RAM-HQ/(3268:3268): Discordiador solicitó iniciar_patota
+[INFO] 20:07:08:493 Mi-RAM-HQ/(3268:3268): Esperando información del discordiador
+[INFO] 20:07:09:800 Mi-RAM-HQ/(3268:3268): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:09:800 Mi-RAM-HQ/(3268:3268): Envío respuesta al discordiador
+[INFO] 20:07:09:800 Mi-RAM-HQ/(3268:3268): Esperando información del discordiador
+[INFO] 20:07:09:800 HILOX/(3268:3288): HOLA MUNDO, SOY UN HILO 9
+[INFO] 20:07:10:472 Mi-RAM-HQ/(3268:3268): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:10:472 Mi-RAM-HQ/(3268:3268): Envío respuesta al discordiador
+[INFO] 20:07:10:473 Mi-RAM-HQ/(3268:3268): Esperando información del discordiador
+[INFO] 20:07:10:477 HILOX/(3268:3290): HOLA MUNDO, SOY UN HILO 10
+[INFO] 20:07:11:148 Mi-RAM-HQ/(3268:3268): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:25:448 Mi-RAM-HQ/(3293:3293): Iniciando memoria RAM de 1000 bytes
+[INFO] 20:07:25:450 Mi-RAM-HQ/(3293:3293): Servidor listo
+[INFO] 20:07:27:671 Mi-RAM-HQ/(3293:3293): Conexión establecida con el discordiador
+[INFO] 20:07:27:672 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:31:025 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_patota
+[INFO] 20:07:31:026 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:35:334 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:35:335 Mi-RAM-HQ/(3293:3293): Envío respuesta al discordiador
+[INFO] 20:07:35:336 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:35:341 HILOX/(3293:3295): HOLA MUNDO, SOY UN HILO 1
+[INFO] 20:07:36:230 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:36:230 Mi-RAM-HQ/(3293:3293): Envío respuesta al discordiador
+[INFO] 20:07:36:230 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:36:234 HILOX/(3293:3297): HOLA MUNDO, SOY UN HILO 2
+[INFO] 20:07:37:698 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_patota
+[INFO] 20:07:37:699 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:39:227 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:39:227 Mi-RAM-HQ/(3293:3293): Envío respuesta al discordiador
+[INFO] 20:07:39:228 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:39:232 HILOX/(3293:3299): HOLA MUNDO, SOY UN HILO 3
+[INFO] 20:07:41:646 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:41:647 Mi-RAM-HQ/(3293:3293): Envío respuesta al discordiador
+[INFO] 20:07:41:647 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:41:651 HILOX/(3293:3301): HOLA MUNDO, SOY UN HILO 4
+[INFO] 20:07:42:527 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:42:527 Mi-RAM-HQ/(3293:3293): Envío respuesta al discordiador
+[INFO] 20:07:42:527 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:42:528 HILOX/(3293:3303): HOLA MUNDO, SOY UN HILO 5
+[INFO] 20:07:43:215 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:43:215 Mi-RAM-HQ/(3293:3293): Envío respuesta al discordiador
+[INFO] 20:07:43:215 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:43:219 HILOX/(3293:3305): HOLA MUNDO, SOY UN HILO 6
+[INFO] 20:07:45:137 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_patota
+[INFO] 20:07:45:137 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:47:256 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:47:256 Mi-RAM-HQ/(3293:3293): Envío respuesta al discordiador
+[INFO] 20:07:47:256 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:47:260 HILOX/(3293:3307): HOLA MUNDO, SOY UN HILO 7
+[INFO] 20:07:48:047 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:48:047 Mi-RAM-HQ/(3293:3293): Envío respuesta al discordiador
+[INFO] 20:07:48:047 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:48:050 HILOX/(3293:3309): HOLA MUNDO, SOY UN HILO 8
+[INFO] 20:07:49:370 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_patota
+[INFO] 20:07:49:370 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:50:484 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:50:485 Mi-RAM-HQ/(3293:3293): Envío respuesta al discordiador
+[INFO] 20:07:50:486 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:50:491 HILOX/(3293:3311): HOLA MUNDO, SOY UN HILO 9
+[INFO] 20:07:51:134 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:51:136 Mi-RAM-HQ/(3293:3293): Envío respuesta al discordiador
+[INFO] 20:07:51:136 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:51:141 HILOX/(3293:3313): HOLA MUNDO, SOY UN HILO 10
+[INFO] 20:07:52:461 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_patota
+[INFO] 20:07:52:462 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:54:099 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:54:100 Mi-RAM-HQ/(3293:3293): Envío respuesta al discordiador
+[INFO] 20:07:54:100 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:54:102 HILOX/(3293:3315): HOLA MUNDO, SOY UN HILO 11
+[INFO] 20:07:55:588 Mi-RAM-HQ/(3293:3293): Discordiador solicitó iniciar_tripulante
+[INFO] 20:07:55:589 Mi-RAM-HQ/(3293:3293): Envío respuesta al discordiador
+[INFO] 20:07:55:590 Mi-RAM-HQ/(3293:3293): Esperando información del discordiador
+[INFO] 20:07:55:594 HILOX/(3293:3317): HOLA MUNDO, SOY UN HILO 12
+[INFO] 20:07:57:621 Mi-RAM-HQ/(3293:3293): Cliente desconectado
+[WARNING] 20:07:57:623 HILOX/(3293:3317): La conexión remota se ha desconectado.
+[WARNING] 20:07:57:623 HILOX/(3293:3315): La conexión remota se ha desconectado.
+[WARNING] 20:07:57:623 HILOX/(3293:3313): La conexión remota se ha desconectado.
+[WARNING] 20:07:57:623 HILOX/(3293:3311): La conexión remota se ha desconectado.
+[WARNING] 20:07:57:623 HILOX/(3293:3309): La conexión remota se ha desconectado.
+[WARNING] 20:07:57:623 HILOX/(3293:3307): La conexión remota se ha desconectado.
+[WARNING] 20:07:57:623 HILOX/(3293:3305): La conexión remota se ha desconectado.
+[WARNING] 20:07:57:623 HILOX/(3293:3303): La conexión remota se ha desconectado.
+[WARNING] 20:07:57:623 HILOX/(3293:3301): La conexión remota se ha desconectado.
+[WARNING] 20:07:57:623 HILOX/(3293:3299): La conexión remota se ha desconectado.
+[WARNING] 20:07:57:623 HILOX/(3293:3297): La conexión remota se ha desconectado.
+[WARNING] 20:07:57:623 HILOX/(3293:3295): La conexión remota se ha desconectado.
+[INFO] 20:07:57:625 Mi-RAM-HQ/(3293:3293): Resultados
+[INFO] 20:07:57:625 Mi-RAM-HQ/(3293:3293): Lista segmentos: 23
+[INFO] 20:07:57:625 Mi-RAM-HQ/(3293:3293): Segmento 1 0
+[INFO] 20:07:57:625 Mi-RAM-HQ/(3293:3293): Duenio: 1
+[INFO] 20:07:57:625 Mi-RAM-HQ/(3293:3293): Inicio: 0
+[INFO] 20:07:57:625 Mi-RAM-HQ/(3293:3293): Tamanio: 8
+[INFO] 20:07:57:625 Mi-RAM-HQ/(3293:3293): Segmento 2 1
+[INFO] 20:07:57:625 Mi-RAM-HQ/(3293:3293): Duenio: 1
+[INFO] 20:07:57:625 Mi-RAM-HQ/(3293:3293): Inicio: 8
+[INFO] 20:07:57:625 Mi-RAM-HQ/(3293:3293): Tamanio: 30
+[INFO] 20:07:57:625 Mi-RAM-HQ/(3293:3293): Segmento 3 2
+[INFO] 20:07:57:625 Mi-RAM-HQ/(3293:3293): Duenio: 1
+[INFO] 20:07:57:625 Mi-RAM-HQ/(3293:3293): Inicio: 38
+[INFO] 20:07:57:625 Mi-RAM-HQ/(3293:3293): Tamanio: 24
+[INFO] 20:07:57:625 Mi-RAM-HQ/(3293:3293): Segmento 4 3
+[INFO] 20:07:57:625 Mi-RAM-HQ/(3293:3293): Duenio: 1
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Inicio: 62
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Tamanio: 24
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Segmento 5 4
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Duenio: 2
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Inicio: 86
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Tamanio: 8
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Segmento 6 5
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Duenio: 2
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Inicio: 94
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Tamanio: 30
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Segmento 7 6
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Duenio: 2
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Inicio: 124
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Tamanio: 24
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Segmento 8 7
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Duenio: 2
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Inicio: 148
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Tamanio: 24
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Segmento 9 8
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Duenio: 2
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Inicio: 172
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Tamanio: 24
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Segmento 10 9
+[INFO] 20:07:57:626 Mi-RAM-HQ/(3293:3293): Duenio: 2
+[WARNING] 20:07:57:626 HILOX/(3293:3301): La conexión remota se ha desconectado.
+[INFO] 22:11:32:266 Mi-RAM-HQ/(4029:4029): Iniciando memoria RAM de 1000 bytes
+[INFO] 22:11:32:268 Mi-RAM-HQ/(4029:4029): Servidor listo
+[INFO] 22:11:38:268 Mi-RAM-HQ/(4029:4029): Conexión establecida con el discordiador
+[INFO] 22:11:38:270 Mi-RAM-HQ/(4029:4029): Esperando información del discordiador
+[INFO] 22:11:43:588 Mi-RAM-HQ/(4029:4029): Discordiador solicitó iniciar_patota
+[INFO] 22:11:43:589 Mi-RAM-HQ/(4029:4029): Esperando información del discordiador
+[INFO] 22:11:58:096 Mi-RAM-HQ/(4029:4029): Discordiador solicitó iniciar_patota
+[INFO] 22:11:58:096 Mi-RAM-HQ/(4029:4029): Esperando información del discordiador
+[INFO] 22:12:04:640 Mi-RAM-HQ/(4029:4029): Discordiador solicitó iniciar_tripulante
+[INFO] 22:34:10:735 Mi-RAM-HQ/(4792:4792): Iniciando memoria RAM de 1000 bytes
+[INFO] 22:34:10:735 Mi-RAM-HQ/(4792:4792): Servidor listo
+[INFO] 22:34:14:575 Mi-RAM-HQ/(4792:4792): Conexión establecida con el discordiador
+[INFO] 22:34:14:576 Mi-RAM-HQ/(4792:4792): Esperando información del discordiador
+[INFO] 22:34:19:402 Mi-RAM-HQ/(4792:4792): Discordiador solicitó iniciar_patota
+[INFO] 22:34:19:403 Mi-RAM-HQ/(4792:4792): Esperando información del discordiador
+[INFO] 22:34:29:711 Mi-RAM-HQ/(4792:4792): Discordiador solicitó iniciar_tripulante
+[INFO] 22:42:48:695 Mi-RAM-HQ/(5481:5481): Iniciando memoria RAM de 1000 bytes
+[INFO] 22:42:48:697 Mi-RAM-HQ/(5481:5481): Servidor listo
+[INFO] 22:42:53:518 Mi-RAM-HQ/(5481:5481): Conexión establecida con el discordiador
+[INFO] 22:42:53:519 Mi-RAM-HQ/(5481:5481): Esperando información del discordiador
+[INFO] 22:42:57:322 Mi-RAM-HQ/(5481:5481): Discordiador solicitó iniciar_patota
+[INFO] 22:42:57:322 Mi-RAM-HQ/(5481:5481): CREO SEGMENTO PCB
+[INFO] 22:42:57:322 Mi-RAM-HQ/(5481:5481): CREO SEGMENTO TAREAS
+[INFO] 22:42:57:322 Mi-RAM-HQ/(5481:5481): AGREGO PARAM
+[INFO] 22:42:57:322 Mi-RAM-HQ/(5481:5481): AGREGO PARAM
+[INFO] 22:42:57:322 Mi-RAM-HQ/(5481:5481): SEGMENTO PCB
+[INFO] 22:42:57:322 Mi-RAM-HQ/(5481:5481): AGREGO PARAM
+[INFO] 22:42:57:322 Mi-RAM-HQ/(5481:5481): AGREGO PARAM
+[INFO] 22:42:57:322 Mi-RAM-HQ/(5481:5481): SEGMENTO TAREAS
+[INFO] 22:42:57:322 Mi-RAM-HQ/(5481:5481): Esperando información del discordiador
+[INFO] 22:45:05:431 Mi-RAM-HQ/(5481:5481): Discordiador solicitó iniciar_patota
+[INFO] 22:45:05:431 Mi-RAM-HQ/(5481:5481): CREO SEGMENTO PCB
+[INFO] 22:45:05:431 Mi-RAM-HQ/(5481:5481): CREO SEGMENTO TAREAS
+[INFO] 22:45:05:431 Mi-RAM-HQ/(5481:5481): AGREGO PARAM
+[INFO] 22:45:05:431 Mi-RAM-HQ/(5481:5481): AGREGO PARAM
+[INFO] 22:45:05:431 Mi-RAM-HQ/(5481:5481): SEGMENTO PCB
+[INFO] 22:45:05:431 Mi-RAM-HQ/(5481:5481): AGREGO PARAM
+[INFO] 22:45:05:431 Mi-RAM-HQ/(5481:5481): AGREGO PARAM
+[INFO] 22:45:05:431 Mi-RAM-HQ/(5481:5481): SEGMENTO TAREAS
+[INFO] 22:45:05:431 Mi-RAM-HQ/(5481:5481): Esperando información del discordiador
+[INFO] 22:45:14:501 Mi-RAM-HQ/(5481:5481): Discordiador solicitó iniciar_tripulante
+[INFO] 22:45:14:503 Mi-RAM-HQ/(5481:5481): AGREGO PARAM
+[INFO] 22:45:14:503 Mi-RAM-HQ/(5481:5481): AGREGO PARAM
+[INFO] 22:45:14:503 Mi-RAM-HQ/(5481:5481): AGREGO PARAM
+[INFO] 22:45:14:503 Mi-RAM-HQ/(5481:5481): AGREGO PARAM
+[INFO] 22:45:14:503 Mi-RAM-HQ/(5481:5481): AGREGO PARAM
+[INFO] 22:45:14:503 Mi-RAM-HQ/(5481:5481): AGREGO PARAM
+[INFO] 22:45:14:503 Mi-RAM-HQ/(5481:5481): AGREGO PARAM
+[INFO] 22:45:14:503 Mi-RAM-HQ/(5481:5481): SEGMENTO TCB
+[INFO] 22:45:32:398 Mi-RAM-HQ/(5773:5773): Iniciando memoria RAM de 1000 bytes
+[INFO] 22:45:32:399 Mi-RAM-HQ/(5773:5773): Servidor listo
+[INFO] 22:45:34:375 Mi-RAM-HQ/(5773:5773): Conexión establecida con el discordiador
+[INFO] 22:45:34:375 Mi-RAM-HQ/(5773:5773): Esperando información del discordiador
+[INFO] 22:45:41:679 Mi-RAM-HQ/(5773:5773): Discordiador solicitó iniciar_patota
+[INFO] 22:45:41:679 Mi-RAM-HQ/(5773:5773): CREO SEGMENTO PCB
+[INFO] 22:45:41:679 Mi-RAM-HQ/(5773:5773): CREO SEGMENTO TAREAS
+[INFO] 22:45:41:679 Mi-RAM-HQ/(5773:5773): AGREGO PARAM
+[INFO] 22:45:41:679 Mi-RAM-HQ/(5773:5773): AGREGO PARAM
+[INFO] 22:45:41:679 Mi-RAM-HQ/(5773:5773): SEGMENTO PCB
+[INFO] 22:45:41:679 Mi-RAM-HQ/(5773:5773): AGREGO PARAM
+[INFO] 22:45:41:679 Mi-RAM-HQ/(5773:5773): AGREGO PARAM
+[INFO] 22:45:41:679 Mi-RAM-HQ/(5773:5773): SEGMENTO TAREAS
+[INFO] 22:45:41:679 Mi-RAM-HQ/(5773:5773): Esperando información del discordiador
+[INFO] 22:52:58:195 Mi-RAM-HQ/(5773:5773): Discordiador solicitó iniciar_patota
+[INFO] 22:52:58:196 Mi-RAM-HQ/(5773:5773): CREO SEGMENTO PCB
+[INFO] 22:52:58:196 Mi-RAM-HQ/(5773:5773): CREO SEGMENTO TAREAS
+[INFO] 22:52:58:196 Mi-RAM-HQ/(5773:5773): AGREGO PARAM
+[INFO] 22:52:58:196 Mi-RAM-HQ/(5773:5773): AGREGO PARAM
+[INFO] 22:52:58:196 Mi-RAM-HQ/(5773:5773): SEGMENTO PCB
+[INFO] 22:52:58:196 Mi-RAM-HQ/(5773:5773): AGREGO PARAM
+[INFO] 22:52:58:196 Mi-RAM-HQ/(5773:5773): AGREGO PARAM
+[INFO] 22:52:58:196 Mi-RAM-HQ/(5773:5773): SEGMENTO TAREAS
+[INFO] 22:52:58:196 Mi-RAM-HQ/(5773:5773): Esperando información del discordiador
+[INFO] 22:53:06:137 Mi-RAM-HQ/(5773:5773): Discordiador solicitó iniciar_tripulante
+[INFO] 22:53:06:138 Mi-RAM-HQ/(5773:5773): AGREGO PARAM
+[INFO] 22:53:06:139 Mi-RAM-HQ/(5773:5773): AGREGO PARAM
+[INFO] 22:53:06:139 Mi-RAM-HQ/(5773:5773): AGREGO PARAM
+[INFO] 22:53:06:139 Mi-RAM-HQ/(5773:5773): AGREGO PARAM
+[INFO] 22:53:06:139 Mi-RAM-HQ/(5773:5773): AGREGO PARAM
+[INFO] 22:53:06:139 Mi-RAM-HQ/(5773:5773): AGREGO PARAM
+[INFO] 22:53:06:139 Mi-RAM-HQ/(5773:5773): AGREGO PARAM
+[INFO] 22:53:06:139 Mi-RAM-HQ/(5773:5773): SEGMENTO TCB
+[INFO] 22:53:29:145 Mi-RAM-HQ/(5894:5894): Iniciando memoria RAM de 1000 bytes
+[INFO] 22:53:29:149 Mi-RAM-HQ/(5894:5894): Servidor listo
+[INFO] 22:53:31:227 Mi-RAM-HQ/(5894:5894): Conexión establecida con el discordiador
+[INFO] 22:53:31:228 Mi-RAM-HQ/(5894:5894): Esperando información del discordiador
+[INFO] 22:53:34:773 Mi-RAM-HQ/(5894:5894): Cliente desconectado
+[INFO] 22:53:34:776 Mi-RAM-HQ/(5894:5894): Resultados
+[INFO] 22:53:34:776 Mi-RAM-HQ/(5894:5894): Lista segmentos: 1
+[INFO] 22:53:34:776 Mi-RAM-HQ/(5894:5894): Segmento 1 0
+[INFO] 22:53:34:776 Mi-RAM-HQ/(5894:5894): Duenio: 0
+[INFO] 22:53:34:776 Mi-RAM-HQ/(5894:5894): Inicio: 0
+[INFO] 22:53:34:776 Mi-RAM-HQ/(5894:5894): Tamanio: 1000
+[INFO] 22:53:34:776 Mi-RAM-HQ/(5894:5894): Lista de patotas: 0
+[INFO] 22:53:34:776 Mi-RAM-HQ/(5894:5894): Lista de tripulantes: 0
+[INFO] 22:53:43:239 Mi-RAM-HQ/(6008:6008): Iniciando memoria RAM de 1000 bytes
+[INFO] 22:53:43:239 Mi-RAM-HQ/(6008:6008): Servidor listo
+[INFO] 22:53:44:896 Mi-RAM-HQ/(6008:6008): Conexión establecida con el discordiador
+[INFO] 22:53:44:897 Mi-RAM-HQ/(6008:6008): Esperando información del discordiador
+[INFO] 22:53:48:317 Mi-RAM-HQ/(6008:6008): Discordiador solicitó iniciar_patota
+[INFO] 22:53:48:318 Mi-RAM-HQ/(6008:6008): CREO SEGMENTO PCB
+[INFO] 22:53:48:318 Mi-RAM-HQ/(6008:6008): CREO SEGMENTO TAREAS
+[INFO] 22:53:48:318 Mi-RAM-HQ/(6008:6008): AGREGO PARAM
+[INFO] 22:53:48:318 Mi-RAM-HQ/(6008:6008): AGREGO PARAM
+[INFO] 22:53:48:318 Mi-RAM-HQ/(6008:6008): AGREGO PARAM
+[INFO] 22:53:48:318 Mi-RAM-HQ/(6008:6008): SEGMENTO PCB
+[INFO] 22:55:47:456 Mi-RAM-HQ/(6111:6111): Iniciando memoria RAM de 1000 bytes
+[INFO] 22:55:47:456 Mi-RAM-HQ/(6111:6111): Servidor listo
+[INFO] 22:55:56:448 Mi-RAM-HQ/(6111:6111): Conexión establecida con el discordiador
+[INFO] 22:55:56:449 Mi-RAM-HQ/(6111:6111): Esperando información del discordiador
+[INFO] 22:56:02:974 Mi-RAM-HQ/(6111:6111): Discordiador solicitó iniciar_patota
+[INFO] 22:56:02:975 Mi-RAM-HQ/(6111:6111): CREO SEGMENTO PCB
+[INFO] 22:56:02:975 Mi-RAM-HQ/(6111:6111): CREO SEGMENTO TAREAS
+[INFO] 22:56:02:975 Mi-RAM-HQ/(6111:6111): AGREGO PARAM
+[INFO] 22:56:02:975 Mi-RAM-HQ/(6111:6111): AGREGO PARAM
+[INFO] 22:56:02:975 Mi-RAM-HQ/(6111:6111): AGREGO PARAM
+[INFO] 22:56:02:975 Mi-RAM-HQ/(6111:6111): SEGMENTO PCB
+[INFO] 22:57:08:537 Mi-RAM-HQ/(6213:6213): Iniciando memoria RAM de 1000 bytes
+[INFO] 22:57:08:540 Mi-RAM-HQ/(6213:6213): Servidor listo
+[INFO] 22:57:16:502 Mi-RAM-HQ/(6213:6213): Conexión establecida con el discordiador
+[INFO] 22:57:16:502 Mi-RAM-HQ/(6213:6213): Esperando información del discordiador
+[INFO] 22:57:20:115 Mi-RAM-HQ/(6213:6213): Discordiador solicitó iniciar_patota
+[INFO] 22:57:20:115 Mi-RAM-HQ/(6213:6213): CREO SEGMENTO PCB
+[INFO] 22:57:20:115 Mi-RAM-HQ/(6213:6213): CREO SEGMENTO TAREAS
+[INFO] 22:57:20:115 Mi-RAM-HQ/(6213:6213): AGREGO PARAM
+[INFO] 22:57:20:115 Mi-RAM-HQ/(6213:6213): AGREGO PARAM
+[INFO] 22:57:20:115 Mi-RAM-HQ/(6213:6213): AGREGO PARAM
+[INFO] 22:57:20:115 Mi-RAM-HQ/(6213:6213): SEGMENTO PCB
+[INFO] 22:57:20:115 Mi-RAM-HQ/(6213:6213): AGREGO PARAM
+[INFO] 22:57:20:115 Mi-RAM-HQ/(6213:6213): AGREGO PARAM
+[INFO] 22:57:20:115 Mi-RAM-HQ/(6213:6213): SEGMENTO TAREAS
+[INFO] 22:58:20:739 Mi-RAM-HQ/(6327:6327): Iniciando memoria RAM de 1000 bytes
+[INFO] 22:58:20:742 Mi-RAM-HQ/(6327:6327): Servidor listo
+[INFO] 22:58:28:765 Mi-RAM-HQ/(6327:6327): Conexión establecida con el discordiador
+[INFO] 22:58:28:766 Mi-RAM-HQ/(6327:6327): Esperando información del discordiador
+[INFO] 22:58:32:869 Mi-RAM-HQ/(6327:6327): Discordiador solicitó iniciar_patota
+[INFO] 22:58:32:869 Mi-RAM-HQ/(6327:6327): CREO SEGMENTO PCB
+[INFO] 22:58:32:869 Mi-RAM-HQ/(6327:6327): CREO SEGMENTO TAREAS
+[INFO] 22:58:32:869 Mi-RAM-HQ/(6327:6327): AGREGO PARAM
+[INFO] 22:58:32:870 Mi-RAM-HQ/(6327:6327): AGREGO PARAM
+[INFO] 22:58:32:870 Mi-RAM-HQ/(6327:6327): AGREGO PARAM
+[INFO] 22:58:32:870 Mi-RAM-HQ/(6327:6327): SEGMENTO PCB
+[INFO] 22:58:32:870 Mi-RAM-HQ/(6327:6327): AGREGO PARAM
+[INFO] 22:58:32:870 Mi-RAM-HQ/(6327:6327): AGREGO PARAM
+[INFO] 22:58:32:870 Mi-RAM-HQ/(6327:6327): AGREGO PARAM
+[INFO] 22:58:32:870 Mi-RAM-HQ/(6327:6327): SEGMENTO TAREAS
+[INFO] 22:58:32:870 Mi-RAM-HQ/(6327:6327): Esperando información del discordiador
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Cliente desconectado
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Resultados
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Lista segmentos: 3
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Segmento 1 0
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Duenio: 1
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Inicio: 0
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Tamanio: 8
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Segmento 2 1
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Duenio: 1
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Inicio: 8
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Tamanio: 30
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Segmento 3 2
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Duenio: 0
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Inicio: 38
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Tamanio: 962
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Lista de patotas: 1
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Patota 1, 1
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Tamanio tabla: 2
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Inicio elemento 1: 0
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Inicio elemento 2: 8
+[INFO] 23:01:16:988 Mi-RAM-HQ/(6327:6327): Lista de tripulantes: 0
+[INFO] 23:01:42:692 Mi-RAM-HQ/(6517:6517): Iniciando memoria RAM de 1000 bytes
+[INFO] 23:01:42:693 Mi-RAM-HQ/(6517:6517): Servidor listo
+[INFO] 23:01:45:571 Mi-RAM-HQ/(6517:6517): Conexión establecida con el discordiador
+[INFO] 23:01:45:572 Mi-RAM-HQ/(6517:6517): Esperando información del discordiador
+[INFO] 23:01:50:845 Mi-RAM-HQ/(6517:6517): Discordiador solicitó iniciar_patota
+[INFO] 23:01:50:846 Mi-RAM-HQ/(6517:6517): CREO SEGMENTO PCB
+[INFO] 23:01:50:846 Mi-RAM-HQ/(6517:6517): CREO SEGMENTO TAREAS
+[INFO] 23:01:50:846 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:01:50:846 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:01:50:847 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:01:50:847 Mi-RAM-HQ/(6517:6517): SEGMENTO PCB
+[INFO] 23:01:50:847 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:01:50:847 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:01:50:847 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:01:50:847 Mi-RAM-HQ/(6517:6517): SEGMENTO TAREAS
+[INFO] 23:01:50:848 Mi-RAM-HQ/(6517:6517): Esperando información del discordiador
+[INFO] 23:04:21:865 Mi-RAM-HQ/(6517:6517): Discordiador solicitó iniciar_tripulante
+[INFO] 23:04:21:866 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:04:21:866 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:04:21:866 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:04:21:866 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:04:21:866 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:04:21:867 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:04:21:867 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:04:21:867 Mi-RAM-HQ/(6517:6517): SEGMENTO TCB
+[INFO] 23:04:21:867 Mi-RAM-HQ/(6517:6517): Envío respuesta al discordiador
+[INFO] 23:04:21:867 Mi-RAM-HQ/(6517:6517): Esperando información del discordiador
+[INFO] 23:04:21:871 HILOX/(6517:6621): HOLA MUNDO, SOY UN HILO 1
+[INFO] 23:07:08:537 Mi-RAM-HQ/(6517:6517): Discordiador solicitó iniciar_tripulante
+[INFO] 23:07:08:538 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:08:538 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:08:538 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:08:538 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:08:538 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:08:538 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:08:538 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:08:538 Mi-RAM-HQ/(6517:6517): SEGMENTO TCB
+[INFO] 23:07:08:538 Mi-RAM-HQ/(6517:6517): Envío respuesta al discordiador
+[INFO] 23:07:08:538 Mi-RAM-HQ/(6517:6517): Esperando información del discordiador
+[INFO] 23:07:08:541 HILOX/(6517:6625): HOLA MUNDO, SOY UN HILO 2
+[INFO] 23:07:09:306 Mi-RAM-HQ/(6517:6517): Discordiador solicitó iniciar_tripulante
+[INFO] 23:07:09:306 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:09:307 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:09:307 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:09:307 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:09:307 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:09:307 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:09:307 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:09:307 Mi-RAM-HQ/(6517:6517): SEGMENTO TCB
+[INFO] 23:07:09:308 Mi-RAM-HQ/(6517:6517): Envío respuesta al discordiador
+[INFO] 23:07:09:308 Mi-RAM-HQ/(6517:6517): Esperando información del discordiador
+[INFO] 23:07:09:315 HILOX/(6517:6627): HOLA MUNDO, SOY UN HILO 3
+[INFO] 23:07:10:026 Mi-RAM-HQ/(6517:6517): Discordiador solicitó iniciar_tripulante
+[INFO] 23:07:10:026 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:10:026 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:10:026 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:10:026 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:10:026 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:10:026 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:10:026 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:10:026 Mi-RAM-HQ/(6517:6517): SEGMENTO TCB
+[INFO] 23:07:10:027 Mi-RAM-HQ/(6517:6517): Envío respuesta al discordiador
+[INFO] 23:07:10:027 Mi-RAM-HQ/(6517:6517): Esperando información del discordiador
+[INFO] 23:07:10:030 HILOX/(6517:6629): HOLA MUNDO, SOY UN HILO 4
+[INFO] 23:07:10:620 Mi-RAM-HQ/(6517:6517): Discordiador solicitó iniciar_tripulante
+[INFO] 23:07:10:620 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:10:620 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:10:620 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:10:621 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:10:621 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:10:621 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:10:621 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:10:621 Mi-RAM-HQ/(6517:6517): SEGMENTO TCB
+[INFO] 23:07:10:621 Mi-RAM-HQ/(6517:6517): Envío respuesta al discordiador
+[INFO] 23:07:10:621 Mi-RAM-HQ/(6517:6517): Esperando información del discordiador
+[INFO] 23:07:10:624 HILOX/(6517:6631): HOLA MUNDO, SOY UN HILO 5
+[INFO] 23:07:11:124 Mi-RAM-HQ/(6517:6517): Discordiador solicitó iniciar_tripulante
+[INFO] 23:07:11:124 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:11:124 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:11:124 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:11:124 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:11:124 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:11:124 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:11:124 Mi-RAM-HQ/(6517:6517): AGREGO PARAM
+[INFO] 23:07:11:124 Mi-RAM-HQ/(6517:6517): SEGMENTO TCB
+[INFO] 23:07:11:124 Mi-RAM-HQ/(6517:6517): Envío respuesta al discordiador
+[INFO] 23:07:11:125 Mi-RAM-HQ/(6517:6517): Esperando información del discordiador
+[INFO] 23:07:23:923 Mi-RAM-HQ/(6735:6735): Iniciando memoria RAM de 1000 bytes
+[INFO] 23:07:23:923 Mi-RAM-HQ/(6735:6735): Servidor listo
+[INFO] 23:07:32:243 Mi-RAM-HQ/(6735:6735): Conexión establecida con el discordiador
+[INFO] 23:07:32:245 Mi-RAM-HQ/(6735:6735): Esperando información del discordiador
+[INFO] 23:07:35:893 Mi-RAM-HQ/(6735:6735): Discordiador solicitó iniciar_patota
+[INFO] 23:07:35:894 Mi-RAM-HQ/(6735:6735): CREO SEGMENTO PCB
+[INFO] 23:07:35:894 Mi-RAM-HQ/(6735:6735): CREO SEGMENTO TAREAS
+[INFO] 23:07:35:894 Mi-RAM-HQ/(6735:6735): AGREGO PARAM
+[INFO] 23:07:35:895 Mi-RAM-HQ/(6735:6735): AGREGO PARAM
+[INFO] 23:07:35:895 Mi-RAM-HQ/(6735:6735): AGREGO PARAM
+[INFO] 23:07:35:895 Mi-RAM-HQ/(6735:6735): SEGMENTO PCB
+[INFO] 23:07:35:895 Mi-RAM-HQ/(6735:6735): AGREGO PARAM
+[INFO] 23:07:35:895 Mi-RAM-HQ/(6735:6735): AGREGO PARAM
+[INFO] 23:07:35:895 Mi-RAM-HQ/(6735:6735): AGREGO PARAM
+[INFO] 23:07:35:895 Mi-RAM-HQ/(6735:6735): SEGMENTO TAREAS
+[INFO] 23:07:35:895 Mi-RAM-HQ/(6735:6735): Esperando información del discordiador
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Cliente desconectado
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Resultados
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Lista segmentos: 3
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Segmento 1 0
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Duenio: 1
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Inicio: 0
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Tamanio: 8
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Segmento 2 1
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Duenio: 1
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Inicio: 8
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Tamanio: 30
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Segmento 3 2
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Duenio: 0
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Inicio: 38
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Tamanio: 962
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Lista de patotas: 1
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Patota 1, 1
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Tamanio tabla: 2
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Inicio elemento 1: 0
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Inicio elemento 2: 8
+[INFO] 23:40:11:266 Mi-RAM-HQ/(6735:6735): Lista de tripulantes: 0
+[INFO] 23:49:59:048 Mi-RAM-HQ/(7899:7899): Iniciando memoria RAM de 1000 bytes
+[INFO] 23:49:59:048 Mi-RAM-HQ/(7899:7899): Servidor listo
+[INFO] 23:50:01:711 Mi-RAM-HQ/(7899:7899): Conexión establecida con el discordiador
+[INFO] 23:50:01:712 Mi-RAM-HQ/(7899:7899): Esperando información del discordiador
+[INFO] 23:50:06:757 Mi-RAM-HQ/(7899:7899): Discordiador solicitó iniciar_patota
+[INFO] 23:50:06:757 Mi-RAM-HQ/(7899:7899): CREO SEGMENTO PCB
+[INFO] 23:50:06:757 Mi-RAM-HQ/(7899:7899): CREO SEGMENTO TAREAS
+[INFO] 23:53:21:376 Mi-RAM-HQ/(8217:8217): Iniciando memoria RAM de 1000 bytes
+[INFO] 23:53:21:378 Mi-RAM-HQ/(8217:8217): Servidor listo
+[INFO] 23:53:30:127 Mi-RAM-HQ/(8217:8217): Conexión establecida con el discordiador
+[INFO] 23:53:30:129 Mi-RAM-HQ/(8217:8217): Esperando información del discordiador
+[INFO] 23:53:34:836 Mi-RAM-HQ/(8217:8217): Discordiador solicitó iniciar_patota
+[INFO] 23:53:34:837 Mi-RAM-HQ/(8217:8217): CREO SEGMENTO PCB
+[INFO] 23:53:34:838 Mi-RAM-HQ/(8217:8217): CREO SEGMENTO TAREAS
+[INFO] 23:54:37:507 Mi-RAM-HQ/(8497:8497): Iniciando memoria RAM de 1000 bytes
+[INFO] 23:54:37:507 Mi-RAM-HQ/(8497:8497): Servidor listo
+[INFO] 23:54:39:006 Mi-RAM-HQ/(8497:8497): Conexión establecida con el discordiador
+[INFO] 23:54:39:008 Mi-RAM-HQ/(8497:8497): Esperando información del discordiador
+[INFO] 23:54:42:260 Mi-RAM-HQ/(8497:8497): Discordiador solicitó iniciar_patota
+[INFO] 23:54:42:261 Mi-RAM-HQ/(8497:8497): CREO SEGMENTO PCB
+[INFO] 23:54:42:261 Mi-RAM-HQ/(8497:8497): CREO SEGMENTO TAREAS
+[INFO] 23:56:57:575 Mi-RAM-HQ/(8613:8613): Iniciando memoria RAM de 1000 bytes
+[INFO] 23:56:57:577 Mi-RAM-HQ/(8613:8613): Servidor listo
+[INFO] 23:57:00:026 Mi-RAM-HQ/(8613:8613): Conexión establecida con el discordiador
+[INFO] 23:57:00:026 Mi-RAM-HQ/(8613:8613): Esperando información del discordiador
+[INFO] 23:57:03:808 Mi-RAM-HQ/(8613:8613): Discordiador solicitó iniciar_patota
+[INFO] 23:57:03:809 Mi-RAM-HQ/(8613:8613): CREO SEGMENTO PCB
+[INFO] 23:57:03:809 Mi-RAM-HQ/(8613:8613): CREO SEGMENTO TAREAS
+[INFO] 00:12:12:050 Mi-RAM-HQ/(9590:9590): Iniciando memoria RAM de 1000 bytes
+[INFO] 00:12:12:050 Mi-RAM-HQ/(9590:9590): Servidor listo
+[INFO] 00:12:19:034 Mi-RAM-HQ/(9590:9590): Conexión establecida con el discordiador
+[INFO] 00:12:19:035 Mi-RAM-HQ/(9590:9590): Esperando información del discordiador
+[INFO] 00:12:22:560 Mi-RAM-HQ/(9590:9590): Discordiador solicitó iniciar_patota
+[INFO] 00:12:22:561 Mi-RAM-HQ/(9590:9590): CREO SEGMENTO PCB
+[INFO] 00:12:22:561 Mi-RAM-HQ/(9590:9590): CREO SEGMENTO TAREAS
+[INFO] 00:12:22:561 Mi-RAM-HQ/(9590:9590): nuevo segmentar
+[INFO] 00:12:22:561 Mi-RAM-HQ/(9590:9590): nuevo segmentar
+[INFO] 00:12:22:561 Mi-RAM-HQ/(9590:9590): Esperando información del discordiador
+[INFO] 00:12:32:962 Mi-RAM-HQ/(9590:9590): Discordiador solicitó iniciar_patota
+[INFO] 00:12:32:962 Mi-RAM-HQ/(9590:9590): CREO SEGMENTO PCB
+[INFO] 00:12:32:962 Mi-RAM-HQ/(9590:9590): CREO SEGMENTO TAREAS
+[INFO] 00:12:32:962 Mi-RAM-HQ/(9590:9590): nuevo segmentar
+[INFO] 00:12:32:962 Mi-RAM-HQ/(9590:9590): nuevo segmentar
+[INFO] 00:12:32:962 Mi-RAM-HQ/(9590:9590): Esperando información del discordiador
+[INFO] 00:12:40:387 Mi-RAM-HQ/(9590:9590): Discordiador solicitó iniciar_tripulante
+[INFO] 00:12:40:388 Mi-RAM-HQ/(9590:9590): Envío respuesta al discordiador
+[INFO] 00:12:40:388 Mi-RAM-HQ/(9590:9590): Esperando información del discordiador
+[INFO] 00:12:40:391 HILOX/(9590:9593): HOLA MUNDO, SOY UN HILO 1
+[INFO] 00:12:45:027 Mi-RAM-HQ/(9590:9590): Discordiador solicitó iniciar_tripulante
+[INFO] 00:12:45:027 Mi-RAM-HQ/(9590:9590): Envío respuesta al discordiador
+[INFO] 00:12:45:027 Mi-RAM-HQ/(9590:9590): Esperando información del discordiador
+[INFO] 00:12:45:031 HILOX/(9590:9595): HOLA MUNDO, SOY UN HILO 2
+[INFO] 00:12:45:697 Mi-RAM-HQ/(9590:9590): Discordiador solicitó iniciar_tripulante
+[INFO] 12:07:10:445 Mi-RAM-HQ/(2436:2436): Iniciando memoria RAM de 1000 bytes
+[INFO] 12:07:10:473 Mi-RAM-HQ/(2436:2436): Servidor listo
+[INFO] 12:07:35:979 Mi-RAM-HQ/(2436:2436): Conexión establecida con el discordiador
+[INFO] 12:07:35:981 Mi-RAM-HQ/(2436:2436): Esperando información del discordiador
+[INFO] 12:07:41:019 Mi-RAM-HQ/(2436:2436): Discordiador solicitó iniciar_patota
+[INFO] 12:07:41:020 Mi-RAM-HQ/(2436:2436): CREO SEGMENTO PCB
+[INFO] 12:07:41:020 Mi-RAM-HQ/(2436:2436): CREO SEGMENTO TAREAS
+[INFO] 12:07:41:020 Mi-RAM-HQ/(2436:2436): nuevo segmentar
+[INFO] 12:07:41:020 Mi-RAM-HQ/(2436:2436): nuevo segmentar
+[INFO] 12:07:41:020 Mi-RAM-HQ/(2436:2436): Esperando información del discordiador
+[INFO] 12:56:04:046 Mi-RAM-HQ/(2436:2436): Cliente desconectado
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Resultados
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Lista segmentos: 3
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Segmento 1 0
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Duenio: 0
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Inicio: 0
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Tamanio: 8
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Segmento 2 1
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Duenio: 0
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Inicio: 8
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Tamanio: 30
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Segmento 3 2
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Duenio: 0
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Inicio: 38
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Tamanio: 962
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Lista de patotas: 1
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Patota 1, 1
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Tamanio tabla: 2
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Inicio elemento 1: 0
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Inicio elemento 2: 8
+[INFO] 12:56:04:050 Mi-RAM-HQ/(2436:2436): Lista de tripulantes: 0
+[INFO] 12:57:49:919 Mi-RAM-HQ/(3216:3216): Iniciando memoria RAM de 1000 bytes
+[INFO] 12:57:49:921 Mi-RAM-HQ/(3216:3216): Servidor listo
+[INFO] 12:57:55:173 Mi-RAM-HQ/(3216:3216): Conexión establecida con el discordiador
+[INFO] 12:57:55:174 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:57:59:292 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_patota
+[INFO] 12:57:59:292 Mi-RAM-HQ/(3216:3216): CREO SEGMENTO PCB
+[INFO] 12:57:59:292 Mi-RAM-HQ/(3216:3216): CREO SEGMENTO TAREAS
+[INFO] 12:57:59:292 Mi-RAM-HQ/(3216:3216): nuevo segmentar
+[INFO] 12:57:59:292 Mi-RAM-HQ/(3216:3216): nuevo segmentar
+[INFO] 12:57:59:292 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:58:07:852 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_patota
+[INFO] 12:58:07:852 Mi-RAM-HQ/(3216:3216): CREO SEGMENTO PCB
+[INFO] 12:58:07:852 Mi-RAM-HQ/(3216:3216): CREO SEGMENTO TAREAS
+[INFO] 12:58:07:853 Mi-RAM-HQ/(3216:3216): nuevo segmentar
+[INFO] 12:58:07:853 Mi-RAM-HQ/(3216:3216): nuevo segmentar
+[INFO] 12:58:07:853 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:58:15:343 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_tripulante
+[INFO] 12:58:15:345 Mi-RAM-HQ/(3216:3216): Envío respuesta al discordiador
+[INFO] 12:58:15:345 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:58:15:349 HILOX/(3216:3321): HOLA MUNDO, SOY UN HILO 1
+[INFO] 12:58:17:191 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_tripulante
+[INFO] 12:58:17:191 Mi-RAM-HQ/(3216:3216): Envío respuesta al discordiador
+[INFO] 12:58:17:191 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:58:17:195 HILOX/(3216:3323): HOLA MUNDO, SOY UN HILO 2
+[INFO] 12:58:17:726 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_tripulante
+[INFO] 12:58:17:726 Mi-RAM-HQ/(3216:3216): Envío respuesta al discordiador
+[INFO] 12:58:17:726 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:58:17:730 HILOX/(3216:3325): HOLA MUNDO, SOY UN HILO 3
+[INFO] 12:58:18:307 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_tripulante
+[INFO] 12:58:18:307 Mi-RAM-HQ/(3216:3216): Envío respuesta al discordiador
+[INFO] 12:58:18:307 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:58:18:309 HILOX/(3216:3327): HOLA MUNDO, SOY UN HILO 4
+[INFO] 12:58:18:876 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_tripulante
+[INFO] 12:58:18:878 Mi-RAM-HQ/(3216:3216): Envío respuesta al discordiador
+[INFO] 12:58:18:878 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:58:18:882 HILOX/(3216:3329): HOLA MUNDO, SOY UN HILO 5
+[INFO] 12:58:19:442 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_tripulante
+[INFO] 12:58:19:443 Mi-RAM-HQ/(3216:3216): Envío respuesta al discordiador
+[INFO] 12:58:19:443 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:58:19:448 HILOX/(3216:3331): HOLA MUNDO, SOY UN HILO 6
+[INFO] 12:58:19:909 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_tripulante
+[INFO] 12:58:19:909 Mi-RAM-HQ/(3216:3216): Envío respuesta al discordiador
+[INFO] 12:58:19:909 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:58:19:913 HILOX/(3216:3333): HOLA MUNDO, SOY UN HILO 7
+[INFO] 12:58:20:328 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_tripulante
+[INFO] 12:58:20:330 Mi-RAM-HQ/(3216:3216): Envío respuesta al discordiador
+[INFO] 12:58:20:330 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:58:20:334 HILOX/(3216:3335): HOLA MUNDO, SOY UN HILO 8
+[INFO] 12:58:20:734 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_tripulante
+[INFO] 12:58:20:735 Mi-RAM-HQ/(3216:3216): Envío respuesta al discordiador
+[INFO] 12:58:20:735 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:58:20:738 HILOX/(3216:3337): HOLA MUNDO, SOY UN HILO 9
+[INFO] 12:58:21:202 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_tripulante
+[INFO] 12:58:21:204 Mi-RAM-HQ/(3216:3216): Envío respuesta al discordiador
+[INFO] 12:58:21:204 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:58:21:209 HILOX/(3216:3339): HOLA MUNDO, SOY UN HILO 10
+[INFO] 12:58:21:697 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_tripulante
+[INFO] 12:58:21:698 Mi-RAM-HQ/(3216:3216): Envío respuesta al discordiador
+[INFO] 12:58:21:698 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:58:21:702 HILOX/(3216:3341): HOLA MUNDO, SOY UN HILO 11
+[INFO] 12:58:22:190 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_tripulante
+[INFO] 12:58:22:191 Mi-RAM-HQ/(3216:3216): Envío respuesta al discordiador
+[INFO] 12:58:22:191 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:58:22:196 HILOX/(3216:3343): HOLA MUNDO, SOY UN HILO 12
+[INFO] 12:58:22:661 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_tripulante
+[INFO] 12:58:22:661 Mi-RAM-HQ/(3216:3216): Envío respuesta al discordiador
+[INFO] 12:58:22:661 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:58:22:664 HILOX/(3216:3345): HOLA MUNDO, SOY UN HILO 13
+[INFO] 12:58:23:141 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_tripulante
+[INFO] 12:58:23:142 Mi-RAM-HQ/(3216:3216): Envío respuesta al discordiador
+[INFO] 12:58:23:142 Mi-RAM-HQ/(3216:3216): Esperando información del discordiador
+[INFO] 12:58:23:147 HILOX/(3216:3347): HOLA MUNDO, SOY UN HILO 14
+[INFO] 12:58:23:576 Mi-RAM-HQ/(3216:3216): Discordiador solicitó iniciar_tripulante
+[INFO] 13:01:03:961 Mi-RAM-HQ/(3462:3462): Iniciando memoria RAM de 1000 bytes
+[INFO] 13:01:03:963 Mi-RAM-HQ/(3462:3462): Servidor listo
+[INFO] 13:01:08:625 Mi-RAM-HQ/(3462:3462): Conexión establecida con el discordiador
+[INFO] 13:01:08:627 Mi-RAM-HQ/(3462:3462): Esperando información del discordiador
+[INFO] 13:01:13:277 Mi-RAM-HQ/(3462:3462): Discordiador solicitó iniciar_patota
+[INFO] 13:01:13:278 Mi-RAM-HQ/(3462:3462): CREO SEGMENTO PCB
+[INFO] 13:01:13:278 Mi-RAM-HQ/(3462:3462): CREO SEGMENTO TAREAS
+[INFO] 13:01:13:278 Mi-RAM-HQ/(3462:3462): nuevo segmentar
+[INFO] 13:01:13:278 Mi-RAM-HQ/(3462:3462): nuevo segmentar
+[INFO] 13:01:13:278 Mi-RAM-HQ/(3462:3462): Esperando información del discordiador
+[INFO] 13:01:21:499 Mi-RAM-HQ/(3462:3462): Discordiador solicitó iniciar_tripulante
+[INFO] 13:01:21:499 Mi-RAM-HQ/(3462:3462): Envío respuesta al discordiador
+[INFO] 13:01:21:499 Mi-RAM-HQ/(3462:3462): Esperando información del discordiador
+[INFO] 13:01:21:504 HILOX/(3462:3552): HOLA MUNDO, SOY UN HILO 1
+[INFO] 13:01:23:356 Mi-RAM-HQ/(3462:3462): Discordiador solicitó iniciar_tripulante
+[INFO] 13:01:23:356 Mi-RAM-HQ/(3462:3462): Envío respuesta al discordiador
+[INFO] 13:01:23:357 Mi-RAM-HQ/(3462:3462): Esperando información del discordiador
+[INFO] 13:01:23:361 HILOX/(3462:3554): HOLA MUNDO, SOY UN HILO 2
+[INFO] 13:01:25:153 Mi-RAM-HQ/(3462:3462): Cliente desconectado
+[WARNING] 13:01:25:154 HILOX/(3462:3554): La conexión remota se ha desconectado.
+[WARNING] 13:01:25:154 HILOX/(3462:3552): La conexión remota se ha desconectado.
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Resultados
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Lista segmentos: 5
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Segmento 1 0
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Duenio: 1
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Inicio: 0
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Tamanio: 8
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Tamanio: 136195440
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Segmento 2 1
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Duenio: 1
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Inicio: 8
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Tamanio: 30
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Tamanio: 136195448
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Segmento 3 2
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Duenio: 0
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Inicio: 38
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Tamanio: 24
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Tamanio: 136195478
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Segmento 4 3
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Duenio: 0
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Inicio: 62
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Tamanio: 0
+[INFO] 13:01:25:156 Mi-RAM-HQ/(3462:3462): Tamanio: 136195502
+[INFO] 13:01:25:157 Mi-RAM-HQ/(3462:3462): Segmento 5 3
+[INFO] 13:01:25:157 Mi-RAM-HQ/(3462:3462): Duenio: 0
+[INFO] 13:01:25:157 Mi-RAM-HQ/(3462:3462): Inicio: 62
+[INFO] 13:01:25:157 Mi-RAM-HQ/(3462:3462): Tamanio: 938
+[INFO] 13:01:25:157 Mi-RAM-HQ/(3462:3462): Tamanio: 136195502
+[INFO] 13:01:25:157 Mi-RAM-HQ/(3462:3462): Lista de patotas: 1
+[INFO] 13:01:25:157 Mi-RAM-HQ/(3462:3462): Patota 1, 1
+[INFO] 13:01:25:157 Mi-RAM-HQ/(3462:3462): Tamanio tabla: 3
+[INFO] 13:01:25:157 Mi-RAM-HQ/(3462:3462): Inicio elemento 1: 0
+[INFO] 13:01:25:157 Mi-RAM-HQ/(3462:3462): Inicio elemento 2: 8
+[INFO] 13:01:25:157 Mi-RAM-HQ/(3462:3462): Inicio elemento 3: 38
+[INFO] 13:01:25:157 Mi-RAM-HQ/(3462:3462): Lista de tripulantes: 2
+[INFO] 13:01:25:157 Mi-RAM-HQ/(3462:3462): TID 1
+[INFO] 13:01:25:157 Mi-RAM-HQ/(3462:3462): PID: 1
+[INFO] 13:01:25:157 Mi-RAM-HQ/(3462:3462): TID 2
+[INFO] 13:01:25:157 Mi-RAM-HQ/(3462:3462): PID: 1
+[INFO] 13:02:48:970 Mi-RAM-HQ/(3657:3657): Iniciando memoria RAM de 1000 bytes
+[INFO] 13:02:48:973 Mi-RAM-HQ/(3657:3657): Servidor listo
+[INFO] 13:02:51:663 Mi-RAM-HQ/(3657:3657): Conexión establecida con el discordiador
+[INFO] 13:02:51:664 Mi-RAM-HQ/(3657:3657): Esperando información del discordiador
+[INFO] 13:02:54:660 Mi-RAM-HQ/(3657:3657): Discordiador solicitó iniciar_patota
+[INFO] 13:02:54:661 Mi-RAM-HQ/(3657:3657): CREO SEGMENTO PCB
+[INFO] 13:02:54:661 Mi-RAM-HQ/(3657:3657): CREO SEGMENTO TAREAS
+[INFO] 13:02:54:661 Mi-RAM-HQ/(3657:3657): nuevo segmentar
+[INFO] 13:02:54:661 Mi-RAM-HQ/(3657:3657): nuevo segmentar
+[INFO] 13:02:54:661 Mi-RAM-HQ/(3657:3657): Esperando información del discordiador
+[INFO] 13:03:00:634 Mi-RAM-HQ/(3657:3657): Discordiador solicitó iniciar_tripulante
+[INFO] 13:03:00:634 Mi-RAM-HQ/(3657:3657): Envío respuesta al discordiador
+[INFO] 13:03:00:634 Mi-RAM-HQ/(3657:3657): Esperando información del discordiador
+[INFO] 13:03:00:634 HILOX/(3657:3659): HOLA MUNDO, SOY UN HILO 1
+[INFO] 13:03:02:785 Mi-RAM-HQ/(3657:3657): Cliente desconectado
+[WARNING] 13:03:02:786 HILOX/(3657:3659): La conexión remota se ha desconectado.
+[INFO] 13:03:02:787 Mi-RAM-HQ/(3657:3657): Resultados
+[INFO] 13:03:02:787 Mi-RAM-HQ/(3657:3657): Lista segmentos: 4
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Segmento 1 0
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Duenio: 1
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Inicio: 0
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Tamanio: 8
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Tamanio: 164502896
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Segmento 2 1
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Duenio: 1
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Inicio: 8
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Tamanio: 30
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Tamanio: 164502904
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Segmento 3 2
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Duenio: 0
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Inicio: 38
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Tamanio: 24
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Tamanio: 164502934
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Segmento 4 3
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Duenio: 0
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Inicio: 62
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Tamanio: 938
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Tamanio: 164502958
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Lista de patotas: 1
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Patota 1, 1
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Tamanio tabla: 2
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Inicio elemento 1: 0
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Inicio elemento 2: 8
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): Lista de tripulantes: 1
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): TID 1
+[INFO] 13:03:02:788 Mi-RAM-HQ/(3657:3657): PID: 1
+[INFO] 13:05:35:980 Mi-RAM-HQ/(3873:3873): Iniciando memoria RAM de 1000 bytes
+[INFO] 13:05:35:982 Mi-RAM-HQ/(3873:3873): Servidor listo
+[INFO] 13:05:39:176 Mi-RAM-HQ/(3873:3873): Conexión establecida con el discordiador
+[INFO] 13:05:39:177 Mi-RAM-HQ/(3873:3873): Esperando información del discordiador
+[INFO] 13:05:43:284 Mi-RAM-HQ/(3873:3873): Discordiador solicitó iniciar_patota
+[INFO] 13:05:43:285 Mi-RAM-HQ/(3873:3873): CREO SEGMENTO PCB
+[INFO] 13:05:43:285 Mi-RAM-HQ/(3873:3873): CREO SEGMENTO TAREAS
+[INFO] 13:05:43:285 Mi-RAM-HQ/(3873:3873): nuevo segmentar
+[INFO] 13:05:43:285 Mi-RAM-HQ/(3873:3873): nuevo segmentar
+[INFO] 13:05:43:285 Mi-RAM-HQ/(3873:3873): Esperando información del discordiador
+[INFO] 13:05:45:493 Mi-RAM-HQ/(3873:3873): Discordiador solicitó iniciar_patota
+[INFO] 13:05:45:493 Mi-RAM-HQ/(3873:3873): CREO SEGMENTO PCB
+[INFO] 13:05:45:493 Mi-RAM-HQ/(3873:3873): CREO SEGMENTO TAREAS
+[INFO] 13:05:45:493 Mi-RAM-HQ/(3873:3873): nuevo segmentar
+[INFO] 13:05:45:493 Mi-RAM-HQ/(3873:3873): nuevo segmentar
+[INFO] 13:05:45:493 Mi-RAM-HQ/(3873:3873): Esperando información del discordiador
+[INFO] 13:05:49:475 Mi-RAM-HQ/(3873:3873): Discordiador solicitó iniciar_tripulante
+[INFO] 13:05:49:477 Mi-RAM-HQ/(3873:3873): Envío respuesta al discordiador
+[INFO] 13:05:49:477 Mi-RAM-HQ/(3873:3873): Esperando información del discordiador
+[INFO] 13:05:49:482 HILOX/(3873:3875): HOLA MUNDO, SOY UN HILO 1
+[INFO] 13:05:51:058 Mi-RAM-HQ/(3873:3873): Discordiador solicitó iniciar_tripulante
+[INFO] 13:05:51:058 Mi-RAM-HQ/(3873:3873): Envío respuesta al discordiador
+[INFO] 13:05:51:058 Mi-RAM-HQ/(3873:3873): Esperando información del discordiador
+[INFO] 13:05:51:062 HILOX/(3873:3877): HOLA MUNDO, SOY UN HILO 2
+[INFO] 13:05:52:892 Mi-RAM-HQ/(3873:3873): Cliente desconectado
+[WARNING] 13:05:52:893 HILOX/(3873:3877): La conexión remota se ha desconectado.
+[WARNING] 13:05:52:893 HILOX/(3873:3875): La conexión remota se ha desconectado.
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Resultados
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Lista segmentos: 7
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Segmento 1 0
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Duenio: 1
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Inicio: 0
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Tamanio: 8
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Primer elemento: 1
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Segmento 2 1
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Duenio: 1
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Inicio: 8
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Tamanio: 30
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Primer elemento: 1667853929
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Segmento 3 2
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Duenio: 2
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Inicio: 38
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Tamanio: 8
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Primer elemento: 2
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Segmento 4 3
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Duenio: 2
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Inicio: 46
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Tamanio: 30
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Primer elemento: 1667853929
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Segmento 5 4
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Duenio: 0
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Inicio: 76
+[INFO] 13:05:52:895 Mi-RAM-HQ/(3873:3873): Tamanio: 24
+[INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Primer elemento: 2
+[INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Segmento 6 5
+[INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Duenio: 0
+[INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Inicio: 100
+[INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Tamanio: 0
+[INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Primer elemento: 0
+[INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Segmento 7 5
+[INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Duenio: 0
+[INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Inicio: 100
+[INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Tamanio: 900
+[INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Primer elemento: 0
+[INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Lista de patotas: 2
+[INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Patota 1, 1
+[INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Tamanio tabla: 2
+[INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Inicio elemento 1: 0
+[WARNING] 13:05:52:898 HILOX/(3873:3875): La conexión remota se ha desconectado.

@@ -3,6 +3,7 @@
 int memoria_libre;
 void* memoria_ram;
 algoritmo_segmento algoritmo;
+int variable = 1;
 
 int main(void) {
 	t_log* logger = log_create("miramhq.log", "Mi-RAM-HQ", 1, LOG_LEVEL_DEBUG);
@@ -90,7 +91,7 @@ int main(void) {
 			}
 			else {
 				int socket_nuevo = crear_conexion_servidor(IP_RAM, 0, 1);
-				
+				// nuevo_trip->hilo = hilo_nuevo;
 				pthread_t* hilo_nuevo = malloc(sizeof(pthread_t));
 
 				pthread_create(hilo_nuevo, NULL, rutina_hilos, (void *)socket_nuevo);
@@ -124,13 +125,16 @@ int main(void) {
 		log_info(logger, "Duenio: %d", ((t_segmento *)list_get(mapa_segmentos, i))->duenio);
 		log_info(logger, "Inicio: %d", ((t_segmento *)list_get(mapa_segmentos, i))->inicio);
 		log_info(logger, "Tamanio: %d", ((t_segmento *)list_get(mapa_segmentos, i))->tamanio);
+		uint32_t primer_elemento;
+		memcpy(&primer_elemento, memoria_ram + ((t_segmento *)list_get(mapa_segmentos, i))->inicio, sizeof(uint32_t));
+		log_info(logger, "Primer elemento: %d", primer_elemento);
 	}
 	log_info(logger, "Lista de patotas: %d", lista_patotas->elements_count);
 	for (int i = 0; i < lista_patotas->elements_count; i++) {
 		log_info(logger, "Patota %d, %d", i + 1, ((patota_data *)list_get(lista_patotas, i))->PID);
 		log_info(logger, "Tamanio tabla: %d", ((patota_data *)list_get(lista_patotas, i))->tamanio_tabla);
 		for(int b = 0; b < ((patota_data *)list_get(lista_patotas, i))->tamanio_tabla; b++) {
-			log_info(logger, "Inicio elemento %d: %d", b +1, ((patota_data *)list_get(lista_patotas, i))->tabla_segmentos[b]);	
+			log_info(logger, "Inicio elemento %d: %d", b + 1, ((patota_data *)list_get(lista_patotas, i))->tabla_segmentos[b]);	
 		}
 	}
 	log_info(logger, "Lista de tripulantes: %d", lista_tripulantes->elements_count);
@@ -143,7 +147,8 @@ int main(void) {
 
 void* rutina_hilos(void* socket, t_tripulante* mi_tripulante) {
 	t_log* logger = log_create("miramhq.log", "HILOX", 1, LOG_LEVEL_INFO);
-	log_info(logger, "HOLA MUNDO, SOY UN HILO");
+	log_info(logger, "HOLA MUNDO, SOY UN HILO %d", variable);
+	variable++;
 	
 	int socket_cliente = esperar_cliente((int)socket);
 	// data_socket((int)socket, logger);
@@ -164,56 +169,48 @@ void* rutina_hilos(void* socket, t_tripulante* mi_tripulante) {
 	return 0;
 }
 
-void segmentar_pcb(t_segmento* segmento_pcb, uint32_t patota, t_segmento* segmento_tareas) {
-	t_patota* nueva_patota = malloc(sizeof(t_patota));
-	nueva_patota->PID = patota;
-	nueva_patota->tareas = segmento_tareas->inicio;
-	segmento_pcb->duenio = patota;
-	memcpy(memoria_ram + segmento_pcb->inicio, nueva_patota, sizeof(t_patota));
-	free(nueva_patota);
-}
 
-void segmentar_tareas(t_segmento* segmento_tareas, uint32_t patota, char** vector_tareas) {
-	segmento_tareas->duenio = patota;
-	memcpy(memoria_ram + segmento_tareas->inicio, vector_tareas, segmento_tareas->tamanio);
-}
-
-void segmentar_tcb(t_segmento* segmento_tcb, uint32_t patota, t_tripulante* nuevo_tripulante) {
-	segmento_tcb->duenio = patota;
-	memcpy(memoria_ram + segmento_tcb->inicio, nuevo_tripulante, sizeof(t_tripulante));
-}
 
 bool iniciar_patota(t_log* logger, t_list* parametros, t_list* mapa_segmentos, t_list* lista_patotas, int patota) {
 	int tamanio_pcb = sizeof(t_patota);
-	int tamanio_tareas = 0;
-	
+	int tamanio_tarea = 0;
+	int tamanio_bloque_tareas = 0;
 	int cantidad_tareas = (int)list_get(parametros, 3);
-	char** vector_tareas = malloc(sizeof(char *) * cantidad_tareas);
+	char** vtareas = malloc(sizeof(char *) * cantidad_tareas);
+	uint32_t* vtareas_inicio = malloc(sizeof(uint32_t) * cantidad_tareas);
+	uint32_t* vtareas_tamanio = malloc(sizeof(uint32_t) * cantidad_tareas);
+
 	for(int i = 0; i < cantidad_tareas; i++) {
 		char* tarea_i = (char *)list_get(parametros, 4 + i);
-		tamanio_tareas += strlen(tarea_i) + 1;
-		vector_tareas[i] = tarea_i;
+		vtareas_inicio[i] = tamanio_bloque_tareas;
+		tamanio_tarea = strlen(tarea_i) + 1;
+		tamanio_bloque_tareas += tamanio_tarea;
+		vtareas[i] = tarea_i;
+		vtareas_tamanio[i] = tamanio_tarea;
 	}
 
-	if (tamanio_pcb + tamanio_tareas > memoria_libre) {
+	if (tamanio_pcb + tamanio_bloque_tareas > memoria_libre) {
 		return false;
 	}
+	// CREO SEGMENTOS
+	log_info(logger, "CREO SEGMENTO PCB");
 	t_segmento* segmento_pcb = crear_segmento(mapa_segmentos, tamanio_pcb, algoritmo);
 	if(segmento_pcb == NULL) {
 		log_info(logger, "Entro a realizar compactacion");
 		// uint32_t final_memoria = realizar_compactacion();
 		segmento_pcb = crear_segmento(mapa_segmentos, tamanio_pcb, algoritmo);
 	}
-	
-	t_segmento* segmento_tareas = crear_segmento(mapa_segmentos, tamanio_tareas, algoritmo);
+	segmento_pcb->duenio = patota;
+	log_info(logger, "CREO SEGMENTO TAREAS");
+	t_segmento* segmento_tareas = crear_segmento(mapa_segmentos, tamanio_bloque_tareas, algoritmo);
+	printf("Cree segmento tareas\n");
 	if(segmento_tareas == NULL) {	
 		log_info(logger, "Entro a realizar compactacion");
 		// uint32_t final_memoria = realizar_compactacion();
-		segmento_tareas = crear_segmento(mapa_segmentos, tamanio_tareas, algoritmo);
+		segmento_tareas = crear_segmento(mapa_segmentos, tamanio_bloque_tareas, algoritmo);
 	}
-
-	segmentar_pcb(segmento_pcb, patota, segmento_tareas);
-	segmentar_tareas(segmento_tareas, patota, vector_tareas);
+	segmento_tareas->duenio = patota;
+	// CREO ESTRUCTURA PATOTA PARA GUARDAR EN TABLA
 	patota_data* nueva_patota = malloc(sizeof(patota_data));
 	nueva_patota->PID = patota;
 	nueva_patota->tabla_segmentos = malloc(2 * sizeof(uint32_t));
@@ -221,6 +218,57 @@ bool iniciar_patota(t_log* logger, t_list* parametros, t_list* mapa_segmentos, t
 	nueva_patota->tabla_segmentos[1] = segmento_tareas->inicio;
 	nueva_patota->tamanio_tabla = 2;
 	list_add(lista_patotas, nueva_patota);
+	printf("Cree estructrua patota\n");
+	// CREO ESTRUCTURA TAREAS PARA GUARDAR EN TABLA
+	tareas_data* nuevo_bloque_tareas = malloc(sizeof(tareas_data));
+	nuevo_bloque_tareas->cant_tareas = cantidad_tareas;
+	nuevo_bloque_tareas->inicio_tareas = vtareas_inicio;
+	nuevo_bloque_tareas->tamanio_tareas = vtareas_tamanio;
+	
+	// SEGMENTO PCB
+	/*t_list* parametros_pcb = list_create();
+	log_info(logger, "AGREGO PARAM");
+	agregar_parametro_a_segmento(parametros_pcb, (void *)patota, T_ENTERO);
+	log_info(logger, "AGREGO PARAM");
+	agregar_parametro_a_segmento(parametros_pcb, (void *)patota, T_ENTERO);
+	log_info(logger, "AGREGO PARAM");
+	agregar_parametro_a_segmento(parametros_pcb, (void *)segmento_tareas->inicio, T_ENTERO);
+	log_info(logger, "SEGMENTO PCB");
+	segmentar(memoria_ram, segmento_pcb, parametros_pcb);
+	list_destroy(parametros_pcb);*/
+	printf("Voy a nuevo segmentar pcb\n");
+	/*nuevo_segmentar(memoria_ram, segmento_pcb->inicio, (void *)patota, SEG_INT, sizeof(uint32_t));
+	nuevo_segmentar(memoria_ram, segmento_pcb->inicio + sizeof(uint32_t), (void *)segmento_tareas->inicio, SEG_INT, sizeof(uint32_t));
+	*/
+	segmentar_entero(memoria_ram, segmento_pcb->inicio, patota);
+	segmentar_entero(memoria_ram, segmento_pcb->inicio + sizeof(uint32_t), segmento_tareas->inicio);
+	// SEGMENTO TAREAS
+	
+	/*t_list* parametros_tareas = list_create();
+	log_info(logger, "AGREGO PARAM");
+	agregar_parametro_a_segmento(parametros_pcb, (void *)patota, T_ENTERO);
+	for(int i = 0; i < cantidad_tareas; i++) {
+		log_info(logger, "AGREGO PARAM");
+		agregar_parametro_a_segmento(parametros_tareas, vector_tareas[i], T_CADENA);		
+	}
+	log_info(logger, "SEGMENTO TAREAS");
+	segmentar(memoria_ram, segmento_tareas, parametros_tareas);
+	list_destroy(parametros_tareas);*/
+
+	printf("Voy a nuevo segmentar tareas\n");
+	for(int i = 0; i < cantidad_tareas; i++) {
+		log_info(logger, "nuevo segmentar");
+		segmentar_string(memoria_ram, segmento_tareas->inicio + vtareas_inicio[i], vtareas[i]);
+		free(vtareas[i]);
+	}
+	
+	/*for(int i = 0; i < cantidad_tareas; i++) {
+		log_info(logger, "nuevo segmentar");
+		nuevo_segmentar(memoria_ram, segmento_tareas->inicio + nuevo_bloque_tareas->posiciones_tareas[i], vector_tareas[i], SEG_STRING, vector_tareas_tam[i]);
+		free(vector_tareas[i]);
+	}
+	free(vector_tareas);
+	free(vector_tareas_tam);*/
 	return true;
 }
 
@@ -236,25 +284,78 @@ bool iniciar_tripulante(t_log* logger, t_list* parametros, t_list* mapa_segmento
 		segmento_tcb = crear_segmento(mapa_segmentos, sizeof(t_tripulante), algoritmo);
 	}
 	
-	t_tripulante* nuevo_tripulante = malloc(sizeof(t_tripulante));
-	nuevo_tripulante->estado = 'N';
-	nuevo_tripulante->TID = (int)list_get(parametros, 2);
-	nuevo_tripulante->posicion_x = (int)list_get(parametros, 3);
-	nuevo_tripulante->posicion_y = (int)list_get(parametros, 4);
-	nuevo_tripulante->proxima_tarea = 0;
 	int id_patota = (int)list_get(parametros, 1);
 	patota_data* patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
-	nuevo_tripulante->pcb = patota->tabla_segmentos[0];
-	segmentar_tcb(segmento_tcb, (int)list_get(parametros, 1), nuevo_tripulante);
-	pthread_t* hilo_nuevo = malloc(sizeof(pthread_t));
+	// nuevo_tripulante->pcb = patota->tabla_segmentos[0];
+	/*
+	t_list* parametros_tcb = list_create();
+	list_add(parametros_tcb, list_get(parametros, 2));
+	list_add(parametros_tcb, 'N');
+	list_add(parametros_tcb, list_get(parametros, 3));
+	list_add(parametros_tcb, list_get(parametros, 4));
+	list_add(parametros_tcb, 0);
+	list_add(parametros_tcb, patota->tabla_segmentos[0]);*/
+	
+	
+	/*log_info(logger, "AGREGO PARAM");
+	agregar_parametro_a_segmento(parametros_tcb, (void *)id_patota, T_ENTERO);
+	log_info(logger, "AGREGO PARAM");
+	agregar_parametro_a_segmento(parametros_tcb, (void *)list_get(parametros, 2), T_ENTERO);
+	log_info(logger, "AGREGO PARAM");
+	agregar_parametro_a_segmento(parametros_tcb, (void *)'N', T_CARACTER);
+	log_info(logger, "AGREGO PARAM");
+	agregar_parametro_a_segmento(parametros_tcb, (void *)list_get(parametros, 3), T_ENTERO);
+	log_info(logger, "AGREGO PARAM");
+	agregar_parametro_a_segmento(parametros_tcb, (void *)list_get(parametros, 4), T_ENTERO);
+	log_info(logger, "AGREGO PARAM");
+	agregar_parametro_a_segmento(parametros_tcb, (void *)0, T_ENTERO);
+	log_info(logger, "AGREGO PARAM");
+	agregar_parametro_a_segmento(parametros_tcb, (void *)patota->tabla_segmentos, T_ENTERO);
+	log_info(logger, "SEGMENTO TCB");
+	segmentar(memoria_ram, segmento_tcb, parametros_tcb);
+	 uint32_t TID;
+    char estado;
+    uint32_t posicion_x;
+    uint32_t posicion_y;
+    uint32_t proxima_tarea;
+    uint32_t pcb;*/
+	/*segmentar_tcb(memoria_ram, segmento_tcb, parametros_tcb);
+	uint32_t desplazamiento = 0;
+	nuevo_segmentar(memoria_ram, segmento_tcb->inicio + desplazamiento, list_get(parametros, 2), SEG_INT, sizeof(uint32_t));
+	desplazamiento += sizeof(uint32_t);
+	nuevo_segmentar(memoria_ram, segmento_tcb->inicio + desplazamiento, (void *)'N', SEG_CHAR, sizeof(char));
+	desplazamiento += sizeof(char);
+	nuevo_segmentar(memoria_ram, segmento_tcb->inicio + desplazamiento, list_get(parametros, 3), SEG_INT, sizeof(uint32_t));
+	desplazamiento += sizeof(uint32_t);
+	nuevo_segmentar(memoria_ram, segmento_tcb->inicio + desplazamiento, list_get(parametros, 4), SEG_INT, sizeof(uint32_t));
+	desplazamiento += sizeof(uint32_t);
+	nuevo_segmentar(memoria_ram, segmento_tcb->inicio + desplazamiento, 0, SEG_INT, sizeof(uint32_t));
+	desplazamiento += sizeof(uint32_t);
+	nuevo_segmentar(memoria_ram, segmento_tcb->inicio + desplazamiento, (void *)patota->tabla_segmentos[0], SEG_INT, sizeof(uint32_t));
+	*/
+	uint32_t desplazamiento = 0;
+	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, (int)list_get(parametros, 2));
+	desplazamiento += sizeof(uint32_t);
+	segmentar_caracter(memoria_ram, segmento_tcb->inicio + desplazamiento, 'N');
+	desplazamiento += sizeof(char);
+	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, (int)list_get(parametros, 3));
+	desplazamiento += sizeof(uint32_t);
+	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, (int)list_get(parametros, 4));
+	desplazamiento += sizeof(uint32_t);
+	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, 0);
+	desplazamiento += sizeof(uint32_t);
+	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, patota->tabla_segmentos[0]);
+	// free(nuevo_tripulante);
+	// CREO ESTRUCTURA TRIPULANTE PARA GUARDAR EN TABLA
+	uint32_t TID = (int)list_get(parametros, 2);
 	trip_data* nuevo_trip = malloc(sizeof(trip_data));
 	nuevo_trip->PID = (uint32_t)list_get(parametros, 1);
-	nuevo_trip->hilo = hilo_nuevo;
 	nuevo_trip->TID = (uint32_t)list_get(parametros, 2);
-	if(patota->tamanio_tabla - 2 < nuevo_tripulante->TID) {
-		patota->tabla_segmentos = realloc(patota->tabla_segmentos, sizeof(uint32_t *) * nuevo_tripulante->TID + 2);
+	if(patota->tamanio_tabla - 2 < TID) {
+		patota->tabla_segmentos = realloc(patota->tabla_segmentos, sizeof(uint32_t *) * TID + 2);
+		patota->tamanio_tabla = TID;
 	}
-	patota->tabla_segmentos[nuevo_tripulante->TID + 1] = segmento_tcb->inicio;
+	patota->tabla_segmentos[TID + 1] = segmento_tcb->inicio;
 	patota->tamanio_tabla++;
 	list_add(lista_tripulantes, nuevo_trip);
 	return true;
