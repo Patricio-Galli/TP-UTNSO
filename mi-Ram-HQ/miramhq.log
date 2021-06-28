@@ -1272,3 +1272,414 @@
 [INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Tamanio tabla: 2
 [INFO] 13:05:52:896 Mi-RAM-HQ/(3873:3873): Inicio elemento 1: 0
 [WARNING] 13:05:52:898 HILOX/(3873:3875): La conexión remota se ha desconectado.
+[INFO] 13:33:47:002 Mi-RAM-HQ/(4082:4082): Iniciando memoria RAM de 1000 bytes
+[INFO] 13:33:47:006 Mi-RAM-HQ/(4082:4082): Servidor listo
+[INFO] 13:33:51:294 Mi-RAM-HQ/(4082:4082): Conexión establecida con el discordiador
+[INFO] 13:33:51:297 Mi-RAM-HQ/(4082:4082): Esperando información del discordiador
+[INFO] 13:33:55:057 Mi-RAM-HQ/(4082:4082): Discordiador solicitó iniciar_patota
+[INFO] 13:33:55:059 Mi-RAM-HQ/(4082:4082): CREO SEGMENTO PCB
+[INFO] 13:33:55:059 Mi-RAM-HQ/(4082:4082): CREO SEGMENTO TAREAS
+[INFO] 13:33:55:059 Mi-RAM-HQ/(4082:4082): nuevo segmentar
+[INFO] 13:33:55:059 Mi-RAM-HQ/(4082:4082): nuevo segmentar
+[INFO] 13:33:55:059 Mi-RAM-HQ/(4082:4082): Esperando información del discordiador
+[INFO] 13:33:59:830 Mi-RAM-HQ/(4082:4082): Discordiador solicitó iniciar_tripulante
+[INFO] 13:33:59:832 Mi-RAM-HQ/(4082:4082): Envío respuesta al discordiador
+[INFO] 13:33:59:832 Mi-RAM-HQ/(4082:4082): Esperando información del discordiador
+[INFO] 13:33:59:835 HILOX/(4082:4183): HOLA MUNDO, SOY UN HILO 1
+[INFO] 13:34:01:430 Mi-RAM-HQ/(4082:4082): Discordiador solicitó iniciar_tripulante
+[INFO] 13:34:01:430 Mi-RAM-HQ/(4082:4082): Envío respuesta al discordiador
+[INFO] 13:34:01:430 Mi-RAM-HQ/(4082:4082): Esperando información del discordiador
+[INFO] 13:34:28:913 Mi-RAM-HQ/(4188:4188): Iniciando memoria RAM de 1000 bytes
+[INFO] 13:34:28:917 Mi-RAM-HQ/(4188:4188): Servidor listo
+[INFO] 13:34:30:506 Mi-RAM-HQ/(4188:4188): Conexión establecida con el discordiador
+[INFO] 13:34:30:507 Mi-RAM-HQ/(4188:4188): Esperando información del discordiador
+[INFO] 13:34:35:679 Mi-RAM-HQ/(4188:4188): Discordiador solicitó iniciar_patota
+[INFO] 13:34:35:679 Mi-RAM-HQ/(4188:4188): CREO SEGMENTO PCB
+[INFO] 13:34:35:679 Mi-RAM-HQ/(4188:4188): CREO SEGMENTO TAREAS
+[INFO] 13:34:35:679 Mi-RAM-HQ/(4188:4188): nuevo segmentar
+[INFO] 13:34:35:679 Mi-RAM-HQ/(4188:4188): nuevo segmentar
+[INFO] 13:34:35:679 Mi-RAM-HQ/(4188:4188): Esperando información del discordiador
+[INFO] 13:34:39:858 Mi-RAM-HQ/(4188:4188): Discordiador solicitó iniciar_tripulante
+[INFO] 13:34:39:860 Mi-RAM-HQ/(4188:4188): Envío respuesta al discordiador
+[INFO] 13:34:39:860 Mi-RAM-HQ/(4188:4188): Esperando información del discordiador
+[INFO] 13:34:39:863 HILOX/(4188:4190): HOLA MUNDO, SOY UN HILO 1
+[INFO] 13:34:41:289 Mi-RAM-HQ/(4188:4188): Discordiador solicitó iniciar_tripulante
+[INFO] 13:34:41:289 Mi-RAM-HQ/(4188:4188): Envío respuesta al discordiador
+[INFO] 13:34:41:289 Mi-RAM-HQ/(4188:4188): Esperando información del discordiador
+[INFO] 13:34:51:582 Mi-RAM-HQ/(4195:4195): Iniciando memoria RAM de 1000 bytes
+[INFO] 13:34:51:586 Mi-RAM-HQ/(4195:4195): Servidor listo
+[INFO] 13:34:59:199 Mi-RAM-HQ/(4195:4195): Conexión establecida con el discordiador
+[INFO] 13:34:59:200 Mi-RAM-HQ/(4195:4195): Esperando información del discordiador
+[INFO] 13:35:04:707 Mi-RAM-HQ/(4195:4195): Discordiador solicitó iniciar_patota
+[INFO] 13:35:04:709 Mi-RAM-HQ/(4195:4195): CREO SEGMENTO PCB
+[INFO] 13:35:04:709 Mi-RAM-HQ/(4195:4195): CREO SEGMENTO TAREAS
+[INFO] 13:35:04:709 Mi-RAM-HQ/(4195:4195): nuevo segmentar
+[INFO] 13:35:04:709 Mi-RAM-HQ/(4195:4195): nuevo segmentar
+[INFO] 13:35:04:714 Mi-RAM-HQ/(4195:4195): Esperando información del discordiador
+[INFO] 13:35:11:027 Mi-RAM-HQ/(4195:4195): Discordiador solicitó iniciar_tripulante
+[INFO] 13:35:11:027 Mi-RAM-HQ/(4195:4195): Envío respuesta al discordiador
+[INFO] 13:35:11:027 Mi-RAM-HQ/(4195:4195): Esperando información del discordiador
+[INFO] 13:35:11:030 HILOX/(4195:4197): HOLA MUNDO, SOY UN HILO 1
+[INFO] 13:35:12:846 Mi-RAM-HQ/(4195:4195): Discordiador solicitó iniciar_patota
+[INFO] 13:35:12:847 Mi-RAM-HQ/(4195:4195): CREO SEGMENTO PCB
+[INFO] 13:35:12:847 Mi-RAM-HQ/(4195:4195): CREO SEGMENTO TAREAS
+[INFO] 13:35:12:847 Mi-RAM-HQ/(4195:4195): nuevo segmentar
+[INFO] 13:35:12:847 Mi-RAM-HQ/(4195:4195): nuevo segmentar
+[INFO] 13:35:12:847 Mi-RAM-HQ/(4195:4195): Esperando información del discordiador
+[INFO] 13:35:13:798 Mi-RAM-HQ/(4195:4195): Discordiador solicitó iniciar_tripulante
+[INFO] 13:35:13:798 Mi-RAM-HQ/(4195:4195): Envío respuesta al discordiador
+[INFO] 13:35:13:798 Mi-RAM-HQ/(4195:4195): Esperando información del discordiador
+[INFO] 13:35:13:802 HILOX/(4195:4199): HOLA MUNDO, SOY UN HILO 2
+[INFO] 13:35:15:098 Mi-RAM-HQ/(4195:4195): Discordiador solicitó iniciar_patota
+[INFO] 13:35:15:100 Mi-RAM-HQ/(4195:4195): CREO SEGMENTO PCB
+[INFO] 13:35:15:100 Mi-RAM-HQ/(4195:4195): CREO SEGMENTO TAREAS
+[INFO] 13:35:15:100 Mi-RAM-HQ/(4195:4195): nuevo segmentar
+[INFO] 13:35:15:100 Mi-RAM-HQ/(4195:4195): nuevo segmentar
+[INFO] 13:35:15:100 Mi-RAM-HQ/(4195:4195): Esperando información del discordiador
+[INFO] 13:35:16:133 Mi-RAM-HQ/(4195:4195): Discordiador solicitó iniciar_tripulante
+[INFO] 13:35:16:133 Mi-RAM-HQ/(4195:4195): Envío respuesta al discordiador
+[INFO] 13:35:16:133 Mi-RAM-HQ/(4195:4195): Esperando información del discordiador
+[INFO] 13:35:16:137 HILOX/(4195:4201): HOLA MUNDO, SOY UN HILO 3
+[INFO] 13:35:16:938 Mi-RAM-HQ/(4195:4195): Discordiador solicitó iniciar_tripulante
+[INFO] 13:35:16:938 Mi-RAM-HQ/(4195:4195): Envío respuesta al discordiador
+[INFO] 13:35:16:938 Mi-RAM-HQ/(4195:4195): Esperando información del discordiador
+[INFO] 13:35:16:942 HILOX/(4195:4203): HOLA MUNDO, SOY UN HILO 4
+[INFO] 13:35:18:679 Mi-RAM-HQ/(4195:4195): Cliente desconectado
+[WARNING] 13:35:18:681 HILOX/(4195:4203): La conexión remota se ha desconectado.
+[WARNING] 13:35:18:681 HILOX/(4195:4201): La conexión remota se ha desconectado.
+[WARNING] 13:35:18:681 HILOX/(4195:4199): La conexión remota se ha desconectado.
+[WARNING] 13:35:18:681 HILOX/(4195:4197): La conexión remota se ha desconectado.
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Resultados
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Lista segmentos: 11
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Memoria libre: 1000
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Segmento 1 0
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Duenio: 1
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Inicio: 0
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Tamanio: 8
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Primer elemento: 1
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Segmento 2 1
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Duenio: 1
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Inicio: 8
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Tamanio: 60
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Primer elemento: 0
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Segmento 3 2
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Duenio: 2
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Inicio: 68
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Tamanio: 24
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Primer elemento: 1
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Segmento 4 3
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Duenio: 2
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Inicio: 92
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Tamanio: 8
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Primer elemento: 2
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Segmento 5 4
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Duenio: 2
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Inicio: 100
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Tamanio: 60
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Primer elemento: 0
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Segmento 6 5
+[INFO] 13:35:18:683 Mi-RAM-HQ/(4195:4195): Duenio: 3
+[INFO] 13:35:18:684 Mi-RAM-HQ/(4195:4195): Inicio: 160
+[INFO] 13:35:18:684 Mi-RAM-HQ/(4195:4195): Tamanio: 24
+[INFO] 13:35:18:684 Mi-RAM-HQ/(4195:4195): Primer elemento: 1
+[INFO] 13:35:18:684 Mi-RAM-HQ/(4195:4195): Segmento 7 6
+[INFO] 13:35:18:684 Mi-RAM-HQ/(4195:4195): Duenio: 3
+[INFO] 13:35:18:684 Mi-RAM-HQ/(4195:4195): Inicio: 184
+[INFO] 13:35:18:684 Mi-RAM-HQ/(4195:4195): Tamanio: 8
+[INFO] 13:35:18:684 Mi-RAM-HQ/(4195:4195): Primer elemento: 3
+[INFO] 13:35:18:684 Mi-RAM-HQ/(4195:4195): Segmento 8 7
+[INFO] 13:35:18:684 Mi-RAM-HQ/(4195:4195): Duenio: 3
+[INFO] 13:35:18:684 Mi-RAM-HQ/(4195:4195): Inicio: 192
+[INFO] 13:35:18:684 Mi-RAM-HQ/(4195:4195): Tamanio: 60
+[WARNING] 13:35:18:684 HILOX/(4195:4199): La conexión remota se ha desconectado.
+[INFO] 13:39:08:494 Mi-RAM-HQ/(4318:4318): Iniciando memoria RAM de 1000 bytes
+[INFO] 13:39:08:499 Mi-RAM-HQ/(4318:4318): Servidor listo
+[INFO] 13:39:11:509 Mi-RAM-HQ/(4318:4318): Conexión establecida con el discordiador
+[INFO] 13:39:11:511 Mi-RAM-HQ/(4318:4318): Esperando información del discordiador
+[INFO] 13:39:14:955 Mi-RAM-HQ/(4318:4318): Discordiador solicitó iniciar_patota
+[INFO] 13:39:14:956 Mi-RAM-HQ/(4318:4318): Esperando información del discordiador
+[INFO] 13:39:18:555 Mi-RAM-HQ/(4318:4318): Discordiador solicitó iniciar_tripulante
+[INFO] 13:39:18:555 Mi-RAM-HQ/(4318:4318): Envío respuesta al discordiador
+[INFO] 13:39:18:555 Mi-RAM-HQ/(4318:4318): Esperando información del discordiador
+[INFO] 13:39:18:560 HILOX/(4318:4409): HOLA MUNDO, SOY UN HILO 1
+[INFO] 13:39:19:825 Mi-RAM-HQ/(4318:4318): Discordiador solicitó iniciar_patota
+[INFO] 13:39:19:826 Mi-RAM-HQ/(4318:4318): Esperando información del discordiador
+[INFO] 13:39:21:166 Mi-RAM-HQ/(4318:4318): Discordiador solicitó iniciar_tripulante
+[INFO] 13:39:21:167 Mi-RAM-HQ/(4318:4318): Envío respuesta al discordiador
+[INFO] 13:39:21:167 Mi-RAM-HQ/(4318:4318): Esperando información del discordiador
+[INFO] 13:39:21:171 HILOX/(4318:4411): HOLA MUNDO, SOY UN HILO 2
+[INFO] 13:39:22:597 Mi-RAM-HQ/(4318:4318): Discordiador solicitó iniciar_tripulante
+[INFO] 13:39:22:597 Mi-RAM-HQ/(4318:4318): Envío respuesta al discordiador
+[INFO] 13:39:22:597 Mi-RAM-HQ/(4318:4318): Esperando información del discordiador
+[INFO] 13:39:22:600 HILOX/(4318:4413): HOLA MUNDO, SOY UN HILO 3
+[INFO] 13:39:24:359 Mi-RAM-HQ/(4318:4318): Cliente desconectado
+[WARNING] 13:39:24:359 HILOX/(4318:4413): La conexión remota se ha desconectado.
+[WARNING] 13:39:24:359 HILOX/(4318:4411): La conexión remota se ha desconectado.
+[WARNING] 13:39:24:359 HILOX/(4318:4409): La conexión remota se ha desconectado.
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Resultados
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Lista segmentos: 8
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Memoria libre: 801
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Segmento 1 0
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Duenio: 1
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Inicio: 0
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Tamanio: 8
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Primer elemento: 1
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Segmento 2 1
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Duenio: 1
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Inicio: 8
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Tamanio: 60
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Primer elemento: 0
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Segmento 3 2
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Duenio: 2
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Inicio: 68
+[INFO] 13:39:24:360 Mi-RAM-HQ/(4318:4318): Tamanio: 24
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Primer elemento: 1
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Segmento 4 3
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Duenio: 2
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Inicio: 92
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Tamanio: 8
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Primer elemento: 2
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Segmento 5 4
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Duenio: 2
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Inicio: 100
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Tamanio: 60
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Primer elemento: 0
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Segmento 6 5
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Duenio: 3
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Inicio: 160
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Tamanio: 24
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Primer elemento: 1
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Segmento 7 6
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Duenio: 3
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Inicio: 184
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Tamanio: 24
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Primer elemento: 2
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Segmento 8 7
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Duenio: 0
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Inicio: 208
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Tamanio: 792
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Primer elemento: 0
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Lista de patotas: 2
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Patota 1, 1
+[INFO] 13:39:24:361 Mi-RAM-HQ/(4318:4318): Tamanio tabla: 2
+[INFO] 13:39:24:362 Mi-RAM-HQ/(4318:4318): Inicio elemento 1: 0
+[INFO] 13:39:24:362 Mi-RAM-HQ/(4318:4318): Inicio elemento 2: 8
+[INFO] 13:39:24:362 Mi-RAM-HQ/(4318:4318): Patota 2, 2
+[INFO] 13:39:24:362 Mi-RAM-HQ/(4318:4318): Tamanio tabla: 3
+[INFO] 13:39:24:362 Mi-RAM-HQ/(4318:4318): Inicio elemento 1: 92
+[INFO] 13:39:24:362 Mi-RAM-HQ/(4318:4318): Inicio elemento 2: 100
+[INFO] 13:39:24:362 Mi-RAM-HQ/(4318:4318): Inicio elemento 3: 160
+[INFO] 13:39:24:362 Mi-RAM-HQ/(4318:4318): Lista de tripulantes: 3
+[INFO] 13:39:24:362 Mi-RAM-HQ/(4318:4318): TID 1
+[INFO] 13:39:24:362 Mi-RAM-HQ/(4318:4318): PID: 1
+[INFO] 13:39:24:362 Mi-RAM-HQ/(4318:4318): TID 1
+[INFO] 13:39:24:362 Mi-RAM-HQ/(4318:4318): PID: 2
+[INFO] 13:39:24:362 Mi-RAM-HQ/(4318:4318): TID 2
+[INFO] 13:39:24:362 Mi-RAM-HQ/(4318:4318): PID: 2
+[INFO] 13:41:42:999 Mi-RAM-HQ/(4529:4529): Iniciando memoria RAM de 1000 bytes
+[INFO] 13:41:43:001 Mi-RAM-HQ/(4529:4529): Servidor listo
+[INFO] 13:41:46:454 Mi-RAM-HQ/(4529:4529): Conexión establecida con el discordiador
+[INFO] 13:41:46:457 Mi-RAM-HQ/(4529:4529): Esperando información del discordiador
+[INFO] 13:41:49:474 Mi-RAM-HQ/(4529:4529): Discordiador solicitó iniciar_patota
+[INFO] 13:41:49:475 Mi-RAM-HQ/(4529:4529): Esperando información del discordiador
+[INFO] 13:41:53:710 Mi-RAM-HQ/(4529:4529): Discordiador solicitó iniciar_tripulante
+[INFO] 13:41:53:711 Mi-RAM-HQ/(4529:4529): Envío respuesta al discordiador
+[INFO] 13:41:53:711 Mi-RAM-HQ/(4529:4529): Esperando información del discordiador
+[INFO] 13:41:53:716 HILOX/(4529:4531): HOLA MUNDO, SOY UN HILO 1
+[INFO] 13:41:55:217 Mi-RAM-HQ/(4529:4529): Discordiador solicitó iniciar_patota
+[INFO] 13:41:55:219 Mi-RAM-HQ/(4529:4529): Esperando información del discordiador
+[INFO] 13:41:56:108 Mi-RAM-HQ/(4529:4529): Discordiador solicitó iniciar_tripulante
+[INFO] 13:41:56:108 Mi-RAM-HQ/(4529:4529): Envío respuesta al discordiador
+[INFO] 13:41:56:108 Mi-RAM-HQ/(4529:4529): Esperando información del discordiador
+[INFO] 13:41:56:113 HILOX/(4529:4533): HOLA MUNDO, SOY UN HILO 2
+[INFO] 13:41:56:745 Mi-RAM-HQ/(4529:4529): Discordiador solicitó iniciar_patota
+[INFO] 13:41:56:746 Mi-RAM-HQ/(4529:4529): Esperando información del discordiador
+[INFO] 13:41:58:333 Mi-RAM-HQ/(4529:4529): Discordiador solicitó iniciar_tripulante
+[INFO] 13:41:58:333 Mi-RAM-HQ/(4529:4529): Envío respuesta al discordiador
+[INFO] 13:41:58:333 Mi-RAM-HQ/(4529:4529): Esperando información del discordiador
+[INFO] 13:41:58:336 HILOX/(4529:4535): HOLA MUNDO, SOY UN HILO 3
+[INFO] 13:41:59:622 Mi-RAM-HQ/(4529:4529): Discordiador solicitó iniciar_tripulante
+[INFO] 13:41:59:624 Mi-RAM-HQ/(4529:4529): Envío respuesta al discordiador
+[INFO] 13:41:59:624 Mi-RAM-HQ/(4529:4529): Esperando información del discordiador
+[INFO] 13:41:59:628 HILOX/(4529:4537): HOLA MUNDO, SOY UN HILO 4
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Cliente desconectado
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Resultados
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Lista segmentos: 11
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Memoria libre: 802
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Segmento 1 0
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Duenio: 1
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Inicio: 0
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Tamanio: 8
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Primer elemento: 1
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Segmento 2 1
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Duenio: 1
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Inicio: 8
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Tamanio: 30
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Primer elemento: 1667853929
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Segmento 3 2
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Duenio: 2
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Inicio: 38
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Tamanio: 24
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Primer elemento: 1
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Segmento 4 3
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Duenio: 2
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Inicio: 62
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Tamanio: 8
+[INFO] 13:42:01:535 Mi-RAM-HQ/(4529:4529): Primer elemento: 2
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Segmento 5 4
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Duenio: 2
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Inicio: 70
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Tamanio: 30
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Primer elemento: 1667853929
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Segmento 6 5
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Duenio: 3
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Inicio: 100
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Tamanio: 24
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Primer elemento: 1
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Segmento 7 6
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Duenio: 3
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Inicio: 124
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Tamanio: 8
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Primer elemento: 3
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Segmento 8 7
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Duenio: 3
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Inicio: 132
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Tamanio: 30
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Primer elemento: 1667853929
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Segmento 9 8
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Duenio: 4
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Inicio: 162
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Tamanio: 24
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Primer elemento: 1
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Segmento 10 9
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Duenio: 4
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Inicio: 186
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Tamanio: 24
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Primer elemento: 2
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Segmento 11 10
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Duenio: 0
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Inicio: 210
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Tamanio: 790
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Primer elemento: 0
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Lista de patotas: 3
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Patota 1, 1
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Tamanio tabla: 2
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Inicio elemento 1: 0
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Inicio elemento 2: 8
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Patota 2, 2
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Tamanio tabla: 2
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Inicio elemento 1: 62
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Inicio elemento 2: 70
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Patota 3, 3
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Tamanio tabla: 3
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Inicio elemento 1: 124
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Inicio elemento 2: 132
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Inicio elemento 3: 162
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): Lista de tripulantes: 4
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): TID 1
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): PID: 1
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): TID 1
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): PID: 2
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): TID 1
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): PID: 3
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): TID 2
+[INFO] 13:42:01:536 Mi-RAM-HQ/(4529:4529): PID: 3
+[INFO] 14:06:36:866 Mi-RAM-HQ/(5016:5016): Iniciando memoria RAM de 1000 bytes
+[INFO] 14:06:36:868 Mi-RAM-HQ/(5016:5016): Servidor listo
+[INFO] 14:06:40:106 Mi-RAM-HQ/(5016:5016): Conexión establecida con el discordiador
+[INFO] 14:06:40:108 Mi-RAM-HQ/(5016:5016): Esperando información del discordiador
+[INFO] 14:06:43:510 Mi-RAM-HQ/(5016:5016): Discordiador solicitó iniciar_patota
+[INFO] 14:06:43:510 Mi-RAM-HQ/(5016:5016): Esperando información del discordiador
+[INFO] 14:06:47:460 Mi-RAM-HQ/(5016:5016): Discordiador solicitó iniciar_tripulante
+[INFO] 14:06:47:462 Mi-RAM-HQ/(5016:5016): Envío respuesta al discordiador
+[INFO] 14:06:47:462 Mi-RAM-HQ/(5016:5016): Esperando información del discordiador
+[INFO] 14:06:47:465 HILOX/(5016:5019): HOLA MUNDO, SOY UN HILO 1
+[INFO] 14:06:48:767 Mi-RAM-HQ/(5016:5016): Discordiador solicitó iniciar_patota
+[INFO] 14:06:48:768 Mi-RAM-HQ/(5016:5016): Esperando información del discordiador
+[INFO] 14:06:49:831 Mi-RAM-HQ/(5016:5016): Discordiador solicitó iniciar_tripulante
+[INFO] 14:06:49:832 Mi-RAM-HQ/(5016:5016): Envío respuesta al discordiador
+[INFO] 14:06:49:832 Mi-RAM-HQ/(5016:5016): Esperando información del discordiador
+[INFO] 14:06:49:837 HILOX/(5016:5021): HOLA MUNDO, SOY UN HILO 2
+[INFO] 14:06:51:027 Mi-RAM-HQ/(5016:5016): Discordiador solicitó iniciar_tripulante
+[INFO] 14:06:51:027 Mi-RAM-HQ/(5016:5016): Envío respuesta al discordiador
+[INFO] 14:06:51:028 Mi-RAM-HQ/(5016:5016): Esperando información del discordiador
+[INFO] 14:06:51:032 HILOX/(5016:5023): HOLA MUNDO, SOY UN HILO 3
+[INFO] 14:06:52:666 Mi-RAM-HQ/(5016:5016): Discordiador solicitó iniciar_patota
+[INFO] 14:06:52:670 Mi-RAM-HQ/(5016:5016): Esperando información del discordiador
+[INFO] 14:06:53:735 Mi-RAM-HQ/(5016:5016): Discordiador solicitó iniciar_tripulante
+[INFO] 14:06:53:736 Mi-RAM-HQ/(5016:5016): Envío respuesta al discordiador
+[INFO] 14:06:53:737 Mi-RAM-HQ/(5016:5016): Esperando información del discordiador
+[INFO] 14:06:53:740 HILOX/(5016:5025): HOLA MUNDO, SOY UN HILO 4
+[INFO] 14:06:54:410 Mi-RAM-HQ/(5016:5016): Discordiador solicitó iniciar_tripulante
+[INFO] 14:06:54:410 Mi-RAM-HQ/(5016:5016): Envío respuesta al discordiador
+[INFO] 14:06:54:410 Mi-RAM-HQ/(5016:5016): Esperando información del discordiador
+[INFO] 14:06:54:414 HILOX/(5016:5027): HOLA MUNDO, SOY UN HILO 5
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Cliente desconectado
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Resultados
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Lista segmentos: 12
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Memoria libre: 781
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Segmento 1 0
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Duenio: 1
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Inicio: 0
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Tamanio: 8
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Primer elemento: 1
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Segmento 2 1
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Duenio: 1
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Inicio: 8
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Tamanio: 30
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Primer elemento: 1667853929
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Segmento 3 2
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Duenio: 2
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Inicio: 38
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Tamanio: 24
+[INFO] 14:06:56:244 Mi-RAM-HQ/(5016:5016): Primer elemento: 1
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Segmento 4 3
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Duenio: 2
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Inicio: 62
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Tamanio: 8
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Primer elemento: 2
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Segmento 5 4
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Duenio: 2
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Inicio: 70
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Tamanio: 30
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Primer elemento: 1667853929
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Segmento 6 5
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Duenio: 3
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Inicio: 100
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Tamanio: 24
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Primer elemento: 1
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Segmento 7 6
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Duenio: 3
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Inicio: 124
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Tamanio: 24
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Primer elemento: 2
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Segmento 8 7
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Duenio: 3
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Inicio: 148
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Tamanio: 8
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Primer elemento: 3
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Segmento 9 8
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Duenio: 3
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Inicio: 156
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Tamanio: 30
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Primer elemento: 1667853929
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Segmento 10 9
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Duenio: 4
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Inicio: 186
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Tamanio: 24
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Primer elemento: 1
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Segmento 11 10
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Duenio: 4
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Inicio: 210
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Tamanio: 24
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Primer elemento: 2
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Segmento 12 11
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Duenio: 0
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Inicio: 234
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Tamanio: 766
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Primer elemento: 0
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Lista de patotas: 3
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Patota 1, 1
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Tamanio tabla: 2
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Patota 0, 8
+[INFO] 14:06:56:245 Mi-RAM-HQ/(5016:5016): Inicio elemento 1: 0

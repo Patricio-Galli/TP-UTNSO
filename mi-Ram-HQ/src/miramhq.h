@@ -60,7 +60,7 @@ typedef struct {
 } patota_data;
 
 void* rutina_hilos(void* socket, t_tripulante* mi_tripulante);
-bool iniciar_patota(t_log* logger, t_list* parametros, t_list* mapa_segmentos, t_list* lista_patotas, int patota_actual);
+bool iniciar_patota(t_log* logger, t_list* parametros, t_list* mapa_segmentos, t_list* lista_patotas);
 bool iniciar_tripulante(t_log* logger, t_list* parametros, t_list* mapa_segmentos, t_list* lista_tripulantes, t_list* lista_patotas);
 // uint32_t obtener_pcb(int id_patota, int id_tripulante);
 
