@@ -213,14 +213,19 @@ void* rutina_hilos(void* socket) {
 	data_socket((int)socket, logger);
 	while(1) {
 		sem_wait(&semaforo_tripulante);
-		t_mensaje* mensaje_out = crear_mensaje(TODOOK);
+		t_mensaje* mensaje_out = crear_mensaje(NEXT_T);
 		enviar_mensaje((int)socket, mensaje_out);
 		t_list* mensaje_in = recibir_mensaje((int)socket);
 		if(!validar_mensaje(mensaje_in, logger))
 			log_warning(logger, "FALLO EN MENSAJE CON HILO RAM\n");
-		else
-			log_info(logger, "EL HILO RAM ME RESPONDIO: %d\n", (int)list_get(mensaje_in, 0));
+		else {
+			log_info(logger, "Me llegó %d", (int)list_get(mensaje_in, 0));
+			if((int)list_get(mensaje_in, 0) == ER_MSJ)
+				log_info(logger, "No hay próxima tarea");
+			if((int)list_get(mensaje_in, 0) == TASK_T)
+				log_info(logger, "EL HILO RAM ME RESPONDIO: %s\n", (int)list_get(mensaje_in, 1));
 		}
+	}
 	return 0;
 }
 
