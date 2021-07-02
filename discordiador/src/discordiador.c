@@ -210,7 +210,6 @@ void* rutina_hilos(void* socket) {
 	log_info(logger, "HOLA MUNDO, SOY UN HILO %d", variable);
 	variable++;
 	
-	data_socket((int)socket, logger);
 	while(1) {
 		sem_wait(&semaforo_tripulante);
 		t_mensaje* mensaje_out = crear_mensaje(NEXT_T);

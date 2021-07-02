@@ -9,30 +9,10 @@
 #include <string.h> // memcpy
 #include <stdio.h>  // a quitar, solo pruebas
 
-
-
 typedef enum {
     FF,
     BF
 } algoritmo_segmento;
-
-typedef enum {
-    SEG_INT,
-    SEG_CHAR,
-    SEG_STRING
-} tipo_dato;
-
-typedef struct {
-    void* data;
-    tipo_dato tipo;
-    uint32_t tamanio;
-} nodo_seg;
-
-typedef enum {
-    PCB,
-    TAREAS,
-    TCB
-} tipo_segmento;
 
 typedef struct {
     uint32_t n_segmento;
