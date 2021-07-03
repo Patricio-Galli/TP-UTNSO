@@ -52,7 +52,37 @@ t_segmento* crear_segmento(t_list* mapa_segmentos, uint32_t nuevo_tamanio, algor
     return segmento_nuevo;
 }
 
-void eliminar_segmento(t_list* mapa_segmentos, int segmento) {
+void eliminar_segmento(t_list* mapa_segmentos, t_segmento* segmento) {
+    int nro_segmento = segmento->n_segmento;
+    t_segmento* segmento_anterior;
+    t_segmento* segmento_siguiente;
+    bool compactar_segmento_anterior = false;
+    bool compactar_segmento_siguiente = false;
+    int correr_nro_seg = 0;
+
+    if(nro_segmento > 0) {
+        segmento_anterior = list_get(mapa_segmentos, nro_segmento - 1);
+        if(segmento_anterior->duenio == 0) {
+            compactar_segmento_anterior = true;
+        }
+    }
+    if (nro_segmento < mapa_segmentos->elements_count - 1) {
+        segmento_siguiente = list_get(mapa_segmentos, nro_segmento + 1);
+        compactar_segmento_siguiente = true;
+    }
+    
+    if (compactar_segmento_siguiente) {
+        segmento->tamanio += segmento_siguiente->tamanio;
+        segmento->duenio = 0;
+        list_remove(mapa_segmentos, segmento_siguiente->n_segmento);
+        correr_nro_seg++;
+    }
+    
+    if (compactar_segmento_anterior) {
+        segmento_anterior->tamanio += segmento->tamanio;
+        list_remove(mapa_segmentos, segmento->n_segmento);
+        correr_nro_seg++;
+    }
     
 }
 
