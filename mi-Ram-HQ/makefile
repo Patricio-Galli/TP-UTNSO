@@ -10,7 +10,7 @@ PROJECT=$(shell basename $(shell cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/nul
 
 # Compiler
 CC=gcc
-CFLAGS=-Wall -DDEBUG -g -Wunused-variable
+CFLAGS=-Wall -DDEBUG -g 
 INCLUDES=$(LIBRARY_PATHS:%=-I"%")
 
 # Linker

@@ -1,20 +1,17 @@
 #ifndef CONSOLA_H_
 #define CONSOLA_H_
 
-#include <readline/readline.h>
-#include <readline/history.h>
-#include <unistd.h>
+
 #include <string.h>
 #include <stdio.h>
-#include <commons/string.h>
-
-#include <commons/string.h>
 #include <stdlib.h>
 
-#include "discordiador.h"
+#include <readline/readline.h>
+#include <readline/history.h>
 
-#ifndef COMMAND_CODE_
-#define COMMAND_CODE_
+#include <commons/string.h>
+
+
 typedef enum{
 	INICIAR_PATOTA,
 	LISTAR_TRIPULANTES,
@@ -25,9 +22,10 @@ typedef enum{
 	EXIT_DISCORDIADOR,
 	ERROR
 }command_code;
-#endif /* COMMAND_CODE_ */
+
+command_code mapStringToEnum(char*);
 
 char* leer_consola();
-command_code mapStringToEnum(char *string);
+char* seleccionar_funcion(char*);
 
 #endif /* CONSOLA_H_ */

@@ -14,6 +14,10 @@
 #include<netdb.h>
 #include<string.h>
 #include<commons/collections/list.h>
+#include<commons/log.h>
+
+#include<stdio.h>
+#include<errno.h>
 
 typedef enum {
 	INIT_P,	// Iniciar patota
@@ -67,8 +71,15 @@ typedef enum {
 	NO_SPC,	// Error, no hay espacio
 		// NO_SPC
 	
-	ER_MSJ	// Error, no aplica protocolo
+	ER_MSJ,	// Error, no aplica protocolo
 		// ER_MSJ
+	
+	ER_RCV,	// Error descononocido al recibir un mensaje
+		// ER_RCV
+	
+	ER_SOC	// Error al recibir mensaje, el socket remoto se desconectó
+		// ER_SOC
+
 } protocolo_msj;
 
 typedef enum {
@@ -121,5 +132,12 @@ t_list* recibir_mensaje(int socket);
 * @DESC: Libera la memoria correspondiente a un mensaje
 */
 void liberar_mensaje(t_mensaje* mensaje);
+
+/**
+* @NAME: validar_mensaje
+* @DESC: Recibe la salida de un recibir_mensaje e informa si hubo errores
+* @OUTP: Devuelve true si el mensaje es válido
+*/
+bool validar_mensaje(t_list* mensaje_in, t_log* logger);
 
 #endif /* _UTILS_MENSAJES_H_ */

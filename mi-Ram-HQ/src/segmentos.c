@@ -55,3 +55,17 @@ t_segmento* crear_segmento(t_list* mapa_segmentos, uint32_t nuevo_tamanio, algor
 void eliminar_segmento(t_list* mapa_segmentos, int segmento) {
     
 }
+
+void segmentar_caracter(void* memoria, uint32_t posicion, char data) {
+    char valor = data;
+    memcpy(memoria + posicion, &valor, sizeof(char));
+}
+
+void segmentar_entero(void* memoria, uint32_t posicion, uint32_t data) {
+    uint32_t valor = data;
+    memcpy(memoria + posicion, &valor, sizeof(uint32_t));
+}
+
+void segmentar_string(void* memoria, uint32_t posicion, char* data) {
+    memcpy(memoria + posicion, data, strlen(data) + 1);
+}

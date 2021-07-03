@@ -15,6 +15,7 @@
 #include<stdio.h>   // sprintf
 #include <arpa/inet.h>
 #include<commons/log.h>
+#include<commons/collections/list.h>
 
 /**
 * @NAME: puerto_desde_socket
