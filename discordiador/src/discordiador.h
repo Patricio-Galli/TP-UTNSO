@@ -2,7 +2,6 @@
 #define DISCORDIADOR_H_
 
 #include <commons/config.h>
-#include <utils/utils-client.h>
 
 #include "consola.h"
 #include "tripulante.h"

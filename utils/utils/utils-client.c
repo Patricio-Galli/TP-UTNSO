@@ -18,7 +18,6 @@ int crear_conexion_cliente(char *ip, char* puerto) {
 	//hints.ai_flags = AI_PASSIVE | AI_NUMERICSERV | AI_NUMERICHOST;
 
 	if ((error = getaddrinfo(ip, puerto, &hints, &server_info)) != 0) {
-		fprintf(stderr, "getaddrinfo error: %s\n", gai_strerror(error));
 		freeaddrinfo(server_info);
 		return -1;
 	}
@@ -26,21 +25,15 @@ int crear_conexion_cliente(char *ip, char* puerto) {
 	socket_cliente = socket(server_info->ai_family, server_info->ai_socktype, server_info->ai_protocol);
 	
 	if(socket_cliente == -1) {
-		//printf("error en socket\n");
 		freeaddrinfo(server_info);
 		return -2;
 	}
 	
 	if(connect(socket_cliente, server_info->ai_addr, server_info->ai_addrlen) == -1) {
-		printf("error en connect\n");
 		freeaddrinfo(server_info);
 		return -3;
 	}
 	
 	freeaddrinfo(server_info);
 	return socket_cliente;
-}
-
-void liberar_conexion(int socket_cliente) {
-	close(socket_cliente);
 }

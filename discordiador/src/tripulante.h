@@ -8,7 +8,13 @@
 #include <commons/log.h>
 #include <commons/string.h>
 
+#include <utils/utils-client.h>
+#include <utils/utils-sockets.h>
+#include <utils/utils-mensajes.h>
+
 #include "planificador.h"
+
+#define CONEXIONES_ACTIVADAS 1
 
 typedef struct {
 	int posicion[2];
@@ -52,6 +58,8 @@ char* estado_enumToString(int);
 
 tareas stringToEnum(char *);
 bool ejecutar(char*, tripulante*);
+char* solicitar_tarea(tripulante*, bool*);
+void avisar_movimiento(tripulante*);
 void moverse(tripulante*, int, int);
 void esperar(int, tripulante*);
 bool corroborar_quantum(tripulante*);

@@ -12,39 +12,38 @@ int main() {
 	logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
 	config = config_create("discordiador.config");
 
+	if(CONEXIONES_ACTIVADAS) {
+		log_info(logger,"Conexiones Actividades");
+		socket_ram = crear_conexion_cliente(
+			config_get_string_value(config, "IP_MI_RAM_HQ"),
+			config_get_string_value(config, "PUERTO_MI_RAM_HQ"));
+		/*
+		socket_mongo = crear_conexion_cliente(
+			config_get_string_value(config, "IP_I_MONGO_STORE"),
+			config_get_string_value(config, "PUERTO_I_MONGO_STORE"));
+		 */
+
+		if(!validar_socket(socket_ram, logger) || !validar_socket(socket_mongo, logger)) {
+			close(socket_ram);
+			close(socket_mongo);
+			log_destroy(logger);
+			return 0;//todo verificar tipo retorno
+		}
+	}
+
 	lista_tripulantes = list_create();
 	salir = false;
 	planificacion_inicializada = false;
+	t_mensaje* mensaje_out;
+	t_list* mensaje_in;
 
 	inicializar_planificador(
-			atoi(config_get_string_value(config, "GRADO_MULTITAREA")),
-			config_get_string_value(config, "ALGORITMO"),
-			atoi(config_get_string_value(config, "RETARDO_CICLO_CPU")),
-			atoi(config_get_string_value(config, "QUANTUM")),
-			&salir,
-			logger);
-	/*
-	t_mensaje* mensaje;
-	t_list *respuesta;
-
-	socket_ram = crear_conexion_cliente(
-		config_get_string_value(config, "IP_MI_RAM_HQ"),
-		config_get_string_value(config, "PUERTO_MI_RAM_HQ"));
-
-	socket_mongo = crear_conexion_cliente(
-		config_get_string_value(config, "IP_I_MONGO_STORE"),
-		config_get_string_value(config, "PUERTO_I_MONGO_STORE"));
-
-	if(socket_mongo < 0 || socket_ram < 0) { //todo usar funcion validar socket
-		if(socket_ram < 0)
-			log_info(logger, "Fallo en la conexión con Mi-RAM-HQ");
-		if(socket_mongo < 0)
-			log_info(logger, "Fallo en la conexión con I-Mongo-Store");
-		// close(socket_ram);
-		// close(socket_mongo);
-		// return ERROR_CONEXION;
-	}
-	*/
+		atoi(config_get_string_value(config, "GRADO_MULTITAREA")),
+		config_get_string_value(config, "ALGORITMO"),
+		atoi(config_get_string_value(config, "RETARDO_CICLO_CPU")),
+		atoi(config_get_string_value(config, "QUANTUM")),
+		&salir,
+		logger);
 
 	while(!salir) {
 		char* buffer_consola = leer_consola();
@@ -54,40 +53,40 @@ int main() {
 
 		parametros_iniciar_patota* parametros;
 
-		if (!strcmp(buffer_consola,"ini")) {
-			input = string_split("iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 9|3 9|2", " ");
-			funcion = mapStringToEnum(input[0]);
-		}
-
 		switch(funcion) {
 			case INICIAR_PATOTA:
+
+				if (!strcmp(buffer_consola,"ini"))
+					input = string_split("iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 9|3 9|2", " ");
+
 				parametros = obtener_parametros(input);
 				loggear_parametros(parametros);
 
-				/*
-				mensaje = crear_mensaje(INIT_P);
+				if(CONEXIONES_ACTIVADAS) {
+					mensaje_out = crear_mensaje(INIT_P);
 
-				agregar_parametro_a_mensaje(mensaje, &id_patota_actual, ENTERO, logger);
-				agregar_parametro_a_mensaje(mensaje, &parametros->cantidad_tripulantes, ENTERO, logger);
-				agregar_parametro_a_mensaje(mensaje, &parametros->cantidad_tareas, ENTERO, logger);
+					agregar_parametro_a_mensaje(mensaje_out, (void*)id_patota_actual, ENTERO);
+					agregar_parametro_a_mensaje(mensaje_out, (void*)parametros->cantidad_tripulantes, ENTERO);
+					agregar_parametro_a_mensaje(mensaje_out, (void*)parametros->cantidad_tareas, ENTERO);
 
-				for(int i = 0; i < parametros->cantidad_tareas; i++)
-					agregar_parametro_a_mensaje(mensaje, parametros->tareas[i], BUFFER, logger);
+					for(int i = 0; i < parametros->cantidad_tareas; i++)
+						agregar_parametro_a_mensaje(mensaje_out, (void*)parametros->tareas[i], BUFFER);
 
-				enviar_mensaje(socket_ram, mensaje);
+					enviar_mensaje(socket_ram, mensaje_out);
+					liberar_mensaje(mensaje_out);
+					mensaje_in = recibir_mensaje(socket_ram);
 
-				respuesta = recibir_mensaje(socket_ram);
+					if((int)list_get(mensaje_in, 0) == TODOOK)
+						iniciar_patota(parametros);
+					else
+						log_error(logger, "No se pudo iniciar patota, no hay suficiente memoria.");
 
-				if((int)list_get(respuesta, 0) == TODOOK)
+					list_destroy(mensaje_in);
+					liberar_parametros(parametros);
+				} else {
 					iniciar_patota(parametros);
-				else
-					log_error(logger, "No se pudo iniciar patota, no hay suficiente memoria.");
-
-				liberar_parametros(parametros);
-				*/
-
-				iniciar_patota(parametros);
-				liberar_parametros(parametros);
+					liberar_parametros(parametros);
+				}
 				break;
 
 			case LISTAR_TRIPULANTES:
@@ -125,6 +124,8 @@ int main() {
 	//pthread_mutex_destroy(&mutex_cola_blocked);
 
 	//list_destroy_and_destroy_elements(lista_tripulantes, free()); podria ser esta la funcion pero no estoy seguro que funcione
+	close(socket_ram);
+	close(socket_mongo);
 	log_destroy(logger);
 	return 0;
 }
@@ -133,30 +134,34 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 	log_info(logger,"Iniciando creacion de Patota nro: %d", id_patota_actual);
 
 	for(int iterador = 1; iterador <= parametros->cantidad_tripulantes; iterador++) {
-		/*
-		t_mensaje* mensaje;
-		t_list *respuesta;
+		t_mensaje* mensaje_out;
+		t_list* mensaje_in;
 
-		mensaje = crear_mensaje(INIT_T);
+		if(CONEXIONES_ACTIVADAS) {
+			mensaje_out = crear_mensaje(INIT_T);
 
-		agregar_parametro_a_mensaje(mensaje, &id_patota_actual, ENTERO, logger);
-		agregar_parametro_a_mensaje(mensaje, &iterador, ENTERO, logger);
-		agregar_parametro_a_mensaje(mensaje, &parametros->posiciones_x[iterador-1], ENTERO, logger);
-		agregar_parametro_a_mensaje(mensaje, &parametros->posiciones_y[iterador-1], ENTERO, logger);
+			agregar_parametro_a_mensaje(mensaje_out, (void*)id_patota_actual, ENTERO); //todo sacar
+			agregar_parametro_a_mensaje(mensaje_out, (void*)iterador, ENTERO);
+			agregar_parametro_a_mensaje(mensaje_out, (void*)parametros->posiciones_x[iterador-1], ENTERO);
+			agregar_parametro_a_mensaje(mensaje_out, (void*)parametros->posiciones_y[iterador-1], ENTERO);
 
-		enviar_mensaje(socket_ram, mensaje);
-		respuesta = recibir_mensaje(socket_ram);
+			enviar_mensaje(socket_ram, mensaje_out);
+			mensaje_in = recibir_mensaje(socket_ram);
 
-		if((int)list_get(respuesta, 0) == SND_PO) { //todo pedir puerto mongo antes de mandar las cosas al tripulante
-			tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_x[iterador-1], parametros->posiciones_y[iterador-1], id_patota_actual, iterador, (int)list_get(respuesta, 1), 0, logger);
-			list_add(lista_tripulantes, nuevo_tripulante);
+			if((int)list_get(mensaje_in, 0) == SND_PO) { //todo pedir puertos antes de mandar las cosas a crear_tripulante
+				char str_puerto[7];
+				sprintf(str_puerto, "%d", (int)list_get(mensaje_in, 1));
+				int socket_ram_trip = crear_conexion_cliente(config_get_string_value(config, "IP_MI_RAM_HQ"), str_puerto); //todo poner ip global
+
+				tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_x[iterador-1], parametros->posiciones_y[iterador-1], id_patota_actual, iterador, socket_ram_trip, 0);
+				list_add(lista_tripulantes, nuevo_tripulante); //devuelve la posicion en la que se agrego
+			}
+			else
+				log_error(logger, "No se pudo crear al tripulante, no hay suficiente memoria.");
+		} else {
+			tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_x[iterador-1], parametros->posiciones_y[iterador-1], id_patota_actual, iterador, 0, 0);
+			list_add(lista_tripulantes, nuevo_tripulante); //devuelve la posicion en la que se agrego
 		}
-		else
-			log_error(logger, "No se pudo crear al tripulante, no hay suficiente memoria.");
-		*/
-
-		tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_x[iterador-1], parametros->posiciones_y[iterador-1], id_patota_actual, iterador, 0, 0);
-		list_add(lista_tripulantes, nuevo_tripulante); //devuelve la posicion en la que se agrego
 	}
 	log_info(logger,"Patota nro: %d iniciada.",id_patota_actual);
 
@@ -189,30 +194,29 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 
 		if(nuevo_tripulante->id_trip == id_tripulante && nuevo_tripulante->id_patota == id_patota) {
 			continuar = false;
-
-			/*
-			tripulante* tripulante_expulsado = (tripulante*)list_remove(lista_tripulantes, index);
-
 			t_mensaje* mensaje;
 			t_list *respuesta;
 
-			mensaje = crear_mensaje(ELIM_T);
+			if(CONEXIONES_ACTIVADAS) {
+				tripulante* tripulante_expulsado = (tripulante*)list_remove(lista_tripulantes, index);
 
-			agregar_parametro_a_mensaje(mensaje, &id_tripulante, ENTERO, logger);
-			agregar_parametro_a_mensaje(mensaje, &id_patota, ENTERO, logger);
+				mensaje = crear_mensaje(ELIM_T);
 
-			respuesta = recibir_mensaje(socket_ram);
+				agregar_parametro_a_mensaje(mensaje, (void*)id_tripulante, ENTERO);
+				agregar_parametro_a_mensaje(mensaje, (void*)id_patota, ENTERO);
 
-			if((int)list_get(respuesta, 0) == TODOOK) {
+				respuesta = recibir_mensaje(socket_ram);
+
+				if((int)list_get(respuesta, 0) == TODOOK) {
+					free(tripulante_expulsado);
+					log_info(logger,"El tripulante %d de la patota %d ha sido expulsado", id_tripulante, id_patota);
+				}else
+					log_error(logger, "No se pudo expulsar al tripulante.");
+			}else {
+				tripulante* tripulante_expulsado = (tripulante*)list_remove(lista_tripulantes, index);
 				free(tripulante_expulsado);
 				log_info(logger,"El tripulante %d de la patota %d ha sido expulsado", id_tripulante, id_patota);
-			}else
-				log_error(logger, "No se pudo expulsar al tripulante.");
-			*/
-
-			tripulante* tripulante_expulsado = (tripulante*)list_remove(lista_tripulantes, index);
-			free(tripulante_expulsado);
-			log_info(logger,"El tripulante %d de la patota %d ha sido expulsado", id_tripulante, id_patota);
+			}
 		}
 		else {
 			index++;
@@ -236,9 +240,7 @@ void iniciar_planificacion() {
 		continuar_planificacion = true;
 		for(int i = 0; i < tripulantes_trabajando; i++) {
 			tripulante* trip = (tripulante*)list_get(tripulantes_running, i);
-			//log_info(logger,"Reanudando tripulante %d", trip->id_trip);
 			sem_post(&trip->sem_running);
-			//log_info(logger,"mandado running al tripulante %d", trip->id_trip);
 		}
 	}
 }

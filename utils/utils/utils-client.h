@@ -5,12 +5,18 @@
  *      Author: utnso
  */
 
-#ifndef UTILS_CLIENT_H_
-#define UTILS_CLIENT_H_
+#ifndef _UTILS_CLIENT_H_
+#define _UTILS_CLIENT_H_
 
-#include "utils-conexiones.h"
+#include<sys/socket.h>
+#include<netdb.h>
+#include<string.h>
 
+/**
+* @NAME: crear_conexion_cliente
+* @DESC: Crea un socket cliente que se conectará a un socket servidor que se ubicará en la ip y puerto definidos por parámetro.
+* @OUTP: Devuelve el socket del cliente
+*/
 int crear_conexion_cliente(char* ip, char* puerto);
-void liberar_conexion(int socket_cliente);
 
-#endif /* UTILS_CLIENT_H_ */
+#endif /* _UTILS_CLIENT_H_ */

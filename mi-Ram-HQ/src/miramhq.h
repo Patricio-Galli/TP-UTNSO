@@ -7,15 +7,28 @@
 #include<commons/log.h>
 #include<commons/string.h>
 #include<utils/utils-server.h>
+#include<utils/utils-sockets.h>
+#include<utils/utils-mensajes.h>
+
 #include<commons/collections/list.h>
+#include<commons/config.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <pthread.h>
+
+#include "memoria_ram.h"
+#include "segmentos.h"
+#include "patota.h"
+#include "tareas.h"
+#include "tripulante.h"
+
+#include <errno.h>
 
 #define ERROR_CONEXION -1
-//#define IP_RAM "192.168.0.104"
-//#define PUERTO_RAM "9000"
 
 #define IP_RAM "127.0.0.1"
-#define PUERTO_RAM 9000
 
-int* crear_conexiones_hilos(char** buffer, int* cantidad_detectada);
+void* rutina_hilos(void* parametros);
+// uint32_t obtener_pcb(int id_patota, int id_tripulante);
 
 #endif /* _MIRAMHQ_H_ */
