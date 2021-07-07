@@ -32,4 +32,6 @@ void* obtener_bloque_memoria(void* memoria, t_segmento* segmento);
 
 void realizar_compactacion();
 
+uint32_t memoria_libre();
+
 #endif /* _SEGMENTOS_H_ */

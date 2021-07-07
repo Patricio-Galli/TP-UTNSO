@@ -91,12 +91,33 @@ int main() {
 			funcion_consola = EXPULSAR_TRIPULANTE;
 			break;
 		case 14:
-			funcion_consola = INICIAR_PATOTA;
-			break;
+			funcion_consola = EXPULSAR_TRIPULANTE;
+			break;	
 		case 15:
-			funcion_consola = INICIAR_TRIPULANTE;
+			// funcion_consola = INICIAR_PATOTA;
+			funcion_consola = ERROR;
 			break;
 		case 16:
+			// funcion_consola = INICIAR_TRIPULANTE;
+			funcion_consola = ERROR;
+			break;
+		case 17:
+			// funcion_consola = INICIAR_TRIPULANTE;
+			funcion_consola = ERROR;
+			break;
+		case 18:
+			funcion_consola = INICIAR_PATOTA;
+			break;
+		case 19:
+			funcion_consola = INICIAR_PATOTA;
+			break;
+		case 20:
+			funcion_consola = INICIAR_PATOTA;
+			break;
+		case 21:
+			funcion_consola = INICIAR_TRIPULANTE;
+			break;
+		case 22:
 			funcion_consola = INICIAR_TRIPULANTE;
 			break;
 		default:
@@ -168,8 +189,8 @@ int main() {
 			log_info(logger, "Cree mensaje %d", funcion_consola);
 			if(variable == 11) {
 				log_info(logger,"Expulsar tripulante 1");
-				agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);
-				agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);
+				agregar_parametro_a_mensaje(mensaje, (void *)1, ENTERO);
+				agregar_parametro_a_mensaje(mensaje, (void *)1, ENTERO);
 			}
 			if(variable == 12) {
 				log_info(logger,"Expulsar tripulante 2");
@@ -177,11 +198,20 @@ int main() {
 				agregar_parametro_a_mensaje(mensaje, (void *)3, ENTERO);
 			}
 			if(variable == 13) {
-				log_info(logger,"Expulsar tripulante 2");
+				log_info(logger,"Expulsar tripulante 3");
+				agregar_parametro_a_mensaje(mensaje, (void *)1, ENTERO);
+				agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);
+			}
+			if(variable == 14) {
+				log_info(logger,"Expulsar tripulante 4");
 				agregar_parametro_a_mensaje(mensaje, (void *)3, ENTERO);
 				agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);
 			}
-
+			/*if(variable == 18) {
+				log_info(logger,"Expulsar tripulante 5");
+				agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);
+				agregar_parametro_a_mensaje(mensaje, (void *)3, ENTERO);
+			}*/
 			enviar_mensaje(socket_ram, mensaje);
 			free(mensaje);
 			respuesta = recibir_mensaje(socket_ram);

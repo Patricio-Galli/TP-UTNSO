@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <pthread.h>
 
-int memoria_libre;
+// int memoria_libre;
 void* memoria_ram;
 
 t_list* lista_patotas;

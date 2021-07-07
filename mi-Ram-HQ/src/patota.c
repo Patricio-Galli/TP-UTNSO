@@ -10,7 +10,7 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros, algoritmo_segmento a
 		tamanio_bloque_tareas += strlen((char *)list_get(parametros, 2 + i)) + 1;
 	}
 
-	if (tamanio_pcb + tamanio_bloque_tareas > memoria_libre) {
+	if (tamanio_pcb + tamanio_bloque_tareas > memoria_libre()) {
 		return false;
 	}
 
@@ -49,14 +49,12 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros, algoritmo_segmento a
 	// SEGMENTO PCB
 	segmentar_entero(memoria_ram, segmento_pcb->inicio, id_patota);
 	segmentar_entero(memoria_ram, segmento_pcb->inicio + sizeof(uint32_t), segmento_tareas->inicio);
-	memoria_libre -= 2 * sizeof(uint32_t);
 
 	// SEGMENTO TAREAS
 	for(int i = 0; i < cantidad_tareas; i++) {
 		segmentar_string(memoria_ram, segmento_tareas->inicio + vtareas_inicio[i], vtareas[i]);
 		free(vtareas[i]);
 	}
-	memoria_libre -= tamanio_bloque_tareas;
 
 	// CREO ESTRUCTURA PATOTA PARA GUARDAR EN TABLA
 	patota_data* nueva_patota = malloc(sizeof(patota_data));

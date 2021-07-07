@@ -3,22 +3,27 @@
 uint32_t id_filtro_patota;
 
 bool iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uint32_t pos_y, algoritmo_segmento algoritmo) {
+	printf("Entro a iniciar_tripulante\n");
 	int tamanio_tcb = TAMANIO_TRIPULANTE;
-	if (tamanio_tcb > memoria_libre) {
+	if (tamanio_tcb > memoria_libre()) {
+		printf("Memoria insuficiente\n");
 		return false;
 	}
-	
+	printf("Voy a crear_segmento()\n");
 	// CREO SEGMENTO PCB
 	t_segmento* segmento_tcb = crear_segmento(mapa_segmentos, TAMANIO_TRIPULANTE, algoritmo);
 	if(segmento_tcb == NULL) {
+		printf("segmento_tcb == NULL\n");
 		realizar_compactacion();
 		segmento_tcb = crear_segmento(mapa_segmentos, TAMANIO_TRIPULANTE, algoritmo);
 	}
+	printf("Sobrevivi a crear_segmento()\n");
 	segmento_tcb->duenio = id_patota;
+	printf("1\n");
 	segmento_tcb->indice = id_trip + 1;
-	
+	printf("2\n");
 	patota_data* patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
-	
+	printf("Sobrevivi a crear_segmento()\n");
 	// SEGMENTO TCB
 	uint32_t desplazamiento = 0;
 	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, id_trip);
@@ -32,9 +37,7 @@ bool iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, ui
 	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, 0);
 	desplazamiento += sizeof(uint32_t);
 	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, patota->tabla_segmentos[0]);
-	desplazamiento += sizeof(uint32_t);
-	memoria_libre -= desplazamiento;
-	
+	printf("Sobrevivi a segmento_pcb()\n");
 	// CREO ESTRUCTURA TRIPULANTE PARA GUARDAR EN TABLA
 	trip_data* nuevo_trip = malloc(sizeof(trip_data));
 	nuevo_trip->PID = id_patota;

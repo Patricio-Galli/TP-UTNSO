@@ -16,7 +16,6 @@ int main(void) {
 		algoritmo = BF;
 
 	memoria_ram = malloc(tamanio_memoria);
-	memoria_libre = tamanio_memoria;
 
 	mapa_segmentos = list_create();
 	t_segmento segmento_memoria;
@@ -69,10 +68,14 @@ int main(void) {
 			patota_actual++;
 			inicio_correcto = iniciar_patota(patota_actual, mensaje_discor, algoritmo);
 			
-			if(!inicio_correcto)
+			if(!inicio_correcto) {
 				respuesta = crear_mensaje(NO_SPC);
-			else
+				patota_actual--;
+			}
+				
+			else {
 				respuesta = crear_mensaje(TODOOK);
+			}
 
 			enviar_mensaje(socket_discord, respuesta);
 			liberar_mensaje(respuesta);		// debe estar fuera del switch
@@ -83,8 +86,9 @@ int main(void) {
 			log_info(logger, "Discordiador solicitó iniciar_tripulante");
 			uint32_t posicion_x = (uint32_t)list_get(mensaje_discor, 1);
 			uint32_t posicion_y = (uint32_t)list_get(mensaje_discor, 2);
+			log_info(logger, "Entro a iniciar_tripulante");
 			inicio_correcto = iniciar_tripulante(nro_tripulante, patota_actual, posicion_x, posicion_y, algoritmo);
-			
+			log_info(logger, "Sobrevivi a iniciar_tripulante %d", inicio_correcto);
 			if(inicio_correcto == false) {
 				respuesta = crear_mensaje(NO_SPC);
 			}
@@ -114,7 +118,6 @@ int main(void) {
 			uint32_t id_trip = (uint32_t)list_get(mensaje_discor, 1);
 			uint32_t id_patota = (uint32_t)list_get(mensaje_discor, 2);
 			
-			log_info(logger, "Voy a eliminar_tripulante");
 			eliminar_tripulante(id_patota, id_trip);
 			respuesta = crear_mensaje(TODOOK);
 			enviar_mensaje(socket_discord, respuesta);
@@ -132,15 +135,8 @@ int main(void) {
 		}
 		
 		log_info(logger, "NUEVOS RESULTADOS");
-		log_info(logger, "Cantidad de segmentos: %d", mapa_segmentos->elements_count);
-		// log_info(logger, "Memoria libre: %d", memoria_libre);
+		log_info(logger, "Cantidad de segmentos: %d. Memoria libre: %d", mapa_segmentos->elements_count, memoria_libre());
 		for (int i = 0; i < mapa_segmentos->elements_count; i++) {
-			/*log_info(logger, "SEGMENTO %d", ((t_segmento *)list_get(mapa_segmentos, i))->n_segmento + 1);
-			log_info(logger, "Duenio: %d", ((t_segmento *)list_get(mapa_segmentos, i))->duenio);
-			log_info(logger, "Indice: %d", ((t_segmento *)list_get(mapa_segmentos, i))->indice);
-			log_info(logger, "Inicio: %d", ((t_segmento *)list_get(mapa_segmentos, i))->inicio);
-			log_info(logger, "Tamanio: %d", ((t_segmento *)list_get(mapa_segmentos, i))->tamanio);*/
-
 			log_info(logger, "SEGMENTO %d/Duenio: %d/Indice: %d/Inicio: %d/Tamanio: %d",
 				((t_segmento *)list_get(mapa_segmentos, i))->n_segmento + 1,
 				((t_segmento *)list_get(mapa_segmentos, i))->duenio,
@@ -156,13 +152,11 @@ int main(void) {
 		uint32_t pnt_tareas;
 		
 		for(int i = 0; i < lista_patotas->elements_count; i++) {
-			log_info(logger, "Info desde lista");
-			log_info(logger, "Patota %d:\nPID: %d; Puntero a PCB: %d; Puntero a tareas: %d", i + 1,
+			log_info(logger, "Patota %d. PID: %d; Puntero a PCB: %d; Puntero a tareas: %d", i + 1,
 				((patota_data *)(uint32_t)list_get(lista_patotas, i))->PID,
 				((patota_data *)(uint32_t)list_get(lista_patotas, i))->tabla_segmentos[0],
 				((patota_data *)(uint32_t)list_get(lista_patotas, i))->tabla_segmentos[1]);
 
-			log_info(logger, "Info desde memoria");
 			inicio = ((patota_data *)(uint32_t)list_get(lista_patotas, i))->tabla_segmentos[0];
 			// obtener_valor(memoria_ram + inicio, )
 			memcpy(&pid, memoria_ram + inicio, sizeof(uint32_t));

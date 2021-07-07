@@ -24,6 +24,10 @@ void* minimo_tamanio(void* elemento1, void* elemento2) {
         return elemento2;
 }
 
+void* suma_tamanios(void* seed, void* elemento) {
+    return (void *)(seed + ((t_segmento *)elemento)->tamanio);
+}
+
 t_segmento* crear_segmento(t_list* mapa_segmentos, uint32_t nuevo_tamanio, algoritmo_segmento algoritmo) {
 	t_segmento *segmento_nuevo = malloc(sizeof(t_segmento));
     tamanio_segmento = nuevo_tamanio;
@@ -45,9 +49,31 @@ t_segmento* crear_segmento(t_list* mapa_segmentos, uint32_t nuevo_tamanio, algor
     list_add_in_index(mapa_segmentos, segmento_nuevo->n_segmento, segmento_nuevo);
     
     t_segmento* segmento_siguiente = (t_segmento *)list_get(mapa_segmentos, segmento_nuevo->n_segmento + 1);
-    segmento_siguiente->n_segmento++;
-    segmento_siguiente->inicio += nuevo_tamanio;
     segmento_siguiente->tamanio -= nuevo_tamanio;
+    
+    printf("Voy a tratar el resto. Tamanio resto: %d", segmento_siguiente->tamanio);
+    if(segmento_siguiente->tamanio == 0) {
+        printf("entre a eliminar segmento\n");
+        list_remove(mapa_segmentos, segmento_nuevo->n_segmento + 1);
+    }
+    else {
+        printf("entre a reciclar segmento\n");
+        segmento_siguiente->inicio += nuevo_tamanio;
+        
+        t_link_element* iterador = mapa_segmentos->head;
+        for(int i = 0; i < segmento_siguiente->n_segmento; i++) {
+            iterador = iterador->next;
+            printf("%d\n", i);
+        }
+        iterador = iterador->next;
+        while (iterador->next != NULL) {
+            ((t_segmento *)iterador->data)->n_segmento++;
+            iterador = iterador->next;
+            printf("itere\n");
+        }
+        ((t_segmento *)iterador->data)->n_segmento++;
+    }
+    
     segmento_nuevo->tamanio = nuevo_tamanio;
     return segmento_nuevo;
 }
@@ -59,7 +85,6 @@ void eliminar_segmento(t_list* mapa_segmentos, t_segmento* segmento) {
     t_segmento* segmento_siguiente;
     bool compactar_segmento_anterior = false;
     bool compactar_segmento_siguiente = false;
-    int correr_nro_seg = 0;
 
     segmento->duenio = 0;
 
@@ -69,6 +94,7 @@ void eliminar_segmento(t_list* mapa_segmentos, t_segmento* segmento) {
         segmento_anterior = list_get(mapa_segmentos, nro_segmento - 1);
         if(segmento_anterior->duenio == 0) {
             compactar_segmento_anterior = true;
+            printf("Debo compactar segmento anterior\n");
         }
     }
     printf("Nro_seg < 8\n");
@@ -76,32 +102,44 @@ void eliminar_segmento(t_list* mapa_segmentos, t_segmento* segmento) {
         segmento_siguiente = list_get(mapa_segmentos, nro_segmento + 1);
         if(segmento_siguiente->duenio == 0) {
             compactar_segmento_siguiente = true;
+            printf("Debo compactar segmento siguiente\n");
         }
     }
     printf("Compactar segmentos vacios\n");
     t_link_element* iterador = mapa_segmentos->head;
     if (compactar_segmento_siguiente) {
-        printf("Compacto siguiente\n");
         segmento->tamanio += segmento_siguiente->tamanio;
+        printf("Compacto siguiente. Tamanio nuevo %d\n", segmento->tamanio);
         list_remove(mapa_segmentos, segmento_siguiente->n_segmento);
-        correr_nro_seg++;
-        for(int i = 0; i < segmento->n_segmento; iterador = iterador->next) { }
+        for(int i = 0; i < segmento->n_segmento; i++) {
+            iterador = iterador->next;
+            printf("%d\n", i);
+        }
+        iterador = iterador->next;
         while (iterador->next != NULL) {
             ((t_segmento *)iterador->data)->n_segmento--;
             iterador = iterador->next;
+            printf("itere\n");
         }
+        ((t_segmento *)iterador->data)->n_segmento--;
     }
     
     iterador = mapa_segmentos->head;
     if (compactar_segmento_anterior) {
-        printf("Compacto anterior\n");
         segmento_anterior->tamanio += segmento->tamanio;
+        printf("Compacto anterior. Tamanio nuevo %d\n", segmento_anterior->tamanio);
         list_remove(mapa_segmentos, segmento->n_segmento);
-        for(int i = 0; i < segmento_anterior->n_segmento; iterador = iterador->next) { }
+        for(int i = 0; i < segmento_anterior->n_segmento; i++) {
+            iterador = iterador->next;
+            printf("%d\n", i);
+        }
+        iterador = iterador->next;
         while (iterador->next != NULL) {
             ((t_segmento *)iterador->data)->n_segmento--;
             iterador = iterador->next;
+            printf("itere\n");
         }
+        ((t_segmento *)iterador->data)->n_segmento--;
     }
 }
 
@@ -184,4 +222,10 @@ void realizar_compactacion() {
         }
         aux_segmento = aux_segmento->next;
     }
+}
+
+uint32_t memoria_libre() {
+    t_list* segmentos_libres = list_filter(mapa_segmentos, (*condicion_segmento_libre));
+    uint32_t espacio_libre = (uint32_t)list_fold(segmentos_libres, 0, (*suma_tamanios));
+    return espacio_libre;
 }
