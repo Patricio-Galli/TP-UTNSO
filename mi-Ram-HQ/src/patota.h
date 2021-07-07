@@ -13,4 +13,6 @@
 
 bool iniciar_patota(uint32_t id_patota, t_list* parametros, algoritmo_segmento algoritmo);
 
+void actualizar_ubicacion_tareas(void* segmento, uint32_t nueva_ubicacion);
+
 #endif /* _INICIO_PATOTA_H_ */

@@ -4,10 +4,10 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros, algoritmo_segmento a
 	uint32_t tamanio_pcb = TAMANIO_PATOTA;
 	uint32_t tamanio_tarea = 0;
 	uint32_t tamanio_bloque_tareas = 0;
-	uint32_t cantidad_tareas = (int)list_get(parametros, 3);
+	uint32_t cantidad_tareas = (int)list_get(parametros, 1);
 
 	for(int i = 0; i < cantidad_tareas; i++) {
-		tamanio_bloque_tareas += strlen((char *)list_get(parametros, 4 + i)) + 1;
+		tamanio_bloque_tareas += strlen((char *)list_get(parametros, 2 + i)) + 1;
 	}
 
 	if (tamanio_pcb + tamanio_bloque_tareas > memoria_libre) {
@@ -20,7 +20,7 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros, algoritmo_segmento a
 
 	tamanio_bloque_tareas = 0;
 	for(int i = 0; i < cantidad_tareas; i++) {
-		char* tarea_i = (char *)list_get(parametros, 4 + i);
+		char* tarea_i = (char *)list_get(parametros, 2 + i);
 		tamanio_tarea = strlen(tarea_i) + 1;
 		vtareas_inicio[i] = tamanio_bloque_tareas;
 		tamanio_bloque_tareas += tamanio_tarea;
@@ -31,19 +31,21 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros, algoritmo_segmento a
 	// CREO SEGMENTO PCB
 	t_segmento* segmento_pcb = crear_segmento(mapa_segmentos, tamanio_pcb, algoritmo);
 	if(segmento_pcb == NULL) {
-		// uint32_t final_memoria = realizar_compactacion();
+		realizar_compactacion();
 		segmento_pcb = crear_segmento(mapa_segmentos, tamanio_pcb, algoritmo);
 	}
 	segmento_pcb->duenio = id_patota;
+	segmento_pcb->indice = 0;
 
 	// CREO SEGMENTO TAREAS
 	t_segmento* segmento_tareas = crear_segmento(mapa_segmentos, tamanio_bloque_tareas, algoritmo);
 	if(segmento_tareas == NULL) {
-		// uint32_t final_memoria = realizar_compactacion();
+		realizar_compactacion();
 		segmento_tareas = crear_segmento(mapa_segmentos, tamanio_bloque_tareas, algoritmo);
 	}
 	segmento_tareas->duenio = id_patota;
-	
+	segmento_tareas->indice = 1;
+
 	// SEGMENTO PCB
 	segmentar_entero(memoria_ram, segmento_pcb->inicio, id_patota);
 	segmentar_entero(memoria_ram, segmento_pcb->inicio + sizeof(uint32_t), segmento_tareas->inicio);
@@ -59,6 +61,7 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros, algoritmo_segmento a
 	// CREO ESTRUCTURA PATOTA PARA GUARDAR EN TABLA
 	patota_data* nueva_patota = malloc(sizeof(patota_data));
 	nueva_patota->PID = id_patota;
+	nueva_patota->trip_activos = 0;
 	nueva_patota->tabla_segmentos = malloc(2 * sizeof(uint32_t));
 	nueva_patota->tabla_segmentos[0] = segmento_pcb->inicio;
 	nueva_patota->tabla_segmentos[1] = segmento_tareas->inicio;
@@ -72,4 +75,9 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros, algoritmo_segmento a
 	nuevo_bloque_tareas->tamanio_tareas = vtareas_tamanio;
 	list_add(lista_tareas, nuevo_bloque_tareas);
 	return true;
+}
+
+void actualizar_ubicacion_tareas(void* segmento, uint32_t nueva_ubicacion) {
+	uint32_t valor_int = nueva_ubicacion;
+	memcpy(segmento + sizeof(int), &valor_int, sizeof(uint32_t));
 }

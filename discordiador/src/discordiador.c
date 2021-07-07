@@ -41,21 +41,77 @@ int main() {
 	command_code funcion_consola;
 	t_mensaje* mensaje;
 
+	char tarea1[] = "Soy la tarea 1\n";
+	char tarea2[] = "Soy la tarea 2\n";
+	char tarea3[] = "Soy la tarea 3\n";
+	int variable = 0;
 	while(continuar) {
 		buffer_consola = leer_consola();
-		funcion_consola = mapStringToEnum(primer_palabra(buffer_consola));
+		variable++;
+		/*
+		funcion_consola = mapStringToEnum(primer_palabra(buffer_consola));*/
+		switch (variable) {
+		case 1:
+			funcion_consola = INICIAR_PATOTA;
+			break;
+		case 2:
+			funcion_consola = INICIAR_TRIPULANTE;
+			break;
+		case 3:
+			funcion_consola = INICIAR_TRIPULANTE;
+			break;
+		case 4:
+			funcion_consola = INICIAR_PATOTA;
+			break;
+		case 5:
+			funcion_consola = INICIAR_TRIPULANTE;
+			break;
+		case 6:
+			funcion_consola = INICIAR_TRIPULANTE;
+			break;
+		case 7:
+			funcion_consola = INICIAR_TRIPULANTE;
+			break;
+		case 8:
+			funcion_consola = INICIAR_PATOTA;
+			break;
+		case 9:
+			funcion_consola = INICIAR_TRIPULANTE;
+			break;
+		case 10:
+			funcion_consola = INICIAR_TRIPULANTE;
+			break;
+		case 11:
+			funcion_consola = EXPULSAR_TRIPULANTE;
+			break;
+		case 12:
+			funcion_consola = EXPULSAR_TRIPULANTE;
+			break;
+		case 13:
+			funcion_consola = EXPULSAR_TRIPULANTE;
+			break;
+		case 14:
+			funcion_consola = INICIAR_PATOTA;
+			break;
+		case 15:
+			funcion_consola = INICIAR_TRIPULANTE;
+			break;
+		case 16:
+			funcion_consola = INICIAR_TRIPULANTE;
+			break;
+		default:
+			log_info(logger, "No hay más instrucciones");
+			funcion_consola = EXIT_DISCORDIADOR;
+			break;
+		}
 		t_list *respuesta;
 		switch(funcion_consola) {
 		case INICIAR_PATOTA:
 			log_info(logger, "Iniciar patota. Creando mensaje");
 			mensaje = crear_mensaje(INIT_P);
-			
-			// OJO, hay que mandar un puntero al entero o un puntero al primer elemento si es string
-			agregar_parametro_a_mensaje(mensaje, (void *)id_patota_actual, ENTERO);		// id_patota			
-			agregar_parametro_a_mensaje(mensaje, (void *)6, ENTERO);		// cant_trip
 			agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);		// cant_tareas
-			agregar_parametro_a_mensaje(mensaje, buffer_consola, BUFFER);	// tarea 1
-			agregar_parametro_a_mensaje(mensaje, buffer_consola, BUFFER);	// tarea 2
+			agregar_parametro_a_mensaje(mensaje, &tarea1, BUFFER);	// tarea 1
+			agregar_parametro_a_mensaje(mensaje, &tarea2, BUFFER);	// tarea 2
 			
 			enviar_mensaje(socket_ram, mensaje);
 			
@@ -74,9 +130,6 @@ int main() {
 		case INICIAR_TRIPULANTE:
 			log_info(logger, "Iniciar tripulante. Creando mensaje");
 			mensaje = crear_mensaje(INIT_T);
-
-			agregar_parametro_a_mensaje(mensaje, (void *)id_patota_actual - 1, ENTERO);		// id_patota			
-			agregar_parametro_a_mensaje(mensaje, (void *)id_tripulante, ENTERO);			// id_trip
 			agregar_parametro_a_mensaje(mensaje, (void *)3, ENTERO);						// posicion_x
 			agregar_parametro_a_mensaje(mensaje, (void *)4, ENTERO);						// posicion_y
 			
@@ -110,7 +163,36 @@ int main() {
 			list_destroy(respuesta);
 			break;
 		case EXPULSAR_TRIPULANTE:
-			log_info(logger,"Expulsar tripulante ...");
+			log_info(logger,"Expulsar tripulante");
+			mensaje = crear_mensaje(ELIM_T);
+			log_info(logger, "Cree mensaje %d", funcion_consola);
+			if(variable == 11) {
+				log_info(logger,"Expulsar tripulante 1");
+				agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);
+				agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);
+			}
+			if(variable == 12) {
+				log_info(logger,"Expulsar tripulante 2");
+				agregar_parametro_a_mensaje(mensaje, (void *)1, ENTERO);
+				agregar_parametro_a_mensaje(mensaje, (void *)3, ENTERO);
+			}
+			if(variable == 13) {
+				log_info(logger,"Expulsar tripulante 2");
+				agregar_parametro_a_mensaje(mensaje, (void *)3, ENTERO);
+				agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);
+			}
+
+			enviar_mensaje(socket_ram, mensaje);
+			free(mensaje);
+			respuesta = recibir_mensaje(socket_ram);
+			if(!validar_mensaje(respuesta, logger)) {
+				log_info(logger, "El servidor ha muerto, doy por finalizada esta wea");
+				close(socket_ram);
+				close(socket_mongo);
+				log_destroy(logger);
+				return ERROR_CONEXION;
+			}
+			list_destroy(respuesta);
 			break;
 		case INICIAR_PLANIFICACION:
 			sem_post(&semaforo_tripulante);
@@ -128,7 +210,7 @@ int main() {
 			continuar = false;
 			break;
 		case ERROR:
-			log_error(logger,"COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
+			log_error(logger,"COMANDO INVALIDO, INTENTE NUEVAMENTE");
 		}
 		free(buffer_consola);
 		/*

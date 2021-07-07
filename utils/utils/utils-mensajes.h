@@ -21,10 +21,10 @@
 
 typedef enum {
 	INIT_P,	// Iniciar patota
-		// INIT_P | id_patota [int] | cantidad_tripulantes [int] | cant_tareas [int] | (tareas)
+		// INIT_P | cant_tareas [int] | (tareas)
 	
 	INIT_T,	// Iniciar tripulante
-		// INIT_T | id_patota [int] | id_trip [int] | posicion_x [int] | posicion_y [int]
+		// INIT_T | posicion_x [int] | posicion_y [int]
 	
 	DATA_T,	// Conocer tripulante
 		// DATA_T | id_tripulante [int] | id_patota [int]
@@ -43,6 +43,9 @@ typedef enum {
 	
 	ACTU_T,	// Actualizar ubicación
 		// ACTU_T | posicion_x [int] | posicion_y [int]
+	
+	ACTU_E,	// Actualizar estado
+		// ACTU_T | estado [char]
 	
 	NEXT_T,	// Próxima tarea
 		// NEXT_T
@@ -84,6 +87,7 @@ typedef enum {
 
 typedef enum {
 	ENTERO,
+	CARACTER,
 	BUFFER
 } tipo_msj;
 
