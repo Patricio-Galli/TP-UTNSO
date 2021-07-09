@@ -6,7 +6,7 @@ int main(void) {
 	t_log* logger = log_create("miramhq.log", "Mi-RAM-HQ", 1, LOG_LEVEL_INFO);
 	t_config* config = config_create("miramhq.config");
 	
-	int tamanio_memoria = config_get_int_value(config, "TAMANIO_MEMORIA");
+	tamanio_memoria = config_get_int_value(config, "TAMANIO_MEMORIA");
 	log_info(logger, "Iniciando memoria RAM de %d bytes", tamanio_memoria);
 	
 	algoritmo_segmento algoritmo;
@@ -158,18 +158,26 @@ int main(void) {
 				((patota_data *)(uint32_t)list_get(lista_patotas, i))->tabla_segmentos[1]);
 
 			inicio = ((patota_data *)(uint32_t)list_get(lista_patotas, i))->tabla_segmentos[0];
-			// obtener_valor(memoria_ram + inicio, )
 			memcpy(&pid, memoria_ram + inicio, sizeof(uint32_t));
 			memcpy(&pnt_tareas, memoria_ram + inicio + sizeof(uint32_t), sizeof(uint32_t));
 			log_info(logger, "PID: %d; Puntero a tareas: %d", pid, pnt_tareas);
 		}
-		
-		log_info(logger, "Lista de tripulantes: %d", lista_tripulantes->elements_count);
+
+		bool tripulante_activo(void * un_trip) {
+			if(((trip_data *)un_trip)->seguir)
+				return true;
+			else
+				return false;
+		}
+
+		int trip_activos = list_count_satisfying(lista_tripulantes, (*tripulante_activo));
+		log_info(logger, "Lista de tripulantes activos: %d", trip_activos);
 		for(int i = 0; i < lista_tripulantes->elements_count; i++) {
 			inicio = ((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->inicio;
 			if(((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->seguir == true)
-			log_info(logger, "TID: %d; estado: %c; pos_x: %d; pos_y: %d; IP: %d; Punt PCB: %d",
+			log_info(logger, "TID: %d; inicio: %d; estado: %c; pos_x: %d; pos_y: %d; IP: %d; Punt PCB: %d",
 				obtener_valor_tripulante(memoria_ram + inicio, TRIP_IP),
+				inicio,
 				obtener_estado(memoria_ram + inicio),
 				obtener_valor_tripulante(memoria_ram + inicio, POS_X),
 				obtener_valor_tripulante(memoria_ram + inicio, POS_Y),

@@ -3,27 +3,21 @@
 uint32_t id_filtro_patota;
 
 bool iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uint32_t pos_y, algoritmo_segmento algoritmo) {
-	printf("Entro a iniciar_tripulante\n");
 	int tamanio_tcb = TAMANIO_TRIPULANTE;
 	if (tamanio_tcb > memoria_libre()) {
-		printf("Memoria insuficiente\n");
 		return false;
 	}
-	printf("Voy a crear_segmento()\n");
+	
 	// CREO SEGMENTO PCB
 	t_segmento* segmento_tcb = crear_segmento(mapa_segmentos, TAMANIO_TRIPULANTE, algoritmo);
 	if(segmento_tcb == NULL) {
-		printf("segmento_tcb == NULL\n");
 		realizar_compactacion();
 		segmento_tcb = crear_segmento(mapa_segmentos, TAMANIO_TRIPULANTE, algoritmo);
 	}
-	printf("Sobrevivi a crear_segmento()\n");
 	segmento_tcb->duenio = id_patota;
-	printf("1\n");
 	segmento_tcb->indice = id_trip + 1;
-	printf("2\n");
 	patota_data* patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
-	printf("Sobrevivi a crear_segmento()\n");
+	
 	// SEGMENTO TCB
 	uint32_t desplazamiento = 0;
 	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, id_trip);
@@ -37,7 +31,7 @@ bool iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, ui
 	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, 0);
 	desplazamiento += sizeof(uint32_t);
 	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, patota->tabla_segmentos[0]);
-	printf("Sobrevivi a segmento_pcb()\n");
+	
 	// CREO ESTRUCTURA TRIPULANTE PARA GUARDAR EN TABLA
 	trip_data* nuevo_trip = malloc(sizeof(trip_data));
 	nuevo_trip->PID = id_patota;
@@ -48,7 +42,6 @@ bool iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, ui
 		patota->tamanio_tabla = id_trip;
 	}
 	patota->tabla_segmentos[id_trip + 1] = segmento_tcb->inicio;
-	patota->trip_activos++;
 	nuevo_trip->inicio = segmento_tcb->inicio;
 	patota->tamanio_tabla++;
 	list_add(lista_tripulantes, nuevo_trip);
@@ -110,11 +103,8 @@ void actualizar_estado(void* segmento, char nuevo_valor) {
 }
 
 void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante) {
-	printf("Entro a eliminar_tripulante\n");
 	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
-	// mi_patota->trip_activos--;
-	// trip_data* mi_tripulante = list_filter(lista_tripulantes, (*soy))
-
+	
 	uint32_t inicio_tripulante = mi_patota->tabla_segmentos[id_tripulante + 1];
 	t_link_element* iterador = mapa_segmentos->head;
 	while(((t_segmento *)iterador->data)->inicio != inicio_tripulante) {
@@ -122,39 +112,13 @@ void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante) {
 	}
 	printf("4\n");
 	t_segmento* segmento_tripulante = (t_segmento *)iterador->data;
-	printf("Entro a eliminar segmento\n");
 	eliminar_segmento(mapa_segmentos, segmento_tripulante);
-	printf("Sobrevivi a eliminar segmento\n");
 	
-	t_link_element* iterador_patota = lista_patotas->head;
-	t_link_element* iterador_tripulante = lista_tripulantes->head;
-
-	patota_data* patota_aux;
-	for(int iter1 = 1; iter1 < id_patota; iter1++) {
-		patota_aux = (patota_data *)iterador_patota->data;
-		for(int iter2 = 0; iter2 < patota_aux->trip_activos; iter2++) {
-			iterador_tripulante = iterador_tripulante->next;
-		}
-		iterador_patota = iterador_patota->next;
-	}
-	for(int i = 1; i < id_tripulante; i++) { iterador_tripulante = iterador_tripulante->next; }
-	trip_data* mi_tripulante = ((trip_data *)iterador_tripulante->data);
+	trip_data* mi_tripulante = tripulante_de_lista(id_patota, id_tripulante);
 	mi_tripulante->seguir = false;
 	
 	// Falta actualizar trip_data, detener el hilo y
 }
-/*
-1 - 1 - 1 - 2 - 2 - 3 - 3 - 3 - 3 - 4 - 5 - 5
-*/
-
-/*
-uint32_t id_global_tripulante(uint32_t id_patota, uint32_t id_tripulante) {
-	t_link_element* aux_trip = lista_tripulantes->head;
-	for(int iterador = 0; iterador < id_patota; iterador++) {
-
-	}
-	
-}*/
 
 bool seg_trip_de_patota(void* segmento) {
 	if(((t_segmento*)segmento)->duenio == id_filtro_patota && ((t_segmento*)segmento)->indice > 1)
@@ -166,4 +130,20 @@ bool seg_trip_de_patota(void* segmento) {
 t_list* tripulantes_de_patota(uint32_t id_patota) {
 	uint32_t id_filtro_patota = id_patota;
 	return list_filter(mapa_segmentos, (*seg_trip_de_patota));
+}
+
+trip_data* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip) {
+	t_link_element* iterador_patota = lista_patotas->head;
+	t_link_element* iterador_tripulante = lista_tripulantes->head;
+
+	patota_data* patota_aux;
+	for(int iter1 = 1; iter1 < id_patota; iter1++) {
+		patota_aux = (patota_data *)iterador_patota->data;
+		for(int iter2 = 0; iter2 < patota_aux->tamanio_tabla - 1; iter2++) {
+			iterador_tripulante = iterador_tripulante->next;
+		}
+		iterador_patota = iterador_patota->next;
+	}
+	for(int i = 1; i < id_trip; i++) { iterador_tripulante = iterador_tripulante->next; }
+	return (trip_data *)iterador_tripulante->data;	
 }

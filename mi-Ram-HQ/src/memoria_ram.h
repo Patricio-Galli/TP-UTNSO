@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <pthread.h>
 
-// int memoria_libre;
+uint32_t tamanio_memoria;
 void* memoria_ram;
 
 t_list* lista_patotas;
@@ -22,7 +22,6 @@ typedef enum {
 
 typedef struct {
     uint32_t PID;
-    uint32_t trip_activos;
     uint32_t tamanio_tabla;
     int* tabla_segmentos;    // Su tamanio depende de la cantidad de tripulantes
 } patota_data;

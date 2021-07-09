@@ -36,6 +36,15 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros, algoritmo_segmento a
 	}
 	segmento_pcb->duenio = id_patota;
 	segmento_pcb->indice = 0;
+	segmentar_entero(memoria_ram, segmento_pcb->inicio, id_patota);
+	
+	// CREO ESTRUCTURA PATOTA PARA GUARDAR EN TABLA
+	patota_data* nueva_patota = malloc(sizeof(patota_data));
+	nueva_patota->PID = id_patota;
+	nueva_patota->tabla_segmentos = malloc(2 * sizeof(uint32_t));
+	nueva_patota->tamanio_tabla = 2;
+	nueva_patota->tabla_segmentos[0] = segmento_pcb->inicio;
+	list_add(lista_patotas, nueva_patota);
 
 	// CREO SEGMENTO TAREAS
 	t_segmento* segmento_tareas = crear_segmento(mapa_segmentos, tamanio_bloque_tareas, algoritmo);
@@ -46,26 +55,14 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros, algoritmo_segmento a
 	segmento_tareas->duenio = id_patota;
 	segmento_tareas->indice = 1;
 
-	// SEGMENTO PCB
-	segmentar_entero(memoria_ram, segmento_pcb->inicio, id_patota);
-	segmentar_entero(memoria_ram, segmento_pcb->inicio + sizeof(uint32_t), segmento_tareas->inicio);
-
-	// SEGMENTO TAREAS
 	for(int i = 0; i < cantidad_tareas; i++) {
 		segmentar_string(memoria_ram, segmento_tareas->inicio + vtareas_inicio[i], vtareas[i]);
 		free(vtareas[i]);
 	}
-
-	// CREO ESTRUCTURA PATOTA PARA GUARDAR EN TABLA
-	patota_data* nueva_patota = malloc(sizeof(patota_data));
-	nueva_patota->PID = id_patota;
-	nueva_patota->trip_activos = 0;
-	nueva_patota->tabla_segmentos = malloc(2 * sizeof(uint32_t));
-	nueva_patota->tabla_segmentos[0] = segmento_pcb->inicio;
 	nueva_patota->tabla_segmentos[1] = segmento_tareas->inicio;
-	nueva_patota->tamanio_tabla = 2;
-	list_add(lista_patotas, nueva_patota);
-	
+	segmentar_entero(memoria_ram, segmento_pcb->inicio + sizeof(uint32_t), segmento_tareas->inicio);
+
+
 	// CREO ESTRUCTURA TAREAS PARA GUARDAR EN TABLA
 	tareas_data* nuevo_bloque_tareas = malloc(sizeof(tareas_data));
 	nuevo_bloque_tareas->cant_tareas = cantidad_tareas;

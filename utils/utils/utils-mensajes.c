@@ -75,7 +75,6 @@ t_list* recibir_mensaje(int socket) {
 	protocolo_msj op_code;
 	t_list* lista_parametros = list_create();
 	int error;
-	printf("Entro a recibir_mensaje()\n");
 	error = recv(socket, &op_code, sizeof(int), MSG_WAITALL);
 	
 	if(error == 0) {

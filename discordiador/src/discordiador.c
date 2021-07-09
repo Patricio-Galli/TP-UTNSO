@@ -243,13 +243,6 @@ int main() {
 			log_error(logger,"COMANDO INVALIDO, INTENTE NUEVAMENTE");
 		}
 		free(buffer_consola);
-		/*
-		int i = 0;
-		while(input[i] != NULL){
-			free(input[i]);
-			i++;
-		}
-		free(input);*/
 	}
 	log_destroy(logger);
 	return 0;
@@ -340,22 +333,40 @@ void* rutina_hilos(void* socket) {
 	return 0;
 }
 
+/*	Salida pruebas antesde compactacion
+SEGMENTO 1/Duenio: 1/Indice: 0/Inicio: 0/Tamanio: 8
+SEGMENTO 2/Duenio: 1/Indice: 1/Inicio: 8/Tamanio: 32
+SEGMENTO 3/Duenio: 4/Indice: 0/Inicio: 40/Tamanio: 8
+SEGMENTO 4/Duenio: 5/Indice: 0/Inicio: 48/Tamanio: 8
+SEGMENTO 5/Duenio: 0/Indice: 2/Inicio: 56/Tamanio: 5
+SEGMENTO 6/Duenio: 1/Indice: 3/Inicio: 61/Tamanio: 21
+SEGMENTO 7/Duenio: 2/Indice: 0/Inicio: 82/Tamanio: 8
+SEGMENTO 8/Duenio: 2/Indice: 1/Inicio: 90/Tamanio: 32
+SEGMENTO 9/Duenio: 0/Indice: 2/Inicio: 122/Tamanio: 21
+SEGMENTO 10/Duenio: 2/Indice: 3/Inicio: 143/Tamanio: 21
+SEGMENTO 11/Duenio: 0/Indice: 4/Inicio: 164/Tamanio: 21
+SEGMENTO 12/Duenio: 3/Indice: 0/Inicio: 185/Tamanio: 8
+SEGMENTO 13/Duenio: 3/Indice: 1/Inicio: 193/Tamanio: 32
+SEGMENTO 14/Duenio: 0/Indice: 2/Inicio: 225/Tamanio: 21
+SEGMENTO 15/Duenio: 3/Indice: 3/Inicio: 246/Tamanio: 21
+SEGMENTO 16/Duenio: 4/Indice: 1/Inicio: 267/Tamanio: 32
+SEGMENTO 17/Duenio: 0/Indice: -1219298736/Inicio: 299/Tamanio: 1
 
-void listar_tripulantes(){
-	nodo_tripulante* aux = lista_tripulantes;
-	printf("----------------------------------------------------------------------------------\n");
-	printf("Estado de Tripulantes\n");
-	while(aux != NULL){
-		printf("Patota: %d\tTripulante: %d\tEstado: %d\n",aux->data.id_patota, aux->data.id_trip,aux->data.estado);
-		aux = aux->sig;
-	}
-	printf("----------------------------------------------------------------------------------\n");
-	free(aux);
-}
-
-/*
-patota 1 -> dos hilos
-patota 2 o cualquiera -> cuatro hilos
-dos hilos siempre
-
+Luego de compactacion
+SEGMENTO 1/		Duenio: 1/Indice: 0/Inicio: 0/Tamanio: 8
+SEGMENTO 2/		Duenio: 1/Indice: 1/Inicio: 8/Tamanio: 32
+SEGMENTO 3/		Duenio: 4/Indice: 0/Inicio: 40/Tamanio: 8
+SEGMENTO 4/		Duenio: 5/Indice: 0/Inicio: 48/Tamanio: 8
+SEGMENTO 5/		Duenio: 1/Indice: 3/Inicio: 56/Tamanio: 21
+corrimiento = 5
+SEGMENTO 6/		Duenio: 2/Indice: 0/Inicio: 77/Tamanio: 8
+SEGMENTO 7/		Duenio: 2/Indice: 1/Inicio: 85/Tamanio: 32
+SEGMENTO 8/		Duenio: 2/Indice: 3/Inicio: 117/Tamanio: 21
+corrimiento = 26
+SEGMENTO 9/		Duenio: 3/Indice: 0/Inicio: 138/Tamanio: 8
+SEGMENTO 10/	Duenio: 3/Indice: 1/Inicio: 146/Tamanio: 32
+SEGMENTO 11/	Duenio: 3/Indice: 3/Inicio: 178/Tamanio: 21
+corrrimiento = 47
+SEGMENTO 12/	Duenio: 4/Indice: 1/Inicio: 200/Tamanio: 32
+SEGMENTO 13/	Duenio: 0/Indice: 0/Inicio: 232/Tamanio: 68
 */

@@ -51,35 +51,29 @@ t_segmento* crear_segmento(t_list* mapa_segmentos, uint32_t nuevo_tamanio, algor
     t_segmento* segmento_siguiente = (t_segmento *)list_get(mapa_segmentos, segmento_nuevo->n_segmento + 1);
     segmento_siguiente->tamanio -= nuevo_tamanio;
     
-    printf("Voy a tratar el resto. Tamanio resto: %d", segmento_siguiente->tamanio);
     if(segmento_siguiente->tamanio == 0) {
-        printf("entre a eliminar segmento\n");
         list_remove(mapa_segmentos, segmento_nuevo->n_segmento + 1);
     }
     else {
-        printf("entre a reciclar segmento\n");
         segmento_siguiente->inicio += nuevo_tamanio;
         
         t_link_element* iterador = mapa_segmentos->head;
-        for(int i = 0; i < segmento_siguiente->n_segmento; i++) {
+        // Hago que el iterador apunte a la posicion del segmento_siguiente
+        for(int i = 0; i < segmento_nuevo->n_segmento + 1; i++) {
             iterador = iterador->next;
-            printf("%d\n", i);
         }
-        iterador = iterador->next;
+        // A cada segmento que le sigue incremento el nro_segmento
         while (iterador->next != NULL) {
             ((t_segmento *)iterador->data)->n_segmento++;
             iterador = iterador->next;
-            printf("itere\n");
         }
         ((t_segmento *)iterador->data)->n_segmento++;
     }
-    
     segmento_nuevo->tamanio = nuevo_tamanio;
     return segmento_nuevo;
 }
 
 void eliminar_segmento(t_list* mapa_segmentos, t_segmento* segmento) {
-    printf("Entro a eliminar_segmento_!\n");
     int nro_segmento = segmento->n_segmento;
     t_segmento* segmento_anterior;
     t_segmento* segmento_siguiente;
@@ -88,38 +82,29 @@ void eliminar_segmento(t_list* mapa_segmentos, t_segmento* segmento) {
 
     segmento->duenio = 0;
 
-    // memoria_libre += segmento-> tamanio;
-    printf("Nro_seg > 0\n");
     if(nro_segmento > 0) {
         segmento_anterior = list_get(mapa_segmentos, nro_segmento - 1);
         if(segmento_anterior->duenio == 0) {
             compactar_segmento_anterior = true;
-            printf("Debo compactar segmento anterior\n");
         }
     }
-    printf("Nro_seg < 8\n");
     if (nro_segmento < mapa_segmentos->elements_count - 1) {
         segmento_siguiente = list_get(mapa_segmentos, nro_segmento + 1);
         if(segmento_siguiente->duenio == 0) {
             compactar_segmento_siguiente = true;
-            printf("Debo compactar segmento siguiente\n");
         }
     }
-    printf("Compactar segmentos vacios\n");
     t_link_element* iterador = mapa_segmentos->head;
     if (compactar_segmento_siguiente) {
         segmento->tamanio += segmento_siguiente->tamanio;
-        printf("Compacto siguiente. Tamanio nuevo %d\n", segmento->tamanio);
         list_remove(mapa_segmentos, segmento_siguiente->n_segmento);
         for(int i = 0; i < segmento->n_segmento; i++) {
             iterador = iterador->next;
-            printf("%d\n", i);
         }
         iterador = iterador->next;
         while (iterador->next != NULL) {
             ((t_segmento *)iterador->data)->n_segmento--;
             iterador = iterador->next;
-            printf("itere\n");
         }
         ((t_segmento *)iterador->data)->n_segmento--;
     }
@@ -127,17 +112,14 @@ void eliminar_segmento(t_list* mapa_segmentos, t_segmento* segmento) {
     iterador = mapa_segmentos->head;
     if (compactar_segmento_anterior) {
         segmento_anterior->tamanio += segmento->tamanio;
-        printf("Compacto anterior. Tamanio nuevo %d\n", segmento_anterior->tamanio);
         list_remove(mapa_segmentos, segmento->n_segmento);
         for(int i = 0; i < segmento_anterior->n_segmento; i++) {
             iterador = iterador->next;
-            printf("%d\n", i);
         }
         iterador = iterador->next;
         while (iterador->next != NULL) {
             ((t_segmento *)iterador->data)->n_segmento--;
             iterador = iterador->next;
-            printf("itere\n");
         }
         ((t_segmento *)iterador->data)->n_segmento--;
     }
@@ -163,33 +145,29 @@ void segmentar_bloque(void* memoria, uint32_t posicion, void* data, uint32_t tam
 
 void* obtener_bloque_memoria(void* memoria, t_segmento* segmento) {
     void* bloque = malloc(segmento->tamanio);
-    memcpy(memoria + segmento->inicio, bloque, segmento->tamanio);
+    memcpy(bloque, memoria + segmento->inicio, segmento->tamanio);
     return bloque;
 }
 
-
 void realizar_compactacion() {
     t_link_element* aux_segmento = mapa_segmentos->head;
-    
     uint32_t segmentos_quitados = 0;
-    void* bloque_memoria;
+    uint32_t tamanio_total = 0;
     uint32_t corrimiento_inicio = 0;
     patota_data* patota_auxiliar;
     uint32_t indice_segmento;
-
-    for(int i = 1; i < mapa_segmentos->elements_count; i++) {
-        if(((t_segmento *)aux_segmento->data)->duenio == 0) {
-            corrimiento_inicio += ((t_segmento *)aux_segmento->data)->tamanio;
-            eliminar_segmento(mapa_segmentos, ((t_segmento *)aux_segmento->data));
-            segmentos_quitados++;
-        }
-        else {
+    uint32_t cant_segmentos = mapa_segmentos->elements_count;
+    void* bloque_memoria;
+    for(int i = 1; i < cant_segmentos + 1; i++) {
+        if(((t_segmento *)aux_segmento->data)->duenio != 0 && corrimiento_inicio != 0) {
+            // Actualizo el t_segmento
             ((t_segmento *)aux_segmento->data)->n_segmento -= segmentos_quitados;
             uint32_t nuevo_inicio = ((t_segmento *)aux_segmento->data)->inicio - corrimiento_inicio;
-
+            
             // Obtengo el bloque de memoria y lo pego en el primer lugar libre a la izquierda (siempre va a haber espacio)
             bloque_memoria = obtener_bloque_memoria(memoria_ram, (t_segmento *)aux_segmento->data);
             segmentar_bloque(memoria_ram, nuevo_inicio, bloque_memoria, ((t_segmento *)aux_segmento->data)->tamanio);
+            tamanio_total += ((t_segmento *)aux_segmento->data)->tamanio;
             free(bloque_memoria);
 
             // Actualizo la posición del segmento en la patota_data que corresponde (duenio)
@@ -199,7 +177,7 @@ void realizar_compactacion() {
             patota_auxiliar->tabla_segmentos[indice_segmento] = nuevo_inicio;
 
             // De acuerdo al tipo de segmento que sea, realizo los cambios necesarios
-            if(indice_segmento == 0) {  // El segmento que se mueve es el PCB
+            if(indice_segmento == 0) {
                 /* Debo encontrar todos los tripulantes de la patota y actualizar su puntero a pcb */
                 t_list* tripulantes_a_actualizar = tripulantes_de_patota(((t_segmento *)aux_segmento->data)->duenio);
                 t_link_element* trip_auxiliar = tripulantes_a_actualizar->head;
@@ -212,20 +190,40 @@ void realizar_compactacion() {
                 list_destroy(tripulantes_a_actualizar);
             }
             if(indice_segmento == 1) {  // El segmento que se mueve es el segmento de tareas
-                /* actualizar el puntero a tareas del pcb */
                 actualizar_ubicacion_tareas(memoria_ram + patota_auxiliar->tabla_segmentos[0], nuevo_inicio);
             }
             
             if(indice_segmento > 1) {   // El segmento que se mueve es el segmento de un tripulante
-                /* actualizar trip_data (no sé si hace falta) */
+                trip_data* aux_tripulante = tripulante_de_lista(((t_segmento *)aux_segmento->data)->duenio, indice_segmento - 1);
+                aux_tripulante->inicio = nuevo_inicio;
             }
+            aux_segmento = aux_segmento->next;
         }
-        aux_segmento = aux_segmento->next;
+        
+        else {
+            corrimiento_inicio += ((t_segmento *)aux_segmento->data)->tamanio;
+            if(i != cant_segmentos) {
+                free(aux_segmento->data);
+                aux_segmento = aux_segmento->next;
+            }
+            segmentos_quitados++;
+            list_remove(mapa_segmentos, i - segmentos_quitados);
+            printf("Corrimiento nuevo: %d. Seg '-': %d\n", corrimiento_inicio, segmentos_quitados);
+        }
     }
+    t_segmento * segmento_final = malloc(sizeof(t_segmento));
+    segmento_final->duenio = 0;
+    segmento_final->n_segmento = mapa_segmentos->elements_count;
+    
+    segmento_final->tamanio = tamanio_memoria - tamanio_total;
+    segmento_final->inicio = tamanio_total;
+    list_add(mapa_segmentos, segmento_final);
 }
 
 uint32_t memoria_libre() {
     t_list* segmentos_libres = list_filter(mapa_segmentos, (*condicion_segmento_libre));
-    uint32_t espacio_libre = (uint32_t)list_fold(segmentos_libres, 0, (*suma_tamanios));
+    uint32_t espacio_libre = 0;
+    if(segmentos_libres)
+        espacio_libre = (uint32_t)list_fold(segmentos_libres, 0, (*suma_tamanios));
     return espacio_libre;
 }
