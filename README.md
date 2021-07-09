@@ -16,5 +16,6 @@ IMPORTANTE: Ante cualquier duda sobre como utilizar esta estructura consultar es
 
 ## TODO MENSAJES
 - Incorporar liberar_mensaje_lista() para los mensaje_in
-- Cambiar el uso de datos tipo int por uint32_7.
+- Cambiar el uso de datos tipo int por uint32_t.
 - Opcional: verificar el uso de ntoh() y hton(). Funciona así, pero creo que fallaría al utilizarse en entornos distintos.
+- Cambiar funcion crear_conexion_cliente() para que reciba un entero.
