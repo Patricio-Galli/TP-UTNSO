@@ -5,7 +5,7 @@ t_list* lista_tripulantes;
 t_log* logger;
 t_config* config;
 int socket_ram = 0, socket_mongo = 0;
-char* ip_ram, ip_mongo;
+char *ip_ram; *ip_mongo;
 bool salir;
 bool planificacion_inicializada;
 
@@ -15,6 +15,7 @@ int main() {
 
 	if(CONEXIONES_ACTIVADAS) {
 		log_info(logger,"Conexiones Actividades");
+
 		ip_ram = config_get_string_value(config, "IP_MI_RAM_HQ");
 		ip_mongo = config_get_string_value(config, "IP_I_MONGO_STORE");
 
@@ -74,7 +75,9 @@ int main() {
 						agregar_parametro_a_mensaje(mensaje_out, (void*)parametros->tareas[i], BUFFER);
 
 					enviar_mensaje(socket_ram, mensaje_out);
+
 					liberar_mensaje(mensaje_out);
+
 					mensaje_in = recibir_mensaje(socket_ram);
 
 					if((int)list_get(mensaje_in, 0) == TODOOK)
@@ -135,26 +138,26 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 
 	for(int iterador = 1; iterador <= parametros->cantidad_tripulantes; iterador++) {
 		t_mensaje* mensaje_ram_out;
-		t_mensaje* mensaje_mongo_out;
+		//t_mensaje* mensaje_mongo_out;
 		t_list* mensaje_ram_in;
 		t_list* mensaje_mongo_in;
 
 		if(CONEXIONES_ACTIVADAS) {
 			mensaje_ram_out = crear_mensaje(INIT_T);
-			mensaje_mongo_out = crear_mensaje(INIT_T);
+			//mensaje_mongo_out = crear_mensaje(INIT_T);
 
 			agregar_parametro_a_mensaje(mensaje_ram_out, (void*)id_patota_actual, ENTERO); //todo sacar
 			agregar_parametro_a_mensaje(mensaje_ram_out, (void*)iterador, ENTERO);
 			agregar_parametro_a_mensaje(mensaje_ram_out, (void*)parametros->posiciones_x[iterador-1], ENTERO);
 			agregar_parametro_a_mensaje(mensaje_ram_out, (void*)parametros->posiciones_y[iterador-1], ENTERO);
 
-			agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)id_patota_actual, ENTERO); //todo sacar
-			agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)iterador, ENTERO);
-			agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)parametros->posiciones_x[iterador-1], ENTERO);
-			agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)parametros->posiciones_y[iterador-1], ENTERO);
+			//agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)id_patota_actual, ENTERO);
+			//agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)iterador, ENTERO);
+			//agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)parametros->posiciones_x[iterador-1], ENTERO);
+			//agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)parametros->posiciones_y[iterador-1], ENTERO);
 
 			enviar_mensaje(socket_ram, mensaje_ram_out);
-			enviar_mensaje(socket_mongo, mensaje_mongo_out);
+			enviar_mensaje(socket_mongo, mensaje_ram_out);
 			mensaje_ram_in = recibir_mensaje(socket_ram);
 			mensaje_mongo_in = recibir_mensaje(socket_mongo);
 

@@ -29,6 +29,7 @@ typedef struct {
 
 	sem_t sem_blocked;
 	sem_t sem_running;
+
 	int contador_ciclos;
 	int tiempo_esperado;
 	bool quantum_disponible;
@@ -60,11 +61,13 @@ tareas stringToEnum(char *);
 bool ejecutar(char*, tripulante*);
 char* solicitar_tarea(tripulante*, bool*);
 void avisar_movimiento(tripulante*);
+void actualizar_estado(tripulante* trip, estado estado_trip);
 void moverse(tripulante*, int, int);
+void ejecutar_io(tripulante* trip, char* comando);
 bool esperar(int, tripulante*);
 void respuesta_OK(t_list* respuesta, char* mensaje_fallo);
-bool corroborar_quantum(tripulante*);
-void corroborar_planificacion(tripulante*);
+void actualizar_quantum(tripulante*);
+void puede_continuar(tripulante*);
 void quitar(tripulante*, t_list*);
 
 #endif /* TRIPULANTE_H_ */

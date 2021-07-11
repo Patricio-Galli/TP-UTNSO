@@ -22,6 +22,13 @@
 typedef enum {
 	EXEC_1,
 	EXEC_0,
+	ACTU_E,
+	GEN_OX,
+	CON_OX,
+	GEN_CO,
+	CON_CO,
+	GEN_BA,
+	DES_BA,
 	INIT_P,	// Iniciar patota
 		// INIT_P | id_patota [int] | cantidad_tripulantes [int] | cant_tareas [int] | (tareas)
 	

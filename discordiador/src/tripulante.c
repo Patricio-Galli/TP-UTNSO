@@ -34,18 +34,9 @@ void* rutina_tripulante(void* t) {
 	while(tareas_disponibles) {
 		bool termino_ejecucion;
 
-		//todo avisar a la ram
-		trip->estado = READY;
-
-		pthread_mutex_lock(&mutex_cola_ready);
-			queue_push(cola_ready, trip);
-			sem_post(&tripulantes_ready);
-		pthread_mutex_unlock(&mutex_cola_ready);
+		esta_ready(trip);
 
 		sem_wait(&trip->sem_running);
-
-		//todo avisar a la ram
-		trip->estado = RUNNING;
 
 		if(CONEXIONES_ACTIVADAS)
 			termino_ejecucion = ejecutar(tarea, trip);
@@ -66,7 +57,7 @@ void* rutina_tripulante(void* t) {
 		if(tiene_tareas == 0)
 			tareas_disponibles = false;
 	}
-	trip->estado = EXIT;
+	actualizar_estado(trip, EXIT);
 	return 0;
 }
 
@@ -93,17 +84,12 @@ bool ejecutar(char* input, tripulante* trip) {
 	log_info(logger,"Tripulante %d comienza a ejecutar tarea %s  -  Posicion actual: %d|%d  -  Tiempo esperado previamente:%d  -  Quantum disponible: %d", trip->id_trip, input, trip->posicion[0], trip->posicion[1], trip->tiempo_esperado, quantum - trip->contador_ciclos);
 
 	char** buffer = string_split(input, ";");
-	char** comando_tarea = string_split(buffer[0], " ");
 	t_mensaje* mensaje_mongo_out;
 	t_list* mensaje_mongo_in;
 
-	tareas tarea = stringToEnum(comando_tarea[0]);
-
 	if(CONEXIONES_ACTIVADAS) {
 		mensaje_mongo_out = crear_mensaje(EXEC_1);
-
 		agregar_parametro_a_mensaje(mensaje_mongo_out, input, BUFFER);
-
 		enviar_mensaje(trip->socket_mongo, mensaje_mongo_out);
 		mensaje_mongo_in = recibir_mensaje(trip->socket_mongo);
 
@@ -111,35 +97,10 @@ bool ejecutar(char* input, tripulante* trip) {
 	}
 
 	moverse(trip, atoi(buffer[1]), atoi(buffer[2]));
-
-	if(trip->quantum_disponible){
-		switch(tarea){
-			case GENERAR_OXIGENO:
-				//activar_io
-				//generar_oxigeno
-				break;
-			case CONSUMIR_OXIGENO:
-				break;
-			case GENERAR_COMIDA:
-				break;
-			case CONSUMIR_COMIDA:
-				break;
-			case GENERAR_BASURA:
-				break;
-			case DESCARTAR_BASURA:
-				break;
-			case ESPERAR:
-				break;
-		}
-	}
-
+	ejectutar_io(trip, buffer[0]);
 	bool termino_ejecucion = esperar(atoi(buffer[3]), trip);
 
-	pthread_mutex_lock(&mutex_tripulantes_running);
-		quitar(trip, tripulantes_running);
-		tripulantes_trabajando--;
-		sem_post(&multiprocesamiento);
-	pthread_mutex_unlock(&mutex_tripulantes_running);
+	quitar_running(trip);
 
 	if(termino_ejecucion) {
 		log_info(logger,"Tripulante %d termino de ejecutar", trip->id_trip);
@@ -166,23 +127,21 @@ bool ejecutar(char* input, tripulante* trip) {
 void moverse(tripulante* trip, int pos_x, int pos_y) {
 
 	while(trip->posicion[0] != pos_x && trip->quantum_disponible) {
-		if(corroborar_quantum(trip)) {
-			(trip->posicion[0] < pos_x) ? trip->posicion[0]++ : trip->posicion[0]--;
-			avisar_movimiento(trip);
-			sleep(ciclo_CPU);
-		}
 
-		corroborar_planificacion(trip);
+		(trip->posicion[0] < pos_x) ? trip->posicion[0]++ : trip->posicion[0]--;
+		avisar_movimiento(trip);
+		sleep(ciclo_CPU);
+
+		puede_continuar(trip);
 	}
 
 	while(trip->posicion[1] != pos_y && trip->quantum_disponible) {
-		if(corroborar_quantum(trip)) {
-			(trip->posicion[1] < pos_y) ? trip->posicion[1]++ : trip->posicion[1]--;
-			avisar_movimiento(trip);
-			sleep(ciclo_CPU);
-		}
 
-		corroborar_planificacion(trip);
+		(trip->posicion[1] < pos_y) ? trip->posicion[1]++ : trip->posicion[1]--;
+		avisar_movimiento(trip);
+		sleep(ciclo_CPU);
+
+		puede_continuar(trip);
 	}
 
 	if(trip->posicion[0] == pos_x && trip->posicion[1] == pos_y)
@@ -191,16 +150,69 @@ void moverse(tripulante* trip, int pos_x, int pos_y) {
 		log_info(logger,"Tripulante %d se quedo en %d|%d en vez de %d|%d", trip->id_trip, trip->posicion[0], trip->posicion[1], pos_x, pos_y);
 }
 
+void ejecutar_io(tripulante* trip, char* comando) {
+	char** comando_tarea = string_split(comando, " ");
+	tareas tarea = stringToEnum(comando_tarea[0]);
+
+	t_mensaje* mensaje_mongo_out;
+	t_list* mensaje_mongo_in;
+
+	if(tarea != ESPERAR && trip->quantum_disponible) {
+
+		quitar_running(trip);
+		esta_blocked(trip);
+
+		actualizar_quantum(trip);
+
+		sem_wait(trip->sem_blocked);
+
+		switch(tarea){
+			case GENERAR_OXIGENO:
+				mensaje_mongo_out = crear_mensaje(GEN_OX);
+				break;
+			case CONSUMIR_OXIGENO:
+				mensaje_mongo_out = crear_mensaje(CON_OX);
+				break;
+			case GENERAR_COMIDA:
+				mensaje_mongo_out = crear_mensaje(GEN_CO);
+				break;
+			case CONSUMIR_COMIDA:
+				mensaje_mongo_out = crear_mensaje(CON_CO);
+				break;
+			case GENERAR_BASURA:
+				mensaje_mongo_out = crear_mensaje(GEN_BA);
+				break;
+			case DESCARTAR_BASURA:
+				mensaje_mongo_out = crear_mensaje(DES_BA);
+				break;
+		}
+
+		agregar_parametro_a_mensaje(mensaje_mongo_out, comando_tarea[1], ENTERO);
+		enviar_mensaje(trip->socket_mongo, mensaje_mongo_out);
+
+		char* mensaje;
+		sprintf(mensaje, "Tripulante %d - fallo al %s en el MONGO",trip->id_trip, comando_tarea[0]);
+		respuesta_OK(mensaje_mongo_in, mensaje);
+
+		actualizar_estado(trip, READY);
+
+		esta_ready(trip);
+
+		sem_wait(&trip->sem_running);
+		actualizar_estado(trip, RUNNING);
+
+		sem_post(&io_disponible);
+	}
+}
+
 bool esperar(int tiempo, tripulante* trip) {
 	while(trip->tiempo_esperado < tiempo && trip->quantum_disponible) {
 
-		if(corroborar_quantum(trip)) {
-			log_info(logger,"Tripulante %d ESPERANDO %d de %d",trip->id_trip, trip->tiempo_esperado, tiempo);
-			trip->tiempo_esperado++;
-			sleep(ciclo_CPU);
-		}
+		log_info(logger,"Tripulante %d ESPERANDO %d de %d",trip->id_trip, trip->tiempo_esperado, tiempo);
+		trip->tiempo_esperado++;
+		sleep(ciclo_CPU);
 
-		corroborar_planificacion(trip);
+		puede_continuar(trip);
 	}
 
 	if(trip->tiempo_esperado == tiempo) {
@@ -211,19 +223,48 @@ bool esperar(int tiempo, tripulante* trip) {
 	return false;
 }
 
-void avisar_movimiento(tripulante* trip) {  //todo avisar a mongo
-	t_mensaje* mensaje_out;
-	t_list* mensaje_in;
+void avisar_movimiento(tripulante* trip) {
+	if(CONEXIONES_ACTIVADAS) {
+		t_mensaje* mensaje_ram_out;
+		//t_mensaje* mensaje_mongo_out;
+		t_list* mensaje_ram_in;
+		t_list* mensaje_mongo_in;
 
-	mensaje_out = crear_mensaje(ACTU_T);
+		mensaje_ram_out = crear_mensaje(ACTU_T);
+		//mensaje_mongo_out = crear_mensaje(ACTU_T);
 
-	agregar_parametro_a_mensaje(mensaje_out, (void*)trip->posicion[0], ENTERO);
-	agregar_parametro_a_mensaje(mensaje_out, (void*)trip->posicion[1], ENTERO);
+		agregar_parametro_a_mensaje(mensaje_ram_out, (void*)trip->posicion[0], ENTERO);
+		agregar_parametro_a_mensaje(mensaje_ram_out, (void*)trip->posicion[1], ENTERO);
 
-	enviar_mensaje(trip->socket_ram, mensaje_out);
-	mensaje_in = recibir_mensaje(trip->socket_ram);
+		//agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)trip->posicion[0], ENTERO);
+		//agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)trip->posicion[1], ENTERO);
 
-	respuesta_OK(mensaje_in, "Fallo en la actualizacion de posicion en RAM");
+		enviar_mensaje(trip->socket_ram, mensaje_ram_out);
+		enviar_mensaje(trip->socket_mongo, mensaje_ram_out);
+		mensaje_ram_in = recibir_mensaje(trip->socket_ram);
+		mensaje_mongo_in = recibir_mensaje(trip->socket_mongo);
+
+		respuesta_OK(mensaje_ram_in, "Fallo en la actualizacion de posicion en RAM");
+		respuesta_OK(mensaje_mongo_in, "Fallo en la actualizacion de posicion en MONGO");
+	}
+}
+
+void actualizar_estado(tripulante* trip, estado estado_trip) {
+	trip->estado = estado_trip;
+
+	if(CONEXIONES_ACTIVADAS) {
+		t_mensaje* mensaje_ram_out;
+		t_mensaje* mensaje_ram_in;
+
+		mensaje_ram_out = crear_mensaje(ACTU_T);
+
+		agregar_parametro_a_mensaje(mensaje_ram_out, (void*)trip->estado, ENTERO);
+
+		enviar_mensaje(trip->socket_ram, mensaje_ram_out);
+		mensaje_ram_in = recibir_mensaje(trip->socket_ram);
+
+		respuesta_OK(mensaje_ram_in, "Fallo en la actualizacion del estado en RAM");
+	}
 }
 
 void respuesta_OK(t_list* respuesta, char* mensaje_fallo) {
@@ -233,18 +274,18 @@ void respuesta_OK(t_list* respuesta, char* mensaje_fallo) {
 			log_warning(logger, "%s", mensaje_fallo);
 }
 
-bool corroborar_quantum(tripulante* trip) {
+void actualizar_quantum(tripulante* trip) {
+	trip->contador_ciclos++;
+
 	if(analizar_quantum && trip->contador_ciclos == quantum) {
 		trip->quantum_disponible = false;
-		return false;
-	}
-	else {
-		trip->contador_ciclos++;
-		return true;
+		//trip->contador_ciclos = 0;
 	}
 }
 
-void corroborar_planificacion(tripulante* trip) {
+void puede_continuar(tripulante* trip) {
+	actualizar_quantum(trip);
+
 	if(!continuar_planificacion) {
 		log_info(logger,"Tripulante %d pausado", trip->id_trip);
 		sem_wait(&trip->sem_running);

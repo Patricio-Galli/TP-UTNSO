@@ -11,7 +11,7 @@
 t_log* logger;
 
 t_queue* cola_ready;
-//t_queue* cola_blocked;
+t_queue* cola_blocked;
 t_list* tripulantes_running;
 
 pthread_mutex_t mutex_cola_ready;
@@ -22,6 +22,9 @@ sem_t activar_planificacion;
 
 sem_t multiprocesamiento;
 sem_t tripulantes_ready;
+
+sem_t io_disponible;
+sem_t tripulantes_blocked;
 
 int ciclo_CPU;
 int quantum;
