@@ -5,6 +5,7 @@ t_list* lista_tripulantes;
 t_log* logger;
 t_config* config;
 int socket_ram = 0, socket_mongo = 0;
+char* ip_ram, ip_mongo;
 bool salir;
 bool planificacion_inicializada;
 
@@ -14,14 +15,16 @@ int main() {
 
 	if(CONEXIONES_ACTIVADAS) {
 		log_info(logger,"Conexiones Actividades");
+		ip_ram = config_get_string_value(config, "IP_MI_RAM_HQ");
+		ip_mongo = config_get_string_value(config, "IP_I_MONGO_STORE");
+
 		socket_ram = crear_conexion_cliente(
-			config_get_string_value(config, "IP_MI_RAM_HQ"),
+			ip_ram,
 			config_get_string_value(config, "PUERTO_MI_RAM_HQ"));
-		/*
+
 		socket_mongo = crear_conexion_cliente(
-			config_get_string_value(config, "IP_I_MONGO_STORE"),
+			ip_mongo,
 			config_get_string_value(config, "PUERTO_I_MONGO_STORE"));
-		 */
 
 		if(!validar_socket(socket_ram, logger) || !validar_socket(socket_mongo, logger)) {
 			close(socket_ram);
@@ -48,10 +51,8 @@ int main() {
 	while(!salir) {
 		char* buffer_consola = leer_consola();
 		char** input = string_split(buffer_consola, " ");
-
-		command_code funcion = mapStringToEnum(input[0]);
-
 		parametros_iniciar_patota* parametros;
+		command_code funcion = mapStringToEnum(input[0]);
 
 		switch(funcion) {
 			case INICIAR_PATOTA:
@@ -82,11 +83,10 @@ int main() {
 						log_error(logger, "No se pudo iniciar patota, no hay suficiente memoria.");
 
 					list_destroy(mensaje_in);
-					liberar_parametros(parametros);
-				} else {
+				} else
 					iniciar_patota(parametros);
-					liberar_parametros(parametros);
-				}
+
+				liberar_parametros(parametros);
 				break;
 
 			case LISTAR_TRIPULANTES:
@@ -134,30 +134,52 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 	log_info(logger,"Iniciando creacion de Patota nro: %d", id_patota_actual);
 
 	for(int iterador = 1; iterador <= parametros->cantidad_tripulantes; iterador++) {
-		t_mensaje* mensaje_out;
-		t_list* mensaje_in;
+		t_mensaje* mensaje_ram_out;
+		t_mensaje* mensaje_mongo_out;
+		t_list* mensaje_ram_in;
+		t_list* mensaje_mongo_in;
 
 		if(CONEXIONES_ACTIVADAS) {
-			mensaje_out = crear_mensaje(INIT_T);
+			mensaje_ram_out = crear_mensaje(INIT_T);
+			mensaje_mongo_out = crear_mensaje(INIT_T);
 
-			agregar_parametro_a_mensaje(mensaje_out, (void*)id_patota_actual, ENTERO); //todo sacar
-			agregar_parametro_a_mensaje(mensaje_out, (void*)iterador, ENTERO);
-			agregar_parametro_a_mensaje(mensaje_out, (void*)parametros->posiciones_x[iterador-1], ENTERO);
-			agregar_parametro_a_mensaje(mensaje_out, (void*)parametros->posiciones_y[iterador-1], ENTERO);
+			agregar_parametro_a_mensaje(mensaje_ram_out, (void*)id_patota_actual, ENTERO); //todo sacar
+			agregar_parametro_a_mensaje(mensaje_ram_out, (void*)iterador, ENTERO);
+			agregar_parametro_a_mensaje(mensaje_ram_out, (void*)parametros->posiciones_x[iterador-1], ENTERO);
+			agregar_parametro_a_mensaje(mensaje_ram_out, (void*)parametros->posiciones_y[iterador-1], ENTERO);
 
-			enviar_mensaje(socket_ram, mensaje_out);
-			mensaje_in = recibir_mensaje(socket_ram);
+			agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)id_patota_actual, ENTERO); //todo sacar
+			agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)iterador, ENTERO);
+			agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)parametros->posiciones_x[iterador-1], ENTERO);
+			agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)parametros->posiciones_y[iterador-1], ENTERO);
 
-			if((int)list_get(mensaje_in, 0) == SND_PO) { //todo pedir puertos antes de mandar las cosas a crear_tripulante
-				char str_puerto[7];
-				sprintf(str_puerto, "%d", (int)list_get(mensaje_in, 1));
-				int socket_ram_trip = crear_conexion_cliente(config_get_string_value(config, "IP_MI_RAM_HQ"), str_puerto); //todo poner ip global
+			enviar_mensaje(socket_ram, mensaje_ram_out);
+			enviar_mensaje(socket_mongo, mensaje_mongo_out);
+			mensaje_ram_in = recibir_mensaje(socket_ram);
+			mensaje_mongo_in = recibir_mensaje(socket_mongo);
 
-				tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_x[iterador-1], parametros->posiciones_y[iterador-1], id_patota_actual, iterador, socket_ram_trip, 0);
+			if((int)list_get(mensaje_ram_in, 0) == SND_PO && (int)list_get(mensaje_mongo_in, 0) == SND_PO) { //todo pedir puertos antes de mandar las cosas a crear_tripulante
+				char str_puerto_ram[7];
+				char str_puerto_mongo[7];
+
+				sprintf(str_puerto_ram, "%d", (int)list_get(mensaje_ram_in, 1));
+				sprintf(str_puerto_mongo, "%d", (int)list_get(mensaje_mongo_in, 1));
+
+				int socket_ram_trip = crear_conexion_cliente(ip_ram, str_puerto_ram);
+				int socket_mongo_trip = crear_conexion_cliente(ip_mongo, str_puerto_mongo);
+
+				tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_x[iterador-1], parametros->posiciones_y[iterador-1], id_patota_actual, iterador, socket_ram_trip, socket_mongo_trip);
 				list_add(lista_tripulantes, nuevo_tripulante); //devuelve la posicion en la que se agrego
 			}
-			else
-				log_error(logger, "No se pudo crear al tripulante, no hay suficiente memoria.");
+			else {
+				if((int)list_get(mensaje_ram_in, 0) == NO_SPC)
+					log_error(logger, "No se pudo crear al tripulante, no hay suficiente memoria.");
+				else
+					log_error(logger, "No se pudo crear al tripulante, error en la RAM.");
+
+				if((int)list_get(mensaje_mongo_in, 0) != SND_PO)
+					log_error(logger, "No se pudo crear al tripulante, fallo en el disco.");
+			}
 		} else {
 			tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_x[iterador-1], parametros->posiciones_y[iterador-1], id_patota_actual, iterador, 0, 0);
 			list_add(lista_tripulantes, nuevo_tripulante); //devuelve la posicion en la que se agrego
@@ -192,7 +214,7 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 
 		log_info(logger,"Tripulante: %d    Patota: %d", nuevo_tripulante->id_trip, nuevo_tripulante->id_patota);
 
-		if(nuevo_tripulante->id_trip == id_tripulante && nuevo_tripulante->id_patota == id_patota) {
+		if(nuevo_tripulante->id_trip == id_tripulante && nuevo_tripulante->id_patota == id_patota) { //todo eliminar al tripulante de la planificacion
 			continuar = false;
 			t_mensaje* mensaje;
 			t_list *respuesta;

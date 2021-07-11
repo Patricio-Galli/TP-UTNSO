@@ -14,7 +14,7 @@
 
 #include "planificador.h"
 
-#define CONEXIONES_ACTIVADAS 1
+#define CONEXIONES_ACTIVADAS 0
 
 typedef struct {
 	int posicion[2];
@@ -61,7 +61,8 @@ bool ejecutar(char*, tripulante*);
 char* solicitar_tarea(tripulante*, bool*);
 void avisar_movimiento(tripulante*);
 void moverse(tripulante*, int, int);
-void esperar(int, tripulante*);
+bool esperar(int, tripulante*);
+void respuesta_OK(t_list* respuesta, char* mensaje_fallo);
 bool corroborar_quantum(tripulante*);
 void corroborar_planificacion(tripulante*);
 void quitar(tripulante*, t_list*);

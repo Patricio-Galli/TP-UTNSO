@@ -2,12 +2,10 @@
 
 tripulante* crear_tripulante(int x, int y, int patota, int id, int socket_ram, int socket_mongo) {
 	tripulante* nuevo_tripulante = malloc(sizeof(tripulante));
-	pthread_t nuevo_hilo;
 
 	nuevo_tripulante->id_trip = id;
 	nuevo_tripulante->id_patota = patota;
 	nuevo_tripulante->estado = NEW;
-	nuevo_tripulante->hilo = nuevo_hilo;
 	nuevo_tripulante->posicion[0] = x;
 	nuevo_tripulante->posicion[1] = y;
 	nuevo_tripulante->socket_ram = socket_ram;
@@ -19,47 +17,48 @@ tripulante* crear_tripulante(int x, int y, int patota, int id, int socket_ram, i
 	sem_init(&nuevo_tripulante->sem_blocked, 0, 0);
 	sem_init(&nuevo_tripulante->sem_running, 0, 0);
 
-	pthread_create(&nuevo_hilo, NULL, rutina_tripulante, nuevo_tripulante);
+	pthread_create(&nuevo_tripulante->hilo, NULL, rutina_tripulante, nuevo_tripulante);
 
 	return nuevo_tripulante;
 }
 
-void* rutina_tripulante(void* trip) {
-	tripulante* nuevo_tripulante = (tripulante*) trip; //si modifico el interior de ese puntero se modifica de mi lista tambien
-	int tiene_tareas = 4;
+void* rutina_tripulante(void* t) {
+	tripulante* trip = (tripulante*) t; //si modifico el interior de ese puntero se modifica de mi lista tambien
+	int tiene_tareas = 4;//todo eliminar al usar las conexiones definitivamente
 	char* tarea;
 	bool tareas_disponibles = true;
 
 	if(CONEXIONES_ACTIVADAS)
-		tarea = solicitar_tarea(nuevo_tripulante, &tareas_disponibles);
+		tarea = solicitar_tarea(trip, &tareas_disponibles);
 
 	while(tareas_disponibles) {
 		bool termino_ejecucion;
 
 		//todo avisar a la ram
+		trip->estado = READY;
+
 		pthread_mutex_lock(&mutex_cola_ready);
-			queue_push(cola_ready, nuevo_tripulante);
+			queue_push(cola_ready, trip);
 			sem_post(&tripulantes_ready);
-			nuevo_tripulante->estado = READY;
-			//log_info(logger,"Tripulante %d ready", nuevo_tripulante->id_trip);
 		pthread_mutex_unlock(&mutex_cola_ready);
 
-		sem_wait(&nuevo_tripulante->sem_running);
+		sem_wait(&trip->sem_running);
 
 		//todo avisar a la ram
+		trip->estado = RUNNING;
 
 		if(CONEXIONES_ACTIVADAS)
-			termino_ejecucion = ejecutar(tarea, nuevo_tripulante);//devuelve true si la termino y false si no
+			termino_ejecucion = ejecutar(tarea, trip);
 		else {
 			if(tiene_tareas%2 == 0)
-				termino_ejecucion = ejecutar("ESPERAR;3;3;3", nuevo_tripulante);//devuelve true si la termino y false si no
+				termino_ejecucion = ejecutar("ESPERAR;3;3;3", trip);
 			else
-				termino_ejecucion = ejecutar("ESPERAR;0;2;4", nuevo_tripulante);
+				termino_ejecucion = ejecutar("ESPERAR;0;2;4", trip);
 		}
 
 		if(termino_ejecucion){
 			if(CONEXIONES_ACTIVADAS)
-				tarea = solicitar_tarea(nuevo_tripulante, &tareas_disponibles);
+				tarea = solicitar_tarea(trip, &tareas_disponibles);
 			else
 				tiene_tareas--;
 		}
@@ -67,7 +66,7 @@ void* rutina_tripulante(void* trip) {
 		if(tiene_tareas == 0)
 			tareas_disponibles = false;
 	}
-	nuevo_tripulante->estado = EXIT;
+	trip->estado = EXIT;
 	return 0;
 }
 
@@ -93,14 +92,23 @@ char* solicitar_tarea(tripulante* trip, bool* tareas_disponibles) {
 bool ejecutar(char* input, tripulante* trip) {
 	log_info(logger,"Tripulante %d comienza a ejecutar tarea %s  -  Posicion actual: %d|%d  -  Tiempo esperado previamente:%d  -  Quantum disponible: %d", trip->id_trip, input, trip->posicion[0], trip->posicion[1], trip->tiempo_esperado, quantum - trip->contador_ciclos);
 
-	trip->estado = RUNNING;
-
 	char** buffer = string_split(input, ";");
 	char** comando_tarea = string_split(buffer[0], " ");
+	t_mensaje* mensaje_mongo_out;
+	t_list* mensaje_mongo_in;
 
 	tareas tarea = stringToEnum(comando_tarea[0]);
 
-	//todo  avisar al mongo que se empezo a ejecutar esa tarea
+	if(CONEXIONES_ACTIVADAS) {
+		mensaje_mongo_out = crear_mensaje(EXEC_1);
+
+		agregar_parametro_a_mensaje(mensaje_mongo_out, input, BUFFER);
+
+		enviar_mensaje(trip->socket_mongo, mensaje_mongo_out);
+		mensaje_mongo_in = recibir_mensaje(trip->socket_mongo);
+
+		respuesta_OK(mensaje_mongo_in, "Fallo en comunicacion con el MONGO");
+	}
 
 	moverse(trip, atoi(buffer[1]), atoi(buffer[2]));
 
@@ -125,89 +133,85 @@ bool ejecutar(char* input, tripulante* trip) {
 		}
 	}
 
-	esperar(atoi(buffer[3]), trip);
+	bool termino_ejecucion = esperar(atoi(buffer[3]), trip);
 
 	pthread_mutex_lock(&mutex_tripulantes_running);
 		quitar(trip, tripulantes_running);
 		tripulantes_trabajando--;
 		sem_post(&multiprocesamiento);
 	pthread_mutex_unlock(&mutex_tripulantes_running);
-	if(analizar_quantum) {
-		if(trip->quantum_disponible) {
-			log_info(logger,"Tripulante %d termino de ejecutar  -  Quantum disponible %d", trip->id_trip, quantum - trip->contador_ciclos);
-			return true;
-		}
-		else {
-			log_info(logger,"Tripulante %d se quedo sin quantum", trip->id_trip);
-			trip->quantum_disponible = true;
-			trip->contador_ciclos = 0;
-			return false;
-		}
-	}else {
+
+	if(termino_ejecucion) {
 		log_info(logger,"Tripulante %d termino de ejecutar", trip->id_trip);
-		return true;
+
+		if(CONEXIONES_ACTIVADAS) {
+			mensaje_mongo_out = crear_mensaje(EXEC_0);
+
+			enviar_mensaje(trip->socket_mongo, mensaje_mongo_out);
+			mensaje_mongo_in = recibir_mensaje(trip->socket_mongo);
+
+			respuesta_OK(mensaje_mongo_in, "Fallo en comunicacion con el MONGO");
+		}
 	}
+
+	if(analizar_quantum && !trip->quantum_disponible) {
+		log_info(logger,"Tripulante %d se quedo sin quantum", trip->id_trip);
+		trip->quantum_disponible = true;
+		trip->contador_ciclos = 0;
+	}
+
+	return termino_ejecucion;
 }
 
 void moverse(tripulante* trip, int pos_x, int pos_y) {
-	bool completo_movimiento = true;
 
 	while(trip->posicion[0] != pos_x && trip->quantum_disponible) {
-
 		if(corroborar_quantum(trip)) {
 			(trip->posicion[0] < pos_x) ? trip->posicion[0]++ : trip->posicion[0]--;
-			avisar_movimiento(trip); //todo avisar a mongo
+			avisar_movimiento(trip);
 			sleep(ciclo_CPU);
 		}
-		else
-			completo_movimiento = false;
 
 		corroborar_planificacion(trip);
 	}
-
-	if(completo_movimiento)
-		log_info(logger,"Tripulante %d llego a x", trip->id_trip);
-	else
-		log_info(logger,"Tripulante %d se quedo en %d de x en vez de llegar a %d por fin de quantum", trip->id_trip, trip->posicion[0], pos_x);
 
 	while(trip->posicion[1] != pos_y && trip->quantum_disponible) {
 		if(corroborar_quantum(trip)) {
 			(trip->posicion[1] < pos_y) ? trip->posicion[1]++ : trip->posicion[1]--;
-			avisar_movimiento(trip); //todo avisar a mongo
+			avisar_movimiento(trip);
 			sleep(ciclo_CPU);
 		}
-		else
-			completo_movimiento = false;
 
 		corroborar_planificacion(trip);
 	}
 
-	if(completo_movimiento)
-		log_info(logger,"Tripulante %d llego a y", trip->id_trip);
+	if(trip->posicion[0] == pos_x && trip->posicion[1] == pos_y)
+		log_info(logger,"Tripulante %d llego a %d|%d", trip->id_trip, trip->posicion[0], trip->posicion[1]);
 	else
-		log_info(logger,"Tripulante %d se quedo en %d de y en vez de llegar a %d por fin de quantum", trip->id_trip, trip->posicion[1], pos_y);
+		log_info(logger,"Tripulante %d se quedo en %d|%d en vez de %d|%d", trip->id_trip, trip->posicion[0], trip->posicion[1], pos_x, pos_y);
 }
 
-void esperar(int tiempo, tripulante* trip) {
-	bool completo_espera = true;
-
+bool esperar(int tiempo, tripulante* trip) {
 	while(trip->tiempo_esperado < tiempo && trip->quantum_disponible) {
+
 		if(corroborar_quantum(trip)) {
 			log_info(logger,"Tripulante %d ESPERANDO %d de %d",trip->id_trip, trip->tiempo_esperado, tiempo);
 			trip->tiempo_esperado++;
 			sleep(ciclo_CPU);
 		}
-		else
-			completo_espera = false;
 
 		corroborar_planificacion(trip);
 	}
 
-	if(completo_espera)
+	if(trip->tiempo_esperado == tiempo) {
 		trip->tiempo_esperado = 0;
+		return true;
+	}
+
+	return false;
 }
 
-void avisar_movimiento(tripulante* trip) {
+void avisar_movimiento(tripulante* trip) {  //todo avisar a mongo
 	t_mensaje* mensaje_out;
 	t_list* mensaje_in;
 
@@ -219,11 +223,14 @@ void avisar_movimiento(tripulante* trip) {
 	enviar_mensaje(trip->socket_ram, mensaje_out);
 	mensaje_in = recibir_mensaje(trip->socket_ram);
 
-	if(!validar_mensaje(mensaje_in, logger))
-		log_warning(logger, "FALLO EN MENSAJE CON HILO RAM");
-	else
-		if((int)list_get(mensaje_in, 0) != TODOOK)
-			log_warning(logger, "FALLO actualizacion de posicion en RAM");
+	respuesta_OK(mensaje_in, "Fallo en la actualizacion de posicion en RAM");
+}
+
+void respuesta_OK(t_list* respuesta, char* mensaje_fallo) {
+	if(!validar_mensaje(respuesta, logger))
+		log_warning(logger, "FALLO EN COMUNICACION");
+	else if((int)list_get(respuesta, 0) != TODOOK)
+			log_warning(logger, "%s", mensaje_fallo);
 }
 
 bool corroborar_quantum(tripulante* trip) {

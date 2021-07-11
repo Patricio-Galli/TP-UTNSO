@@ -45,11 +45,13 @@ void* planificador(void* algoritmo) {
 
 		pthread_mutex_lock(&mutex_cola_ready);
 			tripulante* trip = (tripulante*)queue_pop(cola_ready);
+		pthread_mutex_unlock(&mutex_cola_ready);
+
+		pthread_mutex_lock(&mutex_tripulantes_running);
 			list_add(tripulantes_running, trip);
 			sem_post(&trip->sem_running);
 			tripulantes_trabajando++;
-			//log_info(logger,"Tripulante %d running", trip->id_trip);
-		pthread_mutex_unlock(&mutex_cola_ready);
+		pthread_mutex_unlock(&mutex_tripulantes_running);
 	}
 	return 0;
 }

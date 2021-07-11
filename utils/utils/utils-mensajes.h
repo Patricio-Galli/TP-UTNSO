@@ -20,6 +20,8 @@
 #include<errno.h>
 
 typedef enum {
+	EXEC_1,
+	EXEC_0,
 	INIT_P,	// Iniciar patota
 		// INIT_P | id_patota [int] | cantidad_tripulantes [int] | cant_tareas [int] | (tareas)
 	
