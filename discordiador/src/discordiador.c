@@ -9,6 +9,17 @@ char *ip_ram, *ip_mongo;
 bool salir;
 bool planificacion_inicializada;
 
+/*
+	EXEC_1,
+	EXEC_0,
+	GEN_OX,
+	CON_OX,
+	GEN_CO,
+	CON_CO,
+	GEN_BA,
+	DES_BA
+ */
+
 int main() {
 	logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
 	config = config_create("discordiador.config");

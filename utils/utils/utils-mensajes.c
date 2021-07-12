@@ -15,6 +15,7 @@ t_mensaje* crear_mensaje(protocolo_msj cod_op) {
 
 void agregar_parametro_a_mensaje(t_mensaje* mensaje, void* parametro, tipo_msj tipo_parametro) {
 	int valor_parametro;
+	char valor_parametro_char;
 	int tamanio_buffer;
 	switch (tipo_parametro) {
 	case ENTERO:
@@ -22,6 +23,12 @@ void agregar_parametro_a_mensaje(t_mensaje* mensaje, void* parametro, tipo_msj t
 		valor_parametro = (int)parametro;
 		memcpy(mensaje->buffer->contenido + mensaje->buffer->tamanio, &valor_parametro, sizeof(int));
 		mensaje->buffer->tamanio = mensaje->buffer->tamanio + sizeof(int);
+		break;
+	case CARACTER:
+		mensaje->buffer->contenido = realloc(mensaje->buffer->contenido, mensaje->buffer->tamanio + sizeof(char));
+		valor_parametro_char = (char)parametro;
+		memcpy(mensaje->buffer->contenido + mensaje->buffer->tamanio, &valor_parametro_char, sizeof(char));
+		mensaje->buffer->tamanio = mensaje->buffer->tamanio + sizeof(char);
 		break;
 	case BUFFER:
 		tamanio_buffer = (strlen(parametro) + 1) * sizeof(char);
@@ -50,6 +57,10 @@ void* recibir_parametro(int socket, tipo_msj tipo) {
 		recv(socket, &parametro, sizeof(int), MSG_WAITALL);
 		return (void *)parametro;
 		break;
+	case CARACTER:
+		recv(socket, &parametro, sizeof(char), MSG_WAITALL);
+		return (void *)parametro;
+		break;
 	case BUFFER:
 		recv(socket, &tamanio_buffer, sizeof(int), MSG_WAITALL);
 		char *buffer = malloc(tamanio_buffer * sizeof(char));
@@ -69,33 +80,28 @@ t_list* recibir_mensaje(int socket) {
 	if(error == 0) {
 		op_code = ER_SOC;
 		list_add(lista_parametros, (void *)ER_SOC);
-		// fprintf(stderr, "%d", error);
-		// perror("read");
+		fprintf(stderr, "ERROR %d: ", error);
+		perror("read");
 	}
-		
+	
 	if(error == -1) {
 		op_code = ER_RCV;
 		list_add(lista_parametros, (void *)ER_RCV);
-		// fprintf(stderr, "%d", error);
-		// perror("read");
+		fprintf(stderr, "ERROR %d: ", error);
+		perror("read");
 	}
-		
+	
 	if(error > 0)
 		list_add(lista_parametros, (void *)op_code);
-	
+
 	switch(op_code) {
 	case INIT_P:
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
-		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
-		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
-
-		int cant_tareas = (int)list_get(lista_parametros, 3);
-		for(int iterador = 0; iterador < cant_tareas; iterador++) {
+		int cant_tareas = (int)list_get(lista_parametros, 1);
+		for(int iterador = 0; iterador < cant_tareas; iterador++)
 			list_add(lista_parametros, recibir_parametro(socket, BUFFER));
-		}
 		break;
 	
-	case INIT_T:
 	case SABO_P:
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
@@ -109,6 +115,7 @@ t_list* recibir_mensaje(int socket) {
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		break;
 	
+	case INIT_T:
 	case DATA_T:
 	case ELIM_T:
 	case ACTU_T:
@@ -132,14 +139,23 @@ t_list* recibir_mensaje(int socket) {
 	case TASK_T:
 		list_add(lista_parametros, recibir_parametro(socket, BUFFER));
 		break;
+	
+	case ACTU_E:
+		list_add(lista_parametros, recibir_parametro(socket, CARACTER));
+		break;
 
 	case NEW_PO:
 	case NEXT_T:
 	case TODOOK:
 	case NO_SPC:
 	case ER_MSJ:
+		break;
+
 	case ER_RCV:
+		printf("ERROR ER_RCV\n");
+		break;
 	case ER_SOC:
+		printf("ERROR ER_SOC\n");
 		break;
 	
 	case BITA_T:

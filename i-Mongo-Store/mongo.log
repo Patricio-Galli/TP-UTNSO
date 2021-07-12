@@ -32,3 +32,17 @@
 [INFO] 23:00:29:487 MONGO/(718:718): Puerto a usar: 10215
 [INFO] 23:00:29:488 MONGO/(718:718): Conexion: 4
 [INFO] 23:00:29:488 MONGO/(718:718): Servidor listo
+[INFO] 23:07:24:231 MONGO/(718:718): Conexión establecida con el discordiador
+[INFO] 23:07:24:231 MONGO/(718:718): Esperando información del discordiador
+[WARNING] 23:10:07:722 MONGO/(718:718): La conexión remota se ha desconectado.
+[INFO] 23:10:07:722 MONGO/(718:718): Cliente desconectado dentro del while
+[INFO] 23:10:33:178 MONGO/(1388:1388): Puerto a usar: 10215
+[INFO] 23:10:33:178 MONGO/(1388:1388): Conexion: 4
+[INFO] 23:10:33:178 MONGO/(1388:1388): Servidor listo
+[INFO] 23:10:39:058 MONGO/(1388:1388): Conexión establecida con el discordiador
+[INFO] 23:10:39:058 MONGO/(1388:1388): Esperando información del discordiador
+[INFO] 23:14:16:709 MONGO/(2168:2168): Servidor listo
+[INFO] 23:14:23:462 MONGO/(2168:2168): Conexión establecida con el discordiador
+[INFO] 23:14:23:462 MONGO/(2168:2168): Esperando información del discordiador
+[WARNING] 23:14:41:796 MONGO/(2168:2168): La conexión remota se ha desconectado.
+[INFO] 23:14:41:796 MONGO/(2168:2168): Cliente desconectado dentro del while
