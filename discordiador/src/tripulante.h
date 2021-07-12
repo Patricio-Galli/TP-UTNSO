@@ -12,9 +12,7 @@
 #include <utils/utils-sockets.h>
 #include <utils/utils-mensajes.h>
 
-#include "planificador.h"
-
-#define CONEXIONES_ACTIVADAS 0
+#define CONEXIONES_ACTIVADAS 1
 
 typedef struct {
 	int posicion[2];
@@ -63,11 +61,10 @@ char* solicitar_tarea(tripulante*, bool*);
 void avisar_movimiento(tripulante*);
 void actualizar_estado(tripulante* trip, estado estado_trip);
 void moverse(tripulante*, int, int);
-void ejecutar_io(tripulante* trip, char* comando);
+void ejecutar_io(tripulante* trip, tareas tarea, int cantidad);
 bool esperar(int, tripulante*);
 void respuesta_OK(t_list* respuesta, char* mensaje_fallo);
 void actualizar_quantum(tripulante*);
 void puede_continuar(tripulante*);
-void quitar(tripulante*, t_list*);
 
 #endif /* TRIPULANTE_H_ */

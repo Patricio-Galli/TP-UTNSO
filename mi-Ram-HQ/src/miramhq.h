@@ -29,6 +29,5 @@
 #define IP_RAM "127.0.0.1"
 
 void* rutina_hilos(void* parametros);
-// uint32_t obtener_pcb(int id_patota, int id_tripulante);
 
 #endif /* _MIRAMHQ_H_ */

@@ -25,16 +25,15 @@ void inicializar_planificador(int grado_multiprocesamiento, char* algoritmo, int
 	sem_init(&tripulantes_blocked, 0, 0);
 
 	pthread_t hilo_planificador;
-	pthread_t planificador_IO;
+	pthread_t hilo_planificador_io;
 
 	pthread_create(&hilo_planificador, NULL, planificador, algoritmo);
-	pthread_create(&planificador_IO, NULL, planificador_IO, NULL);
+	pthread_create(&hilo_planificador_io, NULL, planificador_io, NULL);
 }
 
 void* planificador(void* algoritmo) {
 	sem_wait(&activar_planificacion);
 	continuar_planificacion = true;
-	tripulantes_trabajando = 0;
 
 	if(!strcmp(algoritmo,"FIFO")) {
 		log_info(logger,"Panificando con algoritmo FIFO ...");
@@ -53,23 +52,28 @@ void* planificador(void* algoritmo) {
 			tripulante* trip = (tripulante*)queue_pop(cola_ready);
 		pthread_mutex_unlock(&mutex_cola_ready);
 
-		esta_running(trip);
+		agregar_running(trip);
 	}
 	return 0;
 }
 
-void* planificador_IO() {
-	sem_wait(&tripulantes_blocked);
-	sem_wait(&io_disponible);
+void* planificador_io() {
+	while(!*salir) {
+		sem_wait(&tripulantes_blocked);
+		sem_wait(&io_disponible);
 
-	pthread_mutex_lock(&mutex_cola_blocked);
-		tripulante* trip = (tripulante*)queue_pop(cola_blocked);
-	pthread_mutex_unlock(&mutex_cola_blocked);
+		pthread_mutex_lock(&mutex_cola_blocked);
+			tripulante* trip = (tripulante*)queue_pop(cola_blocked);
+			trip_block = trip;
+		pthread_mutex_unlock(&mutex_cola_blocked);
 
-	sem_post(&trip->sem_blocked);
+		sem_post(&trip->sem_blocked);
+	}
+
+	return 0;
 }
 
-void esta_ready(tripulante* trip) {
+void agregar_ready(tripulante* trip) {
 	actualizar_estado(trip, READY);
 
 	pthread_mutex_lock(&mutex_cola_ready);
@@ -78,17 +82,16 @@ void esta_ready(tripulante* trip) {
 	pthread_mutex_unlock(&mutex_cola_ready);
 }
 
-void esta_running(tripulante* trip) {
+void agregar_running(tripulante* trip) {
 	actualizar_estado(trip, RUNNING);
 
 	pthread_mutex_lock(&mutex_tripulantes_running);
 		list_add(tripulantes_running, trip);
 		sem_post(&trip->sem_running);
-		tripulantes_trabajando++;
 	pthread_mutex_unlock(&mutex_tripulantes_running);
 }
 
-void esta_blocked(tripulante* trip) {
+void agregar_blocked(tripulante* trip) {
 	actualizar_estado(trip, BLOCKED);
 
 	pthread_mutex_lock(&mutex_cola_blocked);
@@ -100,7 +103,21 @@ void esta_blocked(tripulante* trip) {
 void quitar_running(tripulante* trip) {
 	pthread_mutex_lock(&mutex_tripulantes_running);
 		quitar(trip, tripulantes_running);
-		tripulantes_trabajando--;
 		sem_post(&multiprocesamiento);
 	pthread_mutex_unlock(&mutex_tripulantes_running);
+}
+
+void quitar(tripulante* trip, t_list* list) {
+	int index = 0;
+	bool continuar = true;
+
+	while(continuar) {
+		tripulante* nuevo_tripulante = (tripulante*)list_get(list, index);
+
+		if(nuevo_tripulante->id_trip == trip->id_trip && nuevo_tripulante->id_patota == trip->id_patota) {
+			continuar = false;
+			list_remove(list, index);
+		}
+		index++;
+	}
 }

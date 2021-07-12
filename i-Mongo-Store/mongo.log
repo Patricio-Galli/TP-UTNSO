@@ -1,0 +1,34 @@
+[ERROR] 22:35:56:044 MONGO/(32051:32051): Error al crear socket. Puerto no disponible
+[ERROR] 22:36:21:835 MONGO/(32064:32064): Error al crear socket. Puerto no disponible
+[ERROR] 22:37:22:530 MONGO/(32102:32102): Error al crear socket. Puerto no disponible
+[ERROR] 22:37:39:177 MONGO/(32115:32115): Error al crear socket. Puerto no disponible
+[INFO] 22:42:25:348 MONGO/(32305:32305): Puerto a usar: 9053
+[ERROR] 22:42:25:348 MONGO/(32305:32305): Error al crear socket. Puerto no disponible
+[INFO] 22:45:21:864 MONGO/(32436:32436): Puerto a usar: 15813
+[ERROR] 22:45:21:865 MONGO/(32436:32436): Error al crear socket. Puerto no disponible
+[INFO] 22:49:25:004 MONGO/(32652:32652): Puerto a usar: 158130
+[ERROR] 22:49:25:004 MONGO/(32652:32652): Error al crear socket. Puerto no disponible
+[INFO] 22:49:41:667 MONGO/(32655:32655): Puerto a usar: 13150
+[ERROR] 22:49:41:667 MONGO/(32655:32655): Error al crear socket. Puerto no disponible
+[INFO] 22:49:59:355 MONGO/(32656:32656): Puerto a usar: 8000
+[ERROR] 22:49:59:355 MONGO/(32656:32656): Error al crear socket. Puerto no disponible
+[INFO] 22:50:14:331 MONGO/(32657:32657): Puerto a usar: 110000
+[ERROR] 22:50:14:331 MONGO/(32657:32657): Error al crear socket. Puerto no disponible
+[INFO] 22:52:38:264 MONGO/(32764:32764): Puerto a usar: 123
+[ERROR] 22:52:38:264 MONGO/(32764:32764): Error al crear socket. Puerto no disponible
+[INFO] 22:54:39:982 MONGO/(433:433): Puerto a usar: 123
+[ERROR] 22:54:39:982 MONGO/(433:433): Error al crear socket. Puerto no disponible
+[INFO] 22:54:54:629 MONGO/(436:436): Puerto a usar: 123
+[ERROR] 22:54:54:630 MONGO/(436:436): Error al crear socket. Puerto no disponible
+[INFO] 22:55:00:942 MONGO/(437:437): Puerto a usar: 10215
+[INFO] 22:55:00:942 MONGO/(437:437): Servidor listo
+[INFO] 22:56:53:355 MONGO/(575:575): Puerto a usar: 10215
+[INFO] 22:56:53:355 MONGO/(575:575): Conexion: 4
+[INFO] 22:56:53:355 MONGO/(575:575): Servidor listo
+[INFO] 22:58:17:850 MONGO/(575:575): Conexión establecida con el discordiador
+[INFO] 22:58:17:850 MONGO/(575:575): Esperando información del discordiador
+[WARNING] 22:59:01:159 MONGO/(575:575): La conexión remota se ha desconectado.
+[INFO] 22:59:01:159 MONGO/(575:575): Cliente desconectado dentro del while
+[INFO] 23:00:29:487 MONGO/(718:718): Puerto a usar: 10215
+[INFO] 23:00:29:488 MONGO/(718:718): Conexion: 4
+[INFO] 23:00:29:488 MONGO/(718:718): Servidor listo

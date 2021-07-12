@@ -5,7 +5,7 @@ t_list* lista_tripulantes;
 t_log* logger;
 t_config* config;
 int socket_ram = 0, socket_mongo = 0;
-char *ip_ram; *ip_mongo;
+char *ip_ram, *ip_mongo;
 bool salir;
 bool planificacion_inicializada;
 
@@ -188,7 +188,7 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 			list_add(lista_tripulantes, nuevo_tripulante); //devuelve la posicion en la que se agrego
 		}
 	}
-	log_info(logger,"Patota nro: %d iniciada.",id_patota_actual);
+	log_info(logger,"Patota nro: %d iniciada.\n",id_patota_actual);
 
 	id_patota_actual++;
 }
@@ -202,7 +202,7 @@ void listar_tripulantes() {
 		tripulante* nuevo_tripulante = (tripulante*)list_get(lista_tripulantes, i);
 		char* estado = estado_enumToString(nuevo_tripulante->estado);
 
-		log_info(logger,"Tripulante: %d    Patota: %d    Posicion: %d|%d    Status: %s", nuevo_tripulante->id_trip, nuevo_tripulante->id_patota, nuevo_tripulante->posicion[0], nuevo_tripulante->posicion[1], estado);
+		log_info(logger,"\t Tripulante: %d    Patota: %d    Posicion: %d|%d    Status: %s", nuevo_tripulante->id_trip, nuevo_tripulante->id_patota, nuevo_tripulante->posicion[0], nuevo_tripulante->posicion[1], estado);
 	}
 }
 
@@ -263,10 +263,11 @@ void iniciar_planificacion() {
 	else{
 		log_info(logger,"Reiniciando planificacion...");
 		continuar_planificacion = true;
-		for(int i = 0; i < tripulantes_trabajando; i++) {
+		for(int i = 0; i < list_size(tripulantes_running); i++) {
 			tripulante* trip = (tripulante*)list_get(tripulantes_running, i);
 			sem_post(&trip->sem_running);
 		}
+		sem_post(&trip_block->sem_running);
 	}
 }
 

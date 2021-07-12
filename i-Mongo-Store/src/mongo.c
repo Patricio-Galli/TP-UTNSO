@@ -8,9 +8,14 @@ int main() {
 	logger = log_create("mongo.log", "MONGO", 1, LOG_LEVEL_INFO);
     config = config_create("mongo.config");
 
-	int server_fd = crear_conexion_servidor(
-		IP_MONGO,	config_get_int_value(config, "PUERTO"), 1);
+    int puerto = config_get_int_value(config, "PUERTO");
+
+    log_info(logger, "Puerto a usar: %d", puerto);
+
+	int server_fd = crear_conexion_servidor(IP_MONGO, puerto, 1);
 	
+	log_info(logger, "Conexion: %d", server_fd);
+
 	if(!validar_socket(server_fd, logger)) {
 		close(server_fd);
 		log_destroy(logger);

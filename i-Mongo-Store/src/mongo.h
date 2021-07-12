@@ -1,5 +1,3 @@
-
-
 #ifndef MONGO_H_
 #define MONGO_H_
 
@@ -18,7 +16,7 @@
 #include <arpa/inet.h>
 #include <pthread.h>
 
-#define IP_MONGO "192.168.0.105"
+#define IP_MONGO "127.0.0.1"
 #define ERROR_CONEXION -1
 
 typedef struct {

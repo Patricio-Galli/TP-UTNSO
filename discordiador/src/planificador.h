@@ -13,6 +13,7 @@ t_log* logger;
 t_queue* cola_ready;
 t_queue* cola_blocked;
 t_list* tripulantes_running;
+tripulante* trip_block;
 
 pthread_mutex_t mutex_cola_ready;
 pthread_mutex_t mutex_tripulantes_running;
@@ -28,12 +29,18 @@ sem_t tripulantes_blocked;
 
 int ciclo_CPU;
 int quantum;
-int tripulantes_trabajando;
 bool continuar_planificacion;
 bool analizar_quantum;
 
 void inicializar_planificador(int, char*, int, int, bool*, t_log*);
 
 void* planificador(void*);
+void* planificador_io();
+
+void agregar_ready(tripulante* trip);
+void agregar_running(tripulante* trip);
+void agregar_blocked(tripulante* trip);
+void quitar_running(tripulante* trip);
+void quitar(tripulante*, t_list*);
 
 #endif /* PLANIFICADOR_H_ */
