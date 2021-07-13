@@ -45,7 +45,7 @@ typedef enum {
 		// ACTU_T | posicion_x [int] | posicion_y [int]
 	
 	ACTU_E,	// Actualizar estado
-		// ACTU_T | estado [char]
+		// ACTU_E | estado [char]
 	
 	NEXT_T,	// Próxima tarea
 		// NEXT_T

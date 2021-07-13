@@ -29,7 +29,22 @@ void* rutina_tripulante(void* t) {
 	char* tarea;
 	bool tareas_disponibles = true, termino_ejecucion;
 
-	if(CONEXIONES_ACTIVADAS)
+	if(RAM_ACTIVADA) {
+		t_mensaje* mensaje_out;
+		mensaje_out = crear_mensaje(TODOOK);
+		enviar_mensaje(trip->socket_ram, mensaje_out);
+		liberar_mensaje(mensaje_out);
+	}
+
+	if(MONGO_ACTIVADO) {
+		t_mensaje* mensaje_out;
+		mensaje_out = crear_mensaje(TODOOK);
+		enviar_mensaje(trip->socket_ram, mensaje_out);
+		liberar_mensaje(mensaje_out);
+	}
+
+
+	if(RAM_ACTIVADA)
 		tarea = solicitar_tarea(trip, &tareas_disponibles);
 
 	if(tareas_disponibles)
@@ -37,7 +52,7 @@ void* rutina_tripulante(void* t) {
 
 	while(tareas_disponibles) {
 
-		if(CONEXIONES_ACTIVADAS)
+		if(RAM_ACTIVADA)
 			termino_ejecucion = ejecutar(tarea, trip);
 		else {
 			if(tiene_tareas%2 == 0)
@@ -47,7 +62,7 @@ void* rutina_tripulante(void* t) {
 		}
 
 		if(termino_ejecucion){
-			if(CONEXIONES_ACTIVADAS)
+			if(RAM_ACTIVADA)
 				tarea = solicitar_tarea(trip, &tareas_disponibles);
 			else
 				tiene_tareas--;
@@ -85,17 +100,20 @@ bool ejecutar(char* input, tripulante* trip) {
 	log_info(logger,"Tripulante %d va a ejecutar tarea %s  -  Posicion actual: %d|%d", trip->id_trip, input, trip->posicion[0], trip->posicion[1]);
 
 	char** buffer = string_split(input, ";");
-	t_mensaje* mensaje_mongo_out;
-	t_list* mensaje_mongo_in;
 
-	if(CONEXIONES_ACTIVADAS) {
+	if(MONGO_ACTIVADO) {
+		t_mensaje* mensaje_mongo_out;
+		t_list* mensaje_mongo_in;
+
 		mensaje_mongo_out = crear_mensaje(EXEC_1);
 		agregar_parametro_a_mensaje(mensaje_mongo_out, input, BUFFER);
 		enviar_mensaje(trip->socket_mongo, mensaje_mongo_out);
 		mensaje_mongo_in = recibir_mensaje(trip->socket_mongo);
 
 		respuesta_OK(mensaje_mongo_in, "Fallo en comunicacion con el MONGO");
-		//todo liberar memoria de mensajes usados
+
+		liberar_mensaje(mensaje_mongo_out);
+		list_destroy(mensaje_mongo_in);
 	}
 
 	moverse(trip, atoi(buffer[1]), atoi(buffer[2]));
@@ -111,13 +129,19 @@ bool ejecutar(char* input, tripulante* trip) {
 	if(termino_tarea) {
 		log_info(logger,"Tripulante %d termino de ejecutar", trip->id_trip);
 
-		if(CONEXIONES_ACTIVADAS) {
+		if(MONGO_ACTIVADO) {
+			t_mensaje* mensaje_mongo_out;
+			t_list* mensaje_mongo_in;
+
 			mensaje_mongo_out = crear_mensaje(EXEC_0);
 
 			enviar_mensaje(trip->socket_mongo, mensaje_mongo_out);
 			mensaje_mongo_in = recibir_mensaje(trip->socket_mongo);
 
 			respuesta_OK(mensaje_mongo_in, "Fallo en comunicacion con el MONGO");
+
+			liberar_mensaje(mensaje_mongo_out);
+			list_destroy(mensaje_mongo_in);
 		}
 	}
 
@@ -164,9 +188,6 @@ void moverse(tripulante* trip, int pos_x, int pos_y) {
 
 void ejecutar_io(tripulante* trip, tareas tarea, int cantidad) {
 
-	t_mensaje* mensaje_mongo_out;
-	t_list* mensaje_mongo_in;
-
 	quitar_running(trip);
 	agregar_blocked(trip);
 
@@ -176,7 +197,10 @@ void ejecutar_io(tripulante* trip, tareas tarea, int cantidad) {
 
 	log_info(logger,"Tripulante %d ejecutando IO", trip->id_trip);
 
-	if(CONEXIONES_ACTIVADAS) {
+	if(MONGO_ACTIVADO) {
+		t_mensaje* mensaje_mongo_out;
+		t_list* mensaje_mongo_in;
+
 		switch(tarea){
 			case GENERAR_OXIGENO:
 				mensaje_mongo_out = crear_mensaje(GEN_OX);
@@ -203,6 +227,9 @@ void ejecutar_io(tripulante* trip, tareas tarea, int cantidad) {
 		enviar_mensaje(trip->socket_mongo, mensaje_mongo_out);
 		mensaje_mongo_in = recibir_mensaje(trip->socket_mongo);
 		respuesta_OK(mensaje_mongo_in, "Fallo al cargar respuesta en el MONGO");
+
+		liberar_mensaje(mensaje_mongo_out);
+		list_destroy(mensaje_mongo_in);
 	}
 	else {
 		switch(tarea){
@@ -255,35 +282,42 @@ bool esperar(int tiempo, tripulante* trip) {
 }
 
 void avisar_movimiento(tripulante* trip) {
-	if(CONEXIONES_ACTIVADAS) {
-		t_mensaje* mensaje_ram_out;
-		//t_mensaje* mensaje_mongo_out;
-		t_list* mensaje_ram_in;
-		t_list* mensaje_mongo_in;
+	if(RAM_ACTIVADA || MONGO_ACTIVADO) {
+		t_mensaje* mensaje_out;
 
-		mensaje_ram_out = crear_mensaje(ACTU_T);
-		//mensaje_mongo_out = crear_mensaje(ACTU_T);
+		mensaje_out = crear_mensaje(ACTU_T);
 
-		agregar_parametro_a_mensaje(mensaje_ram_out, (void*)trip->posicion[0], ENTERO);
-		agregar_parametro_a_mensaje(mensaje_ram_out, (void*)trip->posicion[1], ENTERO);
+		agregar_parametro_a_mensaje(mensaje_out, (void*)trip->posicion[0], ENTERO);
+		agregar_parametro_a_mensaje(mensaje_out, (void*)trip->posicion[1], ENTERO);
 
-		//agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)trip->posicion[0], ENTERO);
-		//agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)trip->posicion[1], ENTERO);
+		if(RAM_ACTIVADA) {
+			t_list* mensaje_ram_in;
 
-		enviar_mensaje(trip->socket_ram, mensaje_ram_out);
-		enviar_mensaje(trip->socket_mongo, mensaje_ram_out);
-		mensaje_ram_in = recibir_mensaje(trip->socket_ram);
-		mensaje_mongo_in = recibir_mensaje(trip->socket_mongo);
+			enviar_mensaje(trip->socket_ram, mensaje_out);
+			mensaje_ram_in = recibir_mensaje(trip->socket_ram);
+			respuesta_OK(mensaje_ram_in, "Fallo en la actualizacion de posicion en RAM");
 
-		respuesta_OK(mensaje_ram_in, "Fallo en la actualizacion de posicion en RAM");
-		respuesta_OK(mensaje_mongo_in, "Fallo en la actualizacion de posicion en MONGO");
+			list_destroy(mensaje_ram_in);
+		}
+
+		if(MONGO_ACTIVADO) {
+			t_list* mensaje_mongo_in;
+
+			enviar_mensaje(trip->socket_mongo, mensaje_out);
+			mensaje_mongo_in = recibir_mensaje(trip->socket_mongo);
+			respuesta_OK(mensaje_mongo_in, "Fallo en la actualizacion de posicion en MONGO");
+
+			list_destroy(mensaje_mongo_in);
+		}
+
+	liberar_mensaje(mensaje_out);
 	}
 }
 
 void actualizar_estado(tripulante* trip, estado estado_trip) {
 	trip->estado = estado_trip;
 
-	if(CONEXIONES_ACTIVADAS) {
+	if(RAM_ACTIVADA) {
 		t_mensaje* mensaje_ram_out;
 		t_list* mensaje_ram_in;
 
@@ -298,11 +332,17 @@ void actualizar_estado(tripulante* trip, estado estado_trip) {
 	}
 }
 
-void respuesta_OK(t_list* respuesta, char* mensaje_fallo) {
-	if(!validar_mensaje(respuesta, logger))
+bool respuesta_OK(t_list* respuesta, char* mensaje_fallo) {
+	if(!validar_mensaje(respuesta, logger)) {
 		log_warning(logger, "FALLO EN COMUNICACION");
-	else if((int)list_get(respuesta, 0) != TODOOK)
+		return false;
+	}
+	else if((int)list_get(respuesta, 0) != TODOOK) {
 			log_warning(logger, "%s", mensaje_fallo);
+			return false;
+	}
+
+	return true;
 }
 
 void actualizar_quantum(tripulante* trip) {

@@ -12,7 +12,8 @@
 #include <utils/utils-sockets.h>
 #include <utils/utils-mensajes.h>
 
-#define CONEXIONES_ACTIVADAS 1
+#define RAM_ACTIVADA 0
+#define MONGO_ACTIVADO 1
 
 typedef struct {
 	int posicion[2];
@@ -63,7 +64,7 @@ void actualizar_estado(tripulante* trip, estado estado_trip);
 void moverse(tripulante*, int, int);
 void ejecutar_io(tripulante* trip, tareas tarea, int cantidad);
 bool esperar(int, tripulante*);
-void respuesta_OK(t_list* respuesta, char* mensaje_fallo);
+bool respuesta_OK(t_list* respuesta, char* mensaje_fallo);
 void actualizar_quantum(tripulante*);
 void puede_continuar(tripulante*);
 

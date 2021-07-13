@@ -3,6 +3,8 @@
 t_config* config;
 t_log* logger;
 
+int tripu, pat = 0;
+
 int main() {
 
 	logger = log_create("mongo.log", "MONGO", 1, LOG_LEVEL_INFO);
@@ -20,11 +22,9 @@ int main() {
 	int socket_discord = esperar_cliente(server_fd);
 	log_info(logger, "Conexión establecida con el discordiador");
 	
-	bool conexion_activa_discord = true;
 	t_list* mensaje_discor;
-	t_mensaje* respuesta;
 
-	while(conexion_activa_discord == true) {
+	while(1) {
 		log_info(logger, "Esperando información del discordiador");
 
 		mensaje_discor = recibir_mensaje(socket_discord);
@@ -37,30 +37,41 @@ int main() {
 		}
 
 		switch((int)list_get(mensaje_discor, 0)) { // protocolo del mensaje
+			case INIT_P:
+				log_info(logger, "Discordiador inicio una patota");
+
+				pat++;
+				tripu = 1;
+
+				t_mensaje* mensaje_out;
+				mensaje_out = crear_mensaje(TODOOK);
+				enviar_mensaje(socket_discord, mensaje_out);
+				liberar_mensaje(mensaje_out);
+				list_destroy(mensaje_discor);
+
+				break;
 			case INIT_T:
 				log_info(logger, "Discordiador solicitó iniciar un tripulante");
 				tripulante* trip = malloc(sizeof(tripulante));
 
-				trip->id_patota = (int)list_get(mensaje_discor, 1);
-				trip->id_trip = (int)list_get(mensaje_discor, 2);
-				trip->posicion_x = (int)list_get(mensaje_discor, 3);
-				trip->posicion_y = (int)list_get(mensaje_discor, 4);
+				trip->id_patota = pat;
+				trip->id_trip = tripu;
+				trip->posicion_x = (int)list_get(mensaje_discor, 1);
+				trip->posicion_y = (int)list_get(mensaje_discor, 2);
 				trip->socket_discord = crear_conexion_servidor(IP_MONGO, 0, 1);
 
 				pthread_t hilo_nuevo;
-
 				pthread_create(&hilo_nuevo, NULL, rutina_trip, trip);
 
+				t_mensaje* respuesta;
 				respuesta = crear_mensaje(SND_PO);
 				agregar_parametro_a_mensaje(respuesta, (void *)puerto_desde_socket(trip->socket_discord), ENTERO);
-
-				log_info(logger, "Envío respuesta al discordiador");
-
 				enviar_mensaje(socket_discord, respuesta);
 
 				liberar_mensaje(respuesta);
 				list_destroy(mensaje_discor);
 
+				tripu++;
 				break;
 			default:
 				log_warning(logger, "No entendi el mensaje");
@@ -75,12 +86,11 @@ int main() {
 void* rutina_trip(void* t) {
 	tripulante* trip = (tripulante*) t;
 
-	log_info(logger, "Iniciado el tripulante %d de la patota %d en MONGO", trip->id_trip, trip->id_patota);
-
 	t_mensaje* mensaje_out;
 	t_list* mensaje_in;
 
 	int socket_cliente = esperar_cliente(trip->socket_discord);
+	log_info(logger, "Iniciado el tripulante %d de la patota %d en MONGO", trip->id_trip, trip->id_patota);
 
 	while(1) {
 		mensaje_in = recibir_mensaje(socket_cliente);
