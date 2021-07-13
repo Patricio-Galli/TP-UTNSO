@@ -42,7 +42,7 @@ int main(void)
 		strcat(DIR_superBloque,"/superBloque.ims");
 		directorio=DIR_superBloque;
 		printf("el directorio del superBloque es %s\n",directorio);
-
+		crear_superBloque(DIR_superBloque,16);
 
 		/*if(!access(punto_montaje,R_OK)){
 			log_info(logger, "Ya esta creado el archivo");
@@ -72,8 +72,8 @@ int main(void)
 		log_info(logger, "A llegado un nuevo cliente");
 
 
-		t_list* lista;
-		char* buffer;
+	//	t_list* lista;
+	//	char* buffer;
 		t_mensaje* respuesta;
 		int largo_lista;
 
@@ -145,17 +145,21 @@ int main(void)
 }
 }
 
-/*
+
 void* crear_superBloque(char* DIR_superBloque,int bitmap_size){
 
 	int superBloque_size=(bitmap_size+ 2*sizeof(uint32_t));
-
+	printf("el tamaño del super bloque es %d\n",superBloque_size);
 	//Crear bitmap?
 
 	FILE *fp; //lo necesito para el mmap
-	fp = fopen(DIR_superBloque,"w+");
+	fp = fopen(DIR_superBloque,"wb");
 	void* puntero_SuperBloque;
-	puntero_SuperBloque=mmap(NULL,superBloque_size,PROT_NONE,MAP_SHARED,fp,0);
+	printf("se creo el super bloque\n");
+	long tamanio_de_pagina=sysconf(_SC_PAGESIZE);
+	printf("el tamanio de pag es %d\n",tamanio_de_pagina);
+	/*
+	puntero_SuperBloque=mmap(NULL,superBloque_size,PROT_WRITE,MAP_SHARED,fp,0);
 
 	if(puntero_SuperBloque == -1){
 		log_info(logger, "Se produjo un error mapeando el super bloque");
@@ -169,8 +173,9 @@ void* crear_superBloque(char* DIR_superBloque,int bitmap_size){
 	//	memcpy((puntero_SuperBloque+2*sizeof(uint32_t)),&bitmap, bitmap_size);
 
 	}
+	*/
 	fclose(fp);
 	return puntero_SuperBloque;
 
 }
-*/
+//*/
