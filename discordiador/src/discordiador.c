@@ -39,7 +39,7 @@ int main() {
 	bool continuar = true;
 	char* buffer_consola;
 	command_code funcion_consola;
-	t_mensaje* mensaje;
+	t_mensaje* mensaje_out;
 
 	char tarea1[] = "Soy la tarea 1\n";
 	char tarea2[] = "Soy la tarea 2\n";
@@ -125,39 +125,41 @@ int main() {
 			funcion_consola = EXIT_DISCORDIADOR;
 			break;
 		}
-		t_list *respuesta;
+		t_list *mensaje_in;
 		switch(funcion_consola) {
 		case INICIAR_PATOTA:
 			log_info(logger, "Iniciar patota. Creando mensaje");
-			mensaje = crear_mensaje(INIT_P);
-			agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);		// cant_tareas
-			agregar_parametro_a_mensaje(mensaje, &tarea1, BUFFER);	// tarea 1
-			agregar_parametro_a_mensaje(mensaje, &tarea2, BUFFER);	// tarea 2
+			mensaje_out = crear_mensaje(INIT_P);
+			agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);		// cant_tareas
+			agregar_parametro_a_mensaje(mensaje_out, &tarea1, BUFFER);	// tarea 1
+			agregar_parametro_a_mensaje(mensaje_out, &tarea2, BUFFER);	// tarea 2
 			
-			enviar_mensaje(socket_ram, mensaje);
-			
-			respuesta = recibir_mensaje(socket_ram);
-			if((int)list_get(respuesta, 0) == TODOOK) {
+			enviar_mensaje(socket_ram, mensaje_out);
+			liberar_mensaje_out(mensaje_out);
+
+			mensaje_in = recibir_mensaje(socket_ram);
+			if((int)list_get(mensaje_in, 0) == TODOOK) {
 				log_info(logger, "aeeea, sabalero, sabalero");
 			}
-			if((int)list_get(respuesta, 0) == NO_SPC) {
+			if((int)list_get(mensaje_in, 0) == NO_SPC) {
 				log_info(logger, "El servidor dice que no había espacio");
 			}
-			free(mensaje);
-			list_destroy(respuesta);
+
+			liberar_mensaje_in(mensaje_in);
 			id_patota_actual++;
 			id_tripulante = 1;
 			break;
 		case INICIAR_TRIPULANTE:
 			log_info(logger, "Iniciar tripulante. Creando mensaje");
-			mensaje = crear_mensaje(INIT_T);
-			agregar_parametro_a_mensaje(mensaje, (void *)3, ENTERO);						// posicion_x
-			agregar_parametro_a_mensaje(mensaje, (void *)4, ENTERO);						// posicion_y
+			mensaje_out = crear_mensaje(INIT_T);
+			agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);						// posicion_x
+			agregar_parametro_a_mensaje(mensaje_out, (void *)4, ENTERO);						// posicion_y
 			
-			enviar_mensaje(socket_ram, mensaje);
-			
-			respuesta = recibir_mensaje(socket_ram);
-			if(!validar_mensaje(respuesta, logger)) {
+			enviar_mensaje(socket_ram, mensaje_out);
+			liberar_mensaje_out(mensaje_out);
+
+			mensaje_in = recibir_mensaje(socket_ram);
+			if(!validar_mensaje(mensaje_in, logger)) {
 				log_info(logger, "El servidor ha muerto, doy por finalizada esta wea");
 				close(socket_ram);
 				close(socket_mongo);
@@ -166,8 +168,8 @@ int main() {
 			}
 			
 			id_tripulante++;
-			if((int)list_get(respuesta, 0) == SND_PO) {
-				int nuevo_puerto = (int)list_get(respuesta, 1);
+			if((int)list_get(mensaje_in, 0) == SND_PO) {
+				int nuevo_puerto = (int)list_get(mensaje_in, 1);
 				
 				pthread_t* nuevo_hilo = malloc(sizeof(pthread_t));
 				char str_puerto[7];
@@ -177,52 +179,53 @@ int main() {
 				pthread_create(nuevo_hilo, NULL, rutina_hilos, (void *)socket);
 				// close(socket);
 			}
-			if((int)list_get(respuesta, 0) == NO_SPC) {
+			if((int)list_get(mensaje_in, 0) == NO_SPC) {
 				log_info(logger, "El servidor dice que no había espacio");
 			}
-			free(mensaje);
-			list_destroy(respuesta);
+
+			liberar_mensaje_in(mensaje_in);
 			break;
 		case EXPULSAR_TRIPULANTE:
 			log_info(logger,"Expulsar tripulante");
-			mensaje = crear_mensaje(ELIM_T);
+			mensaje_out = crear_mensaje(ELIM_T);
 			log_info(logger, "Cree mensaje %d", funcion_consola);
 			if(variable == 11) {
 				log_info(logger,"Expulsar tripulante 1");
-				agregar_parametro_a_mensaje(mensaje, (void *)1, ENTERO);
-				agregar_parametro_a_mensaje(mensaje, (void *)1, ENTERO);
+				agregar_parametro_a_mensaje(mensaje_out, (void *)1, ENTERO);
+				agregar_parametro_a_mensaje(mensaje_out, (void *)1, ENTERO);
 			}
 			if(variable == 12) {
 				log_info(logger,"Expulsar tripulante 2");
-				agregar_parametro_a_mensaje(mensaje, (void *)1, ENTERO);
-				agregar_parametro_a_mensaje(mensaje, (void *)3, ENTERO);
+				agregar_parametro_a_mensaje(mensaje_out, (void *)1, ENTERO);
+				agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);
 			}
 			if(variable == 13) {
 				log_info(logger,"Expulsar tripulante 3");
-				agregar_parametro_a_mensaje(mensaje, (void *)1, ENTERO);
-				agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);
+				agregar_parametro_a_mensaje(mensaje_out, (void *)1, ENTERO);
+				agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);
 			}
 			if(variable == 14) {
 				log_info(logger,"Expulsar tripulante 4");
-				agregar_parametro_a_mensaje(mensaje, (void *)3, ENTERO);
-				agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);
+				agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);
+				agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);
 			}
 			/*if(variable == 18) {
 				log_info(logger,"Expulsar tripulante 5");
 				agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);
 				agregar_parametro_a_mensaje(mensaje, (void *)3, ENTERO);
 			}*/
-			enviar_mensaje(socket_ram, mensaje);
-			free(mensaje);
-			respuesta = recibir_mensaje(socket_ram);
-			if(!validar_mensaje(respuesta, logger)) {
+			enviar_mensaje(socket_ram, mensaje_out);
+			liberar_mensaje_out(mensaje_out);
+
+			mensaje_in = recibir_mensaje(socket_ram);
+			if(!validar_mensaje(mensaje_in, logger)) {
 				log_info(logger, "El servidor ha muerto, doy por finalizada esta wea");
 				close(socket_ram);
 				close(socket_mongo);
 				log_destroy(logger);
 				return ERROR_CONEXION;
 			}
-			list_destroy(respuesta);
+			liberar_mensaje_in(mensaje_in);
 			break;
 		case INICIAR_PLANIFICACION:
 			sem_post(&semaforo_tripulante);
@@ -234,8 +237,10 @@ int main() {
 			log_info(logger,"OBTENER BITACORA");
 			break;
 		case EXIT_DISCORDIADOR:
-			mensaje = crear_mensaje(64);
-			enviar_mensaje(socket_ram, mensaje);
+			mensaje_out = crear_mensaje(64);
+			enviar_mensaje(socket_ram, mensaje_out);
+			liberar_mensaje_out(mensaje_out);
+			
 			sem_destroy(&semaforo_tripulante);
 			continuar = false;
 			break;
@@ -319,6 +324,8 @@ void* rutina_hilos(void* socket) {
 		sem_wait(&semaforo_tripulante);
 		t_mensaje* mensaje_out = crear_mensaje(NEXT_T);
 		enviar_mensaje((int)socket, mensaje_out);
+		liberar_mensaje_out(mensaje_out);
+
 		t_list* mensaje_in = recibir_mensaje((int)socket);
 		if(!validar_mensaje(mensaje_in, logger))
 			log_warning(logger, "FALLO EN MENSAJE CON HILO RAM\n");
@@ -329,6 +336,7 @@ void* rutina_hilos(void* socket) {
 			if((int)list_get(mensaje_in, 0) == TASK_T)
 				log_info(logger, "EL HILO RAM ME RESPONDIO: %s\n", (int)list_get(mensaje_in, 1));
 		}
+		liberar_mensaje_in(mensaje_in);
 	}
 	return 0;
 }

@@ -70,6 +70,9 @@ t_segmento* crear_segmento(t_list* mapa_segmentos, uint32_t nuevo_tamanio, algor
         ((t_segmento *)iterador->data)->n_segmento++;
     }
     segmento_nuevo->tamanio = nuevo_tamanio;
+    list_destroy(segmentos_libres);
+    list_destroy(segmentos_validos);
+
     return segmento_nuevo;
 }
 
@@ -158,6 +161,12 @@ void realizar_compactacion() {
     uint32_t indice_segmento;
     uint32_t cant_segmentos = mapa_segmentos->elements_count;
     void* bloque_memoria;
+
+    t_list* tripulantes = tripulantes_activos();
+    for(int i = 0; i < cantidad_tripulantes_activos(); i++) {
+        trip_data* un_trip = (trip_data *)list_get(tripulantes_activos(), i);
+        sem_wait(un_trip->semaforo_hilo);
+    }
     for(int i = 1; i < cant_segmentos + 1; i++) {
         if(((t_segmento *)aux_segmento->data)->duenio != 0 && corrimiento_inicio != 0) {
             // Actualizo el t_segmento
@@ -182,7 +191,8 @@ void realizar_compactacion() {
                 t_list* tripulantes_a_actualizar = tripulantes_de_patota(((t_segmento *)aux_segmento->data)->duenio);
                 t_link_element* trip_auxiliar = tripulantes_a_actualizar->head;
                 uint32_t inicio_auxiliar;
-                while(trip_auxiliar->next != NULL) {
+                printf("Cant trip de patota %d\n", tripulantes_a_actualizar->elements_count);
+                for(int i = 0; i < tripulantes_a_actualizar->elements_count; i++) {
                     inicio_auxiliar = (uint32_t)((t_segmento *)trip_auxiliar->data)->inicio;
                     actualizar_valor_tripulante(memoria_ram + inicio_auxiliar, PCB_POINTER, nuevo_inicio);
                     trip_auxiliar = trip_auxiliar->next;
@@ -218,6 +228,12 @@ void realizar_compactacion() {
     segmento_final->tamanio = tamanio_memoria - tamanio_total;
     segmento_final->inicio = tamanio_total;
     list_add(mapa_segmentos, segmento_final);
+
+    for(int i = 0; i < cantidad_tripulantes_activos(); i++) {
+        trip_data* un_trip = (trip_data *)list_get(tripulantes_activos(), i);
+        sem_post(un_trip->semaforo_hilo);
+    }
+    list_destroy(tripulantes);
 }
 
 uint32_t memoria_libre() {
@@ -225,5 +241,6 @@ uint32_t memoria_libre() {
     uint32_t espacio_libre = 0;
     if(segmentos_libres)
         espacio_libre = (uint32_t)list_fold(segmentos_libres, 0, (*suma_tamanios));
+    list_destroy(segmentos_libres);
     return espacio_libre;
 }

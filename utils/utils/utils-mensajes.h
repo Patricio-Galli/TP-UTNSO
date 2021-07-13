@@ -132,10 +132,16 @@ void enviar_mensaje(int socket, t_mensaje* mensaje);
 t_list* recibir_mensaje(int socket);
 
 /**
-* @NAME: liberar_mensaje
-* @DESC: Libera la memoria correspondiente a un mensaje
+* @NAME: liberar_mensaje_out
+* @DESC: Libera la memoria correspondiente a un mensaje de salida
 */
-void liberar_mensaje(t_mensaje* mensaje);
+void liberar_mensaje_out(t_mensaje* mensaje);
+
+/**
+* @NAME: liberar_mensaje_in
+* @DESC: Libera la memoria correspondiente a un mensaje de entrada
+*/
+void liberar_mensaje_in(t_list* mensaje);
 
 /**
 * @NAME: validar_mensaje

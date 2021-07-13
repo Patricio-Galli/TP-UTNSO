@@ -26,8 +26,6 @@
 
 #define ERROR_CONEXION -1
 
-#define IP_RAM "127.0.0.1"
-
-void* rutina_hilos(void* parametros);
+void liberar_segmentos();
 
 #endif /* _MIRAMHQ_H_ */

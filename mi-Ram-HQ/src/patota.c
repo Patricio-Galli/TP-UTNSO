@@ -59,9 +59,9 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros, algoritmo_segmento a
 		segmentar_string(memoria_ram, segmento_tareas->inicio + vtareas_inicio[i], vtareas[i]);
 		free(vtareas[i]);
 	}
+	free(vtareas);
 	nueva_patota->tabla_segmentos[1] = segmento_tareas->inicio;
 	segmentar_entero(memoria_ram, segmento_pcb->inicio + sizeof(uint32_t), segmento_tareas->inicio);
-
 
 	// CREO ESTRUCTURA TAREAS PARA GUARDAR EN TABLA
 	tareas_data* nuevo_bloque_tareas = malloc(sizeof(tareas_data));

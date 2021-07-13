@@ -2,10 +2,10 @@
 
 uint32_t id_filtro_patota;
 
-bool iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uint32_t pos_y, algoritmo_segmento algoritmo) {
+int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uint32_t pos_y, algoritmo_segmento algoritmo) {
 	int tamanio_tcb = TAMANIO_TRIPULANTE;
 	if (tamanio_tcb > memoria_libre()) {
-		return false;
+		return 0;
 	}
 	
 	// CREO SEGMENTO PCB
@@ -45,7 +45,20 @@ bool iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, ui
 	nuevo_trip->inicio = segmento_tcb->inicio;
 	patota->tamanio_tabla++;
 	list_add(lista_tripulantes, nuevo_trip);
-	return true;
+
+	int socket_nuevo = crear_conexion_servidor(IP_RAM, 0, 1);
+	pthread_t* hilo_nuevo = malloc(sizeof(pthread_t));
+	sem_t* semaforo = malloc(sizeof(sem_t));
+	sem_init(semaforo, 0, 1);
+
+	nuevo_trip->semaforo_hilo = semaforo;
+	nuevo_trip->socket = socket_nuevo;
+	nuevo_trip->hilo = hilo_nuevo;
+	
+	pthread_create(hilo_nuevo, NULL, rutina_hilos, (void *)nuevo_trip);
+	pthread_detach(*hilo_nuevo);
+
+	return puerto_desde_socket(socket_nuevo);
 }
 
 uint32_t obtener_valor_tripulante(void* segmento, uint32_t nro_parametro) {
@@ -110,7 +123,6 @@ void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante) {
 	while(((t_segmento *)iterador->data)->inicio != inicio_tripulante) {
 		iterador = iterador->next;
 	}
-	printf("4\n");
 	t_segmento* segmento_tripulante = (t_segmento *)iterador->data;
 	eliminar_segmento(mapa_segmentos, segmento_tripulante);
 	
@@ -121,14 +133,15 @@ void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante) {
 }
 
 bool seg_trip_de_patota(void* segmento) {
-	if(((t_segmento*)segmento)->duenio == id_filtro_patota && ((t_segmento*)segmento)->indice > 1)
-        return true;
+	if(((t_segmento*)segmento)->duenio == id_filtro_patota && ((t_segmento*)segmento)->indice > 1) {
+		return true;
+	}
     else
         return false;
 }
 
 t_list* tripulantes_de_patota(uint32_t id_patota) {
-	uint32_t id_filtro_patota = id_patota;
+	id_filtro_patota = id_patota;
 	return list_filter(mapa_segmentos, (*seg_trip_de_patota));
 }
 
@@ -146,4 +159,19 @@ trip_data* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip) {
 	}
 	for(int i = 1; i < id_trip; i++) { iterador_tripulante = iterador_tripulante->next; }
 	return (trip_data *)iterador_tripulante->data;	
+}
+
+bool tripulante_activo(void * un_trip) {
+	if(((trip_data *)un_trip)->seguir)
+		return true;
+	else
+		return false;
+}
+
+uint32_t cantidad_tripulantes_activos() {
+	return list_count_satisfying(lista_tripulantes, (*tripulante_activo));
+}
+
+t_list* tripulantes_activos() {
+	return list_filter(lista_tripulantes, (*tripulante_activo));
 }

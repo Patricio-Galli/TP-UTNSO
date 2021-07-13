@@ -4,9 +4,13 @@
 #include <commons/collections/list.h>
 #include <stdint.h>
 #include <commons/log.h>
+#include <semaphore.h>
+
+#include <utils/utils-server.h>
 
 #include "memoria_ram.h"
 #include "segmentos.h"
+#include "hilos.h"
 
 #define TAMANIO_TRIPULANTE (5 * sizeof(uint32_t) + sizeof(char))
 
@@ -25,10 +29,11 @@ typedef struct {
     uint32_t inicio;
     int socket;
     pthread_t* hilo;
+    sem_t* semaforo_hilo;
     bool seguir;
 } trip_data;
 
-bool iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uint32_t pos_y, algoritmo_segmento algoritmo);
+int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uint32_t pos_y, algoritmo_segmento algoritmo);
 void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante);
 
 uint32_t obtener_valor_tripulante(void* segmento, para_trip nro_parametro);
@@ -39,5 +44,8 @@ void actualizar_estado(void* segmento, char nuevo_valor);
 
 t_list* tripulantes_de_patota(uint32_t id_patota);
 trip_data* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip);
+uint32_t cantidad_tripulantes_activos();
+t_list* tripulantes_activos();
+bool tripulante_activo(void *);
 
 #endif /* _TRIPULANTE_H_ */

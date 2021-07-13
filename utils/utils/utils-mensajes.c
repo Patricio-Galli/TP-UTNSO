@@ -14,15 +14,15 @@ t_mensaje* crear_mensaje(protocolo_msj cod_op) {
 }
 
 void agregar_parametro_a_mensaje(t_mensaje* mensaje, void* parametro, tipo_msj tipo_parametro) {
-	int valor_parametro;
+	uint32_t valor_parametro;
 	char valor_parametro_char;
-	int tamanio_buffer;
+	uint32_t tamanio_buffer;
 	switch (tipo_parametro) {
 	case ENTERO:
-		mensaje->buffer->contenido = realloc(mensaje->buffer->contenido, mensaje->buffer->tamanio + sizeof(int));
-		valor_parametro = (int)parametro;
-		memcpy(mensaje->buffer->contenido + mensaje->buffer->tamanio, &valor_parametro, sizeof(int));
-		mensaje->buffer->tamanio = mensaje->buffer->tamanio + sizeof(int);
+		mensaje->buffer->contenido = realloc(mensaje->buffer->contenido, mensaje->buffer->tamanio + sizeof(uint32_t));
+		valor_parametro = (uint32_t)parametro;
+		memcpy(mensaje->buffer->contenido + mensaje->buffer->tamanio, &valor_parametro, sizeof(uint32_t));
+		mensaje->buffer->tamanio = mensaje->buffer->tamanio + sizeof(uint32_t);
 		break;
 	case CARACTER:
 		mensaje->buffer->contenido = realloc(mensaje->buffer->contenido, mensaje->buffer->tamanio + sizeof(char));
@@ -32,29 +32,29 @@ void agregar_parametro_a_mensaje(t_mensaje* mensaje, void* parametro, tipo_msj t
 		break;
 	case BUFFER:
 		tamanio_buffer = (strlen(parametro) + 1) * sizeof(char);
-		mensaje->buffer->contenido = realloc(mensaje->buffer->contenido, mensaje->buffer->tamanio + sizeof(int) + tamanio_buffer);
-		memcpy(mensaje->buffer->contenido + mensaje->buffer->tamanio, &tamanio_buffer, sizeof(int));
-		memcpy(mensaje->buffer->contenido + mensaje->buffer->tamanio + sizeof(int), parametro, tamanio_buffer);
-		mensaje->buffer->tamanio = mensaje->buffer->tamanio + sizeof(int) + tamanio_buffer;
+		mensaje->buffer->contenido = realloc(mensaje->buffer->contenido, mensaje->buffer->tamanio + sizeof(uint32_t) + tamanio_buffer);
+		memcpy(mensaje->buffer->contenido + mensaje->buffer->tamanio, &tamanio_buffer, sizeof(uint32_t));
+		memcpy(mensaje->buffer->contenido + mensaje->buffer->tamanio + sizeof(uint32_t), parametro, tamanio_buffer);
+		mensaje->buffer->tamanio = mensaje->buffer->tamanio + sizeof(uint32_t) + tamanio_buffer;
 		break;
 	}
 }
 
 void enviar_mensaje(int socket, t_mensaje* mensaje) {
-	int tamanio_buffer = mensaje->buffer->tamanio + sizeof(int);
+	uint32_t tamanio_buffer = mensaje->buffer->tamanio + sizeof(uint32_t);
 	void * buffer_to_send = malloc(tamanio_buffer);
-	memcpy(buffer_to_send, &(mensaje->op_code), sizeof(int));
-	memcpy(buffer_to_send + sizeof(int), mensaje->buffer->contenido, mensaje->buffer->tamanio);
+	memcpy(buffer_to_send, &(mensaje->op_code), sizeof(uint32_t));
+	memcpy(buffer_to_send + sizeof(uint32_t), mensaje->buffer->contenido, mensaje->buffer->tamanio);
 	send(socket, buffer_to_send, tamanio_buffer, 0);
 	free(buffer_to_send);
 }
 
 void* recibir_parametro(int socket, tipo_msj tipo) {
-	int parametro;
-	int tamanio_buffer;
+	uint32_t parametro;
+	uint32_t tamanio_buffer;
 	switch (tipo) {
 	case ENTERO:
-		recv(socket, &parametro, sizeof(int), MSG_WAITALL);
+		recv(socket, &parametro, sizeof(uint32_t), MSG_WAITALL);
 		return (void *)parametro;
 		break;
 	case CARACTER:
@@ -62,7 +62,7 @@ void* recibir_parametro(int socket, tipo_msj tipo) {
 		return (void *)parametro;
 		break;
 	case BUFFER:
-		recv(socket, &tamanio_buffer, sizeof(int), MSG_WAITALL);
+		recv(socket, &tamanio_buffer, sizeof(uint32_t), MSG_WAITALL);
 		char *buffer = malloc(tamanio_buffer * sizeof(char));
 		recv(socket, buffer, tamanio_buffer, MSG_WAITALL);
 		return buffer;
@@ -75,20 +75,20 @@ t_list* recibir_mensaje(int socket) {
 	protocolo_msj op_code;
 	t_list* lista_parametros = list_create();
 	int error;
-	error = recv(socket, &op_code, sizeof(int), MSG_WAITALL);
+	error = recv(socket, &op_code, sizeof(uint32_t), MSG_WAITALL);
 	
 	if(error == 0) {
 		op_code = ER_SOC;
 		list_add(lista_parametros, (void *)ER_SOC);
-		fprintf(stderr, "ERROR %d: ", error);
-		perror("read");
+		// fprintf(stderr, "ERROR %d: ", error);
+		// perror("read");
 	}
 	
 	if(error == -1) {
 		op_code = ER_RCV;
 		list_add(lista_parametros, (void *)ER_RCV);
-		fprintf(stderr, "ERROR %d: ", error);
-		perror("read");
+		// fprintf(stderr, "ERROR %d: ", error);
+		// perror("read");
 	}
 	
 	if(error > 0)
@@ -96,10 +96,12 @@ t_list* recibir_mensaje(int socket) {
 
 	switch(op_code) {
 	case INIT_P:
+	case BITA_C:
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
-		int cant_tareas = (int)list_get(lista_parametros, 1);
-		for(int iterador = 0; iterador < cant_tareas; iterador++)
+		uint32_t cant_lineas = (uint32_t)list_get(lista_parametros, 1);
+		for(int iterador = 0; iterador < cant_lineas; iterador++) {
 			list_add(lista_parametros, recibir_parametro(socket, BUFFER));
+		}
 		break;
 	
 	case SABO_P:
@@ -122,14 +124,6 @@ t_list* recibir_mensaje(int socket) {
 	case BITA_D:
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
-		break;
-	
-	case BITA_C:
-		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
-		int cant_lineas = (int)list_get(lista_parametros, 1);
-		for(int iterador = 0; iterador < cant_lineas; iterador++) {
-			list_add(lista_parametros, recibir_parametro(socket, BUFFER));
-		}
 		break;
 	
 	case SND_PO:
@@ -173,10 +167,58 @@ t_list* recibir_mensaje(int socket) {
 	return lista_parametros;
 }
 
-void liberar_mensaje(t_mensaje* mensaje) {
+void liberar_mensaje_out(t_mensaje* mensaje) {
 	free(mensaje->buffer->contenido);
 	free(mensaje->buffer);
 	free(mensaje);
+}
+
+/*static void destruir_buffer(void* elemento) {
+	free(elemento);
+}*/
+
+void liberar_mensaje_in(t_list* mensaje) {
+	protocolo_msj protocolo = (protocolo_msj)list_remove(mensaje, 0);
+	// printf("Liberar mensaje_in\n");
+	// printf("------%d------\n", protocolo);
+	switch (protocolo) {
+	case INIT_P:
+	case BITA_C:
+		list_remove(mensaje, 0);
+		// list_destroy_and_destroy_elements(mensaje, destruir_buffer);
+		list_destroy(mensaje);
+		break;
+
+	case TASK_T:
+		// list_destroy_and_destroy_elements(mensaje, destruir_buffer);
+		list_destroy(mensaje);
+		break;
+
+	case SABO_P:
+	case SHOW_T:	
+	case INIT_T:
+	case DATA_T:
+	case ELIM_T:
+	case ACTU_T:
+	case BITA_D:	
+	case SND_PO:	
+	case ACTU_E:
+	case NEW_PO:
+	case NEXT_T:
+	case TODOOK:
+	case NO_SPC:
+	case ER_MSJ:
+	case ER_RCV:
+	case ER_SOC:
+	case BITA_T:
+	case TAR_ES:
+		// printf("CUAL\n");
+		list_destroy(mensaje);
+		// printf("CUAL\n");
+		break;
+	default:
+		break;
+	}
 }
 
 bool validar_mensaje(t_list* mensaje_in, t_log* logger) {
