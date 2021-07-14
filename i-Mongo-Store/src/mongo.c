@@ -82,13 +82,7 @@ void* rutina_trip(void* t) {
 	tripulante* trip = (tripulante*) t;
 
 	int socket_cliente = esperar_cliente(trip->socket_discord);
-
-	t_list* mensaje_in = recibir_mensaje(socket_cliente);
-
-	if((int)list_get(mensaje_in, 0)==TODOOK)
-		log_info(logger, "Iniciado correctamente el tripulante %d de la patota %d en MONGO", trip->id_trip, trip->id_patota);
-
-	list_destroy(mensaje_in);
+	log_info(logger, "Iniciado el tripulante %d de la patota %d", trip->id_trip, trip->id_patota);
 
 	while(1) {
 		t_mensaje* mensaje_out;

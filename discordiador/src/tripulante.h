@@ -58,7 +58,7 @@ char* estado_enumToString(int);
 
 tareas stringToEnum(char *);
 bool ejecutar(char*, tripulante*);
-char* solicitar_tarea(tripulante*, bool*);
+char* solicitar_tarea(tripulante*);
 void avisar_movimiento(tripulante*);
 void actualizar_estado(tripulante* trip, estado estado_trip);
 void moverse(tripulante*, int, int);

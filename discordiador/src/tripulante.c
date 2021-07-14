@@ -25,73 +25,61 @@ tripulante* crear_tripulante(int x, int y, int patota, int id, int socket_ram, i
 
 void* rutina_tripulante(void* t) {
 	tripulante* trip = (tripulante*) t; //si modifico el interior de ese puntero se modifica de mi lista tambien
-	int tiene_tareas = 4;//todo eliminar al usar las conexiones definitivamente
 	char* tarea;
-	bool tareas_disponibles = true, termino_ejecucion;
+	bool termino_ejecucion;
 
-	if(RAM_ACTIVADA) {
-		t_mensaje* mensaje_out;
-		mensaje_out = crear_mensaje(TODOOK);
-		enviar_mensaje(trip->socket_ram, mensaje_out);
-		liberar_mensaje(mensaje_out);
-	}
+	tarea = solicitar_tarea(trip);
 
-	if(MONGO_ACTIVADO) {
-		t_mensaje* mensaje_out;
-		mensaje_out = crear_mensaje(TODOOK);
-		enviar_mensaje(trip->socket_mongo, mensaje_out);
-		liberar_mensaje(mensaje_out);
-	}
-
-
-	if(RAM_ACTIVADA)
-		tarea = solicitar_tarea(trip, &tareas_disponibles);
-
-	if(tareas_disponibles)
+	if(strcmp(tarea, "no_task") != 0)
 		agregar_ready(trip);
 
-	while(tareas_disponibles) {
+	while(strcmp(tarea, "no_task") != 0) {
 
-		if(RAM_ACTIVADA)
-			termino_ejecucion = ejecutar(tarea, trip);
-		else {
-			if(tiene_tareas%2 == 0)
-				termino_ejecucion = ejecutar("ESPERAR;3;3;3", trip);
-			else
-				termino_ejecucion = ejecutar("GENERAR_OXIGENO 10;0;2;4", trip);
-		}
+		termino_ejecucion = ejecutar(tarea, trip);
 
-		if(termino_ejecucion){
-			if(RAM_ACTIVADA)
-				tarea = solicitar_tarea(trip, &tareas_disponibles);
-			else
-				tiene_tareas--;
-		}
-
-		if(tiene_tareas == 0)
-			tareas_disponibles = false;
+		if(termino_ejecucion)
+			tarea = solicitar_tarea(trip);
 	}
+
 	actualizar_estado(trip, EXIT);
 	return 0;
 }
 
-char* solicitar_tarea(tripulante* trip, bool* tareas_disponibles) {
-	t_mensaje* mensaje_out;
-	t_list* mensaje_in;
+char* solicitar_tarea(tripulante* trip) {
+	char* tarea = "no_task";
 
-	mensaje_out = crear_mensaje(NEXT_T);
-	enviar_mensaje(trip->socket_ram, mensaje_out);
-	mensaje_in = recibir_mensaje(trip->socket_ram);
+	if(RAM_ACTIVADA) {
+		t_mensaje* mensaje_out = crear_mensaje(NEXT_T);
+		enviar_mensaje(trip->socket_ram, mensaje_out);
+		t_list* mensaje_in = recibir_mensaje(trip->socket_ram);
 
-	if(!validar_mensaje(mensaje_in, logger))
-		log_warning(logger, "FALLO EN MENSAJE CON HILO RAM\n");
-	else {
-		if((int)list_get(mensaje_in, 0) == TASK_T)//significa que hay tareas
-			return (char*)list_get(mensaje_in, 1);
-		else
-			*tareas_disponibles = false;
+		if(!validar_mensaje(mensaje_in, logger))
+			log_warning(logger, "FALLO EN MENSAJE CON HILO RAM\n");
+		else if((int)list_get(mensaje_in, 0) == TASK_T)//significa que hay tareas
+			tarea = (char*)list_get(mensaje_in, 1);
+
+		liberar_mensaje(mensaje_out);
+		list_destroy(mensaje_in);
+	} else {
+		switch(trip->posicion[0]) {
+			case 3:
+				tarea = "GENERAR_OXIGENO 10;6;0;4";
+				break;
+			case 6:
+				tarea = "CONSUMIR_OXIGENO 5;8;5;4";
+				break;
+			case 8:
+				tarea = "DESCARTAR_BASURA 13;13;13;13";
+				break;
+			case 13:
+				break;
+			default:
+				tarea = "ESPERAR;3;3;3";
+				break;
+		}
 	}
-	return NULL;
+
+	return tarea;
 }
 
 bool ejecutar(char* input, tripulante* trip) {
@@ -102,18 +90,16 @@ bool ejecutar(char* input, tripulante* trip) {
 	char** buffer = string_split(input, ";");
 
 	if(MONGO_ACTIVADO) {
-		t_mensaje* mensaje_mongo_out;
-		t_list* mensaje_mongo_in;
+		t_mensaje* mensaje_out = crear_mensaje(EXEC_1);
 
-		mensaje_mongo_out = crear_mensaje(EXEC_1);
-		agregar_parametro_a_mensaje(mensaje_mongo_out, input, BUFFER);
-		enviar_mensaje(trip->socket_mongo, mensaje_mongo_out);
-		mensaje_mongo_in = recibir_mensaje(trip->socket_mongo);
+		agregar_parametro_a_mensaje(mensaje_out, (void*)input, BUFFER);
+		enviar_mensaje(trip->socket_mongo, mensaje_out);
+		t_list* mensaje_in = recibir_mensaje(trip->socket_mongo);
 
-		respuesta_OK(mensaje_mongo_in, "Fallo en comunicacion con el MONGO");
+		respuesta_OK(mensaje_in, "Fallo en comunicacion con el MONGO");
 
-		liberar_mensaje(mensaje_mongo_out);
-		list_destroy(mensaje_mongo_in);
+		liberar_mensaje(mensaje_out);
+		list_destroy(mensaje_in);
 	}
 
 	moverse(trip, atoi(buffer[1]), atoi(buffer[2]));
@@ -321,7 +307,7 @@ void actualizar_estado(tripulante* trip, estado estado_trip) {
 		t_mensaje* mensaje_ram_out;
 		t_list* mensaje_ram_in;
 
-		mensaje_ram_out = crear_mensaje(ACTU_T);
+		mensaje_ram_out = crear_mensaje(ACTU_E);
 
 		agregar_parametro_a_mensaje(mensaje_ram_out, (void*)trip->estado, ENTERO);
 

@@ -131,19 +131,22 @@ t_list* recibir_mensaje(int socket) {
 			list_add(lista_parametros, recibir_parametro(socket, BUFFER));
 		}
 		break;
-	
+	case GEN_OX:
+	case CON_OX:
+	case GEN_CO:
+	case CON_CO:
+	case GEN_BA:
+	case DES_BA:
 	case SND_PO:
+	case ACTU_E:
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		break;
-	
+	case EXEC_1:
 	case TASK_T:
 		list_add(lista_parametros, recibir_parametro(socket, BUFFER));
 		break;
-	
-	case ACTU_E:
-		list_add(lista_parametros, recibir_parametro(socket, CARACTER));
 		break;
-
+	case EXEC_0:
 	case NEW_PO:
 	case NEXT_T:
 	case TODOOK:
