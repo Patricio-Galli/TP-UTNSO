@@ -33,7 +33,7 @@ void loggear_data(t_log* logger) {
 	}
 
 	int trip_activos = list_count_satisfying(lista_tripulantes, (*tripulante_activo));
-	log_info(logger, "Lista de tripulantes activos: %d", trip_activos);
+	log_info(logger, "Lista de tripulantes activos: %d :- %d", trip_activos, lista_tripulantes->elements_count);
 	for(int i = 0; i < lista_tripulantes->elements_count; i++) {
 		inicio = ((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->inicio;
 		if(((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->seguir == true)
@@ -53,26 +53,16 @@ int main(void) {
 	t_log* logger = log_create("miramhq.log", "Mi-RAM-HQ", 1, LOG_LEVEL_INFO);
 	t_config* config = config_create("miramhq.config");
 	
-	tamanio_memoria = config_get_int_value(config, "TAMANIO_MEMORIA");
-	log_info(logger, "Iniciando memoria RAM de %d bytes", tamanio_memoria);
-	
 	algoritmo_segmento algoritmo;
 	if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "FF"))
 		algoritmo = FF;
 	if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "BF"))
 		algoritmo = BF;
 
-	memoria_ram = malloc(tamanio_memoria);
+	iniciar_memoria(config);
 
-	mapa_segmentos = list_create();
-	t_segmento segmento_memoria;
-	segmento_memoria.n_segmento = 0;
-	segmento_memoria.duenio = 0;
-	segmento_memoria.inicio = 0;
-	segmento_memoria.tamanio = tamanio_memoria;
-	list_add(mapa_segmentos, &segmento_memoria);
-
-	// dibujar_mapa(); VACÍO
+	bool* continuar_consola = malloc(sizeof(bool));
+	// iniciar_mapa(continuar_consola);
 
 	int server_fd = crear_conexion_servidor(
 		IP_RAM,	config_get_int_value(config, "PUERTO"), 1);
@@ -99,6 +89,9 @@ int main(void) {
 
 	uint32_t patota_actual = 0;
 	uint32_t nro_tripulante;
+
+	uint32_t id_trip;	// Maldito c
+	uint32_t id_patota;	// Maldito c
 
 	while(conexion_activa_discord == true) {
 		log_info(logger, "Esperando información del discordiador");
@@ -148,11 +141,9 @@ int main(void) {
 			liberar_mensaje_out(mensaje_out);
 			nro_tripulante++;
 			break;
-		case ELIM_T:
-			log_info(logger, "Discordiador solicitó eliminar_tripulante");
-			uint32_t id_trip = (uint32_t)list_get(mensaje_in, 1);
-			uint32_t id_patota = (uint32_t)list_get(mensaje_in, 2);
-			
+		case ELIM_T:			
+			id_trip = (uint32_t)list_get(mensaje_in, 1);
+			id_patota = (uint32_t)list_get(mensaje_in, 2);
 			eliminar_tripulante(id_patota, id_trip);
 			mensaje_out = crear_mensaje(TODOOK);
 			enviar_mensaje(socket_discord, mensaje_out);
@@ -161,10 +152,12 @@ int main(void) {
 		case 64:
 			log_info(logger, "Cliente desconectado 64");
 			conexion_activa_discord = false;
+			*continuar_consola = false;
 			break;
 		default:
 			log_info(logger, "Cliente desconectado default");
 			conexion_activa_discord = false;
+			*continuar_consola = false;
 			break;
 		}
 		liberar_mensaje_in(mensaje_in);
@@ -204,4 +197,28 @@ void liberar_tareas() {
 
 void liberar_tripulantes() {
 	list_destroy(lista_tripulantes);
+}
+
+void iniciar_mapa(bool* continuar_consola) {
+	pthread_t* hilo_consola = malloc(sizeof(pthread_t));
+	pthread_create(hilo_consola, NULL, dibujar_mapa, (void *)continuar_consola);
+	pthread_detach(*hilo_consola);
+}
+
+void iniciar_memoria(t_config* config) {
+	tamanio_memoria = config_get_int_value(config, "TAMANIO_MEMORIA");
+	memoria_ram = malloc(tamanio_memoria);
+
+	if(!strcmp(config_get_string_value(config, "ESQUEMA_MEMORIA"), "SEGMENTACION")) {
+		mapa_segmentos = list_create();
+		t_segmento* segmento_memoria = malloc(sizeof(t_segmento));
+		segmento_memoria->n_segmento = 0;
+		segmento_memoria->duenio = 0;
+		segmento_memoria->inicio = 0;
+		segmento_memoria->tamanio = tamanio_memoria;
+		list_add(mapa_segmentos, segmento_memoria);
+	}
+	if(!strcmp(config_get_string_value(config, "ESQUEMA_MEMORIA"), "PAGINACION")) {
+		/* TO DO */
+	}
 }

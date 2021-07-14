@@ -120,7 +120,7 @@ t_list* recibir_mensaje(int socket) {
 	case INIT_T:
 	case DATA_T:
 	case ELIM_T:
-	case ACTU_T:
+	case ACTU_P:
 	case BITA_D:
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
@@ -199,7 +199,7 @@ void liberar_mensaje_in(t_list* mensaje) {
 	case INIT_T:
 	case DATA_T:
 	case ELIM_T:
-	case ACTU_T:
+	case ACTU_P:
 	case BITA_D:	
 	case SND_PO:	
 	case ACTU_E:

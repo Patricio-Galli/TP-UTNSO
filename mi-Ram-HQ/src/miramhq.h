@@ -21,11 +21,15 @@
 #include "patota.h"
 #include "tareas.h"
 #include "tripulante.h"
+#include "consola.h"
 
 #include <errno.h>
 
 #define ERROR_CONEXION -1
 
-void liberar_segmentos();
+void iniciar_mapa(bool*);
+void iniciar_memoria(t_config*);
 
+
+void liberar_segmentos();
 #endif /* _MIRAMHQ_H_ */

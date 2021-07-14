@@ -37,6 +37,9 @@ int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uin
 	nuevo_trip->PID = id_patota;
 	nuevo_trip->TID = id_trip;
 	nuevo_trip->seguir = true;
+	nuevo_trip->posicion_x = pos_x;
+	nuevo_trip->posicion_y = pos_y;
+
 	if(patota->tamanio_tabla - 2 < id_trip) {
 		patota->tabla_segmentos = realloc(patota->tabla_segmentos, sizeof(uint32_t *) * (id_trip + 2));
 		patota->tamanio_tabla = id_trip;
@@ -116,9 +119,16 @@ void actualizar_estado(void* segmento, char nuevo_valor) {
 }
 
 void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante) {
+	int posicion_de_lista = posicion_trip(id_patota, id_tripulante);
+	if(posicion_de_lista == -1) {
+		printf("Posicion de lista -1\n");
+		return;
+	}
+	printf("Posicion de lista %d\n", posicion_de_lista);
 	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
 	
 	uint32_t inicio_tripulante = mi_patota->tabla_segmentos[id_tripulante + 1];
+	// TO DO: hacer funcion auxiliar y hacer que eliminar_segmento tome la posicion y no el segmento en sí
 	t_link_element* iterador = mapa_segmentos->head;
 	while(((t_segmento *)iterador->data)->inicio != inicio_tripulante) {
 		iterador = iterador->next;
@@ -126,9 +136,8 @@ void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante) {
 	t_segmento* segmento_tripulante = (t_segmento *)iterador->data;
 	eliminar_segmento(mapa_segmentos, segmento_tripulante);
 	
-	trip_data* mi_tripulante = tripulante_de_lista(id_patota, id_tripulante);
-	mi_tripulante->seguir = false;
-	
+	/*trip_data* mi_tripulante = */list_remove(lista_tripulantes, posicion_de_lista);
+	// Podría hacer un pthread_join(mi_tripulante->hilo); 
 	// Falta actualizar trip_data, detener el hilo y
 }
 
@@ -146,21 +155,9 @@ t_list* tripulantes_de_patota(uint32_t id_patota) {
 }
 
 trip_data* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip) {
-	t_link_element* iterador_patota = lista_patotas->head;
-	t_link_element* iterador_tripulante = lista_tripulantes->head;
-
-	patota_data* patota_aux;
-	for(int iter1 = 1; iter1 < id_patota; iter1++) {
-		patota_aux = (patota_data *)iterador_patota->data;
-		for(int iter2 = 0; iter2 < patota_aux->tamanio_tabla - 1; iter2++) {
-			iterador_tripulante = iterador_tripulante->next;
-		}
-		iterador_patota = iterador_patota->next;
-	}
-	for(int i = 1; i < id_trip; i++) { iterador_tripulante = iterador_tripulante->next; }
-	return (trip_data *)iterador_tripulante->data;	
+	return (trip_data *)list_get(lista_tripulantes, posicion_trip(id_patota, id_trip));
 }
-
+////////////////////////////////////////////////////
 bool tripulante_activo(void * un_trip) {
 	if(((trip_data *)un_trip)->seguir)
 		return true;
@@ -174,4 +171,25 @@ uint32_t cantidad_tripulantes_activos() {
 
 t_list* tripulantes_activos() {
 	return list_filter(lista_tripulantes, (*tripulante_activo));
+}
+//////////////////////////////////////////////////////
+int posicion_trip(uint32_t id_patota, uint32_t id_trip) {
+	int posicion = -1;
+	bool encontre = false;
+	t_link_element* iterador_tripulante = lista_tripulantes->head;
+	trip_data* trip_auxiliar;
+	while(iterador_tripulante) {
+		posicion++;
+		trip_auxiliar = (trip_data *)iterador_tripulante->data;
+		if(trip_auxiliar->PID == id_patota && trip_auxiliar->TID == id_trip) {
+			encontre = true;
+			break;
+		}
+		iterador_tripulante = iterador_tripulante->next;
+	}
+	
+	if(encontre)
+		return posicion;
+	else
+		return -1;
 }

@@ -27,9 +27,12 @@ typedef struct {
     uint32_t PID;
     uint32_t TID;
     uint32_t inicio;
+    uint32_t posicion_x;    // Para consola
+    uint32_t posicion_y;    // Para consola
+    bool modificado;        // Para consola
     int socket;
-    pthread_t* hilo;
-    sem_t* semaforo_hilo;
+    pthread_t* hilo;        // Creo que no hace falta
+    sem_t* semaforo_hilo;   // Para realizar compactacion (falta uno para dump)
     bool seguir;
 } trip_data;
 
@@ -47,5 +50,7 @@ trip_data* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip);
 uint32_t cantidad_tripulantes_activos();
 t_list* tripulantes_activos();
 bool tripulante_activo(void *);
+
+int posicion_trip(uint32_t id_patota, uint32_t id_trip);
 
 #endif /* _TRIPULANTE_H_ */

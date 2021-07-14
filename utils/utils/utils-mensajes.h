@@ -41,7 +41,7 @@ typedef enum {
 	SND_PO,	// Enviar puerto
 		// SND_PO | puerto [int]
 	
-	ACTU_T,	// Actualizar ubicación
+	ACTU_P,	// Actualizar posición
 		// ACTU_T | posicion_x [int] | posicion_y [int]
 	
 	ACTU_E,	// Actualizar estado

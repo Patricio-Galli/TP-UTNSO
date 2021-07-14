@@ -2,8 +2,7 @@
 
 int main(void)
 {
-	void iterator(char* value)
-	{
+	void iterator(char* value) {
 		printf("%s\n", value);
 	}
 

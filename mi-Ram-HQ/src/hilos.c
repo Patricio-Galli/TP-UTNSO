@@ -43,12 +43,13 @@ void* rutina_hilos(void* data) {
 				agregar_parametro_a_mensaje(mensaje_out, tarea_nueva, BUFFER);
 			}
 			break;
-		case ACTU_T:
-			posicion_x = (int)list_get(mensaje_in, 1);
-			posicion_y = (int)list_get(mensaje_in, 2);
+		case ACTU_P:
+			tripulante->posicion_x = (uint32_t)list_get(mensaje_in, 1);
+			tripulante->posicion_y = (uint32_t)list_get(mensaje_in, 2);
+			tripulante->modificado = true;
 
-			actualizar_valor_tripulante(memoria_ram + segmento_patota->tabla_segmentos[tripulante->TID + 1], POS_X, posicion_x);
-			actualizar_valor_tripulante(memoria_ram + segmento_patota->tabla_segmentos[tripulante->TID + 1], POS_Y, posicion_y);
+			actualizar_valor_tripulante(memoria_ram + segmento_patota->tabla_segmentos[tripulante->TID + 1], POS_X, tripulante->posicion_x);
+			actualizar_valor_tripulante(memoria_ram + segmento_patota->tabla_segmentos[tripulante->TID + 1], POS_Y, tripulante->posicion_y);
 
 			// log_info(logger, "Tripulante %d posicion actualizada %d|%d", id_trip, posicion_x, posicion_y);
 
@@ -69,8 +70,8 @@ void* rutina_hilos(void* data) {
         liberar_mensaje_in(mensaje_in);
 	}
 
-    close(socket_cliente);
-    close(tripulante->socket);
-    sem_destroy(tripulante->semaforo_hilo);
+    // close(socket_cliente);
+    // close(tripulante->socket);
+    // sem_destroy(tripulante->semaforo_hilo);
 	return 0;
 }
