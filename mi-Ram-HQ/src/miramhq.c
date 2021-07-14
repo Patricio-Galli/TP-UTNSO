@@ -32,8 +32,7 @@ void loggear_data(t_log* logger) {
 		log_info(logger, "PID: %d; Puntero a tareas: %d", pid, pnt_tareas);
 	}
 
-	int trip_activos = list_count_satisfying(lista_tripulantes, (*tripulante_activo));
-	log_info(logger, "Lista de tripulantes activos: %d :- %d", trip_activos, lista_tripulantes->elements_count);
+	log_info(logger, "Lista de tripulantes activos: %d", list_size(lista_tripulantes));
 	for(int i = 0; i < lista_tripulantes->elements_count; i++) {
 		inicio = ((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->inicio;
 		if(((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->seguir == true)
@@ -126,9 +125,7 @@ int main(void) {
 			log_info(logger, "Discordiador solicitó iniciar_tripulante");
 			uint32_t posicion_x = (uint32_t)list_get(mensaje_in, 1);
 			uint32_t posicion_y = (uint32_t)list_get(mensaje_in, 2);
-			log_info(logger, "Entro a iniciar_tripulante");
 			int puerto = iniciar_tripulante(nro_tripulante, patota_actual, posicion_x, posicion_y, algoritmo);
-			log_info(logger, "Sobrevivi a iniciar_tripulante %d", inicio_correcto);
 			if(puerto == 0) {
 				mensaje_out = crear_mensaje(NO_SPC);
 			}

@@ -45,12 +45,7 @@ char obtener_estado(void* segmento);
 void actualizar_valor_tripulante(void* segmento, para_trip nro_parametro, uint32_t nuevo_valor);
 void actualizar_estado(void* segmento, char nuevo_valor);
 
-t_list* tripulantes_de_patota(uint32_t id_patota);
 trip_data* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip);
-uint32_t cantidad_tripulantes_activos();
-t_list* tripulantes_activos();
-bool tripulante_activo(void *);
-
 int posicion_trip(uint32_t id_patota, uint32_t id_trip);
 
 #endif /* _TRIPULANTE_H_ */

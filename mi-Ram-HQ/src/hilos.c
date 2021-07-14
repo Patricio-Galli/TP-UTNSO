@@ -14,8 +14,8 @@ void* rutina_hilos(void* data) {
     if(socket_cliente < 0)
         cliente_conectado = false;
 	
-    int posicion_x;
-	int posicion_y;
+    int posicion_x;	// Para consola
+	int posicion_y;	// Para consola
     
 	t_mensaje* mensaje_out;
 	t_list* mensaje_in;

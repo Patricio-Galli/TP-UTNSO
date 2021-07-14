@@ -27,6 +27,7 @@ void segmentar_caracter(void* memoria, uint32_t posicion, char data);
 void segmentar_entero(void* memoria, uint32_t posicion, uint32_t data);
 void segmentar_string(void* memoria, uint32_t posicion, char* data);
 void segmentar_bloque(void* memoria, uint32_t posicion, void* data, uint32_t tamanio);
+t_list* seg_tripulantes_de_patota(uint32_t id_patota);
 
 void* obtener_bloque_memoria(void* memoria, t_segmento* segmento);
 

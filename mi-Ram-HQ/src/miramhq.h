@@ -30,6 +30,9 @@
 void iniciar_mapa(bool*);
 void iniciar_memoria(t_config*);
 
-
 void liberar_segmentos();
+void liberar_patotas();
+void liberar_tareas();
+void liberar_tripulantes();
+
 #endif /* _MIRAMHQ_H_ */

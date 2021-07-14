@@ -378,3 +378,39 @@ corrrimiento = 47
 SEGMENTO 12/	Duenio: 4/Indice: 1/Inicio: 200/Tamanio: 32
 SEGMENTO 13/	Duenio: 0/Indice: 0/Inicio: 232/Tamanio: 68
 */
+
+/*
+NUEVOS RESULTADOS
+Cantidad de segmentos: 15. Memoria libre: 16
+SEGMENTO 1/Duenio: 1/Indice: 0/Inicio: 0/Tamanio: 8
+SEGMENTO 2/Duenio: 1/Indice: 1/Inicio: 8/Tamanio: 32
+SEGMENTO 3/Duenio: 4/Indice: 0/Inicio: 40/Tamanio: 8
+SEGMENTO 4/Duenio: 5/Indice: 0/Inicio: 48/Tamanio: 8
+SEGMENTO 5/Duenio: 1/Indice: 3/Inicio: 56/Tamanio: 21
+SEGMENTO 6/Duenio: 2/Indice: 0/Inicio: 77/Tamanio: 8
+SEGMENTO 7/Duenio: 2/Indice: 1/Inicio: 85/Tamanio: 32
+SEGMENTO 8/Duenio: 2/Indice: 3/Inicio: 117/Tamanio: 21
+SEGMENTO 9/Duenio: 3/Indice: 0/Inicio: 138/Tamanio: 8
+SEGMENTO 10/Duenio: 3/Indice: 1/Inicio: 146/Tamanio: 32
+SEGMENTO 11/Duenio: 3/Indice: 3/Inicio: 178/Tamanio: 21
+SEGMENTO 12/Duenio: 4/Indice: 1/Inicio: 199/Tamanio: 32
+SEGMENTO 13/Duenio: 5/Indice: 1/Inicio: 231/Tamanio: 32
+SEGMENTO 14/Duenio: 5/Indice: 2/Inicio: 263/Tamanio: 21
+SEGMENTO 15/Duenio: 0/Indice: 2/Inicio: 284/Tamanio: 16
+Lista de patotas: 5
+Patota 1. PID: 1; Puntero a PCB: 0; Puntero a tareas: 8
+PID: 1; Puntero a tareas: 8
+Patota 2. PID: 2; Puntero a PCB: 77; Puntero a tareas: 85
+PID: 2; Puntero a tareas: 85
+Patota 3. PID: 3; Puntero a PCB: 138; Puntero a tareas: 146
+PID: 3; Puntero a tareas: 146
+Patota 4. PID: 4; Puntero a PCB: 40; Puntero a tareas: 199
+PID: 4; Puntero a tareas: 199
+Patota 5. PID: 5; Puntero a PCB: 48; Puntero a tareas: 231
+PID: 5; Puntero a tareas: 231
+Lista de tripulantes activos: 4 :- 4
+TID: 2; inicio: 56; estado: N; pos_x: 3; pos_y: 4; IP: 0; Punt PCB: 0
+TID: 2; inicio: 117; estado: N; pos_x: 3; pos_y: 4; IP: 0; Punt PCB: 77
+TID: 2; inicio: 178; estado: N; pos_x: 3; pos_y: 4; IP: 0; Punt PCB: 138
+TID: 1; inicio: 263; estado: N; pos_x: 3; pos_y: 4; IP: 0; Punt PCB: 48
+*/

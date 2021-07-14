@@ -13,7 +13,7 @@ void dibujar_mapa(void* continuar_consola) {
 
     while (*continuar) {
         nivel_gui_dibujar(nivel);
-        while(cantidad_tripulantes < cantidad_tripulantes_activos()) {
+        while(cantidad_tripulantes < list_size(lista_tripulantes)) {
             trip_data* nuevo_trip = (trip_data *)list_get(lista_tripulantes, cantidad_tripulantes);
             err = personaje_crear(nivel, id_actual, nuevo_trip->posicion_x, nuevo_trip->posicion_y);
 	        // ASSERT_CREATE(nivel, '@', err);

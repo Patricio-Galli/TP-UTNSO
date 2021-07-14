@@ -141,38 +141,10 @@ void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante) {
 	// Falta actualizar trip_data, detener el hilo y
 }
 
-bool seg_trip_de_patota(void* segmento) {
-	if(((t_segmento*)segmento)->duenio == id_filtro_patota && ((t_segmento*)segmento)->indice > 1) {
-		return true;
-	}
-    else
-        return false;
-}
-
-t_list* tripulantes_de_patota(uint32_t id_patota) {
-	id_filtro_patota = id_patota;
-	return list_filter(mapa_segmentos, (*seg_trip_de_patota));
-}
-
 trip_data* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip) {
 	return (trip_data *)list_get(lista_tripulantes, posicion_trip(id_patota, id_trip));
 }
-////////////////////////////////////////////////////
-bool tripulante_activo(void * un_trip) {
-	if(((trip_data *)un_trip)->seguir)
-		return true;
-	else
-		return false;
-}
 
-uint32_t cantidad_tripulantes_activos() {
-	return list_count_satisfying(lista_tripulantes, (*tripulante_activo));
-}
-
-t_list* tripulantes_activos() {
-	return list_filter(lista_tripulantes, (*tripulante_activo));
-}
-//////////////////////////////////////////////////////
 int posicion_trip(uint32_t id_patota, uint32_t id_trip) {
 	int posicion = -1;
 	bool encontre = false;
