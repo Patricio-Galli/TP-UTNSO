@@ -121,3 +121,13 @@ void quitar(tripulante* trip, t_list* list) {
 		index++;
 	}
 }
+
+void exit_planificacion() {
+	//cerrar cola_ready, cola_blocked, tripulantes_running
+
+	//finalizar semaforos mutex_cola_ready, mutex_tripulantes_running,
+			//mutex_cola_blocked, activar_planificacion, multiprocesamiento,
+			//tripulantes_ready, io_disponible, tripulantes_blocked
+
+	//finalizar hilos hilo_planificador, hilo_planificador_io
+}

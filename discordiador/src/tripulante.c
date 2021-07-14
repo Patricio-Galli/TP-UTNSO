@@ -1,6 +1,7 @@
 #include "tripulante.h"
 #include "planificador.h"
 
+/////////////////////TRIPULANTE//////////////////////
 tripulante* crear_tripulante(int x, int y, int patota, int id, int socket_ram, int socket_mongo) {
 	tripulante* nuevo_tripulante = malloc(sizeof(tripulante));
 
@@ -37,69 +38,33 @@ void* rutina_tripulante(void* t) {
 
 		termino_ejecucion = ejecutar(tarea, trip);
 
-		if(termino_ejecucion)
+		if(termino_ejecucion) {
+			free(tarea); //libero la ubicacion de la tarea anterior antes de cargarla con una nueva
 			tarea = solicitar_tarea(trip);
-	}
-
-	actualizar_estado(trip, EXIT);
-	return 0;
-}
-
-char* solicitar_tarea(tripulante* trip) {
-	char* tarea = "no_task";
-
-	if(RAM_ACTIVADA) {
-		t_mensaje* mensaje_out = crear_mensaje(NEXT_T);
-		enviar_mensaje(trip->socket_ram, mensaje_out);
-		t_list* mensaje_in = recibir_mensaje(trip->socket_ram);
-
-		if(!validar_mensaje(mensaje_in, logger))
-			log_warning(logger, "FALLO EN MENSAJE CON HILO RAM\n");
-		else if((int)list_get(mensaje_in, 0) == TASK_T)//significa que hay tareas
-			tarea = (char*)list_get(mensaje_in, 1);
-
-		liberar_mensaje(mensaje_out);
-		list_destroy(mensaje_in);
-	} else {
-		switch(trip->posicion[0]) {
-			case 3:
-				tarea = "GENERAR_OXIGENO 10;6;0;4";
-				break;
-			case 6:
-				tarea = "CONSUMIR_OXIGENO 5;8;5;4";
-				break;
-			case 8:
-				tarea = "DESCARTAR_BASURA 13;13;13;13";
-				break;
-			case 13:
-				break;
-			default:
-				tarea = "ESPERAR;3;3;3";
-				break;
 		}
 	}
 
-	return tarea;
+	free(tarea);
+	actualizar_estado(trip, EXIT);
+	sem_destroy(&trip->sem_blocked);
+	sem_destroy(&trip->sem_running);
+
+	return 0;
 }
 
 bool ejecutar(char* input, tripulante* trip) {
-	sem_wait(&trip->sem_running);
 
-	log_info(logger,"Tripulante %d va a ejecutar tarea %s  -  Posicion actual: %d|%d", trip->id_trip, input, trip->posicion[0], trip->posicion[1]);
+	if(trip->estado == READY)
+		sem_wait(&trip->sem_running);
+
+	log_info(logger,"Tripulante %d va a ejecutar tarea %s", trip->id_trip, input);
 
 	char** buffer = string_split(input, ";");
 
 	if(MONGO_ACTIVADO) {
 		t_mensaje* mensaje_out = crear_mensaje(EXEC_1);
-
 		agregar_parametro_a_mensaje(mensaje_out, (void*)input, BUFFER);
-		enviar_mensaje(trip->socket_mongo, mensaje_out);
-		t_list* mensaje_in = recibir_mensaje(trip->socket_mongo);
-
-		respuesta_OK(mensaje_in, "Fallo en comunicacion con el MONGO");
-
-		liberar_mensaje(mensaje_out);
-		list_destroy(mensaje_in);
+		enviar_y_verificar(mensaje_out, trip->socket_mongo, "Fallo en comunicacion con el mongo");
 	}
 
 	moverse(trip, atoi(buffer[1]), atoi(buffer[2]));
@@ -115,20 +80,8 @@ bool ejecutar(char* input, tripulante* trip) {
 	if(termino_tarea) {
 		log_info(logger,"Tripulante %d termino de ejecutar", trip->id_trip);
 
-		if(MONGO_ACTIVADO) {
-			t_mensaje* mensaje_mongo_out;
-			t_list* mensaje_mongo_in;
-
-			mensaje_mongo_out = crear_mensaje(EXEC_0);
-
-			enviar_mensaje(trip->socket_mongo, mensaje_mongo_out);
-			mensaje_mongo_in = recibir_mensaje(trip->socket_mongo);
-
-			respuesta_OK(mensaje_mongo_in, "Fallo en comunicacion con el MONGO");
-
-			liberar_mensaje(mensaje_mongo_out);
-			list_destroy(mensaje_mongo_in);
-		}
+		if(MONGO_ACTIVADO)
+			enviar_y_verificar(crear_mensaje(EXEC_0), trip->socket_mongo, "Fallo en comunicacion con el mongo");
 	}
 
 	if(analizar_quantum && !trip->quantum_disponible) {
@@ -140,8 +93,9 @@ bool ejecutar(char* input, tripulante* trip) {
 		trip->quantum_disponible = true;
 		trip->contador_ciclos = 0;
 	}
-	else
-		sem_post(&trip->sem_running); //para que siga ejecutando si no se quedo sin quantum
+
+	liberar_input(buffer);
+	liberar_input(comando_tarea);
 
 	return termino_tarea;
 }
@@ -184,38 +138,32 @@ void ejecutar_io(tripulante* trip, tareas tarea, int cantidad) {
 	log_info(logger,"Tripulante %d ejecutando IO", trip->id_trip);
 
 	if(MONGO_ACTIVADO) {
-		t_mensaje* mensaje_mongo_out;
-		t_list* mensaje_mongo_in;
+		t_mensaje* mensaje_out;
 
 		switch(tarea){
 			case GENERAR_OXIGENO:
-				mensaje_mongo_out = crear_mensaje(GEN_OX);
+				mensaje_out = crear_mensaje(GEN_OX);
 				break;
 			case CONSUMIR_OXIGENO:
-				mensaje_mongo_out = crear_mensaje(CON_OX);
+				mensaje_out = crear_mensaje(CON_OX);
 				break;
 			case GENERAR_COMIDA:
-				mensaje_mongo_out = crear_mensaje(GEN_CO);
+				mensaje_out = crear_mensaje(GEN_CO);
 				break;
 			case CONSUMIR_COMIDA:
-				mensaje_mongo_out = crear_mensaje(CON_CO);
+				mensaje_out = crear_mensaje(CON_CO);
 				break;
 			case GENERAR_BASURA:
-				mensaje_mongo_out = crear_mensaje(GEN_BA);
+				mensaje_out = crear_mensaje(GEN_BA);
 				break;
 			case DESCARTAR_BASURA:
-				mensaje_mongo_out = crear_mensaje(DES_BA);
+				mensaje_out = crear_mensaje(DES_BA);
 				break;
 			case ESPERAR: break;
 		}
 
-		agregar_parametro_a_mensaje(mensaje_mongo_out, (void*)cantidad, ENTERO);
-		enviar_mensaje(trip->socket_mongo, mensaje_mongo_out);
-		mensaje_mongo_in = recibir_mensaje(trip->socket_mongo);
-		respuesta_OK(mensaje_mongo_in, "Fallo al cargar respuesta en el MONGO");
-
-		liberar_mensaje(mensaje_mongo_out);
-		list_destroy(mensaje_mongo_in);
+		agregar_parametro_a_mensaje(mensaje_out, (void*)cantidad, ENTERO);
+		enviar_y_verificar(mensaje_out, trip->socket_mongo, "Fallo al cargar respuesta en el MONGO");
 	}
 	else {
 		switch(tarea){
@@ -267,36 +215,80 @@ bool esperar(int tiempo, tripulante* trip) {
 	return false;
 }
 
+
+/////////////////////MENSAJES//////////////////////
+bool respuesta_OK(t_list* respuesta, char* mensaje_fallo) {
+	if(!validar_mensaje(respuesta, logger)) {
+		log_warning(logger, "FALLO EN COMUNICACION");
+		return false;
+	}else if((int)list_get(respuesta, 0) != TODOOK) {
+		log_warning(logger, "%s", mensaje_fallo);
+		return false;
+	}
+	return true;
+}
+
+void enviar_y_verificar(t_mensaje* mensaje_out, int socket, char* mensaje_error) {
+	enviar_mensaje(socket, mensaje_out);
+	t_list* mensaje_in = recibir_mensaje(socket);
+	respuesta_OK(mensaje_in, mensaje_error);
+
+	list_destroy(mensaje_in);
+	liberar_mensaje(mensaje_out);
+}
+
+char* solicitar_tarea(tripulante* trip) {
+	char* tarea = "no_task";
+
+	if(RAM_ACTIVADA) {
+		t_mensaje* mensaje_out = crear_mensaje(NEXT_T);
+		enviar_mensaje(trip->socket_ram, mensaje_out);
+		t_list* mensaje_in = recibir_mensaje(trip->socket_ram);
+
+		if(!validar_mensaje(mensaje_in, logger))
+			log_warning(logger, "FALLO EN MENSAJE CON HILO RAM\n");
+		else if((int)list_get(mensaje_in, 0) == TASK_T)
+			tarea = (char*)list_get(mensaje_in, 1);
+
+		liberar_mensaje(mensaje_out);
+		list_destroy(mensaje_in);
+	} else {
+		switch(trip->posicion[0]) {
+			case 3:
+				tarea = "GENERAR_OXIGENO 10;6;0;4";
+				break;
+			case 6:
+				tarea = "CONSUMIR_OXIGENO 5;8;5;4";
+				break;
+			case 8:
+				tarea = "DESCARTAR_BASURA 13;13;13;13";
+				break;
+			case 13:
+				break;
+			default:
+				tarea = "ESPERAR;3;3;3";
+				break;
+		}
+	}
+
+	return tarea;
+}
+
 void avisar_movimiento(tripulante* trip) {
-	if(RAM_ACTIVADA || MONGO_ACTIVADO) {
-		t_mensaje* mensaje_out;
-
-		mensaje_out = crear_mensaje(ACTU_T);
-
+	if(RAM_ACTIVADA) {
+		t_mensaje* mensaje_out = crear_mensaje(ACTU_T);
 		agregar_parametro_a_mensaje(mensaje_out, (void*)trip->posicion[0], ENTERO);
 		agregar_parametro_a_mensaje(mensaje_out, (void*)trip->posicion[1], ENTERO);
 
-		if(RAM_ACTIVADA) {
-			t_list* mensaje_ram_in;
+		enviar_y_verificar(mensaje_out, trip->socket_ram, "Fallo en la actualizacion de posicion en RAM");
+	}
 
-			enviar_mensaje(trip->socket_ram, mensaje_out);
-			mensaje_ram_in = recibir_mensaje(trip->socket_ram);
-			respuesta_OK(mensaje_ram_in, "Fallo en la actualizacion de posicion en RAM");
+	if(MONGO_ACTIVADO) {
+		t_mensaje* mensaje_out = crear_mensaje(ACTU_T);
+		agregar_parametro_a_mensaje(mensaje_out, (void*)trip->posicion[0], ENTERO);
+		agregar_parametro_a_mensaje(mensaje_out, (void*)trip->posicion[1], ENTERO);
 
-			list_destroy(mensaje_ram_in);
-		}
-
-		if(MONGO_ACTIVADO) {
-			t_list* mensaje_mongo_in;
-
-			enviar_mensaje(trip->socket_mongo, mensaje_out);
-			mensaje_mongo_in = recibir_mensaje(trip->socket_mongo);
-			respuesta_OK(mensaje_mongo_in, "Fallo en la actualizacion de posicion en MONGO");
-
-			list_destroy(mensaje_mongo_in);
-		}
-
-	liberar_mensaje(mensaje_out);
+		enviar_y_verificar(mensaje_out, trip->socket_mongo, "Fallo en la actualizacion de posicion en MONGO");
 	}
 }
 
@@ -304,33 +296,15 @@ void actualizar_estado(tripulante* trip, estado estado_trip) {
 	trip->estado = estado_trip;
 
 	if(RAM_ACTIVADA) {
-		t_mensaje* mensaje_ram_out;
-		t_list* mensaje_ram_in;
+		t_mensaje* mensaje_out = crear_mensaje(ACTU_E);
+		agregar_parametro_a_mensaje(mensaje_out, (void*)trip->estado, ENTERO);
 
-		mensaje_ram_out = crear_mensaje(ACTU_E);
-
-		agregar_parametro_a_mensaje(mensaje_ram_out, (void*)trip->estado, ENTERO);
-
-		enviar_mensaje(trip->socket_ram, mensaje_ram_out);
-		mensaje_ram_in = recibir_mensaje(trip->socket_ram);
-
-		respuesta_OK(mensaje_ram_in, "Fallo en la actualizacion del estado en RAM");
+		enviar_y_verificar(mensaje_out, trip->socket_ram, "Fallo en la actualizacion del estado en RAM");
 	}
 }
 
-bool respuesta_OK(t_list* respuesta, char* mensaje_fallo) {
-	if(!validar_mensaje(respuesta, logger)) {
-		log_warning(logger, "FALLO EN COMUNICACION");
-		return false;
-	}
-	else if((int)list_get(respuesta, 0) != TODOOK) {
-			log_warning(logger, "%s", mensaje_fallo);
-			return false;
-	}
 
-	return true;
-}
-
+/////////////////////VALIDACIONES//////////////////////
 void actualizar_quantum(tripulante* trip) {
 	trip->contador_ciclos++;
 
@@ -348,6 +322,14 @@ void puede_continuar(tripulante* trip) {
 	}
 }
 
+
+/////////////////////UTILIDADES//////////////////////
+char* estado_enumToString(int estadoEnum) {
+	char* listaDeStrings[] = {"NEW", "BLOCKED", "READY", "RUNNING", "EXIT"};
+
+	return listaDeStrings[estadoEnum];
+}
+
 tareas stringToEnum(char *string){
 	char* listaDeStrings[]={"GENERAR_OXIGENO", "CONSUMIR_OXIGENO", "GENERAR_COMIDA", "CONSUMIR_COMIDA", "GENERAR_BASURA", "DESCARTAR_BASURA"};
 
@@ -359,8 +341,13 @@ tareas stringToEnum(char *string){
 	return ESPERAR;
 }
 
-char* estado_enumToString(int estadoEnum) {
-	char* listaDeStrings[] = {"NEW", "BLOCKED", "READY", "RUNNING", "EXIT"};
+void liberar_input(char** input) {
+	int i = 0;
 
-	return listaDeStrings[estadoEnum];
+	while(input[i] != NULL) {
+		free(input[i]);
+		i++;
+	}
+	//free(input[i]); //todo verificar si hay que liberar el null
+	free(input);
 }

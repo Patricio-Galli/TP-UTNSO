@@ -15,6 +15,7 @@
 #define RAM_ACTIVADA 0
 #define MONGO_ACTIVADO 1
 
+//tripulante
 typedef struct {
 	int posicion[2];
 	int id_trip;
@@ -34,6 +35,7 @@ typedef struct {
 	bool quantum_disponible;
 }tripulante;
 
+//estado
 typedef enum {
     NEW,
     BLOCKED,
@@ -42,6 +44,7 @@ typedef enum {
     EXIT
 }estado;
 
+//tareas
 typedef enum {
 	GENERAR_OXIGENO,
 	CONSUMIR_OXIGENO,
@@ -52,20 +55,31 @@ typedef enum {
 	ESPERAR
 }tareas;
 
+/////////////////////TRIPULANTE//////////////////////
 tripulante* crear_tripulante(int, int, int, int, int, int);
 void* rutina_tripulante(void*);
-char* estado_enumToString(int);
-
-tareas stringToEnum(char *);
 bool ejecutar(char*, tripulante*);
-char* solicitar_tarea(tripulante*);
-void avisar_movimiento(tripulante*);
-void actualizar_estado(tripulante* trip, estado estado_trip);
 void moverse(tripulante*, int, int);
 void ejecutar_io(tripulante* trip, tareas tarea, int cantidad);
 bool esperar(int, tripulante*);
+
+
+/////////////////////MENSAJES//////////////////////
 bool respuesta_OK(t_list* respuesta, char* mensaje_fallo);
+void enviar_y_verificar(t_mensaje* mensaje_out, int socket, char* mensaje_error);
+char* solicitar_tarea(tripulante*);
+void avisar_movimiento(tripulante*);
+void actualizar_estado(tripulante* trip, estado estado_trip);
+
+
+/////////////////////VALIDACIONES//////////////////////
 void actualizar_quantum(tripulante*);
 void puede_continuar(tripulante*);
+
+
+/////////////////////UTILIDADES//////////////////////
+char* estado_enumToString(int);
+tareas stringToEnum(char *);
+void liberar_input(char** input);
 
 #endif /* TRIPULANTE_H_ */

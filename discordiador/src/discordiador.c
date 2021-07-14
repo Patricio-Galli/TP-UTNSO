@@ -22,7 +22,7 @@ int main() {
 		if(!validar_socket(socket_ram, logger)) {
 			close(socket_ram);
 			log_destroy(logger);
-			return 0;//todo verificar tipo retorno
+			return 0;
 		}
 	}
 
@@ -35,7 +35,7 @@ int main() {
 
 			if(RAM_ACTIVADA)
 				close(socket_ram);
-			return 0;//todo verificar tipo retorno
+			return 0;
 		}
 	}
 
@@ -55,9 +55,8 @@ int main() {
 		char* buffer_consola = leer_consola();
 		char** input = string_split(buffer_consola, " ");
 		parametros_iniciar_patota* parametros;
-		command_code funcion = mapStringToEnum(input[0]);
 
-		switch(funcion) {
+		switch(mapStringToEnum(input[0])) {
 			case INICIAR_PATOTA:
 
 				if (!strcmp(buffer_consola,"ini"))
@@ -67,28 +66,25 @@ int main() {
 				loggear_parametros(parametros);
 
 				if(RAM_ACTIVADA || MONGO_ACTIVADO) {
-					t_mensaje* mensaje_out;
 					bool ram_ok = true, mongo_ok = true;
 
-					mensaje_out = crear_mensaje(INIT_P);
+					t_mensaje* mensaje_out = crear_mensaje(INIT_P);
 
 					agregar_parametro_a_mensaje(mensaje_out, (void*)parametros->cantidad_tareas, ENTERO);
 					for(int i = 0; i < parametros->cantidad_tareas; i++)
 						agregar_parametro_a_mensaje(mensaje_out, (void*)parametros->tareas[i], BUFFER);
 
 					if(RAM_ACTIVADA) {
-						t_list* mensaje_in;
 						enviar_mensaje(socket_ram, mensaje_out);
-						mensaje_in = recibir_mensaje(socket_ram);
+						t_list* mensaje_in = recibir_mensaje(socket_ram);
 
 						ram_ok = respuesta_OK(mensaje_in, "No se pudo iniciar patota, no hay suficiente memoria.");
 						list_destroy(mensaje_in);
 					}
 
 					if(MONGO_ACTIVADO) {
-						t_list* mensaje_in;
 						enviar_mensaje(socket_mongo, mensaje_out);
-						mensaje_in = recibir_mensaje(socket_mongo);
+						t_list* mensaje_in = recibir_mensaje(socket_mongo);
 
 						mongo_ok = respuesta_OK(mensaje_in, "No se pudo iniciar patota, error en mongo.");
 						list_destroy(mensaje_in);
@@ -134,12 +130,12 @@ int main() {
 				log_error(logger,"COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
 		}
 		free(buffer_consola);
-	}
-	//pthread_mutex_destroy(&mutex_cola_ready);
-	//pthread_mutex_destroy(&mutex_cola_running);
-	//pthread_mutex_destroy(&mutex_cola_blocked);
+		liberar_input(input);
 
-	//list_destroy_and_destroy_elements(lista_tripulantes, free()); podria ser esta la funcion pero no estoy seguro que funcione
+	}
+	exit_planificacion();
+
+	//todo finalizar_tripulantes();
 	close(socket_ram);
 	close(socket_mongo);
 	log_destroy(logger);
@@ -335,7 +331,6 @@ parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar val
 
 	return parametros;
 }
-
 void liberar_parametros(parametros_iniciar_patota* parametros) {
 	free(parametros->posiciones_x);
 	free(parametros->posiciones_y);

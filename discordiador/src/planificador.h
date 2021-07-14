@@ -8,8 +8,6 @@
 
 #include "tripulante.h"
 
-t_log* logger;
-
 t_queue* cola_ready;
 t_queue* cola_blocked;
 t_list* tripulantes_running;
@@ -20,13 +18,12 @@ pthread_mutex_t mutex_tripulantes_running;
 pthread_mutex_t mutex_cola_blocked;
 
 sem_t activar_planificacion;
-
 sem_t multiprocesamiento;
 sem_t tripulantes_ready;
-
 sem_t io_disponible;
 sem_t tripulantes_blocked;
 
+t_log* logger;
 int ciclo_CPU;
 int quantum;
 bool continuar_planificacion;
@@ -36,6 +33,7 @@ void inicializar_planificador(int, char*, int, int, bool*, t_log*);
 
 void* planificador(void*);
 void* planificador_io();
+void exit_planificacion();
 
 void agregar_ready(tripulante* trip);
 void agregar_running(tripulante* trip);
