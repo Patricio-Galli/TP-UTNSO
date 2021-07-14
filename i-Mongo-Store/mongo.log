@@ -177,3 +177,73 @@
 [INFO] 20:26:42:737 MONGO/(8720:8720): Esperando información del discordiador
 [INFO] 20:26:42:737 MONGO/(8720:8730): Iniciado el tripulante 4 de la patota 1 en MONGO
 [INFO] 20:26:42:737 MONGO/(8720:8728): Iniciado el tripulante 3 de la patota 1 en MONGO
+[INFO] 20:46:55:791 MONGO/(5581:5581): Servidor listo
+[INFO] 20:46:58:431 MONGO/(5581:5581): Conexión establecida con el discordiador
+[INFO] 20:46:58:431 MONGO/(5581:5581): Esperando información del discordiador
+[INFO] 20:47:03:929 MONGO/(5581:5581): Discordiador inicio una patota
+[INFO] 20:47:03:929 MONGO/(5581:5581): Esperando información del discordiador
+[INFO] 20:47:03:929 MONGO/(5581:5581): Discordiador solicitó iniciar un tripulante
+[INFO] 20:47:03:929 MONGO/(5581:5581): Esperando información del discordiador
+[INFO] 20:47:03:930 MONGO/(5581:5581): Discordiador solicitó iniciar un tripulante
+[INFO] 20:47:03:930 MONGO/(5581:5585): Iniciado el tripulante 1 de la patota 1 en MONGO
+[INFO] 20:47:03:930 MONGO/(5581:5581): Esperando información del discordiador
+[INFO] 20:47:03:930 MONGO/(5581:5587): Iniciado el tripulante 2 de la patota 1 en MONGO
+[INFO] 20:47:03:931 MONGO/(5581:5581): Discordiador solicitó iniciar un tripulante
+[INFO] 20:47:03:931 MONGO/(5581:5581): Esperando información del discordiador
+[INFO] 20:47:03:931 MONGO/(5581:5589): Iniciado el tripulante 3 de la patota 1 en MONGO
+[INFO] 20:47:03:932 MONGO/(5581:5581): Discordiador solicitó iniciar un tripulante
+[INFO] 20:47:03:932 MONGO/(5581:5581): Esperando información del discordiador
+[INFO] 20:47:03:932 MONGO/(5581:5591): Iniciado el tripulante 4 de la patota 1 en MONGO
+[INFO] 20:48:47:069 MONGO/(5635:5635): Servidor listo
+[INFO] 20:48:55:141 MONGO/(5735:5735): Servidor listo
+[INFO] 20:49:01:214 MONGO/(5735:5735): Conexión establecida con el discordiador
+[INFO] 20:49:01:214 MONGO/(5735:5735): Esperando información del discordiador
+[INFO] 20:49:03:774 MONGO/(5735:5735): Discordiador inicio una patota
+[INFO] 20:49:03:774 MONGO/(5735:5735): Esperando información del discordiador
+[INFO] 20:49:03:774 MONGO/(5735:5735): Discordiador solicitó iniciar un tripulante
+[INFO] 20:49:03:774 MONGO/(5735:5735): Esperando información del discordiador
+[INFO] 20:49:03:774 MONGO/(5735:5735): Discordiador solicitó iniciar un tripulante
+[INFO] 20:49:03:774 MONGO/(5735:5827): Iniciado el tripulante 1 de la patota 1 en MONGO
+[INFO] 20:49:03:775 MONGO/(5735:5735): Esperando información del discordiador
+[INFO] 20:49:03:775 MONGO/(5735:5829): Iniciado el tripulante 2 de la patota 1 en MONGO
+[INFO] 20:49:03:775 MONGO/(5735:5735): Discordiador solicitó iniciar un tripulante
+[INFO] 20:49:03:775 MONGO/(5735:5827): Iniciado correctamente el tripulante 1 de la patota 1 en MONGO
+[INFO] 20:49:03:776 MONGO/(5735:5735): Esperando información del discordiador
+[INFO] 20:49:03:776 MONGO/(5735:5829): Iniciado correctamente el tripulante 2 de la patota 1 en MONGO
+[INFO] 20:49:03:776 MONGO/(5735:5735): Discordiador solicitó iniciar un tripulante
+[INFO] 20:49:03:776 MONGO/(5735:5831): Iniciado el tripulante 3 de la patota 1 en MONGO
+[INFO] 20:49:03:776 MONGO/(5735:5735): Esperando información del discordiador
+[INFO] 20:49:03:776 MONGO/(5735:5833): Iniciado el tripulante 4 de la patota 1 en MONGO
+[INFO] 20:49:03:777 MONGO/(5735:5833): Iniciado correctamente el tripulante 4 de la patota 1 en MONGO
+[INFO] 20:49:03:777 MONGO/(5735:5831): Iniciado correctamente el tripulante 3 de la patota 1 en MONGO
+[INFO] 20:59:09:656 MONGO/(6365:6365): Servidor listo
+[INFO] 20:59:15:792 MONGO/(6365:6365): Conexión establecida con el discordiador
+[INFO] 20:59:15:792 MONGO/(6365:6365): Esperando información del discordiador
+[INFO] 20:59:18:351 MONGO/(6365:6365): Discordiador inicio una patota
+[INFO] 20:59:18:351 MONGO/(6365:6365): Esperando información del discordiador
+[INFO] 20:59:18:351 MONGO/(6365:6365): Discordiador solicitó iniciar un tripulante
+[INFO] 20:59:18:351 MONGO/(6365:6365): Esperando información del discordiador
+[INFO] 20:59:18:351 MONGO/(6365:6365): Discordiador solicitó iniciar un tripulante
+[INFO] 20:59:18:352 MONGO/(6365:6459): Iniciado correctamente el tripulante 1 de la patota 1 en MONGO
+[INFO] 20:59:18:352 MONGO/(6365:6365): Esperando información del discordiador
+[INFO] 20:59:18:352 MONGO/(6365:6365): Discordiador solicitó iniciar un tripulante
+[INFO] 20:59:18:352 MONGO/(6365:6461): Iniciado correctamente el tripulante 2 de la patota 1 en MONGO
+[INFO] 20:59:18:353 MONGO/(6365:6365): Esperando información del discordiador
+[INFO] 20:59:18:353 MONGO/(6365:6365): Discordiador solicitó iniciar un tripulante
+[INFO] 20:59:18:353 MONGO/(6365:6365): Esperando información del discordiador
+[INFO] 20:59:18:354 MONGO/(6365:6463): Iniciado correctamente el tripulante 3 de la patota 1 en MONGO
+[INFO] 20:59:18:354 MONGO/(6365:6465): Iniciado correctamente el tripulante 4 de la patota 1 en MONGO
+[INFO] 20:59:23:726 MONGO/(6365:6365): Discordiador inicio una patota
+[INFO] 20:59:23:726 MONGO/(6365:6365): Esperando información del discordiador
+[INFO] 20:59:23:726 MONGO/(6365:6365): Discordiador solicitó iniciar un tripulante
+[INFO] 20:59:23:727 MONGO/(6365:6365): Esperando información del discordiador
+[INFO] 20:59:23:727 MONGO/(6365:6365): Discordiador solicitó iniciar un tripulante
+[INFO] 20:59:23:727 MONGO/(6365:6365): Esperando información del discordiador
+[INFO] 20:59:23:728 MONGO/(6365:6365): Discordiador solicitó iniciar un tripulante
+[INFO] 20:59:23:727 MONGO/(6365:6467): Iniciado correctamente el tripulante 1 de la patota 2 en MONGO
+[INFO] 20:59:23:728 MONGO/(6365:6365): Esperando información del discordiador
+[INFO] 20:59:23:728 MONGO/(6365:6471): Iniciado correctamente el tripulante 3 de la patota 2 en MONGO
+[INFO] 20:59:23:728 MONGO/(6365:6469): Iniciado correctamente el tripulante 2 de la patota 2 en MONGO
+[INFO] 20:59:23:728 MONGO/(6365:6365): Discordiador solicitó iniciar un tripulante
+[INFO] 20:59:23:728 MONGO/(6365:6365): Esperando información del discordiador
+[INFO] 20:59:23:729 MONGO/(6365:6473): Iniciado correctamente el tripulante 4 de la patota 2 en MONGO

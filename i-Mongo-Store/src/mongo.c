@@ -21,33 +21,29 @@ int main() {
 	log_info(logger, "Servidor listo");
 	int socket_discord = esperar_cliente(server_fd);
 	log_info(logger, "Conexión establecida con el discordiador");
-	
-	t_list* mensaje_discor;
 
 	while(1) {
 		log_info(logger, "Esperando información del discordiador");
 
-		mensaje_discor = recibir_mensaje(socket_discord);
+		t_list* mensaje_in = recibir_mensaje(socket_discord);
 
-		if (!validar_mensaje(mensaje_discor, logger)) {
+		if (!validar_mensaje(mensaje_in, logger)) {
 			log_info(logger, "Cliente desconectado dentro del while");
 			close(server_fd);
 			log_destroy(logger);
 			return ERROR_CONEXION;
 		}
 
-		switch((int)list_get(mensaje_discor, 0)) { // protocolo del mensaje
+		switch((int)list_get(mensaje_in, 0)) { // protocolo del mensaje
 			case INIT_P:
 				log_info(logger, "Discordiador inicio una patota");
 
 				pat++;
 				tripu = 1;
 
-				t_mensaje* mensaje_out;
-				mensaje_out = crear_mensaje(TODOOK);
-				enviar_mensaje(socket_discord, mensaje_out);
-				liberar_mensaje(mensaje_out);
-				list_destroy(mensaje_discor);
+				t_mensaje* mensaje_ou = crear_mensaje(TODOOK);
+				enviar_mensaje(socket_discord, mensaje_ou);
+				liberar_mensaje(mensaje_ou);
 
 				break;
 			case INIT_T:
@@ -56,27 +52,26 @@ int main() {
 
 				trip->id_patota = pat;
 				trip->id_trip = tripu;
-				trip->posicion_x = (int)list_get(mensaje_discor, 1);
-				trip->posicion_y = (int)list_get(mensaje_discor, 2);
+				trip->posicion_x = (int)list_get(mensaje_in, 1);
+				trip->posicion_y = (int)list_get(mensaje_in, 2);
 				trip->socket_discord = crear_conexion_servidor(IP_MONGO, 0, 1);
 
 				pthread_t hilo_nuevo;
 				pthread_create(&hilo_nuevo, NULL, rutina_trip, trip);
 
-				t_mensaje* respuesta;
-				respuesta = crear_mensaje(SND_PO);
-				agregar_parametro_a_mensaje(respuesta, (void *)puerto_desde_socket(trip->socket_discord), ENTERO);
-				enviar_mensaje(socket_discord, respuesta);
+				t_mensaje* mensaje_out = crear_mensaje(SND_PO);
+				agregar_parametro_a_mensaje(mensaje_out, (void *)puerto_desde_socket(trip->socket_discord), ENTERO);
+				enviar_mensaje(socket_discord, mensaje_out);
 
-				liberar_mensaje(respuesta);
-				list_destroy(mensaje_discor);
-
+				liberar_mensaje(mensaje_out);
 				tripu++;
+
 				break;
 			default:
 				log_warning(logger, "No entendi el mensaje");
 				break;
 		}
+		list_destroy(mensaje_in);
 	}
 
 	log_warning(logger, "FINALIZANDO MONGO");
@@ -86,14 +81,18 @@ int main() {
 void* rutina_trip(void* t) {
 	tripulante* trip = (tripulante*) t;
 
-	t_mensaje* mensaje_out;
-	t_list* mensaje_in;
-
 	int socket_cliente = esperar_cliente(trip->socket_discord);
-	log_info(logger, "Iniciado el tripulante %d de la patota %d en MONGO", trip->id_trip, trip->id_patota);
+
+	t_list* mensaje_in = recibir_mensaje(socket_cliente);
+
+	if((int)list_get(mensaje_in, 0)==TODOOK)
+		log_info(logger, "Iniciado correctamente el tripulante %d de la patota %d en MONGO", trip->id_trip, trip->id_patota);
+
+	list_destroy(mensaje_in);
 
 	while(1) {
-		mensaje_in = recibir_mensaje(socket_cliente);
+		t_mensaje* mensaje_out;
+		t_list* mensaje_in = recibir_mensaje(socket_cliente);
 
 		if(!validar_mensaje(mensaje_in, logger))
 			log_info(logger, "Fallo el mensaje");
@@ -145,5 +144,7 @@ void* rutina_trip(void* t) {
 				enviar_mensaje(socket_cliente, mensaje_out);
 				break;
 		}
+		liberar_mensaje(mensaje_out);
+		list_destroy(mensaje_in);
 	}
 }

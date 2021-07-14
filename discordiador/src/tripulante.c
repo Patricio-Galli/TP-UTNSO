@@ -39,7 +39,7 @@ void* rutina_tripulante(void* t) {
 	if(MONGO_ACTIVADO) {
 		t_mensaje* mensaje_out;
 		mensaje_out = crear_mensaje(TODOOK);
-		enviar_mensaje(trip->socket_ram, mensaje_out);
+		enviar_mensaje(trip->socket_mongo, mensaje_out);
 		liberar_mensaje(mensaje_out);
 	}
 
