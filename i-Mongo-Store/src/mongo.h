@@ -22,6 +22,7 @@ typedef struct {
 	int socket_discord;
 }tripulante;
 
+void* detector_sabotajes(void* s);
 void* rutina_trip(void* t);
 
 #endif /* MONGO_H_ */

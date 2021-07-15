@@ -58,7 +58,7 @@ typedef enum {
 	
 	BITA_T,	// Actualizar bitácora
 		// Por definir
-	
+
 	BITA_C,	// Mostrar Bitácora
 		// BITA_C | cant_lineas [int] | (líneas)
 	
@@ -82,7 +82,7 @@ typedef enum {
 	
 	ER_SOC,	// Error al recibir mensaje, el socket remoto se desconectó
 		// ER_SOC
-
+	INIT_S,
 	EXEC_1,
 	EXEC_0,
 	GEN_OX,

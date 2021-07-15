@@ -1,0 +1,1207 @@
+[INFO] 19:56:14:682 MONGO/(13238:13238): Servidor listo
+[INFO] 19:56:22:284 MONGO/(13238:13238): Conexión establecida con el discordiador
+[INFO] 19:56:22:284 MONGO/(13238:13238): Esperando información del discordiador
+[INFO] 19:56:26:524 MONGO/(13238:13238): Discordiador inicio una patota
+[INFO] 19:56:26:524 MONGO/(13238:13238): Esperando información del discordiador
+[INFO] 19:56:26:548 MONGO/(13238:13238): Discordiador solicitó iniciar un tripulante
+[INFO] 19:56:26:548 MONGO/(13238:13238): Esperando información del discordiador
+[INFO] 19:56:26:559 MONGO/(13238:13335): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:56:26:567 MONGO/(13238:13238): Discordiador solicitó iniciar un tripulante
+[INFO] 19:56:26:568 MONGO/(13238:13238): Esperando información del discordiador
+[INFO] 19:56:26:580 MONGO/(13238:13337): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:56:26:582 MONGO/(13238:13238): Discordiador solicitó iniciar un tripulante
+[INFO] 19:56:26:582 MONGO/(13238:13238): Esperando información del discordiador
+[INFO] 19:56:26:583 MONGO/(13238:13339): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:56:26:585 MONGO/(13238:13238): Discordiador solicitó iniciar un tripulante
+[INFO] 19:56:26:586 MONGO/(13238:13238): Esperando información del discordiador
+[INFO] 19:56:26:592 MONGO/(13238:13341): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:56:30:268 MONGO/(13238:13238): Discordiador inicio una patota
+[INFO] 19:56:30:269 MONGO/(13238:13238): Esperando información del discordiador
+[INFO] 19:56:30:270 MONGO/(13238:13238): Discordiador solicitó iniciar un tripulante
+[INFO] 19:56:30:270 MONGO/(13238:13238): Esperando información del discordiador
+[INFO] 19:56:30:271 MONGO/(13238:13343): Iniciado el tripulante 1 de la patota 2
+[INFO] 19:56:30:273 MONGO/(13238:13238): Discordiador solicitó iniciar un tripulante
+[INFO] 19:56:30:274 MONGO/(13238:13238): Esperando información del discordiador
+[INFO] 19:56:30:277 MONGO/(13238:13345): Iniciado el tripulante 2 de la patota 2
+[INFO] 19:56:30:277 MONGO/(13238:13238): Discordiador solicitó iniciar un tripulante
+[INFO] 19:56:30:277 MONGO/(13238:13238): Esperando información del discordiador
+[INFO] 19:56:30:278 MONGO/(13238:13347): Iniciado el tripulante 3 de la patota 2
+[INFO] 19:56:30:281 MONGO/(13238:13238): Discordiador solicitó iniciar un tripulante
+[INFO] 19:56:30:281 MONGO/(13238:13238): Esperando información del discordiador
+[INFO] 19:56:30:284 MONGO/(13238:13349): Iniciado el tripulante 4 de la patota 2
+[INFO] 19:56:31:803 MONGO/(13238:13238): Discordiador inicio una patota
+[INFO] 19:56:31:803 MONGO/(13238:13238): Esperando información del discordiador
+[INFO] 19:56:31:804 MONGO/(13238:13238): Discordiador solicitó iniciar un tripulante
+[INFO] 19:56:31:804 MONGO/(13238:13238): Esperando información del discordiador
+[INFO] 19:56:31:804 MONGO/(13238:13351): Iniciado el tripulante 1 de la patota 3
+[INFO] 19:56:31:808 MONGO/(13238:13238): Discordiador solicitó iniciar un tripulante
+[INFO] 19:56:31:808 MONGO/(13238:13238): Esperando información del discordiador
+[INFO] 19:56:31:811 MONGO/(13238:13353): Iniciado el tripulante 2 de la patota 3
+[INFO] 19:56:31:812 MONGO/(13238:13238): Discordiador solicitó iniciar un tripulante
+[INFO] 19:56:31:812 MONGO/(13238:13238): Esperando información del discordiador
+[INFO] 19:56:31:812 MONGO/(13238:13355): Iniciado el tripulante 3 de la patota 3
+[INFO] 19:56:31:815 MONGO/(13238:13238): Discordiador solicitó iniciar un tripulante
+[INFO] 19:56:31:815 MONGO/(13238:13238): Esperando información del discordiador
+[INFO] 19:56:31:819 MONGO/(13238:13357): Iniciado el tripulante 4 de la patota 3
+[INFO] 19:56:35:769 MONGO/(13238:13337): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:56:35:770 MONGO/(13238:13335): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:56:35:779 MONGO/(13238:13335): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 19:56:35:780 MONGO/(13238:13337): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 19:56:38:788 MONGO/(13238:13337): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 7|2
+[INFO] 19:56:38:788 MONGO/(13238:13335): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 19:56:41:789 MONGO/(13238:13335): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 19:56:41:790 MONGO/(13238:13337): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 19:56:44:791 MONGO/(13238:13335): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 19:56:44:791 MONGO/(13238:13337): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 5|2
+[INFO] 19:56:47:793 MONGO/(13238:13337): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 4|2
+[INFO] 19:56:47:793 MONGO/(13238:13335): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 19:56:50:794 MONGO/(13238:13337): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 3|2
+[INFO] 19:56:50:795 MONGO/(13238:13335): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 3|3
+[INFO] 19:56:53:807 MONGO/(13238:13337): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 3|3
+[INFO] 19:57:02:816 MONGO/(13238:13335): EXEC_0 - Tripulante 1 de la patota 1 detuvo ejecucion
+[INFO] 19:57:02:823 MONGO/(13238:13335): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 19:57:02:824 MONGO/(13238:13335): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 19:57:05:823 MONGO/(13238:13337): EXEC_0 - Tripulante 2 de la patota 1 detuvo ejecucion
+[INFO] 19:57:05:824 MONGO/(13238:13337): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 19:57:05:825 MONGO/(13238:13337): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 4|3
+[INFO] 19:57:05:827 MONGO/(13238:13335): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 19:57:08:829 MONGO/(13238:13337): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 5|3
+[INFO] 19:57:08:861 MONGO/(13238:13335): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 19:57:11:832 MONGO/(13238:13337): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|3
+[INFO] 19:57:11:866 MONGO/(13238:13335): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|2
+[INFO] 19:57:14:837 MONGO/(13238:13337): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 19:57:14:867 MONGO/(13238:13335): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|1
+[INFO] 19:57:17:837 MONGO/(13238:13337): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|1
+[INFO] 19:57:17:868 MONGO/(13238:13335): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|0
+[INFO] 19:57:20:838 MONGO/(13238:13337): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|0
+[INFO] 19:57:20:885 MONGO/(13238:13335): GEN_OX - Tripulante 1 de la patota 1 generando 10 de oxigeno
+[INFO] 19:57:20:886 MONGO/(13238:13339): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:57:20:887 MONGO/(13238:13339): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 1|0
+[INFO] 19:57:23:843 MONGO/(13238:13341): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:57:23:844 MONGO/(13238:13341): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 1|0
+[INFO] 19:57:23:890 MONGO/(13238:13339): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 2|0
+[INFO] 19:57:25:894 MONGO/(13238:13337): GEN_OX - Tripulante 2 de la patota 1 generando 10 de oxigeno
+[INFO] 19:57:26:845 MONGO/(13238:13341): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 2|0
+[INFO] 19:57:26:891 MONGO/(13238:13339): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|0
+[INFO] 19:57:29:847 MONGO/(13238:13341): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|0
+[INFO] 19:57:29:893 MONGO/(13238:13339): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|1
+[INFO] 19:57:32:848 MONGO/(13238:13341): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|1
+[INFO] 19:57:32:894 MONGO/(13238:13339): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|2
+[INFO] 19:57:35:849 MONGO/(13238:13341): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|2
+[INFO] 19:57:35:897 MONGO/(13238:13339): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|3
+[INFO] 19:57:38:851 MONGO/(13238:13341): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|3
+[INFO] 19:57:47:908 MONGO/(13238:13339): EXEC_0 - Tripulante 3 de la patota 1 detuvo ejecucion
+[INFO] 19:57:47:910 MONGO/(13238:13339): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 19:57:47:910 MONGO/(13238:13339): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 4|3
+[INFO] 19:57:50:859 MONGO/(13238:13341): EXEC_0 - Tripulante 4 de la patota 1 detuvo ejecucion
+[INFO] 19:57:50:861 MONGO/(13238:13341): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 19:57:50:861 MONGO/(13238:13341): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 4|3
+[INFO] 19:57:50:911 MONGO/(13238:13339): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 5|3
+[INFO] 19:57:53:863 MONGO/(13238:13341): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 5|3
+[INFO] 19:57:53:912 MONGO/(13238:13339): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 6|3
+[INFO] 19:57:56:864 MONGO/(13238:13341): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 6|3
+[INFO] 19:57:56:914 MONGO/(13238:13339): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 6|2
+[INFO] 19:57:59:867 MONGO/(13238:13341): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 6|2
+[INFO] 19:57:59:916 MONGO/(13238:13339): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 6|1
+[INFO] 19:58:02:867 MONGO/(13238:13341): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 6|1
+[INFO] 19:58:02:918 MONGO/(13238:13339): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 6|0
+[INFO] 19:58:05:869 MONGO/(13238:13341): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 6|0
+[INFO] 19:58:05:926 MONGO/(13238:13339): GEN_OX - Tripulante 3 de la patota 1 generando 10 de oxigeno
+[INFO] 19:58:05:929 MONGO/(13238:13343): EXEC_1 - Tripulante 1 de la patota 2 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:58:05:930 MONGO/(13238:13343): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 8|3
+[INFO] 19:58:08:874 MONGO/(13238:13345): EXEC_1 - Tripulante 2 de la patota 2 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:58:08:875 MONGO/(13238:13345): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 8|2
+[INFO] 19:58:08:931 MONGO/(13238:13343): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 7|3
+[INFO] 19:58:10:930 MONGO/(13238:13341): GEN_OX - Tripulante 4 de la patota 1 generando 10 de oxigeno
+[INFO] 19:58:11:877 MONGO/(13238:13345): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 7|2
+[INFO] 19:58:11:932 MONGO/(13238:13343): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 6|3
+[INFO] 19:58:14:878 MONGO/(13238:13345): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 6|2
+[INFO] 19:58:14:933 MONGO/(13238:13343): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 5|3
+[INFO] 19:58:17:879 MONGO/(13238:13345): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 5|2
+[INFO] 19:58:17:934 MONGO/(13238:13343): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 4|3
+[INFO] 19:58:20:879 MONGO/(13238:13345): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 4|2
+[INFO] 19:58:20:935 MONGO/(13238:13343): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 3|3
+[INFO] 19:58:23:880 MONGO/(13238:13345): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 3|2
+[INFO] 19:58:26:881 MONGO/(13238:13345): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 3|3
+[INFO] 19:58:32:943 MONGO/(13238:13343): EXEC_0 - Tripulante 1 de la patota 2 detuvo ejecucion
+[INFO] 19:58:32:944 MONGO/(13238:13343): EXEC_1 - Tripulante 1 de la patota 2 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 19:58:32:945 MONGO/(13238:13343): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 4|3
+[INFO] 19:58:35:945 MONGO/(13238:13343): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 5|3
+[INFO] 19:58:38:888 MONGO/(13238:13345): EXEC_0 - Tripulante 2 de la patota 2 detuvo ejecucion
+[INFO] 19:58:38:890 MONGO/(13238:13345): EXEC_1 - Tripulante 2 de la patota 2 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 19:58:38:890 MONGO/(13238:13345): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 4|3
+[INFO] 19:58:38:947 MONGO/(13238:13343): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 6|3
+[INFO] 19:58:41:892 MONGO/(13238:13345): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 5|3
+[INFO] 19:58:41:948 MONGO/(13238:13343): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 6|2
+[INFO] 19:58:44:892 MONGO/(13238:13345): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 6|3
+[INFO] 19:58:44:949 MONGO/(13238:13343): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 6|1
+[INFO] 19:58:47:893 MONGO/(13238:13345): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 6|2
+[INFO] 19:58:47:950 MONGO/(13238:13343): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 6|0
+[INFO] 19:58:50:894 MONGO/(13238:13345): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 6|1
+[INFO] 19:58:50:956 MONGO/(13238:13347): EXEC_1 - Tripulante 3 de la patota 2 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:58:50:959 MONGO/(13238:13347): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 1|0
+[INFO] 19:58:50:959 MONGO/(13238:13343): GEN_OX - Tripulante 1 de la patota 2 generando 10 de oxigeno
+[INFO] 19:58:53:896 MONGO/(13238:13345): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 6|0
+[INFO] 19:58:53:962 MONGO/(13238:13347): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 2|0
+[WARNING] 19:59:01:100 MONGO/(13238:13238): La conexión remota se ha desconectado.
+[INFO] 19:59:01:100 MONGO/(13238:13238): Cliente desconectado dentro del while
+[INFO] 14:26:28:084 MONGO/(14504:14504): Servidor listo
+[INFO] 14:26:32:528 MONGO/(14504:14504): Conexión establecida con el discordiador
+[INFO] 14:26:32:528 MONGO/(14504:14504): Esperando información del discordiador
+[INFO] 14:26:36:334 MONGO/(14504:14504): Discordiador inicio una patota
+[INFO] 14:26:36:334 MONGO/(14504:14504): Esperando información del discordiador
+[INFO] 14:26:36:359 MONGO/(14504:14504): Discordiador solicitó iniciar un tripulante
+[INFO] 14:26:36:359 MONGO/(14504:14504): Esperando información del discordiador
+[INFO] 14:26:36:369 MONGO/(14504:14615): Iniciado el tripulante 1 de la patota 1
+[INFO] 14:26:36:378 MONGO/(14504:14504): Discordiador solicitó iniciar un tripulante
+[INFO] 14:26:36:378 MONGO/(14504:14504): Esperando información del discordiador
+[INFO] 14:26:36:381 MONGO/(14504:14504): Discordiador solicitó iniciar un tripulante
+[INFO] 14:26:36:382 MONGO/(14504:14504): Esperando información del discordiador
+[INFO] 14:26:36:385 MONGO/(14504:14619): Iniciado el tripulante 3 de la patota 1
+[INFO] 14:26:36:385 MONGO/(14504:14504): Discordiador solicitó iniciar un tripulante
+[INFO] 14:26:36:386 MONGO/(14504:14504): Esperando información del discordiador
+[INFO] 14:26:36:390 MONGO/(14504:14621): Iniciado el tripulante 4 de la patota 1
+[INFO] 14:26:36:401 MONGO/(14504:14617): Iniciado el tripulante 2 de la patota 1
+[INFO] 14:26:38:081 MONGO/(14504:14504): Discordiador inicio una patota
+[INFO] 14:26:38:081 MONGO/(14504:14504): Esperando información del discordiador
+[INFO] 14:26:38:085 MONGO/(14504:14504): Discordiador solicitó iniciar un tripulante
+[INFO] 14:26:38:086 MONGO/(14504:14504): Esperando información del discordiador
+[INFO] 14:26:38:086 MONGO/(14504:14623): Iniciado el tripulante 1 de la patota 2
+[INFO] 14:26:38:089 MONGO/(14504:14504): Discordiador solicitó iniciar un tripulante
+[INFO] 14:26:38:090 MONGO/(14504:14504): Esperando información del discordiador
+[INFO] 14:26:38:090 MONGO/(14504:14625): Iniciado el tripulante 2 de la patota 2
+[INFO] 14:26:38:094 MONGO/(14504:14504): Discordiador solicitó iniciar un tripulante
+[INFO] 14:26:38:094 MONGO/(14504:14504): Esperando información del discordiador
+[INFO] 14:26:38:095 MONGO/(14504:14627): Iniciado el tripulante 3 de la patota 2
+[INFO] 14:26:38:098 MONGO/(14504:14504): Discordiador solicitó iniciar un tripulante
+[INFO] 14:26:38:099 MONGO/(14504:14504): Esperando información del discordiador
+[INFO] 14:26:38:106 MONGO/(14504:14629): Iniciado el tripulante 4 de la patota 2
+[INFO] 14:26:39:594 MONGO/(14504:14617): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 14:26:39:601 MONGO/(14504:14617): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 14:26:39:604 MONGO/(14504:14619): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 14:26:39:609 MONGO/(14504:14619): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 1|0
+[INFO] 14:26:41:868 MONGO/(14504:14504): Discordiador inicio una patota
+[INFO] 14:26:41:868 MONGO/(14504:14504): Esperando información del discordiador
+[INFO] 14:26:41:869 MONGO/(14504:14504): Discordiador solicitó iniciar un tripulante
+[INFO] 14:26:41:869 MONGO/(14504:14504): Esperando información del discordiador
+[INFO] 14:26:41:872 MONGO/(14504:14633): Iniciado el tripulante 1 de la patota 3
+[INFO] 14:26:41:873 MONGO/(14504:14504): Discordiador solicitó iniciar un tripulante
+[INFO] 14:26:41:874 MONGO/(14504:14504): Esperando información del discordiador
+[INFO] 14:26:41:878 MONGO/(14504:14504): Discordiador solicitó iniciar un tripulante
+[INFO] 14:26:41:878 MONGO/(14504:14635): Iniciado el tripulante 2 de la patota 3
+[INFO] 14:26:41:878 MONGO/(14504:14504): Esperando información del discordiador
+[INFO] 14:26:41:882 MONGO/(14504:14637): Iniciado el tripulante 3 de la patota 3
+[INFO] 14:26:41:883 MONGO/(14504:14504): Discordiador solicitó iniciar un tripulante
+[INFO] 14:26:41:883 MONGO/(14504:14504): Esperando información del discordiador
+[INFO] 14:26:41:896 MONGO/(14504:14639): Iniciado el tripulante 4 de la patota 3
+[INFO] 14:26:42:611 MONGO/(14504:14617): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 7|2
+[INFO] 14:26:42:611 MONGO/(14504:14619): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 2|0
+[INFO] 14:26:45:612 MONGO/(14504:14617): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 14:26:45:612 MONGO/(14504:14619): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|0
+[INFO] 14:26:48:613 MONGO/(14504:14617): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 5|2
+[INFO] 14:26:48:614 MONGO/(14504:14619): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|1
+[INFO] 14:26:51:616 MONGO/(14504:14619): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|2
+[INFO] 14:26:51:616 MONGO/(14504:14617): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 4|2
+[INFO] 14:26:54:617 MONGO/(14504:14617): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 3|2
+[INFO] 14:26:54:617 MONGO/(14504:14619): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|3
+[INFO] 14:26:57:620 MONGO/(14504:14617): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 3|3
+[WARNING] 14:27:05:525 MONGO/(14504:14504): La conexión remota se ha desconectado.
+[INFO] 14:27:05:525 MONGO/(14504:14504): Cliente desconectado dentro del while
+[INFO] 14:29:41:760 MONGO/(14703:14703): Servidor listo
+[INFO] 14:29:57:745 MONGO/(14703:14703): Conexión establecida con el discordiador
+[INFO] 14:29:57:746 MONGO/(14703:14703): Esperando información del discordiador
+[INFO] 14:30:02:245 MONGO/(14703:14703): Discordiador inicio una patota
+[INFO] 14:30:02:246 MONGO/(14703:14703): Esperando información del discordiador
+[INFO] 14:30:02:271 MONGO/(14703:14703): Discordiador solicitó iniciar un tripulante
+[INFO] 14:30:02:271 MONGO/(14703:14703): Esperando información del discordiador
+[INFO] 14:30:02:283 MONGO/(14703:14828): Iniciado el tripulante 1 de la patota 1
+[INFO] 14:30:02:291 MONGO/(14703:14703): Discordiador solicitó iniciar un tripulante
+[INFO] 14:30:02:292 MONGO/(14703:14703): Esperando información del discordiador
+[INFO] 14:30:02:305 MONGO/(14703:14830): Iniciado el tripulante 2 de la patota 1
+[INFO] 14:30:02:307 MONGO/(14703:14703): Discordiador solicitó iniciar un tripulante
+[INFO] 14:30:02:308 MONGO/(14703:14703): Esperando información del discordiador
+[INFO] 14:30:02:308 MONGO/(14703:14832): Iniciado el tripulante 3 de la patota 1
+[INFO] 14:30:02:312 MONGO/(14703:14703): Discordiador solicitó iniciar un tripulante
+[INFO] 14:30:02:312 MONGO/(14703:14703): Esperando información del discordiador
+[INFO] 14:30:02:316 MONGO/(14703:14834): Iniciado el tripulante 4 de la patota 1
+[INFO] 14:30:05:577 MONGO/(14703:14703): Discordiador inicio una patota
+[INFO] 14:30:05:577 MONGO/(14703:14703): Esperando información del discordiador
+[INFO] 14:30:05:579 MONGO/(14703:14703): Discordiador solicitó iniciar un tripulante
+[INFO] 14:30:05:579 MONGO/(14703:14703): Esperando información del discordiador
+[INFO] 14:30:05:579 MONGO/(14703:14838): Iniciado el tripulante 1 de la patota 2
+[INFO] 14:30:05:582 MONGO/(14703:14703): Discordiador solicitó iniciar un tripulante
+[INFO] 14:30:05:582 MONGO/(14703:14703): Esperando información del discordiador
+[INFO] 14:30:05:586 MONGO/(14703:14840): Iniciado el tripulante 2 de la patota 2
+[INFO] 14:30:05:587 MONGO/(14703:14703): Discordiador solicitó iniciar un tripulante
+[INFO] 14:30:05:587 MONGO/(14703:14703): Esperando información del discordiador
+[INFO] 14:30:05:591 MONGO/(14703:14842): Iniciado el tripulante 3 de la patota 2
+[INFO] 14:30:05:591 MONGO/(14703:14703): Discordiador solicitó iniciar un tripulante
+[INFO] 14:30:05:591 MONGO/(14703:14703): Esperando información del discordiador
+[INFO] 14:30:05:592 MONGO/(14703:14844): Iniciado el tripulante 4 de la patota 2
+[INFO] 14:30:08:018 MONGO/(14703:14828): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 14:30:08:026 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 14:30:08:031 MONGO/(14703:14830): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 14:30:08:032 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 14:30:09:034 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 14:30:09:034 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 7|2
+[INFO] 14:30:10:035 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 14:30:10:035 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 14:30:10:743 MONGO/(14703:14703): Discordiador inicio una patota
+[INFO] 14:30:10:743 MONGO/(14703:14703): Esperando información del discordiador
+[INFO] 14:30:10:744 MONGO/(14703:14703): Discordiador solicitó iniciar un tripulante
+[INFO] 14:30:10:744 MONGO/(14703:14703): Esperando información del discordiador
+[INFO] 14:30:10:745 MONGO/(14703:14848): Iniciado el tripulante 1 de la patota 3
+[INFO] 14:30:10:748 MONGO/(14703:14703): Discordiador solicitó iniciar un tripulante
+[INFO] 14:30:10:748 MONGO/(14703:14703): Esperando información del discordiador
+[INFO] 14:30:10:752 MONGO/(14703:14850): Iniciado el tripulante 2 de la patota 3
+[INFO] 14:30:10:753 MONGO/(14703:14703): Discordiador solicitó iniciar un tripulante
+[INFO] 14:30:10:753 MONGO/(14703:14703): Esperando información del discordiador
+[INFO] 14:30:10:754 MONGO/(14703:14852): Iniciado el tripulante 3 de la patota 3
+[INFO] 14:30:10:758 MONGO/(14703:14703): Discordiador solicitó iniciar un tripulante
+[INFO] 14:30:10:758 MONGO/(14703:14703): Esperando información del discordiador
+[INFO] 14:30:10:762 MONGO/(14703:14854): Iniciado el tripulante 4 de la patota 3
+[INFO] 14:30:11:036 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 5|2
+[INFO] 14:30:11:036 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 14:30:12:037 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 4|2
+[INFO] 14:30:12:037 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 14:30:13:038 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 3|2
+[INFO] 14:30:13:038 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 3|3
+[INFO] 14:30:14:040 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 3|3
+[INFO] 14:30:17:055 MONGO/(14703:14828): EXEC_0 - Tripulante 1 de la patota 1 detuvo ejecucion
+[INFO] 14:30:17:060 MONGO/(14703:14828): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 14:30:17:061 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 14:30:18:051 MONGO/(14703:14830): EXEC_0 - Tripulante 2 de la patota 1 detuvo ejecucion
+[INFO] 14:30:18:053 MONGO/(14703:14830): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 14:30:18:054 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 4|3
+[INFO] 14:30:18:067 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 14:30:19:054 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 5|3
+[INFO] 14:30:19:068 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 14:30:20:055 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|3
+[INFO] 14:30:20:070 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|2
+[INFO] 14:30:21:056 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 14:30:21:071 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|1
+[INFO] 14:30:22:058 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|1
+[INFO] 14:30:22:071 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|0
+[INFO] 14:30:23:059 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|0
+[INFO] 14:30:23:082 MONGO/(14703:14832): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 14:30:23:088 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 1|0
+[INFO] 14:30:23:093 MONGO/(14703:14828): GEN_OX - Tripulante 1 de la patota 1 generando 10 de oxigeno
+[INFO] 14:30:24:069 MONGO/(14703:14834): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 14:30:24:070 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 1|0
+[INFO] 14:30:24:095 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 2|0
+[INFO] 14:30:25:072 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 2|0
+[INFO] 14:30:25:096 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|0
+[INFO] 14:30:26:073 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|0
+[INFO] 14:30:26:097 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|1
+[INFO] 14:30:27:074 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|1
+[INFO] 14:30:27:099 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|2
+[INFO] 14:30:28:075 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|2
+[INFO] 14:30:28:098 MONGO/(14703:14830): GEN_OX - Tripulante 2 de la patota 1 generando 10 de oxigeno
+[INFO] 14:30:28:100 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|3
+[INFO] 14:30:29:076 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|3
+[INFO] 14:30:32:115 MONGO/(14703:14832): EXEC_0 - Tripulante 3 de la patota 1 detuvo ejecucion
+[INFO] 14:30:32:117 MONGO/(14703:14832): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 14:30:32:117 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 4|3
+[INFO] 14:30:33:082 MONGO/(14703:14834): EXEC_0 - Tripulante 4 de la patota 1 detuvo ejecucion
+[INFO] 14:30:33:084 MONGO/(14703:14834): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 14:30:33:084 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 4|3
+[INFO] 14:30:33:118 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 5|3
+[INFO] 14:30:34:092 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 5|3
+[INFO] 14:30:34:118 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 6|3
+[INFO] 14:30:35:093 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 6|3
+[INFO] 14:30:35:127 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 6|2
+[INFO] 14:30:36:094 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 6|2
+[INFO] 14:30:36:127 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 6|1
+[INFO] 14:30:37:096 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 6|1
+[INFO] 14:30:37:128 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 6|0
+[INFO] 14:30:38:097 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 6|0
+[INFO] 14:30:38:141 MONGO/(14703:14838): EXEC_1 - Tripulante 1 de la patota 2 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 14:30:38:144 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 8|3
+[INFO] 14:30:38:145 MONGO/(14703:14832): GEN_OX - Tripulante 3 de la patota 1 generando 10 de oxigeno
+[INFO] 14:30:39:103 MONGO/(14703:14840): EXEC_1 - Tripulante 2 de la patota 2 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 14:30:39:104 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 8|2
+[INFO] 14:30:39:147 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 7|3
+[INFO] 14:30:40:106 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 7|2
+[INFO] 14:30:40:148 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 6|3
+[INFO] 14:30:41:107 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 6|2
+[INFO] 14:30:41:149 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 5|3
+[INFO] 14:30:42:108 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 5|2
+[INFO] 14:30:42:151 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 4|3
+[INFO] 14:30:43:109 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 4|2
+[INFO] 14:30:43:150 MONGO/(14703:14834): GEN_OX - Tripulante 4 de la patota 1 generando 10 de oxigeno
+[INFO] 14:30:43:154 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 3|3
+[INFO] 14:30:44:110 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 3|2
+[INFO] 14:30:45:111 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 3|3
+[INFO] 14:30:47:167 MONGO/(14703:14838): EXEC_0 - Tripulante 1 de la patota 2 detuvo ejecucion
+[INFO] 14:30:47:168 MONGO/(14703:14838): EXEC_1 - Tripulante 1 de la patota 2 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 14:30:47:168 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 4|3
+[INFO] 14:30:48:169 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 5|3
+[INFO] 14:30:49:120 MONGO/(14703:14840): EXEC_0 - Tripulante 2 de la patota 2 detuvo ejecucion
+[INFO] 14:30:49:122 MONGO/(14703:14840): EXEC_1 - Tripulante 2 de la patota 2 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 14:30:49:122 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 4|3
+[INFO] 14:30:49:170 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 6|3
+[INFO] 14:30:50:123 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 5|3
+[INFO] 14:30:50:171 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 6|2
+[INFO] 14:30:51:126 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 6|3
+[INFO] 14:30:51:172 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 6|1
+[INFO] 14:30:52:130 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 6|2
+[INFO] 14:30:52:173 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 6|0
+[INFO] 14:30:53:131 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 6|1
+[INFO] 14:30:53:179 MONGO/(14703:14842): EXEC_1 - Tripulante 3 de la patota 2 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 14:30:53:180 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 1|0
+[INFO] 14:30:53:181 MONGO/(14703:14838): GEN_OX - Tripulante 1 de la patota 2 generando 10 de oxigeno
+[INFO] 14:30:54:132 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 6|0
+[INFO] 14:30:54:183 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 2|0
+[INFO] 14:30:55:137 MONGO/(14703:14844): EXEC_1 - Tripulante 4 de la patota 2 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 14:30:55:138 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 1|0
+[INFO] 14:30:55:184 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 3|0
+[INFO] 14:30:56:140 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 2|0
+[INFO] 14:30:56:186 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 3|1
+[INFO] 14:30:57:141 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 3|0
+[INFO] 14:30:57:187 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 3|2
+[INFO] 14:30:58:142 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 3|1
+[INFO] 14:30:58:186 MONGO/(14703:14840): GEN_OX - Tripulante 2 de la patota 2 generando 10 de oxigeno
+[INFO] 14:30:58:188 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 3|3
+[INFO] 14:30:59:143 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 3|2
+[INFO] 14:31:00:144 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 3|3
+[INFO] 14:31:02:198 MONGO/(14703:14842): EXEC_0 - Tripulante 3 de la patota 2 detuvo ejecucion
+[INFO] 14:31:02:200 MONGO/(14703:14842): EXEC_1 - Tripulante 3 de la patota 2 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 14:31:02:200 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 4|3
+[INFO] 14:31:03:201 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 5|3
+[INFO] 14:31:04:149 MONGO/(14703:14844): EXEC_0 - Tripulante 4 de la patota 2 detuvo ejecucion
+[INFO] 14:31:04:150 MONGO/(14703:14844): EXEC_1 - Tripulante 4 de la patota 2 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 14:31:04:151 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 4|3
+[INFO] 14:31:04:202 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 6|3
+[INFO] 14:31:05:152 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 5|3
+[INFO] 14:31:05:205 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 6|2
+[INFO] 14:31:06:153 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 6|3
+[INFO] 14:31:06:206 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 6|1
+[INFO] 14:31:07:153 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 6|2
+[INFO] 14:31:07:207 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 6|0
+[INFO] 14:31:08:155 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 6|1
+[INFO] 14:31:08:211 MONGO/(14703:14842): GEN_OX - Tripulante 3 de la patota 2 generando 10 de oxigeno
+[INFO] 14:31:08:213 MONGO/(14703:14848): EXEC_1 - Tripulante 1 de la patota 3 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 14:31:08:214 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 8|3
+[INFO] 14:31:09:155 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 6|0
+[INFO] 14:31:09:218 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 7|3
+[INFO] 14:31:10:161 MONGO/(14703:14850): EXEC_1 - Tripulante 2 de la patota 3 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 14:31:10:162 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 8|2
+[INFO] 14:31:10:220 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 6|3
+[INFO] 14:31:11:164 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 7|2
+[INFO] 14:31:11:221 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 5|3
+[INFO] 14:31:12:165 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 6|2
+[INFO] 14:31:12:222 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 4|3
+[INFO] 14:31:13:165 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 5|2
+[INFO] 14:31:13:215 MONGO/(14703:14844): GEN_OX - Tripulante 4 de la patota 2 generando 10 de oxigeno
+[INFO] 14:31:13:222 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 3|3
+[INFO] 14:31:14:166 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 4|2
+[INFO] 14:31:15:166 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 3|2
+[INFO] 14:31:16:167 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 3|3
+[INFO] 14:31:17:229 MONGO/(14703:14848): EXEC_0 - Tripulante 1 de la patota 3 detuvo ejecucion
+[INFO] 14:31:17:230 MONGO/(14703:14848): EXEC_1 - Tripulante 1 de la patota 3 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 14:31:17:231 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 4|3
+[INFO] 14:31:18:231 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 5|3
+[INFO] 14:31:19:231 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 6|3
+[INFO] 14:31:20:178 MONGO/(14703:14850): EXEC_0 - Tripulante 2 de la patota 3 detuvo ejecucion
+[INFO] 14:31:20:179 MONGO/(14703:14850): EXEC_1 - Tripulante 2 de la patota 3 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 14:31:20:180 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 4|3
+[INFO] 14:31:20:232 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 6|2
+[INFO] 14:31:21:180 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 5|3
+[INFO] 14:31:21:234 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 6|1
+[INFO] 14:31:22:181 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 6|3
+[INFO] 14:31:22:234 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 6|0
+[INFO] 14:31:23:205 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 6|2
+[INFO] 14:31:23:238 MONGO/(14703:14852): EXEC_1 - Tripulante 3 de la patota 3 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 14:31:23:239 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 1|0
+[INFO] 14:31:23:242 MONGO/(14703:14848): GEN_OX - Tripulante 1 de la patota 3 generando 10 de oxigeno
+[INFO] 14:31:24:219 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 6|1
+[INFO] 14:31:24:240 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 2|0
+[INFO] 14:31:25:220 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 6|0
+[INFO] 14:31:25:241 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 3|0
+[INFO] 14:31:26:224 MONGO/(14703:14854): EXEC_1 - Tripulante 4 de la patota 3 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 14:31:26:225 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 1|0
+[INFO] 14:31:26:242 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 3|1
+[INFO] 14:31:27:227 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 2|0
+[INFO] 14:31:27:243 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 3|2
+[INFO] 14:31:28:228 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 3|0
+[INFO] 14:31:28:244 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 3|3
+[INFO] 14:31:28:246 MONGO/(14703:14850): GEN_OX - Tripulante 2 de la patota 3 generando 10 de oxigeno
+[INFO] 14:31:29:229 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 3|1
+[INFO] 14:31:30:230 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 3|2
+[INFO] 14:31:31:231 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 3|3
+[INFO] 14:31:32:251 MONGO/(14703:14852): EXEC_0 - Tripulante 3 de la patota 3 detuvo ejecucion
+[INFO] 14:31:32:253 MONGO/(14703:14852): EXEC_1 - Tripulante 3 de la patota 3 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 14:31:32:253 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 4|3
+[INFO] 14:31:33:254 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 5|3
+[INFO] 14:31:34:255 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 6|3
+[INFO] 14:31:35:238 MONGO/(14703:14854): EXEC_0 - Tripulante 4 de la patota 3 detuvo ejecucion
+[INFO] 14:31:35:240 MONGO/(14703:14854): EXEC_1 - Tripulante 4 de la patota 3 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 14:31:35:240 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 4|3
+[INFO] 14:31:35:256 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 6|2
+[INFO] 14:31:36:243 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 5|3
+[INFO] 14:31:36:256 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 6|1
+[INFO] 14:31:37:244 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 6|3
+[INFO] 14:31:37:257 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 6|0
+[INFO] 14:31:38:245 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 6|2
+[INFO] 14:31:38:262 MONGO/(14703:14852): GEN_OX - Tripulante 3 de la patota 3 generando 10 de oxigeno
+[INFO] 14:31:39:246 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 6|1
+[INFO] 14:31:40:247 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 6|0
+[INFO] 14:31:42:268 MONGO/(14703:14828): EXEC_0 - Tripulante 1 de la patota 1 detuvo ejecucion
+[INFO] 14:31:42:271 MONGO/(14703:14828): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: CONSUMIR_OXIGENO 5;8;5;4
+[INFO] 14:31:42:271 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 7|0
+[INFO] 14:31:43:266 MONGO/(14703:14854): GEN_OX - Tripulante 4 de la patota 3 generando 10 de oxigeno
+[INFO] 14:31:43:272 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|0
+[INFO] 14:31:44:274 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|1
+[INFO] 14:31:45:257 MONGO/(14703:14830): EXEC_0 - Tripulante 2 de la patota 1 detuvo ejecucion
+[INFO] 14:31:45:260 MONGO/(14703:14830): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: CONSUMIR_OXIGENO 5;8;5;4
+[INFO] 14:31:45:260 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 7|0
+[INFO] 14:31:45:277 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|2
+[INFO] 14:31:46:261 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|0
+[INFO] 14:31:46:277 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 14:31:47:262 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|1
+[INFO] 14:31:47:279 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|4
+[INFO] 14:31:48:263 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 14:31:48:281 MONGO/(14703:14828): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|5
+[INFO] 14:31:49:264 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|3
+[INFO] 14:31:49:288 MONGO/(14703:14828): CON_OX - Tripulante 1 de la patota 1 consumiendo 5 de oxigeno
+[INFO] 14:31:50:266 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|4
+[INFO] 14:31:51:267 MONGO/(14703:14830): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|5
+[INFO] 14:31:53:290 MONGO/(14703:14832): EXEC_0 - Tripulante 3 de la patota 1 detuvo ejecucion
+[INFO] 14:31:53:293 MONGO/(14703:14832): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: CONSUMIR_OXIGENO 5;8;5;4
+[INFO] 14:31:53:293 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 7|0
+[INFO] 14:31:54:294 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 8|0
+[INFO] 14:31:54:294 MONGO/(14703:14830): CON_OX - Tripulante 2 de la patota 1 consumiendo 5 de oxigeno
+[INFO] 14:31:55:296 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 8|1
+[INFO] 14:31:56:276 MONGO/(14703:14834): EXEC_0 - Tripulante 4 de la patota 1 detuvo ejecucion
+[INFO] 14:31:56:278 MONGO/(14703:14834): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: CONSUMIR_OXIGENO 5;8;5;4
+[INFO] 14:31:56:279 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 7|0
+[INFO] 14:31:56:298 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 8|2
+[INFO] 14:31:57:281 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 8|0
+[INFO] 14:31:57:300 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 8|3
+[INFO] 14:31:58:282 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 8|1
+[INFO] 14:31:58:301 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 8|4
+[INFO] 14:31:59:285 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 8|2
+[INFO] 14:31:59:302 MONGO/(14703:14832): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 8|5
+[INFO] 14:32:00:287 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 8|3
+[INFO] 14:32:00:307 MONGO/(14703:14832): CON_OX - Tripulante 3 de la patota 1 consumiendo 5 de oxigeno
+[INFO] 14:32:01:288 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 8|4
+[INFO] 14:32:02:290 MONGO/(14703:14834): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 8|5
+[INFO] 14:32:04:313 MONGO/(14703:14838): EXEC_0 - Tripulante 1 de la patota 2 detuvo ejecucion
+[INFO] 14:32:04:315 MONGO/(14703:14838): EXEC_1 - Tripulante 1 de la patota 2 ejecutando tarea: CONSUMIR_OXIGENO 5;8;5;4
+[INFO] 14:32:04:315 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 7|0
+[INFO] 14:32:05:310 MONGO/(14703:14834): CON_OX - Tripulante 4 de la patota 1 consumiendo 5 de oxigeno
+[INFO] 14:32:05:316 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 8|0
+[INFO] 14:32:06:317 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 8|1
+[INFO] 14:32:07:301 MONGO/(14703:14840): EXEC_0 - Tripulante 2 de la patota 2 detuvo ejecucion
+[INFO] 14:32:07:303 MONGO/(14703:14840): EXEC_1 - Tripulante 2 de la patota 2 ejecutando tarea: CONSUMIR_OXIGENO 5;8;5;4
+[INFO] 14:32:07:304 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 7|0
+[INFO] 14:32:07:318 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 8|2
+[INFO] 14:32:08:304 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 8|0
+[INFO] 14:32:08:319 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 8|3
+[INFO] 14:32:09:305 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 8|1
+[INFO] 14:32:09:320 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 8|4
+[INFO] 14:32:10:307 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 8|2
+[INFO] 14:32:10:320 MONGO/(14703:14838): ACTU_T - Tripulante 1 de la patota 2 nueva posicion: 8|5
+[INFO] 14:32:11:309 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 8|3
+[INFO] 14:32:11:327 MONGO/(14703:14838): CON_OX - Tripulante 1 de la patota 2 consumiendo 5 de oxigeno
+[INFO] 14:32:12:311 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 8|4
+[INFO] 14:32:13:312 MONGO/(14703:14840): ACTU_T - Tripulante 2 de la patota 2 nueva posicion: 8|5
+[INFO] 14:32:15:333 MONGO/(14703:14842): EXEC_0 - Tripulante 3 de la patota 2 detuvo ejecucion
+[INFO] 14:32:15:335 MONGO/(14703:14842): EXEC_1 - Tripulante 3 de la patota 2 ejecutando tarea: CONSUMIR_OXIGENO 5;8;5;4
+[INFO] 14:32:15:335 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 7|0
+[INFO] 14:32:16:330 MONGO/(14703:14840): CON_OX - Tripulante 2 de la patota 2 consumiendo 5 de oxigeno
+[INFO] 14:32:16:336 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 8|0
+[INFO] 14:32:17:338 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 8|1
+[INFO] 14:32:18:322 MONGO/(14703:14844): EXEC_0 - Tripulante 4 de la patota 2 detuvo ejecucion
+[INFO] 14:32:18:325 MONGO/(14703:14844): EXEC_1 - Tripulante 4 de la patota 2 ejecutando tarea: CONSUMIR_OXIGENO 5;8;5;4
+[INFO] 14:32:18:325 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 7|0
+[INFO] 14:32:18:340 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 8|2
+[INFO] 14:32:19:326 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 8|0
+[INFO] 14:32:19:341 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 8|3
+[INFO] 14:32:20:327 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 8|1
+[INFO] 14:32:20:341 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 8|4
+[INFO] 14:32:21:328 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 8|2
+[INFO] 14:32:21:342 MONGO/(14703:14842): ACTU_T - Tripulante 3 de la patota 2 nueva posicion: 8|5
+[INFO] 14:32:22:329 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 8|3
+[INFO] 14:32:22:347 MONGO/(14703:14842): CON_OX - Tripulante 3 de la patota 2 consumiendo 5 de oxigeno
+[INFO] 14:32:23:330 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 8|4
+[INFO] 14:32:24:331 MONGO/(14703:14844): ACTU_T - Tripulante 4 de la patota 2 nueva posicion: 8|5
+[INFO] 14:32:26:352 MONGO/(14703:14848): EXEC_0 - Tripulante 1 de la patota 3 detuvo ejecucion
+[INFO] 14:32:26:354 MONGO/(14703:14848): EXEC_1 - Tripulante 1 de la patota 3 ejecutando tarea: CONSUMIR_OXIGENO 5;8;5;4
+[INFO] 14:32:26:355 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 7|0
+[INFO] 14:32:27:350 MONGO/(14703:14844): CON_OX - Tripulante 4 de la patota 2 consumiendo 5 de oxigeno
+[INFO] 14:32:27:356 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 8|0
+[INFO] 14:32:28:356 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 8|1
+[INFO] 14:32:29:338 MONGO/(14703:14850): EXEC_0 - Tripulante 2 de la patota 3 detuvo ejecucion
+[INFO] 14:32:29:340 MONGO/(14703:14850): EXEC_1 - Tripulante 2 de la patota 3 ejecutando tarea: CONSUMIR_OXIGENO 5;8;5;4
+[INFO] 14:32:29:341 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 7|0
+[INFO] 14:32:29:359 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 8|2
+[INFO] 14:32:30:341 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 8|0
+[INFO] 14:32:30:360 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 8|3
+[INFO] 14:32:31:342 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 8|1
+[INFO] 14:32:31:361 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 8|4
+[INFO] 14:32:32:345 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 8|2
+[INFO] 14:32:32:363 MONGO/(14703:14848): ACTU_T - Tripulante 1 de la patota 3 nueva posicion: 8|5
+[INFO] 14:32:33:346 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 8|3
+[INFO] 14:32:33:368 MONGO/(14703:14848): CON_OX - Tripulante 1 de la patota 3 consumiendo 5 de oxigeno
+[INFO] 14:32:34:347 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 8|4
+[INFO] 14:32:35:347 MONGO/(14703:14850): ACTU_T - Tripulante 2 de la patota 3 nueva posicion: 8|5
+[INFO] 14:32:37:374 MONGO/(14703:14852): EXEC_0 - Tripulante 3 de la patota 3 detuvo ejecucion
+[INFO] 14:32:37:376 MONGO/(14703:14852): EXEC_1 - Tripulante 3 de la patota 3 ejecutando tarea: CONSUMIR_OXIGENO 5;8;5;4
+[INFO] 14:32:37:376 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 7|0
+[INFO] 14:32:38:371 MONGO/(14703:14850): CON_OX - Tripulante 2 de la patota 3 consumiendo 5 de oxigeno
+[INFO] 14:32:38:377 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 8|0
+[INFO] 14:32:39:378 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 8|1
+[INFO] 14:32:40:359 MONGO/(14703:14854): EXEC_0 - Tripulante 4 de la patota 3 detuvo ejecucion
+[INFO] 14:32:40:361 MONGO/(14703:14854): EXEC_1 - Tripulante 4 de la patota 3 ejecutando tarea: CONSUMIR_OXIGENO 5;8;5;4
+[INFO] 14:32:40:361 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 7|0
+[INFO] 14:32:40:379 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 8|2
+[INFO] 14:32:41:362 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 8|0
+[INFO] 14:32:41:380 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 8|3
+[INFO] 14:32:42:363 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 8|1
+[INFO] 14:32:42:381 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 8|4
+[INFO] 14:32:43:364 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 8|2
+[INFO] 14:32:43:383 MONGO/(14703:14852): ACTU_T - Tripulante 3 de la patota 3 nueva posicion: 8|5
+[INFO] 14:32:44:364 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 8|3
+[INFO] 14:32:44:387 MONGO/(14703:14852): CON_OX - Tripulante 3 de la patota 3 consumiendo 5 de oxigeno
+[INFO] 14:32:45:365 MONGO/(14703:14854): ACTU_T - Tripulante 4 de la patota 3 nueva posicion: 8|4
+[WARNING] 14:32:51:029 MONGO/(14703:14703): La conexión remota se ha desconectado.
+[INFO] 14:32:51:029 MONGO/(14703:14703): Cliente desconectado dentro del while
+[INFO] 16:22:45:978 MONGO/(16443:16443): Servidor listo
+[INFO] 16:22:54:314 MONGO/(16443:16443): Conexión establecida con el discordiador
+[INFO] 16:22:54:314 MONGO/(16443:16443): Esperando información del discordiador
+[WARNING] 16:23:24:888 MONGO/(16443:16443): La conexión remota se ha desconectado.
+[INFO] 16:23:24:888 MONGO/(16443:16443): Cliente desconectado dentro del while
+[INFO] 16:28:27:236 MONGO/(17196:17196): Servidor listo
+[INFO] 16:28:31:316 MONGO/(17196:17196): Conexión establecida con el discordiador
+[INFO] 16:28:31:316 MONGO/(17196:17196): Esperando información del discordiador
+[WARNING] 16:28:55:210 MONGO/(17196:17196): La conexión remota se ha desconectado.
+[INFO] 16:28:55:213 MONGO/(17196:17196): Cliente desconectado dentro del while
+[INFO] 16:29:19:187 MONGO/(17217:17217): Servidor listo
+[INFO] 16:29:21:939 MONGO/(17217:17217): Conexión establecida con el discordiador
+[INFO] 16:29:21:939 MONGO/(17217:17217): Esperando información del discordiador
+[WARNING] 16:29:25:378 MONGO/(17217:17217): La conexión remota se ha desconectado.
+[INFO] 16:29:25:378 MONGO/(17217:17217): Cliente desconectado dentro del while
+[INFO] 16:33:05:311 MONGO/(17457:17457): Servidor listo
+[INFO] 16:33:08:535 MONGO/(17457:17457): Conexión establecida con el discordiador
+[INFO] 16:33:08:536 MONGO/(17457:17457): Esperando información del discordiador
+[WARNING] 16:33:17:237 MONGO/(17457:17457): La conexión remota se ha desconectado.
+[INFO] 16:33:17:237 MONGO/(17457:17457): Cliente desconectado dentro del while
+[INFO] 16:34:30:941 MONGO/(17634:17634): Servidor listo
+[INFO] 16:34:34:317 MONGO/(17634:17634): Conexión establecida con el discordiador
+[INFO] 16:34:34:317 MONGO/(17634:17634): Esperando información del discordiador
+[INFO] 16:34:34:317 MONGO/(17634:17634): Iniciando el detector de sabotajes
+[INFO] 16:34:34:318 MONGO/(17634:17634): Esperando información del discordiador
+[INFO] 16:34:34:318 MONGO/(17634:17637): Detector de sabotajes iniciado exitosamente
+[INFO] 16:34:57:852 MONGO/(17634:17634): Discordiador inicio una patota
+[INFO] 16:34:57:852 MONGO/(17634:17634): Esperando información del discordiador
+[INFO] 16:34:57:852 MONGO/(17634:17634): Discordiador solicitó iniciar un tripulante
+[INFO] 16:34:57:852 MONGO/(17634:17634): Esperando información del discordiador
+[INFO] 16:34:57:853 MONGO/(17634:17634): Discordiador solicitó iniciar un tripulante
+[INFO] 16:34:57:853 MONGO/(17634:17634): Esperando información del discordiador
+[INFO] 16:34:57:853 MONGO/(17634:17634): Discordiador solicitó iniciar un tripulante
+[INFO] 16:34:57:853 MONGO/(17634:17634): Esperando información del discordiador
+[INFO] 16:34:57:853 MONGO/(17634:17634): Discordiador solicitó iniciar un tripulante
+[INFO] 16:34:57:853 MONGO/(17634:17634): Esperando información del discordiador
+[INFO] 16:34:57:854 MONGO/(17634:17650): Iniciado el tripulante 3 de la patota 1
+[INFO] 16:34:57:854 MONGO/(17634:17648): Iniciado el tripulante 2 de la patota 1
+[INFO] 16:34:57:854 MONGO/(17634:17646): Iniciado el tripulante 1 de la patota 1
+[INFO] 16:34:57:854 MONGO/(17634:17652): Iniciado el tripulante 4 de la patota 1
+[INFO] 16:35:06:963 MONGO/(17634:17648): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 16:35:06:963 MONGO/(17634:17646): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 16:35:06:963 MONGO/(17634:17648): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 16:35:06:964 MONGO/(17634:17646): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 16:35:07:964 MONGO/(17634:17648): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 7|2
+[INFO] 16:35:07:964 MONGO/(17634:17646): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 16:35:08:964 MONGO/(17634:17648): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 16:35:08:965 MONGO/(17634:17646): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 16:35:09:965 MONGO/(17634:17648): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 5|2
+[INFO] 16:35:09:965 MONGO/(17634:17646): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 16:35:10:966 MONGO/(17634:17648): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 4|2
+[INFO] 16:35:10:966 MONGO/(17634:17646): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 16:35:11:966 MONGO/(17634:17648): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 3|2
+[INFO] 16:35:11:967 MONGO/(17634:17646): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 3|3
+[INFO] 16:35:12:967 MONGO/(17634:17648): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 3|3
+[INFO] 16:35:15:968 MONGO/(17634:17646): EXEC_0 - Tripulante 1 de la patota 1 detuvo ejecucion
+[WARNING] 16:35:16:285 MONGO/(17634:17646): La conexión remota se ha desconectado.
+[WARNING] 16:35:16:285 MONGO/(17634:17634): La conexión remota se ha desconectado.
+[INFO] 16:35:16:285 MONGO/(17634:17646): Fallo el mensaje
+[INFO] 16:35:16:285 MONGO/(17634:17634): Cliente desconectado dentro del while
+[INFO] 16:36:21:707 MONGO/(17683:17683): Servidor listo
+[INFO] 16:36:25:459 MONGO/(17683:17683): Conexión establecida con el discordiador
+[INFO] 16:36:25:459 MONGO/(17683:17683): Esperando información del discordiador
+[INFO] 16:36:25:459 MONGO/(17683:17683): Iniciando el detector de sabotajes
+[INFO] 16:36:25:459 MONGO/(17683:17683): Esperando información del discordiador
+[INFO] 16:36:25:460 MONGO/(17683:17686): Detector de sabotajes iniciado exitosamente
+[WARNING] 16:39:41:601 MONGO/(17683:17683): La conexión remota se ha desconectado.
+[INFO] 16:39:41:601 MONGO/(17683:17683): Cliente desconectado dentro del while
+[INFO] 16:39:58:415 MONGO/(17729:17729): Servidor listo
+[INFO] 16:40:01:223 MONGO/(17729:17729): Conexión establecida con el discordiador
+[INFO] 16:40:01:223 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:01:224 MONGO/(17729:17729): Iniciando el detector de sabotajes
+[INFO] 16:40:01:227 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:01:227 MONGO/(17729:17733): Detector de sabotajes iniciado exitosamente
+[INFO] 16:40:22:910 MONGO/(17729:17729): Discordiador inicio una patota
+[INFO] 16:40:22:910 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:22:910 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:22:911 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:22:911 MONGO/(17729:17743): Iniciado el tripulante 1 de la patota 1
+[INFO] 16:40:22:911 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:22:912 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:22:912 MONGO/(17729:17745): Iniciado el tripulante 2 de la patota 1
+[INFO] 16:40:22:912 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:22:913 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:22:913 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:22:913 MONGO/(17729:17747): Iniciado el tripulante 3 de la patota 1
+[INFO] 16:40:22:914 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:22:914 MONGO/(17729:17749): Iniciado el tripulante 4 de la patota 1
+[INFO] 16:40:31:669 MONGO/(17729:17729): Discordiador inicio una patota
+[INFO] 16:40:31:670 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:31:670 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:31:670 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:31:670 MONGO/(17729:17753): Iniciado el tripulante 1 de la patota 2
+[INFO] 16:40:31:670 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:31:670 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:31:671 MONGO/(17729:17755): Iniciado el tripulante 2 de la patota 2
+[INFO] 16:40:31:671 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:31:671 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:31:671 MONGO/(17729:17757): Iniciado el tripulante 3 de la patota 2
+[INFO] 16:40:31:671 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:31:671 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:31:672 MONGO/(17729:17759): Iniciado el tripulante 4 de la patota 2
+[INFO] 16:40:34:861 MONGO/(17729:17729): Discordiador inicio una patota
+[INFO] 16:40:34:862 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:34:862 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:34:862 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:34:862 MONGO/(17729:17761): Iniciado el tripulante 1 de la patota 3
+[INFO] 16:40:34:862 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:34:862 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:34:862 MONGO/(17729:17763): Iniciado el tripulante 2 de la patota 3
+[INFO] 16:40:34:862 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:34:863 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:34:863 MONGO/(17729:17765): Iniciado el tripulante 3 de la patota 3
+[INFO] 16:40:34:863 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:34:863 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:34:863 MONGO/(17729:17767): Iniciado el tripulante 4 de la patota 3
+[INFO] 16:40:41:989 MONGO/(17729:17729): Discordiador inicio una patota
+[INFO] 16:40:41:989 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:41:989 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:41:990 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:41:990 MONGO/(17729:17771): Iniciado el tripulante 1 de la patota 4
+[INFO] 16:40:41:990 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:41:990 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:41:990 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:41:991 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:41:991 MONGO/(17729:17775): Iniciado el tripulante 3 de la patota 4
+[INFO] 16:40:41:991 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:41:990 MONGO/(17729:17773): Iniciado el tripulante 2 de la patota 4
+[INFO] 16:40:41:991 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:41:991 MONGO/(17729:17777): Iniciado el tripulante 4 de la patota 4
+[INFO] 16:40:51:877 MONGO/(17729:17729): Discordiador inicio una patota
+[INFO] 16:40:51:877 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:51:877 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:51:878 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:51:878 MONGO/(17729:17781): Iniciado el tripulante 1 de la patota 5
+[INFO] 16:40:51:878 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:51:878 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:51:878 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:51:878 MONGO/(17729:17783): Iniciado el tripulante 2 de la patota 5
+[INFO] 16:40:51:878 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:51:878 MONGO/(17729:17785): Iniciado el tripulante 3 de la patota 5
+[INFO] 16:40:51:878 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:40:51:879 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:40:51:879 MONGO/(17729:17787): Iniciado el tripulante 4 de la patota 5
+[INFO] 16:41:01:589 MONGO/(17729:17729): Discordiador inicio una patota
+[INFO] 16:41:01:589 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:41:01:589 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:41:01:589 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:41:01:590 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:41:01:590 MONGO/(17729:17791): Iniciado el tripulante 1 de la patota 6
+[INFO] 16:41:01:590 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:41:01:590 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:41:01:590 MONGO/(17729:17793): Iniciado el tripulante 2 de la patota 6
+[INFO] 16:41:01:590 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:41:01:590 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:41:01:590 MONGO/(17729:17795): Iniciado el tripulante 3 de la patota 6
+[INFO] 16:41:01:591 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:41:01:591 MONGO/(17729:17797): Iniciado el tripulante 4 de la patota 6
+[INFO] 16:41:32:676 MONGO/(17729:17729): Discordiador inicio una patota
+[INFO] 16:41:32:677 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:41:32:677 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:41:32:677 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:41:32:677 MONGO/(17729:17815): Iniciado el tripulante 1 de la patota 7
+[INFO] 16:41:32:677 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:41:32:678 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:41:32:678 MONGO/(17729:17817): Iniciado el tripulante 2 de la patota 7
+[INFO] 16:41:32:678 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:41:32:678 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:41:32:678 MONGO/(17729:17819): Iniciado el tripulante 3 de la patota 7
+[INFO] 16:41:32:678 MONGO/(17729:17729): Discordiador solicitó iniciar un tripulante
+[INFO] 16:41:32:678 MONGO/(17729:17729): Esperando información del discordiador
+[INFO] 16:41:32:679 MONGO/(17729:17821): Iniciado el tripulante 4 de la patota 7
+[INFO] 16:41:35:692 MONGO/(17729:17743): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 16:41:35:692 MONGO/(17729:17745): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 16:41:35:692 MONGO/(17729:17743): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 16:41:35:692 MONGO/(17729:17745): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[WARNING] 16:41:36:030 MONGO/(17729:17821): La conexión remota se ha desconectado.
+[INFO] 16:41:36:030 MONGO/(17729:17821): Fallo el mensaje
+[INFO] 16:43:46:291 MONGO/(17996:17996): Servidor listo
+[INFO] 16:43:49:444 MONGO/(17996:17996): Conexión establecida con el discordiador
+[INFO] 16:43:49:444 MONGO/(17996:17996): Esperando información del discordiador
+[INFO] 16:43:49:444 MONGO/(17996:17996): Iniciando el detector de sabotajes
+[INFO] 16:43:49:444 MONGO/(17996:17996): Esperando información del discordiador
+[INFO] 16:43:49:446 MONGO/(17996:17998): Detector de sabotajes iniciado exitosamente
+[INFO] 16:43:57:874 MONGO/(17996:17996): Discordiador inicio una patota
+[INFO] 16:43:57:874 MONGO/(17996:17996): Esperando información del discordiador
+[INFO] 16:43:57:875 MONGO/(17996:17996): Discordiador solicitó iniciar un tripulante
+[INFO] 16:43:57:875 MONGO/(17996:17996): Esperando información del discordiador
+[INFO] 16:43:57:875 MONGO/(17996:17996): Discordiador solicitó iniciar un tripulante
+[INFO] 16:43:57:875 MONGO/(17996:17996): Esperando información del discordiador
+[INFO] 16:43:57:875 MONGO/(17996:17996): Discordiador solicitó iniciar un tripulante
+[INFO] 16:43:57:876 MONGO/(17996:17996): Esperando información del discordiador
+[INFO] 16:43:57:876 MONGO/(17996:17996): Discordiador solicitó iniciar un tripulante
+[INFO] 16:43:57:876 MONGO/(17996:17996): Esperando información del discordiador
+[INFO] 16:43:57:876 MONGO/(17996:18007): Iniciado el tripulante 3 de la patota 1
+[INFO] 16:43:57:876 MONGO/(17996:18005): Iniciado el tripulante 2 de la patota 1
+[INFO] 16:43:57:877 MONGO/(17996:18009): Iniciado el tripulante 4 de la patota 1
+[INFO] 16:43:57:877 MONGO/(17996:18003): Iniciado el tripulante 1 de la patota 1
+[INFO] 16:44:00:194 MONGO/(17996:18007): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 16:44:00:194 MONGO/(17996:18009): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 16:44:00:194 MONGO/(17996:18009): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 1|0
+[INFO] 16:44:00:194 MONGO/(17996:18007): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 1|0
+[INFO] 16:44:01:197 MONGO/(17996:18009): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 2|0
+[INFO] 16:44:01:197 MONGO/(17996:18007): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 2|0
+[INFO] 16:44:02:198 MONGO/(17996:18007): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|0
+[INFO] 16:44:02:198 MONGO/(17996:18009): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|0
+[INFO] 16:44:03:205 MONGO/(17996:18007): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|1
+[INFO] 16:44:03:206 MONGO/(17996:18009): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|1
+[INFO] 16:44:04:206 MONGO/(17996:18009): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|2
+[INFO] 16:44:04:206 MONGO/(17996:18007): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|2
+[INFO] 16:44:05:207 MONGO/(17996:18009): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|3
+[INFO] 16:44:05:207 MONGO/(17996:18007): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|3
+[INFO] 16:44:09:212 MONGO/(17996:18007): EXEC_0 - Tripulante 3 de la patota 1 detuvo ejecucion
+[INFO] 16:44:09:212 MONGO/(17996:18009): EXEC_0 - Tripulante 4 de la patota 1 detuvo ejecucion
+[WARNING] 16:44:09:535 MONGO/(17996:18009): La conexión remota se ha desconectado.
+[INFO] 16:44:09:535 MONGO/(17996:18009): Fallo el mensaje
+[INFO] 16:45:35:586 MONGO/(18185:18185): Servidor listo
+[INFO] 16:45:37:530 MONGO/(18185:18185): Conexión establecida con el discordiador
+[INFO] 16:45:37:530 MONGO/(18185:18185): Esperando información del discordiador
+[INFO] 16:45:42:186 MONGO/(18185:18185): Discordiador inicio una patota
+[INFO] 16:45:42:186 MONGO/(18185:18185): Esperando información del discordiador
+[INFO] 16:45:42:186 MONGO/(18185:18185): Discordiador solicitó iniciar un tripulante
+[INFO] 16:45:42:187 MONGO/(18185:18185): Esperando información del discordiador
+[INFO] 16:45:42:187 MONGO/(18185:18185): Discordiador solicitó iniciar un tripulante
+[INFO] 16:45:42:187 MONGO/(18185:18185): Esperando información del discordiador
+[INFO] 16:45:42:187 MONGO/(18185:18185): Discordiador solicitó iniciar un tripulante
+[INFO] 16:45:42:187 MONGO/(18185:18185): Esperando información del discordiador
+[INFO] 16:45:42:187 MONGO/(18185:18185): Discordiador solicitó iniciar un tripulante
+[INFO] 16:45:42:187 MONGO/(18185:18185): Esperando información del discordiador
+[INFO] 16:45:42:188 MONGO/(18185:18195): Iniciado el tripulante 3 de la patota 1
+[INFO] 16:45:42:188 MONGO/(18185:18193): Iniciado el tripulante 2 de la patota 1
+[INFO] 16:45:42:188 MONGO/(18185:18191): Iniciado el tripulante 1 de la patota 1
+[INFO] 16:45:42:188 MONGO/(18185:18197): Iniciado el tripulante 4 de la patota 1
+[INFO] 16:45:44:569 MONGO/(18185:18193): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 16:45:44:569 MONGO/(18185:18193): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 16:45:44:569 MONGO/(18185:18191): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 16:45:44:569 MONGO/(18185:18191): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 16:45:45:569 MONGO/(18185:18193): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 7|2
+[INFO] 16:45:45:571 MONGO/(18185:18191): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 16:45:46:570 MONGO/(18185:18193): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 16:45:46:572 MONGO/(18185:18191): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 16:45:47:570 MONGO/(18185:18193): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 5|2
+[INFO] 16:45:47:573 MONGO/(18185:18191): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 16:45:48:571 MONGO/(18185:18193): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 4|2
+[INFO] 16:45:48:574 MONGO/(18185:18191): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 16:45:49:571 MONGO/(18185:18193): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 3|2
+[INFO] 16:45:49:575 MONGO/(18185:18191): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 3|3
+[INFO] 16:45:50:572 MONGO/(18185:18193): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 3|3
+[INFO] 16:45:53:577 MONGO/(18185:18191): EXEC_0 - Tripulante 1 de la patota 1 detuvo ejecucion
+[WARNING] 16:45:53:913 MONGO/(18185:18197): La conexión remota se ha desconectado.
+[INFO] 16:45:53:913 MONGO/(18185:18197): Fallo el mensaje
+[WARNING] 16:45:53:913 MONGO/(18185:18191): La conexión remota se ha desconectado.
+[INFO] 16:47:31:368 MONGO/(18378:18378): Servidor listo
+[INFO] 16:47:33:128 MONGO/(18378:18378): Conexión establecida con el discordiador
+[INFO] 16:47:33:128 MONGO/(18378:18378): Esperando información del discordiador
+[INFO] 16:47:33:129 MONGO/(18378:18378): Iniciando el detector de sabotajes
+[INFO] 16:47:33:129 MONGO/(18378:18378): Esperando información del discordiador
+[INFO] 16:47:33:130 MONGO/(18378:18381): Detector de sabotajes iniciado exitosamente
+[INFO] 16:47:37:591 MONGO/(18378:18378): Discordiador inicio una patota
+[INFO] 16:47:37:591 MONGO/(18378:18378): Esperando información del discordiador
+[INFO] 16:47:37:592 MONGO/(18378:18378): Discordiador solicitó iniciar un tripulante
+[INFO] 16:47:37:592 MONGO/(18378:18378): Esperando información del discordiador
+[INFO] 16:47:37:592 MONGO/(18378:18387): Iniciado el tripulante 1 de la patota 1
+[INFO] 16:47:37:593 MONGO/(18378:18378): Discordiador solicitó iniciar un tripulante
+[INFO] 16:47:37:593 MONGO/(18378:18378): Esperando información del discordiador
+[INFO] 16:47:37:593 MONGO/(18378:18378): Discordiador solicitó iniciar un tripulante
+[INFO] 16:47:37:593 MONGO/(18378:18378): Esperando información del discordiador
+[INFO] 16:47:37:593 MONGO/(18378:18389): Iniciado el tripulante 2 de la patota 1
+[INFO] 16:47:37:594 MONGO/(18378:18378): Discordiador solicitó iniciar un tripulante
+[INFO] 16:47:37:594 MONGO/(18378:18378): Esperando información del discordiador
+[INFO] 16:47:37:594 MONGO/(18378:18393): Iniciado el tripulante 4 de la patota 1
+[INFO] 16:47:37:595 MONGO/(18378:18391): Iniciado el tripulante 3 de la patota 1
+[INFO] 16:47:39:463 MONGO/(18378:18387): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 16:47:39:463 MONGO/(18378:18387): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 16:47:39:463 MONGO/(18378:18393): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 16:47:39:463 MONGO/(18378:18393): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 1|0
+[INFO] 16:47:40:463 MONGO/(18378:18387): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 16:47:40:464 MONGO/(18378:18393): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 2|0
+[INFO] 16:47:41:464 MONGO/(18378:18387): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 16:47:41:465 MONGO/(18378:18393): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|0
+[INFO] 16:47:42:466 MONGO/(18378:18393): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|1
+[INFO] 16:47:42:466 MONGO/(18378:18387): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 16:47:43:467 MONGO/(18378:18393): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|2
+[INFO] 16:47:43:467 MONGO/(18378:18387): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 16:47:44:467 MONGO/(18378:18387): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 3|3
+[INFO] 16:47:44:467 MONGO/(18378:18393): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|3
+[INFO] 16:47:48:469 MONGO/(18378:18387): EXEC_0 - Tripulante 1 de la patota 1 detuvo ejecucion
+[INFO] 16:47:48:470 MONGO/(18378:18393): EXEC_0 - Tripulante 4 de la patota 1 detuvo ejecucion
+[WARNING] 16:47:48:787 MONGO/(18378:18389): La conexión remota se ha desconectado.
+[INFO] 16:47:48:787 MONGO/(18378:18389): Fallo el mensaje
+[INFO] 16:52:17:981 MONGO/(19104:19104): Servidor listo
+[INFO] 16:52:20:861 MONGO/(19104:19104): Conexión establecida con el discordiador
+[INFO] 16:52:20:861 MONGO/(19104:19104): Esperando información del discordiador
+[INFO] 16:52:20:861 MONGO/(19104:19104): Iniciando el detector de sabotajes
+[INFO] 16:52:20:861 MONGO/(19104:19104): Esperando información del discordiador
+[INFO] 16:52:20:862 MONGO/(19104:19112): Detector de sabotajes iniciado exitosamente
+[INFO] 16:52:32:332 MONGO/(19104:19104): Discordiador inicio una patota
+[INFO] 16:52:32:332 MONGO/(19104:19104): Esperando información del discordiador
+[INFO] 16:52:32:332 MONGO/(19104:19104): Discordiador solicitó iniciar un tripulante
+[INFO] 16:52:32:333 MONGO/(19104:19104): Esperando información del discordiador
+[INFO] 16:52:32:333 MONGO/(19104:19104): Discordiador solicitó iniciar un tripulante
+[INFO] 16:52:32:333 MONGO/(19104:19104): Esperando información del discordiador
+[INFO] 16:52:32:333 MONGO/(19104:19118): Iniciado el tripulante 1 de la patota 1
+[INFO] 16:52:32:333 MONGO/(19104:19104): Discordiador solicitó iniciar un tripulante
+[INFO] 16:52:32:334 MONGO/(19104:19104): Esperando información del discordiador
+[INFO] 16:52:32:334 MONGO/(19104:19120): Iniciado el tripulante 2 de la patota 1
+[INFO] 16:52:32:334 MONGO/(19104:19122): Iniciado el tripulante 3 de la patota 1
+[INFO] 16:52:32:334 MONGO/(19104:19104): Discordiador solicitó iniciar un tripulante
+[INFO] 16:52:32:335 MONGO/(19104:19104): Esperando información del discordiador
+[INFO] 16:52:32:335 MONGO/(19104:19124): Iniciado el tripulante 4 de la patota 1
+[INFO] 16:52:34:307 MONGO/(19104:19118): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 16:52:34:307 MONGO/(19104:19120): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 16:52:34:308 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 16:52:34:308 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 16:52:35:308 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 16:52:35:308 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 7|2
+[INFO] 16:52:36:309 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 16:52:36:309 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 16:52:37:310 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 16:52:37:310 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 5|2
+[INFO] 16:52:38:313 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 16:52:38:313 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 4|2
+[INFO] 16:52:39:313 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 3|3
+[INFO] 16:52:39:313 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 3|2
+[INFO] 16:52:40:314 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 3|3
+[INFO] 16:52:43:317 MONGO/(19104:19118): EXEC_0 - Tripulante 1 de la patota 1 detuvo ejecucion
+[INFO] 16:52:43:317 MONGO/(19104:19118): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 16:52:43:318 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 16:52:44:319 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 16:52:44:319 MONGO/(19104:19120): EXEC_0 - Tripulante 2 de la patota 1 detuvo ejecucion
+[INFO] 16:52:44:319 MONGO/(19104:19120): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 16:52:44:319 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 4|3
+[INFO] 16:52:45:319 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 16:52:45:319 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 5|3
+[INFO] 16:52:46:320 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|3
+[INFO] 16:52:46:320 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|2
+[INFO] 16:52:47:322 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|1
+[INFO] 16:52:47:322 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 16:52:48:324 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|1
+[INFO] 16:52:48:324 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 6|0
+[INFO] 16:52:49:326 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 6|0
+[INFO] 16:52:49:327 MONGO/(19104:19118): GEN_OX - Tripulante 1 de la patota 1 generando 10 de oxigeno
+[INFO] 16:52:49:327 MONGO/(19104:19122): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 16:52:49:327 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 1|0
+[INFO] 16:52:50:327 MONGO/(19104:19124): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 16:52:50:327 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 1|0
+[INFO] 16:52:50:328 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 2|0
+[INFO] 16:52:51:327 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 2|0
+[INFO] 16:52:51:330 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|0
+[INFO] 16:52:52:330 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|0
+[INFO] 16:52:52:332 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|1
+[INFO] 16:52:53:330 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|1
+[INFO] 16:52:53:333 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|2
+[INFO] 16:52:54:328 MONGO/(19104:19120): GEN_OX - Tripulante 2 de la patota 1 generando 10 de oxigeno
+[INFO] 16:52:54:331 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|2
+[INFO] 16:52:54:334 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|3
+[INFO] 16:52:55:331 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|3
+[INFO] 16:52:58:337 MONGO/(19104:19122): EXEC_0 - Tripulante 3 de la patota 1 detuvo ejecucion
+[INFO] 16:52:58:337 MONGO/(19104:19122): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 16:52:58:337 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 4|3
+[INFO] 16:52:59:335 MONGO/(19104:19124): EXEC_0 - Tripulante 4 de la patota 1 detuvo ejecucion
+[INFO] 16:52:59:335 MONGO/(19104:19124): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 16:52:59:335 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 4|3
+[INFO] 16:52:59:338 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 5|3
+[INFO] 16:53:00:338 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 5|3
+[INFO] 16:53:00:339 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 6|3
+[INFO] 16:53:01:339 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 6|2
+[INFO] 16:53:01:340 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 6|3
+[INFO] 16:53:02:340 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 6|1
+[INFO] 16:53:02:341 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 6|2
+[INFO] 16:53:03:341 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 6|0
+[INFO] 16:53:03:342 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 6|1
+[INFO] 16:53:04:352 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 6|0
+[INFO] 16:53:04:352 MONGO/(19104:19122): GEN_OX - Tripulante 3 de la patota 1 generando 10 de oxigeno
+[INFO] 16:53:08:355 MONGO/(19104:19118): EXEC_0 - Tripulante 1 de la patota 1 detuvo ejecucion
+[INFO] 16:53:08:356 MONGO/(19104:19118): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: CONSUMIR_OXIGENO 5;8;5;4
+[INFO] 16:53:08:356 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 7|0
+[INFO] 16:53:09:352 MONGO/(19104:19124): GEN_OX - Tripulante 4 de la patota 1 generando 10 de oxigeno
+[INFO] 16:53:09:355 MONGO/(19104:19120): EXEC_0 - Tripulante 2 de la patota 1 detuvo ejecucion
+[INFO] 16:53:09:355 MONGO/(19104:19120): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: CONSUMIR_OXIGENO 5;8;5;4
+[INFO] 16:53:09:356 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 7|0
+[INFO] 16:53:09:357 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|0
+[INFO] 16:53:10:356 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|0
+[INFO] 16:53:10:357 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|1
+[INFO] 16:53:11:356 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|1
+[INFO] 16:53:11:358 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|2
+[INFO] 16:53:12:357 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 16:53:12:359 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 16:53:13:359 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|3
+[INFO] 16:53:13:360 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|4
+[INFO] 16:53:14:360 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|4
+[INFO] 16:53:14:361 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 8|5
+[INFO] 16:53:15:361 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 8|5
+[INFO] 16:53:15:362 MONGO/(19104:19118): CON_OX - Tripulante 1 de la patota 1 consumiendo 5 de oxigeno
+[INFO] 16:53:19:366 MONGO/(19104:19122): EXEC_0 - Tripulante 3 de la patota 1 detuvo ejecucion
+[INFO] 16:53:19:367 MONGO/(19104:19122): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: CONSUMIR_OXIGENO 5;8;5;4
+[INFO] 16:53:19:367 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 7|0
+[INFO] 16:53:20:363 MONGO/(19104:19120): CON_OX - Tripulante 2 de la patota 1 consumiendo 5 de oxigeno
+[INFO] 16:53:20:367 MONGO/(19104:19124): EXEC_0 - Tripulante 4 de la patota 1 detuvo ejecucion
+[INFO] 16:53:20:367 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 8|0
+[INFO] 16:53:20:368 MONGO/(19104:19124): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: CONSUMIR_OXIGENO 5;8;5;4
+[INFO] 16:53:20:368 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 7|0
+[INFO] 16:53:21:368 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 8|1
+[INFO] 16:53:21:369 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 8|0
+[INFO] 16:53:22:369 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 8|2
+[INFO] 16:53:22:370 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 8|1
+[INFO] 16:53:23:370 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 8|3
+[INFO] 16:53:23:370 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 8|2
+[INFO] 16:53:24:371 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 8|4
+[INFO] 16:53:24:371 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 8|3
+[INFO] 16:53:25:377 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 8|5
+[INFO] 16:53:25:378 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 8|4
+[INFO] 16:53:26:379 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 8|5
+[INFO] 16:53:26:379 MONGO/(19104:19122): CON_OX - Tripulante 3 de la patota 1 consumiendo 5 de oxigeno
+[INFO] 16:53:30:387 MONGO/(19104:19118): EXEC_0 - Tripulante 1 de la patota 1 detuvo ejecucion
+[INFO] 16:53:30:387 MONGO/(19104:19118): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: DESCARTAR_BASURA 13;13;13;13
+[INFO] 16:53:30:387 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 9|5
+[INFO] 16:53:31:380 MONGO/(19104:19124): CON_OX - Tripulante 4 de la patota 1 consumiendo 5 de oxigeno
+[INFO] 16:53:31:388 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 10|5
+[INFO] 16:53:31:389 MONGO/(19104:19120): EXEC_0 - Tripulante 2 de la patota 1 detuvo ejecucion
+[INFO] 16:53:31:389 MONGO/(19104:19120): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: DESCARTAR_BASURA 13;13;13;13
+[INFO] 16:53:31:389 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 9|5
+[INFO] 16:53:32:388 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 11|5
+[INFO] 16:53:32:390 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 10|5
+[INFO] 16:53:33:389 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 12|5
+[INFO] 16:53:33:391 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 11|5
+[INFO] 16:53:34:390 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 13|5
+[INFO] 16:53:34:392 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 12|5
+[INFO] 16:53:35:390 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 13|6
+[INFO] 16:53:35:392 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 13|5
+[INFO] 16:53:36:391 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 13|7
+[INFO] 16:53:36:393 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 13|6
+[INFO] 16:53:37:392 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 13|8
+[INFO] 16:53:37:394 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 13|7
+[INFO] 16:53:38:392 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 13|9
+[INFO] 16:53:38:394 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 13|8
+[INFO] 16:53:39:394 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 13|10
+[INFO] 16:53:39:395 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 13|9
+[INFO] 16:53:40:395 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 13|11
+[INFO] 16:53:40:395 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 13|10
+[INFO] 16:53:41:398 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 13|12
+[INFO] 16:53:41:398 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 13|11
+[INFO] 16:53:42:402 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 13|12
+[INFO] 16:53:42:402 MONGO/(19104:19118): ACTU_T - Tripulante 1 de la patota 1 nueva posicion: 13|13
+[INFO] 16:53:43:402 MONGO/(19104:19120): ACTU_T - Tripulante 2 de la patota 1 nueva posicion: 13|13
+[INFO] 16:53:43:403 MONGO/(19104:19118): DES_BA - Tripulante 1 de la patota 1 desechando 13 de basura
+[INFO] 16:53:47:406 MONGO/(19104:19122): EXEC_0 - Tripulante 3 de la patota 1 detuvo ejecucion
+[INFO] 16:53:47:406 MONGO/(19104:19122): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: DESCARTAR_BASURA 13;13;13;13
+[INFO] 16:53:47:406 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 9|5
+[INFO] 16:53:48:403 MONGO/(19104:19120): DES_BA - Tripulante 2 de la patota 1 desechando 13 de basura
+[INFO] 16:53:48:407 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 10|5
+[INFO] 16:53:48:407 MONGO/(19104:19124): EXEC_0 - Tripulante 4 de la patota 1 detuvo ejecucion
+[INFO] 16:53:48:407 MONGO/(19104:19124): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: DESCARTAR_BASURA 13;13;13;13
+[INFO] 16:53:48:408 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 9|5
+[INFO] 16:53:49:408 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 11|5
+[INFO] 16:53:49:408 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 10|5
+[INFO] 16:53:50:408 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 12|5
+[INFO] 16:53:50:409 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 11|5
+[INFO] 16:53:51:409 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 13|5
+[INFO] 16:53:51:409 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 12|5
+[INFO] 16:53:52:410 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 13|5
+[INFO] 16:53:52:411 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 13|6
+[INFO] 16:53:53:411 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 13|6
+[INFO] 16:53:53:411 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 13|7
+[INFO] 16:53:54:411 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 13|7
+[INFO] 16:53:54:413 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 13|8
+[INFO] 16:53:55:412 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 13|8
+[INFO] 16:53:55:415 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 13|9
+[INFO] 16:53:56:412 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 13|9
+[INFO] 16:53:56:417 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 13|10
+[INFO] 16:53:57:412 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 13|10
+[INFO] 16:53:57:418 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 13|11
+[INFO] 16:53:58:413 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 13|11
+[INFO] 16:53:58:420 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 13|12
+[INFO] 16:53:59:414 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 13|12
+[INFO] 16:53:59:423 MONGO/(19104:19122): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 13|13
+[INFO] 16:54:00:415 MONGO/(19104:19124): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 13|13
+[INFO] 16:54:00:425 MONGO/(19104:19122): DES_BA - Tripulante 3 de la patota 1 desechando 13 de basura
+[INFO] 16:54:05:427 MONGO/(19104:19124): DES_BA - Tripulante 4 de la patota 1 desechando 13 de basura
+[INFO] 16:54:13:454 MONGO/(19104:19118): EXEC_0 - Tripulante 1 de la patota 1 detuvo ejecucion
+[INFO] 16:54:14:434 MONGO/(19104:19120): EXEC_0 - Tripulante 2 de la patota 1 detuvo ejecucion
+[INFO] 16:54:35:672 MONGO/(19104:19104): Discordiador inicio una patota
+[INFO] 16:54:35:672 MONGO/(19104:19104): Esperando información del discordiador
+[INFO] 16:54:35:672 MONGO/(19104:19104): Discordiador solicitó iniciar un tripulante
+[INFO] 16:54:35:672 MONGO/(19104:19104): Esperando información del discordiador
+[INFO] 16:54:35:673 MONGO/(19104:19104): Discordiador solicitó iniciar un tripulante
+[INFO] 16:54:35:673 MONGO/(19104:19104): Esperando información del discordiador
+[INFO] 16:54:35:673 MONGO/(19104:19104): Discordiador solicitó iniciar un tripulante
+[INFO] 16:54:35:673 MONGO/(19104:19178): Iniciado el tripulante 2 de la patota 2
+[INFO] 16:54:35:673 MONGO/(19104:19104): Esperando información del discordiador
+[INFO] 16:54:35:673 MONGO/(19104:19181): Iniciado el tripulante 3 de la patota 2
+[INFO] 16:54:35:673 MONGO/(19104:19104): Discordiador solicitó iniciar un tripulante
+[INFO] 16:54:35:673 MONGO/(19104:19176): Iniciado el tripulante 1 de la patota 2
+[INFO] 16:54:35:673 MONGO/(19104:19104): Esperando información del discordiador
+[INFO] 16:54:35:674 MONGO/(19104:19183): Iniciado el tripulante 4 de la patota 2
+[WARNING] 16:55:17:593 MONGO/(19104:19104): La conexión remota se ha desconectado.
+[INFO] 16:55:17:593 MONGO/(19104:19104): Cliente desconectado dentro del while
+[INFO] 17:08:59:410 MONGO/(19741:19741): Servidor listo
+[INFO] 17:09:01:514 MONGO/(19741:19741): Conexión establecida con el discordiador
+[INFO] 17:09:01:514 MONGO/(19741:19741): Esperando información del discordiador
+[INFO] 17:09:01:515 MONGO/(19741:19741): Iniciando el detector de sabotajes
+[INFO] 17:09:01:515 MONGO/(19741:19741): Esperando información del discordiador
+[INFO] 17:09:01:516 MONGO/(19741:19744): Detector de sabotajes iniciado exitosamente
+[WARNING] 17:11:12:864 MONGO/(19741:19741): La conexión remota se ha desconectado.
+[INFO] 17:11:12:864 MONGO/(19741:19741): Cliente desconectado dentro del while
+[INFO] 17:11:16:761 MONGO/(20110:20110): Servidor listo
+[INFO] 17:11:17:866 MONGO/(20110:20110): Conexión establecida con el discordiador
+[INFO] 17:11:17:866 MONGO/(20110:20110): Esperando información del discordiador
+[INFO] 17:11:17:872 MONGO/(20110:20110): Iniciando el detector de sabotajes
+[INFO] 17:11:17:873 MONGO/(20110:20110): Esperando información del discordiador
+[INFO] 17:11:17:873 MONGO/(20110:20113): Detector de sabotajes iniciado exitosamente
+[WARNING] 17:16:16:618 MONGO/(20110:20110): La conexión remota se ha desconectado.
+[INFO] 17:16:16:618 MONGO/(20110:20110): Cliente desconectado dentro del while
+[INFO] 17:32:24:248 MONGO/(20872:20872): Servidor listo
+[INFO] 17:32:28:648 MONGO/(20872:20872): Conexión establecida con el discordiador
+[INFO] 17:32:28:648 MONGO/(20872:20872): Esperando información del discordiador
+[WARNING] 17:32:28:649 MONGO/(20872:20872): La conexión remota se ha desconectado.
+[INFO] 17:32:28:649 MONGO/(20872:20872): Cliente desconectado dentro del while
+[INFO] 17:32:43:031 MONGO/(20880:20880): Servidor listo
+[INFO] 17:32:55:296 MONGO/(20880:20880): Conexión establecida con el discordiador
+[INFO] 17:32:55:296 MONGO/(20880:20880): Esperando información del discordiador
+[WARNING] 17:32:55:296 MONGO/(20880:20880): La conexión remota se ha desconectado.
+[INFO] 17:32:55:296 MONGO/(20880:20880): Cliente desconectado dentro del while
+[INFO] 17:35:33:188 MONGO/(21352:21352): Servidor listo
+[INFO] 17:35:37:860 MONGO/(21352:21352): Conexión establecida con el discordiador
+[INFO] 17:35:37:860 MONGO/(21352:21352): Esperando información del discordiador
+[WARNING] 17:35:37:860 MONGO/(21352:21352): La conexión remota se ha desconectado.
+[INFO] 17:35:37:860 MONGO/(21352:21352): Cliente desconectado dentro del while
+[INFO] 17:36:56:649 MONGO/(21707:21707): Servidor listo
+[INFO] 17:36:58:442 MONGO/(21707:21707): Conexión establecida con el discordiador
+[INFO] 17:36:58:442 MONGO/(21707:21707): Esperando información del discordiador
+[WARNING] 17:36:58:446 MONGO/(21707:21707): La conexión remota se ha desconectado.
+[INFO] 17:36:58:446 MONGO/(21707:21707): Cliente desconectado dentro del while
+[INFO] 17:37:39:065 MONGO/(22003:22003): Servidor listo
+[INFO] 17:37:40:642 MONGO/(22003:22003): Conexión establecida con el discordiador
+[INFO] 17:37:40:642 MONGO/(22003:22003): Esperando información del discordiador
+[INFO] 17:37:40:642 MONGO/(22003:22003): Iniciando el detector de sabotajes
+[INFO] 17:37:40:642 MONGO/(22003:22003): Esperando información del discordiador
+[INFO] 17:37:40:642 MONGO/(22003:22006): Detector de sabotajes iniciado exitosamente
+[INFO] 17:37:54:912 MONGO/(22003:22003): Discordiador inicio una patota
+[INFO] 17:37:54:912 MONGO/(22003:22003): Esperando información del discordiador
+[INFO] 17:37:54:912 MONGO/(22003:22003): Discordiador solicito iniciar un tripulante
+[INFO] 17:37:54:914 MONGO/(22003:22003): Esperando información del discordiador
+[INFO] 17:37:54:915 MONGO/(22003:22003): Discordiador solicito iniciar un tripulante
+[INFO] 17:37:54:915 MONGO/(22003:22003): Esperando información del discordiador
+[INFO] 17:37:54:915 MONGO/(22003:22003): Discordiador solicito iniciar un tripulante
+[INFO] 17:37:54:915 MONGO/(22003:22003): Esperando información del discordiador
+[INFO] 17:37:54:915 MONGO/(22003:22003): Discordiador solicito iniciar un tripulante
+[INFO] 17:37:54:915 MONGO/(22003:22003): Esperando información del discordiador
+[INFO] 17:37:54:916 MONGO/(22003:22020): Iniciado el tripulante 4 de la patota 1
+[INFO] 17:37:54:916 MONGO/(22003:22018): Iniciado el tripulante 3 de la patota 1
+[INFO] 17:37:54:916 MONGO/(22003:22016): Iniciado el tripulante 2 de la patota 1
+[INFO] 17:37:54:916 MONGO/(22003:22014): Iniciado el tripulante 1 de la patota 1
+[INFO] 17:37:58:080 MONGO/(22003:22018): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 17:37:58:080 MONGO/(22003:22020): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 17:37:58:080 MONGO/(22003:22018): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 1|0
+[INFO] 17:37:58:080 MONGO/(22003:22020): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 1|0
+[INFO] 17:37:59:081 MONGO/(22003:22018): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 2|0
+[INFO] 17:37:59:081 MONGO/(22003:22020): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 2|0
+[INFO] 17:38:00:081 MONGO/(22003:22020): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|0
+[INFO] 17:38:00:081 MONGO/(22003:22018): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|0
+[INFO] 17:38:01:083 MONGO/(22003:22018): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|1
+[INFO] 17:38:01:083 MONGO/(22003:22020): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|1
+[INFO] 17:38:02:084 MONGO/(22003:22018): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|2
+[INFO] 17:38:02:084 MONGO/(22003:22020): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|2
+[INFO] 17:38:03:085 MONGO/(22003:22020): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 3|3
+[INFO] 17:38:03:085 MONGO/(22003:22018): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 3|3
+[INFO] 17:38:07:088 MONGO/(22003:22020): EXEC_0 - Tripulante 4 de la patota 1 detuvo ejecucion
+[INFO] 17:38:07:088 MONGO/(22003:22018): EXEC_0 - Tripulante 3 de la patota 1 detuvo ejecucion
+[INFO] 17:38:07:088 MONGO/(22003:22018): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 17:38:07:088 MONGO/(22003:22018): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 4|3
+[INFO] 17:38:07:088 MONGO/(22003:22020): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 17:38:07:088 MONGO/(22003:22020): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 4|3
+[INFO] 17:38:08:089 MONGO/(22003:22018): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 5|3
+[INFO] 17:38:08:089 MONGO/(22003:22020): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 5|3
+[INFO] 17:38:09:089 MONGO/(22003:22018): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 6|3
+[INFO] 17:38:09:090 MONGO/(22003:22020): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 6|3
+[INFO] 17:38:10:091 MONGO/(22003:22020): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 6|2
+[INFO] 17:38:10:091 MONGO/(22003:22018): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 6|2
+[INFO] 17:38:11:096 MONGO/(22003:22020): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 6|1
+[INFO] 17:38:11:096 MONGO/(22003:22018): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 6|1
+[INFO] 17:38:12:096 MONGO/(22003:22018): ACTU_T - Tripulante 3 de la patota 1 nueva posicion: 6|0
+[INFO] 17:38:12:096 MONGO/(22003:22020): ACTU_T - Tripulante 4 de la patota 1 nueva posicion: 6|0
+[WARNING] 17:38:13:192 MONGO/(22003:22020): La conexión remota se ha desconectado.
+[INFO] 17:38:13:192 MONGO/(22003:22020): Fallo el mensaje
+[INFO] 17:38:40:864 MONGO/(22183:22183): Servidor listo
+[INFO] 17:38:45:776 MONGO/(22183:22183): Conexión establecida con el discordiador
+[INFO] 17:38:45:776 MONGO/(22183:22183): Esperando información del discordiador
+[INFO] 17:38:45:777 MONGO/(22183:22183): Iniciando el detector de sabotajes
+[INFO] 17:38:45:777 MONGO/(22183:22183): Esperando información del discordiador
+[INFO] 17:38:45:778 MONGO/(22183:22187): Detector de sabotajes iniciado exitosamente
+[WARNING] 17:39:32:566 MONGO/(22183:22183): La conexión remota se ha desconectado.
+[INFO] 17:39:32:566 MONGO/(22183:22183): Cliente desconectado dentro del while
+[INFO] 17:40:45:517 MONGO/(22503:22503): Servidor listo
+[INFO] 17:40:48:005 MONGO/(22503:22503): Conexión establecida con el discordiador
+[INFO] 17:40:48:005 MONGO/(22503:22503): Esperando información del discordiador
+[INFO] 17:40:48:006 MONGO/(22503:22503): Iniciando el detector de sabotajes
+[INFO] 17:40:48:006 MONGO/(22503:22503): Esperando información del discordiador
+[INFO] 17:40:48:006 MONGO/(22503:22506): Detector de sabotajes iniciado exitosamente
+[INFO] 17:40:51:461 MONGO/(22503:22503): Discordiador solicito la bitacora del tripulante 2 de la patota 1
+[INFO] 17:43:03:059 MONGO/(22823:22823): Servidor listo
+[INFO] 17:43:06:867 MONGO/(22823:22823): Conexión establecida con el discordiador
+[INFO] 17:43:06:868 MONGO/(22823:22823): Esperando información del discordiador
+[INFO] 17:43:06:868 MONGO/(22823:22823): Iniciando el detector de sabotajes
+[INFO] 17:43:06:868 MONGO/(22823:22823): Esperando información del discordiador
+[INFO] 17:43:06:868 MONGO/(22823:22827): Detector de sabotajes iniciado exitosamente
+[INFO] 17:43:10:339 MONGO/(22823:22823): Discordiador solicito la bitacora del tripulante 1 de la patota 2
+[INFO] 17:43:10:339 MONGO/(22823:22823): Esperando información del discordiador
+[INFO] 17:43:19:290 MONGO/(22823:22823): Discordiador inicio una patota
+[INFO] 17:43:19:290 MONGO/(22823:22823): Esperando información del discordiador
+[INFO] 17:43:19:291 MONGO/(22823:22823): Discordiador solicito iniciar un tripulante
+[INFO] 17:43:19:291 MONGO/(22823:22823): Esperando información del discordiador
+[INFO] 17:43:19:291 MONGO/(22823:22836): Iniciado el tripulante 1 de la patota 1
+[INFO] 17:43:19:291 MONGO/(22823:22823): Discordiador solicito iniciar un tripulante
+[INFO] 17:43:19:292 MONGO/(22823:22823): Esperando información del discordiador
+[INFO] 17:43:19:292 MONGO/(22823:22838): Iniciado el tripulante 2 de la patota 1
+[INFO] 17:43:19:292 MONGO/(22823:22823): Discordiador solicito iniciar un tripulante
+[INFO] 17:43:19:293 MONGO/(22823:22823): Esperando información del discordiador
+[INFO] 17:43:19:293 MONGO/(22823:22840): Iniciado el tripulante 3 de la patota 1
+[INFO] 17:43:19:293 MONGO/(22823:22823): Discordiador solicito iniciar un tripulante
+[INFO] 17:43:19:293 MONGO/(22823:22823): Esperando información del discordiador
+[INFO] 17:43:19:294 MONGO/(22823:22842): Iniciado el tripulante 4 de la patota 1
+[INFO] 17:43:26:378 MONGO/(22823:22823): Discordiador solicito la bitacora del tripulante 1 de la patota 2
+[INFO] 17:43:26:378 MONGO/(22823:22823): Esperando información del discordiador
+[INFO] 17:43:42:986 MONGO/(22823:22823): Discordiador solicito la bitacora del tripulante 1 de la patota 2
+[INFO] 17:43:42:986 MONGO/(22823:22823): Esperando información del discordiador
+[WARNING] 17:52:42:075 MONGO/(22823:22840): La conexión remota se ha desconectado.
+[INFO] 17:52:42:075 MONGO/(22823:22840): Fallo el mensaje
+[INFO] 17:52:59:643 MONGO/(23133:23133): Servidor listo
+[INFO] 17:53:04:284 MONGO/(23133:23133): Conexión establecida con el discordiador
+[INFO] 17:53:04:284 MONGO/(23133:23133): Esperando información del discordiador
+[INFO] 17:53:04:284 MONGO/(23133:23133): Iniciando el detector de sabotajes
+[INFO] 17:53:04:284 MONGO/(23133:23133): Esperando información del discordiador
+[INFO] 17:53:04:284 MONGO/(23133:23136): Detector de sabotajes iniciado exitosamente
+[INFO] 17:53:09:307 MONGO/(23133:23133): Discordiador solicito la bitacora del tripulante 1 de la patota 2
+[INFO] 17:53:09:308 MONGO/(23133:23133): Esperando información del discordiador
+[WARNING] 17:53:17:098 MONGO/(23133:23133): La conexión remota se ha desconectado.
+[INFO] 17:53:17:098 MONGO/(23133:23133): Cliente desconectado dentro del while

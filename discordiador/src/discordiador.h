@@ -21,8 +21,9 @@ void loggear_parametros(parametros_iniciar_patota*);
 
 void iniciar_patota(parametros_iniciar_patota*);
 void listar_tripulantes();
-void expulsar_tripulante(int, int);
+void expulsar_tripulante(int tripulante, int patota);
 void iniciar_planificacion();
 void pausar_planificacion();
+void obtener_bitacora(int patota, int tripulante);
 
 #endif /* DISCORDIADOR_H_ */

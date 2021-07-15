@@ -101,20 +101,21 @@ t_list* recibir_mensaje(int socket) {
 		for(int iterador = 0; iterador < cant_tareas; iterador++)
 			list_add(lista_parametros, recibir_parametro(socket, BUFFER));
 		break;
-	
+	/*
 	case SABO_P:
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		break;
-	
+	*/
 	case SHOW_T:
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		break;
 	
+	case SABO_P:
 	case INIT_T:
 	case DATA_T:
 	case ELIM_T:
@@ -146,6 +147,7 @@ t_list* recibir_mensaje(int socket) {
 		list_add(lista_parametros, recibir_parametro(socket, BUFFER));
 		break;
 		break;
+	case INIT_S:
 	case EXEC_0:
 	case NEW_PO:
 	case NEXT_T:

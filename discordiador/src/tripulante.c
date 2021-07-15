@@ -38,13 +38,11 @@ void* rutina_tripulante(void* t) {
 
 		termino_ejecucion = ejecutar(tarea, trip);
 
-		if(termino_ejecucion) {
-			free(tarea); //libero la ubicacion de la tarea anterior antes de cargarla con una nueva
+		if(termino_ejecucion)
 			tarea = solicitar_tarea(trip);
-		}
 	}
 
-	free(tarea);
+	//free(tarea);
 	actualizar_estado(trip, EXIT);
 	sem_destroy(&trip->sem_blocked);
 	sem_destroy(&trip->sem_running);
@@ -349,5 +347,5 @@ void liberar_input(char** input) {
 		i++;
 	}
 	//free(input[i]); //todo verificar si hay que liberar el null
-	free(input);
+	//free(input);
 }

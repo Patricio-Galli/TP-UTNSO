@@ -37,6 +37,26 @@ int main() {
 				close(socket_ram);
 			return 0;
 		}
+
+		log_info(logger,"Iniciando activacion detector sabotajes");
+
+		t_mensaje* mensaje_activacion_out = crear_mensaje(INIT_S);
+		enviar_mensaje(socket_mongo, mensaje_activacion_out);
+		t_list* mensaje_activacion_in = recibir_mensaje(socket_mongo);
+
+		if((int)list_get(mensaje_activacion_in, 0) == SND_PO) {
+			char puerto[7];
+			sprintf(puerto, "%d", (int)list_get(mensaje_activacion_in, 1));
+
+			int socket_sabotaje = crear_conexion_cliente(ip_mongo, puerto);
+
+			pthread_t hilo_detector_sabotaje;
+			pthread_create(&hilo_detector_sabotaje, NULL, detector_sabotaje, &socket_sabotaje);
+		}else
+			log_error(logger, "No se pudo activar el detector de  sabotajes, fallo en el mongo.");
+
+		liberar_mensaje(mensaje_activacion_out);
+		list_destroy(mensaje_activacion_in);
 	}
 
 	lista_tripulantes = list_create();
@@ -53,7 +73,7 @@ int main() {
 
 	while(!salir) {
 		char* buffer_consola = leer_consola();
-		char** input = string_split(buffer_consola, " ");
+		char** input = string_split(buffer_consola, " "); //aca se estan perdiendo 40 bytes
 		parametros_iniciar_patota* parametros;
 
 		switch(mapStringToEnum(input[0])) {
@@ -118,7 +138,7 @@ int main() {
 				break;
 
 			case OBTENER_BITACORA:
-				log_info(logger,"OBTENER BITACORA");
+				obtener_bitacora(atoi(input[1]), atoi(input[2]));
 				break;
 
 			case EXIT_DISCORDIADOR:
@@ -129,8 +149,8 @@ int main() {
 			case ERROR:
 				log_error(logger,"COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
 		}
-		free(buffer_consola);
-		liberar_input(input);
+		//free(buffer_consola);
+		//liberar_input(input);
 
 	}
 	exit_planificacion();
@@ -147,39 +167,44 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 
 	for(int iterador = 1; iterador <= parametros->cantidad_tripulantes; iterador++) {
 		if(RAM_ACTIVADA || MONGO_ACTIVADO) {
-			t_mensaje* mensaje_out;
 			int socket_ram_trip = 0, socket_mongo_trip = 0;
 
-			mensaje_out = crear_mensaje(INIT_T);
+			t_mensaje* mensaje_out = crear_mensaje(INIT_T);
 
 			agregar_parametro_a_mensaje(mensaje_out, (void*)parametros->posiciones_x[iterador-1], ENTERO);
 			agregar_parametro_a_mensaje(mensaje_out, (void*)parametros->posiciones_y[iterador-1], ENTERO);
 
 			if(RAM_ACTIVADA) {
 				enviar_mensaje(socket_ram, mensaje_out);
-				t_list* mensaje_ram_in = recibir_mensaje(socket_ram);
+				t_list* mensaje_in = recibir_mensaje(socket_ram);
 
-				if((int)list_get(mensaje_ram_in, 0) == SND_PO) {
+				if((int)list_get(mensaje_in, 0) == SND_PO) {
 					char puerto[7];
-					sprintf(puerto, "%d", (int)list_get(mensaje_ram_in, 1));
+					sprintf(puerto, "%d", (int)list_get(mensaje_in, 1));
 
 					socket_ram_trip = crear_conexion_cliente(ip_ram, puerto);
 				} else
 					log_error(logger, "No se pudo crear al tripulante, no hay suficiente memoria.");
+
+				list_destroy(mensaje_in);
 			}
 
 			if(MONGO_ACTIVADO) {
 				enviar_mensaje(socket_mongo, mensaje_out);
-				t_list* mensaje_mongo_in = recibir_mensaje(socket_mongo);
+				t_list* mensaje_in = recibir_mensaje(socket_mongo);
 
-				if((int)list_get(mensaje_mongo_in, 0) == SND_PO) {
+				if((int)list_get(mensaje_in, 0) == SND_PO) {
 					char puerto[7];
-					sprintf(puerto, "%d", (int)list_get(mensaje_mongo_in, 1));
+					sprintf(puerto, "%d", (int)list_get(mensaje_in, 1));
 
-					socket_mongo_trip = crear_conexion_cliente(ip_ram, puerto);
+					socket_mongo_trip = crear_conexion_cliente(ip_mongo, puerto);
 				} else
 					log_error(logger, "No se pudo crear al tripulante, fallo en el disco.");
+
+				list_destroy(mensaje_in);
 			}
+
+			liberar_mensaje(mensaje_out);
 
 			tripulante* nuevo_tripulante = crear_tripulante(
 					parametros->posiciones_x[iterador-1],
@@ -203,11 +228,9 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 }
 
 void listar_tripulantes() {
-	int cantidad_elementos = lista_tripulantes->elements_count;
+	log_info(logger,"Cantidad de tripulantes: %d", lista_tripulantes->elements_count);
 
-	log_info(logger,"Cantidad de nodos: %d", cantidad_elementos);
-
-	for(int i=0; i < cantidad_elementos; i++) {
+	for(int i=0; i < lista_tripulantes->elements_count; i++) {
 		tripulante* nuevo_tripulante = (tripulante*)list_get(lista_tripulantes, i);
 		char* estado = estado_enumToString(nuevo_tripulante->estado);
 
@@ -285,6 +308,26 @@ void pausar_planificacion() {
 	continuar_planificacion = false;
 }
 
+void obtener_bitacora(int tripulante, int patota) {
+	log_info(logger,"Obteniendo bitacora del tripulante %d de la patota %d", tripulante, patota);
+
+	if(MONGO_ACTIVADO) {
+		t_mensaje* mensaje_out = crear_mensaje(BITA_D);
+		agregar_parametro_a_mensaje(mensaje_out, (void*)tripulante, ENTERO);
+		agregar_parametro_a_mensaje(mensaje_out, (void*)patota, ENTERO);
+
+		enviar_mensaje(socket_mongo, mensaje_out);
+		t_list* mensaje_in = recibir_mensaje(socket_mongo);
+
+		if((int)list_get(mensaje_in, 0) == BITA_C) {
+			for(int i = 0; i<(int)list_get(mensaje_in, 1); i++) {
+				log_info(logger,"%s", (char*)list_get(mensaje_in, i+2));
+			}
+		} else
+			log_error(logger, "No se pudo obtener la bitacora solicitada");
+	}
+}
+
 parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar validaciones para lectura de archivos y parametros validos
 	log_info(logger,"Obteniendo parametros...");
 
@@ -331,6 +374,7 @@ parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar val
 
 	return parametros;
 }
+
 void liberar_parametros(parametros_iniciar_patota* parametros) {
 	free(parametros->posiciones_x);
 	free(parametros->posiciones_y);

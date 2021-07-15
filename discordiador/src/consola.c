@@ -20,7 +20,7 @@ char* leer_consola() {
 }
 
 command_code mapStringToEnum(char *string){
-	char* listaDeStrings[]={"ini", "L", "E", "IP", "P", "OBTENER_BITACORA", "EXIT"};
+	char* listaDeStrings[]={"ini", "L", "E", "IP", "P", "O", "EXIT"};
 
 	for(int i=0;i<7;i++){
 		if(!strcasecmp(string,listaDeStrings[i])) {

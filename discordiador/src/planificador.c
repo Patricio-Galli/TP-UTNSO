@@ -122,6 +122,20 @@ void quitar(tripulante* trip, t_list* list) {
 	}
 }
 
+void* detector_sabotaje(void* socket_mongo) {
+	while(1) {
+		t_list* mensaje_sabotaje = recibir_mensaje(*(int*)socket_mongo);
+
+		if((int)list_get(mensaje_sabotaje, 0) == SABO_P)
+			log_info(logger, "Hubo un sabotaje en %d|%d", (int)list_get(mensaje_sabotaje, 1), (int) list_get(mensaje_sabotaje, 2));
+		else
+			log_warning(logger, "No entendi el mensaje");
+
+		list_destroy(mensaje_sabotaje);
+	}
+	return 0;
+}
+
 void exit_planificacion() {
 	//cerrar cola_ready, cola_blocked, tripulantes_running
 

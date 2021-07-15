@@ -34,6 +34,7 @@ void inicializar_planificador(int, char*, int, int, bool*, t_log*);
 void* planificador(void*);
 void* planificador_io();
 void exit_planificacion();
+void* detector_sabotaje(void* socket);
 
 void agregar_ready(tripulante* trip);
 void agregar_running(tripulante* trip);

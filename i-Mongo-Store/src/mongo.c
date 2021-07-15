@@ -26,6 +26,7 @@ int main() {
 		log_info(logger, "Esperando información del discordiador");
 
 		t_list* mensaje_in = recibir_mensaje(socket_discord);
+		t_mensaje* mensaje_out;
 
 		if (!validar_mensaje(mensaje_in, logger)) {
 			log_info(logger, "Cliente desconectado dentro del while");
@@ -35,19 +36,29 @@ int main() {
 		}
 
 		switch((int)list_get(mensaje_in, 0)) { // protocolo del mensaje
+			case INIT_S:
+				log_info(logger, "Iniciando el detector de sabotajes");
+				int socket_detector = crear_conexion_servidor(IP_MONGO, 0, 1);
+
+				pthread_t hilo_detector_sabotajes;
+				pthread_create(&hilo_detector_sabotajes, NULL, detector_sabotajes, &socket_detector);
+
+				mensaje_out = crear_mensaje(SND_PO);
+				agregar_parametro_a_mensaje(mensaje_out, (void *)puerto_desde_socket(socket_detector), ENTERO);
+				enviar_mensaje(socket_discord, mensaje_out);
+
+				break;
 			case INIT_P:
 				log_info(logger, "Discordiador inicio una patota");
 
 				pat++;
 				tripu = 1;
 
-				t_mensaje* mensaje_ou = crear_mensaje(TODOOK);
-				enviar_mensaje(socket_discord, mensaje_ou);
-				liberar_mensaje(mensaje_ou);
-
+				mensaje_out = crear_mensaje(TODOOK);
+				enviar_mensaje(socket_discord, mensaje_out);
 				break;
 			case INIT_T:
-				log_info(logger, "Discordiador solicitó iniciar un tripulante");
+				log_info(logger, "Discordiador solicito iniciar un tripulante");
 				tripulante* trip = malloc(sizeof(tripulante));
 
 				trip->id_patota = pat;
@@ -59,23 +70,58 @@ int main() {
 				pthread_t hilo_nuevo;
 				pthread_create(&hilo_nuevo, NULL, rutina_trip, trip);
 
-				t_mensaje* mensaje_out = crear_mensaje(SND_PO);
+				mensaje_out = crear_mensaje(SND_PO);
 				agregar_parametro_a_mensaje(mensaje_out, (void *)puerto_desde_socket(trip->socket_discord), ENTERO);
 				enviar_mensaje(socket_discord, mensaje_out);
 
-				liberar_mensaje(mensaje_out);
 				tripu++;
+				break;
+			case BITA_D:
+				log_info(logger, "Discordiador solicito la bitacora del tripulante %d de la patota %d", (int)list_get(mensaje_in, 1), (int)list_get(mensaje_in, 2));
+				int cantidad_lineas_archivo = 4;
 
+				mensaje_out = crear_mensaje(BITA_C);
+
+				agregar_parametro_a_mensaje(mensaje_out, (void*)cantidad_lineas_archivo, ENTERO);
+				for(int i = 1; i <= cantidad_lineas_archivo; i++) {
+					char linea[25];
+					sprintf(linea, "%d) BITACORA ..........", i);
+
+					agregar_parametro_a_mensaje(mensaje_out, (void*)linea, BUFFER); //esto es lo unico que tienen que mantener adentro del for, despues tienen que ir cargando en linea las lineas del archivo de bitacora
+				}
+
+				enviar_mensaje(socket_discord, mensaje_out);
 				break;
 			default:
 				log_warning(logger, "No entendi el mensaje");
 				break;
 		}
 		list_destroy(mensaje_in);
+		liberar_mensaje(mensaje_out);
 	}
 
 	log_warning(logger, "FINALIZANDO MONGO");
 	return 0;
+}
+
+void* detector_sabotajes(void* s) {
+	int socket_detector = esperar_cliente(*(int *)s);
+	int posicion_x = 8, posicion_y = 8;
+
+	log_info(logger, "Detector de sabotajes iniciado exitosamente");
+
+	while(1) {
+		sleep(10);
+
+		t_mensaje* mensaje_out = crear_mensaje(SABO_P);
+
+		agregar_parametro_a_mensaje(mensaje_out, (void*)posicion_x, ENTERO);
+		agregar_parametro_a_mensaje(mensaje_out, (void*)posicion_y, ENTERO);
+
+		enviar_mensaje(socket_detector, mensaje_out);
+
+		liberar_mensaje(mensaje_out);
+	}
 }
 
 void* rutina_trip(void* t) {
