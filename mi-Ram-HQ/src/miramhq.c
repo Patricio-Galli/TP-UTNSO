@@ -49,7 +49,12 @@ void loggear_data(t_log* logger) {
 }
 
 int main(void) {
-	t_log* logger = log_create("miramhq.log", "Mi-RAM-HQ", 1, LOG_LEVEL_INFO);
+	t_log* logger;
+	if(CONSOLA_ACTIVA)
+		logger = log_create("miramhq.log", "Mi-RAM-HQ", 0, LOG_LEVEL_INFO);
+	else
+		logger = log_create("miramhq.log", "Mi-RAM-HQ", 1, LOG_LEVEL_INFO);
+	
 	t_config* config = config_create("miramhq.config");
 	
 	algoritmo_segmento algoritmo;
@@ -61,10 +66,11 @@ int main(void) {
 	iniciar_memoria(config);
 
 	bool* continuar_consola = malloc(sizeof(bool));
-	// iniciar_mapa(continuar_consola);
+	if(CONSOLA_ACTIVA) {
+		iniciar_mapa(continuar_consola);
+	}
 
-	int server_fd = crear_conexion_servidor(
-		IP_RAM,	config_get_int_value(config, "PUERTO"), 1);
+	int server_fd = crear_conexion_servidor(IP_RAM,	config_get_int_value(config, "PUERTO"), 1);
 	
 	if(!validar_socket(server_fd, logger)) {
 		close(server_fd);
@@ -96,6 +102,7 @@ int main(void) {
 		log_info(logger, "Esperando información del discordiador");
 		mensaje_in = recibir_mensaje(socket_discord);
 		if (!validar_mensaje(mensaje_in, logger)) {
+			liberar_mensaje_in(mensaje_in);
 			log_info(logger, "Cliente desconectado dentro del while");
 			close(server_fd);
 			log_destroy(logger);
@@ -138,7 +145,8 @@ int main(void) {
 			liberar_mensaje_out(mensaje_out);
 			nro_tripulante++;
 			break;
-		case ELIM_T:			
+		case ELIM_T:
+			log_info(logger, "Discordiador solicitó expulsar_tripulante");
 			id_trip = (uint32_t)list_get(mensaje_in, 1);
 			id_patota = (uint32_t)list_get(mensaje_in, 2);
 			eliminar_tripulante(id_patota, id_trip);
@@ -158,12 +166,16 @@ int main(void) {
 			break;
 		}
 		liberar_mensaje_in(mensaje_in);
-		
 		loggear_data(logger);
 	}
+
+	*continuar_consola = false;
 	config_destroy(config);
 	log_destroy(logger);
 	close(socket_discord);
+	if(!CONSOLA_ACTIVA) {
+		free(continuar_consola);
+	}
 	// liberar_segmentos();
 	// liberar_patotas();
 	// liberar_tareas();
@@ -205,8 +217,8 @@ void iniciar_mapa(bool* continuar_consola) {
 void iniciar_memoria(t_config* config) {
 	tamanio_memoria = config_get_int_value(config, "TAMANIO_MEMORIA");
 	memoria_ram = malloc(tamanio_memoria);
-
-	if(!strcmp(config_get_string_value(config, "ESQUEMA_MEMORIA"), "SEGMENTACION")) {
+	char* esquema_memoria = config_get_string_value(config, "ESQUEMA_MEMORIA");
+	if(!strcmp(esquema_memoria, "SEGMENTACION")) {
 		mapa_segmentos = list_create();
 		t_segmento* segmento_memoria = malloc(sizeof(t_segmento));
 		segmento_memoria->n_segmento = 0;
@@ -215,7 +227,8 @@ void iniciar_memoria(t_config* config) {
 		segmento_memoria->tamanio = tamanio_memoria;
 		list_add(mapa_segmentos, segmento_memoria);
 	}
-	if(!strcmp(config_get_string_value(config, "ESQUEMA_MEMORIA"), "PAGINACION")) {
+	if(!strcmp(esquema_memoria, "PAGINACION")) {
 		/* TO DO */
 	}
+	free(esquema_memoria);
 }

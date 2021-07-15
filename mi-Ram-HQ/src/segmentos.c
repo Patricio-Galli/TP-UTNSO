@@ -34,8 +34,10 @@ t_segmento* crear_segmento(t_list* mapa_segmentos, uint32_t nuevo_tamanio, algor
 
 	t_list* segmentos_libres = list_filter(mapa_segmentos, (*condicion_segmento_libre));
 	t_list* segmentos_validos = list_filter(segmentos_libres, (*condicion_segmento_apto));
+    list_destroy(segmentos_libres);
 
 	if(list_size(segmentos_validos) == 0) {
+        list_destroy(segmentos_validos);
         return (void *)0;
     }
 
@@ -70,9 +72,7 @@ t_segmento* crear_segmento(t_list* mapa_segmentos, uint32_t nuevo_tamanio, algor
         ((t_segmento *)iterador->data)->n_segmento++;
     }
     segmento_nuevo->tamanio = nuevo_tamanio;
-    list_destroy(segmentos_libres);
     list_destroy(segmentos_validos);
-
     return segmento_nuevo;
 }
 

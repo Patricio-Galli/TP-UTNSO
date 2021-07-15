@@ -27,53 +27,24 @@
 #include <semaphore.h>
 #include "consola.h"
 
-
 typedef struct {
 	int id_trip;
 	int id_patota;
-	int estado; //ready, blocked, etc
-	pthread_t hilo;
-}tripulante;
-
-typedef struct nodo_tripulante{
-    tripulante data;
-    struct nodo_tripulante *sig;
-}nodo_tripulante;
-
-typedef enum {
-    NEW,
-    BLOCKED,
-    READY,
-    RUNNING,
-    EXIT
-}estado_tarea;
-
-#ifndef COMMAND_CODE_
-#define COMMAND_CODE_
-typedef enum{
-	INICIAR_PATOTA,
-	INICIAR_TRIPULANTE,
-	EXPULSAR_TRIPULANTE,
-	INICIAR_PLANIFICACION,
-	PAUSAR_PLANIFICACION,
-	OBTENER_BITACORA,
-	EXIT_DISCORDIADOR,
-	ERROR
-}command_code;
-#endif /* COMMAND_CODE_ */
+	pthread_t* hilo;
+	bool vivir;
+	int socket;
+}t_tripulante;
 
 #define ERROR_CONEXION -1
 
 char* primer_palabra(char* buffer);
 
-
-tripulante* crear_nodo_trip(int *posiciones);
-void agregar_trip_a_lista(tripulante* nuevo_trip);
 void* rutina_hilos(void* posiciones);
-// command_code mapStringToEnum(char *s);
-void iniciar_patota(char** input, int* lista_puertos, t_log* logger);
+
 void listar_tripulantes();
 int establecer_conexiones(int* ram, int* mongo, t_config* config);
 
+t_tripulante* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip);
 
+int posicion_trip(uint32_t id_patota, uint32_t id_trip);
 #endif /* DISCORDIADOR_H_ */

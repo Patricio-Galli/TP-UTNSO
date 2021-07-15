@@ -11,10 +11,10 @@
 #include "discordiador.h"
 
 sem_t semaforo_tripulante;
+t_list* lista_tripulantes;
 
-int id_patota_actual = 1;
+int id_patota_actual = 0;
 int id_tripulante = 1;
-nodo_tripulante *lista_tripulantes = NULL;
 t_config* config;
 int variable = 1;
 
@@ -44,6 +44,7 @@ int main() {
 	char tarea1[] = "Soy la tarea 1\n";
 	char tarea2[] = "Soy la tarea 2\n";
 	char tarea3[] = "Soy la tarea 3\n";
+	lista_tripulantes = list_create();
 	int variable = 0;
 	while(continuar) {
 		buffer_consola = leer_consola();
@@ -125,6 +126,7 @@ int main() {
 			funcion_consola = EXIT_DISCORDIADOR;
 			break;
 		}
+
 		t_list *mensaje_in;
 		switch(funcion_consola) {
 		case INICIAR_PATOTA:
@@ -140,13 +142,14 @@ int main() {
 			mensaje_in = recibir_mensaje(socket_ram);
 			if((int)list_get(mensaje_in, 0) == TODOOK) {
 				log_info(logger, "aeeea, sabalero, sabalero");
+				id_patota_actual++;
 			}
 			if((int)list_get(mensaje_in, 0) == NO_SPC) {
 				log_info(logger, "El servidor dice que no había espacio");
 			}
 
 			liberar_mensaje_in(mensaje_in);
-			id_patota_actual++;
+			
 			id_tripulante = 1;
 			break;
 		case INICIAR_TRIPULANTE:
@@ -166,57 +169,80 @@ int main() {
 				log_destroy(logger);
 				return ERROR_CONEXION;
 			}
-			
-			id_tripulante++;
+			log_info(logger, "Recibi respuesta: %d", (int)list_get(mensaje_in, 0));
 			if((int)list_get(mensaje_in, 0) == SND_PO) {
+				log_info(logger, "Entro a recibir puerto\n");
 				int nuevo_puerto = (int)list_get(mensaje_in, 1);
-				
 				pthread_t* nuevo_hilo = malloc(sizeof(pthread_t));
 				char str_puerto[7];
 				sprintf(str_puerto, "%d", (int)nuevo_puerto);
 				int socket = crear_conexion_cliente(config_get_string_value(config, "IP_MI_RAM_HQ"), str_puerto);
-				sem_init(&semaforo_tripulante, 0, 0);
-				pthread_create(nuevo_hilo, NULL, rutina_hilos, (void *)socket);
-				// close(socket);
+				// sem_init(&semaforo_tripulante, 0, 0);
+				
+				t_tripulante* nuevo_tripulante = malloc(sizeof(t_tripulante));
+				nuevo_tripulante->id_patota = id_patota_actual;
+				nuevo_tripulante->id_trip = id_tripulante;
+				nuevo_tripulante->hilo = nuevo_hilo;
+				nuevo_tripulante->vivir = true;
+				nuevo_tripulante->socket = socket;
+
+				pthread_create(nuevo_hilo, NULL, rutina_hilos, (void *)nuevo_tripulante);
+				log_info(logger, "Agrego tripulante %d - %d", id_patota_actual, id_tripulante);
+				list_add(lista_tripulantes, nuevo_tripulante);
+				log_info(logger, "Cantidad de tripulantes actual: %d", list_size(lista_tripulantes));
 			}
 			if((int)list_get(mensaje_in, 0) == NO_SPC) {
 				log_info(logger, "El servidor dice que no había espacio");
 			}
 
 			liberar_mensaje_in(mensaje_in);
+			id_tripulante++;
 			break;
 		case EXPULSAR_TRIPULANTE:
 			log_info(logger,"Expulsar tripulante");
+			int id_patota;
+			int id_trip;
 			mensaje_out = crear_mensaje(ELIM_T);
 			log_info(logger, "Cree mensaje %d", funcion_consola);
 			if(variable == 11) {
 				log_info(logger,"Expulsar tripulante 1");
-				agregar_parametro_a_mensaje(mensaje_out, (void *)1, ENTERO);
-				agregar_parametro_a_mensaje(mensaje_out, (void *)1, ENTERO);
+				id_patota = 1;
+				id_trip = 1;
 			}
 			if(variable == 12) {
 				log_info(logger,"Expulsar tripulante 2");
-				agregar_parametro_a_mensaje(mensaje_out, (void *)1, ENTERO);
-				agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);
+				id_patota = 3;
+				id_trip = 1;
 			}
 			if(variable == 13) {
 				log_info(logger,"Expulsar tripulante 3");
-				agregar_parametro_a_mensaje(mensaje_out, (void *)1, ENTERO);
-				agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);
+				id_patota = 2;
+				id_trip = 1;
 			}
 			if(variable == 14) {
 				log_info(logger,"Expulsar tripulante 4");
-				agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);
-				agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);
+				id_patota = 2;
+				id_trip = 3;
 			}
 			/*if(variable == 18) {
 				log_info(logger,"Expulsar tripulante 5");
 				agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);
 				agregar_parametro_a_mensaje(mensaje, (void *)3, ENTERO);
 			}*/
+			log_info(logger, "Tripulante a matar: %d - %d", id_patota, id_trip);
+			t_tripulante* trip_to_kill = tripulante_de_lista(id_patota, id_trip);
+			log_info(logger, "VOy a cancelar el hilo");
+			list_remove(lista_tripulantes, posicion_trip(id_patota, id_trip));
+			log_info(logger, "VOy a cancelar el hilo");
+			pthread_cancel(*trip_to_kill->hilo);
+			trip_to_kill->vivir = false;
+			pthread_join(*trip_to_kill->hilo, NULL);
+			log_info(logger, "VOy a enviar_mensaje");
+			agregar_parametro_a_mensaje(mensaje_out, (void *)id_trip, ENTERO);
+			agregar_parametro_a_mensaje(mensaje_out, (void *)id_patota, ENTERO);
 			enviar_mensaje(socket_ram, mensaje_out);
 			liberar_mensaje_out(mensaje_out);
-
+			log_info(logger, "VOy a recibir_mensaje");
 			mensaje_in = recibir_mensaje(socket_ram);
 			if(!validar_mensaje(mensaje_in, logger)) {
 				log_info(logger, "El servidor ha muerto, doy por finalizada esta wea");
@@ -253,80 +279,20 @@ int main() {
 	return 0;
 }
 
-void iniciar_patota(char**input, int* lista_puertos, t_log *logger) {
-	int id_trip_actual = 0;
-	bool valida = true;
-	int *posiciones = malloc(2 * sizeof(int));
-	int cantidad_tripulantes = atoi(input[1]);
-
-	log_info(logger,"Iniciando creacion de Patota nro: %d", id_patota_actual);
-
-	for(int iterador = 0; iterador < cantidad_tripulantes; iterador++) { //atoi: ascii to int
-		if(valida && input[iterador+3] != NULL) { //iterador+2 nos estaria dando la direccion de inicio del tripulante
-			char** auxiliar = string_split(input[iterador+3], "|"); //divide la posicion de x|y a posiciones[0]=x y posiciones[1]=y
-			posiciones[0] = atoi(auxiliar[0]);
-			posiciones[1] = atoi(auxiliar[1]);
-		}
-		else {
-			posiciones[0] = 0;
-			posiciones[1] = 0;
-			valida = false;
-		}
-		tripulante* nuevo_trip = crear_nodo_trip(posiciones);
-		nuevo_trip->id_trip = id_trip_actual;
-		nuevo_trip->id_patota = id_patota_actual;
-		agregar_trip_a_lista(nuevo_trip);
-		id_trip_actual++;
-		free(nuevo_trip);
-	}
-	log_info(logger,"Patota nro: %d iniciada. Cantidad de tripulantes: %d",id_patota_actual,id_trip_actual);
-	free(posiciones);
-	id_patota_actual++;
-}
-
-tripulante* crear_nodo_trip(int *posiciones) {
-	tripulante* nuevo = malloc(sizeof(tripulante));
-	pthread_t nuevo_hilo;
-	int *aux = malloc(2 * sizeof(int));
-	aux[0] = posiciones[0];
-	aux[1] = posiciones[1];
-	pthread_create(&nuevo_hilo, NULL, rutina_hilos, aux);
-	// Gran memory leak con nuestra variable AUX. RESOLVER!
-	nuevo->estado = NEW;
-	nuevo->hilo = nuevo_hilo;
-	return nuevo;
-}
-
-void agregar_trip_a_lista(tripulante* nuevo_trip) {
-
-	nodo_tripulante *nuevo_nodo = malloc(sizeof(nodo_tripulante));
-	nuevo_nodo->data = *nuevo_trip;
-	nuevo_nodo->sig = NULL;
-
-	if(lista_tripulantes == NULL){
-		lista_tripulantes = nuevo_nodo;
-	}
-	else {
-		nodo_tripulante *aux = lista_tripulantes;
-		while(aux->sig != NULL){
-			aux = aux->sig;
-		}
-		aux->sig = nuevo_nodo;
-	}
-}
-
-void* rutina_hilos(void* socket) {
-	t_log* logger = log_create("discordiador.log", "HILOX", 1, LOG_LEVEL_DEBUG);
+void* rutina_hilos(void* mi_tripulante) {
+	t_log* logger = log_create("discordiador.log", "HILOX", 0, LOG_LEVEL_DEBUG);
 	log_info(logger, "HOLA MUNDO, SOY UN HILO %d", variable);
 	variable++;
 	
 	while(1) {
-		sem_wait(&semaforo_tripulante);
+		if(!((t_tripulante *)mi_tripulante)->vivir)
+			break;
+		
 		t_mensaje* mensaje_out = crear_mensaje(NEXT_T);
-		enviar_mensaje((int)socket, mensaje_out);
+		enviar_mensaje(((t_tripulante *)mi_tripulante)->socket, mensaje_out);
 		liberar_mensaje_out(mensaje_out);
 
-		t_list* mensaje_in = recibir_mensaje((int)socket);
+		t_list* mensaje_in = recibir_mensaje(((t_tripulante *)mi_tripulante)->socket);
 		if(!validar_mensaje(mensaje_in, logger))
 			log_warning(logger, "FALLO EN MENSAJE CON HILO RAM\n");
 		else {
@@ -334,13 +300,47 @@ void* rutina_hilos(void* socket) {
 			if((int)list_get(mensaje_in, 0) == ER_MSJ)
 				log_info(logger, "No hay próxima tarea");
 			if((int)list_get(mensaje_in, 0) == TASK_T)
-				log_info(logger, "EL HILO RAM ME RESPONDIO: %s\n", (int)list_get(mensaje_in, 1));
+				log_info(logger, "EL HILO RAM ME RESPONDIO: %s\n", (char *)list_get(mensaje_in, 1));
 		}
+		// free((char *)list_get(mensaje_in, 1));	// TODO -> Meter en las utils
 		liberar_mensaje_in(mensaje_in);
 	}
+	printf("ME MUEROOOOOO\n");
 	return 0;
 }
 
+int posicion_trip(uint32_t id_patota, uint32_t id_trip) {
+	int posicion = -1;
+	bool encontre = false;
+	printf("Pos trip\n");
+	t_link_element* iterador_tripulante = lista_tripulantes->head;
+	printf("Largo lista_tripulantes: %d\n", list_size(lista_tripulantes));
+	t_tripulante* trip_auxiliar;
+	printf("2\n");
+	while(iterador_tripulante) {
+		
+		posicion++;
+		trip_auxiliar = (t_tripulante *)iterador_tripulante->data;
+		if(trip_auxiliar->id_patota == id_patota && trip_auxiliar->id_trip == id_trip) {
+			encontre = true;
+			break;
+		}
+		iterador_tripulante = iterador_tripulante->next;
+		printf("posicion %d\n", posicion);
+	}
+	printf("Encontre %d\n", posicion);
+	if(encontre)
+		return posicion;
+	else
+		return -1;
+}
+
+t_tripulante* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip) {
+	printf("Voy a obtener tripulante\n");
+	t_tripulante* tripulante = (t_tripulante *)list_get(lista_tripulantes, posicion_trip(id_patota, id_trip));
+	printf("Obtuve tripulante\n");
+	return tripulante;
+}
 /*	Salida pruebas antesde compactacion
 SEGMENTO 1/Duenio: 1/Indice: 0/Inicio: 0/Tamanio: 8
 SEGMENTO 2/Duenio: 1/Indice: 1/Inicio: 8/Tamanio: 32

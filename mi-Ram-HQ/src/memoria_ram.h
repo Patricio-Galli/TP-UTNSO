@@ -6,6 +6,7 @@
 #include <pthread.h>
 
 #define IP_RAM "127.0.0.1"
+#define CONSOLA_ACTIVA 0
 
 uint32_t tamanio_memoria;
 void* memoria_ram;

@@ -217,6 +217,7 @@ void liberar_mensaje_in(t_list* mensaje) {
 		// printf("CUAL\n");
 		break;
 	default:
+		list_destroy(mensaje);
 		break;
 	}
 }
