@@ -14,6 +14,11 @@ int main(void)
 	char DIR_files[100];
 	char DIR_bitacoras[100];
 	char DIR_superBloque[100];
+	char DIR_oxigeno[100];
+	char DIR_comida[150];
+	char DIR_basura[150];
+	char DIR_tripulante[150];
+
 	log_info(logger, "toy aqui");
 	//reviso si existe el archivo
 	if(!access(punto_montaje,R_OK)){
@@ -24,9 +29,13 @@ int main(void)
 		log_info(logger, "Generando File System limpio");
 		printf("El punto de montajes es %s\n",punto_montaje);
 
+
+		mkdir(punto_montaje,0755); //se crea el directorio /FileSystem/
+		printf("el punto de montaje es %s\n",punto_montaje);
+
 		char *directorio=DIR_files;
 		strcpy(DIR_files,punto_montaje);
-		strcat(DIR_files,"/Files");;
+		strcat(DIR_files,"/Files");
 		mkdir(directorio,0755); //se crea el directorio /FileSystem/Files
 		printf("el directorio de files es %s\n",directorio);
 
@@ -38,11 +47,29 @@ int main(void)
 
 		//creo el superBloque
 
-		strcpy(DIR_superBloque,DIR_files);
+		strcpy(DIR_superBloque,punto_montaje);
 		strcat(DIR_superBloque,"/superBloque.ims");
 		directorio=DIR_superBloque;
-		printf("el directorio del superBloque es %s\n",directorio);
+		printf("el directorio del superbloque es %s\n",directorio);
 		crear_superBloque(DIR_superBloque,16);
+
+		//creo los archivos de metadata para oxigeno, comida y basura
+
+		strcpy(DIR_oxigeno,DIR_files);
+		strcat(DIR_oxigeno,"/Oxigeno.ims");
+		directorio=DIR_oxigeno;
+		crear_metadata(directorio);
+
+		strcpy(DIR_comida,DIR_files);
+		strcat(DIR_comida,"/Comida.ims");
+		directorio=DIR_comida;
+		crear_metadata(directorio);
+		/*
+		strcpy(DIR_basura,DIR_files);
+		strcat(DIR_basura,"/Basura.ims");
+		caca=DIR_basura;
+		crear_metadata(caca);
+*/
 
 		/*if(!access(punto_montaje,R_OK)){
 			log_info(logger, "Ya esta creado el archivo");
@@ -146,24 +173,33 @@ int main(void)
 }
 
 
-void* crear_superBloque(char* DIR_superBloque,int bitmap_size){
+char* crear_superBloque(char* DIR_superBloque,int bitmap_size){
 
 	int superBloque_size=(bitmap_size+ 2*sizeof(uint32_t));
 	printf("el tamaño del super bloque es %d\n",superBloque_size);
 	//Crear bitmap?
-
-	FILE *fp; //lo necesito para el mmap
-	fp = fopen(DIR_superBloque,"wb");
-	void* puntero_SuperBloque;
+	printf("el directorio del superBloque es %s\n",DIR_superBloque);
+	FILE* fp;
+	fp = fopen(DIR_superBloque,"w+");
+	if(fp==NULL){
+		printf("no se pudo abrir/generar el archivo\n");
+	}
+	char* puntero_SuperBloque;
 	printf("se creo el super bloque\n");
-	long tamanio_de_pagina=sysconf(_SC_PAGESIZE);
+	int tamanio_de_pagina=sysconf(_SC_PAGESIZE);
 	printf("el tamanio de pag es %d\n",tamanio_de_pagina);
+
+
 	/*
 	puntero_SuperBloque=mmap(NULL,superBloque_size,PROT_WRITE,MAP_SHARED,fp,0);
-
-	if(puntero_SuperBloque == -1){
-		log_info(logger, "Se produjo un error mapeando el super bloque");
+	printf("Llegue aqui\n");
+	if(puntero_SuperBloque == MAP_FAILED){
+		printf("Se produjo un error mapeando el super bloque\n");
+		return 0;
 	}
+	else
+	{
+		printf("Todo correcto por aca");
 
 	else
 	{
@@ -173,9 +209,46 @@ void* crear_superBloque(char* DIR_superBloque,int bitmap_size){
 	//	memcpy((puntero_SuperBloque+2*sizeof(uint32_t)),&bitmap, bitmap_size);
 
 	}
-	*/
-	fclose(fp);
+
+	}*/
+	close(fp);
 	return puntero_SuperBloque;
+}
+
+void crear_metadata(char* DIR_metadata){
+
+	printf("el directorio de la metadata es %s\n",DIR_metadata);
+	FILE* metadata;
+
+	metadata=fopen(DIR_metadata,"wt");
+
+	t_config* temp=config_create(DIR_metadata);
+	temp->path=DIR_metadata;
+	config_save_in_file(temp,DIR_metadata);
+
+	config_set_value(temp,"SIZE","123");
+	config_set_value(temp,"BLOCK_COUNT","4");
+	config_set_value(temp,"BLOCKS","[5,6,7,8]");
+	config_set_value(temp,"CARACTER_LLENADO","O");
+	config_set_value(temp,"MD5_ARCHIVO","MEUDEUS");
+	config_save(temp);
+
+	fclose(metadata);
 
 }
-//*/
+void generar_bitacora(char* DIR_bitacora){
+	FILE* bitacora;
+	printf("el directorio de la bitacora es %s\n",DIR_bitacora);
+	bitacora=fopen(DIR_bitacora,"w+");
+	t_config* temp=config_create(DIR_bitacora);
+	temp->path=DIR_bitacora;
+	config_set_value(temp,"SIZE","");
+	config_set_value(temp,"BLOCKS","");
+
+	config_save(temp);
+	config_destroy(temp);
+	fclose(bitacora);
+}
+char* generar_directorio(char* nombre){
+
+}

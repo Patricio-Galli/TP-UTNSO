@@ -437,3 +437,363 @@
 [INFO] 23:13:30:032 I-MONGO-STORE/(24186:24186): Generando File System limpio
 [INFO] 23:15:47:808 I-MONGO-STORE/(24351:24351): toy aqui
 [INFO] 23:15:47:809 I-MONGO-STORE/(24351:24351): Generando File System limpio
+[INFO] 23:17:35:462 I-MONGO-STORE/(24561:24561): toy aqui
+[INFO] 23:17:35:464 I-MONGO-STORE/(24561:24561): Generando File System limpio
+[INFO] 23:18:32:915 I-MONGO-STORE/(24718:24718): toy aqui
+[INFO] 23:18:32:916 I-MONGO-STORE/(24718:24718): Generando File System limpio
+[INFO] 23:18:54:255 I-MONGO-STORE/(24863:24863): toy aqui
+[INFO] 23:18:54:256 I-MONGO-STORE/(24863:24863): Generando File System limpio
+[INFO] 23:19:10:843 I-MONGO-STORE/(25008:25008): toy aqui
+[INFO] 23:19:10:851 I-MONGO-STORE/(25008:25008): Generando File System limpio
+[INFO] 23:20:03:801 I-MONGO-STORE/(25161:25161): toy aqui
+[INFO] 23:20:03:803 I-MONGO-STORE/(25161:25161): Generando File System limpio
+[INFO] 23:20:03:804 I-MONGO-STORE/(25161:25161): Creando conexiones
+[INFO] 23:20:03:804 I-MONGO-STORE/(25161:25161): Fallo en la conexión del servidor
+[INFO] 23:20:49:542 I-MONGO-STORE/(25317:25317): toy aqui
+[INFO] 23:20:49:548 I-MONGO-STORE/(25317:25317): Generando File System limpio
+[INFO] 23:20:49:549 I-MONGO-STORE/(25317:25317): Creando conexiones
+[INFO] 23:20:49:550 I-MONGO-STORE/(25317:25317): Fallo en la conexión del servidor
+[INFO] 23:24:40:403 I-MONGO-STORE/(25488:25488): toy aqui
+[INFO] 23:24:40:407 I-MONGO-STORE/(25488:25488): Generando File System limpio
+[INFO] 23:24:40:408 I-MONGO-STORE/(25488:25488): Creando conexiones
+[INFO] 23:24:40:408 I-MONGO-STORE/(25488:25488): Fallo en la conexión del servidor
+[INFO] 23:25:00:757 I-MONGO-STORE/(25640:25640): toy aqui
+[INFO] 23:25:00:759 I-MONGO-STORE/(25640:25640): Generando File System limpio
+[INFO] 23:27:51:487 I-MONGO-STORE/(25829:25829): toy aqui
+[INFO] 23:27:51:491 I-MONGO-STORE/(25829:25829): Generando File System limpio
+[INFO] 23:27:51:492 I-MONGO-STORE/(25829:25829): Creando conexiones
+[INFO] 23:27:51:492 I-MONGO-STORE/(25829:25829): Fallo en la conexión del servidor
+[INFO] 23:28:27:784 I-MONGO-STORE/(25979:25979): toy aqui
+[INFO] 23:28:27:785 I-MONGO-STORE/(25979:25979): Generando File System limpio
+[INFO] 23:28:27:786 I-MONGO-STORE/(25979:25979): Creando conexiones
+[INFO] 23:28:27:786 I-MONGO-STORE/(25979:25979): Fallo en la conexión del servidor
+[INFO] 23:29:02:112 I-MONGO-STORE/(26130:26130): toy aqui
+[INFO] 23:29:02:118 I-MONGO-STORE/(26130:26130): Generando File System limpio
+[INFO] 23:29:02:119 I-MONGO-STORE/(26130:26130): Creando conexiones
+[INFO] 23:29:02:119 I-MONGO-STORE/(26130:26130): Fallo en la conexión del servidor
+[INFO] 15:59:56:509 I-MONGO-STORE/(4004:4004): toy aqui
+[INFO] 15:59:56:632 I-MONGO-STORE/(4004:4004): Generando File System limpio
+[INFO] 15:59:56:638 I-MONGO-STORE/(4004:4004): Creando conexiones
+[INFO] 15:59:56:638 I-MONGO-STORE/(4004:4004): Servidor listo para recibir al cliente
+[INFO] 16:05:09:657 I-MONGO-STORE/(4274:4274): toy aqui
+[INFO] 16:05:09:664 I-MONGO-STORE/(4274:4274): Generando File System limpio
+[INFO] 16:05:09:666 I-MONGO-STORE/(4274:4274): Creando conexiones
+[INFO] 16:05:09:669 I-MONGO-STORE/(4274:4274): Fallo en la conexión del servidor
+[INFO] 16:08:03:225 I-MONGO-STORE/(4479:4479): toy aqui
+[INFO] 16:08:03:226 I-MONGO-STORE/(4479:4479): Generando File System limpio
+[INFO] 16:08:03:226 I-MONGO-STORE/(4479:4479): Creando conexiones
+[INFO] 16:08:03:226 I-MONGO-STORE/(4479:4479): Fallo en la conexión del servidor
+[INFO] 16:11:01:040 I-MONGO-STORE/(4675:4675): toy aqui
+[INFO] 16:11:01:042 I-MONGO-STORE/(4675:4675): Generando File System limpio
+[INFO] 16:11:01:044 I-MONGO-STORE/(4675:4675): Creando conexiones
+[INFO] 16:11:01:045 I-MONGO-STORE/(4675:4675): Fallo en la conexión del servidor
+[INFO] 16:12:05:151 I-MONGO-STORE/(4856:4856): toy aqui
+[INFO] 16:12:05:153 I-MONGO-STORE/(4856:4856): Generando File System limpio
+[INFO] 16:12:05:160 I-MONGO-STORE/(4856:4856): Creando conexiones
+[INFO] 16:12:05:160 I-MONGO-STORE/(4856:4856): Fallo en la conexión del servidor
+[INFO] 16:12:42:117 I-MONGO-STORE/(5008:5008): toy aqui
+[INFO] 16:12:42:117 I-MONGO-STORE/(5008:5008): Generando File System limpio
+[INFO] 16:13:17:485 I-MONGO-STORE/(5154:5154): toy aqui
+[INFO] 16:13:17:486 I-MONGO-STORE/(5154:5154): Generando File System limpio
+[INFO] 16:14:04:057 I-MONGO-STORE/(5304:5304): toy aqui
+[INFO] 16:14:04:058 I-MONGO-STORE/(5304:5304): Generando File System limpio
+[INFO] 16:14:19:618 I-MONGO-STORE/(5466:5466): toy aqui
+[INFO] 16:14:19:624 I-MONGO-STORE/(5466:5466): Generando File System limpio
+[INFO] 16:14:19:627 I-MONGO-STORE/(5466:5466): Creando conexiones
+[INFO] 16:14:19:627 I-MONGO-STORE/(5466:5466): Fallo en la conexión del servidor
+[INFO] 16:17:17:411 I-MONGO-STORE/(5703:5703): toy aqui
+[INFO] 16:17:17:413 I-MONGO-STORE/(5703:5703): Generando File System limpio
+[INFO] 16:17:17:415 I-MONGO-STORE/(5703:5703): Creando conexiones
+[INFO] 16:17:17:415 I-MONGO-STORE/(5703:5703): Fallo en la conexión del servidor
+[INFO] 16:20:58:803 I-MONGO-STORE/(6142:6142): toy aqui
+[INFO] 16:20:58:806 I-MONGO-STORE/(6142:6142): Generando File System limpio
+[INFO] 16:20:58:807 I-MONGO-STORE/(6142:6142): Creando conexiones
+[INFO] 16:20:58:807 I-MONGO-STORE/(6142:6142): Servidor listo para recibir al cliente
+[INFO] 16:25:18:887 I-MONGO-STORE/(6669:6669): toy aqui
+[INFO] 16:25:18:893 I-MONGO-STORE/(6669:6669): Generando File System limpio
+[INFO] 16:25:18:895 I-MONGO-STORE/(6669:6669): Creando conexiones
+[INFO] 16:25:18:895 I-MONGO-STORE/(6669:6669): Fallo en la conexión del servidor
+[INFO] 16:25:33:008 I-MONGO-STORE/(6829:6829): toy aqui
+[INFO] 16:25:33:009 I-MONGO-STORE/(6829:6829): Generando File System limpio
+[INFO] 16:25:33:009 I-MONGO-STORE/(6829:6829): Creando conexiones
+[INFO] 16:25:33:009 I-MONGO-STORE/(6829:6829): Fallo en la conexión del servidor
+[INFO] 16:26:24:594 I-MONGO-STORE/(6995:6995): toy aqui
+[INFO] 16:26:24:604 I-MONGO-STORE/(6995:6995): Generando File System limpio
+[INFO] 16:26:24:606 I-MONGO-STORE/(6995:6995): Creando conexiones
+[INFO] 16:26:24:606 I-MONGO-STORE/(6995:6995): Fallo en la conexión del servidor
+[INFO] 19:56:40:668 I-MONGO-STORE/(4815:4815): toy aqui
+[INFO] 19:56:40:695 I-MONGO-STORE/(4815:4815): Generando File System limpio
+[INFO] 19:56:40:696 I-MONGO-STORE/(4815:4815): Creando conexiones
+[INFO] 19:56:40:696 I-MONGO-STORE/(4815:4815): Servidor listo para recibir al cliente
+[INFO] 19:57:45:731 I-MONGO-STORE/(4983:4983): toy aqui
+[INFO] 19:57:45:733 I-MONGO-STORE/(4983:4983): Generando File System limpio
+[INFO] 20:00:39:678 I-MONGO-STORE/(5251:5251): toy aqui
+[INFO] 20:00:39:698 I-MONGO-STORE/(5251:5251): Generando File System limpio
+[INFO] 20:03:32:049 I-MONGO-STORE/(5539:5539): toy aqui
+[INFO] 20:03:32:050 I-MONGO-STORE/(5539:5539): Generando File System limpio
+[INFO] 20:04:18:569 I-MONGO-STORE/(5715:5715): toy aqui
+[INFO] 20:04:18:570 I-MONGO-STORE/(5715:5715): Ya esta creado el archivo
+[INFO] 20:04:55:566 I-MONGO-STORE/(5880:5880): toy aqui
+[INFO] 20:04:55:571 I-MONGO-STORE/(5880:5880): Generando File System limpio
+[INFO] 20:05:51:021 I-MONGO-STORE/(6070:6070): toy aqui
+[INFO] 20:05:51:023 I-MONGO-STORE/(6070:6070): Generando File System limpio
+[INFO] 20:06:47:738 I-MONGO-STORE/(6260:6260): toy aqui
+[INFO] 20:06:47:748 I-MONGO-STORE/(6260:6260): Ya esta creado el archivo
+[INFO] 20:06:56:766 I-MONGO-STORE/(6401:6401): toy aqui
+[INFO] 20:06:56:778 I-MONGO-STORE/(6401:6401): Generando File System limpio
+[INFO] 20:07:32:936 I-MONGO-STORE/(6559:6559): toy aqui
+[INFO] 20:07:32:938 I-MONGO-STORE/(6559:6559): Ya esta creado el archivo
+[INFO] 20:07:47:377 I-MONGO-STORE/(6695:6695): toy aqui
+[INFO] 20:07:47:387 I-MONGO-STORE/(6695:6695): Generando File System limpio
+[INFO] 20:08:06:687 I-MONGO-STORE/(6846:6846): toy aqui
+[INFO] 20:08:06:705 I-MONGO-STORE/(6846:6846): Ya esta creado el archivo
+[INFO] 20:08:27:413 I-MONGO-STORE/(6996:6996): toy aqui
+[INFO] 20:08:27:426 I-MONGO-STORE/(6996:6996): Generando File System limpio
+[INFO] 20:09:19:260 I-MONGO-STORE/(7176:7176): toy aqui
+[INFO] 20:09:19:272 I-MONGO-STORE/(7176:7176): Generando File System limpio
+[INFO] 20:09:19:276 I-MONGO-STORE/(7176:7176): Creando conexiones
+[INFO] 20:09:19:280 I-MONGO-STORE/(7176:7176): Fallo en la conexión del servidor
+[INFO] 20:09:49:649 I-MONGO-STORE/(7325:7325): toy aqui
+[INFO] 20:09:49:660 I-MONGO-STORE/(7325:7325): Generando File System limpio
+[INFO] 20:09:49:667 I-MONGO-STORE/(7325:7325): Creando conexiones
+[INFO] 20:09:49:668 I-MONGO-STORE/(7325:7325): Fallo en la conexión del servidor
+[INFO] 20:11:18:926 I-MONGO-STORE/(7623:7623): toy aqui
+[INFO] 20:11:18:928 I-MONGO-STORE/(7623:7623): Ya esta creado el archivo
+[INFO] 20:11:27:634 I-MONGO-STORE/(7763:7763): toy aqui
+[INFO] 20:11:27:641 I-MONGO-STORE/(7763:7763): Generando File System limpio
+[INFO] 20:11:27:641 I-MONGO-STORE/(7763:7763): Creando conexiones
+[INFO] 20:11:27:642 I-MONGO-STORE/(7763:7763): Fallo en la conexión del servidor
+[INFO] 20:12:36:399 I-MONGO-STORE/(7945:7945): toy aqui
+[INFO] 20:12:36:405 I-MONGO-STORE/(7945:7945): Generando File System limpio
+[INFO] 20:12:36:406 I-MONGO-STORE/(7945:7945): Creando conexiones
+[INFO] 20:12:36:408 I-MONGO-STORE/(7945:7945): Fallo en la conexión del servidor
+[INFO] 20:20:48:333 I-MONGO-STORE/(8271:8271): toy aqui
+[INFO] 20:20:48:336 I-MONGO-STORE/(8271:8271): Ya esta creado el archivo
+[INFO] 20:21:27:488 I-MONGO-STORE/(8427:8427): toy aqui
+[INFO] 20:21:27:489 I-MONGO-STORE/(8427:8427): Generando File System limpio
+[INFO] 20:21:27:490 I-MONGO-STORE/(8427:8427): Creando conexiones
+[INFO] 20:21:27:490 I-MONGO-STORE/(8427:8427): Fallo en la conexión del servidor
+[INFO] 19:35:27:927 I-MONGO-STORE/(6454:6454): toy aqui
+[INFO] 19:35:27:945 I-MONGO-STORE/(6454:6454): Generando File System limpio
+[INFO] 19:35:27:946 I-MONGO-STORE/(6454:6454): Creando conexiones
+[INFO] 19:35:27:946 I-MONGO-STORE/(6454:6454): Servidor listo para recibir al cliente
+[INFO] 19:39:23:038 I-MONGO-STORE/(6655:6655): toy aqui
+[INFO] 19:39:23:039 I-MONGO-STORE/(6655:6655): Ya esta creado el archivo
+[INFO] 19:39:44:986 I-MONGO-STORE/(6800:6800): toy aqui
+[INFO] 19:39:44:987 I-MONGO-STORE/(6800:6800): Ya esta creado el archivo
+[INFO] 19:40:02:832 I-MONGO-STORE/(6942:6942): toy aqui
+[INFO] 19:40:02:840 I-MONGO-STORE/(6942:6942): Generando File System limpio
+[INFO] 19:41:19:981 I-MONGO-STORE/(7120:7120): toy aqui
+[INFO] 19:41:19:984 I-MONGO-STORE/(7120:7120): Generando File System limpio
+[INFO] 19:51:59:915 I-MONGO-STORE/(7382:7382): toy aqui
+[INFO] 19:51:59:915 I-MONGO-STORE/(7382:7382): Ya esta creado el archivo
+[INFO] 19:52:16:550 I-MONGO-STORE/(7520:7520): toy aqui
+[INFO] 19:52:16:553 I-MONGO-STORE/(7520:7520): Generando File System limpio
+[INFO] 19:53:46:444 I-MONGO-STORE/(7725:7725): toy aqui
+[INFO] 19:53:46:445 I-MONGO-STORE/(7725:7725): Ya esta creado el archivo
+[INFO] 19:54:04:075 I-MONGO-STORE/(7875:7875): toy aqui
+[INFO] 19:54:04:078 I-MONGO-STORE/(7875:7875): Generando File System limpio
+[INFO] 19:56:16:897 I-MONGO-STORE/(8116:8116): toy aqui
+[INFO] 19:56:16:902 I-MONGO-STORE/(8116:8116): Generando File System limpio
+[INFO] 19:57:28:255 I-MONGO-STORE/(8302:8302): toy aqui
+[INFO] 19:57:28:255 I-MONGO-STORE/(8302:8302): Generando File System limpio
+[INFO] 19:58:20:112 I-MONGO-STORE/(8466:8466): toy aqui
+[INFO] 19:58:20:115 I-MONGO-STORE/(8466:8466): Generando File System limpio
+[INFO] 20:00:34:448 I-MONGO-STORE/(8664:8664): toy aqui
+[INFO] 20:00:34:464 I-MONGO-STORE/(8664:8664): Generando File System limpio
+[INFO] 20:00:46:757 I-MONGO-STORE/(8812:8812): toy aqui
+[INFO] 20:00:46:757 I-MONGO-STORE/(8812:8812): Ya esta creado el archivo
+[INFO] 20:00:56:524 I-MONGO-STORE/(8947:8947): toy aqui
+[INFO] 20:00:56:527 I-MONGO-STORE/(8947:8947): Generando File System limpio
+[INFO] 20:01:38:849 I-MONGO-STORE/(9101:9101): toy aqui
+[INFO] 20:01:38:866 I-MONGO-STORE/(9101:9101): Ya esta creado el archivo
+[INFO] 20:01:50:505 I-MONGO-STORE/(9237:9237): toy aqui
+[INFO] 20:01:50:508 I-MONGO-STORE/(9237:9237): Generando File System limpio
+[INFO] 20:02:09:095 I-MONGO-STORE/(9392:9392): toy aqui
+[INFO] 20:02:09:095 I-MONGO-STORE/(9392:9392): Ya esta creado el archivo
+[INFO] 20:02:15:613 I-MONGO-STORE/(9527:9527): toy aqui
+[INFO] 20:02:15:617 I-MONGO-STORE/(9527:9527): Generando File System limpio
+[INFO] 20:02:36:813 I-MONGO-STORE/(9674:9674): toy aqui
+[INFO] 20:02:36:816 I-MONGO-STORE/(9674:9674): Generando File System limpio
+[INFO] 20:03:50:596 I-MONGO-STORE/(9921:9921): toy aqui
+[INFO] 20:03:50:598 I-MONGO-STORE/(9921:9921): Generando File System limpio
+[INFO] 20:04:46:119 I-MONGO-STORE/(10119:10119): toy aqui
+[INFO] 20:04:46:122 I-MONGO-STORE/(10119:10119): Generando File System limpio
+[INFO] 20:05:28:149 I-MONGO-STORE/(10267:10267): toy aqui
+[INFO] 20:05:28:150 I-MONGO-STORE/(10267:10267): Ya esta creado el archivo
+[INFO] 20:05:36:276 I-MONGO-STORE/(10413:10413): toy aqui
+[INFO] 20:05:36:277 I-MONGO-STORE/(10413:10413): Generando File System limpio
+[INFO] 20:06:31:509 I-MONGO-STORE/(10567:10567): toy aqui
+[INFO] 20:06:31:518 I-MONGO-STORE/(10567:10567): Generando File System limpio
+[INFO] 20:14:54:619 I-MONGO-STORE/(10878:10878): toy aqui
+[INFO] 20:14:54:620 I-MONGO-STORE/(10878:10878): Ya esta creado el archivo
+[INFO] 20:15:33:602 I-MONGO-STORE/(11023:11023): toy aqui
+[INFO] 20:15:33:606 I-MONGO-STORE/(11023:11023): Generando File System limpio
+[INFO] 20:16:24:966 I-MONGO-STORE/(11175:11175): toy aqui
+[INFO] 20:16:24:967 I-MONGO-STORE/(11175:11175): Ya esta creado el archivo
+[INFO] 20:16:39:800 I-MONGO-STORE/(11318:11318): toy aqui
+[INFO] 20:16:39:805 I-MONGO-STORE/(11318:11318): Generando File System limpio
+[INFO] 20:18:34:033 I-MONGO-STORE/(11490:11490): toy aqui
+[INFO] 20:18:34:034 I-MONGO-STORE/(11490:11490): Ya esta creado el archivo
+[INFO] 20:18:45:496 I-MONGO-STORE/(11627:11627): toy aqui
+[INFO] 20:18:45:503 I-MONGO-STORE/(11627:11627): Generando File System limpio
+[INFO] 20:20:04:779 I-MONGO-STORE/(11796:11796): toy aqui
+[INFO] 20:20:04:791 I-MONGO-STORE/(11796:11796): Ya esta creado el archivo
+[INFO] 20:20:13:683 I-MONGO-STORE/(11933:11933): toy aqui
+[INFO] 20:20:13:687 I-MONGO-STORE/(11933:11933): Generando File System limpio
+[INFO] 20:20:44:049 I-MONGO-STORE/(12073:12073): toy aqui
+[INFO] 20:20:44:050 I-MONGO-STORE/(12073:12073): Ya esta creado el archivo
+[INFO] 20:21:20:155 I-MONGO-STORE/(12224:12224): toy aqui
+[INFO] 20:21:20:170 I-MONGO-STORE/(12224:12224): Ya esta creado el archivo
+[INFO] 20:21:33:845 I-MONGO-STORE/(12357:12357): toy aqui
+[INFO] 20:21:33:848 I-MONGO-STORE/(12357:12357): Generando File System limpio
+[INFO] 20:23:29:813 I-MONGO-STORE/(12548:12548): toy aqui
+[INFO] 20:23:29:815 I-MONGO-STORE/(12548:12548): Ya esta creado el archivo
+[INFO] 20:26:13:364 I-MONGO-STORE/(12760:12760): toy aqui
+[INFO] 20:26:13:372 I-MONGO-STORE/(12760:12760): Ya esta creado el archivo
+[INFO] 20:26:26:485 I-MONGO-STORE/(12894:12894): toy aqui
+[INFO] 20:26:26:488 I-MONGO-STORE/(12894:12894): Generando File System limpio
+[INFO] 20:27:47:544 I-MONGO-STORE/(13052:13052): toy aqui
+[INFO] 20:27:47:545 I-MONGO-STORE/(13052:13052): Ya esta creado el archivo
+[INFO] 20:28:03:408 I-MONGO-STORE/(13196:13196): toy aqui
+[INFO] 20:28:03:424 I-MONGO-STORE/(13196:13196): Generando File System limpio
+[INFO] 20:29:44:050 I-MONGO-STORE/(13367:13367): toy aqui
+[INFO] 20:29:44:051 I-MONGO-STORE/(13367:13367): Ya esta creado el archivo
+[INFO] 20:29:48:681 I-MONGO-STORE/(13502:13502): toy aqui
+[INFO] 20:29:48:686 I-MONGO-STORE/(13502:13502): Generando File System limpio
+[INFO] 20:30:23:449 I-MONGO-STORE/(13669:13669): toy aqui
+[INFO] 20:30:23:459 I-MONGO-STORE/(13669:13669): Generando File System limpio
+[INFO] 20:30:42:101 I-MONGO-STORE/(13823:13823): toy aqui
+[INFO] 20:30:42:104 I-MONGO-STORE/(13823:13823): Generando File System limpio
+[INFO] 20:32:00:039 I-MONGO-STORE/(14065:14065): toy aqui
+[INFO] 20:32:00:043 I-MONGO-STORE/(14065:14065): Generando File System limpio
+[INFO] 20:32:59:945 I-MONGO-STORE/(14311:14311): toy aqui
+[INFO] 20:32:59:955 I-MONGO-STORE/(14311:14311): Generando File System limpio
+[INFO] 20:34:00:127 I-MONGO-STORE/(14502:14502): toy aqui
+[INFO] 20:34:00:130 I-MONGO-STORE/(14502:14502): Generando File System limpio
+[INFO] 20:35:04:485 I-MONGO-STORE/(14753:14753): toy aqui
+[INFO] 20:35:04:487 I-MONGO-STORE/(14753:14753): Generando File System limpio
+[INFO] 20:36:26:182 I-MONGO-STORE/(14928:14928): toy aqui
+[INFO] 20:36:26:183 I-MONGO-STORE/(14928:14928): Ya esta creado el archivo
+[INFO] 20:36:36:547 I-MONGO-STORE/(15076:15076): toy aqui
+[INFO] 20:36:36:563 I-MONGO-STORE/(15076:15076): Generando File System limpio
+[INFO] 20:39:16:005 I-MONGO-STORE/(15261:15261): toy aqui
+[INFO] 20:39:16:011 I-MONGO-STORE/(15261:15261): Ya esta creado el archivo
+[INFO] 20:39:24:090 I-MONGO-STORE/(15400:15400): toy aqui
+[INFO] 20:39:24:094 I-MONGO-STORE/(15400:15400): Generando File System limpio
+[INFO] 20:40:13:208 I-MONGO-STORE/(15686:15686): toy aqui
+[INFO] 20:40:13:212 I-MONGO-STORE/(15686:15686): Generando File System limpio
+[INFO] 20:41:18:604 I-MONGO-STORE/(15934:15934): toy aqui
+[INFO] 20:41:18:609 I-MONGO-STORE/(15934:15934): Generando File System limpio
+[INFO] 20:42:26:874 I-MONGO-STORE/(16107:16107): toy aqui
+[INFO] 20:42:26:875 I-MONGO-STORE/(16107:16107): Generando File System limpio
+[INFO] 20:44:05:027 I-MONGO-STORE/(16349:16349): toy aqui
+[INFO] 20:44:05:029 I-MONGO-STORE/(16349:16349): Generando File System limpio
+[INFO] 20:45:35:868 I-MONGO-STORE/(16514:16514): toy aqui
+[INFO] 20:45:35:876 I-MONGO-STORE/(16514:16514): Generando File System limpio
+[INFO] 20:47:47:080 I-MONGO-STORE/(16729:16729): toy aqui
+[INFO] 20:47:47:081 I-MONGO-STORE/(16729:16729): Ya esta creado el archivo
+[INFO] 20:48:22:536 I-MONGO-STORE/(16894:16894): toy aqui
+[INFO] 20:48:22:537 I-MONGO-STORE/(16894:16894): Ya esta creado el archivo
+[INFO] 20:48:50:420 I-MONGO-STORE/(17054:17054): toy aqui
+[INFO] 20:48:50:421 I-MONGO-STORE/(17054:17054): Generando File System limpio
+[INFO] 20:49:35:512 I-MONGO-STORE/(17224:17224): toy aqui
+[INFO] 20:49:35:520 I-MONGO-STORE/(17224:17224): Ya esta creado el archivo
+[INFO] 20:49:43:974 I-MONGO-STORE/(17358:17358): toy aqui
+[INFO] 20:49:43:986 I-MONGO-STORE/(17358:17358): Generando File System limpio
+[INFO] 20:49:57:657 I-MONGO-STORE/(17505:17505): toy aqui
+[INFO] 20:49:57:667 I-MONGO-STORE/(17505:17505): Ya esta creado el archivo
+[INFO] 20:50:06:024 I-MONGO-STORE/(17640:17640): toy aqui
+[INFO] 20:50:06:033 I-MONGO-STORE/(17640:17640): Generando File System limpio
+[INFO] 20:54:58:674 I-MONGO-STORE/(17885:17885): toy aqui
+[INFO] 20:54:58:677 I-MONGO-STORE/(17885:17885): Ya esta creado el archivo
+[INFO] 20:55:07:853 I-MONGO-STORE/(18028:18028): toy aqui
+[INFO] 20:55:07:861 I-MONGO-STORE/(18028:18028): Generando File System limpio
+[INFO] 20:55:35:516 I-MONGO-STORE/(18180:18180): toy aqui
+[INFO] 20:55:35:529 I-MONGO-STORE/(18180:18180): Ya esta creado el archivo
+[INFO] 20:55:42:184 I-MONGO-STORE/(18314:18314): toy aqui
+[INFO] 20:55:42:192 I-MONGO-STORE/(18314:18314): Generando File System limpio
+[INFO] 20:57:17:154 I-MONGO-STORE/(18483:18483): toy aqui
+[INFO] 20:57:17:158 I-MONGO-STORE/(18483:18483): Ya esta creado el archivo
+[INFO] 20:57:38:268 I-MONGO-STORE/(18640:18640): toy aqui
+[INFO] 20:57:38:273 I-MONGO-STORE/(18640:18640): Generando File System limpio
+[INFO] 20:58:16:092 I-MONGO-STORE/(18809:18809): toy aqui
+[INFO] 20:58:16:105 I-MONGO-STORE/(18809:18809): Ya esta creado el archivo
+[INFO] 20:58:26:270 I-MONGO-STORE/(18953:18953): toy aqui
+[INFO] 20:58:26:277 I-MONGO-STORE/(18953:18953): Generando File System limpio
+[INFO] 21:00:13:125 I-MONGO-STORE/(19144:19144): toy aqui
+[INFO] 21:00:13:128 I-MONGO-STORE/(19144:19144): Generando File System limpio
+[INFO] 21:00:53:559 I-MONGO-STORE/(19308:19308): toy aqui
+[INFO] 21:00:53:569 I-MONGO-STORE/(19308:19308): Ya esta creado el archivo
+[INFO] 21:01:01:306 I-MONGO-STORE/(19451:19451): toy aqui
+[INFO] 21:01:01:315 I-MONGO-STORE/(19451:19451): Generando File System limpio
+[INFO] 21:01:37:774 I-MONGO-STORE/(19615:19615): toy aqui
+[INFO] 21:01:37:775 I-MONGO-STORE/(19615:19615): Ya esta creado el archivo
+[INFO] 21:01:45:925 I-MONGO-STORE/(19751:19751): toy aqui
+[INFO] 21:01:45:928 I-MONGO-STORE/(19751:19751): Generando File System limpio
+[INFO] 21:04:18:318 I-MONGO-STORE/(20054:20054): toy aqui
+[INFO] 21:04:18:318 I-MONGO-STORE/(20054:20054): Generando File System limpio
+[INFO] 21:05:55:358 I-MONGO-STORE/(20232:20232): toy aqui
+[INFO] 21:05:55:360 I-MONGO-STORE/(20232:20232): Ya esta creado el archivo
+[INFO] 21:06:08:031 I-MONGO-STORE/(20380:20380): toy aqui
+[INFO] 21:06:08:040 I-MONGO-STORE/(20380:20380): Generando File System limpio
+[INFO] 21:06:26:630 I-MONGO-STORE/(20531:20531): toy aqui
+[INFO] 21:06:26:631 I-MONGO-STORE/(20531:20531): Ya esta creado el archivo
+[INFO] 21:06:33:922 I-MONGO-STORE/(20666:20666): toy aqui
+[INFO] 21:06:33:927 I-MONGO-STORE/(20666:20666): Generando File System limpio
+[INFO] 21:06:33:932 I-MONGO-STORE/(20666:20666): Creando conexiones
+[INFO] 21:06:33:938 I-MONGO-STORE/(20666:20666): Servidor listo para recibir al cliente
+[INFO] 21:07:29:579 I-MONGO-STORE/(20836:20836): toy aqui
+[INFO] 21:07:29:580 I-MONGO-STORE/(20836:20836): Ya esta creado el archivo
+[INFO] 21:07:45:942 I-MONGO-STORE/(20992:20992): toy aqui
+[INFO] 21:07:45:943 I-MONGO-STORE/(20992:20992): Generando File System limpio
+[INFO] 21:07:45:947 I-MONGO-STORE/(20992:20992): Creando conexiones
+[INFO] 21:07:45:947 I-MONGO-STORE/(20992:20992): Fallo en la conexión del servidor
+[INFO] 21:18:56:718 I-MONGO-STORE/(21311:21311): toy aqui
+[INFO] 21:18:56:719 I-MONGO-STORE/(21311:21311): Ya esta creado el archivo
+[INFO] 21:19:06:184 I-MONGO-STORE/(21454:21454): toy aqui
+[INFO] 21:19:06:192 I-MONGO-STORE/(21454:21454): Generando File System limpio
+[INFO] 21:20:27:595 I-MONGO-STORE/(21639:21639): toy aqui
+[INFO] 21:20:27:597 I-MONGO-STORE/(21639:21639): Ya esta creado el archivo
+[INFO] 21:20:34:436 I-MONGO-STORE/(21775:21775): toy aqui
+[INFO] 21:20:34:446 I-MONGO-STORE/(21775:21775): Generando File System limpio
+[INFO] 21:21:05:957 I-MONGO-STORE/(21935:21935): toy aqui
+[INFO] 21:21:05:957 I-MONGO-STORE/(21935:21935): Ya esta creado el archivo
+[INFO] 21:21:12:511 I-MONGO-STORE/(22070:22070): toy aqui
+[INFO] 21:21:12:515 I-MONGO-STORE/(22070:22070): Generando File System limpio
+[INFO] 21:21:30:641 I-MONGO-STORE/(22218:22218): toy aqui
+[INFO] 21:21:30:643 I-MONGO-STORE/(22218:22218): Ya esta creado el archivo
+[INFO] 21:21:36:331 I-MONGO-STORE/(22354:22354): toy aqui
+[INFO] 21:21:36:337 I-MONGO-STORE/(22354:22354): Generando File System limpio
+[INFO] 21:22:31:313 I-MONGO-STORE/(22863:22863): toy aqui
+[INFO] 21:22:31:318 I-MONGO-STORE/(22863:22863): Ya esta creado el archivo
+[INFO] 21:22:40:288 I-MONGO-STORE/(22998:22998): toy aqui
+[INFO] 21:22:40:298 I-MONGO-STORE/(22998:22998): Generando File System limpio
+[INFO] 16:44:48:295 I-MONGO-STORE/(4117:4117): toy aqui
+[INFO] 16:44:48:401 I-MONGO-STORE/(4117:4117): Generando File System limpio
+[INFO] 16:45:40:903 I-MONGO-STORE/(4302:4302): toy aqui
+[INFO] 16:45:40:904 I-MONGO-STORE/(4302:4302): Generando File System limpio
+[INFO] 16:46:31:379 I-MONGO-STORE/(4462:4462): toy aqui
+[INFO] 16:46:31:391 I-MONGO-STORE/(4462:4462): Generando File System limpio
+[INFO] 16:47:03:177 I-MONGO-STORE/(4640:4640): toy aqui
+[INFO] 16:47:03:185 I-MONGO-STORE/(4640:4640): Generando File System limpio
+[INFO] 16:47:23:903 I-MONGO-STORE/(4803:4803): toy aqui
+[INFO] 16:47:23:910 I-MONGO-STORE/(4803:4803): Generando File System limpio
+[INFO] 16:47:23:915 I-MONGO-STORE/(4803:4803): Creando conexiones
+[INFO] 16:47:23:917 I-MONGO-STORE/(4803:4803): Servidor listo para recibir al cliente
+[INFO] 16:49:02:107 I-MONGO-STORE/(5019:5019): toy aqui
+[INFO] 16:49:02:113 I-MONGO-STORE/(5019:5019): Generando File System limpio
+[INFO] 16:49:02:114 I-MONGO-STORE/(5019:5019): Creando conexiones
+[INFO] 16:49:02:115 I-MONGO-STORE/(5019:5019): Fallo en la conexión del servidor
+[INFO] 16:49:58:068 I-MONGO-STORE/(5189:5189): toy aqui
+[INFO] 16:49:58:078 I-MONGO-STORE/(5189:5189): Generando File System limpio
+[INFO] 16:49:58:084 I-MONGO-STORE/(5189:5189): Creando conexiones
+[INFO] 16:49:58:085 I-MONGO-STORE/(5189:5189): Fallo en la conexión del servidor
+[INFO] 16:52:38:755 I-MONGO-STORE/(5391:5391): toy aqui
+[INFO] 16:52:38:763 I-MONGO-STORE/(5391:5391): Generando File System limpio
+[INFO] 16:52:38:767 I-MONGO-STORE/(5391:5391): Creando conexiones
+[INFO] 16:52:38:769 I-MONGO-STORE/(5391:5391): Fallo en la conexión del servidor
+[INFO] 17:22:32:519 I-MONGO-STORE/(6125:6125): toy aqui
+[INFO] 17:22:32:521 I-MONGO-STORE/(6125:6125): Generando File System limpio
+[INFO] 17:22:32:527 I-MONGO-STORE/(6125:6125): Creando conexiones
+[INFO] 17:22:32:528 I-MONGO-STORE/(6125:6125): Fallo en la conexión del servidor
