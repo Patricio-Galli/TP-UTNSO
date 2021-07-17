@@ -67,11 +67,15 @@ bool ejecutar(char* input, tripulante* trip) {
 
 	moverse(trip, atoi(buffer[1]), atoi(buffer[2]));
 
-	char** comando_tarea = string_split(buffer[0], " ");
-	tareas tarea = stringToEnum(comando_tarea[0]);
+	if(trip->quantum_disponible) {
+		char** comando_tarea = string_split(buffer[0], " ");
+		tareas tarea = stringToEnum(comando_tarea[0]);
 
-	if(tarea != ESPERAR && trip->quantum_disponible)
-		ejecutar_io(trip, tarea, atoi(comando_tarea[1]));
+		if(tarea != ESPERAR)
+			ejecutar_io(trip, tarea, atoi(comando_tarea[1]));
+
+		liberar_input(comando_tarea);
+	}
 
 	bool termino_tarea = esperar(atoi(buffer[3]), trip);
 
@@ -82,7 +86,7 @@ bool ejecutar(char* input, tripulante* trip) {
 			enviar_y_verificar(crear_mensaje(EXEC_0), trip->socket_mongo, "Fallo en comunicacion con el mongo");
 	}
 
-	if(analizar_quantum && !trip->quantum_disponible) {
+	if(!trip->quantum_disponible) {
 		log_info(logger,"Tripulante %d se quedo sin quantum", trip->id_trip);
 
 		quitar_running(trip);
@@ -93,7 +97,6 @@ bool ejecutar(char* input, tripulante* trip) {
 	}
 
 	liberar_input(buffer);
-	liberar_input(comando_tarea);
 
 	return termino_tarea;
 }

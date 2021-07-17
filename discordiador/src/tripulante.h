@@ -41,7 +41,8 @@ typedef enum {
     BLOCKED,
     READY,
     RUNNING,
-    EXIT
+    EXIT,
+	EMERGENCY
 }estado;
 
 //tareas

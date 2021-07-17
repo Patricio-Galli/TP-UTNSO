@@ -10,6 +10,8 @@
 
 t_queue* cola_ready;
 t_queue* cola_blocked;
+
+t_list* cola_emergencia;
 t_list* tripulantes_running;
 tripulante* trip_block;
 
@@ -39,7 +41,11 @@ void* detector_sabotaje(void* socket);
 void agregar_ready(tripulante* trip);
 void agregar_running(tripulante* trip);
 void agregar_blocked(tripulante* trip);
+tripulante* quitar_ready();
 void quitar_running(tripulante* trip);
 void quitar(tripulante*, t_list*);
+
+void emergency_trips_running();
+void emergency_trips_ready();
 
 #endif /* PLANIFICADOR_H_ */

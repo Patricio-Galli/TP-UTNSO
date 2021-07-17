@@ -10,6 +10,7 @@ void inicializar_planificador(int grado_multiprocesamiento, char* algoritmo, int
 	cola_ready = queue_create();
 	cola_blocked = queue_create();
 
+	cola_emergencia = list_create();
 	tripulantes_running = list_create();
 
 	pthread_mutex_init(&mutex_cola_ready, NULL);
@@ -48,9 +49,7 @@ void* planificador(void* algoritmo) {
 		sem_wait(&tripulantes_ready);
 		sem_wait(&multiprocesamiento);
 
-		pthread_mutex_lock(&mutex_cola_ready);
-			tripulante* trip = (tripulante*)queue_pop(cola_ready);
-		pthread_mutex_unlock(&mutex_cola_ready);
+		tripulante* trip = quitar_ready();
 
 		agregar_running(trip);
 	}
@@ -100,6 +99,13 @@ void agregar_blocked(tripulante* trip) {
 	pthread_mutex_unlock(&mutex_cola_blocked);
 }
 
+tripulante* quitar_ready() {
+	pthread_mutex_lock(&mutex_cola_ready);
+		tripulante* trip = (tripulante*)queue_pop(cola_ready);
+	pthread_mutex_unlock(&mutex_cola_ready);
+	return trip;
+}
+
 void quitar_running(tripulante* trip) {
 	pthread_mutex_lock(&mutex_tripulantes_running);
 		quitar(trip, tripulantes_running);
@@ -122,13 +128,75 @@ void quitar(tripulante* trip, t_list* list) {
 	}
 }
 
+void emergency_trips_running() {
+	while(!list_is_empty(tripulantes_running)) {
+		int index = list_size(tripulantes_running);
+		tripulante* trip_quitar = (tripulante*)list_get(tripulantes_running, index);
+		index--;
+		while(index >= 0) {
+			tripulante* nuevo_tripulante = (tripulante*)list_get(tripulantes_running, index);
+
+			if(nuevo_tripulante->id_trip < trip_quitar->id_trip || (nuevo_tripulante->id_trip == trip_quitar->id_trip && nuevo_tripulante->id_patota < trip_quitar->id_patota))
+				trip_quitar = nuevo_tripulante;
+
+			index--;
+		}
+		actualizar_estado(trip_quitar, EMERGENCY);
+		list_add(cola_emergencia, trip_quitar);
+		//todo le digo que deje de trabajar
+		list_remove(tripulantes_running, trip_quitar);//todo verificar el caso en el que a medida que los saco de running se sigan metiendo los ready en running
+	}
+}
+
+void emergency_trips_ready() {
+	while(!queue_is_empty(tripulantes_ready)) {
+		tripulante* trip = quitar_ready();
+		list_add(cola_emergencia, trip);
+
+		actualizar_estado(trip, EMERGENCY);
+	}
+}
+
 void* detector_sabotaje(void* socket_mongo) {
-	while(1) {
+	while(!*salir) {
 		t_list* mensaje_sabotaje = recibir_mensaje(*(int*)socket_mongo);
 
-		if((int)list_get(mensaje_sabotaje, 0) == SABO_P)
-			log_info(logger, "Hubo un sabotaje en %d|%d", (int)list_get(mensaje_sabotaje, 1), (int) list_get(mensaje_sabotaje, 2));
-		else
+		if((int)list_get(mensaje_sabotaje, 0) == SABO_P) {
+			int pos_x = (int)list_get(mensaje_sabotaje, 1);
+			int pos_y = (int) list_get(mensaje_sabotaje, 2);
+
+			log_info(logger, "Hubo un sabotaje en %d|%d", pos_x, pos_y);
+
+			emergency_trips_running();
+			emergency_trips_ready();
+			//emergency_blocked
+
+			if(!list_is_empty(cola_emergencia)){
+				int index = list_size(tripulantes_running);
+				tripulante* resolvedor = (tripulante*)list_get(tripulantes_running, index);
+				index--;
+
+				while(index >= 0) {
+					tripulante* posible_resolvedor = (tripulante*)list_get(tripulantes_running, index);
+
+					if(distancia_a(posible_resolvedor, pos_x, pos_y) <= distancia_a(resolvedor, pos_x, pos_y))
+						resolvedor = posible_resolvedor;
+
+					index--;
+				}
+
+				//todo decirle al resolvedor que resuelva el sabotaje
+				index = 0;
+				do {
+					tripulante* trip = (tripulante*)list_get(cola_emergencia, index);
+					agregar_ready(trip);
+					list_remove(cola_emergencia, trip);
+					index++;
+				}while(!list_is_empty(cola_emergencia));
+
+			}else
+				log_error(logger, "No hay tripulantes en la nave, no se puede resolver el sabotaje");
+		}else
 			log_warning(logger, "No entendi el mensaje");
 
 		list_destroy(mensaje_sabotaje);
