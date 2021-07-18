@@ -4,13 +4,16 @@
 #include "memoria_ram.h"
 #include "tripulante.h"
 
-#include <nivel-gui/nivel-gui.h>
-#include <nivel-gui/tad_nivel.h>
+#include <utils/nivel-gui.h>
+#include <utils/tad_nivel.h>
 
 #include <stdlib.h>
+#include <stdint.h>
 #include <curses.h>
 #include <commons/collections/list.h>
+#include <commons/log.h>
 
-void dibujar_mapa();
+void dibujar_mapa(void* continuar_consola);
+char obtener_id_tripulante(NIVEL* nivel, uint32_t id_patota, uint32_t id_trip);
 
 #endif /* _CONSOLA_H_ */

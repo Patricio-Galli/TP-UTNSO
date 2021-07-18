@@ -2,7 +2,7 @@
 
 // int variable = 1;
 
-void loggear_data(t_log* logger) {
+void loggear_data(/*t_log* logger*/) {
 	log_info(logger, "NUEVOS RESULTADOS");
 	log_info(logger, "Cantidad de segmentos: %d. Memoria libre: %d", mapa_segmentos->elements_count, memoria_libre());
 	for (int i = 0; i < mapa_segmentos->elements_count; i++) {
@@ -35,7 +35,6 @@ void loggear_data(t_log* logger) {
 	log_info(logger, "Lista de tripulantes activos: %d", list_size(lista_tripulantes));
 	for(int i = 0; i < lista_tripulantes->elements_count; i++) {
 		inicio = ((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->inicio;
-		if(((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->seguir == true)
 		log_info(logger, "TID: %d; inicio: %d; estado: %c; pos_x: %d; pos_y: %d; IP: %d; Punt PCB: %d",
 			obtener_valor_tripulante(memoria_ram + inicio, TRIP_IP),
 			inicio,
@@ -49,13 +48,17 @@ void loggear_data(t_log* logger) {
 }
 
 int main(void) {
-	t_log* logger;
+	// t_log* logger;
 	if(CONSOLA_ACTIVA)
 		logger = log_create("miramhq.log", "Mi-RAM-HQ", 0, LOG_LEVEL_INFO);
 	else
 		logger = log_create("miramhq.log", "Mi-RAM-HQ", 1, LOG_LEVEL_INFO);
 	
 	t_config* config = config_create("miramhq.config");
+	lista_patotas = list_create();
+	lista_tareas = list_create();
+	lista_tripulantes = list_create();
+	movimientos_pendientes = list_create();
 	
 	algoritmo_segmento algoritmo;
 	if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "FF"))
@@ -65,13 +68,17 @@ int main(void) {
 
 	iniciar_memoria(config);
 
+	sem_init(&semaforo_consola, 0, 0);
 	bool* continuar_consola = malloc(sizeof(bool));
+	pthread_t* hilo_consola;
 	if(CONSOLA_ACTIVA) {
-		iniciar_mapa(continuar_consola);
+		log_info(logger, "CONSOLA ACTIVA");
+		hilo_consola = iniciar_mapa(continuar_consola);
 	}
 
 	int server_fd = crear_conexion_servidor(IP_RAM,	config_get_int_value(config, "PUERTO"), 1);
-	
+	data_socket(server_fd, logger);
+
 	if(!validar_socket(server_fd, logger)) {
 		close(server_fd);
 		log_destroy(logger);
@@ -81,10 +88,6 @@ int main(void) {
 	int socket_discord = esperar_cliente(server_fd);
 	close(server_fd);
 	log_info(logger, "Conexión establecida con el discordiador");
-	
-	lista_patotas = list_create();
-	lista_tareas = list_create();
-	lista_tripulantes = list_create();
 	
 	t_list* mensaje_in;
 	t_mensaje* mensaje_out;
@@ -133,6 +136,7 @@ int main(void) {
 			uint32_t posicion_x = (uint32_t)list_get(mensaje_in, 1);
 			uint32_t posicion_y = (uint32_t)list_get(mensaje_in, 2);
 			int puerto = iniciar_tripulante(nro_tripulante, patota_actual, posicion_x, posicion_y, algoritmo);
+			log_info(logger, "Resolvi iniciar_tripulante");
 			if(puerto == 0) {
 				mensaje_out = crear_mensaje(NO_SPC);
 			}
@@ -157,25 +161,25 @@ int main(void) {
 		case 64:
 			log_info(logger, "Cliente desconectado 64");
 			conexion_activa_discord = false;
-			*continuar_consola = false;
+			// *continuar_consola = false;
 			break;
 		default:
 			log_info(logger, "Cliente desconectado default");
 			conexion_activa_discord = false;
-			*continuar_consola = false;
+			// *continuar_consola = false;
 			break;
 		}
 		liberar_mensaje_in(mensaje_in);
-		loggear_data(logger);
+		loggear_data(/*logger*/);
 	}
 
 	*continuar_consola = false;
+	log_info(logger, "ENtro a join de consola");
+	pthread_join(*hilo_consola, 0);
+	log_info(logger, "Recibi la consola");
 	config_destroy(config);
 	log_destroy(logger);
 	close(socket_discord);
-	if(!CONSOLA_ACTIVA) {
-		free(continuar_consola);
-	}
 	// liberar_segmentos();
 	// liberar_patotas();
 	// liberar_tareas();
@@ -208,10 +212,10 @@ void liberar_tripulantes() {
 	list_destroy(lista_tripulantes);
 }
 
-void iniciar_mapa(bool* continuar_consola) {
+pthread_t* iniciar_mapa(bool* continuar_consola) {
 	pthread_t* hilo_consola = malloc(sizeof(pthread_t));
 	pthread_create(hilo_consola, NULL, dibujar_mapa, (void *)continuar_consola);
-	pthread_detach(*hilo_consola);
+	return hilo_consola;
 }
 
 void iniciar_memoria(t_config* config) {

@@ -27,7 +27,7 @@
 
 #define ERROR_CONEXION -1
 
-void iniciar_mapa(bool*);
+pthread_t* iniciar_mapa(bool*);
 void iniciar_memoria(t_config*);
 
 void liberar_segmentos();

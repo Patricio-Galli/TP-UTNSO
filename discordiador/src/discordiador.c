@@ -28,7 +28,7 @@ int main() {
 		config_get_string_value(config, "IP_MI_RAM_HQ"),
 		config_get_string_value(config, "PUERTO_MI_RAM_HQ")
 		);
-	
+	data_socket(socket_ram, logger);
 	if(!validar_socket(socket_ram, logger) || !validar_socket(socket_mongo, logger)) {
 		close(socket_ram);
 		close(socket_mongo);
@@ -155,7 +155,7 @@ int main() {
 		case INICIAR_TRIPULANTE:
 			log_info(logger, "Iniciar tripulante. Creando mensaje");
 			mensaje_out = crear_mensaje(INIT_T);
-			agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);						// posicion_x
+			agregar_parametro_a_mensaje(mensaje_out, (void *)3 + variable, ENTERO);				// posicion_x
 			agregar_parametro_a_mensaje(mensaje_out, (void *)4, ENTERO);						// posicion_y
 			
 			enviar_mensaje(socket_ram, mensaje_out);

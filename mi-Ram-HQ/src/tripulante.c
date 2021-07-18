@@ -5,10 +5,11 @@ uint32_t id_filtro_patota;
 int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uint32_t pos_y, algoritmo_segmento algoritmo) {
 	int tamanio_tcb = TAMANIO_TRIPULANTE;
 	if (tamanio_tcb > memoria_libre()) {
+		log_info(logger, "No hay memoria disponible");
 		return 0;
 	}
-	
-	// CREO SEGMENTO PCB. TO DO: agregar posibilidad de pagincion
+	log_info(logger, "Entro a iniciar_tripulante");
+	// CREO SEGMENTO TCB. TO DO: agregar posibilidad de pagincion
 	t_segmento* segmento_tcb = crear_segmento(mapa_segmentos, TAMANIO_TRIPULANTE, algoritmo);
 	if(segmento_tcb == NULL) {
 		realizar_compactacion();
@@ -17,7 +18,7 @@ int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uin
 	segmento_tcb->duenio = id_patota;
 	segmento_tcb->indice = id_trip + 1;
 	patota_data* patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
-	
+	log_info(logger, "CREO SEGMENTO TCB");
 	// SEGMENTO TCB. TO DO: pasar funciones a segmentos.c y considerar la paginacion
 	uint32_t desplazamiento = 0;
 	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, id_trip);
@@ -31,14 +32,12 @@ int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uin
 	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, 0);
 	desplazamiento += sizeof(uint32_t);
 	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, patota->tabla_segmentos[0]);
-	
+	log_info(logger, "SEGMENTO TCB");
+
 	// CREO ESTRUCTURA TRIPULANTE PARA GUARDAR EN TABLA
 	trip_data* nuevo_trip = malloc(sizeof(trip_data));
 	nuevo_trip->PID = id_patota;
 	nuevo_trip->TID = id_trip;
-	nuevo_trip->seguir = true;
-	nuevo_trip->posicion_x = pos_x;
-	nuevo_trip->posicion_y = pos_y;
 
 	if(patota->tamanio_tabla - 2 < id_trip) {
 		patota->tabla_segmentos = realloc(patota->tabla_segmentos, sizeof(uint32_t *) * (id_trip + 2));
@@ -51,15 +50,35 @@ int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uin
 
 	int socket_nuevo = crear_conexion_servidor(IP_RAM, 0, 1);
 	pthread_t* hilo_nuevo = malloc(sizeof(pthread_t));
-	sem_t* semaforo = malloc(sizeof(sem_t));
-	sem_init(semaforo, 0, 1);
+	// sem_t* semaforo = malloc(sizeof(sem_t));
+	// sem_init(semaforo, 0, 1);
 
-	nuevo_trip->semaforo_hilo = semaforo;
+	// nuevo_trip->semaforo_hilo = semaforo;
 	nuevo_trip->socket = socket_nuevo;
 	nuevo_trip->hilo = hilo_nuevo;
-	
+	log_info(logger, "CREO ESTRUCTURA TRIPULANTE PARA GUARDAR EN TABLA");
 	pthread_create(hilo_nuevo, NULL, rutina_hilos, (void *)nuevo_trip);
+	log_info(logger, "CREO HILO");
 	// pthread_detach(*hilo_nuevo);
+	if(CONSOLA_ACTIVA) {
+		log_info(logger, "Entro a crear movimiento");
+		t_movimiento* nuevo_movimiento = malloc(sizeof(t_movimiento));
+		log_info(logger, "1");
+		nuevo_movimiento->PID = id_patota;
+		log_info(logger, "1");
+		nuevo_movimiento->TID = id_trip;
+		log_info(logger, "1");
+		nuevo_movimiento->pos_x = pos_x;
+		log_info(logger, "1");
+		nuevo_movimiento->pos_y = pos_y;
+		log_info(logger, "1");
+		nuevo_movimiento->seguir = true;
+		log_info(logger, "1");
+		list_add(movimientos_pendientes, nuevo_movimiento);
+		log_info(logger, "Cree movimiento");
+		sem_post(&semaforo_consola);
+		log_info(logger, "Hice el sem_post");
+	}
 
 	return puerto_desde_socket(socket_nuevo);
 }
@@ -121,10 +140,10 @@ void actualizar_estado(void* segmento, char nuevo_valor) {
 void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante) {
 	int posicion_de_lista = posicion_trip(id_patota, id_tripulante);
 	if(posicion_de_lista == -1) {
-		printf("Posicion de lista -1\n");
+		// printf("Posicion de lista -1\n");
 		return;
 	}
-	printf("Posicion de lista %d\n", posicion_de_lista);
+	log_info(logger, "Entro a eliminar_tripulante");
 	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
 	
 	uint32_t inicio_tripulante = mi_patota->tabla_segmentos[id_tripulante + 1];
@@ -138,20 +157,24 @@ void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante) {
 
 	trip_data* trip_to_kill = (trip_data *)list_get(lista_tripulantes, posicion_de_lista);
 	
-	if(CONSOLA_ACTIVA) {
-		sem_init(trip_to_kill->eliminar_consola, 0, 0);
-		trip_to_kill->modificado = true;
-		trip_to_kill->seguir = false;
-		sem_wait(trip_to_kill->eliminar_consola);
-	}
-	
-	printf("Entro a remover de la lista\n");
+	log_info(logger, "Entro a quitar de la lista");
 	list_remove(lista_tripulantes, posicion_de_lista);
-	printf("Removi trip de la lista y espero que finalize el trip\n");
+	// printf("Removi trip de la lista y espero que finalize el trip\n");
 	pthread_cancel(*trip_to_kill->hilo);
 	pthread_join(*trip_to_kill->hilo, NULL);
-	printf("Recibi los restos del tripulante\n");
+	log_info(logger, "Pthread cancel");
+	// printf("Recibi los restos del tripulante\n");
 	liberar_tripulante(trip_to_kill);
+	log_info(logger, "Libero tripulante");
+
+	if(CONSOLA_ACTIVA) {
+		t_movimiento* nuevo_movimiento = malloc(sizeof(t_movimiento));
+		nuevo_movimiento->PID = id_patota;
+		nuevo_movimiento->TID = id_tripulante;
+		nuevo_movimiento->seguir = false;
+		list_add(movimientos_pendientes, nuevo_movimiento);
+		sem_post(&semaforo_consola);
+	}
 }
 
 trip_data* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip) {
@@ -179,7 +202,7 @@ int posicion_trip(uint32_t id_patota, uint32_t id_trip) {
 		return -1;
 }
 
-t_list* tripulantes_modificados() {
+/*t_list* tripulantes_modificados() {
 	bool tripulante_modificado(void* tripulante) {
 		if(((trip_data *)tripulante)->modificado)
 			return true;
@@ -188,18 +211,11 @@ t_list* tripulantes_modificados() {
 	}
 
 	return list_filter(lista_tripulantes, (*tripulante_modificado));
-}
+}*/
 
 void liberar_tripulante(trip_data* trip_to_kill) {
-	printf("Voy a liberar tripulante\n");
-	sem_close(trip_to_kill->semaforo_hilo);
-	free(trip_to_kill->semaforo_hilo);
-	printf("kill sem\n");
-	sem_close(trip_to_kill->eliminar_consola);
-	// free(trip_to_kill->eliminar_consola);
-	printf("kill sem\n");
+	// sem_close(trip_to_kill->semaforo_hilo);
+	// free(trip_to_kill->semaforo_hilo);
 	free(trip_to_kill->hilo);
-	printf("free 1\n");
 	free(trip_to_kill);
-	printf("free 2\n");
 }

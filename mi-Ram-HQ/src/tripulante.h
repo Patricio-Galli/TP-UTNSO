@@ -27,14 +27,9 @@ typedef struct {
     uint32_t PID;
     uint32_t TID;
     uint32_t inicio;
-    uint32_t posicion_x;    // Para consola
-    uint32_t posicion_y;    // Para consola
-    bool modificado;        // Para consola
-    bool seguir;            // Para consola
     int socket;
     pthread_t* hilo;        // Creo que no hace falta
-    sem_t* semaforo_hilo;   // Para realizar compactacion (falta uno para dump)
-    sem_t* eliminar_consola;
+    sem_t* semaforo_hilo;   // Para realizar compactacion (se usa el mismo para dump)
 } trip_data;
 
 int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uint32_t pos_y, algoritmo_segmento algoritmo);
@@ -48,8 +43,6 @@ void actualizar_estado(void* segmento, char nuevo_valor);
 
 trip_data* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip);
 int posicion_trip(uint32_t id_patota, uint32_t id_trip);
-
-t_list* tripulantes_modificados();
 
 void liberar_tripulante(trip_data* trip_to_kill);
 
