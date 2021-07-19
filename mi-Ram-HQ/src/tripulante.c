@@ -63,43 +63,35 @@ int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uin
 	if(CONSOLA_ACTIVA) {
 		log_info(logger, "Entro a crear movimiento");
 		t_movimiento* nuevo_movimiento = malloc(sizeof(t_movimiento));
-		log_info(logger, "1");
 		nuevo_movimiento->PID = id_patota;
-		log_info(logger, "1");
 		nuevo_movimiento->TID = id_trip;
-		log_info(logger, "1");
 		nuevo_movimiento->pos_x = pos_x;
-		log_info(logger, "1");
 		nuevo_movimiento->pos_y = pos_y;
-		log_info(logger, "1");
 		nuevo_movimiento->seguir = true;
-		log_info(logger, "1");
 		list_add(movimientos_pendientes, nuevo_movimiento);
-		log_info(logger, "Cree movimiento");
 		sem_post(&semaforo_consola);
-		log_info(logger, "Hice el sem_post");
 	}
 
 	return puerto_desde_socket(socket_nuevo);
 }
 
-uint32_t obtener_valor_tripulante(void* segmento, uint32_t nro_parametro) {
+uint32_t obtener_valor_tripulante(void* inicio, uint32_t nro_parametro) {
 	uint32_t valor_int;
 	switch(nro_parametro) {
 		case TRIP_IP:
-			memcpy(&valor_int, segmento, sizeof(uint32_t));
+			memcpy(&valor_int, inicio, sizeof(uint32_t));
 			break;
 		case POS_X:
-			memcpy(&valor_int, segmento + sizeof(uint32_t) + sizeof(char), sizeof(uint32_t));
+			memcpy(&valor_int, inicio + sizeof(uint32_t) + sizeof(char), sizeof(uint32_t));
 			break;
 		case POS_Y:
-			memcpy(&valor_int, segmento + 2 * sizeof(uint32_t) + sizeof(char), sizeof(uint32_t));
+			memcpy(&valor_int, inicio + 2 * sizeof(uint32_t) + sizeof(char), sizeof(uint32_t));
 			break;
 		case INS_POINTER:
-			memcpy(&valor_int, segmento + 3 * sizeof(uint32_t) + sizeof(char), sizeof(uint32_t));
+			memcpy(&valor_int, inicio + 3 * sizeof(uint32_t) + sizeof(char), sizeof(uint32_t));
 			break;
 		case PCB_POINTER:
-			memcpy(&valor_int, segmento + 4 * sizeof(uint32_t) + sizeof(char), sizeof(uint32_t));
+			memcpy(&valor_int, inicio + 4 * sizeof(uint32_t) + sizeof(char), sizeof(uint32_t));
 			break;
 	}
 	return valor_int;
@@ -214,8 +206,9 @@ int posicion_trip(uint32_t id_patota, uint32_t id_trip) {
 }*/
 
 void liberar_tripulante(trip_data* trip_to_kill) {
-	// sem_close(trip_to_kill->semaforo_hilo);
+	sem_close(trip_to_kill->semaforo_hilo);
 	// free(trip_to_kill->semaforo_hilo);
+	// free(trip_to_kill->hilo);
 	free(trip_to_kill->hilo);
 	free(trip_to_kill);
 }

@@ -35,7 +35,7 @@ typedef struct {
 int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uint32_t pos_y, algoritmo_segmento algoritmo);
 void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante);
 
-uint32_t obtener_valor_tripulante(void* segmento, para_trip nro_parametro);
+uint32_t obtener_valor_tripulante(void* inicio, para_trip nro_parametro);
 char obtener_estado(void* segmento);
 
 void actualizar_valor_tripulante(void* segmento, para_trip nro_parametro, uint32_t nuevo_valor);

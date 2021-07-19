@@ -33,6 +33,8 @@ typedef struct {
 	pthread_t* hilo;
 	bool vivir;
 	int socket;
+	int px;
+	int py;
 }t_tripulante;
 
 #define ERROR_CONEXION -1

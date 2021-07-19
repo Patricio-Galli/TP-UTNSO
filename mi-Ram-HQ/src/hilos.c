@@ -25,7 +25,7 @@ void* rutina_hilos(void* data) {
 
 	while(cliente_conectado) {
 		mensaje_in = recibir_mensaje(socket_cliente);
-		log_info(logger, "SOY UN HILO: ENTRO AL SEM_WAIT\n");
+		// log_info(logger, "SOY UN HILO: ENTRO AL SEM_WAIT\n");
         sem_wait(tripulante->semaforo_hilo);
 		// printf("Sobrevivi al sem_wait\n");
 		switch ((int)list_get(mensaje_in, 0)) {
@@ -46,49 +46,47 @@ void* rutina_hilos(void* data) {
 			}
             enviar_mensaje(socket_cliente, mensaje_out);
 		    liberar_mensaje_out(mensaje_out);
-			// printf("RESPONDI NEXT_T\n");
 			break;
 		case ACTU_P:
-			// printf("RECIBI ACTU_P\n");
 			posicion_x = (uint32_t)list_get(mensaje_in, 1);
 			posicion_y = (uint32_t)list_get(mensaje_in, 2);
 			
 			actualizar_valor_tripulante(memoria_ram + segmento_patota->tabla_segmentos[tripulante->TID + 1], POS_X, posicion_x);
 			actualizar_valor_tripulante(memoria_ram + segmento_patota->tabla_segmentos[tripulante->TID + 1], POS_Y, posicion_y);
 
-			// log_info(logger, "Tripulante %d posicion actualizada %d|%d", id_trip, posicion_x, posicion_y);
+			// Creo movimiento para que lo capte la consola
 			t_movimiento* nuevo_movimiento = malloc(sizeof(t_movimiento));
 			nuevo_movimiento->PID = tripulante->PID;
 			nuevo_movimiento->TID = tripulante->TID;
 			nuevo_movimiento->pos_x = posicion_x;
 			nuevo_movimiento->pos_y = posicion_y;
-			// nuevo_movimiento->seguir = true;
+			nuevo_movimiento->seguir = true;
 			list_add(movimientos_pendientes, nuevo_movimiento);
+			sem_post(&semaforo_consola);
 
 			mensaje_out = crear_mensaje(TODOOK);
             enviar_mensaje(socket_cliente, mensaje_out);
 		    liberar_mensaje_out(mensaje_out);
-			// printf("RESPONDI ACTU_P\n");
 			break;
 		case ELIM_T:
-			cliente_conectado = false;
-			break;
-		case SHOW_T:
-			break;
         case ER_SOC:
-			cliente_conectado = false;
         case ER_RCV:
-            cliente_conectado = false;
-            break;
 		default:
 			cliente_conectado = false;
+			break;
 		}
-		log_info(logger, "SOY UN HILO: ENTRO AL SEM_POST\n");
+
         sem_post(tripulante->semaforo_hilo);
         liberar_mensaje_in(mensaje_in);
 		variable++;
 	}
 	log_info(logger, "ME MUEROOOOOO %d\n", variable);
+	t_movimiento* nuevo_movimiento = malloc(sizeof(t_movimiento));
+	nuevo_movimiento->PID = tripulante->PID;
+	nuevo_movimiento->TID = tripulante->TID;
+	nuevo_movimiento->seguir = false;
+	list_add(movimientos_pendientes, nuevo_movimiento);
+	sem_post(&semaforo_consola);
     // close(socket_cliente);
     // close(tripulante->socket);
     // sem_destroy(tripulante->semaforo_hilo);

@@ -80,9 +80,18 @@ typedef enum {
 	ER_RCV,	// Error descononocido al recibir un mensaje
 		// ER_RCV
 	
-	ER_SOC	// Error al recibir mensaje, el socket remoto se desconectó
+	ER_SOC,	// Error al recibir mensaje, el socket remoto se desconectó
 		// ER_SOC
-
+	// ADAPTANDO CON DISCORDIADOR
+	GEN_OX,
+	CON_OX,
+	GEN_CO,
+	CON_CO,
+	GEN_BA,
+	DES_BA,
+	EXEC_1,
+	INIT_S,
+	EXEC_0,
 } protocolo_msj;
 
 typedef enum {

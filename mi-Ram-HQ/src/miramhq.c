@@ -73,6 +73,7 @@ int main(void) {
 	pthread_t* hilo_consola;
 	if(CONSOLA_ACTIVA) {
 		log_info(logger, "CONSOLA ACTIVA");
+		*continuar_consola = true;
 		hilo_consola = iniciar_mapa(continuar_consola);
 	}
 
@@ -172,30 +173,45 @@ int main(void) {
 		liberar_mensaje_in(mensaje_in);
 		loggear_data(/*logger*/);
 	}
-
+    log_info(logger, "Paso a cambiar continuar_consola");
 	*continuar_consola = false;
-	log_info(logger, "ENtro a join de consola");
+	sem_post(&semaforo_consola);
+
+	log_info(logger, "Segmentos");
+	liberar_segmentos();
+	log_info(logger, "Patotas");
+	liberar_patotas();
+	log_info(logger, "Tareas");    // Rompe
+	// liberar_tareas();
+	log_info(logger, "Tripulantes");
+	liberar_tripulantes();
+	log_info(logger, "Consola");
 	pthread_join(*hilo_consola, 0);
+	if(CONSOLA_ACTIVA)
+		free(hilo_consola);
 	log_info(logger, "Recibi la consola");
 	config_destroy(config);
 	log_destroy(logger);
 	close(socket_discord);
-	// liberar_segmentos();
-	// liberar_patotas();
-	// liberar_tareas();
-	// liberar_tripulantes();
+	
 	return EXIT_SUCCESS;
 }
 
 void liberar_segmentos() {
 	list_destroy(mapa_segmentos);
+	// void destruir_segmento(void* segmento) {
+	// 	free(segmento);
+	// }
+	
+	// list_destroy_and_destroy_elements(lista_patotas, destruir_segmento);
 }
 
 void liberar_patotas() {
 	void destruir_patota(void* patota) {
 		free(((patota_data *)patota)->tabla_segmentos);
+		free(patota);
 	}
-
+	
 	list_destroy_and_destroy_elements(lista_patotas, destruir_patota);
 }
 
@@ -203,13 +219,27 @@ void liberar_tareas() {
 	void destruir_tarea(void* tarea) {
 		free(((tareas_data *)tarea)->inicio_tareas);
 		free(((tareas_data *)tarea)->tamanio_tareas);
+		free(tarea);
 	}
 
 	list_destroy_and_destroy_elements(lista_patotas, destruir_tarea);
 }
 
 void liberar_tripulantes() {
+	trip_data* trip_aux;
+	for(int i = 0; i < list_size(lista_tripulantes); i++) {
+		trip_aux = list_remove(lista_tripulantes, 0);
+		pthread_cancel(*trip_aux->hilo);
+		pthread_join(*trip_aux->hilo, NULL);
+	}
 	list_destroy(lista_tripulantes);
+	// void destruir_tripulante(void* tripulante) {
+	// 	free(((trip_data *)tripulante)->semaforo_hilo);
+	// 	free(((trip_data *)tripulante)->hilo);
+	// 	free(tripulante);
+	// }
+	
+	// list_destroy_and_destroy_elements(lista_patotas, destruir_tripulante);
 }
 
 pthread_t* iniciar_mapa(bool* continuar_consola) {

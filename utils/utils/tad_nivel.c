@@ -41,16 +41,6 @@ int caja_crear(NIVEL* nivel, char id, int x , int y, int cant) {
 	return _crear_item(nivel, id, x, y, CAJA_ITEM_TYPE, cant);
 }
 
-int item_borrar(NIVEL* nivel, char id) {
-	bool found = false;
-	bool _search_by_id(ITEM_NIVEL* item) {
-		found = item->id == id;
-		return found;
-	}
-	list_remove_and_destroy_by_condition(nivel->items, (void*) _search_by_id, (void*) free);
-
-	return found ? NGUI_SUCCESS : NGUI_ITEM_NOT_FOUND;
-}
 
 int item_mover(NIVEL* nivel, char id, int x, int y) {
 	ITEM_NIVEL* item = _search_item_by_id(nivel, id);
@@ -172,4 +162,27 @@ bool _validar_posicion(int x, int y) {
 	}
 
 	return true;
+}
+
+int tripulante_crear(NIVEL* nivel, char id, int x, int y, int pid, int tid) {
+	// return _crear_item(nivel, id, x, y, PERSONAJE_ITEM_TYPE, 0);
+	if(!_validar_posicion(x, y)) {
+		return NGUI_ITEM_INVALID_POSITION;
+	}
+
+	if (_search_item_by_id(nivel, id) != NULL) {
+		return NGUI_ITEM_ALREADY_EXISTS;
+	}
+
+	ITEM_NIVEL* item = malloc(sizeof(ITEM_NIVEL));
+
+	item->id = id;
+	item->posx=x;
+	item->posy=y;
+	item->item_type = PERSONAJE_ITEM_TYPE;
+	item->patota = pid;
+	item->tripulante = tid;
+	list_add(nivel->items, item);
+
+	return NGUI_SUCCESS;
 }

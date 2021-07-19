@@ -16,7 +16,7 @@ t_list* lista_tripulantes;
 int id_patota_actual = 0;
 int id_tripulante = 1;
 t_config* config;
-int variable = 1;
+int variable;
 
 int main() {
 	t_log* logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
@@ -155,8 +155,8 @@ int main() {
 		case INICIAR_TRIPULANTE:
 			log_info(logger, "Iniciar tripulante. Creando mensaje");
 			mensaje_out = crear_mensaje(INIT_T);
-			agregar_parametro_a_mensaje(mensaje_out, (void *)3 + variable, ENTERO);				// posicion_x
-			agregar_parametro_a_mensaje(mensaje_out, (void *)4, ENTERO);						// posicion_y
+			agregar_parametro_a_mensaje(mensaje_out, (void *)1 + variable, ENTERO);				// posicion_x
+			agregar_parametro_a_mensaje(mensaje_out, (void *)1 + variable, ENTERO);				// posicion_y
 			
 			enviar_mensaje(socket_ram, mensaje_out);
 			liberar_mensaje_out(mensaje_out);
@@ -185,6 +185,8 @@ int main() {
 				nuevo_tripulante->hilo = nuevo_hilo;
 				nuevo_tripulante->vivir = true;
 				nuevo_tripulante->socket = socket;
+				nuevo_tripulante->px = (void *)1 + variable;
+				nuevo_tripulante->py = (void *)1 + variable;
 
 				pthread_create(nuevo_hilo, NULL, rutina_hilos, (void *)nuevo_tripulante);
 				log_info(logger, "Agrego tripulante %d - %d", id_patota_actual, id_tripulante);
@@ -282,28 +284,24 @@ int main() {
 void* rutina_hilos(void* mi_tripulante) {
 	t_log* logger = log_create("discordiador.log", "HILOX", 0, LOG_LEVEL_DEBUG);
 	log_info(logger, "HOLA MUNDO, SOY UN HILO %d", variable);
-	variable++;
-	
+	// variable--;
+	int agregado_en_x = 0;
 	while(1) {
 		if(!((t_tripulante *)mi_tripulante)->vivir)
 			break;
 		
-		t_mensaje* mensaje_out = crear_mensaje(NEXT_T);
+		t_mensaje* mensaje_out = crear_mensaje(ACTU_P);
+		agregar_parametro_a_mensaje(mensaje_out, ((t_tripulante *)(void *)mi_tripulante)->px + agregado_en_x, ENTERO);
+		agregado_en_x++;
+		agregar_parametro_a_mensaje(mensaje_out, ((t_tripulante *)(void *)mi_tripulante)->py, ENTERO);
 		enviar_mensaje(((t_tripulante *)mi_tripulante)->socket, mensaje_out);
 		liberar_mensaje_out(mensaje_out);
 
 		t_list* mensaje_in = recibir_mensaje(((t_tripulante *)mi_tripulante)->socket);
 		if(!validar_mensaje(mensaje_in, logger))
 			log_warning(logger, "FALLO EN MENSAJE CON HILO RAM\n");
-		else {
-			log_info(logger, "Me llegó %d", (int)list_get(mensaje_in, 0));
-			if((int)list_get(mensaje_in, 0) == ER_MSJ)
-				log_info(logger, "No hay próxima tarea");
-			if((int)list_get(mensaje_in, 0) == TASK_T)
-				log_info(logger, "EL HILO RAM ME RESPONDIO: %s\n", (char *)list_get(mensaje_in, 1));
-		}
-		// free((char *)list_get(mensaje_in, 1));	// TODO -> Meter en las utils
 		liberar_mensaje_in(mensaje_in);
+		sleep(5);
 	}
 	printf("ME MUEROOOOOO\n");
 	return 0;

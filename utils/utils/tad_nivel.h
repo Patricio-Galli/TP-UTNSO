@@ -70,6 +70,8 @@
 	*/
 	int caja_crear(NIVEL* nivel, char id, int x, int y, int srcs);
 
+	int tripulante_crear(NIVEL* nivel, char id, int x, int y, int pid, int tid);
+
 	/*
 	* @NAME: item_borrar
 	* @DESC: Elimina un item que se encuentre en el nivel.

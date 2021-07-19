@@ -126,7 +126,7 @@ t_list* recibir_mensaje(int socket) {
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		break;
 	
-	case SND_PO:
+	/*case SND_PO:
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		break;
 	
@@ -136,7 +136,7 @@ t_list* recibir_mensaje(int socket) {
 	
 	case ACTU_E:
 		list_add(lista_parametros, recibir_parametro(socket, CARACTER));
-		break;
+		break;*/
 
 	case NEW_PO:
 	case NEXT_T:
@@ -152,6 +152,32 @@ t_list* recibir_mensaje(int socket) {
 		printf("ERROR ER_SOC\n");
 		break;
 	
+	case GEN_OX:
+	case CON_OX:
+	case GEN_CO:
+	case CON_CO:
+	case GEN_BA:
+	case DES_BA:
+	case SND_PO:
+	case ACTU_E:
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
+		break;
+	
+	case EXEC_1:
+	case TASK_T:
+		list_add(lista_parametros, recibir_parametro(socket, BUFFER));
+		break;
+	
+	case INIT_S:
+	case EXEC_0:
+	// case NEW_PO:
+	// case NEXT_T:
+	// case TODOOK:
+	// case NO_SPC:
+	// case ER_MSJ:
+		break;
+
+
 	case BITA_T:
 		// por definir
 		break;
