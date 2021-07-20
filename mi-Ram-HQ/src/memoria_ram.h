@@ -12,25 +12,11 @@
 #define IP_RAM "127.0.0.1"
 #define CONSOLA_ACTIVA 1
 
-uint32_t tamanio_memoria;
-void* memoria_ram;
-
-t_list* lista_patotas;
-t_list* lista_tareas;
-t_list* lista_tripulantes;
-t_list* movimientos_pendientes;
-
-t_list* mapa_segmentos; // segmentacion
-t_list* mapa_paginas;   // paginacion
-
-t_log* logger;
-
-sem_t semaforo_consola;
-
 typedef enum {
     FF,
     BF
 } algoritmo_segmento;
+
 
 typedef struct {
     uint32_t PID;
@@ -45,5 +31,26 @@ typedef struct {
     uint32_t pos_y;
     bool seguir;
 } t_movimiento;
+
+uint32_t tamanio_memoria;
+void* memoria_ram;
+char* esquema_memoria;
+
+t_list* lista_patotas;
+t_list* lista_tareas;
+t_list* lista_tripulantes;
+t_list* movimientos_pendientes;
+
+t_list* mapa_segmentos; // segmentacion
+t_list* mapa_paginas;   // paginacion
+
+t_log* logger;
+
+sem_t semaforo_consola;
+sem_t mutex_movimiento;
+sem_t mutex_lista_tripulantes;
+sem_t mutex_segmentacion;
+
+algoritmo_segmento algoritmo_seg_memoria;
 
 #endif /* _MEMORIA_RAM_H_ */

@@ -32,7 +32,7 @@ typedef struct {
     sem_t* semaforo_hilo;   // Para realizar compactacion (se usa el mismo para dump)
 } trip_data;
 
-int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uint32_t pos_y, algoritmo_segmento algoritmo);
+int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uint32_t pos_y);
 void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante);
 
 uint32_t obtener_valor_tripulante(void* inicio, para_trip nro_parametro);
@@ -45,5 +45,6 @@ trip_data* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip);
 int posicion_trip(uint32_t id_patota, uint32_t id_trip);
 
 void liberar_tripulante(trip_data* trip_to_kill);
+uint32_t nro_segmento_tripulante(uint32_t);
 
 #endif /* _TRIPULANTE_H_ */

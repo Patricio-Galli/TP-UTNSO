@@ -187,6 +187,8 @@ int main() {
 				nuevo_tripulante->socket = socket;
 				nuevo_tripulante->px = (void *)1 + variable;
 				nuevo_tripulante->py = (void *)1 + variable;
+				log_info(logger, "Muero rapido: %d", variable % 2);
+				nuevo_tripulante->muero_rapido = variable % 2;
 
 				pthread_create(nuevo_hilo, NULL, rutina_hilos, (void *)nuevo_tripulante);
 				log_info(logger, "Agrego tripulante %d - %d", id_patota_actual, id_tripulante);
@@ -301,8 +303,13 @@ void* rutina_hilos(void* mi_tripulante) {
 		if(!validar_mensaje(mensaje_in, logger))
 			log_warning(logger, "FALLO EN MENSAJE CON HILO RAM\n");
 		liberar_mensaje_in(mensaje_in);
-		sleep(5);
+		sleep(4);
+		if(((t_tripulante *)mi_tripulante)->muero_rapido && agregado_en_x == 3)
+			break;
 	}
+	t_mensaje* mensaje_out = crear_mensaje(ELIM_T);
+	enviar_mensaje(((t_tripulante *)mi_tripulante)->socket, mensaje_out);
+	liberar_mensaje_out(mensaje_out);
 	printf("ME MUEROOOOOO\n");
 	return 0;
 }

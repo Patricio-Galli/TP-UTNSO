@@ -59,16 +59,13 @@ int main(void) {
 	lista_tareas = list_create();
 	lista_tripulantes = list_create();
 	movimientos_pendientes = list_create();
-	
-	algoritmo_segmento algoritmo;
-	if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "FF"))
-		algoritmo = FF;
-	if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "BF"))
-		algoritmo = BF;
 
 	iniciar_memoria(config);
 
 	sem_init(&semaforo_consola, 0, 0);
+	sem_init(&mutex_movimiento, 0, 1);
+	sem_init(&mutex_lista_tripulantes, 0, 1);
+
 	bool* continuar_consola = malloc(sizeof(bool));
 	pthread_t* hilo_consola;
 	if(CONSOLA_ACTIVA) {
@@ -117,7 +114,7 @@ int main(void) {
 		case INIT_P:
 			log_info(logger, "Discordiador solicitó iniciar_patota");
 			patota_actual++;
-			inicio_correcto = iniciar_patota(patota_actual, mensaje_in, algoritmo);
+			inicio_correcto = iniciar_patota(patota_actual, mensaje_in);
 			
 			if(!inicio_correcto) {
 				mensaje_out = crear_mensaje(NO_SPC);
@@ -136,7 +133,7 @@ int main(void) {
 			log_info(logger, "Discordiador solicitó iniciar_tripulante");
 			uint32_t posicion_x = (uint32_t)list_get(mensaje_in, 1);
 			uint32_t posicion_y = (uint32_t)list_get(mensaje_in, 2);
-			int puerto = iniciar_tripulante(nro_tripulante, patota_actual, posicion_x, posicion_y, algoritmo);
+			int puerto = iniciar_tripulante(nro_tripulante, patota_actual, posicion_x, posicion_y);
 			log_info(logger, "Resolvi iniciar_tripulante");
 			if(puerto == 0) {
 				mensaje_out = crear_mensaje(NO_SPC);
@@ -162,16 +159,14 @@ int main(void) {
 		case 64:
 			log_info(logger, "Cliente desconectado 64");
 			conexion_activa_discord = false;
-			// *continuar_consola = false;
 			break;
 		default:
 			log_info(logger, "Cliente desconectado default");
 			conexion_activa_discord = false;
-			// *continuar_consola = false;
 			break;
 		}
 		liberar_mensaje_in(mensaje_in);
-		loggear_data(/*logger*/);
+		// loggear_data(/*logger*/);
 	}
     log_info(logger, "Paso a cambiar continuar_consola");
 	*continuar_consola = false;
@@ -186,9 +181,10 @@ int main(void) {
 	log_info(logger, "Tripulantes");
 	liberar_tripulantes();
 	log_info(logger, "Consola");
-	pthread_join(*hilo_consola, 0);
-	if(CONSOLA_ACTIVA)
+	if(CONSOLA_ACTIVA) {
+		pthread_join(*hilo_consola, 0);
 		free(hilo_consola);
+	}
 	log_info(logger, "Recibi la consola");
 	config_destroy(config);
 	log_destroy(logger);
@@ -228,7 +224,11 @@ void liberar_tareas() {
 void liberar_tripulantes() {
 	trip_data* trip_aux;
 	for(int i = 0; i < list_size(lista_tripulantes); i++) {
+		sem_wait(&mutex_lista_tripulantes);
 		trip_aux = list_remove(lista_tripulantes, 0);
+		sem_post(&mutex_lista_tripulantes);
+		
+		// trip_aux = list_remove(lista_tripulantes, 0);
 		pthread_cancel(*trip_aux->hilo);
 		pthread_join(*trip_aux->hilo, NULL);
 	}
@@ -251,7 +251,8 @@ pthread_t* iniciar_mapa(bool* continuar_consola) {
 void iniciar_memoria(t_config* config) {
 	tamanio_memoria = config_get_int_value(config, "TAMANIO_MEMORIA");
 	memoria_ram = malloc(tamanio_memoria);
-	char* esquema_memoria = config_get_string_value(config, "ESQUEMA_MEMORIA");
+	esquema_memoria = config_get_string_value(config, "ESQUEMA_MEMORIA");
+	// sem_init(&mutex_segmentacion, 0, 1);
 	if(!strcmp(esquema_memoria, "SEGMENTACION")) {
 		mapa_segmentos = list_create();
 		t_segmento* segmento_memoria = malloc(sizeof(t_segmento));
@@ -260,6 +261,11 @@ void iniciar_memoria(t_config* config) {
 		segmento_memoria->inicio = 0;
 		segmento_memoria->tamanio = tamanio_memoria;
 		list_add(mapa_segmentos, segmento_memoria);
+
+		if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "FF"))
+			algoritmo_seg_memoria = FF;
+		if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "BF"))
+			algoritmo_seg_memoria = BF;
 	}
 	if(!strcmp(esquema_memoria, "PAGINACION")) {
 		/* TO DO */

@@ -20,8 +20,8 @@ typedef struct {
     uint32_t indice;
 } t_segmento;
 
-t_segmento* crear_segmento(t_list* mapa_segmentos, uint32_t tamanio_segmento, algoritmo_segmento algoritmo);
-void eliminar_segmento(t_list* mapa_segmentos, t_segmento* segmento);
+t_segmento* crear_segmento(uint32_t tamanio_segmento);
+void eliminar_segmento(uint32_t nro_segmento);
 
 void segmentar_caracter(void* memoria, uint32_t posicion, char data);
 void segmentar_entero(void* memoria, uint32_t posicion, uint32_t data);

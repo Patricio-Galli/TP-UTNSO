@@ -31,6 +31,7 @@ typedef struct {
 	int id_trip;
 	int id_patota;
 	pthread_t* hilo;
+	bool muero_rapido;
 	bool vivir;
 	int socket;
 	int px;

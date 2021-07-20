@@ -11,7 +11,7 @@
 
 #define TAMANIO_PATOTA (2 * sizeof(uint32_t))
 
-bool iniciar_patota(uint32_t id_patota, t_list* parametros, algoritmo_segmento algoritmo);
+bool iniciar_patota(uint32_t id_patota, t_list* parametros);
 
 void actualizar_ubicacion_tareas(void* segmento, uint32_t nueva_ubicacion);
 

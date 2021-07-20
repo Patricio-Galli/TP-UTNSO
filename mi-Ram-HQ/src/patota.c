@@ -1,6 +1,6 @@
 #include "patota.h"
 
-bool iniciar_patota(uint32_t id_patota, t_list* parametros, algoritmo_segmento algoritmo) {
+bool iniciar_patota(uint32_t id_patota, t_list* parametros) {
 	uint32_t tamanio_pcb = TAMANIO_PATOTA;
 	uint32_t tamanio_tarea = 0;
 	uint32_t tamanio_bloque_tareas = 0;
@@ -29,11 +29,7 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros, algoritmo_segmento a
 	}
 
 	// CREO SEGMENTO PCB
-	t_segmento* segmento_pcb = crear_segmento(mapa_segmentos, tamanio_pcb, algoritmo);
-	if(segmento_pcb == NULL) {
-		realizar_compactacion();
-		segmento_pcb = crear_segmento(mapa_segmentos, tamanio_pcb, algoritmo);
-	}
+	t_segmento* segmento_pcb = crear_segmento(tamanio_pcb);
 	segmento_pcb->duenio = id_patota;
 	segmento_pcb->indice = 0;
 	segmentar_entero(memoria_ram, segmento_pcb->inicio, id_patota);
@@ -47,11 +43,7 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros, algoritmo_segmento a
 	list_add(lista_patotas, nueva_patota);
 
 	// CREO SEGMENTO TAREAS
-	t_segmento* segmento_tareas = crear_segmento(mapa_segmentos, tamanio_bloque_tareas, algoritmo);
-	if(segmento_tareas == NULL) {
-		realizar_compactacion();
-		segmento_tareas = crear_segmento(mapa_segmentos, tamanio_bloque_tareas, algoritmo);
-	}
+	t_segmento* segmento_tareas = crear_segmento(tamanio_bloque_tareas);
 	segmento_tareas->duenio = id_patota;
 	segmento_tareas->indice = 1;
 

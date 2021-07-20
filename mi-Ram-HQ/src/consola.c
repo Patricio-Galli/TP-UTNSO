@@ -21,7 +21,10 @@ void dibujar_mapa(void* continuar_consola) {
         log_info(logger, "SEM_WAIT CONSOLA: %d", *continuar);
         if(*continuar != true)
             break;
+        sem_wait(&mutex_movimiento);
         movimiento_pendiente = list_remove(movimientos_pendientes, 0);
+        sem_post(&mutex_movimiento);
+
         log_info(logger, "Movimiento nuevo. POS_X = %d, POS_Y = %d, PID = %d, TID = %d, SEGUIR = %d",
             movimiento_pendiente->pos_x,
             movimiento_pendiente->pos_y,

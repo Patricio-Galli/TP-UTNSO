@@ -1,19 +1,12 @@
 #include "segmentos.h"
 
-uint32_t tamanio_segmento;
+// uint32_t tamanio_segmento;
 
 bool condicion_segmento_libre(void* segmento_memoria) {
     if(((t_segmento*)segmento_memoria)->duenio == 0)
         return true;
     else
         return false;
-}
-
-bool condicion_segmento_apto(void* segmento_memoria) {
-	if(((t_segmento*)segmento_memoria)->tamanio >= tamanio_segmento)
-		return true;
-	else
-		return false;
 }
 
 void* minimo_tamanio(void* elemento1, void* elemento2) {
@@ -28,24 +21,28 @@ void* suma_tamanios(void* seed, void* elemento) {
     return (void *)(seed + ((t_segmento *)elemento)->tamanio);
 }
 
-t_segmento* crear_segmento(t_list* mapa_segmentos, uint32_t nuevo_tamanio, algoritmo_segmento algoritmo) {
+t_segmento* crear_segmento(uint32_t nuevo_tamanio) {
 	t_segmento *segmento_nuevo = malloc(sizeof(t_segmento));
-    tamanio_segmento = nuevo_tamanio;
-
-	t_list* segmentos_libres = list_filter(mapa_segmentos, (*condicion_segmento_libre));
-	t_list* segmentos_validos = list_filter(segmentos_libres, (*condicion_segmento_apto));
-    list_destroy(segmentos_libres);
-
-	if(list_size(segmentos_validos) == 0) {
-        list_destroy(segmentos_validos);
-        return (void *)0;
+    
+    bool segmentos_aptos(void* segmento_memoria) {
+        if(((t_segmento*)segmento_memoria)->duenio == 0 && ((t_segmento*)segmento_memoria)->tamanio >= nuevo_tamanio)
+            return true;
+        else
+            return false;
     }
 
-    if(algoritmo == FF) {
+    t_list* segmentos_validos = list_filter(mapa_segmentos, (*segmentos_aptos));
+
+    if(list_size(segmentos_validos) == 0) {
+        realizar_compactacion();
+        segmentos_validos = list_filter(mapa_segmentos, (*segmentos_aptos));
+    }
+
+    if(algoritmo_seg_memoria == FF) {
         memcpy(segmento_nuevo, (t_segmento *)list_get(segmentos_validos, 0), sizeof(t_segmento));
     }
-    if(algoritmo == BF) {
-        memcpy(segmento_nuevo, (t_segmento *)list_get_minimum(mapa_segmentos, (void *)(*minimo_tamanio)), sizeof(t_segmento));
+    if(algoritmo_seg_memoria == BF) {
+        memcpy(segmento_nuevo, (t_segmento *)list_get_minimum(segmentos_validos, (void *)(*minimo_tamanio)), sizeof(t_segmento));
         // No testeado
     }
     list_add_in_index(mapa_segmentos, segmento_nuevo->n_segmento, segmento_nuevo);
@@ -55,7 +52,7 @@ t_segmento* crear_segmento(t_list* mapa_segmentos, uint32_t nuevo_tamanio, algor
     
     if(segmento_siguiente->tamanio == 0) {
         list_remove(mapa_segmentos, segmento_nuevo->n_segmento + 1);
-        // free(segmento_siguiente);    // memchek me da más pérdida
+        // free(segmento_siguiente);
     }
     else {
         segmento_siguiente->inicio += nuevo_tamanio;
@@ -77,8 +74,8 @@ t_segmento* crear_segmento(t_list* mapa_segmentos, uint32_t nuevo_tamanio, algor
     return segmento_nuevo;
 }
 
-void eliminar_segmento(t_list* mapa_segmentos, t_segmento* segmento) {
-    int nro_segmento = segmento->n_segmento;
+void eliminar_segmento(uint32_t nro_segmento) {
+    t_segmento* segmento = list_get(mapa_segmentos, nro_segmento);
     t_segmento* segmento_anterior;
     t_segmento* segmento_siguiente;
     bool compactar_segmento_anterior = false;
@@ -101,8 +98,8 @@ void eliminar_segmento(t_list* mapa_segmentos, t_segmento* segmento) {
     t_link_element* iterador = mapa_segmentos->head;
     if (compactar_segmento_siguiente) {
         segmento->tamanio += segmento_siguiente->tamanio;
-        // free(list_remove(mapa_segmentos, segmento_siguiente->n_segmento));  // REVISAR FREE
-        list_remove(mapa_segmentos, segmento_siguiente->n_segmento);
+        free(list_remove(mapa_segmentos, segmento_siguiente->n_segmento));  // REVISAR FREE
+        // list_remove(mapa_segmentos, segmento_siguiente->n_segmento);
         for(int i = 0; i < segmento->n_segmento; i++) {
             iterador = iterador->next;
         }
@@ -117,8 +114,8 @@ void eliminar_segmento(t_list* mapa_segmentos, t_segmento* segmento) {
     iterador = mapa_segmentos->head;
     if (compactar_segmento_anterior) {
         segmento_anterior->tamanio += segmento->tamanio;
-        // free(list_remove(mapa_segmentos, segmento->n_segmento));            // REVISAR FREE
-        list_remove(mapa_segmentos, segmento->n_segmento);
+        free(list_remove(mapa_segmentos, segmento->n_segmento));            // REVISAR FREE
+        // list_remove(mapa_segmentos, segmento->n_segmento);
         for(int i = 0; i < segmento_anterior->n_segmento; i++) {
             iterador = iterador->next;
         }

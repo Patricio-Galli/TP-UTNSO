@@ -61,7 +61,9 @@ void* rutina_hilos(void* data) {
 			nuevo_movimiento->pos_x = posicion_x;
 			nuevo_movimiento->pos_y = posicion_y;
 			nuevo_movimiento->seguir = true;
+			sem_wait(&mutex_movimiento);
 			list_add(movimientos_pendientes, nuevo_movimiento);
+			sem_post(&mutex_movimiento);
 			sem_post(&semaforo_consola);
 
 			mensaje_out = crear_mensaje(TODOOK);
@@ -72,23 +74,39 @@ void* rutina_hilos(void* data) {
         case ER_SOC:
         case ER_RCV:
 		default:
+			log_info(logger, "Ultima vuelta. Nos vamos despidiendo");
 			cliente_conectado = false;
 			break;
 		}
-
         sem_post(tripulante->semaforo_hilo);
         liberar_mensaje_in(mensaje_in);
 		variable++;
 	}
-	log_info(logger, "ME MUEROOOOOO %d\n", variable);
+	
 	t_movimiento* nuevo_movimiento = malloc(sizeof(t_movimiento));
 	nuevo_movimiento->PID = tripulante->PID;
 	nuevo_movimiento->TID = tripulante->TID;
 	nuevo_movimiento->seguir = false;
+	sem_wait(&mutex_movimiento);
 	list_add(movimientos_pendientes, nuevo_movimiento);
+	sem_post(&mutex_movimiento);
 	sem_post(&semaforo_consola);
-    // close(socket_cliente);
+	log_info(logger, "Cree movimiento letal");
+
+	// sem_wait(&mutex_lista_tripulantes);
+	// list_remove(lista_tripulantes, posicion_trip(tripulante->PID, tripulante->TID));
+	// sem_post(&mutex_lista_tripulantes);
+	// log_info(logger, "Me quité de la lista de tripulantes");
+	// list_remove(lista_tripulantes, posicion_trip(tripulante->PID, tripulante->TID));
+	// sem_wait(&mutex_segmentacion);
+	// eliminar_segmento(mapa_segmentos, nro_segmento_tripulante(tripulante->inicio));
+    // sem_post(&mutex_segmentacion);
+	// log_info(logger, "Elimine mi propio segmento");
+	// close(socket_cliente);
     // close(tripulante->socket);
     // sem_destroy(tripulante->semaforo_hilo);
+	// free(tripulante->semaforo_hilo);
+	// free(tripulante);
+	log_info(logger, "ME MUEROOOOOO %d\n", variable);
 	return 0;
 }
