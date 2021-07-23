@@ -80,7 +80,7 @@ int* crear_conexiones_hilos(char** input, int* cantidad_detectada) {
 		if(lista_sockets[iterador] < 0) {
 			printf("No se pudo crear socket %d\n", iterador);
 		}
-		else *cantidad_detectada++;
+		//else *cantidad_detectada++;
 	}
 	printf("EN este momento cantidad_detectada vale: %d\n", *cantidad_detectada);
 	return lista_sockets;
