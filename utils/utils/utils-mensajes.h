@@ -67,6 +67,8 @@ typedef enum {
 	
 	SABO_P,	// Nuevo Sabotaje
 		// SABO_P | id_patota [int] | id_trip [int] | posicion_x [int] | posicion_y [int]
+	SABO_I,
+	SABO_F,
 	
 	TODOOK,	// Validación correcta
 		// TODOOK

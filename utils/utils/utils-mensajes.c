@@ -146,7 +146,9 @@ t_list* recibir_mensaje(int socket) {
 	case TASK_T:
 		list_add(lista_parametros, recibir_parametro(socket, BUFFER));
 		break;
-		break;
+		//break;
+	case SABO_I:
+	case SABO_F:
 	case INIT_S:
 	case EXEC_0:
 	case NEW_PO:

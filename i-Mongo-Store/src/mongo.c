@@ -113,14 +113,35 @@ void* detector_sabotajes(void* s) {
 	while(1) {
 		sleep(10);
 
+		log_warning(logger, "ENVIANDO SABOTAJE AL DISCORDIDADOR");
 		t_mensaje* mensaje_out = crear_mensaje(SABO_P);
 
 		agregar_parametro_a_mensaje(mensaje_out, (void*)posicion_x, ENTERO);
 		agregar_parametro_a_mensaje(mensaje_out, (void*)posicion_y, ENTERO);
 
 		enviar_mensaje(socket_detector, mensaje_out);
-
 		liberar_mensaje(mensaje_out);
+
+		t_list* mensaje_in = recibir_mensaje(socket_detector);
+
+		mensaje_out = crear_mensaje(TODOOK);
+
+		if((int)list_get(mensaje_in, 0) == SABO_I) {
+			log_info(logger, "Tripulante empezo a resolver el sabotaje");
+			enviar_mensaje(socket_detector, mensaje_out);
+			list_destroy(mensaje_in);
+
+			mensaje_in = recibir_mensaje(socket_detector);
+
+			if((int)list_get(mensaje_in, 0) == SABO_F) {
+				log_info(logger, "Tripulante termino de resolver el sabotaje");
+				enviar_mensaje(socket_detector, mensaje_out);
+			}
+
+			list_destroy(mensaje_in);
+			liberar_mensaje(mensaje_out);
+		}else
+			log_error(logger, "No se pudo resolver el sabotaje");
 	}
 }
 

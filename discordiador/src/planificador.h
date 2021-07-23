@@ -1,6 +1,7 @@
 #ifndef PLANIFICADOR_H_
 #define PLANIFICADOR_H_
 
+#include <math.h>
 #include <commons/collections/queue.h>
 #include <string.h>
 #include <unistd.h>
@@ -24,6 +25,7 @@ sem_t multiprocesamiento;
 sem_t tripulantes_ready;
 sem_t io_disponible;
 sem_t tripulantes_blocked;
+sem_t finalizo_sabotaje;
 
 t_log* logger;
 int ciclo_CPU;
@@ -41,11 +43,15 @@ void* detector_sabotaje(void* socket);
 void agregar_ready(tripulante* trip);
 void agregar_running(tripulante* trip);
 void agregar_blocked(tripulante* trip);
+void agregar_emergencia(tripulante* trip);
 tripulante* quitar_ready();
 void quitar_running(tripulante* trip);
 void quitar(tripulante*, t_list*);
 
 void emergency_trips_running();
 void emergency_trips_ready();
+
+void resolver_sabotaje(tripulante* trip, int pos_x, int pos_y, int socket_sabotajes);
+int distancia_a(tripulante* trip, int pos_x, int pos_y);
 
 #endif /* PLANIFICADOR_H_ */

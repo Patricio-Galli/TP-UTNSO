@@ -33,6 +33,7 @@ typedef struct {
 	int contador_ciclos;
 	int tiempo_esperado;
 	bool quantum_disponible;
+	bool continuar;
 }tripulante;
 
 //estado
@@ -55,6 +56,8 @@ typedef enum {
 	DESCARTAR_BASURA,
 	ESPERAR
 }tareas;
+
+bool hay_sabotaje;
 
 /////////////////////TRIPULANTE//////////////////////
 tripulante* crear_tripulante(int, int, int, int, int, int);

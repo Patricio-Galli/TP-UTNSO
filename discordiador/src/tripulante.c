@@ -15,6 +15,7 @@ tripulante* crear_tripulante(int x, int y, int patota, int id, int socket_ram, i
 	nuevo_tripulante->contador_ciclos = 0;
 	nuevo_tripulante->tiempo_esperado = 0;
 	nuevo_tripulante->quantum_disponible = true;
+	nuevo_tripulante->continuar = true;
 
 	sem_init(&nuevo_tripulante->sem_blocked, 0, 0);
 	sem_init(&nuevo_tripulante->sem_running, 0, 0);
@@ -43,6 +44,8 @@ void* rutina_tripulante(void* t) {
 	}
 
 	//free(tarea);
+	log_warning(logger,"Tripulante %d finalizando trabajo", trip->id_trip);
+
 	actualizar_estado(trip, EXIT);
 	sem_destroy(&trip->sem_blocked);
 	sem_destroy(&trip->sem_running);
@@ -52,7 +55,11 @@ void* rutina_tripulante(void* t) {
 
 bool ejecutar(char* input, tripulante* trip) {
 
-	if(trip->estado == READY)
+	if(trip->estado == EMERGENCY) {
+		log_info(logger,"Tripulante %d bloqueado emergency", trip->id_trip);
+		sem_post(&trip->sem_blocked);
+	}
+	if(trip->estado != RUNNING)
 		sem_wait(&trip->sem_running);
 
 	log_info(logger,"Tripulante %d va a ejecutar tarea %s", trip->id_trip, input);
@@ -67,7 +74,7 @@ bool ejecutar(char* input, tripulante* trip) {
 
 	moverse(trip, atoi(buffer[1]), atoi(buffer[2]));
 
-	if(trip->quantum_disponible) {
+	if(trip->quantum_disponible && trip->continuar) {
 		char** comando_tarea = string_split(buffer[0], " ");
 		tareas tarea = stringToEnum(comando_tarea[0]);
 
@@ -86,7 +93,7 @@ bool ejecutar(char* input, tripulante* trip) {
 			enviar_y_verificar(crear_mensaje(EXEC_0), trip->socket_mongo, "Fallo en comunicacion con el mongo");
 	}
 
-	if(!trip->quantum_disponible) {
+	if(!trip->quantum_disponible && trip->continuar) {
 		log_info(logger,"Tripulante %d se quedo sin quantum", trip->id_trip);
 
 		quitar_running(trip);
@@ -103,7 +110,7 @@ bool ejecutar(char* input, tripulante* trip) {
 
 void moverse(tripulante* trip, int pos_x, int pos_y) {
 
-	while(trip->posicion[0] != pos_x && trip->quantum_disponible) {
+	while(trip->posicion[0] != pos_x && trip->quantum_disponible && trip->continuar) {
 
 		(trip->posicion[0] < pos_x) ? trip->posicion[0]++ : trip->posicion[0]--;
 		avisar_movimiento(trip);
@@ -112,7 +119,7 @@ void moverse(tripulante* trip, int pos_x, int pos_y) {
 		puede_continuar(trip);
 	}
 
-	while(trip->posicion[1] != pos_y && trip->quantum_disponible) {
+	while(trip->posicion[1] != pos_y && trip->quantum_disponible && trip->continuar) {
 
 		(trip->posicion[1] < pos_y) ? trip->posicion[1]++ : trip->posicion[1]--;
 		avisar_movimiento(trip);
@@ -121,7 +128,9 @@ void moverse(tripulante* trip, int pos_x, int pos_y) {
 		puede_continuar(trip);
 	}
 
-	if(trip->posicion[0] == pos_x && trip->posicion[1] == pos_y)
+	if(!trip->continuar)
+		log_info(logger,"Tripulante %d quitado de running (movimiento)", trip->id_trip);
+	else if(trip->posicion[0] == pos_x && trip->posicion[1] == pos_y)
 		log_info(logger,"Tripulante %d llego a %d|%d", trip->id_trip, trip->posicion[0], trip->posicion[1]);
 	else
 		log_info(logger,"Tripulante %d se quedo en %d|%d en vez de %d|%d", trip->id_trip, trip->posicion[0], trip->posicion[1], pos_x, pos_y);
@@ -190,16 +199,20 @@ void ejecutar_io(tripulante* trip, tareas tarea, int cantidad) {
 		}
 	}
 
-	sleep(5);
-	puede_continuar(trip);
 	sem_post(&io_disponible);
 
-	agregar_ready(trip);
+	puede_continuar(trip);
+
+	if(trip->continuar)
+		agregar_ready(trip);
+	else
+		agregar_emergencia(trip);
+
 	sem_wait(&trip->sem_running);
 }
 
 bool esperar(int tiempo, tripulante* trip) {
-	while(trip->tiempo_esperado < tiempo && trip->quantum_disponible) {
+	while(trip->tiempo_esperado < tiempo && trip->quantum_disponible && trip->continuar) {
 
 		trip->tiempo_esperado++;
 		log_info(logger,"Tripulante %d: Espero %d de %d",trip->id_trip, trip->tiempo_esperado, tiempo);
@@ -208,7 +221,9 @@ bool esperar(int tiempo, tripulante* trip) {
 		puede_continuar(trip);
 	}
 
-	if(trip->tiempo_esperado == tiempo) {
+	if(!trip->continuar)
+		log_info(logger,"Tripulante %d quitado de running (esperar)", trip->id_trip);
+	else if(trip->tiempo_esperado == tiempo) {
 		trip->tiempo_esperado = 0;
 		return true;
 	}
@@ -307,10 +322,12 @@ void actualizar_estado(tripulante* trip, estado estado_trip) {
 
 /////////////////////VALIDACIONES//////////////////////
 void actualizar_quantum(tripulante* trip) {
-	trip->contador_ciclos++;
+	if(!hay_sabotaje) {
+		trip->contador_ciclos++;
 
-	if(analizar_quantum && trip->contador_ciclos == quantum)
-		trip->quantum_disponible = false;
+		if(analizar_quantum && trip->contador_ciclos == quantum)
+			trip->quantum_disponible = false;
+	}
 }
 
 void puede_continuar(tripulante* trip) {
