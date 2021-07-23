@@ -58,6 +58,7 @@ bool ejecutar(char* input, tripulante* trip) {
 	if(trip->estado == EMERGENCY) {
 		log_info(logger,"Tripulante %d bloqueado emergency", trip->id_trip);
 		sem_post(&trip->sem_blocked);
+		sem_post(&multiprocesamiento);
 	}
 	if(trip->estado != RUNNING)
 		sem_wait(&trip->sem_running);
