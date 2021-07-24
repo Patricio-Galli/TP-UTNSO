@@ -127,7 +127,7 @@ void* detector_sabotajes(void* s) {
 		mensaje_out = crear_mensaje(TODOOK);
 
 		if((int)list_get(mensaje_in, 0) == SABO_I) {
-			log_info(logger, "Tripulante empezo a resolver el sabotaje");
+			log_info(logger, "Tripulante %d de la patota %d empezo a resolver el sabotaje", (int)list_get(mensaje_in, 1), (int)list_get(mensaje_in, 2));
 			enviar_mensaje(socket_detector, mensaje_out);
 			list_destroy(mensaje_in);
 

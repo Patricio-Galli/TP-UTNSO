@@ -156,6 +156,7 @@ void emergency_trips_running() {
 			index--;
 		}
 		log_info(logger, "Quitando de running al trip %d", trip_quitar->id_trip);
+
 		trip_quitar->continuar = false;
 		agregar_emergencia(trip_quitar);
 		sem_wait(&trip_quitar->sem_blocked);
@@ -188,7 +189,7 @@ void* detector_sabotaje(void* socket_mongo) {
 
 			emergency_trips_running();
 			emergency_trips_ready();
-			//emergency_blocked -> se hace en ejecutar_io()
+			//emergency_blocked -> se hace en ejecutar_io() a medida que van finalizando
 
 			if(!list_is_empty(cola_emergencia)){
 				int index = list_size(cola_emergencia)-1;
@@ -223,7 +224,7 @@ void* detector_sabotaje(void* socket_mongo) {
 					agregar_ready(trip);
 					list_remove(cola_emergencia, 0);
 				}while(!list_is_empty(cola_emergencia));
-				//hasta aca funciona bien
+
 				hay_sabotaje = false;
 				sem_post(&finalizo_sabotaje);
 
@@ -240,8 +241,10 @@ void* detector_sabotaje(void* socket_mongo) {
 void resolver_sabotaje(tripulante* trip, int pos_x, int pos_y, int socket_sabotajes) {
 	bool estado_q = trip->quantum_disponible;
 	bool estado_continuar = trip->continuar;
+
 	t_mensaje* mensaje_ini = crear_mensaje(SABO_I);
-	log_info(logger, "Enviando mensaje inicio");
+	agregar_parametro_a_mensaje(mensaje_ini, (void*)trip->id_trip, ENTERO);
+	agregar_parametro_a_mensaje(mensaje_ini, (void*)trip->id_patota, ENTERO);
 	enviar_y_verificar(mensaje_ini, socket_sabotajes, "Fallo al iniciar resolucion del sabotaje");
 
 	trip->quantum_disponible = true;
@@ -252,7 +255,6 @@ void resolver_sabotaje(tripulante* trip, int pos_x, int pos_y, int socket_sabota
 	trip->continuar = estado_continuar;
 	trip->quantum_disponible = estado_q;
 
-	log_info(logger, "Enviando mensaje fin, posicion %d|%d", trip->posicion[0], trip->posicion[1]);
 	t_mensaje* mensaje_fin = crear_mensaje(SABO_F);
 	enviar_y_verificar(mensaje_fin, socket_sabotajes, "Fallo al finalizar resolucion del sabotaje");
 }

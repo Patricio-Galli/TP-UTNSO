@@ -1,14 +1,5 @@
 #include "discordiador.h"
 
-int id_patota_actual = 1;
-t_list* lista_tripulantes;
-t_log* logger;
-t_config* config;
-int socket_ram = 0, socket_mongo = 0;
-char *ip_ram, *ip_mongo;
-bool salir;
-bool planificacion_inicializada;
-
 int main() {
 	logger = log_create("discordiador.log", "DISCORDIADOR", 1, LOG_LEVEL_INFO);
 	config = config_create("discordiador.config");
@@ -79,8 +70,10 @@ int main() {
 		switch(mapStringToEnum(input[0])) {
 			case INICIAR_PATOTA:
 
-				if (!strcmp(buffer_consola,"ini"))
+				if (!strcmp(buffer_consola,"ini")) {
+					liberar_input(input);
 					input = string_split("iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 9|3 9|2", " ");
+				}
 
 				parametros = obtener_parametros(input);
 				loggear_parametros(parametros);
@@ -155,7 +148,7 @@ int main() {
 	}
 	exit_planificacion();
 
-	//todo finalizar_tripulantes();
+	//todo exit_tripulantes();
 	close(socket_ram);
 	close(socket_mongo);
 	log_destroy(logger);
@@ -219,7 +212,7 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 
 		} else {
 			tripulante* nuevo_tripulante = crear_tripulante(parametros->posiciones_x[iterador-1], parametros->posiciones_y[iterador-1], id_patota_actual, iterador, 0, 0);
-			list_add(lista_tripulantes, nuevo_tripulante); //devuelve la posicion en la que se agrego
+			list_add(lista_tripulantes, nuevo_tripulante);
 		}
 	}
 	log_info(logger,"Patota nro: %d iniciada.\n",id_patota_actual);

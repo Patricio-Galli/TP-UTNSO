@@ -114,7 +114,7 @@ t_list* recibir_mensaje(int socket) {
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		break;
-	
+	case SABO_I:
 	case SABO_P:
 	case INIT_T:
 	case DATA_T:
@@ -147,7 +147,6 @@ t_list* recibir_mensaje(int socket) {
 		list_add(lista_parametros, recibir_parametro(socket, BUFFER));
 		break;
 		//break;
-	case SABO_I:
 	case SABO_F:
 	case INIT_S:
 	case EXEC_0:
