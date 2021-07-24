@@ -2,29 +2,33 @@
 
 uint32_t block_size;
 uint32_t blocks_amount;
-t_log* logger;
-t_config* config;
-t_bitarray *bitmap;
+
 
 int tripu, pat = 0;
 int main(void)
 {
-
 	logger=log_create("imongostore.log", "I-MONGO-STORE", 1, LOG_LEVEL_DEBUG);
 	config=config_create("imongostore.config");
 	char* punto_montaje = config_get_string_value(config, "PUNTO_MONTAJE");
 
 	log_info(logger, "toy aqui");
-	//reviso si existe el archivo
-	if(!access(punto_montaje,R_OK)){
-		log_info(logger, "Ya esta creado el archivo");
-		//que hago si existe?
-	}
-	else{
-		log_info(logger, "Generando File System limpio");
 
 		mkdir(punto_montaje,0755); //se crea el directorio /FileSystem/
 		printf("el punto de montaje es %s\n",punto_montaje);
+
+		//creo el superBloque (si no esta creado)
+			char DIR_superBloque[100];
+			strcpy(DIR_superBloque,obtener_directorio("/superBloque.ims"));
+			printf("el directorio del superbloque es %s\n",DIR_superBloque);
+			block_size=config_get_long_value(config, "BLOCK_SIZE");
+			blocks_amount=config_get_long_value(config, "BLOCKS_AMOUNT");
+			crear_superBloque(DIR_superBloque);
+
+
+			char DIR_Blocks[100];
+			strcpy(DIR_Blocks,obtener_directorio("/Blocks.ims"));
+			printf("el directorio del blocks es %s\n",DIR_Blocks);
+			crear_blocks(DIR_Blocks);
 
 		char DIR_metadata[150];
 		generar_directorio("/Files");
@@ -38,113 +42,56 @@ int main(void)
 		strcpy(DIR_metadata,obtener_directorio("/Files/Basura.ims"));
 		crear_metadata(DIR_metadata);
 
-		//creo el superBloque
-		char DIR_superBloque[100];
-		strcpy(DIR_superBloque,obtener_directorio("/superBloque.ims"));
-		printf("el directorio del superbloque es %s\n",DIR_superBloque);
-		block_size=config_get_long_value(config, "BLOCK_SIZE");
-		blocks_amount=config_get_long_value(config, "BLOCKS_AMOUNT");
-		crear_superBloque(DIR_superBloque);
+		int id_tripulante=1;
+		strcpy(DIR_metadata,obtener_directorio("/Files/Bitacoras/Tripulante"));
+		strcat(DIR_metadata,string_itoa(id_tripulante));
+		strcat(DIR_metadata,".ims");
+		crear_bitacora(DIR_metadata);
 
- //prueba de lectura del super bloque
-/*
-		FILE *fp=fopen(DIR_superBloque,"r+");
+		imprimir_bitmap(bitmap);
+		printf("sumar 20 oxigenos \n");
+		sumar_caracteres('O',20);
+		imprimir_bitmap(bitmap);
+		printf("consumir 8 oxigenos \n");
+		quitar_caracteres('O',8);
+		imprimir_bitmap(bitmap);
 
-			fread(&prueba2,sizeof(uint32_t),1,fp);
-			printf("El tamanio de bloque es %u\n",prueba2);
-			fread(&prueba2,sizeof(uint32_t),1,fp);
-			printf("La cantidad de bloques es %u\n",prueba2);
-			fread(&bitmap,sizeof(bitmap_size),1,fp);
-
-*/
+		printf("sumar 24 comidas \n");
+		sumar_caracteres('C',20);
+		imprimir_bitmap(bitmap);
+		printf("consumir 8 Comidas \n");
+		quitar_caracteres('C',8);
 		imprimir_bitmap(bitmap);
 
 
 	log_info(logger, "Creando conexiones");
 
-	}
+
 }
 
-/*
 char* crear_superBloque(char* DIR_superBloque){//ver como hacer para pasar uint32_t* como parametro sin que rompa
-	printf("el tamaño del bloque es %d y la cant de bloques es %d \n",block_size,blocks_amount);
-
-	int bitmap_size=(blocks_amount/8);
-	int superBloque_size=(bitmap_size+ 2*sizeof(uint32_t));
-	printf("el tamaño del super bloque es %d\n",superBloque_size);
-	//Crear bitmap?
-	printf("el directorio del superBloque es %s\n",DIR_superBloque);
-	FILE* fp;
-	fp = fopen(DIR_superBloque,"w+");
-	if(fp==NULL){
-		printf("no se pudo abrir/generar el archivo\n");
-		return(-1);
+	log_info(logger, "Verificando existencia SuperBloque");
+	FILE* existe= fopen(DIR_superBloque,"r");
+	if(existe != NULL){
+		log_info(logger, "SuperBloque ya existe");
 	}
-
-	t_config* temp=config_create(DIR_superBloque);
-	temp->path=DIR_superBloque;
-	config_save_in_file(temp,DIR_superBloque);
-	config_set_value(temp,"BLOCK_SIZE",""); //no puedo ingresar el valor de block_size
-	config_set_value(temp,"BLOCKS","");
-	config_set_value(temp,"BITMAP","");
-	config_save(temp);
-
-	fclose(fp);
-	char* puntero_SuperBloque=DIR_superBloque;;
-	printf("se creo el super bloque\n");
-
-	return puntero_SuperBloque;
-}*/
-/*
-char* crear_superBloque(char* DIR_superBloque){//ver como hacer para pasar uint32_t* como parametro sin que rompa
-	printf("el tamaño del bloque es %d y la cant de bloques es %d \n",block_size,blocks_amount);
-	uint32_t data[2]={block_size,blocks_amount};
-	int bitmap_size=(blocks_amount/8);
-
-	//Crear bitmap?
-	printf("el directorio del superBloque es %s\n",DIR_superBloque);
-	FILE* fp;
-	fp = fopen(DIR_superBloque,"w+");
-	if(fp==NULL){
-		printf("no se pudo abrir/generar el archivo\n");
-		return(-1);
-	}
-	ftruncate(fp,sizeof(uint32_t)*2+bitmap_size);
-	fwrite(data,sizeof(uint32_t),2,fp);
-	printf("se escribio el archivo\n");
-//genero todo en 0 el bitmap
-	char* temp_bitmap= malloc(bitmap_size);
-	t_bitarray *bitmap=bitarray_create(temp_bitmap,bitmap_size);
-	for(int i=0;i<bitarray_get_max_bit(bitmap);i++){
-		bitarray_clean_bit(bitmap,i);
-	}
-
-	fwrite(bitmap,bitmap_size,1,fp);
-	printf("se escribio el archivo\n");
-	fclose(fp);
-	char* puntero_SuperBloque=DIR_superBloque;;
-	printf("se creo el super bloque\n");
-
-	return puntero_SuperBloque;
-}*/
-char* crear_superBloque(char* DIR_superBloque){//ver como hacer para pasar uint32_t* como parametro sin que rompa
+	else
+		log_info(logger, "SuperBloque no existe, creandolo.");
 	printf("el tamaño del bloque es %d y la cant de bloques es %d \n",block_size,blocks_amount);
 	int bitmap_size=(blocks_amount/8);
 
-	//Crear bitmap?
 	printf("el directorio del superBloque es %s\n",DIR_superBloque);
 	int fp = open(DIR_superBloque, O_CREAT | O_RDWR, 0664);
 
 	if(fp==-1){
-		printf("no se pudo abrir/generar el archivo\n");
-		return(-1);
+		log_info(logger, "No se pudo abrir/generar el archivo");
+		exit(-1);
 	}
-	printf("el directorio del superBloque es \n");
 	ftruncate(fp,sizeof(uint32_t)*2+bitmap_size);
 	void* superBloque = mmap(NULL, sizeof(uint32_t)*2 + bitmap_size, PROT_READ | PROT_WRITE, MAP_SHARED, fp, 0);
 //genero todo en 0 el bitmap
 	if (superBloque == MAP_FAILED) {
-				log_error(logger, "Error de mmap");
+				log_error(logger, "Error al mapear el SuperBloque");
 				close(fp);
 				return (-1);
 			}
@@ -165,53 +112,55 @@ char* crear_superBloque(char* DIR_superBloque){//ver como hacer para pasar uint3
 	close(fp);
 	free(prueba);
 	char* puntero_SuperBloque=DIR_superBloque;;
-	printf("se creo el super bloque\n");
+	log_info(logger, "SuperBloque Generado");
 
 	return puntero_SuperBloque;
 }
-void* crear_blocks(char* DIR_blocks, int tamanio_blocks, int blocks_file){
-
-        int blocks_file_copy;
-
-	blocks_file = open(DIR_blocks, O_CREAT | O_RDWR, 0666);
-	if (blocks_file == -1){
-
-		printf("No se puede abrir el archivo %s\n", DIR_blocks);
+char* crear_blocks(char* DIR_blocks){
+	log_info(logger, "Verificando existencia Blocks");
+		FILE* existe= fopen(DIR_blocks,"r");
+		if(existe != NULL){
+			log_info(logger, "Blocks ya existe");
+		}else
+			log_info(logger, "Blocks no existe, creandolo");
+	int size=block_size*blocks_amount;
+	int fp = open(DIR_blocks, O_CREAT | O_RDWR, 0666);
+	if (fp == -1){
+		log_info(logger, "No se pudo abrir/generar el archivo");
 		exit(-1);
 	}
-	printf("Generando Blocks.ims...\n");
-	ftruncate(blocks_file,tamanio_blocks);
-	void* blocks_mem = mmap(NULL, tamanio_blocks, PROT_READ | PROT_WRITE,MAP_SHARED, blocks_file, 0);
-	if (blocks_mem == MAP_FAILED){
-		printf("Error al mapear superbloque\n");
+
+	ftruncate(fp,size);
+	//void* superBloque = mmap(NULL, sizeof(uint32_t)*2 + bitmap_size, PROT_READ | PROT_WRITE, MAP_SHARED, fp, 0);
+	void* blocks = mmap(NULL, size, PROT_READ | PROT_WRITE,MAP_SHARED, fp, 0);
+	if (blocks == MAP_FAILED){
+		log_info(logger, "Error al mapear Blocks");
+
 		exit(-1);
 	}
-	return(blocks_mem);
-
-        blocks_file_copy = open(DIR_blocks,O_CREAT|O_RDWR,066),
-        printf("Creando copia dEL BLOCK\n");
-
-        ftruncate(blocks_file_copy,tamanio_blocks);
-
-       void* blocks_mem_copy;
-       blocks_mem_copy= mmap(NULL,tamanio_blocks,PROT_READ|PROT_WRITE,MAP_SHARED,blocks_file_copy,0);
-       memcpy(blocks_file_copy,&blocks_file,tamanio_blocks);
-       close(blocks_file_copy);
-       close(blocks_file);
-
-       return(blocks_file_copy);
-
+	log_info(logger, "Blocks Generado");
+	close(fp);
+	return(blocks);
+}
+void uso_blocks(void* blocks){//se deberia encargar un hilo de esto?
+	int size=block_size*blocks_amount;
+	blocks_copy= malloc(size);
+			sleep(config_get_int_value(config, "TIEMPO_SINCRONIZACION"));
+			//semaforo
+			memcpy(blocks_copy,blocks,size);
+			log_info(logger, "Se realizo copia de blocks");
+			//semaforo signal
+			msync(blocks,(size), MS_SYNC);
+			log_info(logger, "Se sincronizo el blocks");
 }
 void crear_metadata(char* DIR_metadata){
-
+	log_info(logger, "Generando metadata");
 	printf("el directorio de la metadata es %s\n",DIR_metadata);
 	char caracter_llenado;
 	caracter_llenado=DIR_metadata[70];
 	printf("el caracter de llenado es %c\n",caracter_llenado);
 
-
 	FILE* metadata;
-
 	metadata=fopen(DIR_metadata,"wt");
 
 	t_config* temp=config_create(DIR_metadata);
@@ -220,46 +169,50 @@ void crear_metadata(char* DIR_metadata){
 	config_save_in_file(temp,DIR_metadata);
 	if(caracter_llenado=='O'){
 		md5=crear_MD5('O',0);
-	config_set_value(temp,"SIZE","123");
-	config_set_value(temp,"BLOCK_COUNT","4");
-	config_set_value(temp,"BLOCKS","[5,6,7,8]");
+	config_set_value(temp,"SIZE","0");
+	config_set_value(temp,"BLOCK_COUNT","0");
+	config_set_value(temp,"BLOCKS","[]");
 	config_set_value(temp,"CARACTER_LLENADO","O");//No me deja poner en "O" la variable caracter_llenado
 	config_set_value(temp,"MD5_ARCHIVO",md5);
 	config_save(temp);
 	}
 	else if (caracter_llenado=='C'){
 		md5=crear_MD5('C',11);
-		config_set_value(temp,"SIZE","123");
-		config_set_value(temp,"BLOCK_COUNT","4");
-		config_set_value(temp,"BLOCKS","[1,2,3,4]");
+		config_set_value(temp,"SIZE","0");
+		config_set_value(temp,"BLOCK_COUNT","0");
+		config_set_value(temp,"BLOCKS","[]");
 		config_set_value(temp,"CARACTER_LLENADO","C");
 		config_set_value(temp,"MD5_ARCHIVO",md5);
 		config_save(temp);
 	}
 	else {
 			md5=crear_MD5('B',27);
-			config_set_value(temp,"SIZE","123");
-			config_set_value(temp,"BLOCK_COUNT","4");
-			config_set_value(temp,"BLOCKS","[9,10,11,12]");
+			config_set_value(temp,"SIZE","0");
+			config_set_value(temp,"BLOCK_COUNT","0");
+			config_set_value(temp,"BLOCKS","[]");
 			config_set_value(temp,"CARACTER_LLENADO","B");
 			config_set_value(temp,"MD5_ARCHIVO",md5);
 			config_save(temp);
 		}
+	log_info(logger, "Archivo de metadata generado");
 	fclose(metadata);
 
 }
-void generar_bitacora(char* DIR_bitacora){
+void crear_bitacora(char* DIR_bitacora){
+	log_info(logger, "Generando Bitacora");
 	FILE* bitacora;
 	printf("el directorio de la bitacora es %s\n",DIR_bitacora);
 	bitacora=fopen(DIR_bitacora,"w+");
 	t_config* temp=config_create(DIR_bitacora);
 	temp->path=DIR_bitacora;
-	config_set_value(temp,"SIZE","");
-	config_set_value(temp,"BLOCKS","");
+	config_set_value(temp,"SIZE","0");
+	config_set_value(temp,"BLOCKS","[]");
 
 	config_save(temp);
-	config_destroy(temp);
+	free(temp);
 	fclose(bitacora);
+	log_info(logger, "Se Genero la Bitacora");
+	return;
 }
 char* obtener_directorio(char* nombre){
 	t_config* config = config_create("imongostore.config");
@@ -279,13 +232,15 @@ char* generar_directorio(char* nombre){
 
 }
 void imprimir_bitmap(t_bitarray* bitmap){
-	int cantidad_bits =16; //bitarray_get_max_bit(bitmap); //arreglar
-	printf("cant bits es %d\n",cantidad_bits);
+	int cantidad_bits =blocks_amount;
+//	printf("cant bits es %d\n",cantidad_bits);
+	printf("Bitmap: ");
 	for(int i=0;i<cantidad_bits;i++){
-		if(bitarray_test_bit(bitmap, i) == 0){printf("Posicion: %i = 0\n", i);}
-		if(bitarray_test_bit(bitmap, i) == 1){printf("Posicion: %i = 1\n", i);}
+		if(bitarray_test_bit(bitmap, i) == 0){printf("0 ");}
+		if(bitarray_test_bit(bitmap, i) == 1){printf("1 ");}
 		//else {printf("Error de lectura\n");}
 	}
+	printf("\n");
 }
 /*
 void* detector_sabotajes(void* s) {

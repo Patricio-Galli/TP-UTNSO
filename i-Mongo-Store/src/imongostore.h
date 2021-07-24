@@ -30,6 +30,11 @@
 //#define IP_MONGO "192.168.0.104"
 //#define PUERTO_RAM "9000"
 
+t_config* config;
+t_bitarray *bitmap;
+t_log* logger;
+void* blocks_copy;
+
 typedef struct {
 	int posicion_x;
 	int posicion_y;
@@ -41,8 +46,9 @@ typedef struct {
 #define IP_MONGO "127.0.0.2"
 #define PUERTO_MONGO 9100
 char* crear_superBloque(char*);
+char* crear_blocks(char*);
 void crear_metadata(char*);
-void generar_bitacora(char*);
+void crear_bitacora(char*);
 char* generar_directorio(char*);
 char* obtener_directorio(char*);
 void imprimir_bitmap(t_bitarray*);

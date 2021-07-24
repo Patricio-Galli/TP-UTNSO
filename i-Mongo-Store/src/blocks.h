@@ -18,6 +18,8 @@
 
 
 char* crear_MD5(char, int);
-void agregar_Caracteres(char caracter_llenado, int cantidad_caracteres);
+void sumar_caracteres(char, int);
+void quitar_caracteres(char, int);
 char* proximo_bloque_libre();
+int roundUp(int, int);
 #endif /* BLOCKS_H_ */
