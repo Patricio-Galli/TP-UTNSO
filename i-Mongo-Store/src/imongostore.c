@@ -1,7 +1,6 @@
 #include "imongostore.h"
 
-uint32_t block_size;
-uint32_t blocks_amount;
+
 
 
 int tripu, pat = 0;
@@ -17,8 +16,14 @@ int main(void)
 		printf("el punto de montaje es %s\n",punto_montaje);
 
 		//creo el superBloque (si no esta creado)
-			char DIR_superBloque[100];
-			strcpy(DIR_superBloque,obtener_directorio("/superBloque.ims"));
+			char DIR_superBloque[100]; //1
+			//char* DIR_superBloque=malloc(sizeof(punto_montaje));
+			//strcpy(DIR_superBloque,punto_montaje);
+			//strcat(DIR_superBloque,"/superBloque.ims");
+
+			//sprintf(DIR_superBloque,"/superBloque.ims");
+			//sprintf(DIR_superBloque,"/home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem2/superBloque.ims");
+			strcpy(DIR_superBloque,obtener_directorio("/superBloque.ims")); //1
 			printf("el directorio del superbloque es %s\n",DIR_superBloque);
 			block_size=config_get_long_value(config, "BLOCK_SIZE");
 			blocks_amount=config_get_long_value(config, "BLOCKS_AMOUNT");
@@ -57,19 +62,23 @@ int main(void)
 		imprimir_bitmap(bitmap);
 
 		printf("sumar 24 comidas \n");
-		sumar_caracteres('C',20);
+		sumar_caracteres('C',24);
 		imprimir_bitmap(bitmap);
-		printf("consumir 8 Comidas \n");
-		quitar_caracteres('C',8);
+		printf("consumir 12 Comidas \n");
+		quitar_caracteres('C',12);
 		imprimir_bitmap(bitmap);
 
+		tripulante* temp2=malloc(sizeof(tripulante));
+		temp2->id_trip=1;temp2->posicion_x=1;temp2->posicion_y=2;temp2->id_patota=1;temp2->socket_discord=2;
+		actualizar_posicion(temp2,3,4,"/home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem2/Files/Bitacoras/Tripulante1.ims");
 
+		imprimir_bitmap(bitmap);
 	log_info(logger, "Creando conexiones");
 
 
 }
 
-char* crear_superBloque(char* DIR_superBloque){//ver como hacer para pasar uint32_t* como parametro sin que rompa
+char* crear_superBloque(char* DIR_superBloque){
 	log_info(logger, "Verificando existencia SuperBloque");
 	FILE* existe= fopen(DIR_superBloque,"r");
 	if(existe != NULL){
@@ -139,6 +148,7 @@ char* crear_blocks(char* DIR_blocks){
 		exit(-1);
 	}
 	log_info(logger, "Blocks Generado");
+	blocks_copy= malloc(size);
 	close(fp);
 	return(blocks);
 }
@@ -146,10 +156,10 @@ void uso_blocks(void* blocks){//se deberia encargar un hilo de esto?
 	int size=block_size*blocks_amount;
 	blocks_copy= malloc(size);
 			sleep(config_get_int_value(config, "TIEMPO_SINCRONIZACION"));
-			//semaforo
+			pthread_mutex_lock(&actualizar_blocks);
 			memcpy(blocks_copy,blocks,size);
 			log_info(logger, "Se realizo copia de blocks");
-			//semaforo signal
+			pthread_mutex_unlock(&actualizar_blocks);
 			msync(blocks,(size), MS_SYNC);
 			log_info(logger, "Se sincronizo el blocks");
 }

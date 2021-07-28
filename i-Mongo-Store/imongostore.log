@@ -1471,3 +1471,2554 @@
 [INFO] 01:30:39:853 I-MONGO-STORE/(25680:25680): Generando MD5
 [INFO] 01:30:39:871 I-MONGO-STORE/(25680:25680): Generando MD5
 [INFO] 01:30:39:891 I-MONGO-STORE/(25680:25680): Creando conexiones
+[INFO] 02:09:44:716 I-MONGO-STORE/(3760:3760): toy aqui
+[INFO] 02:09:44:784 I-MONGO-STORE/(3760:3760): Verificando existencia SuperBloque
+[INFO] 02:09:44:784 I-MONGO-STORE/(3760:3760): SuperBloque ya existe
+[INFO] 02:09:44:815 I-MONGO-STORE/(3760:3760): SuperBloque Generado
+[INFO] 02:09:44:818 I-MONGO-STORE/(3760:3760): Verificando existencia Blocks
+[INFO] 02:09:44:819 I-MONGO-STORE/(3760:3760): Blocks ya existe
+[INFO] 02:09:44:819 I-MONGO-STORE/(3760:3760): Blocks Generado
+[INFO] 02:09:44:820 I-MONGO-STORE/(3760:3760): Generando metadata
+[INFO] 02:09:44:820 I-MONGO-STORE/(3760:3760): Generando MD5
+[INFO] 02:09:44:846 I-MONGO-STORE/(3760:3760): Archivo de metadata generado
+[INFO] 02:09:44:846 I-MONGO-STORE/(3760:3760): Generando metadata
+[INFO] 02:09:44:847 I-MONGO-STORE/(3760:3760): Generando MD5
+[INFO] 02:09:44:851 I-MONGO-STORE/(3760:3760): Archivo de metadata generado
+[INFO] 02:09:44:852 I-MONGO-STORE/(3760:3760): Generando metadata
+[INFO] 02:09:44:852 I-MONGO-STORE/(3760:3760): Generando MD5
+[INFO] 02:09:44:865 I-MONGO-STORE/(3760:3760): Archivo de metadata generado
+[INFO] 02:09:44:866 I-MONGO-STORE/(3760:3760): Generando Bitacora
+[INFO] 02:09:44:866 I-MONGO-STORE/(3760:3760): Se Genero la Bitacora
+[INFO] 02:09:44:867 I-MONGO-STORE/(3760:3760): Generando MD5
+[INFO] 02:09:44:877 I-MONGO-STORE/(3760:3760): Generando MD5
+[INFO] 02:09:44:897 I-MONGO-STORE/(3760:3760): Generando MD5
+[INFO] 02:09:44:906 I-MONGO-STORE/(3760:3760): Generando MD5
+[INFO] 02:09:44:924 I-MONGO-STORE/(3760:3760): Creando conexiones
+[INFO] 21:14:39:155 I-MONGO-STORE/(3372:3372): toy aqui
+[INFO] 21:14:39:185 I-MONGO-STORE/(3372:3372): Verificando existencia SuperBloque
+[INFO] 21:14:39:186 I-MONGO-STORE/(3372:3372): SuperBloque no existe, creandolo.
+[INFO] 21:14:39:198 I-MONGO-STORE/(3372:3372): SuperBloque Generado
+[INFO] 21:14:39:198 I-MONGO-STORE/(3372:3372): Verificando existencia Blocks
+[INFO] 21:14:39:199 I-MONGO-STORE/(3372:3372): Blocks no existe, creandolo
+[INFO] 21:14:39:199 I-MONGO-STORE/(3372:3372): Blocks Generado
+[INFO] 21:14:39:199 I-MONGO-STORE/(3372:3372): Generando metadata
+[INFO] 21:14:39:200 I-MONGO-STORE/(3372:3372): Generando MD5
+[INFO] 21:14:39:235 I-MONGO-STORE/(3372:3372): Archivo de metadata generado
+[INFO] 21:14:39:236 I-MONGO-STORE/(3372:3372): Generando metadata
+[INFO] 21:14:39:237 I-MONGO-STORE/(3372:3372): Generando MD5
+[INFO] 21:14:39:252 I-MONGO-STORE/(3372:3372): Archivo de metadata generado
+[INFO] 21:14:39:253 I-MONGO-STORE/(3372:3372): Generando metadata
+[INFO] 21:14:39:253 I-MONGO-STORE/(3372:3372): Generando MD5
+[INFO] 21:14:39:261 I-MONGO-STORE/(3372:3372): Archivo de metadata generado
+[INFO] 21:14:39:262 I-MONGO-STORE/(3372:3372): Generando Bitacora
+[INFO] 21:14:39:262 I-MONGO-STORE/(3372:3372): Se Genero la Bitacora
+[INFO] 21:14:39:263 I-MONGO-STORE/(3372:3372): Generando MD5
+[INFO] 21:14:39:276 I-MONGO-STORE/(3372:3372): Generando MD5
+[INFO] 21:14:39:297 I-MONGO-STORE/(3372:3372): Generando MD5
+[INFO] 21:14:39:310 I-MONGO-STORE/(3372:3372): Generando MD5
+[INFO] 21:14:39:320 I-MONGO-STORE/(3372:3372): Creando conexiones
+[INFO] 21:58:14:172 I-MONGO-STORE/(4474:4474): toy aqui
+[INFO] 21:58:14:179 I-MONGO-STORE/(4474:4474): Verificando existencia SuperBloque
+[INFO] 21:58:14:179 I-MONGO-STORE/(4474:4474): SuperBloque no existe, creandolo.
+[INFO] 21:58:14:281 I-MONGO-STORE/(4474:4474): SuperBloque Generado
+[INFO] 21:58:14:281 I-MONGO-STORE/(4474:4474): Verificando existencia Blocks
+[INFO] 21:58:14:281 I-MONGO-STORE/(4474:4474): Blocks no existe, creandolo
+[INFO] 21:58:14:282 I-MONGO-STORE/(4474:4474): Blocks Generado
+[INFO] 21:58:14:284 I-MONGO-STORE/(4474:4474): Generando metadata
+[INFO] 21:58:14:284 I-MONGO-STORE/(4474:4474): Generando MD5
+[INFO] 21:58:14:298 I-MONGO-STORE/(4474:4474): Archivo de metadata generado
+[INFO] 21:58:14:298 I-MONGO-STORE/(4474:4474): Generando metadata
+[INFO] 21:58:14:298 I-MONGO-STORE/(4474:4474): Generando MD5
+[INFO] 21:58:14:308 I-MONGO-STORE/(4474:4474): Archivo de metadata generado
+[INFO] 21:58:14:309 I-MONGO-STORE/(4474:4474): Generando metadata
+[INFO] 21:58:14:309 I-MONGO-STORE/(4474:4474): Generando MD5
+[INFO] 21:58:14:320 I-MONGO-STORE/(4474:4474): Archivo de metadata generado
+[INFO] 21:58:14:321 I-MONGO-STORE/(4474:4474): Generando Bitacora
+[INFO] 21:58:14:321 I-MONGO-STORE/(4474:4474): Se Genero la Bitacora
+[INFO] 21:59:09:057 I-MONGO-STORE/(4651:4651): toy aqui
+[INFO] 21:59:09:065 I-MONGO-STORE/(4651:4651): Verificando existencia SuperBloque
+[INFO] 21:59:09:065 I-MONGO-STORE/(4651:4651): SuperBloque no existe, creandolo.
+[INFO] 21:59:09:165 I-MONGO-STORE/(4651:4651): SuperBloque Generado
+[INFO] 21:59:09:165 I-MONGO-STORE/(4651:4651): Verificando existencia Blocks
+[INFO] 21:59:09:165 I-MONGO-STORE/(4651:4651): Blocks no existe, creandolo
+[INFO] 21:59:09:165 I-MONGO-STORE/(4651:4651): Blocks Generado
+[INFO] 21:59:09:166 I-MONGO-STORE/(4651:4651): Generando metadata
+[INFO] 21:59:09:166 I-MONGO-STORE/(4651:4651): Generando MD5
+[INFO] 21:59:09:179 I-MONGO-STORE/(4651:4651): Archivo de metadata generado
+[INFO] 21:59:09:180 I-MONGO-STORE/(4651:4651): Generando metadata
+[INFO] 21:59:09:181 I-MONGO-STORE/(4651:4651): Generando MD5
+[INFO] 21:59:09:194 I-MONGO-STORE/(4651:4651): Archivo de metadata generado
+[INFO] 21:59:09:195 I-MONGO-STORE/(4651:4651): Generando metadata
+[INFO] 21:59:09:195 I-MONGO-STORE/(4651:4651): Generando MD5
+[INFO] 21:59:09:199 I-MONGO-STORE/(4651:4651): Archivo de metadata generado
+[INFO] 21:59:09:201 I-MONGO-STORE/(4651:4651): Generando Bitacora
+[INFO] 21:59:09:201 I-MONGO-STORE/(4651:4651): Se Genero la Bitacora
+[INFO] 21:59:41:396 I-MONGO-STORE/(4815:4815): toy aqui
+[INFO] 21:59:41:398 I-MONGO-STORE/(4815:4815): Verificando existencia SuperBloque
+[INFO] 21:59:41:398 I-MONGO-STORE/(4815:4815): SuperBloque no existe, creandolo.
+[INFO] 21:59:41:503 I-MONGO-STORE/(4815:4815): SuperBloque Generado
+[INFO] 21:59:41:504 I-MONGO-STORE/(4815:4815): Verificando existencia Blocks
+[INFO] 21:59:41:504 I-MONGO-STORE/(4815:4815): Blocks no existe, creandolo
+[INFO] 21:59:41:504 I-MONGO-STORE/(4815:4815): Blocks Generado
+[INFO] 21:59:41:505 I-MONGO-STORE/(4815:4815): Generando metadata
+[INFO] 21:59:41:505 I-MONGO-STORE/(4815:4815): Generando MD5
+[INFO] 21:59:41:523 I-MONGO-STORE/(4815:4815): Archivo de metadata generado
+[INFO] 21:59:41:523 I-MONGO-STORE/(4815:4815): Generando metadata
+[INFO] 21:59:41:523 I-MONGO-STORE/(4815:4815): Generando MD5
+[INFO] 21:59:41:536 I-MONGO-STORE/(4815:4815): Archivo de metadata generado
+[INFO] 21:59:41:536 I-MONGO-STORE/(4815:4815): Generando metadata
+[INFO] 21:59:41:536 I-MONGO-STORE/(4815:4815): Generando MD5
+[INFO] 21:59:41:540 I-MONGO-STORE/(4815:4815): Archivo de metadata generado
+[INFO] 21:59:41:541 I-MONGO-STORE/(4815:4815): Generando Bitacora
+[INFO] 21:59:41:541 I-MONGO-STORE/(4815:4815): Se Genero la Bitacora
+[INFO] 22:00:37:028 I-MONGO-STORE/(5008:5008): toy aqui
+[INFO] 22:00:37:035 I-MONGO-STORE/(5008:5008): Verificando existencia SuperBloque
+[INFO] 22:00:37:036 I-MONGO-STORE/(5008:5008): SuperBloque no existe, creandolo.
+[INFO] 22:00:37:143 I-MONGO-STORE/(5008:5008): SuperBloque Generado
+[INFO] 22:00:37:143 I-MONGO-STORE/(5008:5008): Verificando existencia Blocks
+[INFO] 22:00:37:143 I-MONGO-STORE/(5008:5008): Blocks no existe, creandolo
+[INFO] 22:00:37:143 I-MONGO-STORE/(5008:5008): Blocks Generado
+[INFO] 22:00:37:143 I-MONGO-STORE/(5008:5008): Generando metadata
+[INFO] 22:00:37:144 I-MONGO-STORE/(5008:5008): Generando MD5
+[INFO] 22:00:37:154 I-MONGO-STORE/(5008:5008): Archivo de metadata generado
+[INFO] 22:00:37:154 I-MONGO-STORE/(5008:5008): Generando metadata
+[INFO] 22:00:37:155 I-MONGO-STORE/(5008:5008): Generando MD5
+[INFO] 22:00:37:174 I-MONGO-STORE/(5008:5008): Archivo de metadata generado
+[INFO] 22:00:37:174 I-MONGO-STORE/(5008:5008): Generando metadata
+[INFO] 22:00:37:174 I-MONGO-STORE/(5008:5008): Generando MD5
+[INFO] 22:00:37:188 I-MONGO-STORE/(5008:5008): Archivo de metadata generado
+[INFO] 22:00:37:188 I-MONGO-STORE/(5008:5008): Generando Bitacora
+[INFO] 22:00:37:189 I-MONGO-STORE/(5008:5008): Se Genero la Bitacora
+[INFO] 22:00:37:189 I-MONGO-STORE/(5008:5008): Generando MD5
+[INFO] 22:00:37:206 I-MONGO-STORE/(5008:5008): Generando MD5
+[INFO] 22:00:37:232 I-MONGO-STORE/(5008:5008): Generando MD5
+[INFO] 22:00:37:264 I-MONGO-STORE/(5008:5008): Generando MD5
+[INFO] 22:00:37:297 I-MONGO-STORE/(5008:5008): Creando conexiones
+[INFO] 22:02:13:318 I-MONGO-STORE/(5202:5202): toy aqui
+[INFO] 22:02:13:322 I-MONGO-STORE/(5202:5202): Verificando existencia SuperBloque
+[INFO] 22:02:13:322 I-MONGO-STORE/(5202:5202): SuperBloque no existe, creandolo.
+[INFO] 22:02:13:423 I-MONGO-STORE/(5202:5202): SuperBloque Generado
+[INFO] 22:02:13:423 I-MONGO-STORE/(5202:5202): Verificando existencia Blocks
+[INFO] 22:02:13:424 I-MONGO-STORE/(5202:5202): Blocks no existe, creandolo
+[INFO] 22:02:13:424 I-MONGO-STORE/(5202:5202): Blocks Generado
+[INFO] 22:02:13:425 I-MONGO-STORE/(5202:5202): Generando metadata
+[INFO] 22:02:13:425 I-MONGO-STORE/(5202:5202): Generando MD5
+[INFO] 22:02:13:429 I-MONGO-STORE/(5202:5202): Archivo de metadata generado
+[INFO] 22:02:13:429 I-MONGO-STORE/(5202:5202): Generando metadata
+[INFO] 22:02:13:430 I-MONGO-STORE/(5202:5202): Generando MD5
+[INFO] 22:02:13:447 I-MONGO-STORE/(5202:5202): Archivo de metadata generado
+[INFO] 22:02:13:447 I-MONGO-STORE/(5202:5202): Generando metadata
+[INFO] 22:02:13:447 I-MONGO-STORE/(5202:5202): Generando MD5
+[INFO] 22:02:13:451 I-MONGO-STORE/(5202:5202): Archivo de metadata generado
+[INFO] 22:02:13:451 I-MONGO-STORE/(5202:5202): Generando Bitacora
+[INFO] 22:02:13:452 I-MONGO-STORE/(5202:5202): Se Genero la Bitacora
+[INFO] 22:02:32:847 I-MONGO-STORE/(5362:5362): toy aqui
+[INFO] 22:02:32:859 I-MONGO-STORE/(5362:5362): Verificando existencia SuperBloque
+[INFO] 22:02:32:859 I-MONGO-STORE/(5362:5362): SuperBloque ya existe
+[INFO] 22:02:32:860 I-MONGO-STORE/(5362:5362): SuperBloque Generado
+[INFO] 22:02:32:860 I-MONGO-STORE/(5362:5362): Verificando existencia Blocks
+[INFO] 22:02:32:860 I-MONGO-STORE/(5362:5362): Blocks ya existe
+[INFO] 22:02:32:861 I-MONGO-STORE/(5362:5362): Blocks Generado
+[INFO] 22:02:32:861 I-MONGO-STORE/(5362:5362): Generando metadata
+[INFO] 22:02:32:861 I-MONGO-STORE/(5362:5362): Generando MD5
+[INFO] 22:02:32:872 I-MONGO-STORE/(5362:5362): Archivo de metadata generado
+[INFO] 22:02:32:872 I-MONGO-STORE/(5362:5362): Generando metadata
+[INFO] 22:02:32:872 I-MONGO-STORE/(5362:5362): Generando MD5
+[INFO] 22:02:32:881 I-MONGO-STORE/(5362:5362): Archivo de metadata generado
+[INFO] 22:02:32:882 I-MONGO-STORE/(5362:5362): Generando metadata
+[INFO] 22:02:32:882 I-MONGO-STORE/(5362:5362): Generando MD5
+[INFO] 22:02:32:892 I-MONGO-STORE/(5362:5362): Archivo de metadata generado
+[INFO] 22:02:32:892 I-MONGO-STORE/(5362:5362): Generando Bitacora
+[INFO] 22:02:32:892 I-MONGO-STORE/(5362:5362): Se Genero la Bitacora
+[INFO] 22:03:01:847 I-MONGO-STORE/(5521:5521): toy aqui
+[INFO] 22:03:01:870 I-MONGO-STORE/(5521:5521): Verificando existencia SuperBloque
+[INFO] 22:03:01:870 I-MONGO-STORE/(5521:5521): SuperBloque ya existe
+[INFO] 22:03:01:873 I-MONGO-STORE/(5521:5521): SuperBloque Generado
+[INFO] 22:03:01:873 I-MONGO-STORE/(5521:5521): Verificando existencia Blocks
+[INFO] 22:03:01:874 I-MONGO-STORE/(5521:5521): Blocks ya existe
+[INFO] 22:03:01:874 I-MONGO-STORE/(5521:5521): Blocks Generado
+[INFO] 22:03:01:874 I-MONGO-STORE/(5521:5521): Generando metadata
+[INFO] 22:03:01:875 I-MONGO-STORE/(5521:5521): Generando MD5
+[INFO] 22:03:01:897 I-MONGO-STORE/(5521:5521): Archivo de metadata generado
+[INFO] 22:03:01:897 I-MONGO-STORE/(5521:5521): Generando metadata
+[INFO] 22:03:01:899 I-MONGO-STORE/(5521:5521): Generando MD5
+[INFO] 22:03:01:921 I-MONGO-STORE/(5521:5521): Archivo de metadata generado
+[INFO] 22:03:01:921 I-MONGO-STORE/(5521:5521): Generando metadata
+[INFO] 22:03:01:921 I-MONGO-STORE/(5521:5521): Generando MD5
+[INFO] 22:03:01:942 I-MONGO-STORE/(5521:5521): Archivo de metadata generado
+[INFO] 22:03:01:943 I-MONGO-STORE/(5521:5521): Generando Bitacora
+[INFO] 22:03:01:947 I-MONGO-STORE/(5521:5521): Se Genero la Bitacora
+[INFO] 22:05:21:743 I-MONGO-STORE/(5985:5985): toy aqui
+[INFO] 22:05:21:744 I-MONGO-STORE/(5985:5985): Verificando existencia SuperBloque
+[INFO] 22:05:21:744 I-MONGO-STORE/(5985:5985): SuperBloque ya existe
+[INFO] 22:05:21:851 I-MONGO-STORE/(5985:5985): SuperBloque Generado
+[INFO] 22:05:21:851 I-MONGO-STORE/(5985:5985): Verificando existencia Blocks
+[INFO] 22:05:21:851 I-MONGO-STORE/(5985:5985): Blocks ya existe
+[INFO] 22:05:21:851 I-MONGO-STORE/(5985:5985): Blocks Generado
+[INFO] 22:05:21:852 I-MONGO-STORE/(5985:5985): Generando metadata
+[INFO] 22:05:21:852 I-MONGO-STORE/(5985:5985): Generando MD5
+[INFO] 22:05:21:860 I-MONGO-STORE/(5985:5985): Archivo de metadata generado
+[INFO] 22:05:21:860 I-MONGO-STORE/(5985:5985): Generando metadata
+[INFO] 22:05:21:860 I-MONGO-STORE/(5985:5985): Generando MD5
+[INFO] 22:05:21:868 I-MONGO-STORE/(5985:5985): Archivo de metadata generado
+[INFO] 22:05:21:868 I-MONGO-STORE/(5985:5985): Generando metadata
+[INFO] 22:05:21:869 I-MONGO-STORE/(5985:5985): Generando MD5
+[INFO] 22:05:21:872 I-MONGO-STORE/(5985:5985): Archivo de metadata generado
+[INFO] 22:05:21:873 I-MONGO-STORE/(5985:5985): Generando Bitacora
+[INFO] 22:05:21:873 I-MONGO-STORE/(5985:5985): Se Genero la Bitacora
+[INFO] 22:06:27:991 I-MONGO-STORE/(6180:6180): toy aqui
+[INFO] 22:06:27:993 I-MONGO-STORE/(6180:6180): Verificando existencia SuperBloque
+[INFO] 22:06:27:993 I-MONGO-STORE/(6180:6180): SuperBloque no existe, creandolo.
+[INFO] 22:06:28:194 I-MONGO-STORE/(6180:6180): SuperBloque Generado
+[INFO] 22:06:28:194 I-MONGO-STORE/(6180:6180): Verificando existencia Blocks
+[INFO] 22:06:28:194 I-MONGO-STORE/(6180:6180): Blocks no existe, creandolo
+[INFO] 22:07:42:965 I-MONGO-STORE/(6484:6484): toy aqui
+[INFO] 22:07:42:966 I-MONGO-STORE/(6484:6484): Verificando existencia SuperBloque
+[INFO] 22:07:42:966 I-MONGO-STORE/(6484:6484): SuperBloque ya existe
+[INFO] 22:07:43:067 I-MONGO-STORE/(6484:6484): SuperBloque Generado
+[INFO] 22:07:43:068 I-MONGO-STORE/(6484:6484): Verificando existencia Blocks
+[INFO] 22:07:43:068 I-MONGO-STORE/(6484:6484): Blocks ya existe
+[INFO] 22:10:01:186 I-MONGO-STORE/(6651:6651): toy aqui
+[INFO] 22:10:01:187 I-MONGO-STORE/(6651:6651): Verificando existencia SuperBloque
+[INFO] 22:10:01:187 I-MONGO-STORE/(6651:6651): SuperBloque ya existe
+[INFO] 22:10:01:190 I-MONGO-STORE/(6651:6651): SuperBloque Generado
+[INFO] 22:10:01:191 I-MONGO-STORE/(6651:6651): Verificando existencia Blocks
+[INFO] 22:10:01:191 I-MONGO-STORE/(6651:6651): Blocks ya existe
+[INFO] 22:10:22:777 I-MONGO-STORE/(6800:6800): toy aqui
+[INFO] 22:10:22:789 I-MONGO-STORE/(6800:6800): Verificando existencia SuperBloque
+[INFO] 22:10:22:789 I-MONGO-STORE/(6800:6800): SuperBloque ya existe
+[INFO] 22:10:22:793 I-MONGO-STORE/(6800:6800): SuperBloque Generado
+[INFO] 22:10:22:793 I-MONGO-STORE/(6800:6800): Verificando existencia Blocks
+[INFO] 22:10:22:794 I-MONGO-STORE/(6800:6800): Blocks ya existe
+[INFO] 22:10:22:794 I-MONGO-STORE/(6800:6800): Blocks Generado
+[INFO] 22:10:22:794 I-MONGO-STORE/(6800:6800): Generando metadata
+[INFO] 22:10:22:795 I-MONGO-STORE/(6800:6800): Generando MD5
+[INFO] 22:10:22:809 I-MONGO-STORE/(6800:6800): Archivo de metadata generado
+[INFO] 22:10:22:809 I-MONGO-STORE/(6800:6800): Generando metadata
+[INFO] 22:10:22:809 I-MONGO-STORE/(6800:6800): Generando MD5
+[INFO] 22:10:22:817 I-MONGO-STORE/(6800:6800): Archivo de metadata generado
+[INFO] 22:10:22:818 I-MONGO-STORE/(6800:6800): Generando metadata
+[INFO] 22:10:22:818 I-MONGO-STORE/(6800:6800): Generando MD5
+[INFO] 22:10:22:828 I-MONGO-STORE/(6800:6800): Archivo de metadata generado
+[INFO] 22:10:22:828 I-MONGO-STORE/(6800:6800): Generando Bitacora
+[INFO] 22:10:22:829 I-MONGO-STORE/(6800:6800): Se Genero la Bitacora
+[INFO] 22:10:59:439 I-MONGO-STORE/(6960:6960): toy aqui
+[INFO] 22:10:59:444 I-MONGO-STORE/(6960:6960): Verificando existencia SuperBloque
+[INFO] 22:10:59:444 I-MONGO-STORE/(6960:6960): SuperBloque ya existe
+[INFO] 22:10:59:550 I-MONGO-STORE/(6960:6960): SuperBloque Generado
+[INFO] 22:10:59:550 I-MONGO-STORE/(6960:6960): Verificando existencia Blocks
+[INFO] 22:10:59:550 I-MONGO-STORE/(6960:6960): Blocks ya existe
+[INFO] 22:10:59:551 I-MONGO-STORE/(6960:6960): Blocks Generado
+[INFO] 22:10:59:551 I-MONGO-STORE/(6960:6960): Generando metadata
+[INFO] 22:10:59:552 I-MONGO-STORE/(6960:6960): Generando MD5
+[INFO] 22:10:59:556 I-MONGO-STORE/(6960:6960): Archivo de metadata generado
+[INFO] 22:10:59:556 I-MONGO-STORE/(6960:6960): Generando metadata
+[INFO] 22:10:59:557 I-MONGO-STORE/(6960:6960): Generando MD5
+[INFO] 22:10:59:560 I-MONGO-STORE/(6960:6960): Archivo de metadata generado
+[INFO] 22:10:59:561 I-MONGO-STORE/(6960:6960): Generando metadata
+[INFO] 22:10:59:561 I-MONGO-STORE/(6960:6960): Generando MD5
+[INFO] 22:10:59:565 I-MONGO-STORE/(6960:6960): Archivo de metadata generado
+[INFO] 22:10:59:565 I-MONGO-STORE/(6960:6960): Generando Bitacora
+[INFO] 22:10:59:566 I-MONGO-STORE/(6960:6960): Se Genero la Bitacora
+[INFO] 22:10:59:567 I-MONGO-STORE/(6960:6960): Bloque completo
+[INFO] 22:10:59:567 I-MONGO-STORE/(6960:6960): Generando MD5
+[INFO] 22:10:59:572 I-MONGO-STORE/(6960:6960): Generando MD5
+[INFO] 22:10:59:577 I-MONGO-STORE/(6960:6960): Bloque completo
+[INFO] 22:10:59:577 I-MONGO-STORE/(6960:6960): Generando MD5
+[INFO] 22:10:59:581 I-MONGO-STORE/(6960:6960): Generando MD5
+[INFO] 22:10:59:585 I-MONGO-STORE/(6960:6960): Creando conexiones
+[INFO] 22:11:40:264 I-MONGO-STORE/(7132:7132): toy aqui
+[INFO] 22:11:40:268 I-MONGO-STORE/(7132:7132): Verificando existencia SuperBloque
+[INFO] 22:11:40:268 I-MONGO-STORE/(7132:7132): SuperBloque ya existe
+[INFO] 22:11:40:273 I-MONGO-STORE/(7132:7132): SuperBloque Generado
+[INFO] 22:11:40:273 I-MONGO-STORE/(7132:7132): Verificando existencia Blocks
+[INFO] 22:11:40:275 I-MONGO-STORE/(7132:7132): Blocks ya existe
+[INFO] 22:11:40:276 I-MONGO-STORE/(7132:7132): Blocks Generado
+[INFO] 22:11:40:276 I-MONGO-STORE/(7132:7132): Generando metadata
+[INFO] 22:11:40:277 I-MONGO-STORE/(7132:7132): Generando MD5
+[INFO] 22:11:40:290 I-MONGO-STORE/(7132:7132): Archivo de metadata generado
+[INFO] 22:11:40:291 I-MONGO-STORE/(7132:7132): Generando metadata
+[INFO] 22:11:40:291 I-MONGO-STORE/(7132:7132): Generando MD5
+[INFO] 22:11:40:300 I-MONGO-STORE/(7132:7132): Archivo de metadata generado
+[INFO] 22:11:40:300 I-MONGO-STORE/(7132:7132): Generando metadata
+[INFO] 22:11:40:301 I-MONGO-STORE/(7132:7132): Generando MD5
+[INFO] 22:11:40:312 I-MONGO-STORE/(7132:7132): Archivo de metadata generado
+[INFO] 22:11:40:312 I-MONGO-STORE/(7132:7132): Generando Bitacora
+[INFO] 22:11:40:313 I-MONGO-STORE/(7132:7132): Se Genero la Bitacora
+[INFO] 22:11:40:314 I-MONGO-STORE/(7132:7132): Bloque completo
+[INFO] 22:11:40:314 I-MONGO-STORE/(7132:7132): Generando MD5
+[INFO] 22:11:40:325 I-MONGO-STORE/(7132:7132): Generando MD5
+[INFO] 22:11:40:335 I-MONGO-STORE/(7132:7132): Bloque completo
+[INFO] 22:11:40:335 I-MONGO-STORE/(7132:7132): Generando MD5
+[INFO] 22:11:40:344 I-MONGO-STORE/(7132:7132): Generando MD5
+[INFO] 22:11:40:357 I-MONGO-STORE/(7132:7132): Creando conexiones
+[INFO] 22:12:23:447 I-MONGO-STORE/(7303:7303): toy aqui
+[INFO] 22:12:23:448 I-MONGO-STORE/(7303:7303): Verificando existencia SuperBloque
+[INFO] 22:12:23:449 I-MONGO-STORE/(7303:7303): SuperBloque ya existe
+[INFO] 22:12:23:452 I-MONGO-STORE/(7303:7303): SuperBloque Generado
+[INFO] 22:12:23:452 I-MONGO-STORE/(7303:7303): Verificando existencia Blocks
+[INFO] 22:12:23:452 I-MONGO-STORE/(7303:7303): Blocks ya existe
+[INFO] 22:12:23:452 I-MONGO-STORE/(7303:7303): Blocks Generado
+[INFO] 22:12:23:455 I-MONGO-STORE/(7303:7303): Generando metadata
+[INFO] 22:12:23:455 I-MONGO-STORE/(7303:7303): Generando MD5
+[INFO] 22:12:23:463 I-MONGO-STORE/(7303:7303): Archivo de metadata generado
+[INFO] 22:12:23:463 I-MONGO-STORE/(7303:7303): Generando metadata
+[INFO] 22:12:23:464 I-MONGO-STORE/(7303:7303): Generando MD5
+[INFO] 22:12:23:467 I-MONGO-STORE/(7303:7303): Archivo de metadata generado
+[INFO] 22:12:23:468 I-MONGO-STORE/(7303:7303): Generando metadata
+[INFO] 22:12:23:468 I-MONGO-STORE/(7303:7303): Generando MD5
+[INFO] 22:12:23:472 I-MONGO-STORE/(7303:7303): Archivo de metadata generado
+[INFO] 22:12:23:472 I-MONGO-STORE/(7303:7303): Generando Bitacora
+[INFO] 22:12:23:473 I-MONGO-STORE/(7303:7303): Se Genero la Bitacora
+[INFO] 22:12:23:474 I-MONGO-STORE/(7303:7303): Bloque completo
+[INFO] 22:12:23:474 I-MONGO-STORE/(7303:7303): Bloque completo
+[INFO] 22:12:23:474 I-MONGO-STORE/(7303:7303): Se completo la escritura de caracteres
+[INFO] 22:12:23:475 I-MONGO-STORE/(7303:7303): Generando MD5
+[INFO] 22:12:23:478 I-MONGO-STORE/(7303:7303): Generando MD5
+[INFO] 22:12:23:483 I-MONGO-STORE/(7303:7303): Bloque completo
+[INFO] 22:12:23:483 I-MONGO-STORE/(7303:7303): Bloque completo
+[INFO] 22:12:23:483 I-MONGO-STORE/(7303:7303): Se completo la escritura de caracteres
+[INFO] 22:12:23:483 I-MONGO-STORE/(7303:7303): Generando MD5
+[INFO] 22:12:23:487 I-MONGO-STORE/(7303:7303): Generando MD5
+[INFO] 22:12:23:491 I-MONGO-STORE/(7303:7303): Creando conexiones
+[INFO] 22:33:30:365 I-MONGO-STORE/(7741:7741): toy aqui
+[INFO] 22:33:30:386 I-MONGO-STORE/(7741:7741): Verificando existencia SuperBloque
+[INFO] 22:33:30:387 I-MONGO-STORE/(7741:7741): SuperBloque no existe, creandolo.
+[INFO] 22:33:30:492 I-MONGO-STORE/(7741:7741): SuperBloque Generado
+[INFO] 22:33:30:492 I-MONGO-STORE/(7741:7741): Verificando existencia Blocks
+[INFO] 22:33:30:492 I-MONGO-STORE/(7741:7741): Blocks no existe, creandolo
+[INFO] 22:33:30:492 I-MONGO-STORE/(7741:7741): Blocks Generado
+[INFO] 22:33:30:493 I-MONGO-STORE/(7741:7741): Generando metadata
+[INFO] 22:33:30:493 I-MONGO-STORE/(7741:7741): Generando MD5
+[INFO] 22:33:30:521 I-MONGO-STORE/(7741:7741): Archivo de metadata generado
+[INFO] 22:33:30:521 I-MONGO-STORE/(7741:7741): Generando metadata
+[INFO] 22:33:30:521 I-MONGO-STORE/(7741:7741): Generando MD5
+[INFO] 22:33:30:536 I-MONGO-STORE/(7741:7741): Archivo de metadata generado
+[INFO] 22:33:30:537 I-MONGO-STORE/(7741:7741): Generando metadata
+[INFO] 22:33:30:537 I-MONGO-STORE/(7741:7741): Generando MD5
+[INFO] 22:33:30:552 I-MONGO-STORE/(7741:7741): Archivo de metadata generado
+[INFO] 22:33:30:552 I-MONGO-STORE/(7741:7741): Generando Bitacora
+[INFO] 22:33:30:553 I-MONGO-STORE/(7741:7741): Se Genero la Bitacora
+[INFO] 22:33:30:554 I-MONGO-STORE/(7741:7741): Bloque completo
+[INFO] 22:33:30:554 I-MONGO-STORE/(7741:7741): Bloque completo
+[INFO] 22:33:30:554 I-MONGO-STORE/(7741:7741): Se completo la escritura de caracteres
+[INFO] 22:33:30:555 I-MONGO-STORE/(7741:7741): Generando MD5
+[INFO] 22:33:30:577 I-MONGO-STORE/(7741:7741): Bloque completo
+[INFO] 22:33:30:578 I-MONGO-STORE/(7741:7741): Generando MD5
+[INFO] 22:33:30:591 I-MONGO-STORE/(7741:7741): Bloque completo
+[INFO] 22:33:30:591 I-MONGO-STORE/(7741:7741): Bloque completo
+[INFO] 22:33:30:592 I-MONGO-STORE/(7741:7741): Se completo la escritura de caracteres
+[INFO] 22:33:30:592 I-MONGO-STORE/(7741:7741): Generando MD5
+[INFO] 22:33:30:612 I-MONGO-STORE/(7741:7741): Bloque completo
+[INFO] 22:33:30:613 I-MONGO-STORE/(7741:7741): Generando MD5
+[INFO] 22:33:30:638 I-MONGO-STORE/(7741:7741): Creando conexiones
+[INFO] 22:35:37:033 I-MONGO-STORE/(7935:7935): toy aqui
+[INFO] 22:35:37:034 I-MONGO-STORE/(7935:7935): Verificando existencia SuperBloque
+[INFO] 22:35:37:034 I-MONGO-STORE/(7935:7935): SuperBloque ya existe
+[INFO] 22:35:37:039 I-MONGO-STORE/(7935:7935): SuperBloque Generado
+[INFO] 22:35:37:040 I-MONGO-STORE/(7935:7935): Verificando existencia Blocks
+[INFO] 22:35:37:040 I-MONGO-STORE/(7935:7935): Blocks ya existe
+[INFO] 22:35:37:040 I-MONGO-STORE/(7935:7935): Blocks Generado
+[INFO] 22:35:37:041 I-MONGO-STORE/(7935:7935): Generando metadata
+[INFO] 22:35:37:041 I-MONGO-STORE/(7935:7935): Generando MD5
+[INFO] 22:35:37:056 I-MONGO-STORE/(7935:7935): Archivo de metadata generado
+[INFO] 22:35:37:056 I-MONGO-STORE/(7935:7935): Generando metadata
+[INFO] 22:35:37:056 I-MONGO-STORE/(7935:7935): Generando MD5
+[INFO] 22:35:37:066 I-MONGO-STORE/(7935:7935): Archivo de metadata generado
+[INFO] 22:35:37:067 I-MONGO-STORE/(7935:7935): Generando metadata
+[INFO] 22:35:37:067 I-MONGO-STORE/(7935:7935): Generando MD5
+[INFO] 22:35:37:077 I-MONGO-STORE/(7935:7935): Archivo de metadata generado
+[INFO] 22:35:37:077 I-MONGO-STORE/(7935:7935): Generando Bitacora
+[INFO] 22:35:37:077 I-MONGO-STORE/(7935:7935): Se Genero la Bitacora
+[INFO] 22:35:37:078 I-MONGO-STORE/(7935:7935): Bloque completo
+[INFO] 22:35:37:079 I-MONGO-STORE/(7935:7935): Bloque completo
+[INFO] 22:35:37:079 I-MONGO-STORE/(7935:7935): Se completo la escritura de caracteres
+[INFO] 22:35:37:079 I-MONGO-STORE/(7935:7935): Generando MD5
+[INFO] 22:35:37:084 I-MONGO-STORE/(7935:7935): Bloque completo
+[INFO] 22:35:37:084 I-MONGO-STORE/(7935:7935): Generando MD5
+[INFO] 22:35:37:089 I-MONGO-STORE/(7935:7935): Bloque completo
+[INFO] 22:35:37:089 I-MONGO-STORE/(7935:7935): Bloque completo
+[INFO] 22:35:37:089 I-MONGO-STORE/(7935:7935): Se completo la escritura de caracteres
+[INFO] 22:35:37:090 I-MONGO-STORE/(7935:7935): Generando MD5
+[INFO] 22:35:37:094 I-MONGO-STORE/(7935:7935): Bloque completo
+[INFO] 22:35:37:094 I-MONGO-STORE/(7935:7935): Generando MD5
+[INFO] 22:35:37:098 I-MONGO-STORE/(7935:7935): Creando conexiones
+[INFO] 22:39:14:370 I-MONGO-STORE/(8151:8151): toy aqui
+[INFO] 22:39:14:371 I-MONGO-STORE/(8151:8151): Verificando existencia SuperBloque
+[INFO] 22:39:14:371 I-MONGO-STORE/(8151:8151): SuperBloque ya existe
+[INFO] 22:39:14:374 I-MONGO-STORE/(8151:8151): SuperBloque Generado
+[INFO] 22:39:14:374 I-MONGO-STORE/(8151:8151): Verificando existencia Blocks
+[INFO] 22:39:14:374 I-MONGO-STORE/(8151:8151): Blocks ya existe
+[INFO] 22:39:14:375 I-MONGO-STORE/(8151:8151): Blocks Generado
+[INFO] 22:39:14:375 I-MONGO-STORE/(8151:8151): Generando metadata
+[INFO] 22:39:14:376 I-MONGO-STORE/(8151:8151): Generando MD5
+[INFO] 22:39:14:386 I-MONGO-STORE/(8151:8151): Archivo de metadata generado
+[INFO] 22:39:14:387 I-MONGO-STORE/(8151:8151): Generando metadata
+[INFO] 22:39:14:387 I-MONGO-STORE/(8151:8151): Generando MD5
+[INFO] 22:39:14:391 I-MONGO-STORE/(8151:8151): Archivo de metadata generado
+[INFO] 22:39:14:391 I-MONGO-STORE/(8151:8151): Generando metadata
+[INFO] 22:39:14:391 I-MONGO-STORE/(8151:8151): Generando MD5
+[INFO] 22:39:14:395 I-MONGO-STORE/(8151:8151): Archivo de metadata generado
+[INFO] 22:39:14:395 I-MONGO-STORE/(8151:8151): Generando Bitacora
+[INFO] 22:39:14:396 I-MONGO-STORE/(8151:8151): Se Genero la Bitacora
+[INFO] 22:39:14:397 I-MONGO-STORE/(8151:8151): Bloque completo
+[INFO] 22:39:14:397 I-MONGO-STORE/(8151:8151): Bloque completo
+[INFO] 22:39:14:397 I-MONGO-STORE/(8151:8151): Se completo la escritura de caracteres
+[INFO] 22:39:14:397 I-MONGO-STORE/(8151:8151): Generando MD5
+[INFO] 22:39:14:402 I-MONGO-STORE/(8151:8151): Bloque completo
+[INFO] 22:39:14:402 I-MONGO-STORE/(8151:8151): Generando MD5
+[INFO] 22:39:14:406 I-MONGO-STORE/(8151:8151): Bloque completo
+[INFO] 22:39:14:407 I-MONGO-STORE/(8151:8151): Bloque completo
+[INFO] 22:39:14:407 I-MONGO-STORE/(8151:8151): Se completo la escritura de caracteres
+[INFO] 22:39:14:407 I-MONGO-STORE/(8151:8151): Generando MD5
+[INFO] 22:39:14:411 I-MONGO-STORE/(8151:8151): Bloque completo
+[INFO] 22:39:14:412 I-MONGO-STORE/(8151:8151): Generando MD5
+[INFO] 22:39:14:415 I-MONGO-STORE/(8151:8151): Creando conexiones
+[INFO] 22:41:19:140 I-MONGO-STORE/(8343:8343): toy aqui
+[INFO] 22:41:19:148 I-MONGO-STORE/(8343:8343): Verificando existencia SuperBloque
+[INFO] 22:41:19:148 I-MONGO-STORE/(8343:8343): SuperBloque ya existe
+[INFO] 22:41:19:152 I-MONGO-STORE/(8343:8343): SuperBloque Generado
+[INFO] 22:41:19:157 I-MONGO-STORE/(8343:8343): Verificando existencia Blocks
+[INFO] 22:41:19:157 I-MONGO-STORE/(8343:8343): Blocks ya existe
+[INFO] 22:41:19:157 I-MONGO-STORE/(8343:8343): Blocks Generado
+[INFO] 22:41:19:158 I-MONGO-STORE/(8343:8343): Generando metadata
+[INFO] 22:41:19:158 I-MONGO-STORE/(8343:8343): Generando MD5
+[INFO] 22:41:19:173 I-MONGO-STORE/(8343:8343): Archivo de metadata generado
+[INFO] 22:41:19:173 I-MONGO-STORE/(8343:8343): Generando metadata
+[INFO] 22:41:19:173 I-MONGO-STORE/(8343:8343): Generando MD5
+[INFO] 22:41:19:184 I-MONGO-STORE/(8343:8343): Archivo de metadata generado
+[INFO] 22:41:19:185 I-MONGO-STORE/(8343:8343): Generando metadata
+[INFO] 22:41:19:185 I-MONGO-STORE/(8343:8343): Generando MD5
+[INFO] 22:41:19:196 I-MONGO-STORE/(8343:8343): Archivo de metadata generado
+[INFO] 22:41:19:197 I-MONGO-STORE/(8343:8343): Generando Bitacora
+[INFO] 22:41:19:197 I-MONGO-STORE/(8343:8343): Se Genero la Bitacora
+[INFO] 22:41:19:198 I-MONGO-STORE/(8343:8343): Bloque completo
+[INFO] 22:41:19:199 I-MONGO-STORE/(8343:8343): Bloque completo
+[INFO] 22:41:19:199 I-MONGO-STORE/(8343:8343): Se completo la escritura de caracteres
+[INFO] 22:41:19:199 I-MONGO-STORE/(8343:8343): Generando MD5
+[INFO] 22:41:19:213 I-MONGO-STORE/(8343:8343): Bloque completo
+[INFO] 22:41:19:213 I-MONGO-STORE/(8343:8343): Generando MD5
+[INFO] 22:41:19:227 I-MONGO-STORE/(8343:8343): Bloque completo
+[INFO] 22:41:19:227 I-MONGO-STORE/(8343:8343): Bloque completo
+[INFO] 22:41:19:227 I-MONGO-STORE/(8343:8343): Se completo la escritura de caracteres
+[INFO] 22:41:19:228 I-MONGO-STORE/(8343:8343): Generando MD5
+[INFO] 22:41:19:245 I-MONGO-STORE/(8343:8343): Bloque completo
+[INFO] 22:41:19:245 I-MONGO-STORE/(8343:8343): Generando MD5
+[INFO] 22:41:19:269 I-MONGO-STORE/(8343:8343): Creando conexiones
+[INFO] 22:42:40:691 I-MONGO-STORE/(8521:8521): toy aqui
+[INFO] 22:42:40:692 I-MONGO-STORE/(8521:8521): Verificando existencia SuperBloque
+[INFO] 22:42:40:693 I-MONGO-STORE/(8521:8521): SuperBloque ya existe
+[INFO] 22:42:40:793 I-MONGO-STORE/(8521:8521): SuperBloque Generado
+[INFO] 22:42:40:793 I-MONGO-STORE/(8521:8521): Verificando existencia Blocks
+[INFO] 22:42:40:793 I-MONGO-STORE/(8521:8521): Blocks ya existe
+[INFO] 22:42:40:793 I-MONGO-STORE/(8521:8521): Blocks Generado
+[INFO] 22:42:40:799 I-MONGO-STORE/(8521:8521): Generando metadata
+[INFO] 22:42:40:799 I-MONGO-STORE/(8521:8521): Generando MD5
+[INFO] 22:42:40:812 I-MONGO-STORE/(8521:8521): Archivo de metadata generado
+[INFO] 22:42:40:812 I-MONGO-STORE/(8521:8521): Generando metadata
+[INFO] 22:42:40:813 I-MONGO-STORE/(8521:8521): Generando MD5
+[INFO] 22:42:40:829 I-MONGO-STORE/(8521:8521): Archivo de metadata generado
+[INFO] 22:42:40:829 I-MONGO-STORE/(8521:8521): Generando metadata
+[INFO] 22:42:40:830 I-MONGO-STORE/(8521:8521): Generando MD5
+[INFO] 22:42:40:846 I-MONGO-STORE/(8521:8521): Archivo de metadata generado
+[INFO] 22:42:40:846 I-MONGO-STORE/(8521:8521): Generando Bitacora
+[INFO] 22:42:40:847 I-MONGO-STORE/(8521:8521): Se Genero la Bitacora
+[INFO] 22:42:40:848 I-MONGO-STORE/(8521:8521): Bloque completo
+[INFO] 22:42:40:848 I-MONGO-STORE/(8521:8521): Bloque completo
+[INFO] 22:42:40:848 I-MONGO-STORE/(8521:8521): Se completo la escritura de caracteres
+[INFO] 22:42:40:849 I-MONGO-STORE/(8521:8521): Generando MD5
+[INFO] 22:42:40:868 I-MONGO-STORE/(8521:8521): Bloque completo
+[INFO] 22:42:40:868 I-MONGO-STORE/(8521:8521): Se completo la escritura de caracteres
+[INFO] 22:42:40:868 I-MONGO-STORE/(8521:8521): Generando MD5
+[INFO] 22:42:40:878 I-MONGO-STORE/(8521:8521): Bloque completo
+[INFO] 22:42:40:878 I-MONGO-STORE/(8521:8521): Bloque completo
+[INFO] 22:42:40:879 I-MONGO-STORE/(8521:8521): Se completo la escritura de caracteres
+[INFO] 22:42:40:879 I-MONGO-STORE/(8521:8521): Generando MD5
+[INFO] 22:42:40:893 I-MONGO-STORE/(8521:8521): Bloque completo
+[INFO] 22:42:40:893 I-MONGO-STORE/(8521:8521): Bloque completo
+[INFO] 22:42:40:893 I-MONGO-STORE/(8521:8521): Generando MD5
+[INFO] 22:42:40:916 I-MONGO-STORE/(8521:8521): Creando conexiones
+[INFO] 22:43:05:452 I-MONGO-STORE/(8688:8688): toy aqui
+[INFO] 22:43:05:454 I-MONGO-STORE/(8688:8688): Verificando existencia SuperBloque
+[INFO] 22:43:05:454 I-MONGO-STORE/(8688:8688): SuperBloque ya existe
+[INFO] 22:43:05:457 I-MONGO-STORE/(8688:8688): SuperBloque Generado
+[INFO] 22:43:05:457 I-MONGO-STORE/(8688:8688): Verificando existencia Blocks
+[INFO] 22:43:05:458 I-MONGO-STORE/(8688:8688): Blocks ya existe
+[INFO] 22:43:05:458 I-MONGO-STORE/(8688:8688): Blocks Generado
+[INFO] 22:43:05:460 I-MONGO-STORE/(8688:8688): Generando metadata
+[INFO] 22:43:05:460 I-MONGO-STORE/(8688:8688): Generando MD5
+[INFO] 22:43:05:470 I-MONGO-STORE/(8688:8688): Archivo de metadata generado
+[INFO] 22:43:05:470 I-MONGO-STORE/(8688:8688): Generando metadata
+[INFO] 22:43:05:471 I-MONGO-STORE/(8688:8688): Generando MD5
+[INFO] 22:43:05:474 I-MONGO-STORE/(8688:8688): Archivo de metadata generado
+[INFO] 22:43:05:475 I-MONGO-STORE/(8688:8688): Generando metadata
+[INFO] 22:43:05:475 I-MONGO-STORE/(8688:8688): Generando MD5
+[INFO] 22:43:05:479 I-MONGO-STORE/(8688:8688): Archivo de metadata generado
+[INFO] 22:43:05:479 I-MONGO-STORE/(8688:8688): Generando Bitacora
+[INFO] 22:43:05:480 I-MONGO-STORE/(8688:8688): Se Genero la Bitacora
+[INFO] 22:43:05:481 I-MONGO-STORE/(8688:8688): Bloque completo
+[INFO] 22:43:05:481 I-MONGO-STORE/(8688:8688): Bloque completo
+[INFO] 22:43:05:481 I-MONGO-STORE/(8688:8688): Se completo la escritura de caracteres
+[INFO] 22:43:05:482 I-MONGO-STORE/(8688:8688): Generando MD5
+[INFO] 22:43:05:486 I-MONGO-STORE/(8688:8688): Bloque completo
+[INFO] 22:43:05:486 I-MONGO-STORE/(8688:8688): Se completo la escritura de caracteres
+[INFO] 22:43:05:486 I-MONGO-STORE/(8688:8688): Generando MD5
+[INFO] 22:43:05:491 I-MONGO-STORE/(8688:8688): Bloque completo
+[INFO] 22:43:05:491 I-MONGO-STORE/(8688:8688): Bloque completo
+[INFO] 22:43:05:492 I-MONGO-STORE/(8688:8688): Se completo la escritura de caracteres
+[INFO] 22:43:05:492 I-MONGO-STORE/(8688:8688): Generando MD5
+[INFO] 22:43:05:496 I-MONGO-STORE/(8688:8688): Bloque completo
+[INFO] 22:43:05:496 I-MONGO-STORE/(8688:8688): Bloque completo
+[INFO] 22:43:05:496 I-MONGO-STORE/(8688:8688): Generando MD5
+[INFO] 22:43:05:501 I-MONGO-STORE/(8688:8688): Creando conexiones
+[INFO] 22:45:05:982 I-MONGO-STORE/(8901:8901): toy aqui
+[INFO] 22:45:05:985 I-MONGO-STORE/(8901:8901): Verificando existencia SuperBloque
+[INFO] 22:45:05:985 I-MONGO-STORE/(8901:8901): SuperBloque ya existe
+[INFO] 22:45:06:020 I-MONGO-STORE/(8901:8901): SuperBloque Generado
+[INFO] 22:45:06:020 I-MONGO-STORE/(8901:8901): Verificando existencia Blocks
+[INFO] 22:45:06:020 I-MONGO-STORE/(8901:8901): Blocks ya existe
+[INFO] 22:45:06:020 I-MONGO-STORE/(8901:8901): Blocks Generado
+[INFO] 22:45:06:024 I-MONGO-STORE/(8901:8901): Generando metadata
+[INFO] 22:45:06:024 I-MONGO-STORE/(8901:8901): Generando MD5
+[INFO] 22:45:06:048 I-MONGO-STORE/(8901:8901): Archivo de metadata generado
+[INFO] 22:45:06:049 I-MONGO-STORE/(8901:8901): Generando metadata
+[INFO] 22:45:06:049 I-MONGO-STORE/(8901:8901): Generando MD5
+[INFO] 22:45:06:061 I-MONGO-STORE/(8901:8901): Archivo de metadata generado
+[INFO] 22:45:06:061 I-MONGO-STORE/(8901:8901): Generando metadata
+[INFO] 22:45:06:061 I-MONGO-STORE/(8901:8901): Generando MD5
+[INFO] 22:45:06:078 I-MONGO-STORE/(8901:8901): Archivo de metadata generado
+[INFO] 22:45:06:078 I-MONGO-STORE/(8901:8901): Generando Bitacora
+[INFO] 22:45:06:079 I-MONGO-STORE/(8901:8901): Se Genero la Bitacora
+[INFO] 22:45:06:080 I-MONGO-STORE/(8901:8901): Bloque completo
+[INFO] 22:45:06:080 I-MONGO-STORE/(8901:8901): Bloque completo
+[INFO] 22:45:06:080 I-MONGO-STORE/(8901:8901): Se completo la escritura de caracteres
+[INFO] 22:45:06:080 I-MONGO-STORE/(8901:8901): Generando MD5
+[INFO] 22:45:06:096 I-MONGO-STORE/(8901:8901): Bloque completo
+[INFO] 22:45:06:096 I-MONGO-STORE/(8901:8901): Generando MD5
+[INFO] 22:45:06:112 I-MONGO-STORE/(8901:8901): Bloque completo
+[INFO] 22:45:06:113 I-MONGO-STORE/(8901:8901): Bloque completo
+[INFO] 22:45:06:113 I-MONGO-STORE/(8901:8901): Se completo la escritura de caracteres
+[INFO] 22:45:06:113 I-MONGO-STORE/(8901:8901): Generando MD5
+[INFO] 22:45:06:133 I-MONGO-STORE/(8901:8901): Bloque completo
+[INFO] 22:45:06:133 I-MONGO-STORE/(8901:8901): Generando MD5
+[INFO] 22:45:06:142 I-MONGO-STORE/(8901:8901): Creando conexiones
+[INFO] 22:45:50:798 I-MONGO-STORE/(9088:9088): toy aqui
+[INFO] 22:45:50:804 I-MONGO-STORE/(9088:9088): Verificando existencia SuperBloque
+[INFO] 22:45:50:804 I-MONGO-STORE/(9088:9088): SuperBloque ya existe
+[INFO] 22:45:50:908 I-MONGO-STORE/(9088:9088): SuperBloque Generado
+[INFO] 22:45:50:909 I-MONGO-STORE/(9088:9088): Verificando existencia Blocks
+[INFO] 22:45:50:909 I-MONGO-STORE/(9088:9088): Blocks ya existe
+[INFO] 22:45:50:909 I-MONGO-STORE/(9088:9088): Blocks Generado
+[INFO] 22:45:50:909 I-MONGO-STORE/(9088:9088): Generando metadata
+[INFO] 22:45:50:910 I-MONGO-STORE/(9088:9088): Generando MD5
+[INFO] 22:45:50:922 I-MONGO-STORE/(9088:9088): Archivo de metadata generado
+[INFO] 22:45:50:922 I-MONGO-STORE/(9088:9088): Generando metadata
+[INFO] 22:45:50:922 I-MONGO-STORE/(9088:9088): Generando MD5
+[INFO] 22:45:50:932 I-MONGO-STORE/(9088:9088): Archivo de metadata generado
+[INFO] 22:45:50:933 I-MONGO-STORE/(9088:9088): Generando metadata
+[INFO] 22:45:50:933 I-MONGO-STORE/(9088:9088): Generando MD5
+[INFO] 22:45:50:945 I-MONGO-STORE/(9088:9088): Archivo de metadata generado
+[INFO] 22:45:50:946 I-MONGO-STORE/(9088:9088): Generando Bitacora
+[INFO] 22:45:50:946 I-MONGO-STORE/(9088:9088): Se Genero la Bitacora
+[INFO] 22:45:50:947 I-MONGO-STORE/(9088:9088): Bloque completo
+[INFO] 22:45:50:948 I-MONGO-STORE/(9088:9088): Bloque completo
+[INFO] 22:45:50:948 I-MONGO-STORE/(9088:9088): Se completo la escritura de caracteres
+[INFO] 22:45:50:948 I-MONGO-STORE/(9088:9088): Generando MD5
+[INFO] 22:45:50:957 I-MONGO-STORE/(9088:9088): Bloque completo
+[INFO] 22:45:50:957 I-MONGO-STORE/(9088:9088): Generando MD5
+[INFO] 22:45:50:969 I-MONGO-STORE/(9088:9088): Bloque completo
+[INFO] 22:45:50:970 I-MONGO-STORE/(9088:9088): Bloque completo
+[INFO] 22:45:50:970 I-MONGO-STORE/(9088:9088): Se completo la escritura de caracteres
+[INFO] 22:45:50:970 I-MONGO-STORE/(9088:9088): Generando MD5
+[INFO] 22:45:50:981 I-MONGO-STORE/(9088:9088): Bloque completo
+[INFO] 22:45:50:981 I-MONGO-STORE/(9088:9088): Generando MD5
+[INFO] 22:45:50:990 I-MONGO-STORE/(9088:9088): Creando conexiones
+[INFO] 22:49:28:324 I-MONGO-STORE/(9322:9322): toy aqui
+[INFO] 22:49:28:326 I-MONGO-STORE/(9322:9322): Verificando existencia SuperBloque
+[INFO] 22:49:28:326 I-MONGO-STORE/(9322:9322): SuperBloque ya existe
+[INFO] 22:49:28:453 I-MONGO-STORE/(9322:9322): SuperBloque Generado
+[INFO] 22:49:28:453 I-MONGO-STORE/(9322:9322): Verificando existencia Blocks
+[INFO] 22:49:28:453 I-MONGO-STORE/(9322:9322): Blocks ya existe
+[INFO] 22:49:28:453 I-MONGO-STORE/(9322:9322): Blocks Generado
+[INFO] 22:49:28:454 I-MONGO-STORE/(9322:9322): Generando metadata
+[INFO] 22:49:28:454 I-MONGO-STORE/(9322:9322): Generando MD5
+[INFO] 22:49:28:459 I-MONGO-STORE/(9322:9322): Archivo de metadata generado
+[INFO] 22:49:28:459 I-MONGO-STORE/(9322:9322): Generando metadata
+[INFO] 22:49:28:460 I-MONGO-STORE/(9322:9322): Generando MD5
+[INFO] 22:49:28:472 I-MONGO-STORE/(9322:9322): Archivo de metadata generado
+[INFO] 22:49:28:472 I-MONGO-STORE/(9322:9322): Generando metadata
+[INFO] 22:49:28:473 I-MONGO-STORE/(9322:9322): Generando MD5
+[INFO] 22:49:28:477 I-MONGO-STORE/(9322:9322): Archivo de metadata generado
+[INFO] 22:49:28:477 I-MONGO-STORE/(9322:9322): Generando Bitacora
+[INFO] 22:49:28:477 I-MONGO-STORE/(9322:9322): Se Genero la Bitacora
+[INFO] 22:49:28:478 I-MONGO-STORE/(9322:9322): Bloque completo
+[INFO] 22:49:28:479 I-MONGO-STORE/(9322:9322): Bloque completo
+[INFO] 22:49:28:481 I-MONGO-STORE/(9322:9322): Se completo la escritura de caracteres
+[INFO] 22:49:28:481 I-MONGO-STORE/(9322:9322): Generando MD5
+[INFO] 22:49:28:488 I-MONGO-STORE/(9322:9322): Bloque completo
+[INFO] 22:49:28:488 I-MONGO-STORE/(9322:9322): Generando MD5
+[INFO] 22:49:28:493 I-MONGO-STORE/(9322:9322): Bloque completo
+[INFO] 22:49:28:493 I-MONGO-STORE/(9322:9322): Bloque completo
+[INFO] 22:49:28:494 I-MONGO-STORE/(9322:9322): Se completo la escritura de caracteres
+[INFO] 22:49:28:494 I-MONGO-STORE/(9322:9322): Generando MD5
+[INFO] 22:49:28:503 I-MONGO-STORE/(9322:9322): Bloque completo
+[INFO] 22:49:28:504 I-MONGO-STORE/(9322:9322): Generando MD5
+[INFO] 22:49:28:508 I-MONGO-STORE/(9322:9322): Creando conexiones
+[INFO] 22:49:42:949 I-MONGO-STORE/(9493:9493): toy aqui
+[INFO] 22:49:42:950 I-MONGO-STORE/(9493:9493): Verificando existencia SuperBloque
+[INFO] 22:49:42:950 I-MONGO-STORE/(9493:9493): SuperBloque ya existe
+[INFO] 22:49:42:953 I-MONGO-STORE/(9493:9493): SuperBloque Generado
+[INFO] 22:49:42:953 I-MONGO-STORE/(9493:9493): Verificando existencia Blocks
+[INFO] 22:49:42:954 I-MONGO-STORE/(9493:9493): Blocks ya existe
+[INFO] 22:49:42:954 I-MONGO-STORE/(9493:9493): Blocks Generado
+[INFO] 22:49:42:956 I-MONGO-STORE/(9493:9493): Generando metadata
+[INFO] 22:49:42:956 I-MONGO-STORE/(9493:9493): Generando MD5
+[INFO] 22:49:42:966 I-MONGO-STORE/(9493:9493): Archivo de metadata generado
+[INFO] 22:49:42:966 I-MONGO-STORE/(9493:9493): Generando metadata
+[INFO] 22:49:42:967 I-MONGO-STORE/(9493:9493): Generando MD5
+[INFO] 22:49:42:970 I-MONGO-STORE/(9493:9493): Archivo de metadata generado
+[INFO] 22:49:42:971 I-MONGO-STORE/(9493:9493): Generando metadata
+[INFO] 22:49:42:971 I-MONGO-STORE/(9493:9493): Generando MD5
+[INFO] 22:49:42:975 I-MONGO-STORE/(9493:9493): Archivo de metadata generado
+[INFO] 22:49:42:975 I-MONGO-STORE/(9493:9493): Generando Bitacora
+[INFO] 22:49:42:976 I-MONGO-STORE/(9493:9493): Se Genero la Bitacora
+[INFO] 22:49:42:977 I-MONGO-STORE/(9493:9493): Bloque completo
+[INFO] 22:49:42:977 I-MONGO-STORE/(9493:9493): Bloque completo
+[INFO] 22:49:42:977 I-MONGO-STORE/(9493:9493): Se completo la escritura de caracteres
+[INFO] 22:49:42:977 I-MONGO-STORE/(9493:9493): Generando MD5
+[INFO] 22:49:42:982 I-MONGO-STORE/(9493:9493): Bloque completo
+[INFO] 22:49:42:982 I-MONGO-STORE/(9493:9493): Generando MD5
+[INFO] 22:49:42:987 I-MONGO-STORE/(9493:9493): Bloque completo
+[INFO] 22:49:42:987 I-MONGO-STORE/(9493:9493): Bloque completo
+[INFO] 22:49:42:988 I-MONGO-STORE/(9493:9493): Se completo la escritura de caracteres
+[INFO] 22:49:42:988 I-MONGO-STORE/(9493:9493): Generando MD5
+[INFO] 22:49:42:993 I-MONGO-STORE/(9493:9493): Bloque completo
+[INFO] 22:49:42:993 I-MONGO-STORE/(9493:9493): Generando MD5
+[INFO] 22:49:42:997 I-MONGO-STORE/(9493:9493): Creando conexiones
+[INFO] 22:52:40:773 I-MONGO-STORE/(9704:9704): toy aqui
+[INFO] 22:52:40:776 I-MONGO-STORE/(9704:9704): Verificando existencia SuperBloque
+[INFO] 22:52:40:782 I-MONGO-STORE/(9704:9704): SuperBloque ya existe
+[INFO] 22:52:40:788 I-MONGO-STORE/(9704:9704): SuperBloque Generado
+[INFO] 22:52:40:788 I-MONGO-STORE/(9704:9704): Verificando existencia Blocks
+[INFO] 22:52:40:788 I-MONGO-STORE/(9704:9704): Blocks ya existe
+[INFO] 22:52:40:789 I-MONGO-STORE/(9704:9704): Blocks Generado
+[INFO] 22:52:40:789 I-MONGO-STORE/(9704:9704): Generando metadata
+[INFO] 22:52:40:790 I-MONGO-STORE/(9704:9704): Generando MD5
+[INFO] 22:52:40:808 I-MONGO-STORE/(9704:9704): Archivo de metadata generado
+[INFO] 22:52:40:809 I-MONGO-STORE/(9704:9704): Generando metadata
+[INFO] 22:52:40:809 I-MONGO-STORE/(9704:9704): Generando MD5
+[INFO] 22:52:40:823 I-MONGO-STORE/(9704:9704): Archivo de metadata generado
+[INFO] 22:52:40:824 I-MONGO-STORE/(9704:9704): Generando metadata
+[INFO] 22:52:40:824 I-MONGO-STORE/(9704:9704): Generando MD5
+[INFO] 22:52:40:837 I-MONGO-STORE/(9704:9704): Archivo de metadata generado
+[INFO] 22:52:40:837 I-MONGO-STORE/(9704:9704): Generando Bitacora
+[INFO] 22:52:40:837 I-MONGO-STORE/(9704:9704): Se Genero la Bitacora
+[INFO] 22:52:40:837 I-MONGO-STORE/(9704:9704): Bloque completo
+[INFO] 22:52:40:838 I-MONGO-STORE/(9704:9704): Bloque completo
+[INFO] 22:52:40:839 I-MONGO-STORE/(9704:9704): Se completo la escritura de caracteres
+[INFO] 22:52:40:839 I-MONGO-STORE/(9704:9704): Generando MD5
+[INFO] 22:52:40:860 I-MONGO-STORE/(9704:9704): Bloque completo
+[INFO] 22:52:40:861 I-MONGO-STORE/(9704:9704): Se completo la escritura de caracteres
+[INFO] 22:52:40:861 I-MONGO-STORE/(9704:9704): Generando MD5
+[INFO] 22:52:40:873 I-MONGO-STORE/(9704:9704): Bloque completo
+[INFO] 22:52:40:874 I-MONGO-STORE/(9704:9704): Bloque completo
+[INFO] 22:52:40:874 I-MONGO-STORE/(9704:9704): Se completo la escritura de caracteres
+[INFO] 22:52:40:874 I-MONGO-STORE/(9704:9704): Generando MD5
+[INFO] 22:52:40:900 I-MONGO-STORE/(9704:9704): Bloque completo
+[INFO] 22:54:11:384 I-MONGO-STORE/(9890:9890): toy aqui
+[INFO] 22:54:11:388 I-MONGO-STORE/(9890:9890): Verificando existencia SuperBloque
+[INFO] 22:54:11:388 I-MONGO-STORE/(9890:9890): SuperBloque ya existe
+[INFO] 22:54:11:489 I-MONGO-STORE/(9890:9890): SuperBloque Generado
+[INFO] 22:54:11:489 I-MONGO-STORE/(9890:9890): Verificando existencia Blocks
+[INFO] 22:54:11:489 I-MONGO-STORE/(9890:9890): Blocks ya existe
+[INFO] 22:54:11:490 I-MONGO-STORE/(9890:9890): Blocks Generado
+[INFO] 22:54:11:490 I-MONGO-STORE/(9890:9890): Generando metadata
+[INFO] 22:54:11:491 I-MONGO-STORE/(9890:9890): Generando MD5
+[INFO] 22:54:11:504 I-MONGO-STORE/(9890:9890): Archivo de metadata generado
+[INFO] 22:54:11:505 I-MONGO-STORE/(9890:9890): Generando metadata
+[INFO] 22:54:11:505 I-MONGO-STORE/(9890:9890): Generando MD5
+[INFO] 22:54:11:520 I-MONGO-STORE/(9890:9890): Archivo de metadata generado
+[INFO] 22:54:11:520 I-MONGO-STORE/(9890:9890): Generando metadata
+[INFO] 22:54:11:521 I-MONGO-STORE/(9890:9890): Generando MD5
+[INFO] 22:54:11:536 I-MONGO-STORE/(9890:9890): Archivo de metadata generado
+[INFO] 22:54:11:537 I-MONGO-STORE/(9890:9890): Generando Bitacora
+[INFO] 22:54:11:537 I-MONGO-STORE/(9890:9890): Se Genero la Bitacora
+[INFO] 22:54:11:538 I-MONGO-STORE/(9890:9890): Bloque completo
+[INFO] 22:54:11:538 I-MONGO-STORE/(9890:9890): Bloque completo
+[INFO] 22:54:11:539 I-MONGO-STORE/(9890:9890): Se completo la escritura de caracteres
+[INFO] 22:54:11:539 I-MONGO-STORE/(9890:9890): Generando MD5
+[INFO] 22:54:11:557 I-MONGO-STORE/(9890:9890): Bloque completo
+[INFO] 22:54:11:557 I-MONGO-STORE/(9890:9890): Se completo la escritura de caracteres
+[INFO] 22:54:11:557 I-MONGO-STORE/(9890:9890): Generando MD5
+[INFO] 22:54:11:577 I-MONGO-STORE/(9890:9890): Bloque completo
+[INFO] 22:54:11:577 I-MONGO-STORE/(9890:9890): Bloque completo
+[INFO] 22:54:11:578 I-MONGO-STORE/(9890:9890): Se completo la escritura de caracteres
+[INFO] 22:54:11:578 I-MONGO-STORE/(9890:9890): Generando MD5
+[INFO] 22:54:11:592 I-MONGO-STORE/(9890:9890): Bloque completo
+[INFO] 22:58:32:645 I-MONGO-STORE/(10130:10130): toy aqui
+[INFO] 22:58:32:651 I-MONGO-STORE/(10130:10130): Verificando existencia SuperBloque
+[INFO] 22:58:32:651 I-MONGO-STORE/(10130:10130): SuperBloque ya existe
+[INFO] 22:58:32:958 I-MONGO-STORE/(10130:10130): SuperBloque Generado
+[INFO] 22:58:32:959 I-MONGO-STORE/(10130:10130): Verificando existencia Blocks
+[INFO] 22:58:32:959 I-MONGO-STORE/(10130:10130): Blocks ya existe
+[INFO] 22:58:32:959 I-MONGO-STORE/(10130:10130): Blocks Generado
+[INFO] 22:58:32:959 I-MONGO-STORE/(10130:10130): Generando metadata
+[INFO] 22:58:32:959 I-MONGO-STORE/(10130:10130): Generando MD5
+[INFO] 22:58:32:963 I-MONGO-STORE/(10130:10130): Archivo de metadata generado
+[INFO] 22:58:32:964 I-MONGO-STORE/(10130:10130): Generando metadata
+[INFO] 22:58:32:964 I-MONGO-STORE/(10130:10130): Generando MD5
+[INFO] 22:58:32:968 I-MONGO-STORE/(10130:10130): Archivo de metadata generado
+[INFO] 22:58:32:968 I-MONGO-STORE/(10130:10130): Generando metadata
+[INFO] 22:58:32:972 I-MONGO-STORE/(10130:10130): Generando MD5
+[INFO] 22:58:32:976 I-MONGO-STORE/(10130:10130): Archivo de metadata generado
+[INFO] 22:58:32:977 I-MONGO-STORE/(10130:10130): Generando Bitacora
+[INFO] 22:58:32:977 I-MONGO-STORE/(10130:10130): Se Genero la Bitacora
+[INFO] 22:58:32:978 I-MONGO-STORE/(10130:10130): Bloque completo
+[INFO] 22:58:32:979 I-MONGO-STORE/(10130:10130): Bloque completo
+[INFO] 22:58:32:979 I-MONGO-STORE/(10130:10130): Se completo la escritura de caracteres
+[INFO] 22:58:32:979 I-MONGO-STORE/(10130:10130): Generando MD5
+[INFO] 22:58:32:984 I-MONGO-STORE/(10130:10130): Bloque completo
+[INFO] 23:00:08:346 I-MONGO-STORE/(10333:10333): toy aqui
+[INFO] 23:00:08:347 I-MONGO-STORE/(10333:10333): Verificando existencia SuperBloque
+[INFO] 23:00:08:348 I-MONGO-STORE/(10333:10333): SuperBloque ya existe
+[INFO] 23:00:08:457 I-MONGO-STORE/(10333:10333): SuperBloque Generado
+[INFO] 23:00:08:457 I-MONGO-STORE/(10333:10333): Verificando existencia Blocks
+[INFO] 23:00:08:457 I-MONGO-STORE/(10333:10333): Blocks ya existe
+[INFO] 23:00:08:457 I-MONGO-STORE/(10333:10333): Blocks Generado
+[INFO] 23:00:08:458 I-MONGO-STORE/(10333:10333): Generando metadata
+[INFO] 23:00:08:458 I-MONGO-STORE/(10333:10333): Generando MD5
+[INFO] 23:00:08:463 I-MONGO-STORE/(10333:10333): Archivo de metadata generado
+[INFO] 23:00:08:463 I-MONGO-STORE/(10333:10333): Generando metadata
+[INFO] 23:00:08:464 I-MONGO-STORE/(10333:10333): Generando MD5
+[INFO] 23:00:08:467 I-MONGO-STORE/(10333:10333): Archivo de metadata generado
+[INFO] 23:00:08:467 I-MONGO-STORE/(10333:10333): Generando metadata
+[INFO] 23:00:08:467 I-MONGO-STORE/(10333:10333): Generando MD5
+[INFO] 23:00:08:471 I-MONGO-STORE/(10333:10333): Archivo de metadata generado
+[INFO] 23:00:08:471 I-MONGO-STORE/(10333:10333): Generando Bitacora
+[INFO] 23:00:08:471 I-MONGO-STORE/(10333:10333): Se Genero la Bitacora
+[INFO] 23:00:08:472 I-MONGO-STORE/(10333:10333): Bloque completo
+[INFO] 23:00:08:473 I-MONGO-STORE/(10333:10333): Bloque completo
+[INFO] 23:00:08:473 I-MONGO-STORE/(10333:10333): Se completo la escritura de caracteres
+[INFO] 23:00:08:473 I-MONGO-STORE/(10333:10333): Generando MD5
+[INFO] 23:00:08:521 I-MONGO-STORE/(10333:10333): Bloque completo
+[INFO] 23:00:33:948 I-MONGO-STORE/(10505:10505): toy aqui
+[INFO] 23:00:33:958 I-MONGO-STORE/(10505:10505): Verificando existencia SuperBloque
+[INFO] 23:00:33:958 I-MONGO-STORE/(10505:10505): SuperBloque ya existe
+[INFO] 23:00:33:960 I-MONGO-STORE/(10505:10505): SuperBloque Generado
+[INFO] 23:00:33:960 I-MONGO-STORE/(10505:10505): Verificando existencia Blocks
+[INFO] 23:00:33:960 I-MONGO-STORE/(10505:10505): Blocks ya existe
+[INFO] 23:00:33:961 I-MONGO-STORE/(10505:10505): Blocks Generado
+[INFO] 23:00:33:961 I-MONGO-STORE/(10505:10505): Generando metadata
+[INFO] 23:00:33:961 I-MONGO-STORE/(10505:10505): Generando MD5
+[INFO] 23:00:33:972 I-MONGO-STORE/(10505:10505): Archivo de metadata generado
+[INFO] 23:00:33:973 I-MONGO-STORE/(10505:10505): Generando metadata
+[INFO] 23:00:33:973 I-MONGO-STORE/(10505:10505): Generando MD5
+[INFO] 23:00:33:993 I-MONGO-STORE/(10505:10505): Archivo de metadata generado
+[INFO] 23:00:33:993 I-MONGO-STORE/(10505:10505): Generando metadata
+[INFO] 23:00:33:993 I-MONGO-STORE/(10505:10505): Generando MD5
+[INFO] 23:00:34:000 I-MONGO-STORE/(10505:10505): Archivo de metadata generado
+[INFO] 23:00:34:001 I-MONGO-STORE/(10505:10505): Generando Bitacora
+[INFO] 23:00:34:001 I-MONGO-STORE/(10505:10505): Se Genero la Bitacora
+[INFO] 23:00:34:002 I-MONGO-STORE/(10505:10505): Bloque completo
+[INFO] 23:00:34:003 I-MONGO-STORE/(10505:10505): Bloque completo
+[INFO] 23:00:34:003 I-MONGO-STORE/(10505:10505): Se completo la escritura de caracteres
+[INFO] 23:00:34:003 I-MONGO-STORE/(10505:10505): Generando MD5
+[INFO] 23:00:34:010 I-MONGO-STORE/(10505:10505): Bloque completo
+[INFO] 23:01:23:988 I-MONGO-STORE/(10683:10683): toy aqui
+[INFO] 23:01:23:989 I-MONGO-STORE/(10683:10683): Verificando existencia SuperBloque
+[INFO] 23:01:23:989 I-MONGO-STORE/(10683:10683): SuperBloque ya existe
+[INFO] 23:01:24:271 I-MONGO-STORE/(10683:10683): SuperBloque Generado
+[INFO] 23:01:24:272 I-MONGO-STORE/(10683:10683): Verificando existencia Blocks
+[INFO] 23:01:24:272 I-MONGO-STORE/(10683:10683): Blocks ya existe
+[INFO] 23:01:24:272 I-MONGO-STORE/(10683:10683): Blocks Generado
+[INFO] 23:01:24:272 I-MONGO-STORE/(10683:10683): Generando metadata
+[INFO] 23:01:24:272 I-MONGO-STORE/(10683:10683): Generando MD5
+[INFO] 23:01:24:276 I-MONGO-STORE/(10683:10683): Archivo de metadata generado
+[INFO] 23:01:24:277 I-MONGO-STORE/(10683:10683): Generando metadata
+[INFO] 23:01:24:277 I-MONGO-STORE/(10683:10683): Generando MD5
+[INFO] 23:01:24:285 I-MONGO-STORE/(10683:10683): Archivo de metadata generado
+[INFO] 23:01:24:285 I-MONGO-STORE/(10683:10683): Generando metadata
+[INFO] 23:01:24:286 I-MONGO-STORE/(10683:10683): Generando MD5
+[INFO] 23:01:24:290 I-MONGO-STORE/(10683:10683): Archivo de metadata generado
+[INFO] 23:01:24:290 I-MONGO-STORE/(10683:10683): Generando Bitacora
+[INFO] 23:01:24:290 I-MONGO-STORE/(10683:10683): Se Genero la Bitacora
+[INFO] 23:01:24:291 I-MONGO-STORE/(10683:10683): Bloque completo
+[INFO] 23:01:24:292 I-MONGO-STORE/(10683:10683): Bloque completo
+[INFO] 23:01:24:292 I-MONGO-STORE/(10683:10683): Se completo la escritura de caracteres
+[INFO] 23:01:24:293 I-MONGO-STORE/(10683:10683): Generando MD5
+[INFO] 23:01:24:301 I-MONGO-STORE/(10683:10683): Bloque completo
+[INFO] 23:02:19:453 I-MONGO-STORE/(10892:10892): toy aqui
+[INFO] 23:02:19:455 I-MONGO-STORE/(10892:10892): Verificando existencia SuperBloque
+[INFO] 23:02:19:455 I-MONGO-STORE/(10892:10892): SuperBloque ya existe
+[INFO] 23:02:19:551 I-MONGO-STORE/(10892:10892): SuperBloque Generado
+[INFO] 23:02:19:552 I-MONGO-STORE/(10892:10892): Verificando existencia Blocks
+[INFO] 23:02:19:552 I-MONGO-STORE/(10892:10892): Blocks ya existe
+[INFO] 23:02:19:552 I-MONGO-STORE/(10892:10892): Blocks Generado
+[INFO] 23:02:19:553 I-MONGO-STORE/(10892:10892): Generando metadata
+[INFO] 23:02:19:553 I-MONGO-STORE/(10892:10892): Generando MD5
+[INFO] 23:02:19:568 I-MONGO-STORE/(10892:10892): Archivo de metadata generado
+[INFO] 23:02:19:568 I-MONGO-STORE/(10892:10892): Generando metadata
+[INFO] 23:02:19:568 I-MONGO-STORE/(10892:10892): Generando MD5
+[INFO] 23:02:19:586 I-MONGO-STORE/(10892:10892): Archivo de metadata generado
+[INFO] 23:02:19:586 I-MONGO-STORE/(10892:10892): Generando metadata
+[INFO] 23:02:19:586 I-MONGO-STORE/(10892:10892): Generando MD5
+[INFO] 23:02:19:599 I-MONGO-STORE/(10892:10892): Archivo de metadata generado
+[INFO] 23:02:19:599 I-MONGO-STORE/(10892:10892): Generando Bitacora
+[INFO] 23:02:19:600 I-MONGO-STORE/(10892:10892): Se Genero la Bitacora
+[INFO] 23:02:19:601 I-MONGO-STORE/(10892:10892): Bloque completo
+[INFO] 23:02:19:601 I-MONGO-STORE/(10892:10892): Bloque completo
+[INFO] 23:02:19:602 I-MONGO-STORE/(10892:10892): Se completo la escritura de caracteres
+[INFO] 23:02:19:604 I-MONGO-STORE/(10892:10892): Generando MD5
+[INFO] 23:02:19:618 I-MONGO-STORE/(10892:10892): Bloque completo
+[INFO] 23:02:19:618 I-MONGO-STORE/(10892:10892): Se completo la escritura de caracteres
+[INFO] 23:02:19:619 I-MONGO-STORE/(10892:10892): Generando MD5
+[INFO] 23:02:19:623 I-MONGO-STORE/(10892:10892): Bloque completo
+[INFO] 23:02:19:627 I-MONGO-STORE/(10892:10892): Bloque completo
+[INFO] 23:02:19:627 I-MONGO-STORE/(10892:10892): Se completo la escritura de caracteres
+[INFO] 23:02:19:627 I-MONGO-STORE/(10892:10892): Generando MD5
+[INFO] 23:02:19:634 I-MONGO-STORE/(10892:10892): Bloque completo
+[INFO] 23:04:13:699 I-MONGO-STORE/(11116:11116): toy aqui
+[INFO] 23:04:13:709 I-MONGO-STORE/(11116:11116): Verificando existencia SuperBloque
+[INFO] 23:04:13:709 I-MONGO-STORE/(11116:11116): SuperBloque ya existe
+[INFO] 23:04:13:801 I-MONGO-STORE/(11116:11116): SuperBloque Generado
+[INFO] 23:04:13:801 I-MONGO-STORE/(11116:11116): Verificando existencia Blocks
+[INFO] 23:04:13:801 I-MONGO-STORE/(11116:11116): Blocks ya existe
+[INFO] 23:04:13:801 I-MONGO-STORE/(11116:11116): Blocks Generado
+[INFO] 23:04:13:801 I-MONGO-STORE/(11116:11116): Generando metadata
+[INFO] 23:04:13:801 I-MONGO-STORE/(11116:11116): Generando MD5
+[INFO] 23:04:13:820 I-MONGO-STORE/(11116:11116): Archivo de metadata generado
+[INFO] 23:04:13:821 I-MONGO-STORE/(11116:11116): Generando metadata
+[INFO] 23:04:13:821 I-MONGO-STORE/(11116:11116): Generando MD5
+[INFO] 23:04:13:842 I-MONGO-STORE/(11116:11116): Archivo de metadata generado
+[INFO] 23:04:13:842 I-MONGO-STORE/(11116:11116): Generando metadata
+[INFO] 23:04:13:843 I-MONGO-STORE/(11116:11116): Generando MD5
+[INFO] 23:04:13:858 I-MONGO-STORE/(11116:11116): Archivo de metadata generado
+[INFO] 23:04:13:858 I-MONGO-STORE/(11116:11116): Generando Bitacora
+[INFO] 23:04:13:859 I-MONGO-STORE/(11116:11116): Se Genero la Bitacora
+[INFO] 23:04:13:860 I-MONGO-STORE/(11116:11116): Bloque completo
+[INFO] 23:04:13:860 I-MONGO-STORE/(11116:11116): Bloque completo
+[INFO] 23:04:13:861 I-MONGO-STORE/(11116:11116): Se completo la escritura de caracteres
+[INFO] 23:04:13:861 I-MONGO-STORE/(11116:11116): Generando MD5
+[INFO] 23:04:13:884 I-MONGO-STORE/(11116:11116): Bloque completo
+[INFO] 23:04:13:884 I-MONGO-STORE/(11116:11116): Se completo la escritura de caracteres
+[INFO] 23:04:13:885 I-MONGO-STORE/(11116:11116): Generando MD5
+[INFO] 23:04:13:898 I-MONGO-STORE/(11116:11116): Bloque completo
+[INFO] 23:04:13:899 I-MONGO-STORE/(11116:11116): Bloque completo
+[INFO] 23:04:13:899 I-MONGO-STORE/(11116:11116): Se completo la escritura de caracteres
+[INFO] 23:04:13:899 I-MONGO-STORE/(11116:11116): Generando MD5
+[INFO] 23:04:13:921 I-MONGO-STORE/(11116:11116): Bloque completo
+[INFO] 23:05:19:990 I-MONGO-STORE/(11295:11295): toy aqui
+[INFO] 23:05:19:996 I-MONGO-STORE/(11295:11295): Verificando existencia SuperBloque
+[INFO] 23:05:19:996 I-MONGO-STORE/(11295:11295): SuperBloque ya existe
+[INFO] 23:05:20:104 I-MONGO-STORE/(11295:11295): SuperBloque Generado
+[INFO] 23:05:20:105 I-MONGO-STORE/(11295:11295): Verificando existencia Blocks
+[INFO] 23:05:20:105 I-MONGO-STORE/(11295:11295): Blocks ya existe
+[INFO] 23:05:20:105 I-MONGO-STORE/(11295:11295): Blocks Generado
+[INFO] 23:05:20:106 I-MONGO-STORE/(11295:11295): Generando metadata
+[INFO] 23:05:20:106 I-MONGO-STORE/(11295:11295): Generando MD5
+[INFO] 23:05:20:117 I-MONGO-STORE/(11295:11295): Archivo de metadata generado
+[INFO] 23:05:20:117 I-MONGO-STORE/(11295:11295): Generando metadata
+[INFO] 23:05:20:118 I-MONGO-STORE/(11295:11295): Generando MD5
+[INFO] 23:05:20:131 I-MONGO-STORE/(11295:11295): Archivo de metadata generado
+[INFO] 23:05:20:131 I-MONGO-STORE/(11295:11295): Generando metadata
+[INFO] 23:05:20:132 I-MONGO-STORE/(11295:11295): Generando MD5
+[INFO] 23:05:20:138 I-MONGO-STORE/(11295:11295): Archivo de metadata generado
+[INFO] 23:05:20:138 I-MONGO-STORE/(11295:11295): Generando Bitacora
+[INFO] 23:05:20:139 I-MONGO-STORE/(11295:11295): Se Genero la Bitacora
+[INFO] 23:05:20:140 I-MONGO-STORE/(11295:11295): Bloque completo
+[INFO] 23:05:20:141 I-MONGO-STORE/(11295:11295): Bloque completo
+[INFO] 23:05:20:142 I-MONGO-STORE/(11295:11295): Se completo la escritura de caracteres
+[INFO] 23:05:20:142 I-MONGO-STORE/(11295:11295): Generando MD5
+[INFO] 23:05:20:147 I-MONGO-STORE/(11295:11295): Bloque completo
+[INFO] 23:05:55:340 I-MONGO-STORE/(11473:11473): toy aqui
+[INFO] 23:05:55:342 I-MONGO-STORE/(11473:11473): Verificando existencia SuperBloque
+[INFO] 23:05:55:342 I-MONGO-STORE/(11473:11473): SuperBloque ya existe
+[INFO] 23:05:55:347 I-MONGO-STORE/(11473:11473): SuperBloque Generado
+[INFO] 23:05:55:347 I-MONGO-STORE/(11473:11473): Verificando existencia Blocks
+[INFO] 23:05:55:347 I-MONGO-STORE/(11473:11473): Blocks ya existe
+[INFO] 23:05:55:347 I-MONGO-STORE/(11473:11473): Blocks Generado
+[INFO] 23:05:55:348 I-MONGO-STORE/(11473:11473): Generando metadata
+[INFO] 23:05:55:348 I-MONGO-STORE/(11473:11473): Generando MD5
+[INFO] 23:05:55:359 I-MONGO-STORE/(11473:11473): Archivo de metadata generado
+[INFO] 23:05:55:359 I-MONGO-STORE/(11473:11473): Generando metadata
+[INFO] 23:05:55:359 I-MONGO-STORE/(11473:11473): Generando MD5
+[INFO] 23:05:55:363 I-MONGO-STORE/(11473:11473): Archivo de metadata generado
+[INFO] 23:05:55:363 I-MONGO-STORE/(11473:11473): Generando metadata
+[INFO] 23:05:55:364 I-MONGO-STORE/(11473:11473): Generando MD5
+[INFO] 23:05:55:367 I-MONGO-STORE/(11473:11473): Archivo de metadata generado
+[INFO] 23:05:55:368 I-MONGO-STORE/(11473:11473): Generando Bitacora
+[INFO] 23:05:55:368 I-MONGO-STORE/(11473:11473): Se Genero la Bitacora
+[INFO] 23:05:55:369 I-MONGO-STORE/(11473:11473): Bloque completo
+[INFO] 23:05:55:370 I-MONGO-STORE/(11473:11473): Bloque completo
+[INFO] 23:05:55:370 I-MONGO-STORE/(11473:11473): Se completo la escritura de caracteres
+[INFO] 23:05:55:370 I-MONGO-STORE/(11473:11473): Generando MD5
+[INFO] 23:05:55:375 I-MONGO-STORE/(11473:11473): Bloque completo
+[INFO] 23:05:55:375 I-MONGO-STORE/(11473:11473): Se completo la escritura de caracteres
+[INFO] 23:05:55:376 I-MONGO-STORE/(11473:11473): Generando MD5
+[INFO] 23:05:55:380 I-MONGO-STORE/(11473:11473): Bloque completo
+[INFO] 23:05:55:381 I-MONGO-STORE/(11473:11473): Bloque completo
+[INFO] 23:05:55:381 I-MONGO-STORE/(11473:11473): Se completo la escritura de caracteres
+[INFO] 23:05:55:381 I-MONGO-STORE/(11473:11473): Generando MD5
+[INFO] 23:05:55:386 I-MONGO-STORE/(11473:11473): Bloque completo
+[INFO] 23:05:55:386 I-MONGO-STORE/(11473:11473): Se completo la escritura de caracteres
+[INFO] 23:05:55:386 I-MONGO-STORE/(11473:11473): Generando MD5
+[INFO] 23:05:55:390 I-MONGO-STORE/(11473:11473): Creando conexiones
+[INFO] 22:18:44:867 I-MONGO-STORE/(3788:3788): toy aqui
+[INFO] 22:18:44:900 I-MONGO-STORE/(3788:3788): Verificando existencia SuperBloque
+[INFO] 22:18:44:900 I-MONGO-STORE/(3788:3788): SuperBloque ya existe
+[INFO] 22:18:44:936 I-MONGO-STORE/(3788:3788): SuperBloque Generado
+[INFO] 22:18:44:936 I-MONGO-STORE/(3788:3788): Verificando existencia Blocks
+[INFO] 22:18:44:938 I-MONGO-STORE/(3788:3788): Blocks ya existe
+[INFO] 22:18:44:938 I-MONGO-STORE/(3788:3788): Blocks Generado
+[INFO] 22:18:44:938 I-MONGO-STORE/(3788:3788): Generando metadata
+[INFO] 22:18:44:939 I-MONGO-STORE/(3788:3788): Generando MD5
+[INFO] 22:18:44:976 I-MONGO-STORE/(3788:3788): Archivo de metadata generado
+[INFO] 22:18:44:976 I-MONGO-STORE/(3788:3788): Generando metadata
+[INFO] 22:18:44:976 I-MONGO-STORE/(3788:3788): Generando MD5
+[INFO] 22:18:44:989 I-MONGO-STORE/(3788:3788): Archivo de metadata generado
+[INFO] 22:18:44:990 I-MONGO-STORE/(3788:3788): Generando metadata
+[INFO] 22:18:44:990 I-MONGO-STORE/(3788:3788): Generando MD5
+[INFO] 22:18:45:017 I-MONGO-STORE/(3788:3788): Archivo de metadata generado
+[INFO] 22:18:45:018 I-MONGO-STORE/(3788:3788): Generando Bitacora
+[INFO] 22:18:45:018 I-MONGO-STORE/(3788:3788): Se Genero la Bitacora
+[INFO] 22:18:45:019 I-MONGO-STORE/(3788:3788): Bloque completo
+[INFO] 22:18:45:020 I-MONGO-STORE/(3788:3788): Bloque completo
+[INFO] 22:18:45:020 I-MONGO-STORE/(3788:3788): Se completo la escritura de caracteres
+[INFO] 22:18:45:020 I-MONGO-STORE/(3788:3788): Generando MD5
+[INFO] 22:18:45:043 I-MONGO-STORE/(3788:3788): Bloque completo
+[INFO] 22:18:45:044 I-MONGO-STORE/(3788:3788): Se completo la escritura de caracteres
+[INFO] 22:18:45:044 I-MONGO-STORE/(3788:3788): Generando MD5
+[INFO] 22:18:45:058 I-MONGO-STORE/(3788:3788): Bloque completo
+[INFO] 22:18:45:058 I-MONGO-STORE/(3788:3788): Bloque completo
+[INFO] 22:18:45:058 I-MONGO-STORE/(3788:3788): Se completo la escritura de caracteres
+[INFO] 22:18:45:059 I-MONGO-STORE/(3788:3788): Generando MD5
+[INFO] 22:18:45:083 I-MONGO-STORE/(3788:3788): Bloque completo
+[INFO] 22:18:45:083 I-MONGO-STORE/(3788:3788): Se completo la escritura de caracteres
+[INFO] 22:18:45:084 I-MONGO-STORE/(3788:3788): Generando MD5
+[INFO] 22:18:45:104 I-MONGO-STORE/(3788:3788): Creando conexiones
+[INFO] 18:58:50:216 I-MONGO-STORE/(12042:12042): toy aqui
+[INFO] 18:58:50:247 I-MONGO-STORE/(12042:12042): Verificando existencia SuperBloque
+[INFO] 18:58:50:250 I-MONGO-STORE/(12042:12042): SuperBloque ya existe
+[INFO] 18:58:50:267 I-MONGO-STORE/(12042:12042): SuperBloque Generado
+[INFO] 18:58:50:267 I-MONGO-STORE/(12042:12042): Verificando existencia Blocks
+[INFO] 18:58:50:267 I-MONGO-STORE/(12042:12042): Blocks ya existe
+[INFO] 18:58:50:267 I-MONGO-STORE/(12042:12042): Blocks Generado
+[INFO] 18:58:50:268 I-MONGO-STORE/(12042:12042): Generando metadata
+[INFO] 18:58:50:268 I-MONGO-STORE/(12042:12042): Generando MD5
+[INFO] 18:58:50:309 I-MONGO-STORE/(12042:12042): Archivo de metadata generado
+[INFO] 18:58:50:310 I-MONGO-STORE/(12042:12042): Generando metadata
+[INFO] 18:58:50:310 I-MONGO-STORE/(12042:12042): Generando MD5
+[INFO] 18:58:50:325 I-MONGO-STORE/(12042:12042): Archivo de metadata generado
+[INFO] 18:58:50:325 I-MONGO-STORE/(12042:12042): Generando metadata
+[INFO] 18:58:50:326 I-MONGO-STORE/(12042:12042): Generando MD5
+[INFO] 18:58:50:355 I-MONGO-STORE/(12042:12042): Archivo de metadata generado
+[INFO] 18:58:50:356 I-MONGO-STORE/(12042:12042): Generando Bitacora
+[INFO] 18:58:50:356 I-MONGO-STORE/(12042:12042): Se Genero la Bitacora
+[INFO] 18:58:50:357 I-MONGO-STORE/(12042:12042): Bloque completo
+[INFO] 18:58:50:357 I-MONGO-STORE/(12042:12042): Bloque completo
+[INFO] 18:58:50:358 I-MONGO-STORE/(12042:12042): Se completo la escritura de caracteres
+[INFO] 18:58:50:358 I-MONGO-STORE/(12042:12042): Generando MD5
+[INFO] 18:58:50:380 I-MONGO-STORE/(12042:12042): Bloque completo
+[INFO] 18:58:50:380 I-MONGO-STORE/(12042:12042): Se completo el borrado de caracteres
+[INFO] 18:58:50:381 I-MONGO-STORE/(12042:12042): Generando MD5
+[INFO] 18:58:50:403 I-MONGO-STORE/(12042:12042): Bloque completo
+[INFO] 18:58:50:404 I-MONGO-STORE/(12042:12042): Bloque completo
+[INFO] 18:58:50:404 I-MONGO-STORE/(12042:12042): Se completo la escritura de caracteres
+[INFO] 18:58:50:404 I-MONGO-STORE/(12042:12042): Generando MD5
+[INFO] 18:58:50:424 I-MONGO-STORE/(12042:12042): Bloque completo
+[INFO] 18:58:50:424 I-MONGO-STORE/(12042:12042): Se completo el borrado de caracteres
+[INFO] 18:58:50:424 I-MONGO-STORE/(12042:12042): Generando MD5
+[INFO] 18:58:50:440 I-MONGO-STORE/(12042:12042): Creando conexiones
+[INFO] 19:00:07:069 I-MONGO-STORE/(12252:12252): toy aqui
+[INFO] 19:00:07:072 I-MONGO-STORE/(12252:12252): Verificando existencia SuperBloque
+[INFO] 19:00:07:072 I-MONGO-STORE/(12252:12252): SuperBloque ya existe
+[INFO] 19:00:07:075 I-MONGO-STORE/(12252:12252): SuperBloque Generado
+[INFO] 19:00:07:075 I-MONGO-STORE/(12252:12252): Verificando existencia Blocks
+[INFO] 19:00:07:076 I-MONGO-STORE/(12252:12252): Blocks ya existe
+[INFO] 19:00:07:076 I-MONGO-STORE/(12252:12252): Blocks Generado
+[INFO] 19:00:07:077 I-MONGO-STORE/(12252:12252): Generando metadata
+[INFO] 19:00:07:077 I-MONGO-STORE/(12252:12252): Generando MD5
+[INFO] 19:00:07:081 I-MONGO-STORE/(12252:12252): Archivo de metadata generado
+[INFO] 19:00:07:082 I-MONGO-STORE/(12252:12252): Generando metadata
+[INFO] 19:00:07:082 I-MONGO-STORE/(12252:12252): Generando MD5
+[INFO] 19:00:07:086 I-MONGO-STORE/(12252:12252): Archivo de metadata generado
+[INFO] 19:00:07:086 I-MONGO-STORE/(12252:12252): Generando metadata
+[INFO] 19:00:07:087 I-MONGO-STORE/(12252:12252): Generando MD5
+[INFO] 19:00:07:091 I-MONGO-STORE/(12252:12252): Archivo de metadata generado
+[INFO] 19:00:07:093 I-MONGO-STORE/(12252:12252): Generando Bitacora
+[INFO] 19:00:07:093 I-MONGO-STORE/(12252:12252): Se Genero la Bitacora
+[INFO] 19:00:07:096 I-MONGO-STORE/(12252:12252): Bloque completo
+[INFO] 19:00:07:097 I-MONGO-STORE/(12252:12252): Bloque completo
+[INFO] 19:00:07:097 I-MONGO-STORE/(12252:12252): Se completo la escritura de caracteres
+[INFO] 19:00:07:097 I-MONGO-STORE/(12252:12252): Generando MD5
+[INFO] 19:00:07:102 I-MONGO-STORE/(12252:12252): Bloque completo
+[INFO] 19:00:07:102 I-MONGO-STORE/(12252:12252): Se completo el borrado de caracteres
+[INFO] 19:00:07:102 I-MONGO-STORE/(12252:12252): Generando MD5
+[INFO] 19:00:07:107 I-MONGO-STORE/(12252:12252): Bloque completo
+[INFO] 19:00:07:108 I-MONGO-STORE/(12252:12252): Bloque completo
+[INFO] 19:00:07:108 I-MONGO-STORE/(12252:12252): Se completo la escritura de caracteres
+[INFO] 19:00:07:108 I-MONGO-STORE/(12252:12252): Generando MD5
+[INFO] 19:00:07:113 I-MONGO-STORE/(12252:12252): Bloque completo
+[INFO] 19:00:07:113 I-MONGO-STORE/(12252:12252): Se completo el borrado de caracteres
+[INFO] 19:00:07:113 I-MONGO-STORE/(12252:12252): Generando MD5
+[INFO] 19:00:07:117 I-MONGO-STORE/(12252:12252): Creando conexiones
+[INFO] 19:10:07:381 I-MONGO-STORE/(13463:13463): toy aqui
+[INFO] 19:10:07:384 I-MONGO-STORE/(13463:13463): Verificando existencia SuperBloque
+[INFO] 19:10:07:384 I-MONGO-STORE/(13463:13463): SuperBloque ya existe
+[INFO] 19:10:07:430 I-MONGO-STORE/(13463:13463): SuperBloque Generado
+[INFO] 19:10:07:430 I-MONGO-STORE/(13463:13463): Verificando existencia Blocks
+[INFO] 19:10:07:430 I-MONGO-STORE/(13463:13463): Blocks ya existe
+[INFO] 19:10:07:430 I-MONGO-STORE/(13463:13463): Blocks Generado
+[INFO] 19:10:07:431 I-MONGO-STORE/(13463:13463): Generando metadata
+[INFO] 19:10:07:431 I-MONGO-STORE/(13463:13463): Generando MD5
+[INFO] 19:10:07:441 I-MONGO-STORE/(13463:13463): Archivo de metadata generado
+[INFO] 19:10:07:442 I-MONGO-STORE/(13463:13463): Generando metadata
+[INFO] 19:10:07:442 I-MONGO-STORE/(13463:13463): Generando MD5
+[INFO] 19:10:07:453 I-MONGO-STORE/(13463:13463): Archivo de metadata generado
+[INFO] 19:10:07:453 I-MONGO-STORE/(13463:13463): Generando metadata
+[INFO] 19:10:07:454 I-MONGO-STORE/(13463:13463): Generando MD5
+[INFO] 19:10:07:462 I-MONGO-STORE/(13463:13463): Archivo de metadata generado
+[INFO] 19:10:07:462 I-MONGO-STORE/(13463:13463): Generando Bitacora
+[INFO] 19:10:07:463 I-MONGO-STORE/(13463:13463): Se Genero la Bitacora
+[INFO] 19:10:07:465 I-MONGO-STORE/(13463:13463): Bloque completo
+[INFO] 19:10:07:468 I-MONGO-STORE/(13463:13463): Bloque completo
+[INFO] 19:10:07:468 I-MONGO-STORE/(13463:13463): Se completo la escritura de caracteres
+[INFO] 19:10:07:468 I-MONGO-STORE/(13463:13463): Generando MD5
+[INFO] 19:10:07:483 I-MONGO-STORE/(13463:13463): Bloque completo
+[INFO] 19:10:07:483 I-MONGO-STORE/(13463:13463): Se completo el borrado de caracteres
+[INFO] 19:10:07:483 I-MONGO-STORE/(13463:13463): Generando MD5
+[INFO] 19:10:07:499 I-MONGO-STORE/(13463:13463): Bloque completo
+[INFO] 19:10:07:499 I-MONGO-STORE/(13463:13463): Bloque completo
+[INFO] 19:10:07:499 I-MONGO-STORE/(13463:13463): Se completo la escritura de caracteres
+[INFO] 19:10:07:499 I-MONGO-STORE/(13463:13463): Generando MD5
+[INFO] 19:10:07:509 I-MONGO-STORE/(13463:13463): Bloque completo
+[INFO] 19:10:07:509 I-MONGO-STORE/(13463:13463): Se completo el borrado de caracteres
+[INFO] 19:10:07:509 I-MONGO-STORE/(13463:13463): Generando MD5
+[INFO] 19:10:56:543 I-MONGO-STORE/(13659:13659): toy aqui
+[INFO] 19:10:56:554 I-MONGO-STORE/(13659:13659): Verificando existencia SuperBloque
+[INFO] 19:10:56:554 I-MONGO-STORE/(13659:13659): SuperBloque ya existe
+[INFO] 19:10:56:558 I-MONGO-STORE/(13659:13659): SuperBloque Generado
+[INFO] 19:10:56:558 I-MONGO-STORE/(13659:13659): Verificando existencia Blocks
+[INFO] 19:10:56:558 I-MONGO-STORE/(13659:13659): Blocks ya existe
+[INFO] 19:10:56:559 I-MONGO-STORE/(13659:13659): Blocks Generado
+[INFO] 19:10:56:559 I-MONGO-STORE/(13659:13659): Generando metadata
+[INFO] 19:10:56:560 I-MONGO-STORE/(13659:13659): Generando MD5
+[INFO] 19:10:56:582 I-MONGO-STORE/(13659:13659): Archivo de metadata generado
+[INFO] 19:10:56:583 I-MONGO-STORE/(13659:13659): Generando metadata
+[INFO] 19:10:56:583 I-MONGO-STORE/(13659:13659): Generando MD5
+[INFO] 19:10:56:597 I-MONGO-STORE/(13659:13659): Archivo de metadata generado
+[INFO] 19:10:56:597 I-MONGO-STORE/(13659:13659): Generando metadata
+[INFO] 19:10:56:597 I-MONGO-STORE/(13659:13659): Generando MD5
+[INFO] 19:10:56:621 I-MONGO-STORE/(13659:13659): Archivo de metadata generado
+[INFO] 19:10:56:621 I-MONGO-STORE/(13659:13659): Generando Bitacora
+[INFO] 19:10:56:622 I-MONGO-STORE/(13659:13659): Se Genero la Bitacora
+[INFO] 19:10:56:622 I-MONGO-STORE/(13659:13659): Bloque completo
+[INFO] 19:10:56:623 I-MONGO-STORE/(13659:13659): Bloque completo
+[INFO] 19:10:56:623 I-MONGO-STORE/(13659:13659): Se completo la escritura de caracteres
+[INFO] 19:10:56:623 I-MONGO-STORE/(13659:13659): Generando MD5
+[INFO] 19:10:56:640 I-MONGO-STORE/(13659:13659): Bloque completo
+[INFO] 19:10:56:640 I-MONGO-STORE/(13659:13659): Se completo el borrado de caracteres
+[INFO] 19:10:56:640 I-MONGO-STORE/(13659:13659): Generando MD5
+[INFO] 19:10:56:658 I-MONGO-STORE/(13659:13659): Bloque completo
+[INFO] 19:10:56:658 I-MONGO-STORE/(13659:13659): Bloque completo
+[INFO] 19:10:56:658 I-MONGO-STORE/(13659:13659): Se completo la escritura de caracteres
+[INFO] 19:10:56:658 I-MONGO-STORE/(13659:13659): Generando MD5
+[INFO] 19:10:56:672 I-MONGO-STORE/(13659:13659): Bloque completo
+[INFO] 19:10:56:672 I-MONGO-STORE/(13659:13659): Se completo el borrado de caracteres
+[INFO] 19:10:56:672 I-MONGO-STORE/(13659:13659): Generando MD5
+[INFO] 19:12:09:584 I-MONGO-STORE/(13853:13853): toy aqui
+[INFO] 19:12:09:585 I-MONGO-STORE/(13853:13853): Verificando existencia SuperBloque
+[INFO] 19:12:09:585 I-MONGO-STORE/(13853:13853): SuperBloque ya existe
+[INFO] 19:12:09:587 I-MONGO-STORE/(13853:13853): SuperBloque Generado
+[INFO] 19:12:09:587 I-MONGO-STORE/(13853:13853): Verificando existencia Blocks
+[INFO] 19:12:09:587 I-MONGO-STORE/(13853:13853): Blocks ya existe
+[INFO] 19:12:09:588 I-MONGO-STORE/(13853:13853): Blocks Generado
+[INFO] 19:12:09:588 I-MONGO-STORE/(13853:13853): Generando metadata
+[INFO] 19:12:09:589 I-MONGO-STORE/(13853:13853): Generando MD5
+[INFO] 19:12:09:612 I-MONGO-STORE/(13853:13853): Archivo de metadata generado
+[INFO] 19:12:09:613 I-MONGO-STORE/(13853:13853): Generando metadata
+[INFO] 19:12:09:613 I-MONGO-STORE/(13853:13853): Generando MD5
+[INFO] 19:12:09:626 I-MONGO-STORE/(13853:13853): Archivo de metadata generado
+[INFO] 19:12:09:627 I-MONGO-STORE/(13853:13853): Generando metadata
+[INFO] 19:12:09:627 I-MONGO-STORE/(13853:13853): Generando MD5
+[INFO] 19:12:09:651 I-MONGO-STORE/(13853:13853): Archivo de metadata generado
+[INFO] 19:12:09:651 I-MONGO-STORE/(13853:13853): Generando Bitacora
+[INFO] 19:12:09:652 I-MONGO-STORE/(13853:13853): Se Genero la Bitacora
+[INFO] 19:12:09:653 I-MONGO-STORE/(13853:13853): Bloque completo
+[INFO] 19:12:09:653 I-MONGO-STORE/(13853:13853): Bloque completo
+[INFO] 19:12:09:654 I-MONGO-STORE/(13853:13853): Se completo la escritura de caracteres
+[INFO] 19:12:09:654 I-MONGO-STORE/(13853:13853): Generando MD5
+[INFO] 19:12:09:667 I-MONGO-STORE/(13853:13853): Bloque completo
+[INFO] 19:12:09:667 I-MONGO-STORE/(13853:13853): Se completo el borrado de caracteres
+[INFO] 19:12:09:667 I-MONGO-STORE/(13853:13853): Generando MD5
+[INFO] 19:12:09:683 I-MONGO-STORE/(13853:13853): Bloque completo
+[INFO] 19:12:09:683 I-MONGO-STORE/(13853:13853): Bloque completo
+[INFO] 19:12:09:683 I-MONGO-STORE/(13853:13853): Se completo la escritura de caracteres
+[INFO] 19:12:09:683 I-MONGO-STORE/(13853:13853): Generando MD5
+[INFO] 19:12:09:699 I-MONGO-STORE/(13853:13853): Bloque completo
+[INFO] 19:12:09:700 I-MONGO-STORE/(13853:13853): Se completo el borrado de caracteres
+[INFO] 19:12:09:700 I-MONGO-STORE/(13853:13853): Generando MD5
+[INFO] 19:12:34:910 I-MONGO-STORE/(14027:14027): toy aqui
+[INFO] 19:12:34:912 I-MONGO-STORE/(14027:14027): Verificando existencia SuperBloque
+[INFO] 19:12:34:912 I-MONGO-STORE/(14027:14027): SuperBloque ya existe
+[INFO] 19:12:34:917 I-MONGO-STORE/(14027:14027): SuperBloque Generado
+[INFO] 19:12:34:917 I-MONGO-STORE/(14027:14027): Verificando existencia Blocks
+[INFO] 19:12:34:917 I-MONGO-STORE/(14027:14027): Blocks ya existe
+[INFO] 19:12:34:917 I-MONGO-STORE/(14027:14027): Blocks Generado
+[INFO] 19:12:34:917 I-MONGO-STORE/(14027:14027): Generando metadata
+[INFO] 19:12:34:917 I-MONGO-STORE/(14027:14027): Generando MD5
+[INFO] 19:12:34:928 I-MONGO-STORE/(14027:14027): Archivo de metadata generado
+[INFO] 19:12:34:928 I-MONGO-STORE/(14027:14027): Generando metadata
+[INFO] 19:12:34:928 I-MONGO-STORE/(14027:14027): Generando MD5
+[INFO] 19:12:34:938 I-MONGO-STORE/(14027:14027): Archivo de metadata generado
+[INFO] 19:12:34:938 I-MONGO-STORE/(14027:14027): Generando metadata
+[INFO] 19:12:34:938 I-MONGO-STORE/(14027:14027): Generando MD5
+[INFO] 19:12:34:950 I-MONGO-STORE/(14027:14027): Archivo de metadata generado
+[INFO] 19:12:34:950 I-MONGO-STORE/(14027:14027): Generando Bitacora
+[INFO] 19:12:34:950 I-MONGO-STORE/(14027:14027): Se Genero la Bitacora
+[INFO] 19:12:34:951 I-MONGO-STORE/(14027:14027): Bloque completo
+[INFO] 19:12:34:951 I-MONGO-STORE/(14027:14027): Bloque completo
+[INFO] 19:12:34:951 I-MONGO-STORE/(14027:14027): Se completo la escritura de caracteres
+[INFO] 19:12:34:951 I-MONGO-STORE/(14027:14027): Generando MD5
+[INFO] 19:12:34:962 I-MONGO-STORE/(14027:14027): Bloque completo
+[INFO] 19:12:34:962 I-MONGO-STORE/(14027:14027): Se completo el borrado de caracteres
+[INFO] 19:12:34:962 I-MONGO-STORE/(14027:14027): Generando MD5
+[INFO] 19:12:34:990 I-MONGO-STORE/(14027:14027): Bloque completo
+[INFO] 19:12:34:990 I-MONGO-STORE/(14027:14027): Bloque completo
+[INFO] 19:12:34:990 I-MONGO-STORE/(14027:14027): Se completo la escritura de caracteres
+[INFO] 19:12:34:990 I-MONGO-STORE/(14027:14027): Generando MD5
+[INFO] 19:12:35:008 I-MONGO-STORE/(14027:14027): Bloque completo
+[INFO] 19:12:35:008 I-MONGO-STORE/(14027:14027): Se completo el borrado de caracteres
+[INFO] 19:12:35:008 I-MONGO-STORE/(14027:14027): Generando MD5
+[INFO] 19:13:49:456 I-MONGO-STORE/(14211:14211): toy aqui
+[INFO] 19:13:49:457 I-MONGO-STORE/(14211:14211): Verificando existencia SuperBloque
+[INFO] 19:13:49:457 I-MONGO-STORE/(14211:14211): SuperBloque ya existe
+[INFO] 19:13:49:459 I-MONGO-STORE/(14211:14211): SuperBloque Generado
+[INFO] 19:13:49:459 I-MONGO-STORE/(14211:14211): Verificando existencia Blocks
+[INFO] 19:13:49:459 I-MONGO-STORE/(14211:14211): Blocks ya existe
+[INFO] 19:13:49:460 I-MONGO-STORE/(14211:14211): Blocks Generado
+[INFO] 19:13:49:460 I-MONGO-STORE/(14211:14211): Generando metadata
+[INFO] 19:13:49:460 I-MONGO-STORE/(14211:14211): Generando MD5
+[INFO] 19:13:49:472 I-MONGO-STORE/(14211:14211): Archivo de metadata generado
+[INFO] 19:13:49:473 I-MONGO-STORE/(14211:14211): Generando metadata
+[INFO] 19:13:49:473 I-MONGO-STORE/(14211:14211): Generando MD5
+[INFO] 19:13:49:481 I-MONGO-STORE/(14211:14211): Archivo de metadata generado
+[INFO] 19:13:49:481 I-MONGO-STORE/(14211:14211): Generando metadata
+[INFO] 19:13:49:482 I-MONGO-STORE/(14211:14211): Generando MD5
+[INFO] 19:13:49:491 I-MONGO-STORE/(14211:14211): Archivo de metadata generado
+[INFO] 19:13:49:492 I-MONGO-STORE/(14211:14211): Generando Bitacora
+[INFO] 19:13:49:492 I-MONGO-STORE/(14211:14211): Se Genero la Bitacora
+[INFO] 19:13:49:493 I-MONGO-STORE/(14211:14211): Bloque completo
+[INFO] 19:13:49:494 I-MONGO-STORE/(14211:14211): Bloque completo
+[INFO] 19:13:49:494 I-MONGO-STORE/(14211:14211): Se completo la escritura de caracteres
+[INFO] 19:13:49:494 I-MONGO-STORE/(14211:14211): Generando MD5
+[INFO] 19:13:49:505 I-MONGO-STORE/(14211:14211): Bloque completo
+[INFO] 19:13:49:506 I-MONGO-STORE/(14211:14211): Se completo el borrado de caracteres
+[INFO] 19:13:49:506 I-MONGO-STORE/(14211:14211): Generando MD5
+[INFO] 19:13:49:514 I-MONGO-STORE/(14211:14211): Bloque completo
+[INFO] 19:13:49:515 I-MONGO-STORE/(14211:14211): Bloque completo
+[INFO] 19:13:49:515 I-MONGO-STORE/(14211:14211): Se completo la escritura de caracteres
+[INFO] 19:13:49:515 I-MONGO-STORE/(14211:14211): Generando MD5
+[INFO] 19:13:49:527 I-MONGO-STORE/(14211:14211): Bloque completo
+[INFO] 19:13:49:527 I-MONGO-STORE/(14211:14211): Se completo el borrado de caracteres
+[INFO] 19:13:49:527 I-MONGO-STORE/(14211:14211): Generando MD5
+[INFO] 19:14:16:967 I-MONGO-STORE/(14384:14384): toy aqui
+[INFO] 19:14:16:980 I-MONGO-STORE/(14384:14384): Verificando existencia SuperBloque
+[INFO] 19:14:16:980 I-MONGO-STORE/(14384:14384): SuperBloque ya existe
+[INFO] 19:14:17:004 I-MONGO-STORE/(14384:14384): SuperBloque Generado
+[INFO] 19:14:17:004 I-MONGO-STORE/(14384:14384): Verificando existencia Blocks
+[INFO] 19:14:17:004 I-MONGO-STORE/(14384:14384): Blocks ya existe
+[INFO] 19:14:17:005 I-MONGO-STORE/(14384:14384): Blocks Generado
+[INFO] 19:14:17:005 I-MONGO-STORE/(14384:14384): Generando metadata
+[INFO] 19:14:17:005 I-MONGO-STORE/(14384:14384): Generando MD5
+[INFO] 19:14:17:021 I-MONGO-STORE/(14384:14384): Archivo de metadata generado
+[INFO] 19:14:17:021 I-MONGO-STORE/(14384:14384): Generando metadata
+[INFO] 19:14:17:021 I-MONGO-STORE/(14384:14384): Generando MD5
+[INFO] 19:14:17:034 I-MONGO-STORE/(14384:14384): Archivo de metadata generado
+[INFO] 19:14:17:035 I-MONGO-STORE/(14384:14384): Generando metadata
+[INFO] 19:14:17:035 I-MONGO-STORE/(14384:14384): Generando MD5
+[INFO] 19:14:17:053 I-MONGO-STORE/(14384:14384): Archivo de metadata generado
+[INFO] 19:14:17:053 I-MONGO-STORE/(14384:14384): Generando Bitacora
+[INFO] 19:14:17:054 I-MONGO-STORE/(14384:14384): Se Genero la Bitacora
+[INFO] 19:14:17:055 I-MONGO-STORE/(14384:14384): Bloque completo
+[INFO] 19:14:17:055 I-MONGO-STORE/(14384:14384): Bloque completo
+[INFO] 19:14:17:056 I-MONGO-STORE/(14384:14384): Se completo la escritura de caracteres
+[INFO] 19:14:17:056 I-MONGO-STORE/(14384:14384): Generando MD5
+[INFO] 19:14:17:071 I-MONGO-STORE/(14384:14384): Bloque completo
+[INFO] 19:14:17:071 I-MONGO-STORE/(14384:14384): Se completo el borrado de caracteres
+[INFO] 19:14:17:071 I-MONGO-STORE/(14384:14384): Generando MD5
+[INFO] 19:14:17:087 I-MONGO-STORE/(14384:14384): Bloque completo
+[INFO] 19:14:17:087 I-MONGO-STORE/(14384:14384): Bloque completo
+[INFO] 19:14:17:088 I-MONGO-STORE/(14384:14384): Se completo la escritura de caracteres
+[INFO] 19:14:17:088 I-MONGO-STORE/(14384:14384): Generando MD5
+[INFO] 19:14:17:106 I-MONGO-STORE/(14384:14384): Bloque completo
+[INFO] 19:14:17:107 I-MONGO-STORE/(14384:14384): Se completo el borrado de caracteres
+[INFO] 19:14:17:107 I-MONGO-STORE/(14384:14384): Generando MD5
+[INFO] 19:14:40:860 I-MONGO-STORE/(14552:14552): toy aqui
+[INFO] 19:14:40:871 I-MONGO-STORE/(14552:14552): Verificando existencia SuperBloque
+[INFO] 19:14:40:871 I-MONGO-STORE/(14552:14552): SuperBloque ya existe
+[INFO] 19:14:40:979 I-MONGO-STORE/(14552:14552): SuperBloque Generado
+[INFO] 19:14:40:980 I-MONGO-STORE/(14552:14552): Verificando existencia Blocks
+[INFO] 19:14:40:980 I-MONGO-STORE/(14552:14552): Blocks ya existe
+[INFO] 19:14:40:980 I-MONGO-STORE/(14552:14552): Blocks Generado
+[INFO] 19:14:40:981 I-MONGO-STORE/(14552:14552): Generando metadata
+[INFO] 19:14:40:981 I-MONGO-STORE/(14552:14552): Generando MD5
+[INFO] 19:14:40:993 I-MONGO-STORE/(14552:14552): Archivo de metadata generado
+[INFO] 19:14:40:993 I-MONGO-STORE/(14552:14552): Generando metadata
+[INFO] 19:14:40:993 I-MONGO-STORE/(14552:14552): Generando MD5
+[INFO] 19:14:41:012 I-MONGO-STORE/(14552:14552): Archivo de metadata generado
+[INFO] 19:14:41:013 I-MONGO-STORE/(14552:14552): Generando metadata
+[INFO] 19:14:41:013 I-MONGO-STORE/(14552:14552): Generando MD5
+[INFO] 19:14:41:022 I-MONGO-STORE/(14552:14552): Archivo de metadata generado
+[INFO] 19:14:41:023 I-MONGO-STORE/(14552:14552): Generando Bitacora
+[INFO] 19:14:41:023 I-MONGO-STORE/(14552:14552): Se Genero la Bitacora
+[INFO] 19:14:41:024 I-MONGO-STORE/(14552:14552): Bloque completo
+[INFO] 19:14:41:025 I-MONGO-STORE/(14552:14552): Bloque completo
+[INFO] 19:14:41:025 I-MONGO-STORE/(14552:14552): Se completo la escritura de caracteres
+[INFO] 19:14:41:025 I-MONGO-STORE/(14552:14552): Generando MD5
+[INFO] 19:14:41:035 I-MONGO-STORE/(14552:14552): Bloque completo
+[INFO] 19:14:41:035 I-MONGO-STORE/(14552:14552): Se completo el borrado de caracteres
+[INFO] 19:14:41:035 I-MONGO-STORE/(14552:14552): Generando MD5
+[INFO] 19:14:41:051 I-MONGO-STORE/(14552:14552): Bloque completo
+[INFO] 19:14:41:051 I-MONGO-STORE/(14552:14552): Bloque completo
+[INFO] 19:14:41:052 I-MONGO-STORE/(14552:14552): Se completo la escritura de caracteres
+[INFO] 19:14:41:052 I-MONGO-STORE/(14552:14552): Generando MD5
+[INFO] 19:14:41:062 I-MONGO-STORE/(14552:14552): Bloque completo
+[INFO] 19:14:41:062 I-MONGO-STORE/(14552:14552): Se completo el borrado de caracteres
+[INFO] 19:14:41:062 I-MONGO-STORE/(14552:14552): Generando MD5
+[INFO] 12:58:41:335 I-MONGO-STORE/(22953:22953): toy aqui
+[INFO] 12:58:41:341 I-MONGO-STORE/(22953:22953): Verificando existencia SuperBloque
+[INFO] 12:58:41:341 I-MONGO-STORE/(22953:22953): SuperBloque ya existe
+[INFO] 12:58:41:440 I-MONGO-STORE/(22953:22953): SuperBloque Generado
+[INFO] 12:58:41:440 I-MONGO-STORE/(22953:22953): Verificando existencia Blocks
+[INFO] 12:58:41:440 I-MONGO-STORE/(22953:22953): Blocks ya existe
+[INFO] 12:58:41:440 I-MONGO-STORE/(22953:22953): Blocks Generado
+[INFO] 12:58:41:441 I-MONGO-STORE/(22953:22953): Generando metadata
+[INFO] 12:58:41:441 I-MONGO-STORE/(22953:22953): Generando MD5
+[INFO] 12:58:41:464 I-MONGO-STORE/(22953:22953): Archivo de metadata generado
+[INFO] 12:58:41:465 I-MONGO-STORE/(22953:22953): Generando metadata
+[INFO] 12:58:41:465 I-MONGO-STORE/(22953:22953): Generando MD5
+[INFO] 12:58:41:479 I-MONGO-STORE/(22953:22953): Archivo de metadata generado
+[INFO] 12:58:41:479 I-MONGO-STORE/(22953:22953): Generando metadata
+[INFO] 12:58:41:480 I-MONGO-STORE/(22953:22953): Generando MD5
+[INFO] 12:58:41:498 I-MONGO-STORE/(22953:22953): Archivo de metadata generado
+[INFO] 12:58:41:498 I-MONGO-STORE/(22953:22953): Generando Bitacora
+[INFO] 12:58:41:498 I-MONGO-STORE/(22953:22953): Se Genero la Bitacora
+[INFO] 12:58:41:500 I-MONGO-STORE/(22953:22953): Bloque completo
+[INFO] 12:58:41:500 I-MONGO-STORE/(22953:22953): Bloque completo
+[INFO] 12:58:41:500 I-MONGO-STORE/(22953:22953): Se completo la escritura de caracteres
+[INFO] 12:58:41:500 I-MONGO-STORE/(22953:22953): Generando MD5
+[INFO] 12:58:41:514 I-MONGO-STORE/(22953:22953): Bloque completo
+[INFO] 12:58:41:514 I-MONGO-STORE/(22953:22953): Se completo el borrado de caracteres
+[INFO] 12:58:41:515 I-MONGO-STORE/(22953:22953): Generando MD5
+[INFO] 12:58:41:525 I-MONGO-STORE/(22953:22953): Bloque completo
+[INFO] 12:58:41:525 I-MONGO-STORE/(22953:22953): Bloque completo
+[INFO] 12:58:41:526 I-MONGO-STORE/(22953:22953): Se completo la escritura de caracteres
+[INFO] 12:58:41:526 I-MONGO-STORE/(22953:22953): Generando MD5
+[INFO] 12:58:41:547 I-MONGO-STORE/(22953:22953): Bloque completo
+[INFO] 12:58:41:547 I-MONGO-STORE/(22953:22953): Se completo el borrado de caracteres
+[INFO] 12:58:41:547 I-MONGO-STORE/(22953:22953): Generando MD5
+[INFO] 12:59:06:758 I-MONGO-STORE/(23126:23126): toy aqui
+[INFO] 12:59:06:766 I-MONGO-STORE/(23126:23126): Verificando existencia SuperBloque
+[INFO] 12:59:06:766 I-MONGO-STORE/(23126:23126): SuperBloque ya existe
+[INFO] 12:59:06:977 I-MONGO-STORE/(23126:23126): SuperBloque Generado
+[INFO] 12:59:06:978 I-MONGO-STORE/(23126:23126): Verificando existencia Blocks
+[INFO] 12:59:06:978 I-MONGO-STORE/(23126:23126): Blocks ya existe
+[INFO] 12:59:06:978 I-MONGO-STORE/(23126:23126): Blocks Generado
+[INFO] 12:59:06:978 I-MONGO-STORE/(23126:23126): Generando metadata
+[INFO] 12:59:06:979 I-MONGO-STORE/(23126:23126): Generando MD5
+[INFO] 12:59:06:989 I-MONGO-STORE/(23126:23126): Archivo de metadata generado
+[INFO] 12:59:06:989 I-MONGO-STORE/(23126:23126): Generando metadata
+[INFO] 12:59:06:990 I-MONGO-STORE/(23126:23126): Generando MD5
+[INFO] 12:59:07:004 I-MONGO-STORE/(23126:23126): Archivo de metadata generado
+[INFO] 12:59:07:005 I-MONGO-STORE/(23126:23126): Generando metadata
+[INFO] 12:59:07:005 I-MONGO-STORE/(23126:23126): Generando MD5
+[INFO] 12:59:07:014 I-MONGO-STORE/(23126:23126): Archivo de metadata generado
+[INFO] 12:59:07:014 I-MONGO-STORE/(23126:23126): Generando Bitacora
+[INFO] 12:59:07:014 I-MONGO-STORE/(23126:23126): Se Genero la Bitacora
+[INFO] 12:59:07:020 I-MONGO-STORE/(23126:23126): Bloque completo
+[INFO] 12:59:07:020 I-MONGO-STORE/(23126:23126): Bloque completo
+[INFO] 12:59:07:021 I-MONGO-STORE/(23126:23126): Se completo la escritura de caracteres
+[INFO] 12:59:07:021 I-MONGO-STORE/(23126:23126): Generando MD5
+[INFO] 12:59:07:034 I-MONGO-STORE/(23126:23126): Bloque completo
+[INFO] 12:59:07:035 I-MONGO-STORE/(23126:23126): Se completo el borrado de caracteres
+[INFO] 12:59:07:035 I-MONGO-STORE/(23126:23126): Generando MD5
+[INFO] 12:59:07:048 I-MONGO-STORE/(23126:23126): Bloque completo
+[INFO] 12:59:07:049 I-MONGO-STORE/(23126:23126): Bloque completo
+[INFO] 12:59:07:049 I-MONGO-STORE/(23126:23126): Se completo la escritura de caracteres
+[INFO] 12:59:07:049 I-MONGO-STORE/(23126:23126): Generando MD5
+[INFO] 12:59:07:061 I-MONGO-STORE/(23126:23126): Bloque completo
+[INFO] 12:59:07:061 I-MONGO-STORE/(23126:23126): Se completo el borrado de caracteres
+[INFO] 12:59:07:061 I-MONGO-STORE/(23126:23126): Generando MD5
+[INFO] 13:01:01:791 I-MONGO-STORE/(23304:23304): toy aqui
+[INFO] 13:01:01:793 I-MONGO-STORE/(23304:23304): Verificando existencia SuperBloque
+[INFO] 13:01:01:793 I-MONGO-STORE/(23304:23304): SuperBloque ya existe
+[INFO] 13:01:01:899 I-MONGO-STORE/(23304:23304): SuperBloque Generado
+[INFO] 13:01:01:900 I-MONGO-STORE/(23304:23304): Verificando existencia Blocks
+[INFO] 13:01:01:900 I-MONGO-STORE/(23304:23304): Blocks ya existe
+[INFO] 13:01:01:900 I-MONGO-STORE/(23304:23304): Blocks Generado
+[INFO] 13:01:01:901 I-MONGO-STORE/(23304:23304): Generando metadata
+[INFO] 13:01:01:901 I-MONGO-STORE/(23304:23304): Generando MD5
+[INFO] 13:01:01:911 I-MONGO-STORE/(23304:23304): Archivo de metadata generado
+[INFO] 13:01:01:911 I-MONGO-STORE/(23304:23304): Generando metadata
+[INFO] 13:01:01:912 I-MONGO-STORE/(23304:23304): Generando MD5
+[INFO] 13:01:01:924 I-MONGO-STORE/(23304:23304): Archivo de metadata generado
+[INFO] 13:01:01:925 I-MONGO-STORE/(23304:23304): Generando metadata
+[INFO] 13:01:01:925 I-MONGO-STORE/(23304:23304): Generando MD5
+[INFO] 13:01:01:936 I-MONGO-STORE/(23304:23304): Archivo de metadata generado
+[INFO] 13:01:01:937 I-MONGO-STORE/(23304:23304): Generando Bitacora
+[INFO] 13:01:01:937 I-MONGO-STORE/(23304:23304): Se Genero la Bitacora
+[INFO] 13:01:01:938 I-MONGO-STORE/(23304:23304): Bloque completo
+[INFO] 13:01:01:939 I-MONGO-STORE/(23304:23304): Bloque completo
+[INFO] 13:01:01:939 I-MONGO-STORE/(23304:23304): Se completo la escritura de caracteres
+[INFO] 13:01:01:939 I-MONGO-STORE/(23304:23304): Generando MD5
+[INFO] 13:01:01:951 I-MONGO-STORE/(23304:23304): Bloque completo
+[INFO] 13:01:01:951 I-MONGO-STORE/(23304:23304): Se completo el borrado de caracteres
+[INFO] 13:01:01:951 I-MONGO-STORE/(23304:23304): Generando MD5
+[INFO] 13:01:01:960 I-MONGO-STORE/(23304:23304): Bloque completo
+[INFO] 13:01:01:960 I-MONGO-STORE/(23304:23304): Bloque completo
+[INFO] 13:01:01:961 I-MONGO-STORE/(23304:23304): Se completo la escritura de caracteres
+[INFO] 13:01:01:961 I-MONGO-STORE/(23304:23304): Generando MD5
+[INFO] 13:01:01:973 I-MONGO-STORE/(23304:23304): Bloque completo
+[INFO] 13:01:01:974 I-MONGO-STORE/(23304:23304): Se completo el borrado de caracteres
+[INFO] 13:01:01:974 I-MONGO-STORE/(23304:23304): Generando MD5
+[INFO] 13:01:26:857 I-MONGO-STORE/(23479:23479): toy aqui
+[INFO] 13:01:26:858 I-MONGO-STORE/(23479:23479): Verificando existencia SuperBloque
+[INFO] 13:01:26:859 I-MONGO-STORE/(23479:23479): SuperBloque ya existe
+[INFO] 13:01:26:861 I-MONGO-STORE/(23479:23479): SuperBloque Generado
+[INFO] 13:01:26:862 I-MONGO-STORE/(23479:23479): Verificando existencia Blocks
+[INFO] 13:01:26:862 I-MONGO-STORE/(23479:23479): Blocks ya existe
+[INFO] 13:01:26:862 I-MONGO-STORE/(23479:23479): Blocks Generado
+[INFO] 13:01:26:862 I-MONGO-STORE/(23479:23479): Generando metadata
+[INFO] 13:01:26:863 I-MONGO-STORE/(23479:23479): Generando MD5
+[INFO] 13:01:26:866 I-MONGO-STORE/(23479:23479): Archivo de metadata generado
+[INFO] 13:01:26:867 I-MONGO-STORE/(23479:23479): Generando metadata
+[INFO] 13:01:26:867 I-MONGO-STORE/(23479:23479): Generando MD5
+[INFO] 13:01:26:871 I-MONGO-STORE/(23479:23479): Archivo de metadata generado
+[INFO] 13:01:26:871 I-MONGO-STORE/(23479:23479): Generando metadata
+[INFO] 13:01:26:871 I-MONGO-STORE/(23479:23479): Generando MD5
+[INFO] 13:01:26:875 I-MONGO-STORE/(23479:23479): Archivo de metadata generado
+[INFO] 13:01:26:876 I-MONGO-STORE/(23479:23479): Generando Bitacora
+[INFO] 13:01:26:876 I-MONGO-STORE/(23479:23479): Se Genero la Bitacora
+[INFO] 13:01:26:877 I-MONGO-STORE/(23479:23479): Bloque completo
+[INFO] 13:01:26:877 I-MONGO-STORE/(23479:23479): Bloque completo
+[INFO] 13:01:26:878 I-MONGO-STORE/(23479:23479): Se completo la escritura de caracteres
+[INFO] 13:01:26:878 I-MONGO-STORE/(23479:23479): Generando MD5
+[INFO] 13:01:26:882 I-MONGO-STORE/(23479:23479): Bloque completo
+[INFO] 13:01:26:882 I-MONGO-STORE/(23479:23479): Se completo el borrado de caracteres
+[INFO] 13:01:26:882 I-MONGO-STORE/(23479:23479): Generando MD5
+[INFO] 13:01:26:886 I-MONGO-STORE/(23479:23479): Bloque completo
+[INFO] 13:01:26:887 I-MONGO-STORE/(23479:23479): Bloque completo
+[INFO] 13:01:26:887 I-MONGO-STORE/(23479:23479): Se completo la escritura de caracteres
+[INFO] 13:01:26:887 I-MONGO-STORE/(23479:23479): Generando MD5
+[INFO] 13:01:26:891 I-MONGO-STORE/(23479:23479): Bloque completo
+[INFO] 13:01:26:892 I-MONGO-STORE/(23479:23479): Se completo el borrado de caracteres
+[INFO] 13:01:26:892 I-MONGO-STORE/(23479:23479): Generando MD5
+[INFO] 13:01:43:885 I-MONGO-STORE/(23647:23647): toy aqui
+[INFO] 13:01:43:886 I-MONGO-STORE/(23647:23647): Verificando existencia SuperBloque
+[INFO] 13:01:43:886 I-MONGO-STORE/(23647:23647): SuperBloque ya existe
+[INFO] 13:01:43:997 I-MONGO-STORE/(23647:23647): SuperBloque Generado
+[INFO] 13:01:43:997 I-MONGO-STORE/(23647:23647): Verificando existencia Blocks
+[INFO] 13:01:43:998 I-MONGO-STORE/(23647:23647): Blocks ya existe
+[INFO] 13:01:43:998 I-MONGO-STORE/(23647:23647): Blocks Generado
+[INFO] 13:01:43:998 I-MONGO-STORE/(23647:23647): Generando metadata
+[INFO] 13:01:43:999 I-MONGO-STORE/(23647:23647): Generando MD5
+[INFO] 13:01:44:009 I-MONGO-STORE/(23647:23647): Archivo de metadata generado
+[INFO] 13:01:44:009 I-MONGO-STORE/(23647:23647): Generando metadata
+[INFO] 13:01:44:009 I-MONGO-STORE/(23647:23647): Generando MD5
+[INFO] 13:01:44:014 I-MONGO-STORE/(23647:23647): Archivo de metadata generado
+[INFO] 13:01:44:014 I-MONGO-STORE/(23647:23647): Generando metadata
+[INFO] 13:01:44:014 I-MONGO-STORE/(23647:23647): Generando MD5
+[INFO] 13:01:44:018 I-MONGO-STORE/(23647:23647): Archivo de metadata generado
+[INFO] 13:01:44:018 I-MONGO-STORE/(23647:23647): Generando Bitacora
+[INFO] 13:01:44:019 I-MONGO-STORE/(23647:23647): Se Genero la Bitacora
+[INFO] 13:01:44:020 I-MONGO-STORE/(23647:23647): Bloque completo
+[INFO] 13:01:44:021 I-MONGO-STORE/(23647:23647): Bloque completo
+[INFO] 13:01:44:021 I-MONGO-STORE/(23647:23647): Se completo la escritura de caracteres
+[INFO] 13:01:44:021 I-MONGO-STORE/(23647:23647): Generando MD5
+[INFO] 13:01:44:026 I-MONGO-STORE/(23647:23647): Bloque completo
+[INFO] 13:01:44:026 I-MONGO-STORE/(23647:23647): Se completo el borrado de caracteres
+[INFO] 13:01:44:026 I-MONGO-STORE/(23647:23647): Generando MD5
+[INFO] 13:01:44:031 I-MONGO-STORE/(23647:23647): Bloque completo
+[INFO] 13:01:44:031 I-MONGO-STORE/(23647:23647): Bloque completo
+[INFO] 13:01:44:032 I-MONGO-STORE/(23647:23647): Se completo la escritura de caracteres
+[INFO] 13:01:44:032 I-MONGO-STORE/(23647:23647): Generando MD5
+[INFO] 13:01:44:040 I-MONGO-STORE/(23647:23647): Bloque completo
+[INFO] 13:01:44:040 I-MONGO-STORE/(23647:23647): Se completo el borrado de caracteres
+[INFO] 13:01:44:040 I-MONGO-STORE/(23647:23647): Generando MD5
+[INFO] 13:02:21:588 I-MONGO-STORE/(23821:23821): toy aqui
+[INFO] 13:02:21:593 I-MONGO-STORE/(23821:23821): Verificando existencia SuperBloque
+[INFO] 13:02:21:593 I-MONGO-STORE/(23821:23821): SuperBloque ya existe
+[INFO] 13:02:21:596 I-MONGO-STORE/(23821:23821): SuperBloque Generado
+[INFO] 13:02:21:597 I-MONGO-STORE/(23821:23821): Verificando existencia Blocks
+[INFO] 13:02:21:597 I-MONGO-STORE/(23821:23821): Blocks ya existe
+[INFO] 13:02:21:597 I-MONGO-STORE/(23821:23821): Blocks Generado
+[INFO] 13:02:21:597 I-MONGO-STORE/(23821:23821): Generando metadata
+[INFO] 13:02:21:598 I-MONGO-STORE/(23821:23821): Generando MD5
+[INFO] 13:02:21:612 I-MONGO-STORE/(23821:23821): Archivo de metadata generado
+[INFO] 13:02:21:613 I-MONGO-STORE/(23821:23821): Generando metadata
+[INFO] 13:02:21:613 I-MONGO-STORE/(23821:23821): Generando MD5
+[INFO] 13:02:21:621 I-MONGO-STORE/(23821:23821): Archivo de metadata generado
+[INFO] 13:02:21:621 I-MONGO-STORE/(23821:23821): Generando metadata
+[INFO] 13:02:21:622 I-MONGO-STORE/(23821:23821): Generando MD5
+[INFO] 13:02:21:631 I-MONGO-STORE/(23821:23821): Archivo de metadata generado
+[INFO] 13:02:21:632 I-MONGO-STORE/(23821:23821): Generando Bitacora
+[INFO] 13:02:21:632 I-MONGO-STORE/(23821:23821): Se Genero la Bitacora
+[INFO] 13:02:21:633 I-MONGO-STORE/(23821:23821): Bloque completo
+[INFO] 13:02:21:634 I-MONGO-STORE/(23821:23821): Bloque completo
+[INFO] 13:02:21:634 I-MONGO-STORE/(23821:23821): Se completo la escritura de caracteres
+[INFO] 13:02:21:634 I-MONGO-STORE/(23821:23821): Generando MD5
+[INFO] 13:02:21:645 I-MONGO-STORE/(23821:23821): Bloque completo
+[INFO] 13:02:21:645 I-MONGO-STORE/(23821:23821): Se completo el borrado de caracteres
+[INFO] 13:02:21:645 I-MONGO-STORE/(23821:23821): Generando MD5
+[INFO] 13:02:21:654 I-MONGO-STORE/(23821:23821): Bloque completo
+[INFO] 13:02:21:655 I-MONGO-STORE/(23821:23821): Bloque completo
+[INFO] 13:02:21:655 I-MONGO-STORE/(23821:23821): Se completo la escritura de caracteres
+[INFO] 13:02:21:656 I-MONGO-STORE/(23821:23821): Generando MD5
+[INFO] 13:02:21:666 I-MONGO-STORE/(23821:23821): Bloque completo
+[INFO] 13:02:21:666 I-MONGO-STORE/(23821:23821): Se completo el borrado de caracteres
+[INFO] 13:02:21:667 I-MONGO-STORE/(23821:23821): Generando MD5
+[INFO] 13:59:11:785 I-MONGO-STORE/(25665:25665): toy aqui
+[INFO] 13:59:11:790 I-MONGO-STORE/(25665:25665): Verificando existencia SuperBloque
+[INFO] 13:59:11:790 I-MONGO-STORE/(25665:25665): SuperBloque ya existe
+[INFO] 13:59:11:796 I-MONGO-STORE/(25665:25665): SuperBloque Generado
+[INFO] 13:59:11:796 I-MONGO-STORE/(25665:25665): Verificando existencia Blocks
+[INFO] 13:59:11:796 I-MONGO-STORE/(25665:25665): Blocks ya existe
+[INFO] 13:59:11:797 I-MONGO-STORE/(25665:25665): Blocks Generado
+[INFO] 13:59:11:798 I-MONGO-STORE/(25665:25665): Generando metadata
+[INFO] 13:59:11:798 I-MONGO-STORE/(25665:25665): Generando MD5
+[INFO] 13:59:11:809 I-MONGO-STORE/(25665:25665): Archivo de metadata generado
+[INFO] 13:59:11:809 I-MONGO-STORE/(25665:25665): Generando metadata
+[INFO] 13:59:11:809 I-MONGO-STORE/(25665:25665): Generando MD5
+[INFO] 13:59:11:823 I-MONGO-STORE/(25665:25665): Archivo de metadata generado
+[INFO] 13:59:11:824 I-MONGO-STORE/(25665:25665): Generando metadata
+[INFO] 13:59:11:824 I-MONGO-STORE/(25665:25665): Generando MD5
+[INFO] 13:59:11:833 I-MONGO-STORE/(25665:25665): Archivo de metadata generado
+[INFO] 13:59:11:833 I-MONGO-STORE/(25665:25665): Generando Bitacora
+[INFO] 13:59:11:834 I-MONGO-STORE/(25665:25665): Se Genero la Bitacora
+[INFO] 13:59:11:835 I-MONGO-STORE/(25665:25665): Bloque completo
+[INFO] 13:59:11:835 I-MONGO-STORE/(25665:25665): Bloque completo
+[INFO] 13:59:11:835 I-MONGO-STORE/(25665:25665): Se completo la escritura de caracteres
+[INFO] 13:59:11:836 I-MONGO-STORE/(25665:25665): Generando MD5
+[INFO] 13:59:11:848 I-MONGO-STORE/(25665:25665): Bloque completo
+[INFO] 13:59:11:849 I-MONGO-STORE/(25665:25665): Se completo el borrado de caracteres
+[INFO] 13:59:11:849 I-MONGO-STORE/(25665:25665): Generando MD5
+[INFO] 13:59:11:858 I-MONGO-STORE/(25665:25665): Bloque completo
+[INFO] 13:59:11:858 I-MONGO-STORE/(25665:25665): Bloque completo
+[INFO] 13:59:11:859 I-MONGO-STORE/(25665:25665): Se completo la escritura de caracteres
+[INFO] 13:59:11:859 I-MONGO-STORE/(25665:25665): Generando MD5
+[INFO] 13:59:11:869 I-MONGO-STORE/(25665:25665): Bloque completo
+[INFO] 13:59:11:870 I-MONGO-STORE/(25665:25665): Se completo el borrado de caracteres
+[INFO] 13:59:11:870 I-MONGO-STORE/(25665:25665): Generando MD5
+[INFO] 13:59:11:880 I-MONGO-STORE/(25665:25665): Se completo la escritura de caracteres
+[INFO] 13:59:11:881 I-MONGO-STORE/(25665:25665): Se completo la escritura de caracteres
+[INFO] 13:59:11:881 I-MONGO-STORE/(25665:25665): Se completo la escritura de caracteres
+[INFO] 13:59:11:881 I-MONGO-STORE/(25665:25665): Creando conexiones
+[INFO] 14:09:02:266 I-MONGO-STORE/(25975:25975): toy aqui
+[INFO] 14:09:02:273 I-MONGO-STORE/(25975:25975): Verificando existencia SuperBloque
+[INFO] 14:09:02:273 I-MONGO-STORE/(25975:25975): SuperBloque no existe, creandolo.
+[INFO] 14:09:02:401 I-MONGO-STORE/(25975:25975): SuperBloque Generado
+[INFO] 14:09:02:401 I-MONGO-STORE/(25975:25975): Verificando existencia Blocks
+[INFO] 14:09:02:401 I-MONGO-STORE/(25975:25975): Blocks no existe, creandolo
+[INFO] 14:09:02:401 I-MONGO-STORE/(25975:25975): Blocks Generado
+[INFO] 14:09:02:401 I-MONGO-STORE/(25975:25975): Generando metadata
+[INFO] 14:09:02:402 I-MONGO-STORE/(25975:25975): Generando MD5
+[INFO] 14:09:02:406 I-MONGO-STORE/(25975:25975): Archivo de metadata generado
+[INFO] 14:09:02:406 I-MONGO-STORE/(25975:25975): Generando metadata
+[INFO] 14:09:02:407 I-MONGO-STORE/(25975:25975): Generando MD5
+[INFO] 14:09:02:411 I-MONGO-STORE/(25975:25975): Archivo de metadata generado
+[INFO] 14:09:02:411 I-MONGO-STORE/(25975:25975): Generando metadata
+[INFO] 14:09:02:412 I-MONGO-STORE/(25975:25975): Generando MD5
+[INFO] 14:09:02:416 I-MONGO-STORE/(25975:25975): Archivo de metadata generado
+[INFO] 14:09:02:416 I-MONGO-STORE/(25975:25975): Generando Bitacora
+[INFO] 14:09:02:417 I-MONGO-STORE/(25975:25975): Se Genero la Bitacora
+[INFO] 14:09:02:419 I-MONGO-STORE/(25975:25975): Bloque completo
+[INFO] 14:09:02:422 I-MONGO-STORE/(25975:25975): Bloque completo
+[INFO] 14:09:02:423 I-MONGO-STORE/(25975:25975): Se completo la escritura de caracteres
+[INFO] 14:09:02:423 I-MONGO-STORE/(25975:25975): Generando MD5
+[INFO] 14:09:02:432 I-MONGO-STORE/(25975:25975): Bloque completo
+[INFO] 14:09:02:432 I-MONGO-STORE/(25975:25975): Se completo el borrado de caracteres
+[INFO] 14:09:02:432 I-MONGO-STORE/(25975:25975): Generando MD5
+[INFO] 14:09:02:441 I-MONGO-STORE/(25975:25975): Bloque completo
+[INFO] 14:09:02:441 I-MONGO-STORE/(25975:25975): Bloque completo
+[INFO] 14:09:02:441 I-MONGO-STORE/(25975:25975): Se completo la escritura de caracteres
+[INFO] 14:09:02:442 I-MONGO-STORE/(25975:25975): Generando MD5
+[INFO] 14:09:02:448 I-MONGO-STORE/(25975:25975): Bloque completo
+[INFO] 14:09:02:448 I-MONGO-STORE/(25975:25975): Se completo el borrado de caracteres
+[INFO] 14:09:02:448 I-MONGO-STORE/(25975:25975): Generando MD5
+[INFO] 14:09:50:686 I-MONGO-STORE/(26159:26159): toy aqui
+[INFO] 14:09:50:692 I-MONGO-STORE/(26159:26159): Verificando existencia SuperBloque
+[INFO] 14:09:50:692 I-MONGO-STORE/(26159:26159): SuperBloque ya existe
+[INFO] 14:09:50:695 I-MONGO-STORE/(26159:26159): SuperBloque Generado
+[INFO] 14:09:50:700 I-MONGO-STORE/(26159:26159): Verificando existencia Blocks
+[INFO] 14:09:50:701 I-MONGO-STORE/(26159:26159): Blocks ya existe
+[INFO] 14:09:50:701 I-MONGO-STORE/(26159:26159): Blocks Generado
+[INFO] 14:09:50:701 I-MONGO-STORE/(26159:26159): Generando metadata
+[INFO] 14:09:50:702 I-MONGO-STORE/(26159:26159): Generando MD5
+[INFO] 14:09:50:710 I-MONGO-STORE/(26159:26159): Archivo de metadata generado
+[INFO] 14:09:50:711 I-MONGO-STORE/(26159:26159): Generando metadata
+[INFO] 14:09:50:711 I-MONGO-STORE/(26159:26159): Generando MD5
+[INFO] 14:09:50:721 I-MONGO-STORE/(26159:26159): Archivo de metadata generado
+[INFO] 14:09:50:721 I-MONGO-STORE/(26159:26159): Generando metadata
+[INFO] 14:09:50:721 I-MONGO-STORE/(26159:26159): Generando MD5
+[INFO] 14:09:50:732 I-MONGO-STORE/(26159:26159): Archivo de metadata generado
+[INFO] 14:09:50:732 I-MONGO-STORE/(26159:26159): Generando Bitacora
+[INFO] 14:09:50:732 I-MONGO-STORE/(26159:26159): Se Genero la Bitacora
+[INFO] 14:09:50:733 I-MONGO-STORE/(26159:26159): Bloque completo
+[INFO] 14:09:50:734 I-MONGO-STORE/(26159:26159): Bloque completo
+[INFO] 14:09:50:734 I-MONGO-STORE/(26159:26159): Se completo la escritura de caracteres
+[INFO] 14:09:50:734 I-MONGO-STORE/(26159:26159): Generando MD5
+[INFO] 14:09:50:748 I-MONGO-STORE/(26159:26159): Bloque completo
+[INFO] 14:09:50:748 I-MONGO-STORE/(26159:26159): Se completo el borrado de caracteres
+[INFO] 14:09:50:748 I-MONGO-STORE/(26159:26159): Generando MD5
+[INFO] 14:09:50:758 I-MONGO-STORE/(26159:26159): Bloque completo
+[INFO] 14:09:50:759 I-MONGO-STORE/(26159:26159): Bloque completo
+[INFO] 14:09:50:759 I-MONGO-STORE/(26159:26159): Se completo la escritura de caracteres
+[INFO] 14:09:50:759 I-MONGO-STORE/(26159:26159): Generando MD5
+[INFO] 14:09:50:769 I-MONGO-STORE/(26159:26159): Bloque completo
+[INFO] 14:09:50:769 I-MONGO-STORE/(26159:26159): Se completo el borrado de caracteres
+[INFO] 14:09:50:770 I-MONGO-STORE/(26159:26159): Generando MD5
+[INFO] 14:10:52:262 I-MONGO-STORE/(26332:26332): toy aqui
+[INFO] 14:10:52:264 I-MONGO-STORE/(26332:26332): Verificando existencia SuperBloque
+[INFO] 14:10:52:264 I-MONGO-STORE/(26332:26332): SuperBloque ya existe
+[INFO] 14:10:52:267 I-MONGO-STORE/(26332:26332): SuperBloque Generado
+[INFO] 14:10:52:268 I-MONGO-STORE/(26332:26332): Verificando existencia Blocks
+[INFO] 14:10:52:268 I-MONGO-STORE/(26332:26332): Blocks ya existe
+[INFO] 14:10:52:268 I-MONGO-STORE/(26332:26332): Blocks Generado
+[INFO] 14:10:52:270 I-MONGO-STORE/(26332:26332): Generando metadata
+[INFO] 14:10:52:271 I-MONGO-STORE/(26332:26332): Generando MD5
+[INFO] 14:10:52:281 I-MONGO-STORE/(26332:26332): Archivo de metadata generado
+[INFO] 14:10:52:281 I-MONGO-STORE/(26332:26332): Generando metadata
+[INFO] 14:10:52:282 I-MONGO-STORE/(26332:26332): Generando MD5
+[INFO] 14:10:52:286 I-MONGO-STORE/(26332:26332): Archivo de metadata generado
+[INFO] 14:10:52:286 I-MONGO-STORE/(26332:26332): Generando metadata
+[INFO] 14:10:52:287 I-MONGO-STORE/(26332:26332): Generando MD5
+[INFO] 14:10:52:291 I-MONGO-STORE/(26332:26332): Archivo de metadata generado
+[INFO] 14:10:52:291 I-MONGO-STORE/(26332:26332): Generando Bitacora
+[INFO] 14:10:52:292 I-MONGO-STORE/(26332:26332): Se Genero la Bitacora
+[INFO] 14:10:52:293 I-MONGO-STORE/(26332:26332): Bloque completo
+[INFO] 14:10:52:293 I-MONGO-STORE/(26332:26332): Bloque completo
+[INFO] 14:10:52:293 I-MONGO-STORE/(26332:26332): Se completo la escritura de caracteres
+[INFO] 14:10:52:293 I-MONGO-STORE/(26332:26332): Generando MD5
+[INFO] 14:10:52:299 I-MONGO-STORE/(26332:26332): Bloque completo
+[INFO] 14:10:52:299 I-MONGO-STORE/(26332:26332): Se completo el borrado de caracteres
+[INFO] 14:10:52:300 I-MONGO-STORE/(26332:26332): Generando MD5
+[INFO] 14:10:52:304 I-MONGO-STORE/(26332:26332): Bloque completo
+[INFO] 14:10:52:305 I-MONGO-STORE/(26332:26332): Bloque completo
+[INFO] 14:10:52:305 I-MONGO-STORE/(26332:26332): Se completo la escritura de caracteres
+[INFO] 14:10:52:305 I-MONGO-STORE/(26332:26332): Generando MD5
+[INFO] 14:10:52:310 I-MONGO-STORE/(26332:26332): Bloque completo
+[INFO] 14:10:52:311 I-MONGO-STORE/(26332:26332): Se completo el borrado de caracteres
+[INFO] 14:10:52:311 I-MONGO-STORE/(26332:26332): Generando MD5
+[INFO] 14:11:57:684 I-MONGO-STORE/(26670:26670): toy aqui
+[INFO] 14:11:57:686 I-MONGO-STORE/(26670:26670): Verificando existencia SuperBloque
+[INFO] 14:11:57:687 I-MONGO-STORE/(26670:26670): SuperBloque ya existe
+[INFO] 14:11:57:795 I-MONGO-STORE/(26670:26670): SuperBloque Generado
+[INFO] 14:11:57:796 I-MONGO-STORE/(26670:26670): Verificando existencia Blocks
+[INFO] 14:11:57:796 I-MONGO-STORE/(26670:26670): Blocks ya existe
+[INFO] 14:11:57:796 I-MONGO-STORE/(26670:26670): Blocks Generado
+[INFO] 14:11:57:797 I-MONGO-STORE/(26670:26670): Generando metadata
+[INFO] 14:11:57:798 I-MONGO-STORE/(26670:26670): Generando MD5
+[INFO] 14:11:57:813 I-MONGO-STORE/(26670:26670): Archivo de metadata generado
+[INFO] 14:11:57:813 I-MONGO-STORE/(26670:26670): Generando metadata
+[INFO] 14:11:57:814 I-MONGO-STORE/(26670:26670): Generando MD5
+[INFO] 14:11:57:831 I-MONGO-STORE/(26670:26670): Archivo de metadata generado
+[INFO] 14:11:57:832 I-MONGO-STORE/(26670:26670): Generando metadata
+[INFO] 14:11:57:832 I-MONGO-STORE/(26670:26670): Generando MD5
+[INFO] 14:11:57:847 I-MONGO-STORE/(26670:26670): Archivo de metadata generado
+[INFO] 14:11:57:848 I-MONGO-STORE/(26670:26670): Generando Bitacora
+[INFO] 14:11:57:848 I-MONGO-STORE/(26670:26670): Se Genero la Bitacora
+[INFO] 14:11:57:849 I-MONGO-STORE/(26670:26670): Bloque completo
+[INFO] 14:11:57:850 I-MONGO-STORE/(26670:26670): Bloque completo
+[INFO] 14:11:57:850 I-MONGO-STORE/(26670:26670): Se completo la escritura de caracteres
+[INFO] 14:11:57:850 I-MONGO-STORE/(26670:26670): Generando MD5
+[INFO] 14:11:57:863 I-MONGO-STORE/(26670:26670): Bloque completo
+[INFO] 14:11:57:863 I-MONGO-STORE/(26670:26670): Se completo el borrado de caracteres
+[INFO] 14:11:57:864 I-MONGO-STORE/(26670:26670): Generando MD5
+[INFO] 14:11:57:879 I-MONGO-STORE/(26670:26670): Bloque completo
+[INFO] 14:11:57:879 I-MONGO-STORE/(26670:26670): Bloque completo
+[INFO] 14:11:57:880 I-MONGO-STORE/(26670:26670): Se completo la escritura de caracteres
+[INFO] 14:11:57:880 I-MONGO-STORE/(26670:26670): Generando MD5
+[INFO] 14:11:57:895 I-MONGO-STORE/(26670:26670): Bloque completo
+[INFO] 14:11:57:895 I-MONGO-STORE/(26670:26670): Se completo el borrado de caracteres
+[INFO] 14:11:57:895 I-MONGO-STORE/(26670:26670): Generando MD5
+[INFO] 14:11:57:925 I-MONGO-STORE/(26670:26670): Bloque completo
+[INFO] 14:11:57:926 I-MONGO-STORE/(26670:26670): Bloque completo
+[INFO] 14:11:57:926 I-MONGO-STORE/(26670:26670): Se completo la escritura de caracteres
+[INFO] 14:11:57:927 I-MONGO-STORE/(26670:26670): Creando conexiones
+[INFO] 14:14:35:847 I-MONGO-STORE/(26870:26870): toy aqui
+[INFO] 14:14:35:848 I-MONGO-STORE/(26870:26870): Verificando existencia SuperBloque
+[INFO] 14:14:35:848 I-MONGO-STORE/(26870:26870): SuperBloque ya existe
+[INFO] 14:14:35:854 I-MONGO-STORE/(26870:26870): SuperBloque Generado
+[INFO] 14:14:35:855 I-MONGO-STORE/(26870:26870): Verificando existencia Blocks
+[INFO] 14:14:35:855 I-MONGO-STORE/(26870:26870): Blocks ya existe
+[INFO] 14:14:35:855 I-MONGO-STORE/(26870:26870): Blocks Generado
+[INFO] 14:14:35:855 I-MONGO-STORE/(26870:26870): Generando metadata
+[INFO] 14:14:35:856 I-MONGO-STORE/(26870:26870): Generando MD5
+[INFO] 14:14:35:871 I-MONGO-STORE/(26870:26870): Archivo de metadata generado
+[INFO] 14:14:35:872 I-MONGO-STORE/(26870:26870): Generando metadata
+[INFO] 14:14:35:873 I-MONGO-STORE/(26870:26870): Generando MD5
+[INFO] 14:14:35:887 I-MONGO-STORE/(26870:26870): Archivo de metadata generado
+[INFO] 14:14:35:888 I-MONGO-STORE/(26870:26870): Generando metadata
+[INFO] 14:14:35:888 I-MONGO-STORE/(26870:26870): Generando MD5
+[INFO] 14:14:35:903 I-MONGO-STORE/(26870:26870): Archivo de metadata generado
+[INFO] 14:14:35:903 I-MONGO-STORE/(26870:26870): Generando Bitacora
+[INFO] 14:14:35:904 I-MONGO-STORE/(26870:26870): Se Genero la Bitacora
+[INFO] 14:14:35:905 I-MONGO-STORE/(26870:26870): Bloque completo
+[INFO] 14:14:35:905 I-MONGO-STORE/(26870:26870): Bloque completo
+[INFO] 14:14:35:905 I-MONGO-STORE/(26870:26870): Se completo la escritura de caracteres
+[INFO] 14:14:35:906 I-MONGO-STORE/(26870:26870): Generando MD5
+[INFO] 14:14:35:920 I-MONGO-STORE/(26870:26870): Bloque completo
+[INFO] 14:14:35:920 I-MONGO-STORE/(26870:26870): Se completo el borrado de caracteres
+[INFO] 14:14:35:920 I-MONGO-STORE/(26870:26870): Generando MD5
+[INFO] 14:14:35:940 I-MONGO-STORE/(26870:26870): Bloque completo
+[INFO] 14:14:35:941 I-MONGO-STORE/(26870:26870): Bloque completo
+[INFO] 14:14:35:941 I-MONGO-STORE/(26870:26870): Se completo la escritura de caracteres
+[INFO] 14:14:35:941 I-MONGO-STORE/(26870:26870): Generando MD5
+[INFO] 14:14:35:964 I-MONGO-STORE/(26870:26870): Bloque completo
+[INFO] 14:14:35:964 I-MONGO-STORE/(26870:26870): Se completo el borrado de caracteres
+[INFO] 14:14:35:964 I-MONGO-STORE/(26870:26870): Generando MD5
+[INFO] 14:14:35:984 I-MONGO-STORE/(26870:26870): Bloque completo
+[INFO] 14:14:35:984 I-MONGO-STORE/(26870:26870): Bloque completo
+[INFO] 14:14:35:985 I-MONGO-STORE/(26870:26870): Se completo la escritura de caracteres
+[INFO] 14:14:35:985 I-MONGO-STORE/(26870:26870): Creando conexiones
+[INFO] 14:15:08:191 I-MONGO-STORE/(27046:27046): toy aqui
+[INFO] 14:15:08:193 I-MONGO-STORE/(27046:27046): Verificando existencia SuperBloque
+[INFO] 14:15:08:193 I-MONGO-STORE/(27046:27046): SuperBloque ya existe
+[INFO] 14:15:08:197 I-MONGO-STORE/(27046:27046): SuperBloque Generado
+[INFO] 14:15:08:197 I-MONGO-STORE/(27046:27046): Verificando existencia Blocks
+[INFO] 14:15:08:197 I-MONGO-STORE/(27046:27046): Blocks ya existe
+[INFO] 14:15:08:198 I-MONGO-STORE/(27046:27046): Blocks Generado
+[INFO] 14:15:08:198 I-MONGO-STORE/(27046:27046): Generando metadata
+[INFO] 14:15:08:198 I-MONGO-STORE/(27046:27046): Generando MD5
+[INFO] 14:15:08:219 I-MONGO-STORE/(27046:27046): Archivo de metadata generado
+[INFO] 14:15:08:219 I-MONGO-STORE/(27046:27046): Generando metadata
+[INFO] 14:15:08:220 I-MONGO-STORE/(27046:27046): Generando MD5
+[INFO] 14:15:08:229 I-MONGO-STORE/(27046:27046): Archivo de metadata generado
+[INFO] 14:15:08:229 I-MONGO-STORE/(27046:27046): Generando metadata
+[INFO] 14:15:08:230 I-MONGO-STORE/(27046:27046): Generando MD5
+[INFO] 14:15:08:237 I-MONGO-STORE/(27046:27046): Archivo de metadata generado
+[INFO] 14:15:08:237 I-MONGO-STORE/(27046:27046): Generando Bitacora
+[INFO] 14:15:08:238 I-MONGO-STORE/(27046:27046): Se Genero la Bitacora
+[INFO] 14:15:08:239 I-MONGO-STORE/(27046:27046): Bloque completo
+[INFO] 14:15:08:239 I-MONGO-STORE/(27046:27046): Bloque completo
+[INFO] 14:15:08:239 I-MONGO-STORE/(27046:27046): Se completo la escritura de caracteres
+[INFO] 14:15:08:240 I-MONGO-STORE/(27046:27046): Generando MD5
+[INFO] 14:15:08:252 I-MONGO-STORE/(27046:27046): Bloque completo
+[INFO] 14:15:08:252 I-MONGO-STORE/(27046:27046): Se completo el borrado de caracteres
+[INFO] 14:15:08:253 I-MONGO-STORE/(27046:27046): Generando MD5
+[INFO] 14:15:08:264 I-MONGO-STORE/(27046:27046): Bloque completo
+[INFO] 14:15:08:265 I-MONGO-STORE/(27046:27046): Bloque completo
+[INFO] 14:15:08:265 I-MONGO-STORE/(27046:27046): Se completo la escritura de caracteres
+[INFO] 14:15:08:265 I-MONGO-STORE/(27046:27046): Generando MD5
+[INFO] 14:15:08:280 I-MONGO-STORE/(27046:27046): Bloque completo
+[INFO] 14:15:08:281 I-MONGO-STORE/(27046:27046): Se completo el borrado de caracteres
+[INFO] 14:15:08:281 I-MONGO-STORE/(27046:27046): Generando MD5
+[INFO] 14:15:08:293 I-MONGO-STORE/(27046:27046): Bloque completo
+[INFO] 14:15:08:295 I-MONGO-STORE/(27046:27046): Bloque completo
+[INFO] 14:15:08:295 I-MONGO-STORE/(27046:27046): Se completo la escritura de caracteres
+[INFO] 14:15:08:298 I-MONGO-STORE/(27046:27046): Creando conexiones
+[INFO] 14:16:20:736 I-MONGO-STORE/(27255:27255): toy aqui
+[INFO] 14:16:20:739 I-MONGO-STORE/(27255:27255): Verificando existencia SuperBloque
+[INFO] 14:16:20:739 I-MONGO-STORE/(27255:27255): SuperBloque ya existe
+[INFO] 14:16:20:743 I-MONGO-STORE/(27255:27255): SuperBloque Generado
+[INFO] 14:16:20:743 I-MONGO-STORE/(27255:27255): Verificando existencia Blocks
+[INFO] 14:16:20:744 I-MONGO-STORE/(27255:27255): Blocks ya existe
+[INFO] 14:16:20:744 I-MONGO-STORE/(27255:27255): Blocks Generado
+[INFO] 14:16:20:744 I-MONGO-STORE/(27255:27255): Generando metadata
+[INFO] 14:16:20:749 I-MONGO-STORE/(27255:27255): Generando MD5
+[INFO] 14:16:20:762 I-MONGO-STORE/(27255:27255): Archivo de metadata generado
+[INFO] 14:16:20:763 I-MONGO-STORE/(27255:27255): Generando metadata
+[INFO] 14:16:20:763 I-MONGO-STORE/(27255:27255): Generando MD5
+[INFO] 14:16:20:779 I-MONGO-STORE/(27255:27255): Archivo de metadata generado
+[INFO] 14:16:20:780 I-MONGO-STORE/(27255:27255): Generando metadata
+[INFO] 14:16:20:780 I-MONGO-STORE/(27255:27255): Generando MD5
+[INFO] 14:16:20:791 I-MONGO-STORE/(27255:27255): Archivo de metadata generado
+[INFO] 14:16:20:791 I-MONGO-STORE/(27255:27255): Generando Bitacora
+[INFO] 14:16:20:792 I-MONGO-STORE/(27255:27255): Se Genero la Bitacora
+[INFO] 14:16:20:793 I-MONGO-STORE/(27255:27255): Bloque completo
+[INFO] 14:16:20:793 I-MONGO-STORE/(27255:27255): Bloque completo
+[INFO] 14:16:20:793 I-MONGO-STORE/(27255:27255): Se completo la escritura de caracteres
+[INFO] 14:16:20:794 I-MONGO-STORE/(27255:27255): Generando MD5
+[INFO] 14:16:20:812 I-MONGO-STORE/(27255:27255): Bloque completo
+[INFO] 14:16:20:812 I-MONGO-STORE/(27255:27255): Se completo el borrado de caracteres
+[INFO] 14:16:20:812 I-MONGO-STORE/(27255:27255): Generando MD5
+[INFO] 14:16:20:832 I-MONGO-STORE/(27255:27255): Bloque completo
+[INFO] 14:16:20:833 I-MONGO-STORE/(27255:27255): Bloque completo
+[INFO] 14:16:20:833 I-MONGO-STORE/(27255:27255): Se completo la escritura de caracteres
+[INFO] 14:16:20:833 I-MONGO-STORE/(27255:27255): Generando MD5
+[INFO] 14:16:20:856 I-MONGO-STORE/(27255:27255): Bloque completo
+[INFO] 14:16:20:856 I-MONGO-STORE/(27255:27255): Se completo el borrado de caracteres
+[INFO] 14:16:20:856 I-MONGO-STORE/(27255:27255): Generando MD5
+[INFO] 14:16:20:880 I-MONGO-STORE/(27255:27255): Bloque completo
+[INFO] 14:16:20:880 I-MONGO-STORE/(27255:27255): Bloque completo
+[INFO] 14:16:20:880 I-MONGO-STORE/(27255:27255): Se completo la escritura de caracteres
+[INFO] 14:16:20:881 I-MONGO-STORE/(27255:27255): Creando conexiones
+[INFO] 14:20:21:081 I-MONGO-STORE/(27453:27453): toy aqui
+[INFO] 14:20:21:084 I-MONGO-STORE/(27453:27453): Verificando existencia SuperBloque
+[INFO] 14:20:21:084 I-MONGO-STORE/(27453:27453): SuperBloque ya existe
+[INFO] 14:20:21:086 I-MONGO-STORE/(27453:27453): SuperBloque Generado
+[INFO] 14:20:21:086 I-MONGO-STORE/(27453:27453): Verificando existencia Blocks
+[INFO] 14:20:21:087 I-MONGO-STORE/(27453:27453): Blocks ya existe
+[INFO] 14:20:21:087 I-MONGO-STORE/(27453:27453): Blocks Generado
+[INFO] 14:20:21:088 I-MONGO-STORE/(27453:27453): Generando metadata
+[INFO] 14:20:21:089 I-MONGO-STORE/(27453:27453): Generando MD5
+[INFO] 14:20:21:115 I-MONGO-STORE/(27453:27453): Archivo de metadata generado
+[INFO] 14:20:21:116 I-MONGO-STORE/(27453:27453): Generando metadata
+[INFO] 14:20:21:116 I-MONGO-STORE/(27453:27453): Generando MD5
+[INFO] 14:20:21:127 I-MONGO-STORE/(27453:27453): Archivo de metadata generado
+[INFO] 14:20:21:128 I-MONGO-STORE/(27453:27453): Generando metadata
+[INFO] 14:20:21:128 I-MONGO-STORE/(27453:27453): Generando MD5
+[INFO] 14:20:21:140 I-MONGO-STORE/(27453:27453): Archivo de metadata generado
+[INFO] 14:20:21:140 I-MONGO-STORE/(27453:27453): Generando Bitacora
+[INFO] 14:20:21:140 I-MONGO-STORE/(27453:27453): Se Genero la Bitacora
+[INFO] 14:20:21:141 I-MONGO-STORE/(27453:27453): Bloque completo
+[INFO] 14:20:21:142 I-MONGO-STORE/(27453:27453): Bloque completo
+[INFO] 14:20:21:142 I-MONGO-STORE/(27453:27453): Se completo la escritura de caracteres
+[INFO] 14:20:21:142 I-MONGO-STORE/(27453:27453): Generando MD5
+[INFO] 14:20:21:158 I-MONGO-STORE/(27453:27453): Bloque completo
+[INFO] 14:20:21:158 I-MONGO-STORE/(27453:27453): Se completo el borrado de caracteres
+[INFO] 14:20:21:158 I-MONGO-STORE/(27453:27453): Generando MD5
+[INFO] 14:20:21:172 I-MONGO-STORE/(27453:27453): Bloque completo
+[INFO] 14:20:21:172 I-MONGO-STORE/(27453:27453): Bloque completo
+[INFO] 14:20:21:172 I-MONGO-STORE/(27453:27453): Se completo la escritura de caracteres
+[INFO] 14:20:21:173 I-MONGO-STORE/(27453:27453): Generando MD5
+[INFO] 14:20:21:183 I-MONGO-STORE/(27453:27453): Bloque completo
+[INFO] 14:20:21:183 I-MONGO-STORE/(27453:27453): Se completo el borrado de caracteres
+[INFO] 14:20:21:183 I-MONGO-STORE/(27453:27453): Generando MD5
+[INFO] 14:20:21:204 I-MONGO-STORE/(27453:27453): Bloque completo
+[INFO] 14:20:21:205 I-MONGO-STORE/(27453:27453): Bloque completo
+[INFO] 14:20:21:205 I-MONGO-STORE/(27453:27453): Se completo la escritura de caracteres
+[INFO] 14:20:21:206 I-MONGO-STORE/(27453:27453): Creando conexiones
+[INFO] 18:29:39:595 I-MONGO-STORE/(27830:27830): toy aqui
+[INFO] 18:29:39:602 I-MONGO-STORE/(27830:27830): Verificando existencia SuperBloque
+[INFO] 18:29:39:602 I-MONGO-STORE/(27830:27830): SuperBloque ya existe
+[INFO] 18:29:39:703 I-MONGO-STORE/(27830:27830): SuperBloque Generado
+[INFO] 18:29:39:703 I-MONGO-STORE/(27830:27830): Verificando existencia Blocks
+[INFO] 18:29:39:703 I-MONGO-STORE/(27830:27830): Blocks ya existe
+[INFO] 18:29:39:703 I-MONGO-STORE/(27830:27830): Blocks Generado
+[INFO] 18:29:39:704 I-MONGO-STORE/(27830:27830): Generando metadata
+[INFO] 18:29:39:704 I-MONGO-STORE/(27830:27830): Generando MD5
+[INFO] 18:29:39:720 I-MONGO-STORE/(27830:27830): Archivo de metadata generado
+[INFO] 18:29:39:721 I-MONGO-STORE/(27830:27830): Generando metadata
+[INFO] 18:29:39:721 I-MONGO-STORE/(27830:27830): Generando MD5
+[INFO] 18:29:39:734 I-MONGO-STORE/(27830:27830): Archivo de metadata generado
+[INFO] 18:29:39:734 I-MONGO-STORE/(27830:27830): Generando metadata
+[INFO] 18:29:39:735 I-MONGO-STORE/(27830:27830): Generando MD5
+[INFO] 18:29:39:753 I-MONGO-STORE/(27830:27830): Archivo de metadata generado
+[INFO] 18:29:39:753 I-MONGO-STORE/(27830:27830): Generando Bitacora
+[INFO] 18:29:39:753 I-MONGO-STORE/(27830:27830): Se Genero la Bitacora
+[INFO] 18:29:39:755 I-MONGO-STORE/(27830:27830): Bloque completo
+[INFO] 18:29:39:756 I-MONGO-STORE/(27830:27830): Bloque completo
+[INFO] 18:29:39:756 I-MONGO-STORE/(27830:27830): Se completo la escritura de caracteres
+[INFO] 18:29:39:756 I-MONGO-STORE/(27830:27830): Generando MD5
+[INFO] 18:29:39:770 I-MONGO-STORE/(27830:27830): Bloque vacio
+[INFO] 18:29:39:770 I-MONGO-STORE/(27830:27830): Se completo el borrado de caracteres
+[INFO] 18:29:39:770 I-MONGO-STORE/(27830:27830): Generando MD5
+[INFO] 18:29:39:783 I-MONGO-STORE/(27830:27830): Bloque completo
+[INFO] 18:29:39:784 I-MONGO-STORE/(27830:27830): Bloque completo
+[INFO] 18:29:39:784 I-MONGO-STORE/(27830:27830): Se completo la escritura de caracteres
+[INFO] 18:29:39:784 I-MONGO-STORE/(27830:27830): Generando MD5
+[INFO] 18:29:39:814 I-MONGO-STORE/(27830:27830): Bloque vacio
+[INFO] 18:29:39:814 I-MONGO-STORE/(27830:27830): Se completo el borrado de caracteres
+[INFO] 18:29:39:815 I-MONGO-STORE/(27830:27830): Generando MD5
+[INFO] 18:29:39:829 I-MONGO-STORE/(27830:27830): Bloque completo
+[INFO] 18:29:39:830 I-MONGO-STORE/(27830:27830): Bloque completo
+[INFO] 18:29:39:830 I-MONGO-STORE/(27830:27830): Se completo la escritura de caracteres
+[INFO] 18:29:39:831 I-MONGO-STORE/(27830:27830): Creando conexiones
+[INFO] 19:09:44:560 I-MONGO-STORE/(28549:28549): toy aqui
+[INFO] 19:09:44:561 I-MONGO-STORE/(28549:28549): Verificando existencia SuperBloque
+[INFO] 19:09:44:561 I-MONGO-STORE/(28549:28549): SuperBloque ya existe
+[INFO] 19:09:44:564 I-MONGO-STORE/(28549:28549): SuperBloque Generado
+[INFO] 19:09:44:569 I-MONGO-STORE/(28549:28549): Verificando existencia Blocks
+[INFO] 19:09:44:570 I-MONGO-STORE/(28549:28549): Blocks ya existe
+[INFO] 19:09:44:570 I-MONGO-STORE/(28549:28549): Blocks Generado
+[INFO] 19:09:44:570 I-MONGO-STORE/(28549:28549): Generando metadata
+[INFO] 19:09:44:570 I-MONGO-STORE/(28549:28549): Generando MD5
+[INFO] 19:09:44:581 I-MONGO-STORE/(28549:28549): Archivo de metadata generado
+[INFO] 19:09:44:581 I-MONGO-STORE/(28549:28549): Generando metadata
+[INFO] 19:09:44:582 I-MONGO-STORE/(28549:28549): Generando MD5
+[INFO] 19:09:44:593 I-MONGO-STORE/(28549:28549): Archivo de metadata generado
+[INFO] 19:09:44:593 I-MONGO-STORE/(28549:28549): Generando metadata
+[INFO] 19:09:44:593 I-MONGO-STORE/(28549:28549): Generando MD5
+[INFO] 19:09:44:601 I-MONGO-STORE/(28549:28549): Archivo de metadata generado
+[INFO] 19:09:44:601 I-MONGO-STORE/(28549:28549): Generando Bitacora
+[INFO] 19:09:44:602 I-MONGO-STORE/(28549:28549): Se Genero la Bitacora
+[INFO] 19:09:44:602 I-MONGO-STORE/(28549:28549): Bloque completo
+[INFO] 19:09:44:602 I-MONGO-STORE/(28549:28549): Bloque completo
+[INFO] 19:09:44:602 I-MONGO-STORE/(28549:28549): Se completo la escritura de caracteres
+[INFO] 19:09:44:603 I-MONGO-STORE/(28549:28549): Generando MD5
+[INFO] 19:09:44:614 I-MONGO-STORE/(28549:28549): Bloque vacio
+[INFO] 19:09:44:614 I-MONGO-STORE/(28549:28549): Se completo el borrado de caracteres
+[INFO] 19:09:44:614 I-MONGO-STORE/(28549:28549): Generando MD5
+[INFO] 19:09:44:624 I-MONGO-STORE/(28549:28549): Bloque completo
+[INFO] 19:09:44:624 I-MONGO-STORE/(28549:28549): Bloque completo
+[INFO] 19:09:44:624 I-MONGO-STORE/(28549:28549): Se completo la escritura de caracteres
+[INFO] 19:09:44:624 I-MONGO-STORE/(28549:28549): Generando MD5
+[INFO] 19:09:44:637 I-MONGO-STORE/(28549:28549): Bloque vacio
+[INFO] 19:09:44:637 I-MONGO-STORE/(28549:28549): Se completo el borrado de caracteres
+[INFO] 19:09:44:637 I-MONGO-STORE/(28549:28549): Generando MD5
+[INFO] 19:09:44:650 I-MONGO-STORE/(28549:28549): Bloque completo
+[INFO] 19:09:44:650 I-MONGO-STORE/(28549:28549): Bloque completo
+[INFO] 19:09:44:650 I-MONGO-STORE/(28549:28549): Se completo la escritura de caracteres
+[INFO] 19:09:44:651 I-MONGO-STORE/(28549:28549): Creando conexiones
+[INFO] 19:13:20:808 I-MONGO-STORE/(28796:28796): toy aqui
+[INFO] 19:13:43:752 I-MONGO-STORE/(28953:28953): toy aqui
+[INFO] 19:13:43:756 I-MONGO-STORE/(28953:28953): Verificando existencia SuperBloque
+[INFO] 19:13:43:757 I-MONGO-STORE/(28953:28953): SuperBloque ya existe
+[INFO] 19:13:43:853 I-MONGO-STORE/(28953:28953): SuperBloque Generado
+[INFO] 19:13:43:853 I-MONGO-STORE/(28953:28953): Verificando existencia Blocks
+[INFO] 19:13:43:854 I-MONGO-STORE/(28953:28953): Blocks ya existe
+[INFO] 19:13:43:854 I-MONGO-STORE/(28953:28953): Blocks Generado
+[INFO] 19:13:43:854 I-MONGO-STORE/(28953:28953): Generando metadata
+[INFO] 19:13:43:855 I-MONGO-STORE/(28953:28953): Generando MD5
+[INFO] 19:13:43:865 I-MONGO-STORE/(28953:28953): Archivo de metadata generado
+[INFO] 19:13:43:865 I-MONGO-STORE/(28953:28953): Generando metadata
+[INFO] 19:13:43:865 I-MONGO-STORE/(28953:28953): Generando MD5
+[INFO] 19:13:43:878 I-MONGO-STORE/(28953:28953): Archivo de metadata generado
+[INFO] 19:13:43:878 I-MONGO-STORE/(28953:28953): Generando metadata
+[INFO] 19:13:43:879 I-MONGO-STORE/(28953:28953): Generando MD5
+[INFO] 19:13:43:888 I-MONGO-STORE/(28953:28953): Archivo de metadata generado
+[INFO] 19:13:43:889 I-MONGO-STORE/(28953:28953): Generando Bitacora
+[INFO] 19:13:43:889 I-MONGO-STORE/(28953:28953): Se Genero la Bitacora
+[INFO] 19:13:43:890 I-MONGO-STORE/(28953:28953): Bloque completo
+[INFO] 19:13:43:891 I-MONGO-STORE/(28953:28953): Bloque completo
+[INFO] 19:13:43:891 I-MONGO-STORE/(28953:28953): Se completo la escritura de caracteres
+[INFO] 19:13:43:891 I-MONGO-STORE/(28953:28953): Generando MD5
+[INFO] 19:13:43:906 I-MONGO-STORE/(28953:28953): Bloque vacio
+[INFO] 19:13:43:906 I-MONGO-STORE/(28953:28953): Se completo el borrado de caracteres
+[INFO] 19:13:43:906 I-MONGO-STORE/(28953:28953): Generando MD5
+[INFO] 19:13:43:917 I-MONGO-STORE/(28953:28953): Bloque completo
+[INFO] 19:13:43:918 I-MONGO-STORE/(28953:28953): Bloque completo
+[INFO] 19:13:43:918 I-MONGO-STORE/(28953:28953): Se completo la escritura de caracteres
+[INFO] 19:13:43:918 I-MONGO-STORE/(28953:28953): Generando MD5
+[INFO] 19:13:43:928 I-MONGO-STORE/(28953:28953): Bloque vacio
+[INFO] 19:13:43:929 I-MONGO-STORE/(28953:28953): Se completo el borrado de caracteres
+[INFO] 19:13:43:929 I-MONGO-STORE/(28953:28953): Generando MD5
+[INFO] 19:13:43:946 I-MONGO-STORE/(28953:28953): Bloque completo
+[INFO] 19:13:43:946 I-MONGO-STORE/(28953:28953): Bloque completo
+[INFO] 19:13:43:946 I-MONGO-STORE/(28953:28953): Se completo la escritura de caracteres
+[INFO] 19:13:43:948 I-MONGO-STORE/(28953:28953): Creando conexiones
+[INFO] 19:15:10:435 I-MONGO-STORE/(29141:29141): toy aqui
+[INFO] 19:15:24:613 I-MONGO-STORE/(29295:29295): toy aqui
+[INFO] 19:15:52:568 I-MONGO-STORE/(29452:29452): toy aqui
+[INFO] 19:16:35:752 I-MONGO-STORE/(29618:29618): toy aqui
+[INFO] 19:16:35:762 I-MONGO-STORE/(29618:29618): Verificando existencia SuperBloque
+[INFO] 19:16:35:762 I-MONGO-STORE/(29618:29618): SuperBloque ya existe
+[INFO] 19:16:35:861 I-MONGO-STORE/(29618:29618): SuperBloque Generado
+[INFO] 19:16:35:861 I-MONGO-STORE/(29618:29618): Verificando existencia Blocks
+[INFO] 19:16:35:861 I-MONGO-STORE/(29618:29618): Blocks ya existe
+[INFO] 19:16:35:861 I-MONGO-STORE/(29618:29618): Blocks Generado
+[INFO] 19:16:35:862 I-MONGO-STORE/(29618:29618): Generando metadata
+[INFO] 19:16:35:862 I-MONGO-STORE/(29618:29618): Generando MD5
+[INFO] 19:16:35:874 I-MONGO-STORE/(29618:29618): Archivo de metadata generado
+[INFO] 19:16:35:874 I-MONGO-STORE/(29618:29618): Generando metadata
+[INFO] 19:16:35:874 I-MONGO-STORE/(29618:29618): Generando MD5
+[INFO] 19:16:35:885 I-MONGO-STORE/(29618:29618): Archivo de metadata generado
+[INFO] 19:16:35:885 I-MONGO-STORE/(29618:29618): Generando metadata
+[INFO] 19:16:35:885 I-MONGO-STORE/(29618:29618): Generando MD5
+[INFO] 19:16:35:899 I-MONGO-STORE/(29618:29618): Archivo de metadata generado
+[INFO] 19:16:35:899 I-MONGO-STORE/(29618:29618): Generando Bitacora
+[INFO] 19:16:35:899 I-MONGO-STORE/(29618:29618): Se Genero la Bitacora
+[INFO] 19:16:35:901 I-MONGO-STORE/(29618:29618): Bloque completo
+[INFO] 19:16:35:902 I-MONGO-STORE/(29618:29618): Bloque completo
+[INFO] 19:16:35:903 I-MONGO-STORE/(29618:29618): Se completo la escritura de caracteres
+[INFO] 19:16:35:903 I-MONGO-STORE/(29618:29618): Generando MD5
+[INFO] 19:16:35:915 I-MONGO-STORE/(29618:29618): Bloque vacio
+[INFO] 19:16:35:916 I-MONGO-STORE/(29618:29618): Se completo el borrado de caracteres
+[INFO] 19:16:35:916 I-MONGO-STORE/(29618:29618): Generando MD5
+[INFO] 19:16:35:927 I-MONGO-STORE/(29618:29618): Bloque completo
+[INFO] 19:16:35:927 I-MONGO-STORE/(29618:29618): Bloque completo
+[INFO] 19:16:35:927 I-MONGO-STORE/(29618:29618): Se completo la escritura de caracteres
+[INFO] 19:16:35:928 I-MONGO-STORE/(29618:29618): Generando MD5
+[INFO] 19:16:35:937 I-MONGO-STORE/(29618:29618): Bloque vacio
+[INFO] 19:16:35:938 I-MONGO-STORE/(29618:29618): Se completo el borrado de caracteres
+[INFO] 19:16:35:938 I-MONGO-STORE/(29618:29618): Generando MD5
+[INFO] 19:16:35:947 I-MONGO-STORE/(29618:29618): Bloque completo
+[INFO] 19:16:35:947 I-MONGO-STORE/(29618:29618): Bloque completo
+[INFO] 19:16:35:947 I-MONGO-STORE/(29618:29618): Se completo la escritura de caracteres
+[INFO] 19:16:35:948 I-MONGO-STORE/(29618:29618): Creando conexiones
+[INFO] 19:17:38:601 I-MONGO-STORE/(29841:29841): toy aqui
+[INFO] 19:18:33:179 I-MONGO-STORE/(30009:30009): toy aqui
+[INFO] 19:18:33:194 I-MONGO-STORE/(30009:30009): Verificando existencia Blocks
+[INFO] 19:18:33:195 I-MONGO-STORE/(30009:30009): Blocks ya existe
+[INFO] 19:18:33:195 I-MONGO-STORE/(30009:30009): Blocks Generado
+[INFO] 19:18:33:195 I-MONGO-STORE/(30009:30009): Generando metadata
+[INFO] 19:18:33:196 I-MONGO-STORE/(30009:30009): Generando MD5
+[INFO] 19:18:33:214 I-MONGO-STORE/(30009:30009): Archivo de metadata generado
+[INFO] 19:18:33:215 I-MONGO-STORE/(30009:30009): Generando metadata
+[INFO] 19:18:33:215 I-MONGO-STORE/(30009:30009): Generando MD5
+[INFO] 19:18:33:228 I-MONGO-STORE/(30009:30009): Archivo de metadata generado
+[INFO] 19:18:33:229 I-MONGO-STORE/(30009:30009): Generando metadata
+[INFO] 19:18:33:229 I-MONGO-STORE/(30009:30009): Generando MD5
+[INFO] 19:18:33:243 I-MONGO-STORE/(30009:30009): Archivo de metadata generado
+[INFO] 19:18:33:243 I-MONGO-STORE/(30009:30009): Generando Bitacora
+[INFO] 19:18:33:244 I-MONGO-STORE/(30009:30009): Se Genero la Bitacora
+[INFO] 19:20:44:943 I-MONGO-STORE/(30212:30212): toy aqui
+[INFO] 19:21:37:519 I-MONGO-STORE/(30371:30371): toy aqui
+[INFO] 19:22:54:615 I-MONGO-STORE/(30807:30807): toy aqui
+[INFO] 19:24:09:523 I-MONGO-STORE/(30971:30971): toy aqui
+[INFO] 19:24:09:536 I-MONGO-STORE/(30971:30971): Verificando existencia Blocks
+[INFO] 19:24:09:536 I-MONGO-STORE/(30971:30971): Blocks ya existe
+[INFO] 19:24:09:537 I-MONGO-STORE/(30971:30971): Blocks Generado
+[INFO] 19:24:09:538 I-MONGO-STORE/(30971:30971): Generando metadata
+[INFO] 19:24:09:538 I-MONGO-STORE/(30971:30971): Generando MD5
+[INFO] 19:24:09:557 I-MONGO-STORE/(30971:30971): Archivo de metadata generado
+[INFO] 19:24:09:557 I-MONGO-STORE/(30971:30971): Generando metadata
+[INFO] 19:24:09:557 I-MONGO-STORE/(30971:30971): Generando MD5
+[INFO] 19:24:09:573 I-MONGO-STORE/(30971:30971): Archivo de metadata generado
+[INFO] 19:24:09:573 I-MONGO-STORE/(30971:30971): Generando metadata
+[INFO] 19:24:09:573 I-MONGO-STORE/(30971:30971): Generando MD5
+[INFO] 19:24:09:585 I-MONGO-STORE/(30971:30971): Archivo de metadata generado
+[INFO] 19:24:09:586 I-MONGO-STORE/(30971:30971): Generando Bitacora
+[INFO] 19:24:09:586 I-MONGO-STORE/(30971:30971): Se Genero la Bitacora
+[INFO] 19:24:53:017 I-MONGO-STORE/(31139:31139): toy aqui
+[INFO] 19:24:53:018 I-MONGO-STORE/(31139:31139): Verificando existencia Blocks
+[INFO] 19:24:53:019 I-MONGO-STORE/(31139:31139): Blocks ya existe
+[INFO] 19:24:53:019 I-MONGO-STORE/(31139:31139): Blocks Generado
+[INFO] 19:24:53:020 I-MONGO-STORE/(31139:31139): Generando metadata
+[INFO] 19:24:53:020 I-MONGO-STORE/(31139:31139): Generando MD5
+[INFO] 19:24:53:041 I-MONGO-STORE/(31139:31139): Archivo de metadata generado
+[INFO] 19:24:53:041 I-MONGO-STORE/(31139:31139): Generando metadata
+[INFO] 19:24:53:042 I-MONGO-STORE/(31139:31139): Generando MD5
+[INFO] 19:24:53:050 I-MONGO-STORE/(31139:31139): Archivo de metadata generado
+[INFO] 19:24:53:051 I-MONGO-STORE/(31139:31139): Generando metadata
+[INFO] 19:24:53:051 I-MONGO-STORE/(31139:31139): Generando MD5
+[INFO] 19:24:53:061 I-MONGO-STORE/(31139:31139): Archivo de metadata generado
+[INFO] 19:24:53:061 I-MONGO-STORE/(31139:31139): Generando Bitacora
+[INFO] 19:24:53:061 I-MONGO-STORE/(31139:31139): Se Genero la Bitacora
+[INFO] 19:25:40:325 I-MONGO-STORE/(31321:31321): toy aqui
+[INFO] 19:27:44:693 I-MONGO-STORE/(31497:31497): toy aqui
+[INFO] 19:27:44:695 I-MONGO-STORE/(31497:31497): Verificando existencia SuperBloque
+[INFO] 19:27:44:696 I-MONGO-STORE/(31497:31497): SuperBloque ya existe
+[INFO] 19:27:44:803 I-MONGO-STORE/(31497:31497): SuperBloque Generado
+[INFO] 19:27:44:803 I-MONGO-STORE/(31497:31497): Verificando existencia Blocks
+[INFO] 19:27:44:803 I-MONGO-STORE/(31497:31497): Blocks ya existe
+[INFO] 19:27:44:804 I-MONGO-STORE/(31497:31497): Blocks Generado
+[INFO] 19:27:44:804 I-MONGO-STORE/(31497:31497): Generando metadata
+[INFO] 19:27:44:804 I-MONGO-STORE/(31497:31497): Generando MD5
+[INFO] 19:27:44:821 I-MONGO-STORE/(31497:31497): Archivo de metadata generado
+[INFO] 19:27:44:821 I-MONGO-STORE/(31497:31497): Generando metadata
+[INFO] 19:27:44:822 I-MONGO-STORE/(31497:31497): Generando MD5
+[INFO] 19:27:44:844 I-MONGO-STORE/(31497:31497): Archivo de metadata generado
+[INFO] 19:27:44:844 I-MONGO-STORE/(31497:31497): Generando metadata
+[INFO] 19:27:44:845 I-MONGO-STORE/(31497:31497): Generando MD5
+[INFO] 19:27:44:861 I-MONGO-STORE/(31497:31497): Archivo de metadata generado
+[INFO] 19:27:44:861 I-MONGO-STORE/(31497:31497): Generando Bitacora
+[INFO] 19:27:44:862 I-MONGO-STORE/(31497:31497): Se Genero la Bitacora
+[INFO] 19:27:44:863 I-MONGO-STORE/(31497:31497): Bloque completo
+[INFO] 19:27:44:863 I-MONGO-STORE/(31497:31497): Bloque completo
+[INFO] 19:27:44:863 I-MONGO-STORE/(31497:31497): Se completo la escritura de caracteres
+[INFO] 19:27:44:864 I-MONGO-STORE/(31497:31497): Generando MD5
+[INFO] 19:27:44:877 I-MONGO-STORE/(31497:31497): Bloque vacio
+[INFO] 19:27:44:877 I-MONGO-STORE/(31497:31497): Se completo el borrado de caracteres
+[INFO] 19:27:44:878 I-MONGO-STORE/(31497:31497): Generando MD5
+[INFO] 19:27:44:896 I-MONGO-STORE/(31497:31497): Bloque completo
+[INFO] 19:27:44:896 I-MONGO-STORE/(31497:31497): Bloque completo
+[INFO] 19:27:44:897 I-MONGO-STORE/(31497:31497): Se completo la escritura de caracteres
+[INFO] 19:27:44:897 I-MONGO-STORE/(31497:31497): Generando MD5
+[INFO] 19:27:44:920 I-MONGO-STORE/(31497:31497): Bloque vacio
+[INFO] 19:27:44:921 I-MONGO-STORE/(31497:31497): Se completo el borrado de caracteres
+[INFO] 19:27:44:921 I-MONGO-STORE/(31497:31497): Generando MD5
+[INFO] 19:27:44:945 I-MONGO-STORE/(31497:31497): Bloque completo
+[INFO] 19:27:44:945 I-MONGO-STORE/(31497:31497): Bloque completo
+[INFO] 19:27:44:946 I-MONGO-STORE/(31497:31497): Se completo la escritura de caracteres
+[INFO] 19:27:44:946 I-MONGO-STORE/(31497:31497): Creando conexiones
+[INFO] 19:32:04:742 I-MONGO-STORE/(31676:31676): toy aqui
+[INFO] 19:32:04:750 I-MONGO-STORE/(31676:31676): Verificando existencia SuperBloque
+[INFO] 19:32:04:751 I-MONGO-STORE/(31676:31676): SuperBloque no existe, creandolo.
+[INFO] 19:32:04:765 I-MONGO-STORE/(31676:31676): SuperBloque Generado
+[INFO] 19:32:04:765 I-MONGO-STORE/(31676:31676): Verificando existencia Blocks
+[INFO] 19:32:04:765 I-MONGO-STORE/(31676:31676): Blocks no existe, creandolo
+[INFO] 19:32:04:766 I-MONGO-STORE/(31676:31676): Blocks Generado
+[INFO] 19:32:04:768 I-MONGO-STORE/(31676:31676): Generando metadata
+[INFO] 19:32:04:769 I-MONGO-STORE/(31676:31676): Generando MD5
+[INFO] 19:32:04:792 I-MONGO-STORE/(31676:31676): Archivo de metadata generado
+[INFO] 19:32:04:793 I-MONGO-STORE/(31676:31676): Generando metadata
+[INFO] 19:32:04:794 I-MONGO-STORE/(31676:31676): Generando MD5
+[INFO] 19:32:04:819 I-MONGO-STORE/(31676:31676): Archivo de metadata generado
+[INFO] 19:32:04:819 I-MONGO-STORE/(31676:31676): Generando metadata
+[INFO] 19:32:04:820 I-MONGO-STORE/(31676:31676): Generando MD5
+[INFO] 19:32:04:836 I-MONGO-STORE/(31676:31676): Archivo de metadata generado
+[INFO] 19:32:04:837 I-MONGO-STORE/(31676:31676): Generando Bitacora
+[INFO] 19:32:04:837 I-MONGO-STORE/(31676:31676): Se Genero la Bitacora
+[INFO] 19:32:04:839 I-MONGO-STORE/(31676:31676): Bloque completo
+[INFO] 19:32:04:840 I-MONGO-STORE/(31676:31676): Bloque completo
+[INFO] 19:32:04:840 I-MONGO-STORE/(31676:31676): Se completo la escritura de caracteres
+[INFO] 19:32:04:841 I-MONGO-STORE/(31676:31676): Generando MD5
+[INFO] 19:32:04:867 I-MONGO-STORE/(31676:31676): Bloque vacio
+[INFO] 19:32:04:868 I-MONGO-STORE/(31676:31676): Se completo el borrado de caracteres
+[INFO] 19:32:04:868 I-MONGO-STORE/(31676:31676): Generando MD5
+[INFO] 19:32:04:898 I-MONGO-STORE/(31676:31676): Bloque completo
+[INFO] 19:32:04:898 I-MONGO-STORE/(31676:31676): Bloque completo
+[INFO] 19:32:04:899 I-MONGO-STORE/(31676:31676): Se completo la escritura de caracteres
+[INFO] 19:32:04:899 I-MONGO-STORE/(31676:31676): Generando MD5
+[INFO] 19:32:04:922 I-MONGO-STORE/(31676:31676): Bloque vacio
+[INFO] 19:32:04:922 I-MONGO-STORE/(31676:31676): Se completo el borrado de caracteres
+[INFO] 19:32:04:923 I-MONGO-STORE/(31676:31676): Generando MD5
+[INFO] 19:32:04:951 I-MONGO-STORE/(31676:31676): Bloque completo
+[INFO] 19:32:04:951 I-MONGO-STORE/(31676:31676): Bloque completo
+[INFO] 19:32:04:952 I-MONGO-STORE/(31676:31676): Se completo la escritura de caracteres
+[INFO] 19:32:04:953 I-MONGO-STORE/(31676:31676): Creando conexiones
+[INFO] 19:37:53:239 I-MONGO-STORE/(31996:31996): toy aqui
+[INFO] 19:37:53:260 I-MONGO-STORE/(31996:31996): Verificando existencia SuperBloque
+[INFO] 19:37:53:260 I-MONGO-STORE/(31996:31996): SuperBloque no existe, creandolo.
+[INFO] 19:37:53:261 I-MONGO-STORE/(31996:31996): No se pudo abrir/generar el archivo
+[INFO] 19:38:30:318 I-MONGO-STORE/(32155:32155): toy aqui
+[INFO] 19:38:30:320 I-MONGO-STORE/(32155:32155): Verificando existencia SuperBloque
+[INFO] 19:38:30:320 I-MONGO-STORE/(32155:32155): SuperBloque no existe, creandolo.
+[INFO] 19:38:30:321 I-MONGO-STORE/(32155:32155): No se pudo abrir/generar el archivo
+[INFO] 19:39:50:832 I-MONGO-STORE/(32332:32332): toy aqui
+[INFO] 19:39:50:841 I-MONGO-STORE/(32332:32332): Verificando existencia SuperBloque
+[INFO] 19:39:50:841 I-MONGO-STORE/(32332:32332): SuperBloque no existe, creandolo.
+[INFO] 19:39:50:841 I-MONGO-STORE/(32332:32332): No se pudo abrir/generar el archivo
+[INFO] 19:40:25:584 I-MONGO-STORE/(32488:32488): toy aqui
+[INFO] 19:41:05:566 I-MONGO-STORE/(32654:32654): toy aqui
+[INFO] 19:41:05:573 I-MONGO-STORE/(32654:32654): Verificando existencia SuperBloque
+[INFO] 19:41:05:573 I-MONGO-STORE/(32654:32654): SuperBloque no existe, creandolo.
+[INFO] 19:41:05:587 I-MONGO-STORE/(32654:32654): SuperBloque Generado
+[INFO] 19:41:05:587 I-MONGO-STORE/(32654:32654): Verificando existencia Blocks
+[INFO] 19:41:05:588 I-MONGO-STORE/(32654:32654): Blocks no existe, creandolo
+[INFO] 19:41:05:588 I-MONGO-STORE/(32654:32654): Blocks Generado
+[INFO] 19:41:05:589 I-MONGO-STORE/(32654:32654): Generando metadata
+[INFO] 19:41:05:589 I-MONGO-STORE/(32654:32654): Generando MD5
+[INFO] 19:41:05:602 I-MONGO-STORE/(32654:32654): Archivo de metadata generado
+[INFO] 19:41:05:602 I-MONGO-STORE/(32654:32654): Generando metadata
+[INFO] 19:41:05:603 I-MONGO-STORE/(32654:32654): Generando MD5
+[INFO] 19:41:05:615 I-MONGO-STORE/(32654:32654): Archivo de metadata generado
+[INFO] 19:41:05:615 I-MONGO-STORE/(32654:32654): Generando metadata
+[INFO] 19:41:05:616 I-MONGO-STORE/(32654:32654): Generando MD5
+[INFO] 19:41:05:629 I-MONGO-STORE/(32654:32654): Archivo de metadata generado
+[INFO] 19:41:05:629 I-MONGO-STORE/(32654:32654): Generando Bitacora
+[INFO] 19:41:05:630 I-MONGO-STORE/(32654:32654): Se Genero la Bitacora
+[INFO] 19:41:05:631 I-MONGO-STORE/(32654:32654): Bloque completo
+[INFO] 19:41:05:632 I-MONGO-STORE/(32654:32654): Bloque completo
+[INFO] 19:41:05:632 I-MONGO-STORE/(32654:32654): Se completo la escritura de caracteres
+[INFO] 19:41:05:632 I-MONGO-STORE/(32654:32654): Generando MD5
+[INFO] 19:41:05:643 I-MONGO-STORE/(32654:32654): Bloque vacio
+[INFO] 19:41:05:644 I-MONGO-STORE/(32654:32654): Se completo el borrado de caracteres
+[INFO] 19:41:05:644 I-MONGO-STORE/(32654:32654): Generando MD5
+[INFO] 19:41:05:665 I-MONGO-STORE/(32654:32654): Bloque completo
+[INFO] 19:41:05:665 I-MONGO-STORE/(32654:32654): Bloque completo
+[INFO] 19:41:05:665 I-MONGO-STORE/(32654:32654): Se completo la escritura de caracteres
+[INFO] 19:41:05:666 I-MONGO-STORE/(32654:32654): Generando MD5
+[INFO] 19:41:05:679 I-MONGO-STORE/(32654:32654): Bloque vacio
+[INFO] 19:41:05:679 I-MONGO-STORE/(32654:32654): Se completo el borrado de caracteres
+[INFO] 19:41:05:680 I-MONGO-STORE/(32654:32654): Generando MD5
+[INFO] 19:41:05:697 I-MONGO-STORE/(32654:32654): Bloque completo
+[INFO] 19:41:05:697 I-MONGO-STORE/(32654:32654): Bloque completo
+[INFO] 19:41:05:697 I-MONGO-STORE/(32654:32654): Se completo la escritura de caracteres
+[INFO] 19:41:05:698 I-MONGO-STORE/(32654:32654): Creando conexiones
+[INFO] 21:05:42:685 I-MONGO-STORE/(1434:1434): toy aqui
+[INFO] 21:06:23:185 I-MONGO-STORE/(1601:1601): toy aqui
+[INFO] 21:07:12:787 I-MONGO-STORE/(1761:1761): toy aqui
+[INFO] 21:11:32:826 I-MONGO-STORE/(2111:2111): toy aqui
+[INFO] 21:11:32:828 I-MONGO-STORE/(2111:2111): Verificando existencia SuperBloque
+[INFO] 21:11:32:828 I-MONGO-STORE/(2111:2111): SuperBloque ya existe
+[INFO] 21:11:32:930 I-MONGO-STORE/(2111:2111): SuperBloque Generado
+[INFO] 21:11:32:930 I-MONGO-STORE/(2111:2111): Verificando existencia Blocks
+[INFO] 21:11:32:931 I-MONGO-STORE/(2111:2111): Blocks ya existe
+[INFO] 21:11:32:931 I-MONGO-STORE/(2111:2111): Blocks Generado
+[INFO] 21:11:32:931 I-MONGO-STORE/(2111:2111): Generando metadata
+[INFO] 21:11:32:932 I-MONGO-STORE/(2111:2111): Generando MD5
+[INFO] 21:11:32:957 I-MONGO-STORE/(2111:2111): Archivo de metadata generado
+[INFO] 21:11:32:957 I-MONGO-STORE/(2111:2111): Generando metadata
+[INFO] 21:11:32:958 I-MONGO-STORE/(2111:2111): Generando MD5
+[INFO] 21:11:32:973 I-MONGO-STORE/(2111:2111): Archivo de metadata generado
+[INFO] 21:11:32:973 I-MONGO-STORE/(2111:2111): Generando metadata
+[INFO] 21:11:32:973 I-MONGO-STORE/(2111:2111): Generando MD5
+[INFO] 21:11:32:992 I-MONGO-STORE/(2111:2111): Archivo de metadata generado
+[INFO] 21:11:32:993 I-MONGO-STORE/(2111:2111): Generando Bitacora
+[INFO] 21:11:32:993 I-MONGO-STORE/(2111:2111): Se Genero la Bitacora
+[INFO] 21:11:32:994 I-MONGO-STORE/(2111:2111): Bloque completo
+[INFO] 21:11:32:995 I-MONGO-STORE/(2111:2111): Bloque completo
+[INFO] 21:11:32:995 I-MONGO-STORE/(2111:2111): Se completo la escritura de caracteres
+[INFO] 21:11:32:995 I-MONGO-STORE/(2111:2111): Generando MD5
+[INFO] 21:11:33:011 I-MONGO-STORE/(2111:2111): Bloque vacio
+[INFO] 21:11:33:012 I-MONGO-STORE/(2111:2111): Se completo el borrado de caracteres
+[INFO] 21:11:33:012 I-MONGO-STORE/(2111:2111): Generando MD5
+[INFO] 21:11:33:047 I-MONGO-STORE/(2111:2111): Bloque completo
+[INFO] 21:11:33:047 I-MONGO-STORE/(2111:2111): Bloque completo
+[INFO] 21:11:33:047 I-MONGO-STORE/(2111:2111): Se completo la escritura de caracteres
+[INFO] 21:11:33:047 I-MONGO-STORE/(2111:2111): Generando MD5
+[INFO] 21:11:33:074 I-MONGO-STORE/(2111:2111): Bloque vacio
+[INFO] 21:11:33:074 I-MONGO-STORE/(2111:2111): Se completo el borrado de caracteres
+[INFO] 21:11:33:075 I-MONGO-STORE/(2111:2111): Generando MD5
+[INFO] 21:12:26:237 I-MONGO-STORE/(2323:2323): toy aqui
+[INFO] 21:12:26:244 I-MONGO-STORE/(2323:2323): Verificando existencia SuperBloque
+[INFO] 21:12:26:244 I-MONGO-STORE/(2323:2323): SuperBloque ya existe
+[INFO] 21:12:26:549 I-MONGO-STORE/(2323:2323): SuperBloque Generado
+[INFO] 21:12:26:549 I-MONGO-STORE/(2323:2323): Verificando existencia Blocks
+[INFO] 21:12:26:549 I-MONGO-STORE/(2323:2323): Blocks ya existe
+[INFO] 21:12:26:549 I-MONGO-STORE/(2323:2323): Blocks Generado
+[INFO] 21:12:26:549 I-MONGO-STORE/(2323:2323): Generando metadata
+[INFO] 21:12:26:549 I-MONGO-STORE/(2323:2323): Generando MD5
+[INFO] 21:12:26:553 I-MONGO-STORE/(2323:2323): Archivo de metadata generado
+[INFO] 21:12:26:554 I-MONGO-STORE/(2323:2323): Generando metadata
+[INFO] 21:12:26:554 I-MONGO-STORE/(2323:2323): Generando MD5
+[INFO] 21:12:26:558 I-MONGO-STORE/(2323:2323): Archivo de metadata generado
+[INFO] 21:12:26:558 I-MONGO-STORE/(2323:2323): Generando metadata
+[INFO] 21:12:26:558 I-MONGO-STORE/(2323:2323): Generando MD5
+[INFO] 21:12:26:567 I-MONGO-STORE/(2323:2323): Archivo de metadata generado
+[INFO] 21:12:26:567 I-MONGO-STORE/(2323:2323): Generando Bitacora
+[INFO] 21:12:26:568 I-MONGO-STORE/(2323:2323): Se Genero la Bitacora
+[INFO] 21:12:26:569 I-MONGO-STORE/(2323:2323): Bloque completo
+[INFO] 21:12:26:569 I-MONGO-STORE/(2323:2323): Bloque completo
+[INFO] 21:12:26:569 I-MONGO-STORE/(2323:2323): Se completo la escritura de caracteres
+[INFO] 21:12:26:569 I-MONGO-STORE/(2323:2323): Generando MD5
+[INFO] 21:12:26:574 I-MONGO-STORE/(2323:2323): Bloque vacio
+[INFO] 21:12:26:574 I-MONGO-STORE/(2323:2323): Se completo el borrado de caracteres
+[INFO] 21:12:26:574 I-MONGO-STORE/(2323:2323): Generando MD5
+[INFO] 21:12:26:584 I-MONGO-STORE/(2323:2323): Bloque completo
+[INFO] 21:12:26:584 I-MONGO-STORE/(2323:2323): Bloque completo
+[INFO] 21:12:26:584 I-MONGO-STORE/(2323:2323): Se completo la escritura de caracteres
+[INFO] 21:12:26:585 I-MONGO-STORE/(2323:2323): Generando MD5
+[INFO] 21:12:26:589 I-MONGO-STORE/(2323:2323): Bloque vacio
+[INFO] 21:12:26:590 I-MONGO-STORE/(2323:2323): Se completo el borrado de caracteres
+[INFO] 21:12:26:590 I-MONGO-STORE/(2323:2323): Generando MD5
+[INFO] 21:12:26:596 I-MONGO-STORE/(2323:2323): Bloque completo
+[INFO] 21:12:26:596 I-MONGO-STORE/(2323:2323): Bloque completo
+[INFO] 21:12:26:598 I-MONGO-STORE/(2323:2323): Se completo la escritura de caracteres
+[INFO] 21:12:26:600 I-MONGO-STORE/(2323:2323): Creando conexiones
+[INFO] 21:15:04:626 I-MONGO-STORE/(2548:2548): toy aqui
+[INFO] 21:15:04:629 I-MONGO-STORE/(2548:2548): Verificando existencia SuperBloque
+[INFO] 21:15:04:629 I-MONGO-STORE/(2548:2548): SuperBloque ya existe
+[INFO] 21:15:04:733 I-MONGO-STORE/(2548:2548): SuperBloque Generado
+[INFO] 21:15:04:733 I-MONGO-STORE/(2548:2548): Verificando existencia Blocks
+[INFO] 21:15:04:734 I-MONGO-STORE/(2548:2548): Blocks ya existe
+[INFO] 21:15:04:734 I-MONGO-STORE/(2548:2548): Blocks Generado
+[INFO] 21:15:04:734 I-MONGO-STORE/(2548:2548): Generando metadata
+[INFO] 21:15:04:735 I-MONGO-STORE/(2548:2548): Generando MD5
+[INFO] 21:15:04:747 I-MONGO-STORE/(2548:2548): Archivo de metadata generado
+[INFO] 21:15:04:747 I-MONGO-STORE/(2548:2548): Generando metadata
+[INFO] 21:15:04:748 I-MONGO-STORE/(2548:2548): Generando MD5
+[INFO] 21:15:04:761 I-MONGO-STORE/(2548:2548): Archivo de metadata generado
+[INFO] 21:15:04:761 I-MONGO-STORE/(2548:2548): Generando metadata
+[INFO] 21:15:04:762 I-MONGO-STORE/(2548:2548): Generando MD5
+[INFO] 21:15:04:770 I-MONGO-STORE/(2548:2548): Archivo de metadata generado
+[INFO] 21:15:04:770 I-MONGO-STORE/(2548:2548): Generando Bitacora
+[INFO] 21:15:04:770 I-MONGO-STORE/(2548:2548): Se Genero la Bitacora
+[INFO] 21:15:04:771 I-MONGO-STORE/(2548:2548): Bloque completo
+[INFO] 21:15:04:771 I-MONGO-STORE/(2548:2548): Bloque completo
+[INFO] 21:15:04:771 I-MONGO-STORE/(2548:2548): Se completo la escritura de caracteres
+[INFO] 21:15:04:771 I-MONGO-STORE/(2548:2548): Generando MD5
+[INFO] 21:15:04:787 I-MONGO-STORE/(2548:2548): Bloque vacio
+[INFO] 21:15:04:787 I-MONGO-STORE/(2548:2548): Se completo el borrado de caracteres
+[INFO] 21:15:04:787 I-MONGO-STORE/(2548:2548): Generando MD5
+[INFO] 21:15:04:801 I-MONGO-STORE/(2548:2548): Bloque completo
+[INFO] 21:15:04:801 I-MONGO-STORE/(2548:2548): Bloque completo
+[INFO] 21:15:04:801 I-MONGO-STORE/(2548:2548): Se completo la escritura de caracteres
+[INFO] 21:15:04:802 I-MONGO-STORE/(2548:2548): Generando MD5
+[INFO] 21:15:04:815 I-MONGO-STORE/(2548:2548): Bloque vacio
+[INFO] 21:15:04:815 I-MONGO-STORE/(2548:2548): Se completo el borrado de caracteres
+[INFO] 21:15:04:815 I-MONGO-STORE/(2548:2548): Generando MD5
+[INFO] 21:15:04:833 I-MONGO-STORE/(2548:2548): Bloque completo
+[INFO] 21:15:04:833 I-MONGO-STORE/(2548:2548): Bloque completo
+[INFO] 21:15:04:833 I-MONGO-STORE/(2548:2548): Se completo la escritura de caracteres
+[INFO] 21:15:04:835 I-MONGO-STORE/(2548:2548): Creando conexiones
+[INFO] 22:17:39:516 I-MONGO-STORE/(3577:3577): toy aqui
+[INFO] 22:17:39:519 I-MONGO-STORE/(3577:3577): Verificando existencia SuperBloque
+[INFO] 22:17:39:520 I-MONGO-STORE/(3577:3577): SuperBloque ya existe
+[INFO] 22:17:39:522 I-MONGO-STORE/(3577:3577): SuperBloque Generado
+[INFO] 22:17:39:523 I-MONGO-STORE/(3577:3577): Verificando existencia Blocks
+[INFO] 22:17:39:523 I-MONGO-STORE/(3577:3577): Blocks ya existe
+[INFO] 22:17:39:523 I-MONGO-STORE/(3577:3577): Blocks Generado
+[INFO] 22:17:39:524 I-MONGO-STORE/(3577:3577): Generando metadata
+[INFO] 22:17:39:524 I-MONGO-STORE/(3577:3577): Generando MD5
+[INFO] 22:17:39:550 I-MONGO-STORE/(3577:3577): Archivo de metadata generado
+[INFO] 22:17:39:550 I-MONGO-STORE/(3577:3577): Generando metadata
+[INFO] 22:17:39:551 I-MONGO-STORE/(3577:3577): Generando MD5
+[INFO] 22:17:39:564 I-MONGO-STORE/(3577:3577): Archivo de metadata generado
+[INFO] 22:17:39:565 I-MONGO-STORE/(3577:3577): Generando metadata
+[INFO] 22:17:39:565 I-MONGO-STORE/(3577:3577): Generando MD5
+[INFO] 22:17:39:583 I-MONGO-STORE/(3577:3577): Archivo de metadata generado
+[INFO] 22:17:39:583 I-MONGO-STORE/(3577:3577): Generando Bitacora
+[INFO] 22:17:39:584 I-MONGO-STORE/(3577:3577): Se Genero la Bitacora
+[INFO] 22:24:13:608 I-MONGO-STORE/(4009:4009): toy aqui
+[INFO] 22:24:13:613 I-MONGO-STORE/(4009:4009): Verificando existencia SuperBloque
+[INFO] 22:24:13:613 I-MONGO-STORE/(4009:4009): SuperBloque ya existe
+[INFO] 22:24:13:717 I-MONGO-STORE/(4009:4009): SuperBloque Generado
+[INFO] 22:24:13:717 I-MONGO-STORE/(4009:4009): Verificando existencia Blocks
+[INFO] 22:24:13:718 I-MONGO-STORE/(4009:4009): Blocks ya existe
+[INFO] 22:24:13:718 I-MONGO-STORE/(4009:4009): Blocks Generado
+[INFO] 22:24:13:718 I-MONGO-STORE/(4009:4009): Generando metadata
+[INFO] 22:24:13:718 I-MONGO-STORE/(4009:4009): Generando MD5
+[INFO] 22:24:13:731 I-MONGO-STORE/(4009:4009): Archivo de metadata generado
+[INFO] 22:24:13:731 I-MONGO-STORE/(4009:4009): Generando metadata
+[INFO] 22:24:13:732 I-MONGO-STORE/(4009:4009): Generando MD5
+[INFO] 22:24:13:747 I-MONGO-STORE/(4009:4009): Archivo de metadata generado
+[INFO] 22:24:13:747 I-MONGO-STORE/(4009:4009): Generando metadata
+[INFO] 22:24:13:747 I-MONGO-STORE/(4009:4009): Generando MD5
+[INFO] 22:24:13:761 I-MONGO-STORE/(4009:4009): Archivo de metadata generado
+[INFO] 22:24:13:762 I-MONGO-STORE/(4009:4009): Generando Bitacora
+[INFO] 22:24:13:762 I-MONGO-STORE/(4009:4009): Se Genero la Bitacora
+[INFO] 22:24:40:047 I-MONGO-STORE/(4179:4179): toy aqui
+[INFO] 22:24:40:053 I-MONGO-STORE/(4179:4179): Verificando existencia SuperBloque
+[INFO] 22:24:40:053 I-MONGO-STORE/(4179:4179): SuperBloque ya existe
+[INFO] 22:24:40:205 I-MONGO-STORE/(4179:4179): SuperBloque Generado
+[INFO] 22:24:40:205 I-MONGO-STORE/(4179:4179): Verificando existencia Blocks
+[INFO] 22:24:40:206 I-MONGO-STORE/(4179:4179): Blocks ya existe
+[INFO] 22:24:40:206 I-MONGO-STORE/(4179:4179): Blocks Generado
+[INFO] 22:24:40:206 I-MONGO-STORE/(4179:4179): Generando metadata
+[INFO] 22:24:40:207 I-MONGO-STORE/(4179:4179): Generando MD5
+[INFO] 22:24:40:218 I-MONGO-STORE/(4179:4179): Archivo de metadata generado
+[INFO] 22:24:40:219 I-MONGO-STORE/(4179:4179): Generando metadata
+[INFO] 22:24:40:219 I-MONGO-STORE/(4179:4179): Generando MD5
+[INFO] 22:24:40:230 I-MONGO-STORE/(4179:4179): Archivo de metadata generado
+[INFO] 22:24:40:230 I-MONGO-STORE/(4179:4179): Generando metadata
+[INFO] 22:24:40:231 I-MONGO-STORE/(4179:4179): Generando MD5
+[INFO] 22:24:40:241 I-MONGO-STORE/(4179:4179): Archivo de metadata generado
+[INFO] 22:24:40:241 I-MONGO-STORE/(4179:4179): Generando Bitacora
+[INFO] 22:24:40:242 I-MONGO-STORE/(4179:4179): Se Genero la Bitacora
+[INFO] 22:25:02:858 I-MONGO-STORE/(4342:4342): toy aqui
+[INFO] 22:25:02:859 I-MONGO-STORE/(4342:4342): Verificando existencia SuperBloque
+[INFO] 22:25:02:860 I-MONGO-STORE/(4342:4342): SuperBloque ya existe
+[INFO] 22:25:02:868 I-MONGO-STORE/(4342:4342): SuperBloque Generado
+[INFO] 22:25:02:868 I-MONGO-STORE/(4342:4342): Verificando existencia Blocks
+[INFO] 22:25:02:868 I-MONGO-STORE/(4342:4342): Blocks ya existe
+[INFO] 22:25:02:868 I-MONGO-STORE/(4342:4342): Blocks Generado
+[INFO] 22:25:02:872 I-MONGO-STORE/(4342:4342): Generando metadata
+[INFO] 22:25:02:872 I-MONGO-STORE/(4342:4342): Generando MD5
+[INFO] 22:25:02:893 I-MONGO-STORE/(4342:4342): Archivo de metadata generado
+[INFO] 22:25:02:893 I-MONGO-STORE/(4342:4342): Generando metadata
+[INFO] 22:25:02:894 I-MONGO-STORE/(4342:4342): Generando MD5
+[INFO] 22:25:02:904 I-MONGO-STORE/(4342:4342): Archivo de metadata generado
+[INFO] 22:25:02:904 I-MONGO-STORE/(4342:4342): Generando metadata
+[INFO] 22:25:02:905 I-MONGO-STORE/(4342:4342): Generando MD5
+[INFO] 22:25:02:922 I-MONGO-STORE/(4342:4342): Archivo de metadata generado
+[INFO] 22:25:02:923 I-MONGO-STORE/(4342:4342): Generando Bitacora
+[INFO] 22:25:02:923 I-MONGO-STORE/(4342:4342): Se Genero la Bitacora
+[INFO] 22:25:48:808 I-MONGO-STORE/(4525:4525): toy aqui
+[INFO] 22:25:48:812 I-MONGO-STORE/(4525:4525): Verificando existencia SuperBloque
+[INFO] 22:25:48:813 I-MONGO-STORE/(4525:4525): SuperBloque ya existe
+[INFO] 22:25:48:921 I-MONGO-STORE/(4525:4525): SuperBloque Generado
+[INFO] 22:25:48:922 I-MONGO-STORE/(4525:4525): Verificando existencia Blocks
+[INFO] 22:25:48:922 I-MONGO-STORE/(4525:4525): Blocks ya existe
+[INFO] 22:25:48:922 I-MONGO-STORE/(4525:4525): Blocks Generado
+[INFO] 22:25:48:922 I-MONGO-STORE/(4525:4525): Generando metadata
+[INFO] 22:25:48:923 I-MONGO-STORE/(4525:4525): Generando MD5
+[INFO] 22:25:48:937 I-MONGO-STORE/(4525:4525): Archivo de metadata generado
+[INFO] 22:25:48:937 I-MONGO-STORE/(4525:4525): Generando metadata
+[INFO] 22:25:48:937 I-MONGO-STORE/(4525:4525): Generando MD5
+[INFO] 22:25:48:950 I-MONGO-STORE/(4525:4525): Archivo de metadata generado
+[INFO] 22:25:48:950 I-MONGO-STORE/(4525:4525): Generando metadata
+[INFO] 22:25:48:950 I-MONGO-STORE/(4525:4525): Generando MD5
+[INFO] 22:25:48:972 I-MONGO-STORE/(4525:4525): Archivo de metadata generado
+[INFO] 22:25:48:973 I-MONGO-STORE/(4525:4525): Generando Bitacora
+[INFO] 22:25:48:973 I-MONGO-STORE/(4525:4525): Se Genero la Bitacora
+[INFO] 22:25:48:974 I-MONGO-STORE/(4525:4525): Bloque completo
+[INFO] 22:25:48:974 I-MONGO-STORE/(4525:4525): Bloque completo
+[INFO] 22:25:48:975 I-MONGO-STORE/(4525:4525): Se completo la escritura de caracteres
+[INFO] 22:25:48:975 I-MONGO-STORE/(4525:4525): Generando MD5
+[INFO] 22:25:48:989 I-MONGO-STORE/(4525:4525): Bloque vacio
+[INFO] 22:25:48:990 I-MONGO-STORE/(4525:4525): Se completo el borrado de caracteres
+[INFO] 22:25:48:990 I-MONGO-STORE/(4525:4525): Generando MD5
+[INFO] 22:25:49:007 I-MONGO-STORE/(4525:4525): Bloque completo
+[INFO] 22:25:49:007 I-MONGO-STORE/(4525:4525): Bloque completo
+[INFO] 22:25:49:008 I-MONGO-STORE/(4525:4525): Se completo la escritura de caracteres
+[INFO] 22:25:49:008 I-MONGO-STORE/(4525:4525): Generando MD5
+[INFO] 22:25:49:034 I-MONGO-STORE/(4525:4525): Bloque vacio
+[INFO] 22:25:49:035 I-MONGO-STORE/(4525:4525): Se completo el borrado de caracteres
+[INFO] 22:25:49:035 I-MONGO-STORE/(4525:4525): Generando MD5
+[INFO] 22:25:49:057 I-MONGO-STORE/(4525:4525): Bloque completo
+[INFO] 22:25:49:058 I-MONGO-STORE/(4525:4525): Bloque completo
+[INFO] 22:25:49:058 I-MONGO-STORE/(4525:4525): Se completo la escritura de caracteres
+[INFO] 22:25:49:058 I-MONGO-STORE/(4525:4525): Creando conexiones
+[INFO] 22:27:23:921 I-MONGO-STORE/(4883:4883): toy aqui
+[INFO] 22:27:23:926 I-MONGO-STORE/(4883:4883): Verificando existencia SuperBloque
+[INFO] 22:27:23:926 I-MONGO-STORE/(4883:4883): SuperBloque ya existe
+[INFO] 22:27:24:103 I-MONGO-STORE/(4883:4883): SuperBloque Generado
+[INFO] 22:27:24:103 I-MONGO-STORE/(4883:4883): Verificando existencia Blocks
+[INFO] 22:27:24:103 I-MONGO-STORE/(4883:4883): Blocks ya existe
+[INFO] 22:27:24:104 I-MONGO-STORE/(4883:4883): Blocks Generado
+[INFO] 22:27:24:104 I-MONGO-STORE/(4883:4883): Generando metadata
+[INFO] 22:27:24:104 I-MONGO-STORE/(4883:4883): Generando MD5
+[INFO] 22:27:24:125 I-MONGO-STORE/(4883:4883): Archivo de metadata generado
+[INFO] 22:27:24:125 I-MONGO-STORE/(4883:4883): Generando metadata
+[INFO] 22:27:24:126 I-MONGO-STORE/(4883:4883): Generando MD5
+[INFO] 22:27:24:139 I-MONGO-STORE/(4883:4883): Archivo de metadata generado
+[INFO] 22:27:24:139 I-MONGO-STORE/(4883:4883): Generando metadata
+[INFO] 22:27:24:139 I-MONGO-STORE/(4883:4883): Generando MD5
+[INFO] 22:27:24:152 I-MONGO-STORE/(4883:4883): Archivo de metadata generado
+[INFO] 22:27:24:152 I-MONGO-STORE/(4883:4883): Generando Bitacora
+[INFO] 22:27:24:152 I-MONGO-STORE/(4883:4883): Se Genero la Bitacora
+[INFO] 22:27:24:153 I-MONGO-STORE/(4883:4883): Bloque completo
+[INFO] 22:27:24:154 I-MONGO-STORE/(4883:4883): Bloque completo
+[INFO] 22:27:24:154 I-MONGO-STORE/(4883:4883): Se completo la escritura de caracteres
+[INFO] 22:27:24:154 I-MONGO-STORE/(4883:4883): Generando MD5
+[INFO] 22:27:24:159 I-MONGO-STORE/(4883:4883): Bloque vacio
+[INFO] 22:27:24:159 I-MONGO-STORE/(4883:4883): Se completo el borrado de caracteres
+[INFO] 22:27:24:159 I-MONGO-STORE/(4883:4883): Generando MD5
+[INFO] 22:27:24:164 I-MONGO-STORE/(4883:4883): Bloque completo
+[INFO] 22:27:24:164 I-MONGO-STORE/(4883:4883): Bloque completo
+[INFO] 22:27:24:165 I-MONGO-STORE/(4883:4883): Se completo la escritura de caracteres
+[INFO] 22:27:24:165 I-MONGO-STORE/(4883:4883): Generando MD5
+[INFO] 22:27:24:169 I-MONGO-STORE/(4883:4883): Bloque vacio
+[INFO] 22:27:24:169 I-MONGO-STORE/(4883:4883): Se completo el borrado de caracteres
+[INFO] 22:27:24:169 I-MONGO-STORE/(4883:4883): Generando MD5
+[INFO] 22:27:24:174 I-MONGO-STORE/(4883:4883): Bloque completo
+[INFO] 22:27:24:174 I-MONGO-STORE/(4883:4883): Bloque completo
+[INFO] 22:27:24:174 I-MONGO-STORE/(4883:4883): Se completo la escritura de caracteres
+[INFO] 22:27:24:175 I-MONGO-STORE/(4883:4883): Creando conexiones
+[INFO] 22:30:08:349 I-MONGO-STORE/(5137:5137): toy aqui
+[INFO] 22:30:08:351 I-MONGO-STORE/(5137:5137): Verificando existencia SuperBloque
+[INFO] 22:30:08:351 I-MONGO-STORE/(5137:5137): SuperBloque ya existe
+[INFO] 22:30:08:454 I-MONGO-STORE/(5137:5137): SuperBloque Generado
+[INFO] 22:30:08:455 I-MONGO-STORE/(5137:5137): Verificando existencia Blocks
+[INFO] 22:30:08:455 I-MONGO-STORE/(5137:5137): Blocks ya existe
+[INFO] 22:30:08:455 I-MONGO-STORE/(5137:5137): Blocks Generado
+[INFO] 22:30:08:455 I-MONGO-STORE/(5137:5137): Generando metadata
+[INFO] 22:30:08:456 I-MONGO-STORE/(5137:5137): Generando MD5
+[INFO] 22:30:08:467 I-MONGO-STORE/(5137:5137): Archivo de metadata generado
+[INFO] 22:30:08:467 I-MONGO-STORE/(5137:5137): Generando metadata
+[INFO] 22:30:08:467 I-MONGO-STORE/(5137:5137): Generando MD5
+[INFO] 22:30:08:478 I-MONGO-STORE/(5137:5137): Archivo de metadata generado
+[INFO] 22:30:08:478 I-MONGO-STORE/(5137:5137): Generando metadata
+[INFO] 22:30:08:478 I-MONGO-STORE/(5137:5137): Generando MD5
+[INFO] 22:30:08:490 I-MONGO-STORE/(5137:5137): Archivo de metadata generado
+[INFO] 22:30:08:490 I-MONGO-STORE/(5137:5137): Generando Bitacora
+[INFO] 22:30:08:491 I-MONGO-STORE/(5137:5137): Se Genero la Bitacora
+[INFO] 22:30:08:492 I-MONGO-STORE/(5137:5137): Bloque completo
+[INFO] 22:30:08:492 I-MONGO-STORE/(5137:5137): Bloque completo
+[INFO] 22:30:08:493 I-MONGO-STORE/(5137:5137): Se completo la escritura de caracteres
+[INFO] 22:30:08:493 I-MONGO-STORE/(5137:5137): Generando MD5
+[INFO] 22:30:08:503 I-MONGO-STORE/(5137:5137): Bloque vacio
+[INFO] 22:30:08:503 I-MONGO-STORE/(5137:5137): Se completo el borrado de caracteres
+[INFO] 22:30:08:503 I-MONGO-STORE/(5137:5137): Generando MD5
+[INFO] 22:30:08:512 I-MONGO-STORE/(5137:5137): Bloque completo
+[INFO] 22:30:08:513 I-MONGO-STORE/(5137:5137): Bloque completo
+[INFO] 22:30:08:513 I-MONGO-STORE/(5137:5137): Se completo la escritura de caracteres
+[INFO] 22:30:08:514 I-MONGO-STORE/(5137:5137): Generando MD5
+[INFO] 22:30:08:526 I-MONGO-STORE/(5137:5137): Bloque vacio
+[INFO] 22:30:08:526 I-MONGO-STORE/(5137:5137): Se completo el borrado de caracteres
+[INFO] 22:30:08:526 I-MONGO-STORE/(5137:5137): Generando MD5
+[INFO] 22:30:08:534 I-MONGO-STORE/(5137:5137): Bloque completo
+[INFO] 22:30:08:534 I-MONGO-STORE/(5137:5137): Bloque completo
+[INFO] 22:30:08:534 I-MONGO-STORE/(5137:5137): Se completo la escritura de caracteres
+[INFO] 22:30:08:535 I-MONGO-STORE/(5137:5137): Creando conexiones
+[INFO] 22:31:31:612 I-MONGO-STORE/(5322:5322): toy aqui
+[INFO] 22:31:31:614 I-MONGO-STORE/(5322:5322): Verificando existencia SuperBloque
+[INFO] 22:31:31:614 I-MONGO-STORE/(5322:5322): SuperBloque ya existe
+[INFO] 22:31:31:722 I-MONGO-STORE/(5322:5322): SuperBloque Generado
+[INFO] 22:31:31:723 I-MONGO-STORE/(5322:5322): Verificando existencia Blocks
+[INFO] 22:31:31:723 I-MONGO-STORE/(5322:5322): Blocks ya existe
+[INFO] 22:31:31:723 I-MONGO-STORE/(5322:5322): Blocks Generado
+[INFO] 22:31:31:723 I-MONGO-STORE/(5322:5322): Generando metadata
+[INFO] 22:31:31:724 I-MONGO-STORE/(5322:5322): Generando MD5
+[INFO] 22:31:31:737 I-MONGO-STORE/(5322:5322): Archivo de metadata generado
+[INFO] 22:31:31:738 I-MONGO-STORE/(5322:5322): Generando metadata
+[INFO] 22:31:31:738 I-MONGO-STORE/(5322:5322): Generando MD5
+[INFO] 22:31:31:746 I-MONGO-STORE/(5322:5322): Archivo de metadata generado
+[INFO] 22:31:31:747 I-MONGO-STORE/(5322:5322): Generando metadata
+[INFO] 22:31:31:747 I-MONGO-STORE/(5322:5322): Generando MD5
+[INFO] 22:31:31:757 I-MONGO-STORE/(5322:5322): Archivo de metadata generado
+[INFO] 22:31:31:757 I-MONGO-STORE/(5322:5322): Generando Bitacora
+[INFO] 22:31:31:757 I-MONGO-STORE/(5322:5322): Se Genero la Bitacora
+[INFO] 22:31:31:758 I-MONGO-STORE/(5322:5322): Bloque completo
+[INFO] 22:31:31:759 I-MONGO-STORE/(5322:5322): Bloque completo
+[INFO] 22:31:31:759 I-MONGO-STORE/(5322:5322): Se completo la escritura de caracteres
+[INFO] 22:31:31:759 I-MONGO-STORE/(5322:5322): Generando MD5
+[INFO] 22:31:31:769 I-MONGO-STORE/(5322:5322): Bloque vacio
+[INFO] 22:31:31:769 I-MONGO-STORE/(5322:5322): Se completo el borrado de caracteres
+[INFO] 22:31:31:769 I-MONGO-STORE/(5322:5322): Generando MD5
+[INFO] 22:31:31:783 I-MONGO-STORE/(5322:5322): Bloque completo
+[INFO] 22:31:31:784 I-MONGO-STORE/(5322:5322): Bloque completo
+[INFO] 22:31:31:784 I-MONGO-STORE/(5322:5322): Se completo la escritura de caracteres
+[INFO] 22:31:31:784 I-MONGO-STORE/(5322:5322): Generando MD5
+[INFO] 22:31:31:796 I-MONGO-STORE/(5322:5322): Bloque vacio
+[INFO] 22:31:31:800 I-MONGO-STORE/(5322:5322): Se completo el borrado de caracteres
+[INFO] 22:31:31:800 I-MONGO-STORE/(5322:5322): Generando MD5
+[INFO] 22:31:31:816 I-MONGO-STORE/(5322:5322): Bloque completo
+[INFO] 22:31:31:816 I-MONGO-STORE/(5322:5322): Bloque completo
+[INFO] 22:31:31:816 I-MONGO-STORE/(5322:5322): Se completo la escritura de caracteres
+[INFO] 22:31:31:816 I-MONGO-STORE/(5322:5322): Creando conexiones
+[INFO] 22:33:12:204 I-MONGO-STORE/(5515:5515): toy aqui
+[INFO] 22:33:12:208 I-MONGO-STORE/(5515:5515): Verificando existencia SuperBloque
+[INFO] 22:33:12:208 I-MONGO-STORE/(5515:5515): SuperBloque ya existe
+[INFO] 22:33:12:317 I-MONGO-STORE/(5515:5515): SuperBloque Generado
+[INFO] 22:33:12:317 I-MONGO-STORE/(5515:5515): Verificando existencia Blocks
+[INFO] 22:33:12:317 I-MONGO-STORE/(5515:5515): Blocks ya existe
+[INFO] 22:33:12:317 I-MONGO-STORE/(5515:5515): Blocks Generado
+[INFO] 22:33:12:318 I-MONGO-STORE/(5515:5515): Generando metadata
+[INFO] 22:33:12:318 I-MONGO-STORE/(5515:5515): Generando MD5
+[INFO] 22:33:12:329 I-MONGO-STORE/(5515:5515): Archivo de metadata generado
+[INFO] 22:33:12:329 I-MONGO-STORE/(5515:5515): Generando metadata
+[INFO] 22:33:12:329 I-MONGO-STORE/(5515:5515): Generando MD5
+[INFO] 22:33:12:340 I-MONGO-STORE/(5515:5515): Archivo de metadata generado
+[INFO] 22:33:12:340 I-MONGO-STORE/(5515:5515): Generando metadata
+[INFO] 22:33:12:340 I-MONGO-STORE/(5515:5515): Generando MD5
+[INFO] 22:33:12:351 I-MONGO-STORE/(5515:5515): Archivo de metadata generado
+[INFO] 22:33:12:351 I-MONGO-STORE/(5515:5515): Generando Bitacora
+[INFO] 22:33:12:351 I-MONGO-STORE/(5515:5515): Se Genero la Bitacora
+[INFO] 22:33:12:352 I-MONGO-STORE/(5515:5515): Bloque completo
+[INFO] 22:33:12:353 I-MONGO-STORE/(5515:5515): Bloque completo
+[INFO] 22:33:12:353 I-MONGO-STORE/(5515:5515): Se completo la escritura de caracteres
+[INFO] 22:33:12:353 I-MONGO-STORE/(5515:5515): Generando MD5
+[INFO] 22:33:12:365 I-MONGO-STORE/(5515:5515): Bloque vacio
+[INFO] 22:33:12:366 I-MONGO-STORE/(5515:5515): Se completo el borrado de caracteres
+[INFO] 22:33:12:366 I-MONGO-STORE/(5515:5515): Generando MD5
+[INFO] 22:33:12:375 I-MONGO-STORE/(5515:5515): Bloque completo
+[INFO] 22:33:12:375 I-MONGO-STORE/(5515:5515): Bloque completo
+[INFO] 22:33:12:376 I-MONGO-STORE/(5515:5515): Se completo la escritura de caracteres
+[INFO] 22:33:12:376 I-MONGO-STORE/(5515:5515): Generando MD5
+[INFO] 22:33:12:385 I-MONGO-STORE/(5515:5515): Bloque vacio
+[INFO] 22:33:12:385 I-MONGO-STORE/(5515:5515): Se completo el borrado de caracteres
+[INFO] 22:33:12:386 I-MONGO-STORE/(5515:5515): Generando MD5
+[INFO] 22:33:12:399 I-MONGO-STORE/(5515:5515): Bloque completo
+[INFO] 22:33:12:399 I-MONGO-STORE/(5515:5515): Bloque completo
+[INFO] 22:33:12:399 I-MONGO-STORE/(5515:5515): Se completo la escritura de caracteres
+[INFO] 22:33:12:400 I-MONGO-STORE/(5515:5515): Creando conexiones
+[INFO] 22:34:32:421 I-MONGO-STORE/(5703:5703): toy aqui
+[INFO] 22:34:32:429 I-MONGO-STORE/(5703:5703): Verificando existencia SuperBloque
+[INFO] 22:34:32:429 I-MONGO-STORE/(5703:5703): SuperBloque ya existe
+[INFO] 22:34:32:720 I-MONGO-STORE/(5703:5703): SuperBloque Generado
+[INFO] 22:34:32:720 I-MONGO-STORE/(5703:5703): Verificando existencia Blocks
+[INFO] 22:34:32:720 I-MONGO-STORE/(5703:5703): Blocks ya existe
+[INFO] 22:34:32:720 I-MONGO-STORE/(5703:5703): Blocks Generado
+[INFO] 22:34:32:721 I-MONGO-STORE/(5703:5703): Generando metadata
+[INFO] 22:34:32:721 I-MONGO-STORE/(5703:5703): Generando MD5
+[INFO] 22:34:32:725 I-MONGO-STORE/(5703:5703): Archivo de metadata generado
+[INFO] 22:34:32:725 I-MONGO-STORE/(5703:5703): Generando metadata
+[INFO] 22:34:32:725 I-MONGO-STORE/(5703:5703): Generando MD5
+[INFO] 22:34:32:733 I-MONGO-STORE/(5703:5703): Archivo de metadata generado
+[INFO] 22:34:32:734 I-MONGO-STORE/(5703:5703): Generando metadata
+[INFO] 22:34:32:734 I-MONGO-STORE/(5703:5703): Generando MD5
+[INFO] 22:34:32:738 I-MONGO-STORE/(5703:5703): Archivo de metadata generado
+[INFO] 22:34:32:738 I-MONGO-STORE/(5703:5703): Generando Bitacora
+[INFO] 22:34:32:739 I-MONGO-STORE/(5703:5703): Se Genero la Bitacora
+[INFO] 22:34:32:740 I-MONGO-STORE/(5703:5703): Bloque completo
+[INFO] 22:34:32:740 I-MONGO-STORE/(5703:5703): Bloque completo
+[INFO] 22:34:32:741 I-MONGO-STORE/(5703:5703): Se completo la escritura de caracteres
+[INFO] 22:34:32:741 I-MONGO-STORE/(5703:5703): Generando MD5
+[INFO] 22:34:32:748 I-MONGO-STORE/(5703:5703): Bloque vacio
+[INFO] 22:34:32:749 I-MONGO-STORE/(5703:5703): Se completo el borrado de caracteres
+[INFO] 22:34:32:749 I-MONGO-STORE/(5703:5703): Generando MD5
+[INFO] 22:34:32:755 I-MONGO-STORE/(5703:5703): Bloque completo
+[INFO] 22:34:32:755 I-MONGO-STORE/(5703:5703): Bloque completo
+[INFO] 22:34:32:755 I-MONGO-STORE/(5703:5703): Se completo la escritura de caracteres
+[INFO] 22:34:32:756 I-MONGO-STORE/(5703:5703): Generando MD5
+[INFO] 22:34:32:761 I-MONGO-STORE/(5703:5703): Bloque vacio
+[INFO] 22:34:32:761 I-MONGO-STORE/(5703:5703): Se completo el borrado de caracteres
+[INFO] 22:34:32:761 I-MONGO-STORE/(5703:5703): Generando MD5
+[INFO] 22:34:32:771 I-MONGO-STORE/(5703:5703): Bloque completo
+[INFO] 22:34:32:771 I-MONGO-STORE/(5703:5703): Bloque completo
+[INFO] 22:34:32:771 I-MONGO-STORE/(5703:5703): Se completo la escritura de caracteres
+[INFO] 22:34:32:772 I-MONGO-STORE/(5703:5703): Creando conexiones
+[INFO] 22:35:36:664 I-MONGO-STORE/(5894:5894): toy aqui
+[INFO] 22:35:36:665 I-MONGO-STORE/(5894:5894): Verificando existencia SuperBloque
+[INFO] 22:35:36:666 I-MONGO-STORE/(5894:5894): SuperBloque ya existe
+[INFO] 22:35:36:674 I-MONGO-STORE/(5894:5894): SuperBloque Generado
+[INFO] 22:35:36:674 I-MONGO-STORE/(5894:5894): Verificando existencia Blocks
+[INFO] 22:35:36:674 I-MONGO-STORE/(5894:5894): Blocks ya existe
+[INFO] 22:35:36:674 I-MONGO-STORE/(5894:5894): Blocks Generado
+[INFO] 22:35:36:675 I-MONGO-STORE/(5894:5894): Generando metadata
+[INFO] 22:35:36:675 I-MONGO-STORE/(5894:5894): Generando MD5
+[INFO] 22:35:36:689 I-MONGO-STORE/(5894:5894): Archivo de metadata generado
+[INFO] 22:35:36:689 I-MONGO-STORE/(5894:5894): Generando metadata
+[INFO] 22:35:36:690 I-MONGO-STORE/(5894:5894): Generando MD5
+[INFO] 22:35:36:704 I-MONGO-STORE/(5894:5894): Archivo de metadata generado
+[INFO] 22:35:36:705 I-MONGO-STORE/(5894:5894): Generando metadata
+[INFO] 22:35:36:705 I-MONGO-STORE/(5894:5894): Generando MD5
+[INFO] 22:35:36:721 I-MONGO-STORE/(5894:5894): Archivo de metadata generado
+[INFO] 22:35:36:721 I-MONGO-STORE/(5894:5894): Generando Bitacora
+[INFO] 22:35:36:722 I-MONGO-STORE/(5894:5894): Se Genero la Bitacora
+[INFO] 22:35:36:723 I-MONGO-STORE/(5894:5894): Bloque completo
+[INFO] 22:35:36:723 I-MONGO-STORE/(5894:5894): Bloque completo
+[INFO] 22:35:36:723 I-MONGO-STORE/(5894:5894): Se completo la escritura de caracteres
+[INFO] 22:35:36:724 I-MONGO-STORE/(5894:5894): Generando MD5
+[INFO] 22:35:36:737 I-MONGO-STORE/(5894:5894): Bloque vacio
+[INFO] 22:35:36:737 I-MONGO-STORE/(5894:5894): Se completo el borrado de caracteres
+[INFO] 22:35:36:737 I-MONGO-STORE/(5894:5894): Generando MD5
+[INFO] 22:35:36:754 I-MONGO-STORE/(5894:5894): Bloque completo
+[INFO] 22:35:36:754 I-MONGO-STORE/(5894:5894): Bloque completo
+[INFO] 22:35:36:754 I-MONGO-STORE/(5894:5894): Se completo la escritura de caracteres
+[INFO] 22:35:36:754 I-MONGO-STORE/(5894:5894): Generando MD5
+[INFO] 22:35:36:775 I-MONGO-STORE/(5894:5894): Bloque vacio
+[INFO] 22:35:36:775 I-MONGO-STORE/(5894:5894): Se completo el borrado de caracteres
+[INFO] 22:35:36:775 I-MONGO-STORE/(5894:5894): Generando MD5
+[INFO] 22:35:36:792 I-MONGO-STORE/(5894:5894): Bloque completo
+[INFO] 22:35:36:793 I-MONGO-STORE/(5894:5894): Bloque completo
+[INFO] 22:35:36:793 I-MONGO-STORE/(5894:5894): Se completo la escritura de caracteres
+[INFO] 22:35:36:794 I-MONGO-STORE/(5894:5894): Creando conexiones
+[INFO] 22:36:47:607 I-MONGO-STORE/(6115:6115): toy aqui
+[INFO] 22:36:47:611 I-MONGO-STORE/(6115:6115): Verificando existencia SuperBloque
+[INFO] 22:36:47:612 I-MONGO-STORE/(6115:6115): SuperBloque ya existe
+[INFO] 22:36:47:717 I-MONGO-STORE/(6115:6115): SuperBloque Generado
+[INFO] 22:36:47:717 I-MONGO-STORE/(6115:6115): Verificando existencia Blocks
+[INFO] 22:36:47:717 I-MONGO-STORE/(6115:6115): Blocks ya existe
+[INFO] 22:36:47:718 I-MONGO-STORE/(6115:6115): Blocks Generado
+[INFO] 22:36:47:718 I-MONGO-STORE/(6115:6115): Generando metadata
+[INFO] 22:36:47:718 I-MONGO-STORE/(6115:6115): Generando MD5
+[INFO] 22:36:47:733 I-MONGO-STORE/(6115:6115): Archivo de metadata generado
+[INFO] 22:36:47:733 I-MONGO-STORE/(6115:6115): Generando metadata
+[INFO] 22:36:47:734 I-MONGO-STORE/(6115:6115): Generando MD5
+[INFO] 22:36:47:746 I-MONGO-STORE/(6115:6115): Archivo de metadata generado
+[INFO] 22:36:47:746 I-MONGO-STORE/(6115:6115): Generando metadata
+[INFO] 22:36:47:746 I-MONGO-STORE/(6115:6115): Generando MD5
+[INFO] 22:36:47:765 I-MONGO-STORE/(6115:6115): Archivo de metadata generado
+[INFO] 22:36:47:765 I-MONGO-STORE/(6115:6115): Generando Bitacora
+[INFO] 22:36:47:766 I-MONGO-STORE/(6115:6115): Se Genero la Bitacora
+[INFO] 22:36:47:767 I-MONGO-STORE/(6115:6115): Bloque completo
+[INFO] 22:36:47:768 I-MONGO-STORE/(6115:6115): Bloque completo
+[INFO] 22:36:47:768 I-MONGO-STORE/(6115:6115): Se completo la escritura de caracteres
+[INFO] 22:36:47:768 I-MONGO-STORE/(6115:6115): Generando MD5
+[INFO] 22:36:47:781 I-MONGO-STORE/(6115:6115): Bloque vacio
+[INFO] 22:36:47:782 I-MONGO-STORE/(6115:6115): Se completo el borrado de caracteres
+[INFO] 22:36:47:782 I-MONGO-STORE/(6115:6115): Generando MD5
+[INFO] 22:36:47:794 I-MONGO-STORE/(6115:6115): Bloque completo
+[INFO] 22:36:47:795 I-MONGO-STORE/(6115:6115): Bloque completo
+[INFO] 22:36:47:795 I-MONGO-STORE/(6115:6115): Se completo la escritura de caracteres
+[INFO] 22:36:47:795 I-MONGO-STORE/(6115:6115): Generando MD5
+[INFO] 22:36:47:811 I-MONGO-STORE/(6115:6115): Bloque vacio
+[INFO] 22:36:47:811 I-MONGO-STORE/(6115:6115): Se completo el borrado de caracteres
+[INFO] 22:36:47:811 I-MONGO-STORE/(6115:6115): Generando MD5
+[INFO] 22:36:47:832 I-MONGO-STORE/(6115:6115): Bloque completo
+[INFO] 22:36:47:832 I-MONGO-STORE/(6115:6115): Bloque completo
+[INFO] 22:36:47:833 I-MONGO-STORE/(6115:6115): Se completo la escritura de caracteres
+[INFO] 22:36:47:833 I-MONGO-STORE/(6115:6115): Creando conexiones
+[INFO] 22:52:53:624 I-MONGO-STORE/(6407:6407): toy aqui
+[INFO] 22:53:11:241 I-MONGO-STORE/(6556:6556): toy aqui
+[INFO] 22:53:25:574 I-MONGO-STORE/(6709:6709): toy aqui
+[INFO] 22:53:42:923 I-MONGO-STORE/(6852:6852): toy aqui
+[INFO] 22:53:57:444 I-MONGO-STORE/(7007:7007): toy aqui
+[INFO] 22:54:54:598 I-MONGO-STORE/(7147:7147): toy aqui
+[INFO] 22:55:39:384 I-MONGO-STORE/(7304:7304): toy aqui
+[INFO] 22:55:50:363 I-MONGO-STORE/(7457:7457): toy aqui
+[INFO] 22:55:58:637 I-MONGO-STORE/(7608:7608): toy aqui
+[INFO] 22:56:11:492 I-MONGO-STORE/(7761:7761): toy aqui
+[INFO] 22:56:50:062 I-MONGO-STORE/(7924:7924): toy aqui
+[INFO] 22:56:50:063 I-MONGO-STORE/(7924:7924): Verificando existencia SuperBloque
+[INFO] 22:56:50:063 I-MONGO-STORE/(7924:7924): SuperBloque ya existe
+[INFO] 22:56:50:166 I-MONGO-STORE/(7924:7924): SuperBloque Generado
+[INFO] 22:56:50:166 I-MONGO-STORE/(7924:7924): Verificando existencia Blocks
+[INFO] 22:56:50:166 I-MONGO-STORE/(7924:7924): Blocks ya existe
+[INFO] 22:56:50:166 I-MONGO-STORE/(7924:7924): Blocks Generado
+[INFO] 22:56:50:167 I-MONGO-STORE/(7924:7924): Generando metadata
+[INFO] 22:56:50:167 I-MONGO-STORE/(7924:7924): Generando MD5
+[INFO] 22:56:50:176 I-MONGO-STORE/(7924:7924): Archivo de metadata generado
+[INFO] 22:56:50:177 I-MONGO-STORE/(7924:7924): Generando metadata
+[INFO] 22:56:50:177 I-MONGO-STORE/(7924:7924): Generando MD5
+[INFO] 22:56:50:190 I-MONGO-STORE/(7924:7924): Archivo de metadata generado
+[INFO] 22:56:50:190 I-MONGO-STORE/(7924:7924): Generando metadata
+[INFO] 22:56:50:190 I-MONGO-STORE/(7924:7924): Generando MD5
+[INFO] 22:56:50:200 I-MONGO-STORE/(7924:7924): Archivo de metadata generado
+[INFO] 22:56:50:200 I-MONGO-STORE/(7924:7924): Generando Bitacora
+[INFO] 22:56:50:200 I-MONGO-STORE/(7924:7924): Se Genero la Bitacora
+[INFO] 22:56:50:201 I-MONGO-STORE/(7924:7924): Bloque completo
+[INFO] 22:56:50:202 I-MONGO-STORE/(7924:7924): Bloque completo
+[INFO] 22:56:50:202 I-MONGO-STORE/(7924:7924): Se completo la escritura de caracteres
+[INFO] 22:56:50:202 I-MONGO-STORE/(7924:7924): Generando MD5
+[INFO] 22:56:50:213 I-MONGO-STORE/(7924:7924): Bloque vacio
+[INFO] 22:56:50:213 I-MONGO-STORE/(7924:7924): Se completo el borrado de caracteres
+[INFO] 22:56:50:213 I-MONGO-STORE/(7924:7924): Generando MD5
+[INFO] 22:56:50:225 I-MONGO-STORE/(7924:7924): Bloque completo
+[INFO] 22:56:50:226 I-MONGO-STORE/(7924:7924): Bloque completo
+[INFO] 22:56:50:226 I-MONGO-STORE/(7924:7924): Se completo la escritura de caracteres
+[INFO] 22:56:50:226 I-MONGO-STORE/(7924:7924): Generando MD5
+[INFO] 22:56:50:235 I-MONGO-STORE/(7924:7924): Bloque vacio
+[INFO] 22:56:50:235 I-MONGO-STORE/(7924:7924): Se completo el borrado de caracteres
+[INFO] 22:56:50:235 I-MONGO-STORE/(7924:7924): Generando MD5
+[INFO] 22:56:50:245 I-MONGO-STORE/(7924:7924): Bloque completo
+[INFO] 22:56:50:245 I-MONGO-STORE/(7924:7924): Bloque completo
+[INFO] 22:56:50:246 I-MONGO-STORE/(7924:7924): Se completo la escritura de caracteres
+[INFO] 22:56:50:246 I-MONGO-STORE/(7924:7924): Creando conexiones

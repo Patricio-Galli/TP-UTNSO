@@ -33,8 +33,15 @@
 t_config* config;
 t_bitarray *bitmap;
 t_log* logger;
+uint32_t block_size;
+uint32_t blocks_amount;
 void* blocks_copy;
 
+pthread_mutex_t actualizar_blocks;
+pthread_mutex_t actualizar_bitmap;
+
+
+/*
 typedef struct {
 	int posicion_x;
 	int posicion_y;
@@ -42,11 +49,12 @@ typedef struct {
 	int id_patota;
 	int socket_discord;
 }tripulante;
-
+*/
 #define IP_MONGO "127.0.0.2"
 #define PUERTO_MONGO 9100
 char* crear_superBloque(char*);
 char* crear_blocks(char*);
+void uso_blocks(void*);
 void crear_metadata(char*);
 void crear_bitacora(char*);
 char* generar_directorio(char*);
