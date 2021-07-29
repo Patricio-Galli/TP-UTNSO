@@ -31,33 +31,33 @@ t_segmento* crear_segmento(uint32_t nuevo_tamanio) {
             return false;
     }
 
-    t_list* segmentos_validos = list_filter(mapa_segmentos, (*segmentos_aptos));
+    t_list* segmentos_validos = list_filter(memoria_ram.mapa_segmentos, (*segmentos_aptos));
 
     if(list_size(segmentos_validos) == 0) {
         realizar_compactacion();
-        segmentos_validos = list_filter(mapa_segmentos, (*segmentos_aptos));
+        segmentos_validos = list_filter(memoria_ram.mapa_segmentos, (*segmentos_aptos));
     }
 
-    if(algoritmo_seg_memoria == FF) {
+    if(memoria_ram.algoritmo_reemplazo == FIRST_FIT) {
         memcpy(segmento_nuevo, (t_segmento *)list_get(segmentos_validos, 0), sizeof(t_segmento));
     }
-    if(algoritmo_seg_memoria == BF) {
+    if(memoria_ram.algoritmo_reemplazo == BEST_FIT) {
         memcpy(segmento_nuevo, (t_segmento *)list_get_minimum(segmentos_validos, (void *)(*minimo_tamanio)), sizeof(t_segmento));
         // No testeado
     }
-    list_add_in_index(mapa_segmentos, segmento_nuevo->n_segmento, segmento_nuevo);
+    list_add_in_index(memoria_ram.mapa_segmentos, segmento_nuevo->n_segmento, segmento_nuevo);
     
-    t_segmento* segmento_siguiente = (t_segmento *)list_get(mapa_segmentos, segmento_nuevo->n_segmento + 1);
+    t_segmento* segmento_siguiente = (t_segmento *)list_get(memoria_ram.mapa_segmentos, segmento_nuevo->n_segmento + 1);
     segmento_siguiente->tamanio -= nuevo_tamanio;
     
     if(segmento_siguiente->tamanio == 0) {
-        list_remove(mapa_segmentos, segmento_nuevo->n_segmento + 1);
+        list_remove(memoria_ram.mapa_segmentos, segmento_nuevo->n_segmento + 1);
         // free(segmento_siguiente);
     }
     else {
         segmento_siguiente->inicio += nuevo_tamanio;
         
-        t_link_element* iterador = mapa_segmentos->head;
+        t_link_element* iterador = memoria_ram.mapa_segmentos->head;
         // Hago que el iterador apunte a la posicion del segmento_siguiente
         for(int i = 0; i < segmento_nuevo->n_segmento + 1; i++) {
             iterador = iterador->next;
@@ -75,7 +75,7 @@ t_segmento* crear_segmento(uint32_t nuevo_tamanio) {
 }
 
 void eliminar_segmento(uint32_t nro_segmento) {
-    t_segmento* segmento = list_get(mapa_segmentos, nro_segmento);
+    t_segmento* segmento = list_get(memoria_ram.mapa_segmentos, nro_segmento);
     t_segmento* segmento_anterior;
     t_segmento* segmento_siguiente;
     bool compactar_segmento_anterior = false;
@@ -84,22 +84,22 @@ void eliminar_segmento(uint32_t nro_segmento) {
     segmento->duenio = 0;
 
     if(nro_segmento > 0) {
-        segmento_anterior = list_get(mapa_segmentos, nro_segmento - 1);
+        segmento_anterior = list_get(memoria_ram.mapa_segmentos, nro_segmento - 1);
         if(segmento_anterior->duenio == 0) {
             compactar_segmento_anterior = true;
         }
     }
-    if (nro_segmento < list_size(mapa_segmentos) - 1) {
-        segmento_siguiente = list_get(mapa_segmentos, nro_segmento + 1);
+    if (nro_segmento < list_size(memoria_ram.mapa_segmentos) - 1) {
+        segmento_siguiente = list_get(memoria_ram.mapa_segmentos, nro_segmento + 1);
         if(segmento_siguiente->duenio == 0) {
             compactar_segmento_siguiente = true;
         }
     }
-    t_link_element* iterador = mapa_segmentos->head;
+    t_link_element* iterador = memoria_ram.mapa_segmentos->head;
     if (compactar_segmento_siguiente) {
         segmento->tamanio += segmento_siguiente->tamanio;
-        free(list_remove(mapa_segmentos, segmento_siguiente->n_segmento));  // REVISAR FREE
-        // list_remove(mapa_segmentos, segmento_siguiente->n_segmento);
+        free(list_remove(memoria_ram.mapa_segmentos, segmento_siguiente->n_segmento));  // REVISAR FREE
+        // list_remove(memoria_ram.mapa_segmentos, segmento_siguiente->n_segmento);
         for(int i = 0; i < segmento->n_segmento; i++) {
             iterador = iterador->next;
         }
@@ -111,10 +111,10 @@ void eliminar_segmento(uint32_t nro_segmento) {
         ((t_segmento *)iterador->data)->n_segmento--;
     }
     
-    iterador = mapa_segmentos->head;
+    iterador = memoria_ram.mapa_segmentos->head;
     if (compactar_segmento_anterior) {
         segmento_anterior->tamanio += segmento->tamanio;
-        free(list_remove(mapa_segmentos, segmento->n_segmento));            // REVISAR FREE
+        free(list_remove(memoria_ram.mapa_segmentos, segmento->n_segmento));            // REVISAR FREE
         // list_remove(mapa_segmentos, segmento->n_segmento);
         for(int i = 0; i < segmento_anterior->n_segmento; i++) {
             iterador = iterador->next;
@@ -133,9 +133,9 @@ void segmentar_caracter(void* memoria, uint32_t posicion, char data) {
     memcpy(memoria + posicion, &valor, sizeof(char));
 }
 
-void segmentar_entero(void* memoria, uint32_t posicion, uint32_t data) {
+void segmentar_entero(uint32_t posicion, uint32_t data) {
     uint32_t valor = data;
-    memcpy(memoria + posicion, &valor, sizeof(uint32_t));
+    memcpy(memoria_ram.inicio + posicion, &valor, sizeof(uint32_t));
 }
 
 void segmentar_string(void* memoria, uint32_t posicion, char* data) {
@@ -156,8 +156,8 @@ void realizar_compactacion() {
     uint32_t segmentos_quitados = 0;
     uint32_t tamanio_total = 0;
     uint32_t corrimiento_inicio = 0;
-    uint32_t cant_segmentos = list_size(mapa_segmentos);
-    t_link_element* aux_segmento = mapa_segmentos->head;
+    uint32_t cant_segmentos = list_size(memoria_ram.mapa_segmentos);
+    t_link_element* aux_segmento = memoria_ram.mapa_segmentos->head;
 
     // Espero que todos los tripulantes dejen de ejecutar y bloqueo el acceso a memoria
     for(int i = 0; i < list_size(lista_tripulantes); i++) {
@@ -181,8 +181,8 @@ void realizar_compactacion() {
             uint32_t nuevo_inicio = ((t_segmento *)aux_segmento->data)->inicio - corrimiento_inicio;
             
             // Obtengo el bloque de memoria y lo pego en el primer lugar libre a la izquierda (siempre va a haber espacio)
-            void* bloque_memoria = obtener_bloque_memoria(memoria_ram, (t_segmento *)aux_segmento->data);
-            segmentar_bloque(memoria_ram, nuevo_inicio, bloque_memoria, ((t_segmento *)aux_segmento->data)->tamanio);
+            void* bloque_memoria = obtener_bloque_memoria(memoria_ram.inicio, (t_segmento *)aux_segmento->data);
+            segmentar_bloque(memoria_ram.inicio, nuevo_inicio, bloque_memoria, ((t_segmento *)aux_segmento->data)->tamanio);
             tamanio_total += ((t_segmento *)aux_segmento->data)->tamanio;
             free(bloque_memoria);
 
@@ -200,13 +200,13 @@ void realizar_compactacion() {
                 uint32_t inicio_auxiliar;
                 for(int i = 0; i < list_size(tripulantes_a_actualizar); i++) {
                     inicio_auxiliar = (uint32_t)((t_segmento *)trip_auxiliar->data)->inicio;
-                    actualizar_valor_tripulante(memoria_ram + inicio_auxiliar, PCB_POINTER, nuevo_inicio);
+                    actualizar_valor_tripulante(memoria_ram.inicio + inicio_auxiliar, PCB_POINTER, nuevo_inicio);
                     trip_auxiliar = trip_auxiliar->next;
                 }
                 list_destroy(tripulantes_a_actualizar);
             }
             if(indice_segmento == 1) {  // El segmento que se mueve es el segmento de tareas
-                actualizar_ubicacion_tareas(memoria_ram + patota_auxiliar->tabla_segmentos[0], nuevo_inicio);
+                actualizar_ubicacion_tareas(memoria_ram.inicio + patota_auxiliar->tabla_segmentos[0], nuevo_inicio);
             }
             
             if(indice_segmento > 1) {   // El segmento que se mueve es el segmento de un tripulante
@@ -226,17 +226,17 @@ void realizar_compactacion() {
             }
             segmentos_quitados++;
             // free(list_remove(mapa_segmentos, i - segmentos_quitados));          // REVISAR FREE
-            list_remove(mapa_segmentos, i - segmentos_quitados);
+            list_remove(memoria_ram.mapa_segmentos, i - segmentos_quitados);
         }
     }
     
     t_segmento * segmento_final = malloc(sizeof(t_segmento));
     segmento_final->duenio = 0;
-    segmento_final->n_segmento = list_size(mapa_segmentos);
+    segmento_final->n_segmento = list_size(memoria_ram.mapa_segmentos);
     
-    segmento_final->tamanio = tamanio_memoria - tamanio_total;
+    segmento_final->tamanio = memoria_ram.tamanio_memoria - tamanio_total;
     segmento_final->inicio = tamanio_total;
-    list_add(mapa_segmentos, segmento_final);
+    list_add(memoria_ram.mapa_segmentos, segmento_final);
 
     for(int i = 0; i < list_size(lista_tripulantes); i++) {
         trip_data* un_trip = (trip_data *)list_get(lista_tripulantes, i);
@@ -244,8 +244,8 @@ void realizar_compactacion() {
     }
 }
 
-uint32_t memoria_libre() {
-    t_list* segmentos_libres = list_filter(mapa_segmentos, (*condicion_segmento_libre));
+uint32_t memoria_libre_segmentacion() {
+    t_list* segmentos_libres = list_filter(memoria_ram.mapa_segmentos, (*condicion_segmento_libre));
     uint32_t espacio_libre = 0;
     if(segmentos_libres)
         espacio_libre = (uint32_t)list_fold(segmentos_libres, 0, (*suma_tamanios));
@@ -261,5 +261,20 @@ t_list* seg_tripulantes_de_patota(uint32_t id_patota) {
 		else
 			return false;
 	}
-	return list_filter(mapa_segmentos, (*seg_trip_de_patota));
+	return list_filter(memoria_ram.mapa_segmentos, (*seg_trip_de_patota));
+}
+
+t_segmento* segmento_desde_inicio(uint32_t inicio_segmento) {
+    bool segmento_inicio(void* segmento) {
+		if(((t_segmento*)segmento)->inicio == inicio_segmento) {
+			return true;
+		}
+		else
+			return false;
+	}
+
+    t_list* mi_segmento = list_filter(memoria_ram.mapa_segmentos, (*segmento_inicio));
+    t_segmento* segmento = (t_segmento *)list_get(mi_segmento, 0);
+    list_destroy(mi_segmento);
+    return segmento;
 }

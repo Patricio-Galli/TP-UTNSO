@@ -28,11 +28,12 @@
 #define ERROR_CONEXION -1
 
 pthread_t* iniciar_mapa(bool*);
-void iniciar_memoria(t_config*);
+bool iniciar_memoria(t_config*);
+void liberar_memoria(t_config* config, int socket_discord, pthread_t* hilo_consola);
 
-void liberar_segmentos();
-void liberar_patotas();
-void liberar_tareas();
-void liberar_tripulantes();
+// void liberar_segmentos();
+// void liberar_patotas();
+// void liberar_tareas();
+// void liberar_tripulantes();
 
 #endif /* _MIRAMHQ_H_ */

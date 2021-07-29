@@ -96,6 +96,14 @@ t_list* recibir_mensaje(int socket) {
 
 	switch(op_code) {
 	case INIT_P:
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
+		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
+		uint32_t cant_tareas = (uint32_t)list_get(lista_parametros, 2);
+		for(int iterador = 0; iterador < cant_tareas; iterador++) {
+			list_add(lista_parametros, recibir_parametro(socket, BUFFER));
+		}
+		break;
+
 	case BITA_C:
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		uint32_t cant_lineas = (uint32_t)list_get(lista_parametros, 1);

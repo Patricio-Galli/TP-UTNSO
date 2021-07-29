@@ -13,7 +13,7 @@
 #include <commons/collections/list.h>
 #include <commons/log.h>
 
-void dibujar_mapa(void* continuar_consola);
+void* dibujar_mapa(void* continuar_consola);
 char obtener_id_tripulante(NIVEL* nivel, uint32_t id_patota, uint32_t id_trip);
 
 #endif /* _CONSOLA_H_ */

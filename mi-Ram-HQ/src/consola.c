@@ -2,7 +2,7 @@
 
 char id_actual = '0';
 
-void dibujar_mapa(void* continuar_consola) {
+void* dibujar_mapa(void* continuar_consola) {
     NIVEL* nivel;
     bool* continuar = (bool *)continuar_consola;
 	int cols, rows;
@@ -57,7 +57,7 @@ void dibujar_mapa(void* continuar_consola) {
     nivel_destruir(nivel);
     nivel_gui_terminar();
     free(continuar_consola);
-    // return EXIT_SUCCESS;
+    return NULL;
 }
 
 char obtener_id_tripulante(NIVEL* nivel, uint32_t id_patota, uint32_t id_trip) {

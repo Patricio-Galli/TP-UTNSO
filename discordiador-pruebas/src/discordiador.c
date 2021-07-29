@@ -132,9 +132,10 @@ int main() {
 		case INICIAR_PATOTA:
 			log_info(logger, "Iniciar patota. Creando mensaje");
 			mensaje_out = crear_mensaje(INIT_P);
-			agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);		// cant_tareas
-			agregar_parametro_a_mensaje(mensaje_out, &tarea1, BUFFER);	// tarea 1
-			agregar_parametro_a_mensaje(mensaje_out, &tarea2, BUFFER);	// tarea 2
+			agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);	// cant_trip
+			agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);	// cant_tareas
+			agregar_parametro_a_mensaje(mensaje_out, &tarea1, BUFFER);		// tarea 1
+			agregar_parametro_a_mensaje(mensaje_out, &tarea2, BUFFER);		// tarea 2
 			
 			enviar_mensaje(socket_ram, mensaje_out);
 			liberar_mensaje_out(mensaje_out);

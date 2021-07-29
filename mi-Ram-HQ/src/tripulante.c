@@ -1,48 +1,69 @@
 #include "tripulante.h"
 
-uint32_t id_filtro_patota;
+uint32_t creo_segmento_tcb(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t);
 
 int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uint32_t pos_y) {
 	int tamanio_tcb = TAMANIO_TRIPULANTE;
+	patota_data* patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
+
+	if(memoria_ram.esquema_memoria == SEGMENTACION) {
+		log_info(logger, "Inicio tripulante con SEGMENTACION");
+		log_info(logger, "Memoria libre: %d", memoria_libre_segmentacion());
+		if(TAMANIO_TRIPULANTE > memoria_libre_segmentacion())
+			return false;
+	}
+	uint32_t espacio_libre_ultimo_frame;
+	if(memoria_ram.esquema_memoria == PAGINACION) {
+		log_info(logger, "Inicio tripulante con PAGINACION");
+		espacio_libre_ultimo_frame = patota->memoria_ocupada % memoria_ram.tamanio_pagina;
+		log_info(logger, "Frames necesarios: %d", frames_necesarios(espacio_libre_ultimo_frame, TAMANIO_TRIPULANTE));
+		log_info(logger, "Marcos logicos disponibles: %d", marcos_logicos_disponibles());
+		t_marco * mi_marco = (t_marco *)list_get(memoria_ram.mapa_logico, patota->frames[patota->cant_frames - 1]);
+		if(frames_necesarios(patota->memoria_ocupada % memoria_ram.tamanio_pagina, TAMANIO_TRIPULANTE) > marcos_logicos_disponibles())
+			return false;
+	}
+	/*
+	log_info(logger, "Hay memoria disponible");
 	if (tamanio_tcb > memoria_libre()) {
 		log_info(logger, "No hay memoria disponible");
 		return 0;
-	}
+	}*/
 	log_info(logger, "Entro a iniciar_tripulante");
-	// CREO SEGMENTO TCB. TO DO: agregar posibilidad de paginacion
-	t_segmento* segmento_tcb = crear_segmento(TAMANIO_TRIPULANTE);
-	segmento_tcb->duenio = id_patota;
-	segmento_tcb->indice = id_trip + 1;
 
-	patota_data* patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
-	log_info(logger, "CREO SEGMENTO TCB");
-	// SEGMENTO TCB. TO DO: pasar funciones a segmentos.c y considerar la paginacion
-	uint32_t desplazamiento = 0;
-	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, id_trip);
-	desplazamiento += sizeof(uint32_t);
-	segmentar_caracter(memoria_ram, segmento_tcb->inicio + desplazamiento, 'N');
-	desplazamiento += sizeof(char);
-	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, pos_x);
-	desplazamiento += sizeof(uint32_t);
-	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, pos_y);
-	desplazamiento += sizeof(uint32_t);
-	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, 0);
-	desplazamiento += sizeof(uint32_t);
-	segmentar_entero(memoria_ram, segmento_tcb->inicio + desplazamiento, patota->tabla_segmentos[0]);
-	log_info(logger, "SEGMENTO TCB");
+	
+	uint32_t inicio_tcb;
 
+	if(memoria_ram.esquema_memoria == SEGMENTACION) {
+		inicio_tcb = creo_segmento_tcb(tamanio_tcb, id_patota, id_trip, pos_x, pos_y, patota->tabla_segmentos[0]);
+	}
+	if(memoria_ram.esquema_memoria == PAGINACION) {
+		asignar_frames(frames_necesarios(espacio_libre_ultimo_frame, TAMANIO_TRIPULANTE), id_patota);
+		patota->inicio_elementos[id_trip + 1] = memoria_ram.tamanio_pagina - espacio_libre_ultimo_frame;
+		// segmentar_entero(segmento_tcb->inicio + desplazamiento, id_trip);
+		// desplazamiento += sizeof(uint32_t);
+		// segmentar_caracter(memoria_ram.inicio, segmento_tcb->inicio + desplazamiento, 'N');
+		// desplazamiento += sizeof(char);
+		// segmentar_entero(segmento_tcb->inicio + desplazamiento, pos_x);
+		// desplazamiento += sizeof(uint32_t);
+		// segmentar_entero(segmento_tcb->inicio + desplazamiento, pos_y);
+		// desplazamiento += sizeof(uint32_t);
+		// segmentar_entero(segmento_tcb->inicio + desplazamiento, 0);
+		// desplazamiento += sizeof(uint32_t);
+		// segmentar_entero(segmento_tcb->inicio + desplazamiento, inicio_patota);
+	}
+	
 	// CREO ESTRUCTURA TRIPULANTE PARA GUARDAR EN TABLA
 	trip_data* nuevo_trip = malloc(sizeof(trip_data));
 	nuevo_trip->PID = id_patota;
 	nuevo_trip->TID = id_trip;
 
-	if(patota->tamanio_tabla - 2 < id_trip) {
+	if(patota->cantidad_elementos - 2 < id_trip) {
 		patota->tabla_segmentos = realloc(patota->tabla_segmentos, sizeof(uint32_t *) * (id_trip + 2));
-		patota->tamanio_tabla = id_trip;
+		patota->cantidad_elementos = id_trip;
 	}
-	patota->tabla_segmentos[id_trip + 1] = segmento_tcb->inicio;
-	nuevo_trip->inicio = segmento_tcb->inicio;
-	patota->tamanio_tabla++;
+	patota->tabla_segmentos[id_trip + 1] = inicio_tcb;
+	nuevo_trip->inicio = inicio_tcb;
+	patota->cantidad_elementos++;
 	
 	sem_wait(&mutex_lista_tripulantes);
 	list_add(lista_tripulantes, nuevo_trip);
@@ -52,6 +73,7 @@ int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uin
 	pthread_t* hilo_nuevo = malloc(sizeof(pthread_t));
 	nuevo_trip->socket = socket_nuevo;
 	nuevo_trip->hilo = hilo_nuevo;
+	
 	log_info(logger, "CREO ESTRUCTURA TRIPULANTE PARA GUARDAR EN TABLA");
 	pthread_create(hilo_nuevo, NULL, rutina_hilos, (void *)nuevo_trip);
 	log_info(logger, "CREO HILO");
@@ -136,6 +158,32 @@ uint32_t obtener_valor_tripulante(void* inicio, uint32_t nro_parametro) {
 	return valor_int;
 }
 
+uint32_t obtener_valor_tripulante_p(uint32_t id_patota, uint32_t id_trip, uint32_t nro_parametro) {
+	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
+	uint32_t inicio_tripulante = mi_patota->inicio_elementos[id_trip + 1];
+	switch(nro_parametro) {
+		case PCB_POINTER:
+			inicio_tripulante += sizeof(uint32_t);
+		case INS_POINTER:
+			inicio_tripulante += sizeof(uint32_t);
+		case POS_Y:
+			inicio_tripulante += sizeof(uint32_t);
+		case POS_X:
+			inicio_tripulante += sizeof(uint32_t) + sizeof(char);
+		case TRIP_IP:
+			break;
+	}
+	uint32_t valor_tripulante;
+	div_t posicion_compuesta = div(inicio_tripulante, memoria_ram.tamanio_pagina);
+	uint32_t bytes_de_valor = memoria_ram.tamanio_pagina - posicion_compuesta.rem;
+	if(bytes_de_valor > 4) { bytes_de_valor = 4;}
+	memcpy(&valor_tripulante, inicio_marco(mi_patota->frames[posicion_compuesta.quot]) + posicion_compuesta.rem, sizeof(bytes_de_valor));
+	if(bytes_de_valor < 4) {
+		memcpy(&valor_tripulante + bytes_de_valor, inicio_marco(mi_patota->frames[posicion_compuesta.quot + 1]), sizeof(4 - bytes_de_valor));
+	}
+	return valor_tripulante;
+}
+
 char obtener_estado(void* segmento) {
 	char valor_char;
 	memcpy(&valor_char, segmento + sizeof(uint32_t), sizeof(char));
@@ -160,6 +208,31 @@ void actualizar_valor_tripulante(void* segmento, uint32_t nro_parametro, uint32_
 	case PCB_POINTER:
 		memcpy(segmento + 4 * sizeof(uint32_t) + sizeof(char), &valor_int, sizeof(uint32_t));
 		break;
+	}
+}
+
+void actualizar_valor_tripulante_p(uint32_t id_patota, uint32_t id_trip, uint32_t nro_parametro, uint32_t nuevo_valor) {
+	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
+	uint32_t inicio_tripulante = mi_patota->inicio_elementos[id_trip + 1];
+	switch(nro_parametro) {
+		case PCB_POINTER:
+			inicio_tripulante += sizeof(uint32_t);
+		case INS_POINTER:
+			inicio_tripulante += sizeof(uint32_t);
+		case POS_Y:
+			inicio_tripulante += sizeof(uint32_t);
+		case POS_X:
+			inicio_tripulante += sizeof(uint32_t) + sizeof(char);
+		case TRIP_IP:
+			break;
+	}
+	uint32_t valor_tripulante = nuevo_valor;
+	div_t posicion_compuesta = div(inicio_tripulante, memoria_ram.tamanio_pagina);
+	uint32_t bytes_de_valor = memoria_ram.tamanio_pagina - posicion_compuesta.rem;
+	if(bytes_de_valor > 4) { bytes_de_valor = 4; }
+	memcpy(inicio_marco(mi_patota->frames[posicion_compuesta.quot]) + posicion_compuesta.rem, &valor_tripulante, sizeof(bytes_de_valor));
+	if(bytes_de_valor < 4) {
+		memcpy(inicio_marco(mi_patota->frames[posicion_compuesta.quot + 1]), &valor_tripulante + bytes_de_valor, sizeof(4 - bytes_de_valor));
 	}
 }
 
@@ -202,9 +275,31 @@ void liberar_tripulante(trip_data* trip_to_kill) {
 }
 
 uint32_t nro_segmento_tripulante(uint32_t inicio_tripulante) {
-	t_link_element* iterador = mapa_segmentos->head;
+	t_link_element* iterador = memoria_ram.mapa_segmentos->head;
 	while(((t_segmento *)iterador->data)->inicio != inicio_tripulante) {
 		iterador = iterador->next;
 	}
 	return ((t_segmento *)iterador->data)->n_segmento;
+}
+
+uint32_t creo_segmento_tcb(uint32_t tamanio_tcb, uint32_t id_patota, uint32_t id_trip, uint32_t pos_x, uint32_t pos_y, uint32_t inicio_patota) {
+	t_segmento* segmento_tcb = crear_segmento(TAMANIO_TRIPULANTE);
+	segmento_tcb->duenio = id_patota;
+	segmento_tcb->indice = id_trip + 1;
+
+	uint32_t desplazamiento = 0;
+	segmentar_entero(segmento_tcb->inicio + desplazamiento, id_trip);
+	desplazamiento += sizeof(uint32_t);
+	segmentar_caracter(memoria_ram.inicio, segmento_tcb->inicio + desplazamiento, 'N');
+	desplazamiento += sizeof(char);
+	segmentar_entero(segmento_tcb->inicio + desplazamiento, pos_x);
+	desplazamiento += sizeof(uint32_t);
+	segmentar_entero(segmento_tcb->inicio + desplazamiento, pos_y);
+	desplazamiento += sizeof(uint32_t);
+	segmentar_entero(segmento_tcb->inicio + desplazamiento, 0);
+	desplazamiento += sizeof(uint32_t);
+	segmentar_entero(segmento_tcb->inicio + desplazamiento, inicio_patota);
+	log_info(logger, "SEGMENTO TCB");
+
+	return segmento_tcb->inicio;
 }
