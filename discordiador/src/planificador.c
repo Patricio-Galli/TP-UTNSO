@@ -189,6 +189,7 @@ void* detector_sabotaje(void* socket_mongo) {
 
 			emergency_trips_running();
 			emergency_trips_ready();
+
 			//emergency_blocked -> se hace en ejecutar_io() a medida que van finalizando
 
 			if(!list_is_empty(cola_emergencia)){
@@ -217,13 +218,13 @@ void* detector_sabotaje(void* socket_mongo) {
 
 				log_info(logger, "Resolvedor mandado al final de la cola");
 
-				do {
+				while(!list_is_empty(cola_emergencia)) {
 					tripulante* trip = (tripulante*)list_get(cola_emergencia, 0);
-					log_info(logger, "Tripulante %d en ready nuevamente", trip->id_trip);
+					log_info(logger, "Tripulante %d en ready", trip->id_trip);
 					trip->continuar = true;
 					agregar_ready(trip);
 					list_remove(cola_emergencia, 0);
-				}while(!list_is_empty(cola_emergencia));
+				}
 
 				hay_sabotaje = false;
 				sem_post(&finalizo_sabotaje);

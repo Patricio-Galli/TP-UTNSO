@@ -47,6 +47,8 @@ void* rutina_tripulante(void* t) {
 	log_warning(logger,"Tripulante %d finalizando trabajo", trip->id_trip);
 
 	actualizar_estado(trip, EXIT);
+	quitar_running(trip);
+
 	sem_destroy(&trip->sem_blocked);
 	sem_destroy(&trip->sem_running);
 
@@ -60,6 +62,7 @@ bool ejecutar(char* input, tripulante* trip) {
 		sem_post(&trip->sem_blocked);
 		sem_post(&multiprocesamiento);
 	}
+
 	if(trip->estado != RUNNING)
 		sem_wait(&trip->sem_running);
 
@@ -109,7 +112,7 @@ bool ejecutar(char* input, tripulante* trip) {
 	return termino_tarea;
 }
 
-void moverse(tripulante* trip, int pos_x, int pos_y) {
+void moverse(tripulante* trip, int pos_x, int pos_y) {//todo agregar validacion para que no sume el q al resolver sabotaje
 
 	while(trip->posicion[0] != pos_x && trip->quantum_disponible && trip->continuar) {
 
@@ -257,7 +260,7 @@ void enviar_y_verificar(t_mensaje* mensaje_out, int socket, char* mensaje_error)
 char* solicitar_tarea(tripulante* trip) {
 	char* tarea = "no_task";
 
-	if(RAM_ACTIVADA) {
+	if(0){//if(RAM_ACTIVADA) {
 		t_mensaje* mensaje_out = crear_mensaje(NEXT_T);
 		enviar_mensaje(trip->socket_ram, mensaje_out);
 		t_list* mensaje_in = recibir_mensaje(trip->socket_ram);
@@ -314,7 +317,7 @@ void avisar_movimiento(tripulante* trip) {
 void actualizar_estado(tripulante* trip, estado estado_trip) {
 	trip->estado = estado_trip;
 
-	if(RAM_ACTIVADA) {
+	if(0){//if(RAM_ACTIVADA) {
 		t_mensaje* mensaje_out = crear_mensaje(ACTU_E);
 		agregar_parametro_a_mensaje(mensaje_out, (void*)trip->estado, ENTERO);
 
@@ -325,12 +328,10 @@ void actualizar_estado(tripulante* trip, estado estado_trip) {
 
 /////////////////////VALIDACIONES//////////////////////
 void actualizar_quantum(tripulante* trip) {
-	if(!hay_sabotaje) {
-		trip->contador_ciclos++;
+	trip->contador_ciclos++;
 
-		if(analizar_quantum && trip->contador_ciclos == quantum)
-			trip->quantum_disponible = false;
-	}
+	if(analizar_quantum && trip->contador_ciclos == quantum)
+		trip->quantum_disponible = false;
 }
 
 void puede_continuar(tripulante* trip) {
