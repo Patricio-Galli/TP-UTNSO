@@ -11,7 +11,7 @@
 #include <semaphore.h>
 
 #define IP_RAM "127.0.0.1"
-#define CONSOLA_ACTIVA 0
+#define CONSOLA_ACTIVA 1
 
 #define SEGMENTACION 0
 #define PAGINACION 1
@@ -55,13 +55,13 @@ typedef struct {
 typedef struct {
     uint32_t PID;
     uint32_t cantidad_elementos;
+    uint32_t* inicio_elementos;
     // Segmentacion
-    uint32_t* tabla_segmentos;    // Su tamanio depende de la cantidad de tripulantes
+    // uint32_t* tabla_segmentos;    // Su tamanio depende de la cantidad de tripulantes
     // Paginacion
     uint32_t memoria_ocupada;
     uint32_t cant_frames;
     uint32_t* frames;
-    uint32_t* inicio_elementos;
 } patota_data;
 
 typedef struct {
@@ -85,5 +85,7 @@ sem_t semaforo_consola;
 sem_t mutex_movimiento;
 sem_t mutex_lista_tripulantes;
 sem_t mutex_segmentacion;
+
+#define TAMANIO_PAGINA memoria_ram.tamanio_pagina
 
 #endif /* _MEMORIA_RAM_H_ */

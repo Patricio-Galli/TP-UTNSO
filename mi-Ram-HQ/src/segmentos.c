@@ -38,10 +38,10 @@ t_segmento* crear_segmento(uint32_t nuevo_tamanio) {
         segmentos_validos = list_filter(memoria_ram.mapa_segmentos, (*segmentos_aptos));
     }
 
-    if(memoria_ram.algoritmo_reemplazo == FIRST_FIT) {
+    if(memoria_ram.criterio_seleccion == FIRST_FIT) {
         memcpy(segmento_nuevo, (t_segmento *)list_get(segmentos_validos, 0), sizeof(t_segmento));
     }
-    if(memoria_ram.algoritmo_reemplazo == BEST_FIT) {
+    if(memoria_ram.criterio_seleccion == BEST_FIT) {
         memcpy(segmento_nuevo, (t_segmento *)list_get_minimum(segmentos_validos, (void *)(*minimo_tamanio)), sizeof(t_segmento));
         // No testeado
     }
@@ -190,7 +190,7 @@ void realizar_compactacion() {
             ((t_segmento *)aux_segmento->data)->inicio = nuevo_inicio;
             patota_data* patota_auxiliar = (patota_data *)list_get(lista_patotas, ((t_segmento *)aux_segmento->data)->duenio - 1);
             uint32_t indice_segmento = (uint32_t)((t_segmento *)aux_segmento->data)->indice;
-            patota_auxiliar->tabla_segmentos[indice_segmento] = nuevo_inicio;
+            patota_auxiliar->inicio_elementos[indice_segmento] = nuevo_inicio;
 
             // De acuerdo al tipo de segmento que sea, realizo los cambios necesarios
             if(indice_segmento == 0) {
@@ -200,13 +200,14 @@ void realizar_compactacion() {
                 uint32_t inicio_auxiliar;
                 for(int i = 0; i < list_size(tripulantes_a_actualizar); i++) {
                     inicio_auxiliar = (uint32_t)((t_segmento *)trip_auxiliar->data)->inicio;
-                    actualizar_valor_tripulante(memoria_ram.inicio + inicio_auxiliar, PCB_POINTER, nuevo_inicio);
+                    // actualizar_valor_tripulante(memoria_ram.inicio + inicio_auxiliar, PCB_POINTER, nuevo_inicio);
+                    actualizar_valor_tripulante(((t_segmento *)aux_segmento->data)->duenio, trip_de_segmento(inicio_auxiliar),PCB_POINTER, nuevo_inicio);
                     trip_auxiliar = trip_auxiliar->next;
                 }
                 list_destroy(tripulantes_a_actualizar);
             }
             if(indice_segmento == 1) {  // El segmento que se mueve es el segmento de tareas
-                actualizar_ubicacion_tareas(memoria_ram.inicio + patota_auxiliar->tabla_segmentos[0], nuevo_inicio);
+                actualizar_ubicacion_tareas(memoria_ram.inicio + patota_auxiliar->inicio_elementos[0], nuevo_inicio);
             }
             
             if(indice_segmento > 1) {   // El segmento que se mueve es el segmento de un tripulante
@@ -277,4 +278,12 @@ t_segmento* segmento_desde_inicio(uint32_t inicio_segmento) {
     t_segmento* segmento = (t_segmento *)list_get(mi_segmento, 0);
     list_destroy(mi_segmento);
     return segmento;
+}
+
+uint32_t trip_de_segmento(uint32_t inicio_segmento) {
+    bool trip_con_inicio(void * tripulante) {
+        return ((trip_data *)tripulante)->inicio == inicio_segmento ? true : false;
+    }
+
+    return ((trip_data *)list_find(lista_tripulantes, (*trip_con_inicio)))->TID;
 }

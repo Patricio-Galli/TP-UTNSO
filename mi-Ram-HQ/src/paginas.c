@@ -117,5 +117,12 @@ void quitar_marcos(uint32_t cant_a_reemplazar) {
 }
 
 void* inicio_marco(uint32_t nro_marco) {
-    return memoria_ram.inicio + nro_marco * memoria_ram.tamanio_pagina;
+    t_marco* mi_marco = memoria_ram.mapa_logico[nro_marco];
+    return memoria_ram.inicio + mi_marco->nro_real * memoria_ram.tamanio_pagina;
+}
+
+void hacer_backup_marco(uint32_t nro_marco_fisico) {
+    t_marco* mi_marco = memoria_ram.mapa_fisico[nro_marco_fisico];
+    fseek(memoria_ram.inicio_swap, mi_marco->nro_virtual * TAMANIO_PAGINA, 0);
+    fwrite(inicio_marco(nro_marco_fisico), TAMANIO_PAGINA, 1, memoria_ram.inicio_swap);
 }

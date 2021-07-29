@@ -36,14 +36,11 @@ typedef struct {
 int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uint32_t pos_y);
 void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante);
 
-uint32_t obtener_valor_tripulante(void* inicio, para_trip nro_parametro);
-void actualizar_valor_tripulante(void* segmento, para_trip nro_parametro, uint32_t nuevo_valor);
+uint32_t obtener_valor_tripulante(uint32_t id_patota, uint32_t id_trip, para_trip nro_parametro);
+void actualizar_valor_tripulante(uint32_t id_patota, uint32_t id_trip, para_trip nro_parametro, uint32_t nuevo_valor);
 
 char obtener_estado(void* segmento);
 void actualizar_estado(void* segmento, char nuevo_valor);
-
-uint32_t obtener_valor_tripulante_p(uint32_t id_patota, uint32_t id_trip, para_trip nro_parametro);
-void actualizar_valor_tripulante_p(uint32_t id_patota, uint32_t id_trip, para_trip nro_parametro, uint32_t nuevo_valor);
 
 trip_data* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip);
 int posicion_trip(uint32_t id_patota, uint32_t id_trip);

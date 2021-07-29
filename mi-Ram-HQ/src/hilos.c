@@ -31,15 +31,15 @@ void* rutina_hilos(void* data) {
 		switch ((int)list_get(mensaje_in, 0)) {
 		case NEXT_T:
 			// printf("RECIBI NEXT_T\n");
-			ip = obtener_valor_tripulante(memoria_ram.inicio + segmento_patota->tabla_segmentos[tripulante->TID + 1], INS_POINTER);
+			ip = obtener_valor_tripulante(tripulante->PID, tripulante->TID, INS_POINTER);
 			if(ip + 1 > segmento_tareas->cant_tareas) {
 				// IP fuera de rango
 				mensaje_out = crear_mensaje(ER_MSJ);
 			}
 			else {
 				// IP valido
-				tarea_nueva = obtener_tarea(memoria_ram.inicio + segmento_patota->tabla_segmentos[1], segmento_tareas, ip);
-				actualizar_valor_tripulante(memoria_ram.inicio + segmento_patota->tabla_segmentos[tripulante->TID + 1], INS_POINTER, ip + 1);
+				tarea_nueva = obtener_tarea(memoria_ram.inicio + segmento_patota->inicio_elementos[1], segmento_tareas, ip);
+				actualizar_valor_tripulante(tripulante->PID, tripulante->TID, INS_POINTER, ip + 1);
 				mensaje_out = crear_mensaje(TASK_T);
 				agregar_parametro_a_mensaje(mensaje_out, tarea_nueva, BUFFER);
 				free(tarea_nueva);
@@ -51,8 +51,8 @@ void* rutina_hilos(void* data) {
 			posicion_x = (uint32_t)list_get(mensaje_in, 1);
 			posicion_y = (uint32_t)list_get(mensaje_in, 2);
 			
-			actualizar_valor_tripulante(memoria_ram.inicio + segmento_patota->tabla_segmentos[tripulante->TID + 1], POS_X, posicion_x);
-			actualizar_valor_tripulante(memoria_ram.inicio + segmento_patota->tabla_segmentos[tripulante->TID + 1], POS_Y, posicion_y);
+			actualizar_valor_tripulante(tripulante->PID, tripulante->TID, POS_X, posicion_x);
+			actualizar_valor_tripulante(tripulante->PID, tripulante->TID, POS_Y, posicion_y);
 
 			// Creo movimiento para que lo capte la consola
 			t_movimiento* nuevo_movimiento = malloc(sizeof(t_movimiento));
@@ -82,17 +82,19 @@ void* rutina_hilos(void* data) {
         liberar_mensaje_in(mensaje_in);
 		variable++;
 	}
-	
-	t_movimiento* nuevo_movimiento = malloc(sizeof(t_movimiento));
-	nuevo_movimiento->PID = tripulante->PID;
-	nuevo_movimiento->TID = tripulante->TID;
-	nuevo_movimiento->seguir = false;
-	sem_wait(&mutex_movimiento);
-	list_add(movimientos_pendientes, nuevo_movimiento);
-	sem_post(&mutex_movimiento);
-	sem_post(&semaforo_consola);
-	log_info(logger, "Cree movimiento letal");
 
+	if(CONSOLA_ACTIVA) {
+		t_movimiento* nuevo_movimiento = malloc(sizeof(t_movimiento));
+		nuevo_movimiento->PID = tripulante->PID;
+		nuevo_movimiento->TID = tripulante->TID;
+		nuevo_movimiento->seguir = false;
+		sem_wait(&mutex_movimiento);
+		list_add(movimientos_pendientes, nuevo_movimiento);
+		sem_post(&mutex_movimiento);
+		sem_post(&semaforo_consola);
+		log_info(logger, "Cree movimiento letal");
+	}
+	
 	// sem_wait(&mutex_lista_tripulantes);
 	// list_remove(lista_tripulantes, posicion_trip(tripulante->PID, tripulante->TID));
 	// sem_post(&mutex_lista_tripulantes);

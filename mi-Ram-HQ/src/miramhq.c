@@ -24,15 +24,16 @@ void loggear_data(/*t_log* logger*/) {
 	
 	uint32_t inicio;
 	uint32_t pid;
+	uint32_t tid;
 	uint32_t pnt_tareas;
 	
 	for(int i = 0; i < list_size(lista_patotas); i++) {
 		log_info(logger, "Patota %d. PID: %d; Puntero a PCB: %d; Puntero a tareas: %d", i + 1,
 			((patota_data *)(uint32_t)list_get(lista_patotas, i))->PID,
-			((patota_data *)(uint32_t)list_get(lista_patotas, i))->tabla_segmentos[0],
-			((patota_data *)(uint32_t)list_get(lista_patotas, i))->tabla_segmentos[1]);
+			((patota_data *)(uint32_t)list_get(lista_patotas, i))->inicio_elementos[0],
+			((patota_data *)(uint32_t)list_get(lista_patotas, i))->inicio_elementos[1]);
 
-		inicio = ((patota_data *)(uint32_t)list_get(lista_patotas, i))->tabla_segmentos[0];
+		inicio = ((patota_data *)(uint32_t)list_get(lista_patotas, i))->inicio_elementos[0];
 		memcpy(&pid, memoria_ram.inicio + inicio, sizeof(uint32_t));
 		memcpy(&pnt_tareas, memoria_ram.inicio + inicio + sizeof(uint32_t), sizeof(uint32_t));
 		log_info(logger, "PID: %d; Puntero a tareas: %d", pid, pnt_tareas);
@@ -41,14 +42,16 @@ void loggear_data(/*t_log* logger*/) {
 	log_info(logger, "Lista de tripulantes activos: %d", list_size(lista_tripulantes));
 	for(int i = 0; i < lista_tripulantes->elements_count; i++) {
 		inicio = ((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->inicio;
+		pid = ((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->PID;
+		tid = ((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->TID;
 		log_info(logger, "TID: %d; inicio: %d; estado: %c; pos_x: %d; pos_y: %d; IP: %d; Punt PCB: %d",
-			obtener_valor_tripulante(memoria_ram.inicio + inicio, TRIP_IP),
+			obtener_valor_tripulante(pid, tid, TRIP_IP),
 			inicio,
 			obtener_estado(memoria_ram.inicio + inicio),
-			obtener_valor_tripulante(memoria_ram.inicio + inicio, POS_X),
-			obtener_valor_tripulante(memoria_ram.inicio + inicio, POS_Y),
-			obtener_valor_tripulante(memoria_ram.inicio + inicio, INS_POINTER),
-			obtener_valor_tripulante(memoria_ram.inicio + inicio, PCB_POINTER)
+			obtener_valor_tripulante(pid, tid, POS_X),
+			obtener_valor_tripulante(pid, tid, POS_Y),
+			obtener_valor_tripulante(pid, tid, INS_POINTER),
+			obtener_valor_tripulante(pid, tid, PCB_POINTER)
 			);
 	}
 }
@@ -224,7 +227,7 @@ void liberar_segmentos() {
 
 void liberar_patotas() {
 	void destruir_patota(void* patota) {
-		free(((patota_data *)patota)->tabla_segmentos);
+		free(((patota_data *)patota)->inicio_elementos);
 		free(patota);
 	}
 	
@@ -279,9 +282,9 @@ bool iniciar_memoria_segmentada(t_config* config) {
 	list_add(memoria_ram.mapa_segmentos, segmento_memoria);
 
 	if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "FF"))
-		memoria_ram.algoritmo_reemplazo = FIRST_FIT;
+		memoria_ram.criterio_seleccion = FIRST_FIT;
 	if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "BF"))
-		memoria_ram.algoritmo_reemplazo = BEST_FIT;
+		memoria_ram.criterio_seleccion = BEST_FIT;
 	return true;
 }
 
@@ -290,7 +293,7 @@ bool iniciar_memoria_paginada(t_config* config) {
 	memoria_ram.tamanio_pagina = config_get_int_value(config, "TAMANIO_PAGINA");
 	memoria_ram.tamanio_swap = config_get_int_value(config, "TAMANIO_SWAP");
 	uint32_t frames_en_memoria = memoria_ram.tamanio_memoria / memoria_ram.tamanio_pagina;
-	uint32_t frames_totales = (memoria_ram.tamanio_memoria + memoria_ram.tamanio_swap) / memoria_ram.tamanio_pagina;
+	uint32_t frames_totales = (/*memoria_ram.tamanio_memoria + */memoria_ram.tamanio_swap) / memoria_ram.tamanio_pagina;
 	if(memoria_ram.tamanio_memoria % memoria_ram.tamanio_pagina + memoria_ram.tamanio_swap % memoria_ram.tamanio_pagina > 0)
 		return false;
 	
@@ -315,6 +318,9 @@ bool iniciar_memoria_paginada(t_config* config) {
 	if(!strcmp(config_get_string_value(config, "ALGORITMO_REEMPLAZO"), "CLOCK"))
 		memoria_ram.algoritmo_reemplazo = CLOCK;     
 	memoria_ram.inicio_swap = fopen(config_get_string_value(config, "PATH_SWAP"), "wb");
+	char memoria_vacia[memoria_ram.tamanio_swap];
+	memset(memoria_vacia, 0, memoria_ram.tamanio_swap);
+	fwrite(memoria_vacia, 1, memoria_ram.tamanio_swap, memoria_ram.inicio_swap);
 	return true;
 }
 

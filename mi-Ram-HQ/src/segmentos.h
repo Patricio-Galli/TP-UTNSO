@@ -35,5 +35,6 @@ void realizar_compactacion();
 
 uint32_t memoria_libre_segmentacion();
 t_segmento* segmento_desde_inicio(uint32_t inicio_segmento);
+uint32_t trip_de_segmento(uint32_t inicio_segmento);
 
 #endif /* _SEGMENTOS_H_ */

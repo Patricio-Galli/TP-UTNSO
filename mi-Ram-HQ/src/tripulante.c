@@ -34,7 +34,7 @@ int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uin
 	uint32_t inicio_tcb;
 
 	if(memoria_ram.esquema_memoria == SEGMENTACION) {
-		inicio_tcb = creo_segmento_tcb(tamanio_tcb, id_patota, id_trip, pos_x, pos_y, patota->tabla_segmentos[0]);
+		inicio_tcb = creo_segmento_tcb(tamanio_tcb, id_patota, id_trip, pos_x, pos_y, patota->inicio_elementos[0]);
 	}
 	if(memoria_ram.esquema_memoria == PAGINACION) {
 		asignar_frames(frames_necesarios(espacio_libre_ultimo_frame, TAMANIO_TRIPULANTE), id_patota);
@@ -58,10 +58,10 @@ int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uin
 	nuevo_trip->TID = id_trip;
 
 	if(patota->cantidad_elementos - 2 < id_trip) {
-		patota->tabla_segmentos = realloc(patota->tabla_segmentos, sizeof(uint32_t *) * (id_trip + 2));
+		patota->inicio_elementos = realloc(patota->inicio_elementos, sizeof(uint32_t *) * (id_trip + 2));
 		patota->cantidad_elementos = id_trip;
 	}
-	patota->tabla_segmentos[id_trip + 1] = inicio_tcb;
+	patota->inicio_elementos[id_trip + 1] = inicio_tcb;
 	nuevo_trip->inicio = inicio_tcb;
 	patota->cantidad_elementos++;
 	
@@ -104,7 +104,7 @@ void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante) {
 	log_info(logger, "Entro a eliminar_tripulante");
 	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
 	
-	uint32_t inicio_tripulante = mi_patota->tabla_segmentos[id_tripulante + 1];
+	uint32_t inicio_tripulante = mi_patota->inicio_elementos[id_tripulante + 1];
 	log_info(logger, "Nro segmento tripulante: %d", nro_segmento_tripulante(inicio_tripulante));
 	// sem_wait(&mutex_segmentacion);
 	eliminar_segmento(nro_segmento_tripulante(inicio_tripulante));
@@ -136,29 +136,8 @@ void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante) {
 	}
 }
 
-uint32_t obtener_valor_tripulante(void* inicio, uint32_t nro_parametro) {
-	uint32_t valor_int;
-	switch(nro_parametro) {
-		case TRIP_IP:
-			memcpy(&valor_int, inicio, sizeof(uint32_t));
-			break;
-		case POS_X:
-			memcpy(&valor_int, inicio + sizeof(uint32_t) + sizeof(char), sizeof(uint32_t));
-			break;
-		case POS_Y:
-			memcpy(&valor_int, inicio + 2 * sizeof(uint32_t) + sizeof(char), sizeof(uint32_t));
-			break;
-		case INS_POINTER:
-			memcpy(&valor_int, inicio + 3 * sizeof(uint32_t) + sizeof(char), sizeof(uint32_t));
-			break;
-		case PCB_POINTER:
-			memcpy(&valor_int, inicio + 4 * sizeof(uint32_t) + sizeof(char), sizeof(uint32_t));
-			break;
-	}
-	return valor_int;
-}
-
-uint32_t obtener_valor_tripulante_p(uint32_t id_patota, uint32_t id_trip, uint32_t nro_parametro) {
+uint32_t obtener_valor_tripulante(uint32_t id_patota, uint32_t id_trip, uint32_t nro_parametro) {
+	uint32_t valor_tripulante;
 	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
 	uint32_t inicio_tripulante = mi_patota->inicio_elementos[id_trip + 1];
 	switch(nro_parametro) {
@@ -173,13 +152,17 @@ uint32_t obtener_valor_tripulante_p(uint32_t id_patota, uint32_t id_trip, uint32
 		case TRIP_IP:
 			break;
 	}
-	uint32_t valor_tripulante;
-	div_t posicion_compuesta = div(inicio_tripulante, memoria_ram.tamanio_pagina);
-	uint32_t bytes_de_valor = memoria_ram.tamanio_pagina - posicion_compuesta.rem;
-	if(bytes_de_valor > 4) { bytes_de_valor = 4;}
-	memcpy(&valor_tripulante, inicio_marco(mi_patota->frames[posicion_compuesta.quot]) + posicion_compuesta.rem, sizeof(bytes_de_valor));
-	if(bytes_de_valor < 4) {
-		memcpy(&valor_tripulante + bytes_de_valor, inicio_marco(mi_patota->frames[posicion_compuesta.quot + 1]), sizeof(4 - bytes_de_valor));
+	if(memoria_ram.esquema_memoria == SEGMENTACION) {
+		memcpy(&valor_tripulante, memoria_ram.inicio + inicio_tripulante, sizeof(uint32_t));
+	}
+	if(memoria_ram.esquema_memoria == PAGINACION) {
+		div_t posicion_compuesta = div(inicio_tripulante, memoria_ram.tamanio_pagina);
+		uint32_t bytes_de_valor = memoria_ram.tamanio_pagina - posicion_compuesta.rem;
+		if(bytes_de_valor > 4) { bytes_de_valor = 4;}
+			memcpy(&valor_tripulante, inicio_marco(mi_patota->frames[posicion_compuesta.quot]) + posicion_compuesta.rem, sizeof(bytes_de_valor));
+		if(bytes_de_valor < 4) {
+			memcpy(&valor_tripulante + bytes_de_valor, inicio_marco(mi_patota->frames[posicion_compuesta.quot + 1]), sizeof(4 - bytes_de_valor));
+		}
 	}
 	return valor_tripulante;
 }
@@ -190,28 +173,7 @@ char obtener_estado(void* segmento) {
 	return valor_char;
 }
 
-void actualizar_valor_tripulante(void* segmento, uint32_t nro_parametro, uint32_t nuevo_valor) {
-	uint32_t valor_int = nuevo_valor;
-	switch(nro_parametro) {
-	case TRIP_IP:
-		memcpy(segmento, &valor_int, sizeof(uint32_t));
-		break;
-	case POS_X:
-		memcpy(segmento + sizeof(uint32_t) + sizeof(char), &valor_int, sizeof(uint32_t));
-		break;
-	case POS_Y:
-		memcpy(segmento + 2 * sizeof(uint32_t) + sizeof(char), &valor_int, sizeof(uint32_t));
-		break;
-	case INS_POINTER:
-		memcpy(segmento + 3 * sizeof(uint32_t) + sizeof(char), &valor_int, sizeof(uint32_t));
-		break;
-	case PCB_POINTER:
-		memcpy(segmento + 4 * sizeof(uint32_t) + sizeof(char), &valor_int, sizeof(uint32_t));
-		break;
-	}
-}
-
-void actualizar_valor_tripulante_p(uint32_t id_patota, uint32_t id_trip, uint32_t nro_parametro, uint32_t nuevo_valor) {
+void actualizar_valor_tripulante(uint32_t id_patota, uint32_t id_trip, uint32_t nro_parametro, uint32_t nuevo_valor) {
 	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
 	uint32_t inicio_tripulante = mi_patota->inicio_elementos[id_trip + 1];
 	switch(nro_parametro) {
@@ -227,12 +189,19 @@ void actualizar_valor_tripulante_p(uint32_t id_patota, uint32_t id_trip, uint32_
 			break;
 	}
 	uint32_t valor_tripulante = nuevo_valor;
-	div_t posicion_compuesta = div(inicio_tripulante, memoria_ram.tamanio_pagina);
-	uint32_t bytes_de_valor = memoria_ram.tamanio_pagina - posicion_compuesta.rem;
-	if(bytes_de_valor > 4) { bytes_de_valor = 4; }
-	memcpy(inicio_marco(mi_patota->frames[posicion_compuesta.quot]) + posicion_compuesta.rem, &valor_tripulante, sizeof(bytes_de_valor));
-	if(bytes_de_valor < 4) {
-		memcpy(inicio_marco(mi_patota->frames[posicion_compuesta.quot + 1]), &valor_tripulante + bytes_de_valor, sizeof(4 - bytes_de_valor));
+	if(memoria_ram.esquema_memoria == SEGMENTACION) {
+		memcpy(memoria_ram.inicio + inicio_tripulante, &valor_tripulante, sizeof(uint32_t));
+	}
+	if(memoria_ram.esquema_memoria == PAGINACION) {
+		div_t posicion_compuesta = div(inicio_tripulante, memoria_ram.tamanio_pagina);
+		uint32_t bytes_de_valor = memoria_ram.tamanio_pagina - posicion_compuesta.rem;
+		if(bytes_de_valor > 4) { bytes_de_valor = 4;}
+		memcpy(inicio_marco(mi_patota->frames[posicion_compuesta.quot]) + posicion_compuesta.rem, &valor_tripulante, sizeof(bytes_de_valor));
+		// memoria_ram.
+		if(bytes_de_valor < 4) {
+			memcpy(inicio_marco(mi_patota->frames[posicion_compuesta.quot + 1]), &valor_tripulante + bytes_de_valor, sizeof(4 - bytes_de_valor));
+		}
+
 	}
 }
 

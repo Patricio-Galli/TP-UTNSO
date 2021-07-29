@@ -52,7 +52,7 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros) {
 	// CREO ESTRUCTURA PATOTA
 	patota_data* nueva_patota = malloc(sizeof(patota_data));
 	nueva_patota->PID = id_patota;
-	nueva_patota->tabla_segmentos = malloc(2 * sizeof(uint32_t));
+	nueva_patota->inicio_elementos = malloc(2 * sizeof(uint32_t));
 	nueva_patota->cantidad_elementos = 2;
 	nueva_patota->memoria_ocupada = TAMANIO_PATOTA + tamanio_bloque_tareas;
 	list_add(lista_patotas, nueva_patota);
@@ -65,14 +65,14 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros) {
 	list_add(lista_tareas, nuevo_bloque_tareas);
 	
 	if(memoria_ram.esquema_memoria == SEGMENTACION) {
-		nueva_patota->tabla_segmentos[0] = creo_segmento_pcb(tamanio_pcb, id_patota);
-		nueva_patota->tabla_segmentos[1] = creo_segmento_tareas(tamanio_bloque_tareas, id_patota, vtareas, cantidad_tareas, &nueva_patota->tabla_segmentos[0]);
+		nueva_patota->inicio_elementos[0] = creo_segmento_pcb(tamanio_pcb, id_patota);
+		nueva_patota->inicio_elementos[1] = creo_segmento_tareas(tamanio_bloque_tareas, id_patota, vtareas, cantidad_tareas, &nueva_patota->inicio_elementos[0]);
 	}
 	if(memoria_ram.esquema_memoria == PAGINACION) {
 		asignar_frames(frames_necesarios(0, TAMANIO_PATOTA + tamanio_bloque_tareas), id_patota);
 		nueva_patota->inicio_elementos[0] = 0;
 		nueva_patota->inicio_elementos[1] = TAMANIO_PATOTA;
-		segmentar_pcb_p(id_patota, cantidad_tareas, nueva_patota->frames[0]);
+		segmentar_pcb_p(id_patota, cantidad_tareas, vtareas);
 	}
 	
 	return true;
