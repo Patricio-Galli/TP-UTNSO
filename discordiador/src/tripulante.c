@@ -250,8 +250,8 @@ void enviar_y_verificar(t_mensaje* mensaje_out, int socket, char* mensaje_error)
 	t_list* mensaje_in = recibir_mensaje(socket);
 	respuesta_OK(mensaje_in, mensaje_error);
 
-	list_destroy(mensaje_in);
-	liberar_mensaje(mensaje_out);
+	liberar_mensaje_in(mensaje_in);
+	liberar_mensaje_out(mensaje_out);
 }
 
 char* solicitar_tarea(tripulante* trip) {
@@ -262,13 +262,15 @@ char* solicitar_tarea(tripulante* trip) {
 		enviar_mensaje(trip->socket_ram, mensaje_out);
 		t_list* mensaje_in = recibir_mensaje(trip->socket_ram);
 
+		log_error(logger, "Trip %d recibe mensaje %d, tarea %s.", trip->id_trip, (int)list_get(mensaje_in, 0), (char*)list_get(mensaje_in, 1));
+
 		if(!validar_mensaje(mensaje_in, logger))
 			log_warning(logger, "FALLO EN MENSAJE CON HILO RAM\n");
 		else if((int)list_get(mensaje_in, 0) == TASK_T)
 			tarea = (char*)list_get(mensaje_in, 1);
 
-		liberar_mensaje(mensaje_out);
-		list_destroy(mensaje_in);
+		liberar_mensaje_out(mensaje_out);
+		liberar_mensaje_in(mensaje_in);
 	} else {
 		switch(trip->posicion[0]) {
 			case 3:
@@ -293,7 +295,7 @@ char* solicitar_tarea(tripulante* trip) {
 
 void avisar_movimiento(tripulante* trip) {
 	if(RAM_ACTIVADA) {
-		t_mensaje* mensaje_out = crear_mensaje(ACTU_T);
+		t_mensaje* mensaje_out = crear_mensaje(ACTU_P);
 		agregar_parametro_a_mensaje(mensaje_out, (void*)trip->posicion[0], ENTERO);
 		agregar_parametro_a_mensaje(mensaje_out, (void*)trip->posicion[1], ENTERO);
 
@@ -301,7 +303,7 @@ void avisar_movimiento(tripulante* trip) {
 	}
 
 	if(MONGO_ACTIVADO) {
-		t_mensaje* mensaje_out = crear_mensaje(ACTU_T);
+		t_mensaje* mensaje_out = crear_mensaje(ACTU_P);
 		agregar_parametro_a_mensaje(mensaje_out, (void*)trip->posicion[0], ENTERO);
 		agregar_parametro_a_mensaje(mensaje_out, (void*)trip->posicion[1], ENTERO);
 

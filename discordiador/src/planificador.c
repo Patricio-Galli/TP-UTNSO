@@ -233,7 +233,7 @@ void* detector_sabotaje(void* socket_mongo) {
 		}else
 			log_warning(logger, "No entendi el mensaje");
 
-		list_destroy(mensaje_sabotaje);
+		liberar_mensaje_in(mensaje_sabotaje);
 	}
 	return 0;
 }

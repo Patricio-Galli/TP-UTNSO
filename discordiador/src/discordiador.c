@@ -46,8 +46,8 @@ int main() {
 		}else
 			log_error(logger, "No se pudo activar el detector de  sabotajes, fallo en el mongo.");
 
-		liberar_mensaje(mensaje_activacion_out);
-		list_destroy(mensaje_activacion_in);
+		liberar_mensaje_out(mensaje_activacion_out);
+		liberar_mensaje_in(mensaje_activacion_in);
 	}
 
 	lista_tripulantes = list_create();
@@ -71,7 +71,7 @@ int main() {
 			case INICIAR_PATOTA:
 
 				if (!strcmp(buffer_consola,"ini")) {
-					liberar_input(input);
+					//liberar_input(input);
 					input = string_split("iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 9|3 9|2", " ");
 				}
 
@@ -83,6 +83,7 @@ int main() {
 
 					t_mensaje* mensaje_out = crear_mensaje(INIT_P);
 
+					agregar_parametro_a_mensaje(mensaje_out, (void*)parametros->cantidad_tripulantes, ENTERO);
 					agregar_parametro_a_mensaje(mensaje_out, (void*)parametros->cantidad_tareas, ENTERO);
 					for(int i = 0; i < parametros->cantidad_tareas; i++)
 						agregar_parametro_a_mensaje(mensaje_out, (void*)parametros->tareas[i], BUFFER);
@@ -92,7 +93,7 @@ int main() {
 						t_list* mensaje_in = recibir_mensaje(socket_ram);
 
 						ram_ok = respuesta_OK(mensaje_in, "No se pudo iniciar patota, no hay suficiente memoria.");
-						list_destroy(mensaje_in);
+						liberar_mensaje_in(mensaje_in);
 					}
 
 					if(MONGO_ACTIVADO) {
@@ -100,13 +101,13 @@ int main() {
 						t_list* mensaje_in = recibir_mensaje(socket_mongo);
 
 						mongo_ok = respuesta_OK(mensaje_in, "No se pudo iniciar patota, error en mongo.");
-						list_destroy(mensaje_in);
+						liberar_mensaje_in(mensaje_in);
 					}
 
 					if(ram_ok && mongo_ok)
 						iniciar_patota(parametros);
 
-					liberar_mensaje(mensaje_out);
+					liberar_mensaje_out(mensaje_out);
 
 				} else
 					iniciar_patota(parametros);
@@ -179,7 +180,7 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 				} else
 					log_error(logger, "No se pudo crear al tripulante, no hay suficiente memoria.");
 
-				list_destroy(mensaje_in);
+				liberar_mensaje_in(mensaje_in);
 			}
 
 			if(MONGO_ACTIVADO) {
@@ -194,10 +195,10 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 				} else
 					log_error(logger, "No se pudo crear al tripulante, fallo en el disco.");
 
-				list_destroy(mensaje_in);
+				liberar_mensaje_in(mensaje_in);
 			}
 
-			liberar_mensaje(mensaje_out);
+			liberar_mensaje_out(mensaje_out);
 
 			tripulante* nuevo_tripulante = crear_tripulante(
 					parametros->posiciones_x[iterador-1],
