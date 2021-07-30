@@ -23,12 +23,10 @@ void enviar_y_verificar(t_mensaje* mensaje_out, int socket, char* mensaje_error)
 char* solicitar_tarea(tripulante* trip) {
 	char* tarea = "no_task";
 
-	if(0){//if(RAM_ACTIVADA) {
+	if(RAM_ACTIVADA) {
 		t_mensaje* mensaje_out = crear_mensaje(NEXT_T);
 		enviar_mensaje(trip->socket_ram, mensaje_out);
 		t_list* mensaje_in = recibir_mensaje(trip->socket_ram);
-
-		log_error(logger, "Trip %d recibe mensaje %d, tarea %s.", trip->id_trip, (int)list_get(mensaje_in, 0), (char*)list_get(mensaje_in, 1));
 
 		if(!validar_mensaje(mensaje_in, logger))
 			log_warning(logger, "FALLO EN MENSAJE CON HILO RAM\n");
@@ -80,7 +78,7 @@ void avisar_movimiento(tripulante* trip) {
 void actualizar_estado(tripulante* trip, estado estado_trip) {
 	trip->estado = estado_trip;
 
-	if(0){//if(RAM_ACTIVADA) {
+	if(RAM_ACTIVADA) {
 		t_mensaje* mensaje_out = crear_mensaje(ACTU_E);
 		agregar_parametro_a_mensaje(mensaje_out, (void*)trip->estado, ENTERO);
 

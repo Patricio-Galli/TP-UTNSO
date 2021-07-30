@@ -16,7 +16,7 @@
 #include <utils/utils-sockets.h>
 #include <utils/utils-mensajes.h>
 
-#define RAM_ACTIVADA 0
+#define RAM_ACTIVADA 1
 #define MONGO_ACTIVADO 1
 
 //tripulante
