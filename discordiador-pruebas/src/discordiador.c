@@ -41,9 +41,9 @@ int main() {
 	command_code funcion_consola;
 	t_mensaje* mensaje_out;
 
-	char tarea1[] = "Soy la tarea 1";
-	char tarea2[] = "Soy la tarea 2";
-	char tarea3[] = "Soy la tarea 3";
+	char tarea1[] = "Soy la tarea pepe argento";
+	char tarea2[] = "Soy la tarea moni argento";
+	char tarea3[] = "Soy la tarea maria elena fuseneco";
 	lista_tripulantes = list_create();
 	int variable = 0;
 	while(continuar) {
@@ -133,9 +133,10 @@ int main() {
 			log_info(logger, "Iniciar patota. Creando mensaje");
 			mensaje_out = crear_mensaje(INIT_P);
 			agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);	// cant_trip
-			agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);	// cant_tareas
+			agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);	// cant_tareas
 			agregar_parametro_a_mensaje(mensaje_out, &tarea1, BUFFER);		// tarea 1
 			agregar_parametro_a_mensaje(mensaje_out, &tarea2, BUFFER);		// tarea 2
+			agregar_parametro_a_mensaje(mensaje_out, &tarea3, BUFFER);
 			
 			enviar_mensaje(socket_ram, mensaje_out);
 			liberar_mensaje_out(mensaje_out);
@@ -262,7 +263,6 @@ int main() {
 			sem_post(&semaforo_tripulante);
 			break;
 		case PAUSAR_PLANIFICACION:
-			
 			break;
 		case OBTENER_BITACORA:
 			log_info(logger,"OBTENER BITACORA");
@@ -316,13 +316,18 @@ void* rutina_hilos(void* mi_tripulante) {
 		if(((t_tripulante *)mi_tripulante)->muero_rapido && agregado_en_x == 3)
 			break;
 	}
-	mensaje_out = crear_mensaje(NEXT_T);
-	enviar_mensaje(((t_tripulante *)mi_tripulante)->socket, mensaje_out);
-	liberar_mensaje_out(mensaje_out);
+	for(int i = 0; i < 4; i++) {
+		mensaje_out = crear_mensaje(NEXT_T);
+		enviar_mensaje(((t_tripulante *)mi_tripulante)->socket, mensaje_out);
+		liberar_mensaje_out(mensaje_out);
 
-	mensaje_in = recibir_mensaje(((t_tripulante *)mi_tripulante)->socket);
-	printf("Tarea: %s\n", (char *)list_get(mensaje_in, 1));
-	liberar_mensaje_in(mensaje_in);
+		mensaje_in = recibir_mensaje(((t_tripulante *)mi_tripulante)->socket);
+		if((uint32_t)list_get(mensaje_in, 0) == TASK_T)
+			printf("Tarea: %s\n", (char *)list_get(mensaje_in, 1));
+		else
+			printf("No hay más tareas\n");
+		liberar_mensaje_in(mensaje_in);
+	}
 
 	mensaje_out = crear_mensaje(ELIM_T);
 	enviar_mensaje(((t_tripulante *)mi_tripulante)->socket, mensaje_out);

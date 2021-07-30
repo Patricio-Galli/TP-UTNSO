@@ -44,7 +44,7 @@ int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uin
 		// desplazamiento += sizeof(uint32_t);
 		// segmentar_entero(segmento_tcb->inicio + desplazamiento, inicio_patota);
 	}
-	
+	log_info(logger, "CREO ESTRUCTURA TRIPULANTE");
 	// CREO ESTRUCTURA TRIPULANTE PARA GUARDAR EN TABLA
 	trip_data* nuevo_trip = malloc(sizeof(trip_data));
 	nuevo_trip->PID = id_patota;
@@ -195,10 +195,12 @@ void actualizar_valor_tripulante(uint32_t id_patota, uint32_t id_trip, uint32_t 
 }
 
 void actualizar_estado(uint32_t id_patota, uint32_t id_tripulante, char nuevo_valor) {
-	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
-	uint32_t inicio_tripulante = mi_patota->inicio_elementos[id_tripulante + 1];
-	char valor = nuevo_valor;
-	memcpy(memoria_ram.inicio + inicio_tripulante + sizeof(uint32_t), &valor, sizeof(char));
+	if(nuevo_valor != 0) {
+		patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
+		uint32_t inicio_tripulante = mi_patota->inicio_elementos[id_tripulante + 1];
+		char valor = nuevo_valor;
+		memcpy(memoria_ram.inicio + inicio_tripulante + sizeof(uint32_t), &valor, sizeof(char));
+	}
 }
 
 trip_data* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip) {
@@ -243,10 +245,11 @@ uint32_t nro_segmento_tripulante(uint32_t inicio_tripulante) {
 }
 
 uint32_t creo_segmento_tcb(uint32_t tamanio_tcb, uint32_t id_patota, uint32_t id_trip, uint32_t pos_x, uint32_t pos_y, uint32_t inicio_patota) {
+	log_info(logger, "Creo segmento tcb");
 	t_segmento* segmento_tcb = crear_segmento(TAMANIO_TRIPULANTE);
 	segmento_tcb->duenio = id_patota;
 	segmento_tcb->indice = id_trip + 1;
-
+	log_info(logger, "Entro a segmentar");
 	uint32_t desplazamiento = 0;
 	segmentar_entero(segmento_tcb->inicio + desplazamiento, id_trip);
 	desplazamiento += sizeof(uint32_t);

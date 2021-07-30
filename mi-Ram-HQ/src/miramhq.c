@@ -150,11 +150,17 @@ int main(void) {
 			enviar_mensaje(socket_discord, mensaje_out);
 			liberar_mensaje_out(mensaje_out);		// debe estar fuera del switch
 			nro_tripulante = 1;
+			for(int i = 0; i < ((tareas_data *)list_get(lista_tareas, patota_actual - 1))->cant_tareas; i++) {
+				log_info(logger, "Tarea %d: '%s'", i, obtener_tarea(memoria_ram.inicio + ((patota_data *)list_get(lista_patotas, patota_actual - 1))->inicio_elementos[1], (tareas_data *)list_get(lista_tareas, patota_actual - 1), i));
+				log_info(logger, "Inicio tarea: %d, Tamanio tarea: %d", ((tareas_data *)list_get(lista_tareas, patota_actual - 1))->inicio_tareas[i], ((tareas_data *)list_get(lista_tareas, patota_actual - 1))->tamanio_tareas[i]);
+			}
+			// printf("Tarea 1: '%s' no me la container\n", memoria_ram.inicio + ((patota_data *)list_get(lista_patotas, patota_actual - 1))->inicio_elementos[1]);
 			break;
 		case INIT_T:
 			log_info(logger, "Discordiador solicitó iniciar_tripulante");
 			uint32_t posicion_x = (uint32_t)list_get(mensaje_in, 1);
 			uint32_t posicion_y = (uint32_t)list_get(mensaje_in, 2);
+			log_info(logger, "Entro a iniciar_tripulante");
 			int puerto = iniciar_tripulante(nro_tripulante, patota_actual, posicion_x, posicion_y);
 			log_info(logger, "Resolvi iniciar_tripulante");
 			if(puerto == 0) {

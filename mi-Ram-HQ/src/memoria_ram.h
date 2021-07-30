@@ -11,7 +11,7 @@
 #include <semaphore.h>
 
 #define IP_RAM "127.0.0.1"
-#define CONSOLA_ACTIVA 1
+#define CONSOLA_ACTIVA 0
 
 #define SEGMENTACION 0
 #define PAGINACION 1
