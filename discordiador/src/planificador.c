@@ -14,6 +14,7 @@ void inicializar_planificador(int grado_multiprocesamiento, char* algoritmo) {
 
 	sem_init(&activar_planificacion, 0, 0);
 	sem_init(&finalizo_sabotaje, 0, 0);
+	sem_init(&fin_bloqueados, 0, 0);
 
 	sem_init(&multiprocesamiento, 0, grado_multiprocesamiento);
 	sem_init(&tripulantes_ready, 0, 0);
@@ -48,15 +49,23 @@ void* planificador(void* algoritmo) {
 		if(hay_sabotaje)
 			sem_wait(&finalizo_sabotaje);
 
-		tripulante* trip = quitar_ready();
-
-		agregar_running(trip);
+		if(!queue_is_empty(cola_ready)) {
+			tripulante* trip = quitar_ready();
+			agregar_running(trip);
+		}
 	}
 	return 0;
 }
 
 void* planificador_io() {
 	while(!salir) {
+
+		if(hay_sabotaje && queue_is_empty(cola_blocked)) {
+			sem_wait(&io_disponible);
+			sem_post(&fin_bloqueados);
+			sem_post(&io_disponible);
+		}
+
 		sem_wait(&tripulantes_blocked);
 		sem_wait(&io_disponible);
 

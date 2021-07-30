@@ -205,7 +205,7 @@ void ejecutar_io(tripulante* trip, tareas tarea, int cantidad) {
 
 	puede_continuar(trip);
 
-	if(trip->continuar)
+	if(!hay_sabotaje)
 		agregar_ready(trip);
 	else
 		agregar_emergencia(trip);

@@ -18,10 +18,12 @@ void emergency_trips_running() {
 
 			index--;
 		}
+
 		log_info(logger, "Quitando de running al trip %d", trip_quitar->id_trip);
 
-		trip_quitar->continuar = false;
 		agregar_emergencia(trip_quitar);
+		trip_quitar->continuar = false;
+
 		sem_wait(&trip_quitar->sem_blocked);
 		list_remove(tripulantes_running, indice_trip_quitar);
 	}
@@ -52,8 +54,13 @@ void* detector_sabotaje(void* socket_mongo) {
 
 			emergency_trips_running();
 			emergency_trips_ready();
-
 			//emergency_blocked -> se hace en ejecutar_io() a medida que van finalizando
+
+			if(!queue_is_empty(cola_blocked)) {
+				log_info(logger, "Esperando a que terminen io todos los trips");
+				sem_wait(&fin_bloqueados);
+				log_info(logger, "Todos terminaron io");
+			}
 
 			if(!list_is_empty(cola_emergencia)){
 				int index = list_size(cola_emergencia)-1;

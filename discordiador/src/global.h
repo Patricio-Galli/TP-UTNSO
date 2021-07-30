@@ -16,7 +16,7 @@
 #include <utils/utils-sockets.h>
 #include <utils/utils-mensajes.h>
 
-#define RAM_ACTIVADA 1
+#define RAM_ACTIVADA 0
 #define MONGO_ACTIVADO 1
 
 //tripulante
@@ -97,5 +97,6 @@ sem_t tripulantes_ready;
 sem_t io_disponible;
 sem_t tripulantes_blocked;
 sem_t finalizo_sabotaje;
+sem_t fin_bloqueados;
 
 #endif /* GLOBAL_H_ */
