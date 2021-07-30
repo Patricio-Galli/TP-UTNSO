@@ -47,7 +47,7 @@ void loggear_data(/*t_log* logger*/) {
 		log_info(logger, "TID: %d; inicio: %d; estado: %c; pos_x: %d; pos_y: %d; IP: %d; Punt PCB: %d",
 			obtener_valor_tripulante(pid, tid, TRIP_IP),
 			inicio,
-			obtener_estado(memoria_ram.inicio + inicio),
+			obtener_estado(pid, tid),
 			obtener_valor_tripulante(pid, tid, POS_X),
 			obtener_valor_tripulante(pid, tid, POS_Y),
 			obtener_valor_tripulante(pid, tid, INS_POINTER),

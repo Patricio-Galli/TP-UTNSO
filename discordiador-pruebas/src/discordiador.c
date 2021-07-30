@@ -41,9 +41,9 @@ int main() {
 	command_code funcion_consola;
 	t_mensaje* mensaje_out;
 
-	char tarea1[] = "Soy la tarea 1\n";
-	char tarea2[] = "Soy la tarea 2\n";
-	char tarea3[] = "Soy la tarea 3\n";
+	char tarea1[] = "Soy la tarea 1";
+	char tarea2[] = "Soy la tarea 2";
+	char tarea3[] = "Soy la tarea 3";
 	lista_tripulantes = list_create();
 	int variable = 0;
 	while(continuar) {
@@ -186,8 +186,8 @@ int main() {
 				nuevo_tripulante->hilo = nuevo_hilo;
 				nuevo_tripulante->vivir = true;
 				nuevo_tripulante->socket = socket;
-				nuevo_tripulante->px = (void *)1 + variable;
-				nuevo_tripulante->py = (void *)1 + variable;
+				nuevo_tripulante->px = 1 + variable;
+				nuevo_tripulante->py = 1 + variable;
 				log_info(logger, "Muero rapido: %d", variable % 2);
 				nuevo_tripulante->muero_rapido = variable % 2;
 
@@ -289,40 +289,56 @@ void* rutina_hilos(void* mi_tripulante) {
 	log_info(logger, "HOLA MUNDO, SOY UN HILO %d", variable);
 	// variable--;
 	int agregado_en_x = 0;
+
+	t_mensaje* mensaje_out = crear_mensaje(ACTU_E);
+	agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);
+	enviar_mensaje(((t_tripulante *)mi_tripulante)->socket, mensaje_out);
+	liberar_mensaje_out(mensaje_out);
+
+	t_list* mensaje_in = recibir_mensaje(((t_tripulante *)mi_tripulante)->socket);
+	liberar_mensaje_in(mensaje_in);
+
 	while(1) {
 		if(!((t_tripulante *)mi_tripulante)->vivir)
 			break;
 		
-		t_mensaje* mensaje_out = crear_mensaje(ACTU_P);
-		agregar_parametro_a_mensaje(mensaje_out, ((t_tripulante *)(void *)mi_tripulante)->px + agregado_en_x, ENTERO);
-		agregado_en_x++;
-		agregar_parametro_a_mensaje(mensaje_out, ((t_tripulante *)(void *)mi_tripulante)->py, ENTERO);
+		mensaje_out = crear_mensaje(ACTU_P);
+		agregar_parametro_a_mensaje(mensaje_out, (void *)((t_tripulante *)(void *)mi_tripulante)->px + agregado_en_x, ENTERO);
+		agregar_parametro_a_mensaje(mensaje_out, (void *)((t_tripulante *)(void *)mi_tripulante)->py, ENTERO);
 		enviar_mensaje(((t_tripulante *)mi_tripulante)->socket, mensaje_out);
 		liberar_mensaje_out(mensaje_out);
 
-		t_list* mensaje_in = recibir_mensaje(((t_tripulante *)mi_tripulante)->socket);
-		if(!validar_mensaje(mensaje_in, logger))
-			log_warning(logger, "FALLO EN MENSAJE CON HILO RAM\n");
+		mensaje_in = recibir_mensaje(((t_tripulante *)mi_tripulante)->socket);
 		liberar_mensaje_in(mensaje_in);
+
+		agregado_en_x++;
 		sleep(4);
 		if(((t_tripulante *)mi_tripulante)->muero_rapido && agregado_en_x == 3)
 			break;
 	}
-	t_mensaje* mensaje_out = crear_mensaje(ELIM_T);
+	mensaje_out = crear_mensaje(NEXT_T);
 	enviar_mensaje(((t_tripulante *)mi_tripulante)->socket, mensaje_out);
 	liberar_mensaje_out(mensaje_out);
-	printf("ME MUEROOOOOO\n");
+
+	mensaje_in = recibir_mensaje(((t_tripulante *)mi_tripulante)->socket);
+	printf("Tarea: %s\n", (char *)list_get(mensaje_in, 1));
+	liberar_mensaje_in(mensaje_in);
+
+	mensaje_out = crear_mensaje(ELIM_T);
+	enviar_mensaje(((t_tripulante *)mi_tripulante)->socket, mensaje_out);
+	liberar_mensaje_out(mensaje_out);
+	printf("ME MUEROOOOOO -*-\n");
 	return 0;
 }
 
 int posicion_trip(uint32_t id_patota, uint32_t id_trip) {
 	int posicion = -1;
 	bool encontre = false;
-	printf("Pos trip\n");
+	// printf("Pos trip\n");
 	t_link_element* iterador_tripulante = lista_tripulantes->head;
-	printf("Largo lista_tripulantes: %d\n", list_size(lista_tripulantes));
+	// printf("Largo lista_tripulantes: %d\n", list_size(lista_tripulantes));
 	t_tripulante* trip_auxiliar;
-	printf("2\n");
+	// printf("2\n");
 	while(iterador_tripulante) {
 		
 		posicion++;
@@ -332,9 +348,9 @@ int posicion_trip(uint32_t id_patota, uint32_t id_trip) {
 			break;
 		}
 		iterador_tripulante = iterador_tripulante->next;
-		printf("posicion %d\n", posicion);
+		// printf("posicion %d\n", posicion);
 	}
-	printf("Encontre %d\n", posicion);
+	// printf("Encontre %d\n", posicion);
 	if(encontre)
 		return posicion;
 	else
@@ -342,9 +358,9 @@ int posicion_trip(uint32_t id_patota, uint32_t id_trip) {
 }
 
 t_tripulante* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip) {
-	printf("Voy a obtener tripulante\n");
+	// printf("Voy a obtener tripulante\n");
 	t_tripulante* tripulante = (t_tripulante *)list_get(lista_tripulantes, posicion_trip(id_patota, id_trip));
-	printf("Obtuve tripulante\n");
+	// printf("Obtuve tripulante\n");
 	return tripulante;
 }
 /*	Salida pruebas antesde compactacion

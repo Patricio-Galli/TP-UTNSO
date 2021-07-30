@@ -18,7 +18,7 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros) {
 	if(memoria_ram.esquema_memoria == SEGMENTACION) {
 		log_info(logger, "Inicio patota con SEGMENTACION");
 		log_info(logger, "Memoria libre: %d", memoria_libre_segmentacion());
-		if(TAMANIO_PATOTA + tamanio_bloque_tareas/* + (int)list_get(parametros, 1) * TAMANIO_TRIPULANTE*/ > memoria_libre_segmentacion())
+		if(TAMANIO_PATOTA + tamanio_bloque_tareas + (int)list_get(parametros, 1) * TAMANIO_TRIPULANTE > memoria_libre_segmentacion())
 			return false;
 	}
 
@@ -47,6 +47,7 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros) {
 		tamanio_bloque_tareas += tamanio_tarea;
 		vtareas[i] = tarea_i;
 		vtareas_tamanio[i] = tamanio_tarea;
+		log_info(logger, "Recibo tarea: %s. Inicio = %d/%d. Tamanio = %d/%d", tarea_i, tamanio_bloque_tareas, vtareas_inicio[i], tamanio_tarea, vtareas_tamanio[i]);
 	}
 
 	// CREO ESTRUCTURA PATOTA
@@ -100,7 +101,7 @@ uint32_t creo_segmento_tareas(uint32_t tamanio_bloque_tareas, uint32_t id_patota
 	uint32_t desplazamiento = 0;
 	for(int i = 0; i < cant_tareas; i++) {
 		segmentar_string(memoria_ram.inicio, segmento_tareas->inicio + desplazamiento, vector_tareas[i]);
-		desplazamiento += strlen(vector_tareas[i] + 1);
+		desplazamiento += strlen(vector_tareas[i]/* + 1*/);
 		free(vector_tareas[i]);
 	}
 	free(vector_tareas);

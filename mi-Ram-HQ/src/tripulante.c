@@ -6,31 +6,24 @@ int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uin
 	int tamanio_tcb = TAMANIO_TRIPULANTE;
 	patota_data* patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
 
-	if(memoria_ram.esquema_memoria == SEGMENTACION) {
-		log_info(logger, "Inicio tripulante con SEGMENTACION");
-		log_info(logger, "Memoria libre: %d", memoria_libre_segmentacion());
-		if(TAMANIO_TRIPULANTE > memoria_libre_segmentacion())
-			return false;
-	}
+	// if(memoria_ram.esquema_memoria == SEGMENTACION) {
+	// 	log_info(logger, "Inicio tripulante con SEGMENTACION");
+	// 	log_info(logger, "Memoria libre: %d", memoria_libre_segmentacion());
+	// 	if(TAMANIO_TRIPULANTE > memoria_libre_segmentacion())
+	// 		return false;
+	// }
 	uint32_t espacio_libre_ultimo_frame;
-	if(memoria_ram.esquema_memoria == PAGINACION) {
-		log_info(logger, "Inicio tripulante con PAGINACION");
-		espacio_libre_ultimo_frame = patota->memoria_ocupada % memoria_ram.tamanio_pagina;
-		log_info(logger, "Frames necesarios: %d", frames_necesarios(espacio_libre_ultimo_frame, TAMANIO_TRIPULANTE));
-		log_info(logger, "Marcos logicos disponibles: %d", marcos_logicos_disponibles());
-		t_marco * mi_marco = (t_marco *)list_get(memoria_ram.mapa_logico, patota->frames[patota->cant_frames - 1]);
-		if(frames_necesarios(patota->memoria_ocupada % memoria_ram.tamanio_pagina, TAMANIO_TRIPULANTE) > marcos_logicos_disponibles())
-			return false;
-	}
-	/*
-	log_info(logger, "Hay memoria disponible");
-	if (tamanio_tcb > memoria_libre()) {
-		log_info(logger, "No hay memoria disponible");
-		return 0;
-	}*/
+	// if(memoria_ram.esquema_memoria == PAGINACION) {
+	// 	log_info(logger, "Inicio tripulante con PAGINACION");
+	// 	espacio_libre_ultimo_frame = patota->memoria_ocupada % memoria_ram.tamanio_pagina;
+	// 	log_info(logger, "Frames necesarios: %d", frames_necesarios(espacio_libre_ultimo_frame, TAMANIO_TRIPULANTE));
+	// 	log_info(logger, "Marcos logicos disponibles: %d", marcos_logicos_disponibles());
+	// 	t_marco * mi_marco = (t_marco *)list_get(memoria_ram.mapa_logico, patota->frames[patota->cant_frames - 1]);
+	// 	if(frames_necesarios(patota->memoria_ocupada % memoria_ram.tamanio_pagina, TAMANIO_TRIPULANTE) > marcos_logicos_disponibles())
+	// 		return false;
+	// }
 	log_info(logger, "Entro a iniciar_tripulante");
 
-	
 	uint32_t inicio_tcb;
 
 	if(memoria_ram.esquema_memoria == SEGMENTACION) {
@@ -141,14 +134,11 @@ uint32_t obtener_valor_tripulante(uint32_t id_patota, uint32_t id_trip, uint32_t
 	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
 	uint32_t inicio_tripulante = mi_patota->inicio_elementos[id_trip + 1];
 	switch(nro_parametro) {
-		case PCB_POINTER:
-			inicio_tripulante += sizeof(uint32_t);
-		case INS_POINTER:
-			inicio_tripulante += sizeof(uint32_t);
-		case POS_Y:
-			inicio_tripulante += sizeof(uint32_t);
-		case POS_X:
-			inicio_tripulante += sizeof(uint32_t) + sizeof(char);
+		case PCB_POINTER:	inicio_tripulante += sizeof(uint32_t);
+		case INS_POINTER:	inicio_tripulante += sizeof(uint32_t);
+		case POS_Y:			inicio_tripulante += sizeof(uint32_t);
+		case POS_X:			inicio_tripulante += sizeof(uint32_t);
+		case ESTADO:		inicio_tripulante += sizeof(char);
 		case TRIP_IP:
 			break;
 	}
@@ -167,9 +157,11 @@ uint32_t obtener_valor_tripulante(uint32_t id_patota, uint32_t id_trip, uint32_t
 	return valor_tripulante;
 }
 
-char obtener_estado(void* segmento) {
+char obtener_estado(uint32_t id_patota, uint32_t id_tripulante) {
+	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
+	uint32_t inicio_tripulante = mi_patota->inicio_elementos[id_tripulante + 1];
 	char valor_char;
-	memcpy(&valor_char, segmento + sizeof(uint32_t), sizeof(char));
+	memcpy(&valor_char, memoria_ram.inicio + inicio_tripulante + sizeof(uint32_t), sizeof(char));
 	return valor_char;
 }
 
@@ -177,14 +169,11 @@ void actualizar_valor_tripulante(uint32_t id_patota, uint32_t id_trip, uint32_t 
 	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
 	uint32_t inicio_tripulante = mi_patota->inicio_elementos[id_trip + 1];
 	switch(nro_parametro) {
-		case PCB_POINTER:
-			inicio_tripulante += sizeof(uint32_t);
-		case INS_POINTER:
-			inicio_tripulante += sizeof(uint32_t);
-		case POS_Y:
-			inicio_tripulante += sizeof(uint32_t);
-		case POS_X:
-			inicio_tripulante += sizeof(uint32_t) + sizeof(char);
+		case PCB_POINTER:	inicio_tripulante += sizeof(uint32_t);
+		case INS_POINTER:	inicio_tripulante += sizeof(uint32_t);
+		case POS_Y:			inicio_tripulante += sizeof(uint32_t);
+		case POS_X:			inicio_tripulante += sizeof(uint32_t);
+		case ESTADO:		inicio_tripulante += sizeof(char);
 		case TRIP_IP:
 			break;
 	}
@@ -205,9 +194,11 @@ void actualizar_valor_tripulante(uint32_t id_patota, uint32_t id_trip, uint32_t 
 	}
 }
 
-void actualizar_estado(void* segmento, char nuevo_valor) {
+void actualizar_estado(uint32_t id_patota, uint32_t id_tripulante, char nuevo_valor) {
+	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
+	uint32_t inicio_tripulante = mi_patota->inicio_elementos[id_tripulante + 1];
 	char valor = nuevo_valor;
-	memcpy(segmento + sizeof(uint32_t), &valor, sizeof(char));
+	memcpy(memoria_ram.inicio + inicio_tripulante + sizeof(uint32_t), &valor, sizeof(char));
 }
 
 trip_data* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip) {

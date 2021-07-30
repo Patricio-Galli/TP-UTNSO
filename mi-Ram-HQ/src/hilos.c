@@ -70,6 +70,13 @@ void* rutina_hilos(void* data) {
             enviar_mensaje(socket_cliente, mensaje_out);
 		    liberar_mensaje_out(mensaje_out);
 			break;
+		case ACTU_E:
+			actualizar_estado(tripulante->PID, tripulante->TID, caracter_de_estado((uint32_t)list_get(mensaje_in, 1)));
+
+			mensaje_out = crear_mensaje(TODOOK);
+            enviar_mensaje(socket_cliente, mensaje_out);
+		    liberar_mensaje_out(mensaje_out);
+			break;
 		case ELIM_T:
         case ER_SOC:
         case ER_RCV:
@@ -111,4 +118,14 @@ void* rutina_hilos(void* data) {
 	// free(tripulante);
 	log_info(logger, "ME MUEROOOOOO %d\n", variable);
 	return 0;
+}
+
+char caracter_de_estado(estado nuevo_estado) {
+	switch (nuevo_estado) {
+		case NEW:		return 'N';
+		case BLOCKED:	return 'B';
+		case READY:		return 'R';
+		case RUNNING:	return 'E';
+		default:		return 0;
+	}
 }

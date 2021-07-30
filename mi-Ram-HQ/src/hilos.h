@@ -14,4 +14,15 @@
 
 void* rutina_hilos(void* data);
 
+typedef enum {
+    NEW,
+    BLOCKED,
+    READY,
+    RUNNING,
+    EXIT,
+    EMERGENCY
+}estado;
+
+char caracter_de_estado(estado nuevo_estado);
+
 #endif /* _HILOS_H_ */

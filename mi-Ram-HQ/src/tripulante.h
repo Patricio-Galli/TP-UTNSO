@@ -39,8 +39,8 @@ void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante);
 uint32_t obtener_valor_tripulante(uint32_t id_patota, uint32_t id_trip, para_trip nro_parametro);
 void actualizar_valor_tripulante(uint32_t id_patota, uint32_t id_trip, para_trip nro_parametro, uint32_t nuevo_valor);
 
-char obtener_estado(void* segmento);
-void actualizar_estado(void* segmento, char nuevo_valor);
+char obtener_estado(uint32_t id_patota, uint32_t id_tripulante);
+void actualizar_estado(uint32_t id_patota, uint32_t id_tripulante, char nuevo_valor);
 
 trip_data* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip);
 int posicion_trip(uint32_t id_patota, uint32_t id_trip);
