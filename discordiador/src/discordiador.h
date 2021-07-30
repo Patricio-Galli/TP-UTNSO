@@ -7,6 +7,7 @@
 #include "planificador.h"
 #include "mensajes_trip.h"
 #include "validaciones.h"
+#include "parametros.h"
 
 int id_patota_actual = 1;
 int socket_ram = 0, socket_mongo = 0;
