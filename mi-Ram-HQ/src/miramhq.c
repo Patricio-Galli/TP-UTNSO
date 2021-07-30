@@ -151,7 +151,8 @@ int main(void) {
 			liberar_mensaje_out(mensaje_out);		// debe estar fuera del switch
 			nro_tripulante = 1;
 			for(int i = 0; i < ((tareas_data *)list_get(lista_tareas, patota_actual - 1))->cant_tareas; i++) {
-				log_info(logger, "Tarea %d: '%s'", i, obtener_tarea(memoria_ram.inicio + ((patota_data *)list_get(lista_patotas, patota_actual - 1))->inicio_elementos[1], (tareas_data *)list_get(lista_tareas, patota_actual - 1), i));
+				// log_info(logger, "Tarea %d: '%s'", i, obtener_tarea(memoria_ram.inicio + ((patota_data *)list_get(lista_patotas, patota_actual - 1))->inicio_elementos[1], (tareas_data *)list_get(lista_tareas, patota_actual - 1), i));
+				log_info(logger, "Tarea %d: '%s'", i, obtener_tarea(patota_actual, i));
 				log_info(logger, "Inicio tarea: %d, Tamanio tarea: %d", ((tareas_data *)list_get(lista_tareas, patota_actual - 1))->inicio_tareas[i], ((tareas_data *)list_get(lista_tareas, patota_actual - 1))->tamanio_tareas[i]);
 			}
 			// printf("Tarea 1: '%s' no me la container\n", memoria_ram.inicio + ((patota_data *)list_get(lista_patotas, patota_actual - 1))->inicio_elementos[1]);

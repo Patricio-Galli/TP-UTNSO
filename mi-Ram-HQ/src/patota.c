@@ -94,9 +94,7 @@ uint32_t creo_segmento_tareas(uint32_t tamanio_bloque_tareas, uint32_t id_patota
 	segmento_tareas->duenio = id_patota;
 	segmento_tareas->indice = 1;
 
-	// uint32_t desplazamiento = 0;
 	for(int i = 0; i < mis_tareas->cant_tareas; i++) {
-		// segmentar_string(memoria_ram.inicio, segmento_tareas->inicio + desplazamiento, vector_tareas[i]);
 		memcpy(memoria_ram.inicio + segmento_tareas->inicio + mis_tareas->inicio_tareas[i], vector_tareas[i], mis_tareas->tamanio_tareas[i]);
 		free(vector_tareas[i]);
 	}
@@ -117,7 +115,6 @@ void segmentar_pcb_p(uint32_t id_patota, uint32_t cant_tareas, char** tareas) {
 	signed int espacio_faltante = memoria_ram.tamanio_pagina - TAMANIO_PATOTA;
 	mi_patota->memoria_ocupada = TAMANIO_PATOTA;
 	for(int i = 0; i < cant_tareas; i++) {
-		// mis_tareas->tamanio_tareas[i]
 		espacio_faltante -= mis_tareas->tamanio_tareas[i];
 		if(espacio_faltante > 0) {
 			memcpy(memoria_ram.inicio + inicio_marco + mi_patota->memoria_ocupada, tareas[i], mis_tareas->tamanio_tareas[i]);
@@ -135,4 +132,34 @@ void segmentar_pcb_p(uint32_t id_patota, uint32_t cant_tareas, char** tareas) {
 		free(tareas[i]);
 	}
 	free(tareas);
+}
+
+char* obtener_tarea(uint32_t id_patota, uint32_t nro_tarea) {
+	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
+	tareas_data* mis_tareas = (tareas_data *)list_get(lista_tareas, id_patota - 1);
+	
+	#define bytes_necesarios (mis_tareas->tamanio_tareas[nro_tarea])
+	char * tarea = malloc(bytes_necesarios + 1);
+	if(memoria_ram.esquema_memoria == SEGMENTACION) {
+		memcpy(tarea, memoria_ram.inicio + mi_patota->inicio_elementos[1] + mis_tareas->inicio_tareas[nro_tarea], bytes_necesarios);
+	}
+	if(memoria_ram.esquema_memoria == PAGINACION) {
+		div_t posicion_compuesta = div(mi_patota->inicio_elementos[1], memoria_ram.tamanio_pagina);
+		uint32_t bytes_cargados = 0;
+		uint32_t bytes_disponibles = memoria_ram.tamanio_pagina - posicion_compuesta.rem;
+		uint32_t marco_actual = posicion_compuesta.quot;
+
+		// uint32_t bytes_necesarios = mis_tareas->tamanio_tareas[nro_tarea];
+		while(bytes_cargados < bytes_necesarios) {
+			if(bytes_disponibles > bytes_necesarios - bytes_cargados)
+				bytes_disponibles = bytes_necesarios - bytes_cargados;
+			memcpy(tarea, inicio_marco(mi_patota->frames[marco_actual]) + posicion_compuesta.rem, bytes_disponibles);
+			bytes_cargados += bytes_disponibles;
+			bytes_disponibles = TAMANIO_PAGINA;
+		}
+	}
+	
+	char final = '\0';
+	memcpy(tarea + mis_tareas->tamanio_tareas[nro_tarea], &final, 1);
+	return tarea;
 }

@@ -149,9 +149,9 @@ uint32_t obtener_valor_tripulante(uint32_t id_patota, uint32_t id_trip, uint32_t
 		div_t posicion_compuesta = div(inicio_tripulante, memoria_ram.tamanio_pagina);
 		uint32_t bytes_de_valor = memoria_ram.tamanio_pagina - posicion_compuesta.rem;
 		if(bytes_de_valor > 4) { bytes_de_valor = 4;}
-			memcpy(&valor_tripulante, inicio_marco(mi_patota->frames[posicion_compuesta.quot]) + posicion_compuesta.rem, sizeof(bytes_de_valor));
+			memcpy(&valor_tripulante, inicio_marco(mi_patota->frames[posicion_compuesta.quot]) + posicion_compuesta.rem, bytes_de_valor);
 		if(bytes_de_valor < 4) {
-			memcpy(&valor_tripulante + bytes_de_valor, inicio_marco(mi_patota->frames[posicion_compuesta.quot + 1]), sizeof(4 - bytes_de_valor));
+			memcpy(&valor_tripulante + bytes_de_valor, inicio_marco(mi_patota->frames[posicion_compuesta.quot + 1]), 4 - bytes_de_valor);
 		}
 	}
 	return valor_tripulante;
@@ -185,10 +185,10 @@ void actualizar_valor_tripulante(uint32_t id_patota, uint32_t id_trip, uint32_t 
 		div_t posicion_compuesta = div(inicio_tripulante, memoria_ram.tamanio_pagina);
 		uint32_t bytes_de_valor = memoria_ram.tamanio_pagina - posicion_compuesta.rem;
 		if(bytes_de_valor > 4) { bytes_de_valor = 4;}
-		memcpy(inicio_marco(mi_patota->frames[posicion_compuesta.quot]) + posicion_compuesta.rem, &valor_tripulante, sizeof(bytes_de_valor));
+		memcpy(inicio_marco(mi_patota->frames[posicion_compuesta.quot]) + posicion_compuesta.rem, &valor_tripulante, bytes_de_valor);
 		// memoria_ram.
 		if(bytes_de_valor < 4) {
-			memcpy(inicio_marco(mi_patota->frames[posicion_compuesta.quot + 1]), &valor_tripulante + bytes_de_valor, sizeof(4 - bytes_de_valor));
+			memcpy(inicio_marco(mi_patota->frames[posicion_compuesta.quot + 1]), &valor_tripulante + bytes_de_valor, 4 - bytes_de_valor);
 		}
 
 	}

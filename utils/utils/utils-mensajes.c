@@ -15,7 +15,6 @@ t_mensaje* crear_mensaje(protocolo_msj cod_op) {
 
 void agregar_parametro_a_mensaje(t_mensaje* mensaje, void* parametro, tipo_msj tipo_parametro) {
 	uint32_t valor_parametro;
-	char valor_parametro_char;
 	uint32_t tamanio_buffer;
 	switch (tipo_parametro) {
 	case ENTERO:
@@ -23,12 +22,6 @@ void agregar_parametro_a_mensaje(t_mensaje* mensaje, void* parametro, tipo_msj t
 		valor_parametro = (uint32_t)parametro;
 		memcpy(mensaje->buffer->contenido + mensaje->buffer->tamanio, &valor_parametro, sizeof(uint32_t));
 		mensaje->buffer->tamanio = mensaje->buffer->tamanio + sizeof(uint32_t);
-		break;
-	case CARACTER:
-		mensaje->buffer->contenido = realloc(mensaje->buffer->contenido, mensaje->buffer->tamanio + sizeof(char));
-		valor_parametro_char = (char)parametro;
-		memcpy(mensaje->buffer->contenido + mensaje->buffer->tamanio, &valor_parametro_char, sizeof(char));
-		mensaje->buffer->tamanio = mensaje->buffer->tamanio + sizeof(char);
 		break;
 	case BUFFER:
 		tamanio_buffer = (strlen(parametro) + 1) * sizeof(char);
@@ -55,10 +48,6 @@ void* recibir_parametro(int socket, tipo_msj tipo) {
 	switch (tipo) {
 	case ENTERO:
 		recv(socket, &parametro, sizeof(uint32_t), MSG_WAITALL);
-		return (void *)parametro;
-		break;
-	case CARACTER:
-		recv(socket, &parametro, sizeof(char), MSG_WAITALL);
 		return (void *)parametro;
 		break;
 	case BUFFER:
@@ -133,25 +122,6 @@ t_list* recibir_mensaje(int socket) {
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		break;
-	
-	/*case SND_PO:
-		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
-		break;
-	
-	case TASK_T:
-		list_add(lista_parametros, recibir_parametro(socket, BUFFER));
-		break;
-	
-	case ACTU_E:
-		list_add(lista_parametros, recibir_parametro(socket, CARACTER));
-		break;*/
-
-	case NEW_PO:
-	case NEXT_T:
-	case TODOOK:
-	case NO_SPC:
-	case ER_MSJ:
-		break;
 
 	case ER_RCV:
 		printf("ERROR ER_RCV\n");
@@ -178,13 +148,12 @@ t_list* recibir_mensaje(int socket) {
 	
 	case INIT_S:
 	case EXEC_0:
-	// case NEW_PO:
-	// case NEXT_T:
-	// case TODOOK:
-	// case NO_SPC:
-	// case ER_MSJ:
+	case NEW_PO:
+	case NEXT_T:
+	case TODOOK:
+	case NO_SPC:
+	case ER_MSJ:
 		break;
-
 
 	case BITA_T:
 		// por definir
@@ -206,10 +175,6 @@ void liberar_mensaje_out(t_mensaje* mensaje) {
 	free(mensaje->buffer);
 	free(mensaje);
 }
-
-/*static void destruir_buffer(void* elemento) {
-	free(elemento);
-}*/
 
 void liberar_mensaje_in(t_list* mensaje) {
 	protocolo_msj protocolo = (protocolo_msj)list_remove(mensaje, 0);

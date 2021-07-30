@@ -96,7 +96,6 @@ typedef enum {
 
 typedef enum {
 	ENTERO,
-	CARACTER,
 	BUFFER
 } tipo_msj;
 

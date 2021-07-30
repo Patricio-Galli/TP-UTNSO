@@ -19,7 +19,6 @@
 #include "memoria_ram.h"
 #include "segmentos.h"
 #include "patota.h"
-#include "tareas.h"
 #include "tripulante.h"
 #include "consola.h"
 
