@@ -53,14 +53,12 @@ int main() {
 	lista_tripulantes = list_create();
 	salir = false;
 	planificacion_inicializada = false;
+	ciclo_CPU = atoi(config_get_string_value(config, "RETARDO_CICLO_CPU"));
+	quantum = atoi(config_get_string_value(config, "QUANTUM"));
 
 	inicializar_planificador(
 		atoi(config_get_string_value(config, "GRADO_MULTITAREA")),
-		config_get_string_value(config, "ALGORITMO"),
-		atoi(config_get_string_value(config, "RETARDO_CICLO_CPU")),
-		atoi(config_get_string_value(config, "QUANTUM")),
-		&salir,
-		logger);
+		config_get_string_value(config, "ALGORITMO"));
 
 	while(!salir) {
 		char* buffer_consola = leer_consola();
