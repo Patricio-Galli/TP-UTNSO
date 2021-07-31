@@ -15,7 +15,7 @@
 #include<fcntl.h>//open
 #include<pthread.h>
 #include<sys/mman.h>
-#include "imongostore.h"
+#include "mongo.h"
 
 typedef struct {
 	int posicion_x;
@@ -34,8 +34,12 @@ char* proximo_bloque_libre();
 int escribir_caracter_en_bloque(char,int,char* ,int );
 int borrar_caracter_en_bloque(char ,int ,char* ,int );
 void actualizar_posicion(tripulante*, int, int,char*);
+void comienza_tarea(char*,char*);
+void finaliza_tarea(char*,char*);
+void inicio_sabotaje(char*);
+void fin_sabotaje(char*);
 char* juntar_posiciones(int, int);
 int escribir_caracter_en_bitacora(char*,int,char*,int);
-
+void escribir_mensaje_en_bitacora(char* , char* );
 int roundUp(int, int);
 #endif /* BLOCKS_H_ */
