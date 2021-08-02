@@ -514,5 +514,60 @@ void imprimir_bitmap(t_bitarray* bitmap){
 	}
 	printf("\n");
 }
+//--------------------------Sabotajes-------------------------------
+
+
+void reapararSabotajes() {
+
+	//--------------------Superbloque-----------------
+
+	int fd = open(DIR_superBloque, O_CREAT | O_RDWR, 0664);
+
+    void* superBloque = mmap(NULL, 8, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+
+    uint32_t tamanioBloque;
+    memcpy(&tamanioBloque, superBloque, sizeof(int));
+
+    uint32_t cantidadDeBloquesQueDeberiaHaber;
+    memcpy(&cantidadDeBloquesQueDeberiaHaber, sizeof(int)+superBloque, sizeof(int));
+
+    int tamanioBlocks = contarBloquesDelConfig();
+
+
+    int cantidadRealDeBloques = tamanioBlocks / tamanioBloque;
+
+    if(cantidadRealDeBloques != cantidadDeBloquesQueDeberiaHaber) {
+        cantidadDeBloquesQueDeberiaHaber = (uint32_t) cantidadRealDeBloques;
+        void* uints= malloc(4);
+        uints= realloc(uints, sizeof(int));
+        memcpy(uints, &cantidadDeBloquesQueDeberiaHaber, sizeof(int));
+        memcpy(superBloque+sizeof(int), uints, sizeof(int));
+        msync(superBloque, sizeof(int)*2, MS_SYNC);
+        close(fd);
+        free(uints);
+
+    }
+}
+
+
+
+
+int contarBloquesDelConfig(){
+
+	tamanioBloques = block_size * blocks_amount;
+	return tamanioBlocks;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
