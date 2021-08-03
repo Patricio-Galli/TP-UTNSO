@@ -28,7 +28,7 @@
 
 pthread_t* iniciar_mapa(bool*);
 bool iniciar_memoria(t_config*);
-void liberar_memoria(t_config* config, int socket_discord, pthread_t* hilo_consola);
+void liberar_memoria(t_config* config, int socket_discord);
 
 // void liberar_segmentos();
 // void liberar_patotas();

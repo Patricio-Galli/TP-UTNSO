@@ -5,7 +5,7 @@ void* rutina_hilos(void* data) {
 	// log_info(logger, "HOLA MUNDO, SOY UN HILO %d", variable);
 	int variable = 0;
     trip_data* tripulante = (trip_data *)data;
-	patota_data* segmento_patota = (patota_data *)list_get(lista_patotas, tripulante->PID - 1);
+	// patota_data* segmento_patota = (patota_data *)list_get(lista_patotas, tripulante->PID - 1);
 	tareas_data* segmento_tareas = (tareas_data *)list_get(lista_tareas, tripulante->PID - 1);
 	uint32_t ip;
 	char* tarea_nueva;

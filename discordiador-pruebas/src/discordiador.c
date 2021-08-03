@@ -172,31 +172,31 @@ int main() {
 				return ERROR_CONEXION;
 			}
 			log_info(logger, "Recibi respuesta: %d", (int)list_get(mensaje_in, 0));
-			if((int)list_get(mensaje_in, 0) == SND_PO) {
-				log_info(logger, "Entro a recibir puerto\n");
-				int nuevo_puerto = (int)list_get(mensaje_in, 1);
-				pthread_t* nuevo_hilo = malloc(sizeof(pthread_t));
-				char str_puerto[7];
-				sprintf(str_puerto, "%d", (int)nuevo_puerto);
-				int socket = crear_conexion_cliente(config_get_string_value(config, "IP_MI_RAM_HQ"), str_puerto);
-				// sem_init(&semaforo_tripulante, 0, 0);
+			// if((int)list_get(mensaje_in, 0) == SND_PO) {
+			// 	log_info(logger, "Entro a recibir puerto\n");
+			// 	int nuevo_puerto = (int)list_get(mensaje_in, 1);
+			// 	pthread_t* nuevo_hilo = malloc(sizeof(pthread_t));
+			// 	char str_puerto[7];
+			// 	sprintf(str_puerto, "%d", (int)nuevo_puerto);
+			// 	int socket = crear_conexion_cliente(config_get_string_value(config, "IP_MI_RAM_HQ"), str_puerto);
+			// 	// sem_init(&semaforo_tripulante, 0, 0);
 				
-				t_tripulante* nuevo_tripulante = malloc(sizeof(t_tripulante));
-				nuevo_tripulante->id_patota = id_patota_actual;
-				nuevo_tripulante->id_trip = id_tripulante;
-				nuevo_tripulante->hilo = nuevo_hilo;
-				nuevo_tripulante->vivir = true;
-				nuevo_tripulante->socket = socket;
-				nuevo_tripulante->px = 1 + variable;
-				nuevo_tripulante->py = 1 + variable;
-				log_info(logger, "Muero rapido: %d", variable % 2);
-				nuevo_tripulante->muero_rapido = variable % 2;
+			// 	t_tripulante* nuevo_tripulante = malloc(sizeof(t_tripulante));
+			// 	nuevo_tripulante->id_patota = id_patota_actual;
+			// 	nuevo_tripulante->id_trip = id_tripulante;
+			// 	nuevo_tripulante->hilo = nuevo_hilo;
+			// 	nuevo_tripulante->vivir = true;
+			// 	nuevo_tripulante->socket = socket;
+			// 	nuevo_tripulante->px = 1 + variable;
+			// 	nuevo_tripulante->py = 1 + variable;
+			// 	log_info(logger, "Muero rapido: %d", variable % 2);
+			// 	nuevo_tripulante->muero_rapido = variable % 2;
 
-				pthread_create(nuevo_hilo, NULL, rutina_hilos, (void *)nuevo_tripulante);
-				log_info(logger, "Agrego tripulante %d - %d", id_patota_actual, id_tripulante);
-				list_add(lista_tripulantes, nuevo_tripulante);
-				log_info(logger, "Cantidad de tripulantes actual: %d", list_size(lista_tripulantes));
-			}
+			// 	pthread_create(nuevo_hilo, NULL, rutina_hilos, (void *)nuevo_tripulante);
+			// 	log_info(logger, "Agrego tripulante %d - %d", id_patota_actual, id_tripulante);
+			// 	list_add(lista_tripulantes, nuevo_tripulante);
+			// 	log_info(logger, "Cantidad de tripulantes actual: %d", list_size(lista_tripulantes));
+			// }
 			if((int)list_get(mensaje_in, 0) == NO_SPC) {
 				log_info(logger, "El servidor dice que no había espacio");
 			}
@@ -297,6 +297,9 @@ void* rutina_hilos(void* mi_tripulante) {
 
 	t_list* mensaje_in = recibir_mensaje(((t_tripulante *)mi_tripulante)->socket);
 	liberar_mensaje_in(mensaje_in);
+	while(1) {
+		sleep(10000);
+	}
 
 	while(1) {
 		if(!((t_tripulante *)mi_tripulante)->vivir)
