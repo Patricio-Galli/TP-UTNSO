@@ -49,8 +49,6 @@ int main() {
 	while(continuar) {
 		buffer_consola = leer_consola();
 		variable++;
-		/*
-		funcion_consola = mapStringToEnum(primer_palabra(buffer_consola));*/
 		switch (variable) {
 		case 1:
 			funcion_consola = INICIAR_PATOTA;
@@ -62,10 +60,10 @@ int main() {
 			funcion_consola = INICIAR_TRIPULANTE;
 			break;
 		case 4:
-			funcion_consola = INICIAR_PATOTA;
+			funcion_consola = INICIAR_TRIPULANTE;
 			break;
 		case 5:
-			funcion_consola = INICIAR_TRIPULANTE;
+			funcion_consola = INICIAR_PATOTA;
 			break;
 		case 6:
 			funcion_consola = INICIAR_TRIPULANTE;
@@ -80,46 +78,47 @@ int main() {
 			funcion_consola = INICIAR_TRIPULANTE;
 			break;
 		case 10:
-			funcion_consola = INICIAR_TRIPULANTE;
+			funcion_consola = INICIAR_PATOTA;
 			break;
 		case 11:
-			funcion_consola = EXPULSAR_TRIPULANTE;
+			funcion_consola = INICIAR_TRIPULANTE;
 			break;
 		case 12:
-			funcion_consola = EXPULSAR_TRIPULANTE;
+			funcion_consola = INICIAR_TRIPULANTE;
 			break;
 		case 13:
-			funcion_consola = EXPULSAR_TRIPULANTE;
+			funcion_consola = INICIAR_TRIPULANTE;
 			break;
 		case 14:
-			funcion_consola = EXPULSAR_TRIPULANTE;
+			funcion_consola = INICIAR_PATOTA;
 			break;	
 		case 15:
-			// funcion_consola = INICIAR_PATOTA;
-			funcion_consola = ERROR;
+			funcion_consola = INICIAR_TRIPULANTE;
+			// funcion_consola = ERROR;
 			break;
 		case 16:
-			// funcion_consola = INICIAR_TRIPULANTE;
-			funcion_consola = ERROR;
+			funcion_consola = INICIAR_TRIPULANTE;
+			// funcion_consola = ERROR;
 			break;
 		case 17:
-			// funcion_consola = INICIAR_TRIPULANTE;
-			funcion_consola = ERROR;
+			funcion_consola = INICIAR_PATOTA;
+			// funcion_consola = ERROR;
 			break;
 		case 18:
-			funcion_consola = INICIAR_PATOTA;
+			funcion_consola = INICIAR_TRIPULANTE;
 			break;
 		case 19:
-			funcion_consola = INICIAR_PATOTA;
+			// funcion_consola = INICIAR_PATOTA;
+			funcion_consola = INICIAR_TRIPULANTE;
 			break;
 		case 20:
-			funcion_consola = INICIAR_PATOTA;
+			funcion_consola = EXPULSAR_TRIPULANTE;
 			break;
 		case 21:
-			funcion_consola = INICIAR_TRIPULANTE;
+			funcion_consola = EXPULSAR_TRIPULANTE;
 			break;
 		case 22:
-			funcion_consola = INICIAR_TRIPULANTE;
+			funcion_consola = EXPULSAR_TRIPULANTE;
 			break;
 		default:
 			log_info(logger, "No hay más instrucciones");
@@ -132,7 +131,24 @@ int main() {
 		case INICIAR_PATOTA:
 			log_info(logger, "Iniciar patota. Creando mensaje");
 			mensaje_out = crear_mensaje(INIT_P);
-			agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);	// cant_trip
+			if(id_patota_actual == 0) {
+				agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);	// cant_trip
+			}
+			if(id_patota_actual == 1) {
+				agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);	// cant_trip
+			}
+			if(id_patota_actual == 2) {
+				agregar_parametro_a_mensaje(mensaje_out, (void *)1, ENTERO);	// cant_trip
+			}
+			if(id_patota_actual == 3) {
+				agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);	// cant_trip
+			}
+			if(id_patota_actual == 4) {
+				agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);	// cant_trip
+			}
+			if(id_patota_actual == 5) {
+				agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);	// cant_trip
+			}
 			agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);	// cant_tareas
 			agregar_parametro_a_mensaje(mensaje_out, &tarea1, BUFFER);		// tarea 1
 			agregar_parametro_a_mensaje(mensaje_out, &tarea2, BUFFER);		// tarea 2
@@ -172,31 +188,31 @@ int main() {
 				return ERROR_CONEXION;
 			}
 			log_info(logger, "Recibi respuesta: %d", (int)list_get(mensaje_in, 0));
-			// if((int)list_get(mensaje_in, 0) == SND_PO) {
-			// 	log_info(logger, "Entro a recibir puerto\n");
-			// 	int nuevo_puerto = (int)list_get(mensaje_in, 1);
-			// 	pthread_t* nuevo_hilo = malloc(sizeof(pthread_t));
-			// 	char str_puerto[7];
-			// 	sprintf(str_puerto, "%d", (int)nuevo_puerto);
-			// 	int socket = crear_conexion_cliente(config_get_string_value(config, "IP_MI_RAM_HQ"), str_puerto);
-			// 	// sem_init(&semaforo_tripulante, 0, 0);
+			if((int)list_get(mensaje_in, 0) == SND_PO) {
+				log_info(logger, "Entro a recibir puerto\n");
+				int nuevo_puerto = (int)list_get(mensaje_in, 1);
+				pthread_t* nuevo_hilo = malloc(sizeof(pthread_t));
+				char str_puerto[7];
+				sprintf(str_puerto, "%d", (int)nuevo_puerto);
+				int socket = crear_conexion_cliente(config_get_string_value(config, "IP_MI_RAM_HQ"), str_puerto);
+				// sem_init(&semaforo_tripulante, 0, 0);
 				
-			// 	t_tripulante* nuevo_tripulante = malloc(sizeof(t_tripulante));
-			// 	nuevo_tripulante->id_patota = id_patota_actual;
-			// 	nuevo_tripulante->id_trip = id_tripulante;
-			// 	nuevo_tripulante->hilo = nuevo_hilo;
-			// 	nuevo_tripulante->vivir = true;
-			// 	nuevo_tripulante->socket = socket;
-			// 	nuevo_tripulante->px = 1 + variable;
-			// 	nuevo_tripulante->py = 1 + variable;
-			// 	log_info(logger, "Muero rapido: %d", variable % 2);
-			// 	nuevo_tripulante->muero_rapido = variable % 2;
+				t_tripulante* nuevo_tripulante = malloc(sizeof(t_tripulante));
+				nuevo_tripulante->id_patota = id_patota_actual;
+				nuevo_tripulante->id_trip = id_tripulante;
+				nuevo_tripulante->hilo = nuevo_hilo;
+				nuevo_tripulante->vivir = true;
+				nuevo_tripulante->socket = socket;
+				nuevo_tripulante->px = 1 + variable;
+				nuevo_tripulante->py = 1 + variable;
+				log_info(logger, "Muero rapido: %d", variable % 2);
+				nuevo_tripulante->muero_rapido = variable % 2;
 
-			// 	pthread_create(nuevo_hilo, NULL, rutina_hilos, (void *)nuevo_tripulante);
-			// 	log_info(logger, "Agrego tripulante %d - %d", id_patota_actual, id_tripulante);
-			// 	list_add(lista_tripulantes, nuevo_tripulante);
-			// 	log_info(logger, "Cantidad de tripulantes actual: %d", list_size(lista_tripulantes));
-			// }
+				pthread_create(nuevo_hilo, NULL, rutina_hilos, (void *)nuevo_tripulante);
+				log_info(logger, "Agrego tripulante %d - %d", id_patota_actual, id_tripulante);
+				list_add(lista_tripulantes, nuevo_tripulante);
+				log_info(logger, "Cantidad de tripulantes actual: %d", list_size(lista_tripulantes));
+			}
 			if((int)list_get(mensaje_in, 0) == NO_SPC) {
 				log_info(logger, "El servidor dice que no había espacio");
 			}
@@ -210,17 +226,17 @@ int main() {
 			int id_trip;
 			mensaje_out = crear_mensaje(ELIM_T);
 			log_info(logger, "Cree mensaje %d", funcion_consola);
-			if(variable == 11) {
+			if(variable == 20) {
 				log_info(logger,"Expulsar tripulante 1");
 				id_patota = 1;
 				id_trip = 1;
 			}
-			if(variable == 12) {
+			if(variable == 21) {
 				log_info(logger,"Expulsar tripulante 2");
 				id_patota = 3;
 				id_trip = 1;
 			}
-			if(variable == 13) {
+			if(variable == 22) {
 				log_info(logger,"Expulsar tripulante 3");
 				id_patota = 2;
 				id_trip = 1;
@@ -289,6 +305,7 @@ void* rutina_hilos(void* mi_tripulante) {
 	log_info(logger, "HOLA MUNDO, SOY UN HILO %d", variable);
 	// variable--;
 	int agregado_en_x = 0;
+	// sleep(100000);
 
 	t_mensaje* mensaje_out = crear_mensaje(ACTU_E);
 	agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);
@@ -356,9 +373,9 @@ int posicion_trip(uint32_t id_patota, uint32_t id_trip) {
 			break;
 		}
 		iterador_tripulante = iterador_tripulante->next;
-		// printf("posicion %d\n", posicion);
+		printf("posicion %d\n", posicion);
 	}
-	// printf("Encontre %d\n", posicion);
+	printf("Encontre %d\n", posicion);
 	if(encontre)
 		return posicion;
 	else

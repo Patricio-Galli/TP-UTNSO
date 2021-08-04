@@ -117,7 +117,7 @@ void* rutina_hilos(void* data) {
     // sem_destroy(tripulante->semaforo_hilo);
 	// free(tripulante->semaforo_hilo);
 	// free(tripulante);
-	log_info(logger, "ME MUEROOOOOO %d\n", variable);
+	// log_info(logger, "ME MUEROOOOOO %d\n", variable);
 	return 0;
 }
 

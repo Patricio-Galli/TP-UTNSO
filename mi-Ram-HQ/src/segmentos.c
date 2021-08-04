@@ -135,7 +135,7 @@ void segmentar_caracter(void* memoria, uint32_t posicion, char data) {
 
 void segmentar_entero(uint32_t posicion, uint32_t data) {
     uint32_t valor = data;
-    memcpy(/*memoria_ram.inicio + */posicion, &valor, sizeof(uint32_t));
+    memcpy(memoria_ram.inicio + posicion, &valor, sizeof(uint32_t));
 }
 
 void segmentar_string(void* memoria, uint32_t posicion, char* data) {

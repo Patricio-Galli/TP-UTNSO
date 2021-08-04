@@ -34,6 +34,7 @@ void actualizar_entero_paginacion(uint32_t id_patota, uint32_t desplazamiento, u
 uint32_t obtener_entero_paginacion(uint32_t id_patota, uint32_t desplazamiento);
 
 void* inicio_marco(uint32_t nro_marco);
+uint32_t inicio_marco_logico(uint32_t nro_marco);
 void incorporar_marco(uint32_t nro_marco);
 void borrar_marco(uint32_t nro_marco);
 

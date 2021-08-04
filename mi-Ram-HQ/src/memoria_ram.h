@@ -30,7 +30,8 @@ typedef struct {
     bool bit_uso;   // CLOCK
     // uint32_t espacio_libre;
     bool presencia;
-    bool modificado;    
+    bool modificado;
+    sem_t semaforo_mutex;
 }t_marco;
 
 typedef struct {

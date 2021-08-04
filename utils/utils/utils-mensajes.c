@@ -124,10 +124,10 @@ t_list* recibir_mensaje(int socket) {
 		break;
 
 	case ER_RCV:
-		printf("ERROR ER_RCV\n");
+		// printf("ERROR ER_RCV\n");
 		break;
 	case ER_SOC:
-		printf("ERROR ER_SOC\n");
+		// printf("ERROR ER_SOC\n");
 		break;
 	
 	case GEN_OX:

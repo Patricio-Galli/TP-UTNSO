@@ -21,6 +21,7 @@
 #include "patota.h"
 #include "tripulante.h"
 #include "consola.h"
+#include "loggear_pruebas.h"
 
 #include <errno.h>
 
@@ -28,7 +29,7 @@
 
 pthread_t* iniciar_mapa(bool*);
 bool iniciar_memoria(t_config*);
-void liberar_memoria(t_config* config, int socket_discord);
+void liberar_metadata(t_config* config, int socket_discord);
 
 // void liberar_segmentos();
 // void liberar_patotas();
