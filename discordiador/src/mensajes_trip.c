@@ -11,13 +11,17 @@ bool respuesta_OK(t_list* respuesta, char* mensaje_fallo) {
 	return true;
 }
 
-void enviar_y_verificar(t_mensaje* mensaje_out, int socket, char* mensaje_error) {
+bool enviar_y_verificar(t_mensaje* mensaje_out, int socket, char* mensaje_error) {
+	bool resultado;
+
 	enviar_mensaje(socket, mensaje_out);
 	t_list* mensaje_in = recibir_mensaje(socket);
-	respuesta_OK(mensaje_in, mensaje_error);
+	resultado = respuesta_OK(mensaje_in, mensaje_error);
 
 	liberar_mensaje_in(mensaje_in);
 	liberar_mensaje_out(mensaje_out);
+
+	return resultado;
 }
 
 char* solicitar_tarea(tripulante* trip) {

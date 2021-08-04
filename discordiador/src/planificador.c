@@ -22,9 +22,6 @@ void inicializar_planificador(int grado_multiprocesamiento, char* algoritmo) {
 	sem_init(&io_disponible, 0, 1);
 	sem_init(&tripulantes_blocked, 0, 0);
 
-	pthread_t hilo_planificador;
-	pthread_t hilo_planificador_io;
-
 	pthread_create(&hilo_planificador, NULL, planificador, algoritmo);
 	pthread_create(&hilo_planificador_io, NULL, planificador_io, NULL);
 }
@@ -81,11 +78,20 @@ void* planificador_io() {
 }
 
 void exit_planificacion() {
-	//cerrar cola_ready, cola_blocked, tripulantes_running
+	list_destroy(tripulantes_running);
+	queue_destroy(cola_ready);
+	queue_destroy(cola_blocked);
 
-	//finalizar semaforos mutex_cola_ready, mutex_tripulantes_running,
-			//mutex_cola_blocked, activar_planificacion, multiprocesamiento,
-			//tripulantes_ready, io_disponible, tripulantes_blocked
+	pthread_mutex_destroy(mutex_cola_ready);
+	pthread_mutex_destroy(mutex_tripulantes_running);
+	pthread_mutex_destroy(mutex_cola_blocked);
 
-	//finalizar hilos hilo_planificador, hilo_planificador_io
+	sem_destroy(activar_planificacion);
+	sem_destroy(multiprocesamiento);
+	sem_destroy(tripulantes_ready);
+	sem_destroy(io_disponible);
+	sem_destroy(tripulantes_blocked);
+
+	pthread_cancel(hilo_planificador);
+	pthread_cancel(hilo_planificador_io);
 }

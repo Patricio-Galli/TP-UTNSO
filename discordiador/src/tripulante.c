@@ -24,7 +24,7 @@ tripulante* crear_tripulante(int x, int y, int patota, int id, int socket_ram, i
 }
 
 void* rutina_tripulante(void* t) {
-	tripulante* trip = (tripulante*) t; //si modifico el interior de ese puntero se modifica de mi lista tambien
+	tripulante* trip = (tripulante*) t;
 	char* tarea;
 	bool termino_ejecucion;
 
@@ -33,19 +33,19 @@ void* rutina_tripulante(void* t) {
 	if(strcmp(tarea, "no_task") != 0)
 		agregar_ready(trip);
 
-	while(strcmp(tarea, "no_task") != 0) {
-
+	while(strcmp(tarea, "no_task") != 0 && trip->estado != EXIT) {
 		termino_ejecucion = ejecutar(tarea, trip);
 
 		if(termino_ejecucion)
 			tarea = solicitar_tarea(trip);
 	}
 
-	//free(tarea);
-	log_warning(logger,"Tripulante %d finalizando trabajo", trip->id_trip);
+	if(trip->estado != EXIT) {
+		log_warning(logger,"Tripulante %d finalizando trabajo", trip->id_trip);
 
-	actualizar_estado(trip, EXIT);
-	quitar_running(trip);
+		actualizar_estado(trip, EXIT);
+		quitar_running(trip);
+	}
 
 	sem_destroy(&trip->sem_blocked);
 	sem_destroy(&trip->sem_running);
@@ -74,9 +74,9 @@ bool ejecutar(char* input, tripulante* trip) {
 		enviar_y_verificar(mensaje_out, trip->socket_mongo, "Fallo en comunicacion con el mongo");
 	}
 
-	moverse(trip, atoi(buffer[1]), atoi(buffer[2]));
+	bool completo_movimiento = moverse(trip, atoi(buffer[1]), atoi(buffer[2]));
 
-	if(trip->quantum_disponible && trip->continuar) {
+	if(trip->quantum_disponible && trip->continuar && completo_movimiento) {
 		char** comando_tarea = string_split(buffer[0], " ");
 		tareas tarea = stringToEnum(comando_tarea[0]);
 
@@ -149,68 +149,69 @@ void ejecutar_io(tripulante* trip, tareas tarea, int cantidad) {
 
 	log_info(logger,"Tripulante %d ejecutando IO", trip->id_trip);
 
-	if(MONGO_ACTIVADO) {
-		t_mensaje* mensaje_out;
+	if(trip->continuar) {
+		if(MONGO_ACTIVADO) {
+			t_mensaje* mensaje_out;
 
-		switch(tarea){
-			case GENERAR_OXIGENO:
-				mensaje_out = crear_mensaje(GEN_OX);
-				break;
-			case CONSUMIR_OXIGENO:
-				mensaje_out = crear_mensaje(CON_OX);
-				break;
-			case GENERAR_COMIDA:
-				mensaje_out = crear_mensaje(GEN_CO);
-				break;
-			case CONSUMIR_COMIDA:
-				mensaje_out = crear_mensaje(CON_CO);
-				break;
-			case GENERAR_BASURA:
-				mensaje_out = crear_mensaje(GEN_BA);
-				break;
-			case DESCARTAR_BASURA:
-				mensaje_out = crear_mensaje(DES_BA);
-				break;
-			case ESPERAR: break;
+			switch(tarea){
+				case GENERAR_OXIGENO:
+					mensaje_out = crear_mensaje(GEN_OX);
+					break;
+				case CONSUMIR_OXIGENO:
+					mensaje_out = crear_mensaje(CON_OX);
+					break;
+				case GENERAR_COMIDA:
+					mensaje_out = crear_mensaje(GEN_CO);
+					break;
+				case CONSUMIR_COMIDA:
+					mensaje_out = crear_mensaje(CON_CO);
+					break;
+				case GENERAR_BASURA:
+					mensaje_out = crear_mensaje(GEN_BA);
+					break;
+				case DESCARTAR_BASURA:
+					mensaje_out = crear_mensaje(DES_BA);
+					break;
+				case ESPERAR: break;
+			}
+
+			agregar_parametro_a_mensaje(mensaje_out, (void*)cantidad, ENTERO);
+			enviar_y_verificar(mensaje_out, trip->socket_mongo, "Fallo al cargar respuesta en el MONGO");
+		}
+		else {
+			switch(tarea){
+				case GENERAR_OXIGENO:
+					log_info(logger,"Tripulante %d: Generando %d de oxigeno",trip->id_trip, cantidad);
+					break;
+				case CONSUMIR_OXIGENO:
+					log_info(logger,"Tripulante %d: Consumiendo %d de oxigeno",trip->id_trip, cantidad);
+					break;
+				case GENERAR_COMIDA:
+					log_info(logger,"Tripulante %d: Generando %d de comida",trip->id_trip, cantidad);
+					break;
+				case CONSUMIR_COMIDA:
+					log_info(logger,"Tripulante %d: Consumiendo %d de comida",trip->id_trip, cantidad);
+					break;
+				case GENERAR_BASURA:
+					log_info(logger,"Tripulante %d: Generando %d de basura",trip->id_trip, cantidad);
+					break;
+				case DESCARTAR_BASURA:
+					log_info(logger,"Tripulante %d: Descartando %d de basura",trip->id_trip, cantidad);
+					break;
+				case ESPERAR: break;
+			}
 		}
 
-		agregar_parametro_a_mensaje(mensaje_out, (void*)cantidad, ENTERO);
-		enviar_y_verificar(mensaje_out, trip->socket_mongo, "Fallo al cargar respuesta en el MONGO");
-	}
-	else {
-		switch(tarea){
-			case GENERAR_OXIGENO:
-				log_info(logger,"Tripulante %d: Generando %d de oxigeno",trip->id_trip, cantidad);
-				break;
-			case CONSUMIR_OXIGENO:
-				log_info(logger,"Tripulante %d: Consumiendo %d de oxigeno",trip->id_trip, cantidad);
-				break;
-			case GENERAR_COMIDA:
-				log_info(logger,"Tripulante %d: Generando %d de comida",trip->id_trip, cantidad);
-				break;
-			case CONSUMIR_COMIDA:
-				log_info(logger,"Tripulante %d: Consumiendo %d de comida",trip->id_trip, cantidad);
-				break;
-			case GENERAR_BASURA:
-				log_info(logger,"Tripulante %d: Generando %d de basura",trip->id_trip, cantidad);
-				break;
-			case DESCARTAR_BASURA:
-				log_info(logger,"Tripulante %d: Descartando %d de basura",trip->id_trip, cantidad);
-				break;
-			case ESPERAR: break;
-		}
-	}
+		sem_post(&io_disponible);
+		//ciclocpu
+		if(!hay_sabotaje)
+			agregar_ready(trip);
+		else
+			agregar_emergencia(trip);
 
-	sem_post(&io_disponible);
-
-	puede_continuar(trip);
-
-	if(!hay_sabotaje)
-		agregar_ready(trip);
-	else
-		agregar_emergencia(trip);
-
-	sem_wait(&trip->sem_running);
+		sem_wait(&trip->sem_running);
+	} else
+		sem_post(&trip->sem_blocked);
 }
 
 bool esperar(int tiempo, tripulante* trip) {

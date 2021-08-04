@@ -62,7 +62,7 @@ int main() {
 
 	while(!salir) {
 		char* buffer_consola = leer_consola();
-		char** input = string_split(buffer_consola, " "); //aca se estan perdiendo 40 bytes
+		char** input = string_split(buffer_consola, " ");
 		parametros_iniciar_patota* parametros;
 
 		switch(mapStringToEnum(input[0])) {
@@ -70,6 +70,8 @@ int main() {
 
 				if (!strcmp(buffer_consola,"ini")) {
 					//liberar_input(input);
+					///free(*input);
+					free(input);
 					input = string_split("iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 9|3 9|2", " ");
 				}
 
@@ -141,13 +143,15 @@ int main() {
 			case ERROR:
 				log_error(logger,"COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
 		}
-		//free(buffer_consola);
-		//liberar_input(input);
+		free(buffer_consola);
+		liberar_input(input);
 
 	}
+	//exit_tripulantes(); -> matar los hilos
 	exit_planificacion();
+	//liberar_tripulantes();
+	//exit_tripulantes();
 
-	//todo exit_tripulantes();
 	close(socket_ram);
 	close(socket_mongo);
 	log_destroy(logger);
@@ -237,35 +241,40 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 	int index = 0;
 
 	while(continuar) {
-		tripulante* nuevo_tripulante = (tripulante*)list_get(lista_tripulantes, index);
+		tripulante* trip = (tripulante*)list_get(lista_tripulantes, index);
 
-		log_info(logger,"Tripulante: %d    Patota: %d", nuevo_tripulante->id_trip, nuevo_tripulante->id_patota);
-
-		if(nuevo_tripulante->id_trip == id_tripulante && nuevo_tripulante->id_patota == id_patota) { //todo eliminar al tripulante de la planificacion
+		if(trip->id_trip == id_tripulante && trip->id_patota == id_patota) {
+			bool eliminar_trip = true;
 			continuar = false;
-			t_mensaje* mensaje;
-			t_list *respuesta;
 
-			if(RAM_ACTIVADA) {//todo verificar si hay que avisarle al mongo
-				tripulante* tripulante_expulsado = (tripulante*)list_remove(lista_tripulantes, index);
+			if(RAM_ACTIVADA) {
+				t_mensaje* mensaje_out = crear_mensaje(ELIM_T);
 
-				mensaje = crear_mensaje(ELIM_T);
+				agregar_parametro_a_mensaje(mensaje_out, (void*)id_tripulante, ENTERO);
+				agregar_parametro_a_mensaje(mensaje_out, (void*)id_patota, ENTERO);
 
-				agregar_parametro_a_mensaje(mensaje, (void*)id_tripulante, ENTERO);
-				agregar_parametro_a_mensaje(mensaje, (void*)id_patota, ENTERO);
-
-				respuesta = recibir_mensaje(socket_ram);
-
-				if((int)list_get(respuesta, 0) == TODOOK) {
-					free(tripulante_expulsado);
-					log_info(logger,"El tripulante %d de la patota %d ha sido expulsado", id_tripulante, id_patota);
-				}else
-					log_error(logger, "No se pudo expulsar al tripulante.");
-			}else {
-				tripulante* tripulante_expulsado = (tripulante*)list_remove(lista_tripulantes, index);
-				free(tripulante_expulsado);
-				log_info(logger,"El tripulante %d de la patota %d ha sido expulsado", id_tripulante, id_patota);
+				eliminar_trip = enviar_y_verificar(mensaje_out, socket_ram, "No se pudo expulsar al tripulante.");
 			}
+			/*
+			if(eliminar_trip) {
+
+				trip->continuar = false;
+				if(trip->estado == READY) { //todo quitarlo de la cola
+
+				}
+				if(trip->estado == BLOCKED) { //todo quitarlo de la cola
+					sem_wait(trip->sem_blocked);
+				}
+				if(trip->estado == RUNNING) { //todo quitarlo de la lista
+
+				}
+
+				trip->estado = EXIT;
+
+				list_remove(lista_tripulantes, index);
+				//free(tripulante_expulsado);
+				log_info(logger,"El tripulante %d de la patota %d ha sido expulsado", id_tripulante, id_patota);
+			}*/
 		}
 		else {
 			index++;

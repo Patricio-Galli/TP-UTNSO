@@ -44,8 +44,10 @@ void liberar_input(char** input) {
 		free(input[i]);
 		i++;
 	}
-	//free(input[i]); //todo verificar si hay que liberar el null
-	//free(input);
+
+	log_info(logger, "%d", i);
+
+	free(input);
 }
 
 int distancia_a(tripulante* trip, int pos_x, int pos_y) {

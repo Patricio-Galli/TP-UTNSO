@@ -16,8 +16,8 @@
 #include <utils/utils-sockets.h>
 #include <utils/utils-mensajes.h>
 
-#define RAM_ACTIVADA 1
-#define MONGO_ACTIVADO 1
+#define RAM_ACTIVADA 0
+#define MONGO_ACTIVADO 0
 
 //tripulante
 typedef struct {
@@ -79,6 +79,11 @@ bool analizar_quantum;
 int ciclo_CPU;
 int quantum;
 
+int socket_ram = 0, socket_mongo = 0;
+
+pthread_t hilo_planificador;
+pthread_t hilo_planificador_io;
+
 t_queue* cola_ready;
 t_queue* cola_blocked;
 
@@ -96,6 +101,7 @@ sem_t multiprocesamiento;
 sem_t tripulantes_ready;
 sem_t io_disponible;
 sem_t tripulantes_blocked;
+
 sem_t finalizo_sabotaje;
 sem_t fin_bloqueados;
 

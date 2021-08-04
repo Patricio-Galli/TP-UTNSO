@@ -11,8 +11,8 @@
 tripulante* crear_tripulante(int, int, int, int, int, int);
 void* rutina_tripulante(void*);
 bool ejecutar(char*, tripulante*);
-void moverse(tripulante*, int, int);
-void ejecutar_io(tripulante* trip, tareas tarea, int cantidad);
+bool moverse(tripulante*, int, int);
+bool ejecutar_io(tripulante* trip, tareas tarea, int cantidad);
 bool esperar(int, tripulante*);
 
 #endif /* TRIPULANTE_H_ */

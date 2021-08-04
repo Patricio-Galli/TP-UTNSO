@@ -18,6 +18,7 @@ parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar val
 			char** auxiliar = string_split(input[iterador+3], "|"); //divide la posicion de "x|y" a auxiliar[0]=x y auxiliar[1]=y
 			parametros->posiciones_x[iterador] = atoi(auxiliar[0]);
 			parametros->posiciones_y[iterador] = atoi(auxiliar[1]);
+			liberar_input(auxiliar);
 		}
 		else {
 			parametros->posiciones_x[iterador] = 0;
@@ -53,7 +54,7 @@ void liberar_parametros(parametros_iniciar_patota* parametros) {
 
 	while(parametros->cantidad_tareas > 0){
 		free(parametros->tareas[parametros->cantidad_tareas-1]);
-		(parametros->cantidad_tareas)--;
+		parametros->cantidad_tareas--;
 	}
 
 	free(parametros->tareas);
