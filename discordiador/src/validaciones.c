@@ -3,14 +3,19 @@
 /////////////////////VALIDACIONES//////////////////////
 
 void puede_continuar(tripulante* trip) {
-	trip->contador_ciclos++;
 
-	if(analizar_quantum && trip->contador_ciclos == quantum) {
-		log_info(logger,"Tripulante %d se quedo sin quantum", trip->id_trip);
+	if(analizar_quantum) {
+		trip->contador_ciclos++;
 
-		quitar_running(trip);
-		agregar_ready(trip);
-		trip->contador_ciclos = 0;
+		if(trip->contador_ciclos == quantum) {
+			log_info(logger,"Tripulante %d se quedo sin quantum", trip->id_trip);
+
+			quitar_running(trip);
+			agregar_ready(trip);
+			trip->contador_ciclos = 0;
+
+			sem_wait(&trip->sem_running);
+		}
 	}
 
 	if(!continuar_planificacion) {
@@ -21,6 +26,7 @@ void puede_continuar(tripulante* trip) {
 
 	if(trip->estado == EMERGENCY) {
 		sem_post(&trip->sem_blocked);
+		sem_post(&multiprocesamiento);
 		sem_wait(&trip->sem_running);
 	}
 }

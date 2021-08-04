@@ -64,7 +64,6 @@ int main() {
 	while(!salir) {
 		char* buffer_consola = leer_consola();
 		char** input = string_split(buffer_consola, " ");
-		parametros_iniciar_patota* parametros;
 
 		switch(mapStringToEnum(input[0])) {
 			case INICIAR_PATOTA:
@@ -74,7 +73,7 @@ int main() {
 					input = string_split("iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 9|3 9|2", " ");
 				}
 
-				parametros = obtener_parametros(input);
+				parametros_iniciar_patota* parametros = obtener_parametros(input);
 				loggear_parametros(parametros);
 
 				if(RAM_ACTIVADA || MONGO_ACTIVADO) {
@@ -243,7 +242,7 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 		tripulante* trip = (tripulante*)list_get(lista_tripulantes, index);
 
 		if(trip->id_trip == id_tripulante && trip->id_patota == id_patota) {
-			bool eliminar_trip = true;
+			//bool eliminar_trip = true;
 			continuar = false;
 
 			if(RAM_ACTIVADA) {
@@ -252,7 +251,7 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 				agregar_parametro_a_mensaje(mensaje_out, (void*)id_tripulante, ENTERO);
 				agregar_parametro_a_mensaje(mensaje_out, (void*)id_patota, ENTERO);
 
-				eliminar_trip = enviar_y_verificar(mensaje_out, socket_ram, "No se pudo expulsar al tripulante.");
+				//eliminar_trip = enviar_y_verificar(mensaje_out, socket_ram, "No se pudo expulsar al tripulante.");
 			}
 			/*
 			if(eliminar_trip) {

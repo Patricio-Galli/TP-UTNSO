@@ -28,7 +28,7 @@ void emergency_trips_running() {
 	}
 }
 
-void emergency_trips_ready() { //modificar para que mueva a los tripulantes como emergency_trips_running
+void emergency_trips_ready() { //todo modificar para que mueva a los tripulantes como emergency_trips_running
 	while(!queue_is_empty(cola_ready)) {
 		tripulante* trip = quitar_ready();
 		log_info(logger, "Quitando de ready al trip %d", trip->id_trip);
@@ -59,12 +59,12 @@ void* detector_sabotaje(void* socket_mongo) {
 				while(!list_is_empty(cola_emergencia)) {
 					tripulante* trip = (tripulante*)list_get(cola_emergencia, 0);
 					log_info(logger, "Tripulante %d en ready", trip->id_trip);
-					trip->continuar = true;
 					agregar_ready(trip);
 					list_remove(cola_emergencia, 0);
 				}
 
 				hay_sabotaje = false;
+				sem_post(&finalizo_sabotaje);
 				sem_post(&finalizo_sabotaje);
 
 			}else
@@ -94,7 +94,7 @@ tripulante* encontrar_mas_cercano(int pos_x, int pos_y) {
 		index--;
 	}
 
-	log_info(logger, "Resolvedor %d", resolvedor->id_trip);
+	log_info(logger, "El tripulante %d va a resolver el savotaje", resolvedor->id_trip);
 
 	list_remove(cola_emergencia, indice_resolvedor);
 	list_add(cola_emergencia, resolvedor);

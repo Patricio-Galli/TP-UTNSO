@@ -24,11 +24,9 @@ command_code mapStringToEnum(char *string){
 
 	for(int i=0;i<7;i++){
 		if(!strcasecmp(string,listaDeStrings[i])) {
-			free(string);
 			return i;
 		}		
 	}
-	free(string);
 	return ERROR;
 }
 
