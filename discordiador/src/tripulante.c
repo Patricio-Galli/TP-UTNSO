@@ -34,10 +34,8 @@ void* rutina_tripulante(void* t) {
 		agregar_ready(trip);
 
 	while(strcmp(tarea, "no_task") != 0 && trip->estado != EXIT) {
-		termino_ejecucion = ejecutar(tarea, trip);
-
-		if(termino_ejecucion)
-			tarea = solicitar_tarea(trip);
+		ejecutar(tarea, trip);
+		tarea = solicitar_tarea(trip);
 	}
 
 	if(trip->estado != EXIT) {
@@ -53,8 +51,8 @@ void* rutina_tripulante(void* t) {
 	return 0;
 }
 
-bool ejecutar(char* input, tripulante* trip) {
-
+void ejecutar(char* input, tripulante* trip) {
+	/*
 	if(trip->estado == EMERGENCY) {
 		log_info(logger,"Tripulante %d bloqueado emergency", trip->id_trip);
 		sem_post(&trip->sem_blocked);
@@ -62,7 +60,7 @@ bool ejecutar(char* input, tripulante* trip) {
 	}
 
 	if(trip->estado != RUNNING)
-		sem_wait(&trip->sem_running);
+		sem_wait(&trip->sem_running);*/
 
 	log_info(logger,"Tripulante %d va a ejecutar tarea %s", trip->id_trip, input);
 
@@ -74,45 +72,29 @@ bool ejecutar(char* input, tripulante* trip) {
 		enviar_y_verificar(mensaje_out, trip->socket_mongo, "Fallo en comunicacion con el mongo");
 	}
 
-	bool completo_movimiento = moverse(trip, atoi(buffer[1]), atoi(buffer[2]));
+	moverse(trip, atoi(buffer[1]), atoi(buffer[2]));
 
-	if(trip->quantum_disponible && trip->continuar && completo_movimiento) {
+	if(trip->continuar) {
 		char** comando_tarea = string_split(buffer[0], " ");
 		tareas tarea = stringToEnum(comando_tarea[0]);
 
 		if(tarea != ESPERAR)
-			ejecutar_io(trip, tarea, atoi(comando_tarea[1]));
+			ejecutar_io(trip, tarea, atoi(comando_tarea[1]), atoi(buffer[3]));
+		else
+			esperar(atoi(buffer[3]), trip);
 
 		liberar_input(comando_tarea);
-	}
 
-	bool termino_tarea = esperar(atoi(buffer[3]), trip);
-
-	if(termino_tarea) {
 		log_info(logger,"Tripulante %d termino de ejecutar", trip->id_trip);
-
-		if(MONGO_ACTIVADO)
-			enviar_y_verificar(crear_mensaje(EXEC_0), trip->socket_mongo, "Fallo en comunicacion con el mongo");
-	}
-
-	if(!trip->quantum_disponible && trip->continuar) {
-		log_info(logger,"Tripulante %d se quedo sin quantum", trip->id_trip);
-
-		quitar_running(trip);
-		agregar_ready(trip);
-
-		trip->quantum_disponible = true;
-		trip->contador_ciclos = 0;
+		enviar_y_verificar(crear_mensaje(EXEC_0), trip->socket_mongo, "Fallo en comunicacion con el mongo");
 	}
 
 	liberar_input(buffer);
-
-	return termino_tarea;
 }
 
 void moverse(tripulante* trip, int pos_x, int pos_y) {
 
-	while(trip->posicion[0] != pos_x && trip->quantum_disponible && trip->continuar) {
+	while(trip->continuar && trip->posicion[0] != pos_x) {
 
 		(trip->posicion[0] < pos_x) ? trip->posicion[0]++ : trip->posicion[0]--;
 		avisar_movimiento(trip);
@@ -121,7 +103,7 @@ void moverse(tripulante* trip, int pos_x, int pos_y) {
 		puede_continuar(trip);
 	}
 
-	while(trip->posicion[1] != pos_y && trip->quantum_disponible && trip->continuar) {
+	while(trip->continuar && trip->posicion[1] != pos_y) {
 
 		(trip->posicion[1] < pos_y) ? trip->posicion[1]++ : trip->posicion[1]--;
 		avisar_movimiento(trip);
@@ -132,13 +114,13 @@ void moverse(tripulante* trip, int pos_x, int pos_y) {
 
 	if(!trip->continuar)
 		log_info(logger,"Tripulante %d quitado de running (movimiento)", trip->id_trip);
-	else if(trip->posicion[0] == pos_x && trip->posicion[1] == pos_y)
-		log_info(logger,"Tripulante %d llego a %d|%d", trip->id_trip, trip->posicion[0], trip->posicion[1]);
 	else
-		log_info(logger,"Tripulante %d se quedo en %d|%d en vez de %d|%d", trip->id_trip, trip->posicion[0], trip->posicion[1], pos_x, pos_y);
+		log_info(logger,"Tripulante %d llego a %d|%d", trip->id_trip, trip->posicion[0], trip->posicion[1]);
+
 }
 
-void ejecutar_io(tripulante* trip, tareas tarea, int cantidad) {
+void ejecutar_io(tripulante* trip, tareas tarea, int cantidad, int tiempo_io) {
+	puede_continuar(trip);
 
 	quitar_running(trip);
 	agregar_blocked(trip);
@@ -150,6 +132,9 @@ void ejecutar_io(tripulante* trip, tareas tarea, int cantidad) {
 	log_info(logger,"Tripulante %d ejecutando IO", trip->id_trip);
 
 	if(trip->continuar) {
+		if(hay_sabotaje)
+			sem_wait(&finalizo_sabotaje);
+
 		if(MONGO_ACTIVADO) {
 			t_mensaje* mensaje_out;
 
@@ -202,34 +187,37 @@ void ejecutar_io(tripulante* trip, tareas tarea, int cantidad) {
 			}
 		}
 
-		sem_post(&io_disponible);
-		//ciclocpu
-		if(!hay_sabotaje)
-			agregar_ready(trip);
-		else
-			agregar_emergencia(trip);
+		for(int i = 0; i < tiempo_io; i++) {
+			if(!trip->continuar)
+				i = tiempo_io;
+			else
+				sleep(ciclo_CPU);
 
-		sem_wait(&trip->sem_running);
+			if(hay_sabotaje)
+				sem_wait(&finalizo_sabotaje);
+		}
+
+		sem_post(&io_disponible);
+
+		if(trip->continuar) {
+			agregar_ready(trip);
+			sem_wait(&trip->sem_running);
+		}
+
 	} else
-		sem_post(&trip->sem_blocked);
+		sem_post(&io_disponible);
 }
 
-bool esperar(int tiempo, tripulante* trip) {
-	while(trip->tiempo_esperado < tiempo && trip->quantum_disponible && trip->continuar) {
-
-		trip->tiempo_esperado++;
-		log_info(logger,"Tripulante %d: Espero %d de %d",trip->id_trip, trip->tiempo_esperado, tiempo);
-		sleep(ciclo_CPU);
-
-		puede_continuar(trip);
+void esperar(int tiempo, tripulante* trip) {
+	for(int i = 0; i < tiempo; i++) {
+		if(!trip->continuar) {
+			i = tiempo;
+			log_info(logger,"Tripulante %d quitado de running (esperar)", trip->id_trip);
+		}
+		else {
+			log_info(logger,"Tripulante %d: Espero %d de %d",trip->id_trip, i, tiempo);
+			sleep(ciclo_CPU);
+			puede_continuar(trip);
+		}
 	}
-
-	if(!trip->continuar)
-		log_info(logger,"Tripulante %d quitado de running (esperar)", trip->id_trip);
-	else if(trip->tiempo_esperado == tiempo) {
-		trip->tiempo_esperado = 0;
-		return true;
-	}
-
-	return false;
 }

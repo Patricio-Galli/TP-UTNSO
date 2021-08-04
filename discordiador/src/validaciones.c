@@ -1,20 +1,29 @@
 #include "validaciones.h"
 
 /////////////////////VALIDACIONES//////////////////////
-void actualizar_quantum(tripulante* trip) {
-	trip->contador_ciclos++;
-
-	if(analizar_quantum && trip->contador_ciclos == quantum)
-		trip->quantum_disponible = false;
-}
 
 void puede_continuar(tripulante* trip) {
-	actualizar_quantum(trip);
+	trip->contador_ciclos++;
+
+	if(analizar_quantum && trip->contador_ciclos == quantum) {
+		log_info(logger,"Tripulante %d se quedo sin quantum", trip->id_trip);
+
+		quitar_running(trip);
+		agregar_ready(trip);
+		trip->contador_ciclos = 0;
+
+		sem_wait(trip->sem_running);
+	}
 
 	if(!continuar_planificacion) {
 		log_info(logger,"Tripulante %d pausado", trip->id_trip);
 		sem_wait(&trip->sem_running);
 		log_info(logger,"Tripulante %d reactivado", trip->id_trip);
+	}
+
+	if(trip->estado == EMERGENCY) {
+		sem_post(trip->sem_blocked);
+		sem_wait(trip->sem_running);
 	}
 }
 

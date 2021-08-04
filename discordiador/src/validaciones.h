@@ -4,7 +4,6 @@
 #include "global.h"
 
 /////////////////////VALIDACIONES//////////////////////
-void actualizar_quantum(tripulante*);
 void puede_continuar(tripulante*);
 
 

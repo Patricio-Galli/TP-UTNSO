@@ -35,8 +35,6 @@ typedef struct {
 	sem_t sem_running;
 
 	int contador_ciclos;
-	int tiempo_esperado;
-	bool quantum_disponible;
 	bool continuar;
 }tripulante;
 

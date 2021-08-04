@@ -21,16 +21,14 @@ void emergency_trips_running() {
 
 		log_info(logger, "Quitando de running al trip %d", trip_quitar->id_trip);
 
+		list_remove(tripulantes_running, indice_trip_quitar);
 		agregar_emergencia(trip_quitar);
-		trip_quitar->continuar = false;
 
 		sem_wait(&trip_quitar->sem_blocked);
-		list_remove(tripulantes_running, indice_trip_quitar);
 	}
 }
 
-void emergency_trips_ready() {
-	log_info(logger, "Quitando tripulantes de ready");
+void emergency_trips_ready() { //modificar para que mueva a los tripulantes como emergency_trips_running
 	while(!queue_is_empty(cola_ready)) {
 		tripulante* trip = quitar_ready();
 		log_info(logger, "Quitando de ready al trip %d", trip->id_trip);
@@ -54,39 +52,9 @@ void* detector_sabotaje(void* socket_mongo) {
 
 			emergency_trips_running();
 			emergency_trips_ready();
-			//emergency_blocked -> se hace en ejecutar_io() a medida que van finalizando
-
-			if(!queue_is_empty(cola_blocked)) {
-				log_info(logger, "Esperando a que terminen io todos los trips");
-				sem_wait(&fin_bloqueados);
-				log_info(logger, "Todos terminaron io");
-			}
 
 			if(!list_is_empty(cola_emergencia)){
-				int index = list_size(cola_emergencia)-1;
-				tripulante* resolvedor = (tripulante*)list_get(cola_emergencia, index);
-				int indice_resolvedor = index;
-				index--;
-
-				while(index >= 0) {
-					tripulante* posible_resolvedor = (tripulante*)list_get(cola_emergencia, index);
-
-					if(distancia_a(posible_resolvedor, pos_x, pos_y) <= distancia_a(resolvedor, pos_x, pos_y)) {
-						resolvedor = posible_resolvedor;
-						indice_resolvedor = index;
-					}
-
-					index--;
-				}
-
-				log_info(logger, "Resolvedor %d", resolvedor->id_trip);
-
-				resolver_sabotaje(resolvedor, pos_x, pos_y, socket_sabotajes);
-
-				list_remove(cola_emergencia, indice_resolvedor);
-				list_add(cola_emergencia, resolvedor);
-
-				log_info(logger, "Resolvedor mandado al final de la cola");
+				resolver_sabotaje(pos_x, pos_y, socket_sabotajes);
 
 				while(!list_is_empty(cola_emergencia)) {
 					tripulante* trip = (tripulante*)list_get(cola_emergencia, 0);
@@ -109,7 +77,36 @@ void* detector_sabotaje(void* socket_mongo) {
 	return 0;
 }
 
-void resolver_sabotaje(tripulante* trip, int pos_x, int pos_y, int socket_sabotajes) {
+tripulante* encontrar_mas_cercano(int pos_x, int pos_y) {
+	int index = list_size(cola_emergencia)-1;
+	tripulante* resolvedor = (tripulante*)list_get(cola_emergencia, index);
+	int indice_resolvedor = index;
+	index--;
+
+	while(index >= 0) {
+		tripulante* posible_resolvedor = (tripulante*)list_get(cola_emergencia, index);
+
+		if(distancia_a(posible_resolvedor, pos_x, pos_y) <= distancia_a(resolvedor, pos_x, pos_y)) {
+			resolvedor = posible_resolvedor;
+			indice_resolvedor = index;
+		}
+
+		index--;
+	}
+
+	log_info(logger, "Resolvedor %d", resolvedor->id_trip);
+
+	list_remove(cola_emergencia, indice_resolvedor);
+	list_add(cola_emergencia, resolvedor);
+
+	log_info(logger, "Resolvedor mandado al final de la cola");
+
+	return resolvedor;
+}
+
+void resolver_sabotaje(int pos_x, int pos_y, int socket_sabotajes) {
+	tripulante* trip = encontrar_mas_cercano(pos_x, pos_y);
+
 	t_mensaje* mensaje_ini = crear_mensaje(SABO_I);
 	agregar_parametro_a_mensaje(mensaje_ini, (void*)trip->id_trip, ENTERO);
 	agregar_parametro_a_mensaje(mensaje_ini, (void*)trip->id_patota, ENTERO);

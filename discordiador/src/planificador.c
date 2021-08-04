@@ -43,9 +43,6 @@ void* planificador(void* algoritmo) {
 		sem_wait(&tripulantes_ready);
 		sem_wait(&multiprocesamiento);
 
-		if(hay_sabotaje)
-			sem_wait(&finalizo_sabotaje);
-
 		if(!queue_is_empty(cola_ready)) {
 			tripulante* trip = quitar_ready();
 			agregar_running(trip);
@@ -56,13 +53,6 @@ void* planificador(void* algoritmo) {
 
 void* planificador_io() {
 	while(!salir) {
-
-		if(hay_sabotaje && queue_is_empty(cola_blocked)) {
-			sem_wait(&io_disponible);
-			sem_post(&fin_bloqueados);
-			sem_post(&io_disponible);
-		}
-
 		sem_wait(&tripulantes_blocked);
 		sem_wait(&io_disponible);
 
