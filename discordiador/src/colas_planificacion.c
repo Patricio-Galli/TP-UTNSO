@@ -7,6 +7,8 @@ void agregar_ready(tripulante* trip) {
 		queue_push(cola_ready, trip);
 		sem_post(&tripulantes_ready);
 	pthread_mutex_unlock(&mutex_cola_ready);
+
+	sem_wait(&trip->sem_running);
 }
 
 void agregar_running(tripulante* trip) {

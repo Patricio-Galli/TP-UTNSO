@@ -77,8 +77,6 @@ bool analizar_quantum;
 int ciclo_CPU;
 int quantum;
 
-int socket_ram = 0, socket_mongo = 0;
-
 pthread_t hilo_planificador;
 pthread_t hilo_planificador_io;
 

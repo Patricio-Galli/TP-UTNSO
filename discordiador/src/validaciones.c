@@ -11,8 +11,6 @@ void puede_continuar(tripulante* trip) {
 		quitar_running(trip);
 		agregar_ready(trip);
 		trip->contador_ciclos = 0;
-
-		sem_wait(trip->sem_running);
 	}
 
 	if(!continuar_planificacion) {
@@ -22,8 +20,8 @@ void puede_continuar(tripulante* trip) {
 	}
 
 	if(trip->estado == EMERGENCY) {
-		sem_post(trip->sem_blocked);
-		sem_wait(trip->sem_running);
+		sem_post(&trip->sem_blocked);
+		sem_wait(&trip->sem_running);
 	}
 }
 
@@ -53,8 +51,6 @@ void liberar_input(char** input) {
 		free(input[i]);
 		i++;
 	}
-
-	log_info(logger, "%d", i);
 
 	free(input);
 }

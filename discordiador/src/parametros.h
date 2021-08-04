@@ -2,6 +2,7 @@
 #define PARAMETROS_H_
 
 #include "global.h"
+#include "validaciones.h"
 
 parametros_iniciar_patota* obtener_parametros(char** input);
 void liberar_parametros(parametros_iniciar_patota* parametros);

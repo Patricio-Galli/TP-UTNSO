@@ -53,6 +53,7 @@ int main() {
 	lista_tripulantes = list_create();
 	salir = false;
 	planificacion_inicializada = false;
+	continuar_planificacion = true;
 	ciclo_CPU = atoi(config_get_string_value(config, "RETARDO_CICLO_CPU"));
 	quantum = atoi(config_get_string_value(config, "QUANTUM"));
 
@@ -69,8 +70,6 @@ int main() {
 			case INICIAR_PATOTA:
 
 				if (!strcmp(buffer_consola,"ini")) {
-					//liberar_input(input);
-					///free(*input);
 					free(input);
 					input = string_split("iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 9|3 9|2", " ");
 				}

@@ -2,6 +2,7 @@
 #define VALIDACIONES_H_
 
 #include "global.h"
+#include "colas_planificacion.h"
 
 /////////////////////VALIDACIONES//////////////////////
 void puede_continuar(tripulante*);

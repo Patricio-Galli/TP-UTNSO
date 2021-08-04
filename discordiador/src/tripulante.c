@@ -11,8 +11,6 @@ tripulante* crear_tripulante(int x, int y, int patota, int id, int socket_ram, i
 	nuevo_tripulante->socket_ram = socket_ram;
 	nuevo_tripulante->socket_mongo = socket_mongo;
 	nuevo_tripulante->contador_ciclos = 0;
-	nuevo_tripulante->tiempo_esperado = 0;
-	nuevo_tripulante->quantum_disponible = true;
 	nuevo_tripulante->continuar = true;
 
 	sem_init(&nuevo_tripulante->sem_blocked, 0, 0);
@@ -26,7 +24,6 @@ tripulante* crear_tripulante(int x, int y, int patota, int id, int socket_ram, i
 void* rutina_tripulante(void* t) {
 	tripulante* trip = (tripulante*) t;
 	char* tarea;
-	bool termino_ejecucion;
 
 	tarea = solicitar_tarea(trip);
 
@@ -52,16 +49,6 @@ void* rutina_tripulante(void* t) {
 }
 
 void ejecutar(char* input, tripulante* trip) {
-	/*
-	if(trip->estado == EMERGENCY) {
-		log_info(logger,"Tripulante %d bloqueado emergency", trip->id_trip);
-		sem_post(&trip->sem_blocked);
-		sem_post(&multiprocesamiento);
-	}
-
-	if(trip->estado != RUNNING)
-		sem_wait(&trip->sem_running);*/
-
 	log_info(logger,"Tripulante %d va a ejecutar tarea %s", trip->id_trip, input);
 
 	char** buffer = string_split(input, ";");
@@ -86,7 +73,9 @@ void ejecutar(char* input, tripulante* trip) {
 		liberar_input(comando_tarea);
 
 		log_info(logger,"Tripulante %d termino de ejecutar", trip->id_trip);
-		enviar_y_verificar(crear_mensaje(EXEC_0), trip->socket_mongo, "Fallo en comunicacion con el mongo");
+
+		if(MONGO_ACTIVADO)
+			enviar_y_verificar(crear_mensaje(EXEC_0), trip->socket_mongo, "Fallo en comunicacion con el mongo");
 	}
 
 	liberar_input(buffer);
@@ -188,6 +177,7 @@ void ejecutar_io(tripulante* trip, tareas tarea, int cantidad, int tiempo_io) {
 		}
 
 		for(int i = 0; i < tiempo_io; i++) {
+			log_info(logger, "Trip %d ejecuto %d I/O", trip->id_trip, i);
 			if(!trip->continuar)
 				i = tiempo_io;
 			else
@@ -199,10 +189,8 @@ void ejecutar_io(tripulante* trip, tareas tarea, int cantidad, int tiempo_io) {
 
 		sem_post(&io_disponible);
 
-		if(trip->continuar) {
+		if(trip->continuar)
 			agregar_ready(trip);
-			sem_wait(&trip->sem_running);
-		}
 
 	} else
 		sem_post(&io_disponible);

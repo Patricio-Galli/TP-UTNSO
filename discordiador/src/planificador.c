@@ -72,15 +72,15 @@ void exit_planificacion() {
 	queue_destroy(cola_ready);
 	queue_destroy(cola_blocked);
 
-	pthread_mutex_destroy(mutex_cola_ready);
-	pthread_mutex_destroy(mutex_tripulantes_running);
-	pthread_mutex_destroy(mutex_cola_blocked);
+	pthread_mutex_destroy(&mutex_cola_ready);
+	pthread_mutex_destroy(&mutex_tripulantes_running);
+	pthread_mutex_destroy(&mutex_cola_blocked);
 
-	sem_destroy(activar_planificacion);
-	sem_destroy(multiprocesamiento);
-	sem_destroy(tripulantes_ready);
-	sem_destroy(io_disponible);
-	sem_destroy(tripulantes_blocked);
+	sem_destroy(&activar_planificacion);
+	sem_destroy(&multiprocesamiento);
+	sem_destroy(&tripulantes_ready);
+	sem_destroy(&io_disponible);
+	sem_destroy(&tripulantes_blocked);
 
 	pthread_cancel(hilo_planificador);
 	pthread_cancel(hilo_planificador_io);
