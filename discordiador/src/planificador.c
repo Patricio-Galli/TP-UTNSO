@@ -1,9 +1,8 @@
 #include "planificador.h"
 
 void inicializar_planificador(int grado_multiprocesamiento, char* algoritmo) {
-	cola_ready = queue_create();
+	cola_ready = list_create();
 	cola_blocked = queue_create();
-
 	cola_emergencia = list_create();
 	tripulantes_running = list_create();
 
@@ -70,7 +69,7 @@ void* planificador_io() {
 
 void exit_planificacion() {
 	list_destroy(tripulantes_running);
-	queue_destroy(cola_ready);
+	list_destroy(cola_ready);
 	queue_destroy(cola_blocked);
 
 	pthread_mutex_destroy(&mutex_cola_ready);

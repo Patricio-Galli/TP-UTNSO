@@ -4,7 +4,7 @@ void agregar_ready(tripulante* trip) {
 	actualizar_estado(trip, READY);
 
 	pthread_mutex_lock(&mutex_cola_ready);
-		queue_push(cola_ready, trip);
+		list_add(cola_ready, trip);
 		sem_post(&tripulantes_ready);
 	pthread_mutex_unlock(&mutex_cola_ready);
 }
@@ -34,7 +34,7 @@ void agregar_emergencia(tripulante* trip) {
 
 tripulante* quitar_ready() {
 	pthread_mutex_lock(&mutex_cola_ready);
-		tripulante* trip = (tripulante*)queue_pop(cola_ready);
+		tripulante* trip = (tripulante*)list_remove(cola_ready, 0);
 	pthread_mutex_unlock(&mutex_cola_ready);
 	return trip;
 }

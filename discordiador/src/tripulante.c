@@ -195,6 +195,8 @@ void ejecutar_io(tripulante* trip, tareas tarea, int cantidad, int tiempo_io) {
 			}
 		}
 
+		trip_block = NULL;
+
 		sem_post(&io_disponible);
 
 		if(trip->continuar) {

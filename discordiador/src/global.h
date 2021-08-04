@@ -80,9 +80,8 @@ int quantum;
 pthread_t hilo_planificador;
 pthread_t hilo_planificador_io;
 
-t_queue* cola_ready;
+t_list* cola_ready;
 t_queue* cola_blocked;
-
 t_list* cola_emergencia;
 t_list* tripulantes_running;
 t_list* lista_tripulantes;

@@ -2,38 +2,51 @@
 
 void emergency_trips_running() {
 	while(!list_is_empty(tripulantes_running)) {
-		int index = list_size(tripulantes_running)-1;
 
-		tripulante* trip_quitar = (tripulante*)list_get(tripulantes_running, index);
-		int indice_trip_quitar = index;
-		index--;
+		pthread_mutex_lock(&mutex_tripulantes_running);
+		tripulante* trip_quitado = (tripulante*) list_remove(tripulantes_running, seleccionar_trip(tripulantes_running));
+		pthread_mutex_unlock(&mutex_tripulantes_running);
 
-		while(index >= 0) {
-			tripulante* nuevo_tripulante = (tripulante*)list_get(tripulantes_running, index);
+		log_info(logger, "Quitado de running el trip %d", trip_quitado->id_trip);
 
-			if(nuevo_tripulante->id_trip < trip_quitar->id_trip || (nuevo_tripulante->id_trip == trip_quitar->id_trip && nuevo_tripulante->id_patota < trip_quitar->id_patota)) {
-				trip_quitar = nuevo_tripulante;
-				indice_trip_quitar = index;
-			}
+		agregar_emergencia(trip_quitado);
 
-			index--;
-		}
-
-		log_info(logger, "Quitando de running al trip %d", trip_quitar->id_trip);
-
-		list_remove(tripulantes_running, indice_trip_quitar);
-		agregar_emergencia(trip_quitar);
-
-		sem_wait(&trip_quitar->sem_blocked);
+		sem_wait(&trip_quitado->sem_blocked);
 	}
 }
 
-void emergency_trips_ready() { //todo modificar para que mueva a los tripulantes como emergency_trips_running
-	while(!queue_is_empty(cola_ready)) {
-		tripulante* trip = quitar_ready();
-		log_info(logger, "Quitando de ready al trip %d", trip->id_trip);
-		agregar_emergencia(trip);
+void emergency_trips_ready() {
+	while(!list_is_empty(cola_ready)) {
+
+		pthread_mutex_lock(&mutex_cola_ready);
+		tripulante* trip_quitado = (tripulante*) list_remove(cola_ready, seleccionar_trip(cola_ready));
+		pthread_mutex_unlock(&mutex_cola_ready);
+
+		log_info(logger, "Quitado de ready el trip %d", trip_quitado->id_trip);
+
+		agregar_emergencia(trip_quitado);
 	}
+}
+
+int seleccionar_trip(t_list* lista) {
+	int index = list_size(lista)-1;
+
+	tripulante* trip_quitar = (tripulante*)list_get(lista, index);
+	int indice_trip_quitar = index;
+	index--;
+
+	while(index >= 0) {
+		tripulante* nuevo_tripulante = (tripulante*)list_get(lista, index);
+
+		if(nuevo_tripulante->id_trip < trip_quitar->id_trip || (nuevo_tripulante->id_trip == trip_quitar->id_trip && nuevo_tripulante->id_patota < trip_quitar->id_patota)) {
+			trip_quitar = nuevo_tripulante;
+			indice_trip_quitar = index;
+		}
+
+		index--;
+	}
+
+	return indice_trip_quitar;
 }
 
 void* detector_sabotaje(void* socket_mongo) {
@@ -64,8 +77,10 @@ void* detector_sabotaje(void* socket_mongo) {
 				}
 
 				hay_sabotaje = false;
-				sem_post(&finalizo_sabotaje);
-				sem_post(&finalizo_sabotaje);
+				sem_post(&finalizo_sabotaje); 		//para que se reactive la planificacion
+
+				if(trip_block != NULL)				//si hay un tripulante bloqueado le aviso que finalizo el sabotaje
+					sem_post(&finalizo_sabotaje);	//para que contiue trabajando
 
 			}else
 				log_error(logger, "No hay tripulantes en la nave, no se puede resolver el sabotaje");
