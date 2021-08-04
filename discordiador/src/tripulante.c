@@ -40,8 +40,8 @@ void* rutina_tripulante(void* t) {
 	//if(trip->estado != EXIT) {
 		log_error(logger,"Tripulante %d finalizando trabajo", trip->id_trip);
 
-		actualizar_estado(trip, EXIT);
 		quitar_running(trip);
+		actualizar_estado(trip, EXIT);
 	//}
 
 	sem_destroy(&trip->sem_blocked);
@@ -118,7 +118,7 @@ void ejecutar_io(tripulante* trip, tareas tarea, int cantidad, int tiempo_io) {
 
 	log_info(logger,"Tripulante %d blockeado por IO", trip->id_trip);
 	sem_wait(&trip->sem_blocked);
-	log_info(logger,"Tripulante %d ejecutando IO", trip->id_trip);
+	log_info(logger,"Tripulante %d desbloqueado por IO", trip->id_trip);
 
 	if(trip->continuar) {
 		if(MONGO_ACTIVADO) {
@@ -195,8 +195,7 @@ void ejecutar_io(tripulante* trip, tareas tarea, int cantidad, int tiempo_io) {
 			}
 		}
 
-		trip_block = NULL;
-
+		trip_block = NULL; //quito al tripulante bloqueado
 		sem_post(&io_disponible);
 
 		if(trip->continuar) {

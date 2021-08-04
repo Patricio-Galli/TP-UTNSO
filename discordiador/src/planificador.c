@@ -44,9 +44,10 @@ void* planificador(void* algoritmo) {
 		if(hay_sabotaje)
 			sem_wait(&finalizo_sabotaje);
 
-		tripulante* trip = quitar_ready();
-
-		agregar_running(trip);
+		if(list_size(cola_ready) > 0)			//hago esto porque al haber un sabotaje, cuando agrego
+			agregar_running(quitar_ready());	//los tripulantes a ready, se le estan sumando valores al semaforo
+		else									//de tripulantes que ya estaban en ready. Lo ideal seria poner el
+			sem_post(&multiprocesamiento);		//semaforo en 0 al quitar a todos de ready.
 	}
 	return 0;
 }
@@ -57,11 +58,10 @@ void* planificador_io() {
 		sem_wait(&io_disponible);
 
 		pthread_mutex_lock(&mutex_cola_blocked);
-			tripulante* trip = (tripulante*)queue_pop(cola_blocked);
-			trip_block = trip;
+		trip_block = (tripulante*)queue_pop(cola_blocked);
 		pthread_mutex_unlock(&mutex_cola_blocked);
 
-		sem_post(&trip->sem_blocked);
+		sem_post(&trip_block->sem_blocked);
 	}
 
 	return 0;

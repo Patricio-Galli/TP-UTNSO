@@ -70,17 +70,16 @@ void* detector_sabotaje(void* socket_mongo) {
 				resolver_sabotaje(pos_x, pos_y, socket_sabotajes);
 
 				while(!list_is_empty(cola_emergencia)) {
-					tripulante* trip = (tripulante*)list_get(cola_emergencia, 0);
-					log_info(logger, "Tripulante %d en ready", trip->id_trip);
+					tripulante* trip = (tripulante*)list_remove(cola_emergencia, 0);
 					agregar_ready(trip);
-					list_remove(cola_emergencia, 0);
+					log_info(logger, "Tripulante %d en ready", trip->id_trip);
 				}
 
 				hay_sabotaje = false;
 				sem_post(&finalizo_sabotaje); 		//para que se reactive la planificacion
 
-				if(trip_block != NULL)				//si hay un tripulante bloqueado le aviso que finalizo el sabotaje
-					sem_post(&finalizo_sabotaje);	//para que contiue trabajando
+				if(trip_block != NULL)				//si hay un tripulante bloqueado le aviso que finalizo
+					sem_post(&finalizo_sabotaje);	//el sabotaje para que contiue trabajando
 
 			}else
 				log_error(logger, "No hay tripulantes en la nave, no se puede resolver el sabotaje");
