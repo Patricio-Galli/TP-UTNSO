@@ -145,7 +145,16 @@ int main() {
 		liberar_input(input);
 
 	}
-	//exit_tripulantes(); -> matar los hilos
+
+	for(int i = 0; i < list_size(lista_tripulantes); i++) {
+		tripulante* trip = (tripulante*)list_get(lista_tripulantes, i);
+		trip->continuar = false;
+		sem_post(&trip->sem_running);
+		sem_post(&trip->sem_blocked);
+
+		//pthread_join(trip->hilo);
+	}
+
 	exit_planificacion();
 	//liberar_tripulantes();
 	//exit_tripulantes();
@@ -242,7 +251,7 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 		tripulante* trip = (tripulante*)list_get(lista_tripulantes, index);
 
 		if(trip->id_trip == id_tripulante && trip->id_patota == id_patota) {
-			//bool eliminar_trip = true;
+			bool eliminar_trip = true;
 			continuar = false;
 
 			if(RAM_ACTIVADA) {
@@ -251,28 +260,49 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 				agregar_parametro_a_mensaje(mensaje_out, (void*)id_tripulante, ENTERO);
 				agregar_parametro_a_mensaje(mensaje_out, (void*)id_patota, ENTERO);
 
-				//eliminar_trip = enviar_y_verificar(mensaje_out, socket_ram, "No se pudo expulsar al tripulante.");
+				eliminar_trip = enviar_y_verificar(mensaje_out, socket_ram, "No se pudo expulsar al tripulante.");
 			}
-			/*
+
 			if(eliminar_trip) {
-
 				trip->continuar = false;
-				if(trip->estado == READY) { //todo quitarlo de la cola
 
+				switch(trip->estado) {
+					case READY:
+						sem_post(&trip->sem_running);
+
+						if(!continuar_planificacion)
+							sem_post(&trip->sem_running);
+
+						//pthread_join(trip->hilo);
+						sem_wait(&trip->sem_blocked);
+						quitar(trip, cola_ready);
+						sem_wait(&tripulantes_ready);
+						break;
+					case BLOCKED:
+						sem_post(&trip->sem_blocked);
+
+						if(!continuar_planificacion)
+							sem_post(&trip->sem_running);
+
+						//pthread_join(trip->hilo);
+						sem_wait(&trip->sem_blocked);
+						quitar(trip, cola_blocked);
+						sem_wait(&tripulantes_ready);
+						break;
+					case RUNNING:
+						if(!continuar_planificacion)
+							sem_post(&trip->sem_running);
+
+						//pthread_join(trip->hilo);
+						sem_wait(&trip->sem_blocked);
+						quitar_running(trip);
+						break;
+					default: break;
 				}
-				if(trip->estado == BLOCKED) { //todo quitarlo de la cola
-					sem_wait(trip->sem_blocked);
-				}
-				if(trip->estado == RUNNING) { //todo quitarlo de la lista
 
-				}
-
-				trip->estado = EXIT;
-
-				list_remove(lista_tripulantes, index);
-				//free(tripulante_expulsado);
+				free(list_remove(lista_tripulantes, index));
 				log_info(logger,"El tripulante %d de la patota %d ha sido expulsado", id_tripulante, id_patota);
-			}*/
+			}
 		}
 		else {
 			index++;
@@ -298,7 +328,9 @@ void iniciar_planificacion() {
 			tripulante* trip = (tripulante*)list_get(tripulantes_running, i);
 			sem_post(&trip->sem_running);
 		}
-		sem_post(&trip_block->sem_running);
+
+		if(trip_block != NULL)
+			sem_post(&trip_block->sem_running);
 	}
 }
 

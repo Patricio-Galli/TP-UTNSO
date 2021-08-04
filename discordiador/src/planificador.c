@@ -2,7 +2,7 @@
 
 void inicializar_planificador(int grado_multiprocesamiento, char* algoritmo) {
 	cola_ready = list_create();
-	cola_blocked = queue_create();
+	cola_blocked = list_create();
 	cola_emergencia = list_create();
 	tripulantes_running = list_create();
 
@@ -48,6 +48,7 @@ void* planificador(void* algoritmo) {
 			agregar_running(quitar_ready());	//los tripulantes a ready, se le estan sumando valores al semaforo
 		else									//de tripulantes que ya estaban en ready. Lo ideal seria poner el
 			sem_post(&multiprocesamiento);		//semaforo en 0 al quitar a todos de ready.
+
 	}
 	return 0;
 }
@@ -58,7 +59,7 @@ void* planificador_io() {
 		sem_wait(&io_disponible);
 
 		pthread_mutex_lock(&mutex_cola_blocked);
-		trip_block = (tripulante*)queue_pop(cola_blocked);
+		trip_block = (tripulante*)list_remove(cola_blocked, 0);
 		pthread_mutex_unlock(&mutex_cola_blocked);
 
 		sem_post(&trip_block->sem_blocked);
@@ -70,7 +71,7 @@ void* planificador_io() {
 void exit_planificacion() {
 	list_destroy(tripulantes_running);
 	list_destroy(cola_ready);
-	queue_destroy(cola_blocked);
+	list_destroy(cola_blocked);
 
 	pthread_mutex_destroy(&mutex_cola_ready);
 	pthread_mutex_destroy(&mutex_tripulantes_running);

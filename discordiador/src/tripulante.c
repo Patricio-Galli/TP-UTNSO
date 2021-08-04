@@ -32,17 +32,21 @@ void* rutina_tripulante(void* t) {
 		sem_wait(&trip->sem_running);
 	}
 
-	while(strcmp(tarea, "no_task") != 0) {
+	if(!continuar_planificacion)
+		sem_wait(&trip->sem_running);
+
+	while(trip->continuar && strcmp(tarea, "no_task") != 0) {
 		ejecutar(tarea, trip);
 		tarea = solicitar_tarea(trip);
 	}
 
-	//if(trip->estado != EXIT) {
+	if(trip->continuar) {
 		log_error(logger,"Tripulante %d finalizando trabajo", trip->id_trip);
 
 		quitar_running(trip);
 		actualizar_estado(trip, EXIT);
-	//}
+	} else
+		sem_post(&trip->sem_blocked);
 
 	sem_destroy(&trip->sem_blocked);
 	sem_destroy(&trip->sem_running);
@@ -74,10 +78,12 @@ void ejecutar(char* input, tripulante* trip) {
 
 		liberar_input(comando_tarea);
 
-		log_warning(logger,"Tripulante %d termino de ejecutar", trip->id_trip);
+		if(trip->continuar) {
+			log_warning(logger,"Tripulante %d termino de ejecutar", trip->id_trip);
 
-		if(MONGO_ACTIVADO)
-			enviar_y_verificar(crear_mensaje(EXEC_0), trip->socket_mongo, "Fallo en comunicacion con el mongo");
+			if(MONGO_ACTIVADO)
+				enviar_y_verificar(crear_mensaje(EXEC_0), trip->socket_mongo, "Fallo en comunicacion con el mongo");
+		}
 	}
 
 	liberar_input(buffer);
@@ -118,9 +124,10 @@ void ejecutar_io(tripulante* trip, tareas tarea, int cantidad, int tiempo_io) {
 
 	log_info(logger,"Tripulante %d blockeado por IO", trip->id_trip);
 	sem_wait(&trip->sem_blocked);
-	log_info(logger,"Tripulante %d desbloqueado por IO", trip->id_trip);
 
 	if(trip->continuar) {
+		log_info(logger,"Tripulante %d desbloqueado por IO", trip->id_trip);
+
 		if(MONGO_ACTIVADO) {
 			if(hay_sabotaje)
 				sem_wait(&finalizo_sabotaje);

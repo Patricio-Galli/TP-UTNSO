@@ -22,7 +22,7 @@ void agregar_blocked(tripulante* trip) {
 	actualizar_estado(trip, BLOCKED);
 
 	pthread_mutex_lock(&mutex_cola_blocked);
-		queue_push(cola_blocked, trip);
+		list_add(cola_blocked, trip);
 		sem_post(&tripulantes_blocked);
 	pthread_mutex_unlock(&mutex_cola_blocked);
 }
