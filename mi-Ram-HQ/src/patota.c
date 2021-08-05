@@ -1,78 +1,138 @@
 #include "patota.h"
 
-bool iniciar_patota(uint32_t id_patota, t_list* parametros, algoritmo_segmento algoritmo) {
-	uint32_t tamanio_pcb = TAMANIO_PATOTA;
+uint32_t creo_segmento_pcb(uint32_t, uint32_t);
+uint32_t creo_segmento_tareas(uint32_t, uint32_t, char**, uint32_t*);
+void segmentar_pcb_p(uint32_t, uint32_t, char**);
+
+bool iniciar_patota(uint32_t id_patota, t_list* parametros) {
+	uint32_t tamanio_pcb = TAMANIO_PATOTA;	// TO CLEAN
 	uint32_t tamanio_tarea = 0;
 	uint32_t tamanio_bloque_tareas = 0;
-	uint32_t cantidad_tareas = (int)list_get(parametros, 1);
+	uint32_t cantidad_tareas = (int)list_get(parametros, 2);
 
 	for(int i = 0; i < cantidad_tareas; i++) {
-		tamanio_bloque_tareas += strlen((char *)list_get(parametros, 2 + i)) + 1;
+		tamanio_bloque_tareas += strlen((char *)list_get(parametros, 3 + i)) + 1;
 	}
 
-	if (tamanio_pcb + tamanio_bloque_tareas > memoria_libre()) {
-		return false;
+	// Valido que haya memoria desponible en la memoria ram
+	if(memoria_ram.esquema_memoria == SEGMENTACION) {
+		log_info(logger, "Inicio patota con SEGMENTACION");
+		log_info(logger, "Memoria libre: %d", memoria_libre_segmentacion());
+		if(TAMANIO_PATOTA + tamanio_bloque_tareas + (int)list_get(parametros, 1) * TAMANIO_TRIPULANTE > memoria_libre_segmentacion())
+			return false;
 	}
+
+	if(memoria_ram.esquema_memoria == PAGINACION) {
+		log_info(logger, "Inicio patota con PAGINACION");
+		log_info(logger, "Frames necesarios: %d", frames_necesarios(0, TAMANIO_PATOTA + tamanio_bloque_tareas));
+		log_info(logger, "Marcos logicos disponibles: %d", marcos_logicos_disponibles());
+		if(frames_necesarios(0, TAMANIO_PATOTA + tamanio_bloque_tareas) > marcos_logicos_disponibles())
+			return false;
+	}
+	log_info(logger, "Hay memoria disponible");
+
+	// Valido que haya frames disponibles. Si no los hay, tengo que hacer un reemplazo.
+	// if(memoria_ram.esquema_memoria == PAGINACION && bloques_disponibles(tamanio_pcb + tamanio_bloque_tareas >)
+
+	tareas_data* nuevo_bloque_tareas = malloc(sizeof(tareas_data));
+	nuevo_bloque_tareas->cant_tareas = cantidad_tareas;
+	nuevo_bloque_tareas->inicio_tareas = malloc(sizeof(uint32_t) * cantidad_tareas);
+	nuevo_bloque_tareas->tamanio_tareas = malloc(sizeof(uint32_t) * cantidad_tareas);
+	list_add(lista_tareas, nuevo_bloque_tareas);
 
 	char** vtareas = malloc(sizeof(char *) * cantidad_tareas);
-	uint32_t* vtareas_inicio = malloc(sizeof(uint32_t) * cantidad_tareas);
-	uint32_t* vtareas_tamanio = malloc(sizeof(uint32_t) * cantidad_tareas);
 
 	tamanio_bloque_tareas = 0;
 	for(int i = 0; i < cantidad_tareas; i++) {
-		char* tarea_i = (char *)list_get(parametros, 2 + i);
-		tamanio_tarea = strlen(tarea_i) + 1;
-		vtareas_inicio[i] = tamanio_bloque_tareas;
+		char* tarea_i = (char *)list_get(parametros, 3 + i);
+		tamanio_tarea = strlen(tarea_i);
+		nuevo_bloque_tareas->inicio_tareas[i] = tamanio_bloque_tareas;
 		tamanio_bloque_tareas += tamanio_tarea;
 		vtareas[i] = tarea_i;
-		vtareas_tamanio[i] = tamanio_tarea;
+		nuevo_bloque_tareas->tamanio_tareas[i] = tamanio_tarea;
+		log_info(logger, "Recibo tarea: %s. Inicio = %d/%d. Tamanio = %d/%d", tarea_i, tamanio_bloque_tareas, nuevo_bloque_tareas->inicio_tareas[i], tamanio_tarea, nuevo_bloque_tareas->tamanio_tareas[i]);
 	}
 
-	// CREO SEGMENTO PCB
-	t_segmento* segmento_pcb = crear_segmento(mapa_segmentos, tamanio_pcb, algoritmo);
-	if(segmento_pcb == NULL) {
-		realizar_compactacion();
-		segmento_pcb = crear_segmento(mapa_segmentos, tamanio_pcb, algoritmo);
-	}
-	segmento_pcb->duenio = id_patota;
-	segmento_pcb->indice = 0;
-	segmentar_entero(memoria_ram, segmento_pcb->inicio, id_patota);
-	
-	// CREO ESTRUCTURA PATOTA PARA GUARDAR EN TABLA
+	// CREO ESTRUCTURA PATOTA
 	patota_data* nueva_patota = malloc(sizeof(patota_data));
 	nueva_patota->PID = id_patota;
-	nueva_patota->tabla_segmentos = malloc(2 * sizeof(uint32_t));
-	nueva_patota->tamanio_tabla = 2;
-	nueva_patota->tabla_segmentos[0] = segmento_pcb->inicio;
+	nueva_patota->inicio_elementos = malloc(2 * sizeof(uint32_t));
+	nueva_patota->cantidad_elementos = 2;
+	nueva_patota->memoria_ocupada = TAMANIO_PATOTA + tamanio_bloque_tareas;
 	list_add(lista_patotas, nueva_patota);
-
-	// CREO SEGMENTO TAREAS
-	t_segmento* segmento_tareas = crear_segmento(mapa_segmentos, tamanio_bloque_tareas, algoritmo);
-	if(segmento_tareas == NULL) {
-		realizar_compactacion();
-		segmento_tareas = crear_segmento(mapa_segmentos, tamanio_bloque_tareas, algoritmo);
+	
+	if(memoria_ram.esquema_memoria == SEGMENTACION) {
+		nueva_patota->inicio_elementos[0] = creo_segmento_pcb(tamanio_pcb, id_patota);
+		nueva_patota->inicio_elementos[1] = creo_segmento_tareas(tamanio_bloque_tareas, id_patota, vtareas, &nueva_patota->inicio_elementos[0]);
 	}
-	segmento_tareas->duenio = id_patota;
-	segmento_tareas->indice = 1;
-
-	for(int i = 0; i < cantidad_tareas; i++) {
-		segmentar_string(memoria_ram, segmento_tareas->inicio + vtareas_inicio[i], vtareas[i]);
-		free(vtareas[i]);
+	if(memoria_ram.esquema_memoria == PAGINACION) {
+		asignar_frames(frames_necesarios(0, TAMANIO_PATOTA + tamanio_bloque_tareas), id_patota);
+		nueva_patota->inicio_elementos[0] = 0;
+		nueva_patota->inicio_elementos[1] = TAMANIO_PATOTA;
+		segmentar_pcb_p(id_patota, cantidad_tareas, vtareas);
 	}
-	nueva_patota->tabla_segmentos[1] = segmento_tareas->inicio;
-	segmentar_entero(memoria_ram, segmento_pcb->inicio + sizeof(uint32_t), segmento_tareas->inicio);
-
-
-	// CREO ESTRUCTURA TAREAS PARA GUARDAR EN TABLA
-	tareas_data* nuevo_bloque_tareas = malloc(sizeof(tareas_data));
-	nuevo_bloque_tareas->cant_tareas = cantidad_tareas;
-	nuevo_bloque_tareas->inicio_tareas = vtareas_inicio;
-	nuevo_bloque_tareas->tamanio_tareas = vtareas_tamanio;
-	list_add(lista_tareas, nuevo_bloque_tareas);
 	return true;
 }
 
 void actualizar_ubicacion_tareas(void* segmento, uint32_t nueva_ubicacion) {
 	uint32_t valor_int = nueva_ubicacion;
 	memcpy(segmento + sizeof(int), &valor_int, sizeof(uint32_t));
+}
+
+uint32_t creo_segmento_pcb(uint32_t tamanio_pcb, uint32_t id_patota) {
+	t_segmento* segmento_pcb = crear_segmento(tamanio_pcb);
+	segmento_pcb->duenio = id_patota;
+	segmento_pcb->indice = 0;
+	segmentar_entero(segmento_pcb->inicio, id_patota);
+	return segmento_pcb->inicio;
+}
+
+uint32_t creo_segmento_tareas(uint32_t tamanio_bloque_tareas, uint32_t id_patota, char** vector_tareas, uint32_t* inicio_pcb) {
+	tareas_data* mis_tareas = (tareas_data *)list_get(lista_tareas, id_patota - 1);
+	t_segmento* segmento_pcb = segmento_desde_inicio(*inicio_pcb);
+	t_segmento* segmento_tareas = crear_segmento(tamanio_bloque_tareas);
+	segmento_tareas->duenio = id_patota;
+	segmento_tareas->indice = 1;
+
+	// uint32_t desplazamiento = 0;
+	for(int i = 0; i < mis_tareas->cant_tareas; i++) {
+		// segmentar_string(memoria_ram.inicio, segmento_tareas->inicio + desplazamiento, vector_tareas[i]);
+		memcpy(memoria_ram.inicio + segmento_tareas->inicio + mis_tareas->inicio_tareas[i], vector_tareas[i], mis_tareas->tamanio_tareas[i]);
+		free(vector_tareas[i]);
+	}
+	free(vector_tareas);
+	
+	*inicio_pcb = segmento_pcb->inicio;
+	segmentar_entero(*inicio_pcb + sizeof(uint32_t), segmento_tareas->inicio);
+	return segmento_tareas->inicio;
+}
+
+void segmentar_pcb_p(uint32_t id_patota, uint32_t cant_tareas, char** tareas) {
+	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
+	tareas_data* mis_tareas = (tareas_data *)list_get(lista_tareas, id_patota - 1);
+	uint32_t pagina_actual = 0;
+	uint32_t inicio_marco = mi_patota->frames[pagina_actual] * memoria_ram.tamanio_pagina;	// typedef
+	segmentar_entero(inicio_marco, id_patota);
+	segmentar_entero(inicio_marco + sizeof(uint32_t), inicio_marco + TAMANIO_PATOTA);
+	signed int espacio_faltante = memoria_ram.tamanio_pagina - TAMANIO_PATOTA;
+	mi_patota->memoria_ocupada = TAMANIO_PATOTA;
+	for(int i = 0; i < cant_tareas; i++) {
+		// mis_tareas->tamanio_tareas[i]
+		espacio_faltante -= mis_tareas->tamanio_tareas[i];
+		if(espacio_faltante > 0) {
+			memcpy(memoria_ram.inicio + inicio_marco + mi_patota->memoria_ocupada, tareas[i], mis_tareas->tamanio_tareas[i]);
+		}
+		else {
+			memcpy(memoria_ram.inicio + inicio_marco + mi_patota->memoria_ocupada, tareas[i], mis_tareas->tamanio_tareas[i] + espacio_faltante);
+			pagina_actual++;
+			inicio_marco = mi_patota->frames[pagina_actual] * memoria_ram.tamanio_pagina;
+			if (espacio_faltante != 0) {
+				memcpy(memoria_ram.inicio + inicio_marco, tareas[i] - espacio_faltante, espacio_faltante);
+			}
+		}
+		mi_patota->memoria_ocupada += mis_tareas->tamanio_tareas[i];
+		mi_patota->memoria_ocupada %= memoria_ram.tamanio_pagina;
+		free(tareas[i]);
+	}
+	free(tareas);
 }

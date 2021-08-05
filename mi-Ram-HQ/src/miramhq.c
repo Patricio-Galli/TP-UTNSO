@@ -1,50 +1,111 @@
 #include "miramhq.h"
 
-int variable = 1;
+// int variable = 1;
+
+void loggear_data(/*t_log* logger*/) {
+	log_info(logger, "NUEVOS RESULTADOS");
+	if(memoria_ram.esquema_memoria == SEGMENTACION) {
+		log_info(logger, "Cantidad de segmentos: %d. Memoria libre: %d", list_size(memoria_ram.mapa_segmentos), memoria_libre_segmentacion());
+		for (int i = 0; i < list_size(memoria_ram.mapa_segmentos); i++) {
+			log_info(logger, "SEGMENTO %d/Duenio: %d/Indice: %d/Inicio: %d/Tamanio: %d",
+				((t_segmento *)list_get(memoria_ram.mapa_segmentos, i))->n_segmento + 1,
+				((t_segmento *)list_get(memoria_ram.mapa_segmentos, i))->duenio,
+				((t_segmento *)list_get(memoria_ram.mapa_segmentos, i))->indice,
+				((t_segmento *)list_get(memoria_ram.mapa_segmentos, i))->inicio,
+				((t_segmento *)list_get(memoria_ram.mapa_segmentos, i))->tamanio
+				);
+		}
+	}
+	if(memoria_ram.esquema_memoria == PAGINACION) {
+
+	}
+	
+	log_info(logger, "Lista de patotas: %d", list_size(lista_patotas));
+	
+	uint32_t inicio;
+	uint32_t pid;
+	uint32_t tid;
+	uint32_t pnt_tareas;
+	
+	for(int i = 0; i < list_size(lista_patotas); i++) {
+		log_info(logger, "Patota %d. PID: %d; Puntero a PCB: %d; Puntero a tareas: %d", i + 1,
+			((patota_data *)(uint32_t)list_get(lista_patotas, i))->PID,
+			((patota_data *)(uint32_t)list_get(lista_patotas, i))->inicio_elementos[0],
+			((patota_data *)(uint32_t)list_get(lista_patotas, i))->inicio_elementos[1]);
+
+		inicio = ((patota_data *)(uint32_t)list_get(lista_patotas, i))->inicio_elementos[0];
+		memcpy(&pid, memoria_ram.inicio + inicio, sizeof(uint32_t));
+		memcpy(&pnt_tareas, memoria_ram.inicio + inicio + sizeof(uint32_t), sizeof(uint32_t));
+		log_info(logger, "PID: %d; Puntero a tareas: %d", pid, pnt_tareas);
+	}
+
+	log_info(logger, "Lista de tripulantes activos: %d", list_size(lista_tripulantes));
+	for(int i = 0; i < lista_tripulantes->elements_count; i++) {
+		inicio = ((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->inicio;
+		pid = ((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->PID;
+		tid = ((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->TID;
+		log_info(logger, "TID: %d; inicio: %d; estado: %c; pos_x: %d; pos_y: %d; IP: %d; Punt PCB: %d",
+			obtener_valor_tripulante(pid, tid, TRIP_IP),
+			inicio,
+			obtener_estado(pid, tid),
+			obtener_valor_tripulante(pid, tid, POS_X),
+			obtener_valor_tripulante(pid, tid, POS_Y),
+			obtener_valor_tripulante(pid, tid, INS_POINTER),
+			obtener_valor_tripulante(pid, tid, PCB_POINTER)
+			);
+	}
+}
 
 int main(void) {
-	t_log* logger = log_create("miramhq.log", "Mi-RAM-HQ", 1, LOG_LEVEL_INFO);
+	// t_log* logger;
+	if(CONSOLA_ACTIVA)
+		logger = log_create("miramhq.log", "Mi-RAM-HQ", 0, LOG_LEVEL_INFO);
+	else
+		logger = log_create("miramhq.log", "Mi-RAM-HQ", 1, LOG_LEVEL_INFO);
+	
 	t_config* config = config_create("miramhq.config");
+	lista_patotas = list_create();
+	lista_tareas = list_create();
+	lista_tripulantes = list_create();
+	movimientos_pendientes = list_create();
+
+	if(!iniciar_memoria(config)) {
+		log_info(logger, "FALLO EN EL ARCHIVO DE CONFIGURACIÓN");
+		return 0;
+	}
+	else {
+		log_info(logger, "PAGINACION ACEPTADA CORRECTAMENTE");
+		// return 0;
+	}
 	
-	tamanio_memoria = config_get_int_value(config, "TAMANIO_MEMORIA");
-	log_info(logger, "Iniciando memoria RAM de %d bytes", tamanio_memoria);
-	
-	algoritmo_segmento algoritmo;
-	if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "FF"))
-		algoritmo = FF;
-	if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "BF"))
-		algoritmo = BF;
+	sem_init(&semaforo_consola, 0, 0);
+	sem_init(&mutex_movimiento, 0, 1);
+	sem_init(&mutex_lista_tripulantes, 0, 1);
 
-	memoria_ram = malloc(tamanio_memoria);
+	bool* continuar_consola = malloc(sizeof(bool));
+	pthread_t* hilo_consola;
+	if(CONSOLA_ACTIVA) {
+		log_info(logger, "CONSOLA ACTIVA");
+		*continuar_consola = true;
+		hilo_consola = iniciar_mapa(continuar_consola);
+	}
 
-	mapa_segmentos = list_create();
-	t_segmento segmento_memoria;
-	segmento_memoria.n_segmento = 0;
-	segmento_memoria.duenio = 0;
-	segmento_memoria.inicio = 0;
-	segmento_memoria.tamanio = tamanio_memoria;
-	list_add(mapa_segmentos, &segmento_memoria);
+	int server_fd = crear_conexion_servidor(IP_RAM,	config_get_int_value(config, "PUERTO"), 1);
+	// data_socket(server_fd, logger);
 
-	// dibujar_mapa(); VACÍO
-
-	int server_fd = crear_conexion_servidor(
-		IP_RAM,	config_get_int_value(config, "PUERTO"), 1);
-	
 	if(!validar_socket(server_fd, logger)) {
 		close(server_fd);
 		log_destroy(logger);
+		// liberar_memoria(config, socket_discord, hilo_consola);
 		return ERROR_CONEXION;
 	}
 	log_info(logger, "Servidor listo");
 	int socket_discord = esperar_cliente(server_fd);
+	close(server_fd);
 	log_info(logger, "Conexión establecida con el discordiador");
 	
-	lista_patotas = list_create();
-	lista_tareas = list_create();
-	lista_tripulantes = list_create();
-	
-	t_list* mensaje_discor;
-	t_mensaje* respuesta;
+	t_list* mensaje_in;
+	t_mensaje* mensaje_out;
 	
 	bool inicio_correcto;
 	bool conexion_activa_discord = true;
@@ -52,77 +113,76 @@ int main(void) {
 	uint32_t patota_actual = 0;
 	uint32_t nro_tripulante;
 
+	uint32_t id_trip;	// Maldito c
+	uint32_t id_patota;	// Maldito c
+
 	while(conexion_activa_discord == true) {
 		log_info(logger, "Esperando información del discordiador");
-		mensaje_discor = recibir_mensaje(socket_discord);
-		if (!validar_mensaje(mensaje_discor, logger)) {
+		mensaje_in = recibir_mensaje(socket_discord);
+		if (!validar_mensaje(mensaje_in, logger)) {
+			liberar_mensaje_in(mensaje_in);
 			log_info(logger, "Cliente desconectado dentro del while");
 			close(server_fd);
 			log_destroy(logger);
+			// liberar_memoria(config, socket_discord, hilo_consola);
 			return ERROR_CONEXION;
 		}
 		
-		switch((int)list_get(mensaje_discor, 0)) { // protocolo del mensaje
+		switch((int)list_get(mensaje_in, 0)) { // protocolo del mensaje
 		case INIT_P:
 			log_info(logger, "Discordiador solicitó iniciar_patota");
 			patota_actual++;
-			inicio_correcto = iniciar_patota(patota_actual, mensaje_discor, algoritmo);
+			inicio_correcto = iniciar_patota(patota_actual, mensaje_in);
 			
 			if(!inicio_correcto) {
-				respuesta = crear_mensaje(NO_SPC);
+				mensaje_out = crear_mensaje(NO_SPC);
+				if(memoria_ram.esquema_memoria == PAGINACION) {
+					liberar_memoria(config, socket_discord, hilo_consola);
+					return ERROR_CONEXION;
+				}
 				patota_actual--;
 			}
 				
 			else {
-				respuesta = crear_mensaje(TODOOK);
+				mensaje_out = crear_mensaje(TODOOK);
 			}
 
-			enviar_mensaje(socket_discord, respuesta);
-			liberar_mensaje(respuesta);		// debe estar fuera del switch
-			list_destroy(mensaje_discor);	// debe estar fuera del switch
+			enviar_mensaje(socket_discord, mensaje_out);
+			liberar_mensaje_out(mensaje_out);		// debe estar fuera del switch
 			nro_tripulante = 1;
+			for(int i = 0; i < ((tareas_data *)list_get(lista_tareas, patota_actual - 1))->cant_tareas; i++) {
+				log_info(logger, "Tarea %d: '%s'", i, obtener_tarea(memoria_ram.inicio + ((patota_data *)list_get(lista_patotas, patota_actual - 1))->inicio_elementos[1], (tareas_data *)list_get(lista_tareas, patota_actual - 1), i));
+				log_info(logger, "Inicio tarea: %d, Tamanio tarea: %d", ((tareas_data *)list_get(lista_tareas, patota_actual - 1))->inicio_tareas[i], ((tareas_data *)list_get(lista_tareas, patota_actual - 1))->tamanio_tareas[i]);
+			}
+			// printf("Tarea 1: '%s' no me la container\n", memoria_ram.inicio + ((patota_data *)list_get(lista_patotas, patota_actual - 1))->inicio_elementos[1]);
 			break;
 		case INIT_T:
 			log_info(logger, "Discordiador solicitó iniciar_tripulante");
-			uint32_t posicion_x = (uint32_t)list_get(mensaje_discor, 1);
-			uint32_t posicion_y = (uint32_t)list_get(mensaje_discor, 2);
+			uint32_t posicion_x = (uint32_t)list_get(mensaje_in, 1);
+			uint32_t posicion_y = (uint32_t)list_get(mensaje_in, 2);
 			log_info(logger, "Entro a iniciar_tripulante");
-			inicio_correcto = iniciar_tripulante(nro_tripulante, patota_actual, posicion_x, posicion_y, algoritmo);
-			log_info(logger, "Sobrevivi a iniciar_tripulante %d", inicio_correcto);
-			if(inicio_correcto == false) {
-				respuesta = crear_mensaje(NO_SPC);
+			int puerto = iniciar_tripulante(nro_tripulante, patota_actual, posicion_x, posicion_y);
+			log_info(logger, "Resolvi iniciar_tripulante");
+			if(puerto == 0) {
+				mensaje_out = crear_mensaje(NO_SPC);
 			}
 			else {
-				int socket_nuevo = crear_conexion_servidor(IP_RAM, 0, 1);
-				// nuevo_trip->hilo = hilo_nuevo;
-				pthread_t* hilo_nuevo = malloc(sizeof(pthread_t));
-				
-				uint32_t patota = patota_actual;
-				t_list* parametros_hilo = list_create();
-				list_add(parametros_hilo, (void *)socket_nuevo);
-				list_add(parametros_hilo, (void *)nro_tripulante);
-				list_add(parametros_hilo, (void *)patota);
-				pthread_create(hilo_nuevo, NULL, rutina_hilos, (void *)parametros_hilo);
-				// close(socket_nuevo);
-				respuesta = crear_mensaje(SND_PO);
-				agregar_parametro_a_mensaje(respuesta, (void *)puerto_desde_socket(socket_nuevo), ENTERO);
+				mensaje_out = crear_mensaje(SND_PO);
+				agregar_parametro_a_mensaje(mensaje_out, (void *)puerto, ENTERO);
 			}
-			
-			enviar_mensaje(socket_discord, respuesta);
-			liberar_mensaje(respuesta);
-			list_destroy(mensaje_discor);
+
+			enviar_mensaje(socket_discord, mensaje_out);
+			liberar_mensaje_out(mensaje_out);
 			nro_tripulante++;
 			break;
 		case ELIM_T:
-			log_info(logger, "Discordiador solicitó eliminar_tripulante");
-			uint32_t id_trip = (uint32_t)list_get(mensaje_discor, 1);
-			uint32_t id_patota = (uint32_t)list_get(mensaje_discor, 2);
-			
+			log_info(logger, "Discordiador solicitó expulsar_tripulante");
+			id_trip = (uint32_t)list_get(mensaje_in, 1);
+			id_patota = (uint32_t)list_get(mensaje_in, 2);
 			eliminar_tripulante(id_patota, id_trip);
-			respuesta = crear_mensaje(TODOOK);
-			enviar_mensaje(socket_discord, respuesta);
-			liberar_mensaje(respuesta);
-			list_destroy(mensaje_discor);
+			mensaje_out = crear_mensaje(TODOOK);
+			enviar_mensaje(socket_discord, mensaje_out);
+			liberar_mensaje_out(mensaje_out);
 			break;
 		case 64:
 			log_info(logger, "Cliente desconectado 64");
@@ -133,137 +193,202 @@ int main(void) {
 			conexion_activa_discord = false;
 			break;
 		}
-		
-		log_info(logger, "NUEVOS RESULTADOS");
-		log_info(logger, "Cantidad de segmentos: %d. Memoria libre: %d", mapa_segmentos->elements_count, memoria_libre());
-		for (int i = 0; i < mapa_segmentos->elements_count; i++) {
-			log_info(logger, "SEGMENTO %d/Duenio: %d/Indice: %d/Inicio: %d/Tamanio: %d",
-				((t_segmento *)list_get(mapa_segmentos, i))->n_segmento + 1,
-				((t_segmento *)list_get(mapa_segmentos, i))->duenio,
-				((t_segmento *)list_get(mapa_segmentos, i))->indice,
-				((t_segmento *)list_get(mapa_segmentos, i))->inicio,
-				((t_segmento *)list_get(mapa_segmentos, i))->tamanio
-				);
-		}
-		log_info(logger, "Lista de patotas: %d", lista_patotas->elements_count);
-		
-		uint32_t inicio;
-		uint32_t pid;
-		uint32_t pnt_tareas;
-		
-		for(int i = 0; i < lista_patotas->elements_count; i++) {
-			log_info(logger, "Patota %d. PID: %d; Puntero a PCB: %d; Puntero a tareas: %d", i + 1,
-				((patota_data *)(uint32_t)list_get(lista_patotas, i))->PID,
-				((patota_data *)(uint32_t)list_get(lista_patotas, i))->tabla_segmentos[0],
-				((patota_data *)(uint32_t)list_get(lista_patotas, i))->tabla_segmentos[1]);
-
-			inicio = ((patota_data *)(uint32_t)list_get(lista_patotas, i))->tabla_segmentos[0];
-			memcpy(&pid, memoria_ram + inicio, sizeof(uint32_t));
-			memcpy(&pnt_tareas, memoria_ram + inicio + sizeof(uint32_t), sizeof(uint32_t));
-			log_info(logger, "PID: %d; Puntero a tareas: %d", pid, pnt_tareas);
-		}
-
-		bool tripulante_activo(void * un_trip) {
-			if(((trip_data *)un_trip)->seguir)
-				return true;
-			else
-				return false;
-		}
-
-		int trip_activos = list_count_satisfying(lista_tripulantes, (*tripulante_activo));
-		log_info(logger, "Lista de tripulantes activos: %d", trip_activos);
-		for(int i = 0; i < lista_tripulantes->elements_count; i++) {
-			inicio = ((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->inicio;
-			if(((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->seguir == true)
-			log_info(logger, "TID: %d; inicio: %d; estado: %c; pos_x: %d; pos_y: %d; IP: %d; Punt PCB: %d",
-				obtener_valor_tripulante(memoria_ram + inicio, TRIP_IP),
-				inicio,
-				obtener_estado(memoria_ram + inicio),
-				obtener_valor_tripulante(memoria_ram + inicio, POS_X),
-				obtener_valor_tripulante(memoria_ram + inicio, POS_Y),
-				obtener_valor_tripulante(memoria_ram + inicio, INS_POINTER),
-				obtener_valor_tripulante(memoria_ram + inicio, PCB_POINTER)
-				);
-		}
+		liberar_mensaje_in(mensaje_in);
+		loggear_data(/*logger*/);
 	}
+    log_info(logger, "Paso a cambiar continuar_consola");
+	*continuar_consola = false;
+	sem_post(&semaforo_consola);
+
+	liberar_memoria(config, socket_discord, hilo_consola);
+	// log_info(logger, "Segmentos");
+	// liberar_segmentos();
+	// log_info(logger, "Patotas");
+	// liberar_patotas();
+	// log_info(logger, "Tareas");    // Rompe
+	// // liberar_tareas();
+	// log_info(logger, "Tripulantes");
+	// liberar_tripulantes();
+	// log_info(logger, "Consola");
+	// if(CONSOLA_ACTIVA) {
+	// 	pthread_join(*hilo_consola, 0);
+	// 	free(hilo_consola);
+	// }
+	// log_info(logger, "Recibi la consola");
+	// config_destroy(config);
+	// log_destroy(logger);
+	// close(socket_discord);
+	
 	return EXIT_SUCCESS;
 }
 
-void* rutina_hilos(void* parametros) {
-	// t_log* logger = log_create("miramhq.log", "HILOX", 1, LOG_LEVEL_INFO);
-	// log_info(logger, "HOLA MUNDO, SOY UN HILO %d", variable);
-
-	int socket = (uint32_t)list_get((t_list *)parametros, 0);
-	uint32_t id_trip = (uint32_t)list_get((t_list *)parametros, 1);
-	uint32_t id_patota = (uint32_t)list_get((t_list *)parametros, 2);
-	list_destroy((t_list *)parametros);
+void liberar_segmentos() {
+	list_destroy(memoria_ram.mapa_segmentos);
+	// void destruir_segmento(void* segmento) {
+	// 	free(segmento);
+	// }
 	
-	// log_info(logger, "Recibií parametros: %d, %d, %d", socket, id_trip, id_patota);
-	patota_data* segmento_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
-	// log_info(logger, "0, %d/ %d", lista_tareas->elements_count, lista_patotas->elements_count);
-	tareas_data* segmento_tareas = (tareas_data *)list_get(lista_tareas, id_patota - 1);
-	// uint32_t inicio_segmento = segmento_patota->tabla_segmentos[id_trip + 1];
-	// log_info(logger, "1");
-	variable++;
-	uint32_t ip;
-	char* tarea_nueva;
-	// log_info(logger, "2");
-	t_mensaje* mensaje_out;
-	t_list* mensaje_in;
-	// log_info(logger, "Espero cliente");
-	int socket_cliente = esperar_cliente((int)socket);
+	// list_destroy_and_destroy_elements(lista_patotas, destruir_segmento);
+}
 
-	int posicion_x;
-	int posicion_y;
-	while(1) {
-		mensaje_in = recibir_mensaje((int)socket_cliente);
-		// if(!validar_mensaje(mensaje_in, logger)) {
-			// printf("FALLO EN MENSAJE CON HILO RAM\n");
-		// }
-		// else
-			// printf("EL HILO DISCORD ME DIJO: %d\n", (int)list_get(mensaje_in, 0));
-		switch ((int)list_get(mensaje_in, 0)) {
-		case NEXT_T:
-			// log_info(logger, "El hilo me pidio la proxima tarea");
-			ip = obtener_valor_tripulante(memoria_ram + segmento_patota->tabla_segmentos[id_trip + 1], INS_POINTER);
-			// log_info(logger, "Obtuve ip %d", ip);
-			if(ip + 1 > segmento_tareas->cant_tareas) {
-				// log_info(logger, "IP fuera de rango");
-				mensaje_out = crear_mensaje(ER_MSJ);
-			}
-			else {
-				// log_info(logger, "IP valido");
-				tarea_nueva = obtener_tarea(memoria_ram + segmento_patota->tabla_segmentos[1], segmento_tareas, ip);
-				// log_info(logger, "Obtuve tarea");
-				actualizar_valor_tripulante(memoria_ram + segmento_patota->tabla_segmentos[id_trip + 1], INS_POINTER, ip + 1);
-				// log_info(logger, "Actualice ip %d");
-				mensaje_out = crear_mensaje(TASK_T);
-				agregar_parametro_a_mensaje(mensaje_out, tarea_nueva, BUFFER);
-			}
-			break;
-		case ACTU_T:
-			// log_info(logger, "El hilo me pidio actualizar posicion");
-			// int posicion_x;
-			// int posicion_y;
-
-			posicion_x = (int)list_get(mensaje_in, 1);
-			posicion_y = (int)list_get(mensaje_in, 2);
-
-			actualizar_valor_tripulante(memoria_ram + segmento_patota->tabla_segmentos[id_trip + 1], POS_X, posicion_x);
-			actualizar_valor_tripulante(memoria_ram + segmento_patota->tabla_segmentos[id_trip + 1], POS_Y, posicion_y);
-
-			// log_info(logger, "Tripulante %d posicion actualizada %d|%d", id_trip, posicion_x, posicion_y);
-
-			mensaje_out = crear_mensaje(TODOOK);
-			break;
-		case ELIM_T:
-			break;
-		case SHOW_T:
-			break;
-		}
-		// log_info(logger, "Envío tarea");
-		enviar_mensaje((int)socket_cliente, mensaje_out);
-		liberar_mensaje(mensaje_out);
+void liberar_patotas() {
+	void destruir_patota(void* patota) {
+		free(((patota_data *)patota)->inicio_elementos);
+		free(patota);
 	}
-	return 0;
+	
+	list_destroy_and_destroy_elements(lista_patotas, destruir_patota);
+}
+
+void liberar_tareas() {
+	void destruir_tarea(void* tarea) {
+		free(((tareas_data *)tarea)->inicio_tareas);
+		free(((tareas_data *)tarea)->tamanio_tareas);
+		free(tarea);
+	}
+
+	list_destroy_and_destroy_elements(lista_patotas, destruir_tarea);
+}
+
+void liberar_tripulantes() {
+	trip_data* trip_aux;
+	for(int i = 0; i < list_size(lista_tripulantes); i++) {
+		sem_wait(&mutex_lista_tripulantes);
+		trip_aux = list_remove(lista_tripulantes, 0);
+		sem_post(&mutex_lista_tripulantes);
+		
+		// trip_aux = list_remove(lista_tripulantes, 0);
+		pthread_cancel(*trip_aux->hilo);
+		pthread_join(*trip_aux->hilo, NULL);
+	}
+	list_destroy(lista_tripulantes);
+	// void destruir_tripulante(void* tripulante) {
+	// 	free(((trip_data *)tripulante)->semaforo_hilo);
+	// 	free(((trip_data *)tripulante)->hilo);
+	// 	free(tripulante);
+	// }
+	// list_destroy_and_destroy_elements(lista_patotas, destruir_tripulante);
+}
+
+pthread_t* iniciar_mapa(bool* continuar_consola) {
+	pthread_t* hilo_consola = malloc(sizeof(pthread_t));
+	pthread_create(hilo_consola, NULL, dibujar_mapa, (void *)continuar_consola);
+	return hilo_consola;
+}
+
+bool iniciar_memoria_segmentada(t_config* config) {
+	// sem_init(&mutex_segmentacion, 0, 1);
+	memoria_ram.esquema_memoria = SEGMENTACION;
+	memoria_ram.mapa_segmentos = list_create();
+	t_segmento* segmento_memoria = malloc(sizeof(t_segmento));
+	segmento_memoria->n_segmento = 0;
+	segmento_memoria->duenio = 0;
+	segmento_memoria->inicio = 0;
+	segmento_memoria->tamanio = memoria_ram.tamanio_memoria;
+	list_add(memoria_ram.mapa_segmentos, segmento_memoria);
+
+	if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "FF"))
+		memoria_ram.criterio_seleccion = FIRST_FIT;
+	if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "BF"))
+		memoria_ram.criterio_seleccion = BEST_FIT;
+	return true;
+}
+
+bool iniciar_memoria_paginada(t_config* config) {
+	memoria_ram.esquema_memoria = PAGINACION;
+	memoria_ram.tamanio_pagina = config_get_int_value(config, "TAMANIO_PAGINA");
+	memoria_ram.tamanio_swap = config_get_int_value(config, "TAMANIO_SWAP");
+	uint32_t frames_en_memoria = memoria_ram.tamanio_memoria / memoria_ram.tamanio_pagina;
+	uint32_t frames_totales = (/*memoria_ram.tamanio_memoria + */memoria_ram.tamanio_swap) / memoria_ram.tamanio_pagina;
+	if(memoria_ram.tamanio_memoria % memoria_ram.tamanio_pagina + memoria_ram.tamanio_swap % memoria_ram.tamanio_pagina > 0)
+		return false;
+	
+	log_info(logger, "Estoy en paginación, con entrada valida. Nro frames: %d:%d", frames_en_memoria, frames_totales);
+	memoria_ram.mapa_fisico = calloc(frames_en_memoria, memoria_ram.tamanio_pagina);
+	// memset(memoria_ram.mapa_fisico, 0, sizeof(memoria_ram.mapa_fisico));
+	memoria_ram.mapa_logico = calloc(frames_totales, memoria_ram.tamanio_pagina);
+	// memset(memoria_ram.mapa_logico, 0, sizeof(memoria_ram.mapa_logico));
+	for(int i = 0; i < frames_totales; i++) {
+		t_marco* marco_auxiliar = malloc(sizeof(t_marco));
+		memoria_ram.mapa_logico[i] = marco_auxiliar;
+		marco_auxiliar->nro_virtual = i;	// TO CLEAN
+		if(i < frames_en_memoria)
+			marco_auxiliar->nro_real = i;
+		marco_auxiliar->duenio = 0;
+		// marco_auxiliar->espacio_libre = memoria_ram.tamanio_memoria;
+		marco_auxiliar->presencia = false;
+		marco_auxiliar->modificado = false;
+	}
+	if(!strcmp(config_get_string_value(config, "ALGORITMO_REEMPLAZO"), "LRU"))
+		memoria_ram.algoritmo_reemplazo = LRU;
+	if(!strcmp(config_get_string_value(config, "ALGORITMO_REEMPLAZO"), "CLOCK"))
+		memoria_ram.algoritmo_reemplazo = CLOCK;     
+	memoria_ram.inicio_swap = fopen(config_get_string_value(config, "PATH_SWAP"), "wb");
+	char memoria_vacia[memoria_ram.tamanio_swap];
+	memset(memoria_vacia, 0, memoria_ram.tamanio_swap);
+	fwrite(memoria_vacia, 1, memoria_ram.tamanio_swap, memoria_ram.inicio_swap);
+	return true;
+}
+
+bool iniciar_memoria(t_config* config) {
+	memoria_ram.tamanio_memoria = config_get_int_value(config, "TAMANIO_MEMORIA");
+	memoria_ram.inicio = malloc(memoria_ram.tamanio_memoria);
+	char *esquema_memoria = config_get_string_value(config, "ESQUEMA_MEMORIA");
+	bool inicio_correcto = false;
+	if(!strcmp(esquema_memoria, "SEGMENTACION")) {
+		inicio_correcto = iniciar_memoria_segmentada(config);
+	}
+	if(!strcmp(esquema_memoria, "PAGINACION")) {
+		inicio_correcto = iniciar_memoria_paginada(config);
+		// memoria_ram.esquema_memoria = PAGINACION;
+		// memoria_ram.tamanio_pagina = config_get_int_value(config, "TAMANIO_PAGINA");
+		// memoria_ram.tamanio_swap = config_get_int_value(config, "TAMANIO_SWAP");
+		// uint32_t frames_en_memoria = memoria_ram.tamanio_memoria / memoria_ram.tamanio_pagina;
+		// uint32_t frames_totales = (memoria_ram.tamanio_memoria + memoria_ram.tamanio_swap) / memoria_ram.tamanio_pagina;
+		// if(memoria_ram.tamanio_memoria % memoria_ram.tamanio_pagina + memoria_ram.tamanio_swap % memoria_ram.tamanio_pagina > 0)
+		// 	return 0;
+		// log_info(logger, "Estoy en paginación, con entrada valida. Nro frames: %d:%d", frames_en_memoria, frames_totales);
+		// memoria_ram.mapa_fisico = calloc(frames_en_memoria, memoria_ram.tamanio_pagina);
+		// // memset(memoria_ram.mapa_fisico, 0, sizeof(memoria_ram.mapa_fisico));
+		// memoria_ram.mapa_logico = calloc(frames_totales, memoria_ram.tamanio_pagina);
+		// // memset(memoria_ram.mapa_logico, 0, sizeof(memoria_ram.mapa_logico));
+		// for(int i = 0; i < frames_totales; i++) {
+		// 	t_marco* marco_auxiliar = malloc(sizeof(t_marco));
+		// 	memoria_ram.mapa_logico[i] = marco_auxiliar;
+		// 	marco_auxiliar->nro_virtual = i;	// TO CLEAN
+		// 	if(i < frames_en_memoria)
+		// 		marco_auxiliar->nro_real = i;
+		// 	marco_auxiliar->duenio = 0;
+		// 	// marco_auxiliar->espacio_libre = memoria_ram.tamanio_memoria;
+		// 	marco_auxiliar->presencia = false;
+		// 	marco_auxiliar->modificado = false;
+		// }
+		// if(!strcmp(config_get_string_value(config, "ALGORITMO_REEMPLAZO"), "LRU"))
+		// 	memoria_ram.algoritmo_reemplazo = LRU;
+		// if(!strcmp(config_get_string_value(config, "ALGORITMO_REEMPLAZO"), "CLOCK"))
+		// 	memoria_ram.algoritmo_reemplazo = CLOCK;     
+		// memoria_ram.inicio_swap = fopen(config_get_string_value(config, "PATH_SWAP"), "wb");
+	}
+	free(esquema_memoria);
+	return inicio_correcto;
+}
+
+void liberar_memoria(t_config* config, int socket_discord, pthread_t* hilo_consola) {
+	log_info(logger, "Segmentos");
+	liberar_segmentos();
+	log_info(logger, "Patotas");
+	liberar_patotas();
+	log_info(logger, "Tareas");    // Rompe
+	// liberar_tareas();
+	log_info(logger, "Tripulantes");
+	liberar_tripulantes();
+	log_info(logger, "Consola");
+	if(CONSOLA_ACTIVA) {
+		pthread_join(*hilo_consola, 0);
+		free(hilo_consola);
+	}
+	log_info(logger, "Recibi la consola");
+	config_destroy(config);
+	log_destroy(logger);
+	close(socket_discord);
 }

@@ -41,11 +41,11 @@ typedef enum {
 	SND_PO,	// Enviar puerto
 		// SND_PO | puerto [int]
 	
-	ACTU_T,	// Actualizar ubicación
+	ACTU_P,	// Actualizar posición
 		// ACTU_T | posicion_x [int] | posicion_y [int]
-	
+
 	ACTU_E,	// Actualizar estado
-		// ACTU_E | estado [char]
+		// ACTU_T | estado [char]
 	
 	NEXT_T,	// Próxima tarea
 		// NEXT_T
@@ -56,14 +56,8 @@ typedef enum {
 	BITA_D,	// Obtener bitácora
 		// BITA_D | id_trip [int] | id_patota [int]
 	
-	BITA_T,	// Actualizar bitácora
-		// Por definir
-
 	BITA_C,	// Mostrar Bitácora
 		// BITA_C | cant_lineas [int] | (líneas)
-	
-	TAR_ES,	// Tarea E/S
-		// Por definir
 	
 	SABO_P,	// Nuevo Sabotaje
 		// SABO_P | id_patota [int] | id_trip [int] | posicion_x [int] | posicion_y [int]
@@ -84,6 +78,7 @@ typedef enum {
 	
 	ER_SOC,	// Error al recibir mensaje, el socket remoto se desconectó
 		// ER_SOC
+	// ADAPTANDO CON DISCORDIADOR
 	INIT_S,
 	EXEC_1,
 	EXEC_0,
@@ -142,10 +137,16 @@ void enviar_mensaje(int socket, t_mensaje* mensaje);
 t_list* recibir_mensaje(int socket);
 
 /**
-* @NAME: liberar_mensaje
-* @DESC: Libera la memoria correspondiente a un mensaje
+* @NAME: liberar_mensaje_out
+* @DESC: Libera la memoria correspondiente a un mensaje de salida
 */
-void liberar_mensaje(t_mensaje* mensaje);
+void liberar_mensaje_out(t_mensaje* mensaje);
+
+/**
+* @NAME: liberar_mensaje_in
+* @DESC: Libera la memoria correspondiente a un mensaje de entrada
+*/
+void liberar_mensaje_in(t_list* mensaje);
 
 /**
 * @NAME: validar_mensaje

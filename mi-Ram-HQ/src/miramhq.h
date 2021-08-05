@@ -21,13 +21,19 @@
 #include "patota.h"
 #include "tareas.h"
 #include "tripulante.h"
+#include "consola.h"
 
 #include <errno.h>
 
 #define ERROR_CONEXION -1
 
-#define IP_RAM "127.0.0.1"
+pthread_t* iniciar_mapa(bool*);
+bool iniciar_memoria(t_config*);
+void liberar_memoria(t_config* config, int socket_discord, pthread_t* hilo_consola);
 
-void* rutina_hilos(void* parametros);
+// void liberar_segmentos();
+// void liberar_patotas();
+// void liberar_tareas();
+// void liberar_tripulantes();
 
 #endif /* _MIRAMHQ_H_ */
