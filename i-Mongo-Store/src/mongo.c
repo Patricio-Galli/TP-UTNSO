@@ -437,17 +437,19 @@ void crear_bitacora(char* DIR_bitacora){
 	return;
 }
 char* obtener_directorio(char* nombre){
-	char* DIR_nombre=string_new();
+	char* DIR_nombre = string_new();
+
 	string_append(&DIR_nombre,punto_montaje);
 	string_append(&DIR_nombre,nombre);
+
 	return DIR_nombre;
 }
-char* generar_directorio(char* nombre){
+void generar_directorio(char* nombre){
+	char *directorio = obtener_directorio(nombre);
 
-	char *directorio=obtener_directorio(nombre);
 	mkdir(directorio,0755);
-	printf("Se genero el directorio:  %s\n",directorio);
-	return directorio;
+	log_info(logger, "Se genero el directorio:  %s",directorio);
+	free(directorio);
 }
 void imprimir_bitmap(t_bitarray* bitmap){
 	int cantidad_bits =blocks_amount;

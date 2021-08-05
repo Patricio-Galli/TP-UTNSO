@@ -55,7 +55,7 @@ char* crear_blocks(char*);
 void* uso_blocks();
 void crear_metadata(char*, char);
 void crear_bitacora(char*);
-char* generar_directorio(char*);
+void generar_directorio(char*);
 char* obtener_directorio(char*);
 void imprimir_bitmap(t_bitarray*);
 void* detector_sabotajes(void* s);
