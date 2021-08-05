@@ -65,7 +65,7 @@ void* detector_sabotajes(void* s);
 void* rutina_trip(void* t);
 void* detector_sabotajes(void* s);
 void* rutina_trip(void* t);
-char* obtener_bitacora(int);
-void liberar_input(char** input);
+char** obtener_bitacora(int id_trip, int id_patota);
+void liberar_split(char** split);
 
 #endif /* MONGO_H_ */

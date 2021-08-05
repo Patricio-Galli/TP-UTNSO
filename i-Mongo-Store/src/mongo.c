@@ -94,18 +94,18 @@ int main() {
 					log_info(logger, "Discordiador solicito la bitacora del tripulante %d de la patota %d", (int)list_get(mensaje_in, 1), (int)list_get(mensaje_in, 2));
 
 					mensaje_out = crear_mensaje(BITA_C);
-					char* string_bitacora = string_new();
-					string_bitacora = obtener_bitacora((int)list_get(mensaje_in, 1));
-					char**lineas_bitacora = string_split(string_bitacora,".");
-					int cantidad_lineas = 0;
 
-					while(lineas_bitacora[cantidad_lineas+1] != NULL)
+					char** bitacora = obtener_bitacora((int)list_get(mensaje_in, 1), (int)list_get(mensaje_in, 2));
+					//char**lineas_bitacora = string_split(string_bitacora,".");
+					int cantidad_lineas = 1;
+
+					while(bitacora[cantidad_lineas-1] != NULL)
 						cantidad_lineas++;
 
 					agregar_parametro_a_mensaje(mensaje_out, (void*)cantidad_lineas, ENTERO);
 
-					for(int i = 1; 0 <= cantidad_lineas; i++)
-						agregar_parametro_a_mensaje(mensaje_out, (void*)lineas_bitacora[cantidad_lineas], BUFFER);
+					for(int i = 0; i < cantidad_lineas; i++)
+						agregar_parametro_a_mensaje(mensaje_out, (void*)bitacora[i], BUFFER);
 
 					enviar_mensaje(socket_discord, mensaje_out);
 					break;
@@ -444,6 +444,8 @@ void crear_bitacora(int id_trip, int id_patota) {
 
 		log_info(logger, "Se Genero la Bitacora");
 	}
+
+	free(DIR_bitacora);
 	fclose(bitacora);
 }
 char* obtener_directorio(char* nombre) {
@@ -476,46 +478,58 @@ void imprimir_bitmap(t_bitarray* bitmap) {
 	log_info(logger, "Bitmap: %s", bits);
 	free(bits);
 }
-char* obtener_bitacora(int trip_id){
 
-	char*DIR_Bit_Tripulante=string_new();
-	string_append(&DIR_Bit_Tripulante,obtener_directorio("/Files/Bitacoras/Tripulante"));
-	string_append(&DIR_Bit_Tripulante,string_itoa(trip_id));
+char* obtener_bitacora(int id_trip, int id_patota) {
+
+	char* DIR_Bit_Tripulante = obtener_directorio("/Files/Bitacoras/Tripulante");
+
+	string_append(&DIR_Bit_Tripulante,string_itoa(id_trip));
+	//string_append(&DIR_bitacora,"-");
+	//string_append(&DIR_bitacora,string_itoa(id_patota));
 	string_append(&DIR_Bit_Tripulante,".ims");
-	t_config* bitacora_meta=config_create(DIR_Bit_Tripulante);
-	int size=config_get_int_value(bitacora_meta,"SIZE");
-	char**bloques=config_get_array_value(bitacora_meta,"BLOCKS");
 
-	char*temp=malloc(block_size);
-	int desplazamiento;
-	char* string_bitacora=string_new();
-	for(int i=0;i<roundUp(size,block_size)-1;i++){
-		desplazamiento=(atoi(bloques[i]))*block_size;
-		memcpy(temp,blocks+desplazamiento,block_size);// cambiar por blocks original
+	t_config* bitacora_meta = config_create(DIR_Bit_Tripulante);
+	int size = config_get_int_value(bitacora_meta,"SIZE");
+	char** bloques = config_get_array_value(bitacora_meta,"BLOCKS");
+	char* string_bitacora = string_new();
+
+	for(int i = 0; i < roundUp(size, block_size)-1; i++) {
+		char* temp = malloc(block_size);
+		int desplazamiento = atoi(bloques[i]) * block_size;
+
+		memcpy(temp, blocks + desplazamiento, block_size);// cambiar por blocks original
+
 		temp[block_size]='\0';
 		string_append(&string_bitacora,temp);
-		if(i+2==roundUp(size,block_size)){
-			desplazamiento=(atoi(bloques[i+1]))*block_size;
-			memcpy(temp,blocks_copy+desplazamiento,size%block_size);//revisar, si el ultimo bloque no esta completo, me esccribe cualquier cosa
-			temp[size%block_size]='\0';
+
+		if(i + 2 == roundUp(size,block_size)) {
+			desplazamiento = atoi(bloques[i+1]) *block_size;
+			memcpy(temp, blocks_copy + desplazamiento, size % block_size);//revisar, si el ultimo bloque no esta completo, me esccribe cualquier cosa
+			temp[size % block_size]='\0';
 			string_append(&string_bitacora,temp);
 		}
+
+		free(temp);
 	}
-	printf("final: %s\n",string_bitacora);
-	liberar_input(bloques);
+
+	char** lineas_bitacora = string_split(string_bitacora,".");
+
+	liberar_split(bloques);
 	free(DIR_Bit_Tripulante);
+	free(string_bitacora);
 	config_destroy(bitacora_meta);
-	return string_bitacora;
+
+	return lineas_bitacora;
 }
 
-void liberar_input(char** input) {
+void liberar_split(char** split) {
 	int i = 0;
 
-	while(input[i] != NULL) {
-		free(input[i]);
+	while(split[i] != NULL) {
+		free(split[i]);
 		i++;
 	}
 
-	free(input);
+	free(split);
 }
 

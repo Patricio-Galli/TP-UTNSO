@@ -50,7 +50,7 @@ tareas stringToEnum(char *string){
 	return ESPERAR;
 }
 
-void liberar_input(char** input) {
+void liberar_split(char** input) {
 	int i = 0;
 
 	while(input[i] != NULL) {

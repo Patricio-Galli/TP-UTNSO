@@ -109,7 +109,7 @@ void sumar_caracteres(char caracter_llenado, int cantidad_caracteres){
 		}
 
 		config_set_value(metadata,"SIZE",string_itoa(size_final));
-		liberar_input(bloques_anteriores);
+		liberar_split(bloques_anteriores);
 		//free(bloques_anteriores); //REVISAR MEMCHECK (char**)
 		if(cantidad_original_bloques==0){
 			string_append(&bloques_totales,bloques_a_agregar);
@@ -169,7 +169,7 @@ void quitar_caracteres(char caracter_llenado, int cantidad_caracteres){
 					borrar_caracter_en_bloque(caracter_llenado,cantidad_caracteres,string_itoa(temp-1),config_get_int_value(metadata,"SIZE"));
 				}
 				//free(bloques_originales);
-				liberar_input(bloques_originales);
+				liberar_split(bloques_originales);
 				log_info(logger, "Se tiro la basura (se elimino el archivo)");
 				remove(DIR_metadata);
 				return;
@@ -228,7 +228,7 @@ void quitar_caracteres(char caracter_llenado, int cantidad_caracteres){
 			printf("los bloques a dejar son %s\n",bloques_a_dejar);
 					//agregar los caracteres al bloque
 			//free(bloques_originales);
-			liberar_input(bloques_originales);
+			liberar_split(bloques_originales);
 			config_set_value(metadata,"BLOCK_COUNT",string_itoa(bloques_reducidos));//Actualizo la cantidad de bloques
 			config_set_value(metadata,"BLOCKS",bloques_a_dejar);
 			free(bloques_a_dejar);
@@ -448,7 +448,7 @@ void escribir_mensaje_en_bitacora(char* mensaje, char* DIR_Bit_Tripulante){
 		}config_save(metadata);
 		config_set_value(metadata,"SIZE",string_itoa(size));
 		//free(bloques_anteriores); //NACHO REVISAR (Es char**)
-		liberar_input(bloques_anteriores);
+		liberar_split(bloques_anteriores);
 		string_append(&bloques_totales,bloques_a_agregar);
 		free(bloques_a_agregar);
 		config_set_value(metadata,"BLOCKS",bloques_totales);

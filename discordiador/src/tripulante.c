@@ -76,7 +76,7 @@ void ejecutar(char* input, tripulante* trip) {
 		else
 			ejecutar_io(trip, tarea, atoi(comando_tarea[1]), atoi(buffer[3]));
 
-		liberar_input(comando_tarea);
+		liberar_split(comando_tarea);
 
 		if(trip->continuar) {
 			log_warning(logger,"Tripulante %d termino de ejecutar", trip->id_trip);
@@ -86,7 +86,7 @@ void ejecutar(char* input, tripulante* trip) {
 		}
 	}
 
-	liberar_input(buffer);
+	liberar_split(buffer);
 }
 
 void moverse(tripulante* trip, int pos_x, int pos_y) {

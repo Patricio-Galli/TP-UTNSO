@@ -142,7 +142,7 @@ int main() {
 				log_error(logger,"COMANDO INVÁLIDO, INTENTE NUEVAMENTE");
 		}
 		free(buffer_consola);
-		liberar_input(input);
+		liberar_split(input);
 	}
 
 	for(int i = 0; i < list_size(lista_tripulantes); i++) {
