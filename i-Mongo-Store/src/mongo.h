@@ -51,7 +51,7 @@ typedef struct {
 }tripulante;
 */
 void crear_superBloque(char*);
-char* crear_blocks(char*);
+void crear_blocks(char*);
 void* uso_blocks();
 void crear_metadata(char*, char);
 void crear_bitacora(char*);

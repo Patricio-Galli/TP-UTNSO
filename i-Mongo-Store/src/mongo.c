@@ -316,34 +316,42 @@ void crear_superBloque(char* DIR_superBloque){
 		log_info(logger, "SuperBloque Generado");
 	}
 }
-char* crear_blocks(char* DIR_blocks){
+
+void crear_blocks(char* DIR_blocks){
 	log_info(logger, "Verificando existencia Blocks");
+	int size = block_size * blocks_amount;
+
 	FILE* existe= fopen(DIR_blocks,"r");
+
 	if(existe != NULL){
 		log_info(logger, "Blocks ya existe");
-		int size=block_size*blocks_amount;
-		blocks_copy= malloc(size);
-		fclose(existe);
-		return DIR_blocks;
-	}else
-		log_info(logger, "Blocks no existe, creandolo");
-	int size=block_size*blocks_amount;
-	int fp = open(DIR_blocks, O_CREAT | O_RDWR, 0666);
-	if (fp == -1){
-		log_info(logger, "No se pudo abrir/generar el archivo");
-		exit(-1);
-	}
 
-	ftruncate(fp,size);
-	blocks = mmap(NULL, size, PROT_READ | PROT_WRITE,MAP_SHARED, fp, 0);
-	if (blocks == MAP_FAILED){
-		log_info(logger, "Error al mapear Blocks");
-		exit(-1);
+		blocks_copy= malloc(size);
+
+		fclose(existe);
+	} else {
+		log_info(logger, "Blocks no existe, creandolo");
+
+		int fp = open(DIR_blocks, O_CREAT | O_RDWR, 0666);
+
+		if (fp == -1){
+			log_info(logger, "No se pudo abrir/generar el archivo");
+			exit(-1);
+		}
+
+		ftruncate(fp, size);
+
+		blocks = mmap(NULL, size, PROT_READ | PROT_WRITE,MAP_SHARED, fp, 0);
+
+		if(blocks == MAP_FAILED){
+			log_info(logger, "Error al mapear Blocks");
+			exit(-1);
+		} else {
+			log_info(logger, "Blocks Generado");
+			//blocks_copy= malloc(size); todo verificar
+			close(fp);
+		}
 	}
-	log_info(logger, "Blocks Generado");
-	//blocks_copy= malloc(size);
-	close(fp);
-	return(blocks);
 }
 void* uso_blocks(){//se deberia encargar un hilo de esto?
 	int size=block_size*blocks_amount;
