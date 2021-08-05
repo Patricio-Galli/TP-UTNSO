@@ -202,7 +202,6 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 					sprintf(puerto, "%d", (int)list_get(mensaje_in, 1));
 
 					socket_ram_trip = crear_conexion_cliente(ip_ram, puerto);
-					free(puerto);
 				} else
 					log_error(logger, "No se pudo crear al tripulante, no hay suficiente memoria.");
 
@@ -218,7 +217,6 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 					sprintf(puerto, "%d", (int)list_get(mensaje_in, 1));
 
 					socket_mongo_trip = crear_conexion_cliente(ip_mongo, puerto);
-					free(puerto);
 				} else
 					log_error(logger, "No se pudo crear al tripulante, fallo en el disco.");
 

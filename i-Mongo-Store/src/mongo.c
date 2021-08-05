@@ -13,6 +13,7 @@ int main() {
 	blocks_amount = config_get_long_value(config, "BLOCKS_AMOUNT");
 	salir_proceso = true;
 
+
 	int server_fd = crear_conexion_servidor(IP_MONGO, config_get_int_value(config, "PUERTO"), 1);
 
 	if(!validar_socket(server_fd, logger)) {
@@ -40,8 +41,6 @@ int main() {
 	}
 
 	while(!salir_proceso) {
-		log_info(logger, "Esperando información del discordiador");
-
 		t_list* mensaje_in = recibir_mensaje(socket_discord);
 		t_mensaje* mensaje_out;
 
@@ -80,12 +79,7 @@ int main() {
 					trip->posicion_y = (int)list_get(mensaje_in, 2);
 					trip->socket_discord = crear_conexion_servidor(IP_MONGO, 0, 1);
 
-					char DIR_metadata[150];
-
-					strcpy(DIR_metadata,obtener_directorio("/Files/Bitacoras/Tripulante"));
-					strcat(DIR_metadata,string_itoa(trip->id_trip));
-					strcat(DIR_metadata,".ims");
-					crear_bitacora(DIR_metadata);
+					crear_bitacora(trip->id_trip, trip->id_patota);
 
 					pthread_t hilo_nuevo;
 					pthread_create(&hilo_nuevo, NULL, rutina_trip, trip);
@@ -268,22 +262,23 @@ bool crear_superBloque(){
 	bool estado_superbloque = false;
 	char* DIR_superBloque = obtener_directorio("/superBloque.ims");
 	FILE* existe = fopen(DIR_superBloque,"r");
-	int bitmap_size=roundUp(blocks_amount,8);
+	int bitmap_size = roundUp(blocks_amount,8);
 
-	if(existe != NULL)
+	if(existe != NULL) {
 		log_info(logger, "SuperBloque ya existe");
+		fclose(existe);
+	}
 	else
 		log_info(logger, "SuperBloque no existe, creandolo.");
 
-	log_info(logger, "el tamaño del bloque es %d y la cant de bloques es %d \n",block_size,blocks_amount);
-	log_info(logger, "el directorio del superBloque es %s\n",DIR_superBloque);
+	log_info(logger, "el tamaño del bloque es %d y la cant de bloques es %d",block_size,blocks_amount);
+	log_info(logger, "el directorio del superBloque es %s",DIR_superBloque);
 
 	int fp = open(DIR_superBloque, O_CREAT | O_RDWR, 0664);
 
 	if(fp == -1)
 		log_error(logger, "No se pudo abrir/generar el archivo");
 	else {
-
 		ftruncate(fp,sizeof(uint32_t)*2+bitmap_size);
 
 		void* superBloque = mmap(NULL, sizeof(uint32_t)*2 + bitmap_size, PROT_READ | PROT_WRITE, MAP_SHARED, fp, 0);
@@ -304,7 +299,7 @@ bool crear_superBloque(){
 			msync(bitmap->bitarray,bitmap_size,MS_SYNC);
 			msync(superBloque, sizeof(uint32_t)*2 + bitmap_size, MS_SYNC);
 
-			log_info(logger, "se escribio el archivo\n");
+			log_info(logger, "se escribio el archivo");
 			log_info(logger, "SuperBloque Generado");
 
 			free(prueba);
@@ -312,7 +307,6 @@ bool crear_superBloque(){
 	}
 
 	close(fp);
-	fclose(existe);
 	free(DIR_superBloque);
 	return estado_superbloque;
 }
@@ -325,9 +319,11 @@ bool crear_blocks(){
 	int size = block_size * blocks_amount;
 	FILE* existe= fopen(DIR_blocks,"r");
 
-	if(existe != NULL)
+	if(existe != NULL) {
+		fclose(existe);
 		log_info(logger, "Blocks ya existe");
-	else {
+		estado_bloques = true;
+	} else {
 		log_info(logger, "Blocks no existe, creandolo");
 
 		int fp = open(DIR_blocks, O_CREAT | O_RDWR, 0666);
@@ -346,11 +342,9 @@ bool crear_blocks(){
 				estado_bloques = true;
 			}
 		}
-
 		close(fp);
 	}
 
-	fclose(existe);
 	free(DIR_blocks);
 	return estado_bloques;
 }
@@ -418,32 +412,36 @@ void crear_metadata(char* DIR_metadata, char caracter_llenado){
 	fclose(metadata);
 
 }
-void crear_bitacora(char* DIR_bitacora){
-	log_info(logger, "Buscando archivos ya existentes");
-	FILE* metadata;
-	metadata=fopen(DIR_bitacora,"rb");
 
-	if(metadata!=NULL){
+void crear_bitacora(int id_trip, int id_patota) {
+	char* DIR_bitacora = obtener_directorio("/Files/Bitacoras/Tripulante");
+
+	string_append(&DIR_bitacora,string_itoa(id_trip));
+	string_append(&DIR_bitacora,".ims");
+
+	log_info(logger, "Buscando archivos ya existentes en directorio %s",DIR_bitacora);
+
+	FILE* bitacora = fopen(DIR_bitacora,"w+");
+
+	if(bitacora != NULL)
 		log_info(logger, "Archivo existente encontrado");
-		fclose(metadata);
-		return;
-	}
-	else
+	else {
 		log_info(logger, "Archivos previos no encontrados, Generando bitacora");
-	log_info(logger, "Generando Bitacora");
-	FILE* bitacora;
-	printf("el directorio de la bitacora es %s\n",DIR_bitacora);
-	bitacora=fopen(DIR_bitacora,"w+");
-	t_config* temp=config_create(DIR_bitacora);
-	temp->path=DIR_bitacora;
-	config_set_value(temp,"SIZE","0");
-	config_set_value(temp,"BLOCKS","[]");
 
-	config_save(temp);
-	config_destroy(temp);
+		t_config* temp = config_create(DIR_bitacora);
+
+		temp->path=DIR_bitacora;
+
+		config_set_value(temp,"SIZE","0");
+		config_set_value(temp,"BLOCKS","[]");
+
+		config_save(temp);
+		config_destroy(temp);
+
+		log_info(logger, "Se Genero la Bitacora");
+	}
+
 	fclose(bitacora);
-	log_info(logger, "Se Genero la Bitacora");
-	return;
 }
 char* obtener_directorio(char* nombre) {
 	char* DIR_nombre = string_new();
