@@ -436,7 +436,7 @@ void crear_bitacora(char* DIR_bitacora){
 	log_info(logger, "Se Genero la Bitacora");
 	return;
 }
-char* obtener_directorio(char* nombre){
+char* obtener_directorio(char* nombre) {
 	char* DIR_nombre = string_new();
 
 	string_append(&DIR_nombre,punto_montaje);
@@ -444,22 +444,25 @@ char* obtener_directorio(char* nombre){
 
 	return DIR_nombre;
 }
-void generar_directorio(char* nombre){
+
+void generar_directorio(char* nombre) {
 	char *directorio = obtener_directorio(nombre);
 
 	mkdir(directorio,0755);
 	log_info(logger, "Se genero el directorio:  %s",directorio);
 	free(directorio);
 }
-void imprimir_bitmap(t_bitarray* bitmap){
-	int cantidad_bits =blocks_amount;
 
-	printf("Bitmap: ");
-	for(int i=0;i<cantidad_bits;i++){
-		if(bitarray_test_bit(bitmap, i) == 0){printf("0 ");}
-		if(bitarray_test_bit(bitmap, i) == 1){printf("1 ");}
+void imprimir_bitmap(t_bitarray* bitmap) {
+	char* bits = string_new();
+
+	for(int i = 0; i<blocks_amount ;i++){
+		string_append(&bits,bitarray_test_bit(bitmap, i));
+		string_append(&bits," ");
 	}
-	printf("\n");
+
+	log_info(logger, "Bitmap: %s", bits);
+	free(bits);
 }
 char* obtener_bitacora(int trip_id){
 
