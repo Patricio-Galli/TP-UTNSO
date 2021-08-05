@@ -23,6 +23,7 @@ typedef struct {
 	int id_trip;
 	int id_patota;
 	int socket_discord;
+	char* dir_bitacora;
 }tripulante;
 
 #define MAX(x,y) (((x)>(y)) ? (x) : (y))

@@ -70,7 +70,7 @@ int main() {
 				if (!strcmp(buffer_consola,"ini")) {
 					free(*input);
 					free(input);
-					input = string_split("iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 9|3 9|2", " ");
+					input = string_split("iniciar_patota 2 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 1|3 1|2", " ");
 				}
 
 				parametros_iniciar_patota* parametros = obtener_parametros(input);

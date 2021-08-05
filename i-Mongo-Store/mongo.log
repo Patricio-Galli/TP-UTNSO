@@ -426,3 +426,1743 @@
 [INFO] 17:07:26:322 MONGO/(7850:7860): Fallo el mensaje
 [WARNING] 17:07:26:322 MONGO/(7850:7866): La conexión remota se ha desconectado.
 [INFO] 17:07:26:322 MONGO/(7850:7866): Fallo el mensaje
+[INFO] 17:36:38:202 MONGO/(8929:8929): Servidor listo
+[INFO] 17:36:39:707 MONGO/(8929:8929): Conexión establecida con el discordiador
+[INFO] 17:36:39:715 MONGO/(8929:8929): Verificando existencia SuperBloque
+[INFO] 17:36:39:721 MONGO/(8929:8929): SuperBloque ya existe
+[INFO] 17:36:39:722 MONGO/(8929:8929): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 17:36:39:723 MONGO/(8929:8929): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 17:36:39:744 MONGO/(8929:8929): se escribio el archivo
+[INFO] 17:36:39:745 MONGO/(8929:8929): SuperBloque Generado
+[INFO] 17:36:39:748 MONGO/(8929:8929): Verificando existencia Blocks
+[INFO] 17:36:39:751 MONGO/(8929:8929): Blocks ya existe
+[INFO] 17:36:39:776 MONGO/(8929:8929): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 17:36:39:784 MONGO/(8929:8929): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 17:36:39:802 MONGO/(8929:8929): Iniciando el detector de sabotajes
+[INFO] 17:36:39:845 MONGO/(8929:8935): Detector de sabotajes iniciado exitosamente
+[INFO] 17:36:42:743 MONGO/(8929:8929): Discordiador inicio una patota
+[INFO] 17:36:42:752 MONGO/(8929:8929): Discordiador solicito iniciar un tripulante
+[INFO] 17:36:42:758 MONGO/(8929:8929): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 17:36:42:769 MONGO/(8929:8929): Archivo existente encontrado
+[INFO] 17:36:42:780 MONGO/(8929:8940): Iniciado el tripulante 1 de la patota 1
+[INFO] 17:36:42:786 MONGO/(8929:8929): Discordiador solicito iniciar un tripulante
+[INFO] 17:36:42:788 MONGO/(8929:8929): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 17:36:42:789 MONGO/(8929:8929): Archivo existente encontrado
+[INFO] 17:36:42:793 MONGO/(8929:8942): Iniciado el tripulante 2 de la patota 1
+[INFO] 17:36:42:794 MONGO/(8929:8929): Discordiador solicito iniciar un tripulante
+[INFO] 17:36:42:797 MONGO/(8929:8929): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 17:36:42:798 MONGO/(8929:8929): Archivo existente encontrado
+[INFO] 17:36:42:801 MONGO/(8929:8944): Iniciado el tripulante 3 de la patota 1
+[INFO] 17:36:42:802 MONGO/(8929:8929): Discordiador solicito iniciar un tripulante
+[INFO] 17:36:42:804 MONGO/(8929:8929): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 17:36:42:805 MONGO/(8929:8929): Archivo existente encontrado
+[INFO] 17:36:42:811 MONGO/(8929:8946): Iniciado el tripulante 4 de la patota 1
+[INFO] 17:36:44:394 MONGO/(8929:8940): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 17:36:44:395 MONGO/(8929:8942): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 17:36:44:425 MONGO/(8929:8942): Se encontro lugar en el ultimo bloque
+[INFO] 17:36:44:422 MONGO/(8929:8940): Se encontro lugar en el ultimo bloque
+[INFO] 17:36:44:454 MONGO/(8929:8942): Se completo la escritura de caracteres
+[INFO] 17:36:44:463 MONGO/(8929:8940): Se completo la escritura de caracteres
+[INFO] 17:36:44:511 MONGO/(8929:8940): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 17:36:44:521 MONGO/(8929:8940): Se encontro lugar en el ultimo bloque
+[INFO] 17:36:44:523 MONGO/(8929:8942): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 17:36:44:527 MONGO/(8929:8940): Se completo la escritura de caracteres
+[INFO] 17:36:44:535 MONGO/(8929:8942): Se encontro lugar en el ultimo bloque
+[INFO] 17:36:44:537 MONGO/(8929:8942): Se completo la escritura de caracteres
+[INFO] 17:37:37:821 MONGO/(9071:9071): Servidor listo
+[INFO] 17:37:39:322 MONGO/(9071:9071): Conexión establecida con el discordiador
+[INFO] 17:37:39:330 MONGO/(9071:9071): Verificando existencia SuperBloque
+[INFO] 17:37:39:338 MONGO/(9071:9071): SuperBloque no existe, creandolo.
+[INFO] 17:37:39:339 MONGO/(9071:9071): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 17:37:39:340 MONGO/(9071:9071): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 17:37:39:384 MONGO/(9071:9071): se escribio el archivo
+[INFO] 17:37:39:386 MONGO/(9071:9071): SuperBloque Generado
+[INFO] 17:37:39:388 MONGO/(9071:9071): Verificando existencia Blocks
+[INFO] 17:37:39:391 MONGO/(9071:9071): Blocks no existe, creandolo
+[INFO] 17:37:39:393 MONGO/(9071:9071): Blocks Generado
+[INFO] 17:37:39:431 MONGO/(9071:9071): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 17:37:39:437 MONGO/(9071:9071): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 17:37:39:470 MONGO/(9071:9071): Iniciando el detector de sabotajes
+[INFO] 17:37:39:503 MONGO/(9071:9078): Detector de sabotajes iniciado exitosamente
+[INFO] 17:37:41:518 MONGO/(9071:9071): Discordiador inicio una patota
+[INFO] 17:37:41:526 MONGO/(9071:9071): Discordiador solicito iniciar un tripulante
+[INFO] 17:37:41:532 MONGO/(9071:9071): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 17:37:41:537 MONGO/(9071:9071): Archivos previos no encontrados, Generando bitacora
+[INFO] 17:37:41:569 MONGO/(9071:9071): Se Genero la Bitacora
+[INFO] 17:37:41:578 MONGO/(9071:9071): Discordiador solicito iniciar un tripulante
+[INFO] 17:37:41:581 MONGO/(9071:9083): Iniciado el tripulante 1 de la patota 1
+[INFO] 17:37:41:584 MONGO/(9071:9071): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 17:37:41:595 MONGO/(9071:9071): Archivos previos no encontrados, Generando bitacora
+[INFO] 17:37:41:598 MONGO/(9071:9071): Se Genero la Bitacora
+[INFO] 17:37:41:602 MONGO/(9071:9085): Iniciado el tripulante 2 de la patota 1
+[INFO] 17:37:41:603 MONGO/(9071:9071): Discordiador solicito iniciar un tripulante
+[INFO] 17:37:41:604 MONGO/(9071:9071): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 17:37:41:605 MONGO/(9071:9071): Archivos previos no encontrados, Generando bitacora
+[INFO] 17:37:41:607 MONGO/(9071:9071): Se Genero la Bitacora
+[INFO] 17:37:41:611 MONGO/(9071:9071): Discordiador solicito iniciar un tripulante
+[INFO] 17:37:41:611 MONGO/(9071:9087): Iniciado el tripulante 3 de la patota 1
+[INFO] 17:37:41:613 MONGO/(9071:9071): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 17:37:41:613 MONGO/(9071:9071): Archivos previos no encontrados, Generando bitacora
+[INFO] 17:37:41:615 MONGO/(9071:9071): Se Genero la Bitacora
+[INFO] 17:37:41:621 MONGO/(9071:9089): Iniciado el tripulante 4 de la patota 1
+[INFO] 17:37:47:313 MONGO/(9071:9083): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 17:37:47:349 MONGO/(9071:9083): Se completo la escritura de caracteres
+[INFO] 17:37:47:314 MONGO/(9071:9085): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 17:37:47:365 MONGO/(9071:9085): Se completo la escritura de caracteres
+[INFO] 17:37:47:374 MONGO/(9071:9083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 17:37:47:376 MONGO/(9071:9085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 17:37:47:405 MONGO/(9071:9083): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:47:407 MONGO/(9071:9085): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:47:416 MONGO/(9071:9083): Se completo la escritura de caracteres
+[INFO] 17:37:47:425 MONGO/(9071:9085): Se completo la escritura de caracteres
+[INFO] 17:37:48:425 MONGO/(9071:9083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 17:37:48:429 MONGO/(9071:9083): Se completo la escritura de caracteres
+[INFO] 17:37:48:430 MONGO/(9071:9085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 7|2
+[INFO] 17:37:48:436 MONGO/(9071:9085): Se completo la escritura de caracteres
+[INFO] 17:37:49:438 MONGO/(9071:9083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 17:37:49:441 MONGO/(9071:9083): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:49:442 MONGO/(9071:9085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 17:37:49:444 MONGO/(9071:9083): Se completo la escritura de caracteres
+[INFO] 17:37:49:449 MONGO/(9071:9085): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:49:451 MONGO/(9071:9085): Se completo la escritura de caracteres
+[INFO] 17:37:50:448 MONGO/(9071:9083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 17:37:50:450 MONGO/(9071:9083): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:50:452 MONGO/(9071:9083): Se completo la escritura de caracteres
+[INFO] 17:37:50:484 MONGO/(9071:9085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 5|2
+[INFO] 17:37:50:487 MONGO/(9071:9085): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:50:489 MONGO/(9071:9085): Se completo la escritura de caracteres
+[INFO] 17:37:51:456 MONGO/(9071:9083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 17:37:51:459 MONGO/(9071:9083): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:51:460 MONGO/(9071:9083): Se completo la escritura de caracteres
+[INFO] 17:37:51:493 MONGO/(9071:9085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 4|2
+[INFO] 17:37:51:496 MONGO/(9071:9085): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:51:498 MONGO/(9071:9085): Se completo la escritura de caracteres
+[INFO] 17:37:52:464 MONGO/(9071:9083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 3|3
+[INFO] 17:37:52:467 MONGO/(9071:9083): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:52:470 MONGO/(9071:9083): Se completo la escritura de caracteres
+[INFO] 17:37:52:503 MONGO/(9071:9085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 3|2
+[INFO] 17:37:52:506 MONGO/(9071:9085): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:52:508 MONGO/(9071:9085): Se completo la escritura de caracteres
+[INFO] 17:37:53:540 MONGO/(9071:9085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 3|3
+[INFO] 17:37:53:543 MONGO/(9071:9085): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:53:545 MONGO/(9071:9085): Se completo la escritura de caracteres
+[INFO] 17:37:56:541 MONGO/(9071:9083): EXEC_0 - Tripulante 1 de la patota 1 detuvo ejecucion
+[INFO] 17:37:56:544 MONGO/(9071:9083): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 17:37:56:547 MONGO/(9071:9083): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:56:551 MONGO/(9071:9083): Se completo la escritura de caracteres
+[INFO] 17:37:56:554 MONGO/(9071:9083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 17:37:56:557 MONGO/(9071:9083): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:56:559 MONGO/(9071:9083): Se completo la escritura de caracteres
+[INFO] 17:37:57:552 MONGO/(9071:9085): EXEC_0 - Tripulante 2 de la patota 1 detuvo ejecucion
+[INFO] 17:37:57:553 MONGO/(9071:9085): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 17:37:57:556 MONGO/(9071:9085): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:57:560 MONGO/(9071:9085): Se completo la escritura de caracteres
+[INFO] 17:37:57:564 MONGO/(9071:9083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 17:37:57:567 MONGO/(9071:9083): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:57:569 MONGO/(9071:9083): Se completo la escritura de caracteres
+[INFO] 17:37:57:587 MONGO/(9071:9085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 4|3
+[INFO] 17:37:57:591 MONGO/(9071:9085): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:57:593 MONGO/(9071:9085): Se completo la escritura de caracteres
+[INFO] 17:37:58:587 MONGO/(9071:9083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 17:37:58:590 MONGO/(9071:9083): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:58:592 MONGO/(9071:9083): Se completo la escritura de caracteres
+[INFO] 17:37:58:709 MONGO/(9071:9085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 5|3
+[INFO] 17:37:58:712 MONGO/(9071:9085): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:58:714 MONGO/(9071:9085): Se completo la escritura de caracteres
+[INFO] 17:37:59:596 MONGO/(9071:9083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|2
+[INFO] 17:37:59:599 MONGO/(9071:9083): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:59:600 MONGO/(9071:9083): Se completo la escritura de caracteres
+[INFO] 17:37:59:718 MONGO/(9071:9085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|3
+[INFO] 17:37:59:721 MONGO/(9071:9085): Se encontro lugar en el ultimo bloque
+[INFO] 17:37:59:723 MONGO/(9071:9085): Se completo la escritura de caracteres
+[INFO] 17:38:00:604 MONGO/(9071:9083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|1
+[INFO] 17:38:00:609 MONGO/(9071:9083): Se encontro lugar en el ultimo bloque
+[INFO] 17:38:00:611 MONGO/(9071:9083): Se completo la escritura de caracteres
+[INFO] 17:38:00:727 MONGO/(9071:9085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 17:38:00:730 MONGO/(9071:9085): Se encontro lugar en el ultimo bloque
+[INFO] 17:38:00:733 MONGO/(9071:9085): Se completo la escritura de caracteres
+[INFO] 17:38:01:616 MONGO/(9071:9083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|0
+[INFO] 17:38:01:619 MONGO/(9071:9083): Se encontro lugar en el ultimo bloque
+[INFO] 17:38:01:621 MONGO/(9071:9083): Se completo la escritura de caracteres
+[INFO] 17:38:01:737 MONGO/(9071:9085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|1
+[INFO] 17:38:01:740 MONGO/(9071:9085): Se encontro lugar en el ultimo bloque
+[INFO] 17:38:01:742 MONGO/(9071:9085): Se completo la escritura de caracteres
+[INFO] 17:38:02:629 MONGO/(9071:9083): GEN_OX - Tripulante 1 de la patota 1 generando 10 de oxigeno
+[INFO] 17:38:02:643 MONGO/(9071:9083): Buscando archivos de recursos ya existentes
+[INFO] 17:38:02:631 MONGO/(9071:9087): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 17:38:02:644 MONGO/(9071:9083): Archivos previos no encontrados, Generando metadata
+[INFO] 17:38:02:648 MONGO/(9071:9083): Generando MD5
+[INFO] 17:38:02:695 MONGO/(9071:9087): Se completo la escritura de caracteres
+[INFO] 17:38:02:701 MONGO/(9071:9087): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 1|0
+[INFO] 17:38:02:710 MONGO/(9071:9087): Se encontro lugar en el ultimo bloque
+[INFO] 17:38:02:741 MONGO/(9071:9087): Se completo la escritura de caracteres
+[INFO] 17:38:02:747 MONGO/(9071:9085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|0
+[INFO] 17:38:02:750 MONGO/(9071:9085): Se encontro lugar en el ultimo bloque
+[INFO] 17:38:02:754 MONGO/(9071:9085): Se completo la escritura de caracteres
+[INFO] 17:38:02:752 MONGO/(9071:9083): Archivo de metadata generado
+[INFO] 17:38:02:771 MONGO/(9071:9083): Se completo la escritura de caracteres
+[INFO] 17:38:02:775 MONGO/(9071:9083): hola 1
+[INFO] 17:38:02:779 MONGO/(9071:9083): Generando MD5
+[INFO] 17:38:03:754 MONGO/(9071:9087): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 2|0
+[INFO] 17:38:03:758 MONGO/(9071:9087): Se completo la escritura de caracteres
+[INFO] 17:38:03:765 MONGO/(9071:9089): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 17:38:03:771 MONGO/(9071:9089): Se completo la escritura de caracteres
+[INFO] 17:38:03:774 MONGO/(9071:9089): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 1|0
+[INFO] 17:38:03:776 MONGO/(9071:9089): Se encontro lugar en el ultimo bloque
+[INFO] 17:38:03:778 MONGO/(9071:9089): Se completo la escritura de caracteres
+[INFO] 17:38:04:764 MONGO/(9071:9087): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 3|0
+[INFO] 17:38:04:767 MONGO/(9071:9087): Se encontro lugar en el ultimo bloque
+[INFO] 17:38:04:770 MONGO/(9071:9087): Se completo la escritura de caracteres
+[INFO] 17:38:04:782 MONGO/(9071:9089): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 2|0
+[INFO] 17:38:04:785 MONGO/(9071:9089): Se completo la escritura de caracteres
+[INFO] 17:38:05:773 MONGO/(9071:9087): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 3|1
+[INFO] 17:38:05:776 MONGO/(9071:9087): Se encontro lugar en el ultimo bloque
+[INFO] 17:38:05:778 MONGO/(9071:9087): Se completo la escritura de caracteres
+[INFO] 17:38:05:789 MONGO/(9071:9089): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 3|0
+[INFO] 17:38:05:792 MONGO/(9071:9089): Se encontro lugar en el ultimo bloque
+[INFO] 17:38:05:794 MONGO/(9071:9089): Se completo la escritura de caracteres
+[INFO] 17:38:06:782 MONGO/(9071:9087): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 3|2
+[INFO] 17:38:06:785 MONGO/(9071:9087): Se encontro lugar en el ultimo bloque
+[INFO] 17:38:06:787 MONGO/(9071:9087): Se completo la escritura de caracteres
+[INFO] 17:38:06:797 MONGO/(9071:9089): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 3|1
+[INFO] 17:38:06:799 MONGO/(9071:9085): GEN_OX - Tripulante 2 de la patota 1 generando 10 de oxigeno
+[INFO] 17:38:06:800 MONGO/(9071:9085): Buscando archivos de recursos ya existentes
+[INFO] 17:38:06:801 MONGO/(9071:9085): Archivo existente encontrado
+[INFO] 17:38:06:805 MONGO/(9071:9085): Se encontro lugar en el ultimo bloque
+[INFO] 17:38:06:806 MONGO/(9071:9089): Se encontro lugar en el ultimo bloque
+[INFO] 17:38:06:814 MONGO/(9071:9085): Se completo la escritura de caracteres
+[INFO] 17:38:06:816 MONGO/(9071:9085): hola 1
+[INFO] 17:38:06:817 MONGO/(9071:9085): Generando MD5
+[INFO] 17:38:06:823 MONGO/(9071:9089): Se completo la escritura de caracteres
+[INFO] 17:38:07:791 MONGO/(9071:9087): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 3|3
+[INFO] 17:38:07:794 MONGO/(9071:9087): Se encontro lugar en el ultimo bloque
+[INFO] 17:38:07:797 MONGO/(9071:9087): Se completo la escritura de caracteres
+[INFO] 17:38:12:230 MONGO/(9071:9071): Discordiador solicito la bitacora del tripulante 1 de la patota 1
+[INFO] 19:04:08:844 MONGO/(10103:10103): Servidor listo
+[INFO] 19:04:11:389 MONGO/(10103:10103): Conexión establecida con el discordiador
+[INFO] 19:04:11:389 MONGO/(10103:10103): Verificando existencia SuperBloque
+[INFO] 19:04:11:389 MONGO/(10103:10103): SuperBloque no existe, creandolo.
+[INFO] 19:04:11:389 MONGO/(10103:10103): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:04:11:390 MONGO/(10103:10103): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:04:11:393 MONGO/(10103:10103): se escribio el archivo
+[INFO] 19:04:11:393 MONGO/(10103:10103): SuperBloque Generado
+[INFO] 19:04:11:393 MONGO/(10103:10103): Verificando existencia Blocks
+[INFO] 19:04:11:393 MONGO/(10103:10103): Blocks no existe, creandolo
+[INFO] 19:04:11:393 MONGO/(10103:10103): Blocks Generado
+[INFO] 19:04:11:393 MONGO/(10103:10103): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:04:11:393 MONGO/(10103:10103): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:04:11:393 MONGO/(10103:10103): Iniciando el detector de sabotajes
+[INFO] 19:04:11:394 MONGO/(10103:10110): Detector de sabotajes iniciado exitosamente
+[INFO] 19:04:14:195 MONGO/(10103:10103): Discordiador inicio una patota
+[INFO] 19:04:14:196 MONGO/(10103:10103): Discordiador solicito iniciar un tripulante
+[INFO] 19:04:14:196 MONGO/(10103:10103): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:04:14:196 MONGO/(10103:10103): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:04:14:196 MONGO/(10103:10103): Se Genero la Bitacora
+[INFO] 19:04:30:964 MONGO/(10121:10121): Servidor listo
+[INFO] 19:04:33:516 MONGO/(10121:10121): Conexión establecida con el discordiador
+[INFO] 19:04:33:517 MONGO/(10121:10121): Verificando existencia SuperBloque
+[INFO] 19:04:33:517 MONGO/(10121:10121): SuperBloque no existe, creandolo.
+[INFO] 19:04:33:517 MONGO/(10121:10121): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:04:33:517 MONGO/(10121:10121): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:04:33:570 MONGO/(10121:10121): se escribio el archivo
+[INFO] 19:04:33:570 MONGO/(10121:10121): SuperBloque Generado
+[INFO] 19:04:33:570 MONGO/(10121:10121): Verificando existencia Blocks
+[INFO] 19:04:33:570 MONGO/(10121:10121): Blocks no existe, creandolo
+[INFO] 19:04:33:571 MONGO/(10121:10121): Blocks Generado
+[INFO] 19:04:33:571 MONGO/(10121:10121): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:04:33:571 MONGO/(10121:10121): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:04:33:571 MONGO/(10121:10121): Iniciando el detector de sabotajes
+[INFO] 19:04:33:571 MONGO/(10121:10126): Detector de sabotajes iniciado exitosamente
+[INFO] 19:04:37:003 MONGO/(10121:10121): Discordiador inicio una patota
+[INFO] 19:04:37:003 MONGO/(10121:10121): Discordiador solicito iniciar un tripulante
+[INFO] 19:04:37:003 MONGO/(10121:10121): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:04:37:003 MONGO/(10121:10121): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:04:37:003 MONGO/(10121:10121): Se Genero la Bitacora
+[INFO] 19:06:56:865 MONGO/(10273:10273): Servidor listo
+[INFO] 19:07:01:602 MONGO/(10273:10273): Conexión establecida con el discordiador
+[INFO] 19:07:01:602 MONGO/(10273:10273): Verificando existencia SuperBloque
+[INFO] 19:07:01:602 MONGO/(10273:10273): SuperBloque ya existe
+[INFO] 19:07:01:602 MONGO/(10273:10273): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:07:01:603 MONGO/(10273:10273): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:07:01:605 MONGO/(10273:10273): se escribio el archivo
+[INFO] 19:07:01:605 MONGO/(10273:10273): SuperBloque Generado
+[INFO] 19:07:01:606 MONGO/(10273:10273): Verificando existencia Blocks
+[INFO] 19:07:01:606 MONGO/(10273:10273): Blocks ya existe
+[INFO] 19:07:01:606 MONGO/(10273:10273): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:07:01:606 MONGO/(10273:10273): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:07:01:606 MONGO/(10273:10273): Iniciando el detector de sabotajes
+[INFO] 19:07:01:608 MONGO/(10273:10279): Detector de sabotajes iniciado exitosamente
+[INFO] 19:07:05:328 MONGO/(10273:10273): Discordiador inicio una patota
+[INFO] 19:07:05:328 MONGO/(10273:10273): Discordiador solicito iniciar un tripulante
+[INFO] 19:07:05:328 MONGO/(10273:10273): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:07:05:328 MONGO/(10273:10273): Archivo existente encontrado
+[INFO] 19:07:05:329 MONGO/(10273:10273): Discordiador solicito iniciar un tripulante
+[INFO] 19:07:05:329 MONGO/(10273:10283): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:07:05:329 MONGO/(10273:10273): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:07:05:330 MONGO/(10273:10273): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:07:05:330 MONGO/(10273:10273): Se Genero la Bitacora
+[INFO] 19:07:05:330 MONGO/(10273:10285): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:07:05:330 MONGO/(10273:10273): Discordiador solicito iniciar un tripulante
+[INFO] 19:07:05:331 MONGO/(10273:10273): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:07:05:331 MONGO/(10273:10273): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:07:05:331 MONGO/(10273:10273): Se Genero la Bitacora
+[INFO] 19:07:05:332 MONGO/(10273:10287): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:07:05:332 MONGO/(10273:10273): Discordiador solicito iniciar un tripulante
+[INFO] 19:07:05:332 MONGO/(10273:10273): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:07:05:332 MONGO/(10273:10273): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:07:05:333 MONGO/(10273:10273): Se Genero la Bitacora
+[INFO] 19:07:05:333 MONGO/(10273:10289): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:07:50:336 MONGO/(10505:10505): Servidor listo
+[INFO] 19:07:52:679 MONGO/(10505:10505): Conexión establecida con el discordiador
+[INFO] 19:07:52:680 MONGO/(10505:10505): Verificando existencia SuperBloque
+[INFO] 19:07:52:680 MONGO/(10505:10505): SuperBloque no existe, creandolo.
+[INFO] 19:07:52:680 MONGO/(10505:10505): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:07:52:680 MONGO/(10505:10505): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:07:52:704 MONGO/(10505:10505): se escribio el archivo
+[INFO] 19:07:52:704 MONGO/(10505:10505): SuperBloque Generado
+[INFO] 19:07:52:704 MONGO/(10505:10505): Verificando existencia Blocks
+[INFO] 19:07:52:704 MONGO/(10505:10505): Blocks no existe, creandolo
+[INFO] 19:07:52:704 MONGO/(10505:10505): Blocks Generado
+[INFO] 19:07:52:704 MONGO/(10505:10505): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:07:52:705 MONGO/(10505:10505): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:07:52:705 MONGO/(10505:10505): Iniciando el detector de sabotajes
+[INFO] 19:07:52:706 MONGO/(10505:10510): Detector de sabotajes iniciado exitosamente
+[INFO] 19:07:54:359 MONGO/(10505:10505): Discordiador inicio una patota
+[INFO] 19:07:54:359 MONGO/(10505:10505): Discordiador solicito iniciar un tripulante
+[INFO] 19:07:54:359 MONGO/(10505:10505): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:07:54:359 MONGO/(10505:10505): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:07:54:360 MONGO/(10505:10505): Se Genero la Bitacora
+[INFO] 19:09:40:669 MONGO/(10639:10639): Servidor listo
+[INFO] 19:09:43:173 MONGO/(10639:10639): Conexión establecida con el discordiador
+[INFO] 19:09:43:174 MONGO/(10639:10639): Verificando existencia SuperBloque
+[INFO] 19:09:43:176 MONGO/(10639:10639): SuperBloque ya existe
+[INFO] 19:09:43:176 MONGO/(10639:10639): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:09:43:176 MONGO/(10639:10639): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:09:43:178 MONGO/(10639:10639): se escribio el archivo
+[INFO] 19:09:43:178 MONGO/(10639:10639): SuperBloque Generado
+[INFO] 19:09:43:179 MONGO/(10639:10639): Verificando existencia Blocks
+[INFO] 19:09:43:179 MONGO/(10639:10639): Blocks ya existe
+[INFO] 19:09:43:179 MONGO/(10639:10639): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:09:43:179 MONGO/(10639:10639): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:09:43:179 MONGO/(10639:10639): Iniciando el detector de sabotajes
+[INFO] 19:09:43:180 MONGO/(10639:10645): Detector de sabotajes iniciado exitosamente
+[INFO] 19:10:21:476 MONGO/(10849:10849): Servidor listo
+[INFO] 19:10:26:381 MONGO/(10849:10849): Conexión establecida con el discordiador
+[INFO] 19:10:26:383 MONGO/(10849:10849): Verificando existencia SuperBloque
+[INFO] 19:10:26:383 MONGO/(10849:10849): SuperBloque ya existe
+[INFO] 19:10:26:384 MONGO/(10849:10849): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:10:26:384 MONGO/(10849:10849): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:10:26:413 MONGO/(10849:10849): se escribio el archivo
+[INFO] 19:10:26:413 MONGO/(10849:10849): SuperBloque Generado
+[INFO] 19:10:26:413 MONGO/(10849:10849): Verificando existencia Blocks
+[INFO] 19:10:26:414 MONGO/(10849:10849): Blocks ya existe
+[INFO] 19:10:26:414 MONGO/(10849:10849): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:10:26:414 MONGO/(10849:10849): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:10:26:414 MONGO/(10849:10849): Iniciando el detector de sabotajes
+[INFO] 19:10:26:416 MONGO/(10849:10856): Detector de sabotajes iniciado exitosamente
+[INFO] 19:10:28:603 MONGO/(10849:10849): Discordiador inicio una patota
+[INFO] 19:10:28:603 MONGO/(10849:10849): Discordiador solicito iniciar un tripulante
+[INFO] 19:10:28:603 MONGO/(10849:10849): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:10:28:604 MONGO/(10849:10849): Archivo existente encontrado
+[INFO] 19:10:28:604 MONGO/(10849:10865): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:10:28:605 MONGO/(10849:10849): Discordiador solicito iniciar un tripulante
+[INFO] 19:10:28:605 MONGO/(10849:10849): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:10:28:605 MONGO/(10849:10849): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:10:28:605 MONGO/(10849:10849): Se Genero la Bitacora
+[INFO] 19:10:28:606 MONGO/(10849:10867): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:10:28:607 MONGO/(10849:10849): Discordiador solicito iniciar un tripulante
+[INFO] 19:10:28:607 MONGO/(10849:10849): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:10:28:607 MONGO/(10849:10849): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:10:28:607 MONGO/(10849:10849): Se Genero la Bitacora
+[INFO] 19:10:28:607 MONGO/(10849:10869): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:10:28:608 MONGO/(10849:10849): Discordiador solicito iniciar un tripulante
+[INFO] 19:10:28:608 MONGO/(10849:10849): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:10:28:608 MONGO/(10849:10849): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:10:28:608 MONGO/(10849:10849): Se Genero la Bitacora
+[INFO] 19:10:28:608 MONGO/(10849:10871): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:20:27:919 MONGO/(12139:12139): Servidor listo
+[INFO] 19:20:30:880 MONGO/(12139:12139): Conexión establecida con el discordiador
+[INFO] 19:20:30:880 MONGO/(12139:12139): Verificando existencia SuperBloque
+[INFO] 19:20:30:880 MONGO/(12139:12139): SuperBloque ya existe
+[INFO] 19:20:30:880 MONGO/(12139:12139): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:20:30:880 MONGO/(12139:12139): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:20:30:892 MONGO/(12139:12139): se escribio el archivo
+[INFO] 19:20:30:892 MONGO/(12139:12139): SuperBloque Generado
+[INFO] 19:20:30:892 MONGO/(12139:12139): Verificando existencia Blocks
+[INFO] 19:20:30:892 MONGO/(12139:12139): Blocks ya existe
+[INFO] 19:20:30:892 MONGO/(12139:12139): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:20:30:892 MONGO/(12139:12139): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:20:30:892 MONGO/(12139:12139): Iniciando el detector de sabotajes
+[INFO] 19:20:30:893 MONGO/(12139:12145): Detector de sabotajes iniciado exitosamente
+[INFO] 19:20:33:766 MONGO/(12139:12139): Discordiador inicio una patota
+[INFO] 19:20:33:767 MONGO/(12139:12139): Discordiador solicito iniciar un tripulante
+[INFO] 19:20:33:767 MONGO/(12139:12139): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:20:33:767 MONGO/(12139:12139): Archivo existente encontrado
+[INFO] 19:20:33:767 MONGO/(12139:12139): Discordiador solicito iniciar un tripulante
+[INFO] 19:20:33:767 MONGO/(12139:12149): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:20:33:768 MONGO/(12139:12139): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:20:33:768 MONGO/(12139:12139): Archivo existente encontrado
+[INFO] 19:20:33:768 MONGO/(12139:12151): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:20:33:768 MONGO/(12139:12139): Discordiador solicito iniciar un tripulante
+[INFO] 19:20:33:768 MONGO/(12139:12139): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:20:33:768 MONGO/(12139:12139): Archivo existente encontrado
+[INFO] 19:20:33:769 MONGO/(12139:12153): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:20:33:769 MONGO/(12139:12139): Discordiador solicito iniciar un tripulante
+[INFO] 19:20:33:769 MONGO/(12139:12139): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:20:33:769 MONGO/(12139:12139): Archivo existente encontrado
+[INFO] 19:20:33:770 MONGO/(12139:12155): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:20:53:279 MONGO/(12356:12356): Servidor listo
+[INFO] 19:20:56:367 MONGO/(12356:12356): Conexión establecida con el discordiador
+[INFO] 19:20:56:368 MONGO/(12356:12356): Verificando existencia SuperBloque
+[INFO] 19:20:56:368 MONGO/(12356:12356): SuperBloque ya existe
+[INFO] 19:20:56:368 MONGO/(12356:12356): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:20:56:368 MONGO/(12356:12356): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:20:56:371 MONGO/(12356:12356): se escribio el archivo
+[INFO] 19:20:56:371 MONGO/(12356:12356): SuperBloque Generado
+[INFO] 19:20:56:371 MONGO/(12356:12356): Verificando existencia Blocks
+[INFO] 19:20:56:371 MONGO/(12356:12356): Blocks ya existe
+[INFO] 19:20:56:371 MONGO/(12356:12356): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:20:56:371 MONGO/(12356:12356): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:20:56:371 MONGO/(12356:12356): Iniciando el detector de sabotajes
+[INFO] 19:20:56:373 MONGO/(12356:12361): Detector de sabotajes iniciado exitosamente
+[INFO] 19:20:59:166 MONGO/(12356:12356): Discordiador inicio una patota
+[INFO] 19:20:59:166 MONGO/(12356:12356): Discordiador solicito iniciar un tripulante
+[INFO] 19:20:59:166 MONGO/(12356:12356): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:20:59:166 MONGO/(12356:12356): Archivo existente encontrado
+[INFO] 19:20:59:167 MONGO/(12356:12365): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:20:59:167 MONGO/(12356:12356): Discordiador solicito iniciar un tripulante
+[INFO] 19:20:59:167 MONGO/(12356:12356): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:20:59:168 MONGO/(12356:12356): Archivo existente encontrado
+[INFO] 19:20:59:168 MONGO/(12356:12367): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:20:59:168 MONGO/(12356:12356): Discordiador solicito iniciar un tripulante
+[INFO] 19:20:59:169 MONGO/(12356:12356): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:20:59:169 MONGO/(12356:12356): Archivo existente encontrado
+[INFO] 19:20:59:169 MONGO/(12356:12369): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:20:59:169 MONGO/(12356:12356): Discordiador solicito iniciar un tripulante
+[INFO] 19:20:59:169 MONGO/(12356:12356): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:20:59:169 MONGO/(12356:12356): Archivo existente encontrado
+[INFO] 19:20:59:170 MONGO/(12356:12371): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:21:01:062 MONGO/(12356:12367): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:21:01:062 MONGO/(12356:12367): Se completo la escritura de caracteres
+[INFO] 19:21:01:062 MONGO/(12356:12365): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:21:01:063 MONGO/(12356:12365): Se completo la escritura de caracteres
+[INFO] 19:21:01:063 MONGO/(12356:12365): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 19:21:01:063 MONGO/(12356:12365): Se encontro lugar en el ultimo bloque
+[INFO] 19:21:01:064 MONGO/(12356:12365): Se completo la escritura de caracteres
+[INFO] 19:21:01:064 MONGO/(12356:12367): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 19:21:01:064 MONGO/(12356:12367): Se encontro lugar en el ultimo bloque
+[INFO] 19:21:01:064 MONGO/(12356:12367): Se completo la escritura de caracteres
+[INFO] 19:21:58:942 MONGO/(12495:12495): Servidor listo
+[INFO] 19:22:00:206 MONGO/(12495:12495): Conexión establecida con el discordiador
+[INFO] 19:22:00:206 MONGO/(12495:12495): Verificando existencia SuperBloque
+[INFO] 19:22:00:206 MONGO/(12495:12495): SuperBloque ya existe
+[INFO] 19:22:00:206 MONGO/(12495:12495): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:22:00:206 MONGO/(12495:12495): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:22:00:211 MONGO/(12495:12495): se escribio el archivo
+[INFO] 19:22:00:211 MONGO/(12495:12495): SuperBloque Generado
+[INFO] 19:22:00:211 MONGO/(12495:12495): Verificando existencia Blocks
+[INFO] 19:22:00:211 MONGO/(12495:12495): Blocks ya existe
+[INFO] 19:22:00:211 MONGO/(12495:12495): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:22:00:211 MONGO/(12495:12495): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:22:00:211 MONGO/(12495:12495): Iniciando el detector de sabotajes
+[INFO] 19:22:00:212 MONGO/(12495:12500): Detector de sabotajes iniciado exitosamente
+[INFO] 19:22:02:269 MONGO/(12495:12495): Discordiador inicio una patota
+[INFO] 19:22:02:269 MONGO/(12495:12495): Discordiador solicito iniciar un tripulante
+[INFO] 19:22:02:269 MONGO/(12495:12495): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:22:02:269 MONGO/(12495:12495): Archivo existente encontrado
+[INFO] 19:22:02:270 MONGO/(12495:12495): Discordiador solicito iniciar un tripulante
+[INFO] 19:22:02:270 MONGO/(12495:12495): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:22:02:270 MONGO/(12495:12504): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:22:02:270 MONGO/(12495:12495): Archivo existente encontrado
+[INFO] 19:22:02:271 MONGO/(12495:12495): Discordiador solicito iniciar un tripulante
+[INFO] 19:22:02:271 MONGO/(12495:12495): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:22:02:271 MONGO/(12495:12506): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:22:02:271 MONGO/(12495:12495): Archivo existente encontrado
+[INFO] 19:22:02:272 MONGO/(12495:12508): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:22:02:272 MONGO/(12495:12495): Discordiador solicito iniciar un tripulante
+[INFO] 19:22:02:272 MONGO/(12495:12495): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:22:02:272 MONGO/(12495:12495): Archivo existente encontrado
+[INFO] 19:22:02:273 MONGO/(12495:12510): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:22:12:301 MONGO/(12514:12514): Servidor listo
+[INFO] 19:22:15:358 MONGO/(12514:12514): Conexión establecida con el discordiador
+[INFO] 19:22:15:358 MONGO/(12514:12514): Verificando existencia SuperBloque
+[INFO] 19:22:15:358 MONGO/(12514:12514): SuperBloque ya existe
+[INFO] 19:22:15:359 MONGO/(12514:12514): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:22:15:359 MONGO/(12514:12514): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:22:15:365 MONGO/(12514:12514): se escribio el archivo
+[INFO] 19:22:15:365 MONGO/(12514:12514): SuperBloque Generado
+[INFO] 19:22:15:365 MONGO/(12514:12514): Verificando existencia Blocks
+[INFO] 19:22:15:365 MONGO/(12514:12514): Blocks ya existe
+[INFO] 19:22:15:365 MONGO/(12514:12514): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:22:15:365 MONGO/(12514:12514): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:22:15:365 MONGO/(12514:12514): Iniciando el detector de sabotajes
+[INFO] 19:22:15:366 MONGO/(12514:12519): Detector de sabotajes iniciado exitosamente
+[INFO] 19:22:17:429 MONGO/(12514:12514): Discordiador inicio una patota
+[INFO] 19:22:17:429 MONGO/(12514:12514): Discordiador solicito iniciar un tripulante
+[INFO] 19:22:17:429 MONGO/(12514:12514): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:22:17:429 MONGO/(12514:12514): Archivo existente encontrado
+[INFO] 19:22:17:430 MONGO/(12514:12514): Discordiador solicito iniciar un tripulante
+[INFO] 19:22:17:430 MONGO/(12514:12523): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:22:17:430 MONGO/(12514:12514): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:22:17:430 MONGO/(12514:12514): Archivo existente encontrado
+[INFO] 19:22:17:430 MONGO/(12514:12525): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:22:17:431 MONGO/(12514:12514): Discordiador solicito iniciar un tripulante
+[INFO] 19:22:17:431 MONGO/(12514:12514): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:22:17:431 MONGO/(12514:12514): Archivo existente encontrado
+[INFO] 19:22:17:431 MONGO/(12514:12527): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:22:17:432 MONGO/(12514:12514): Discordiador solicito iniciar un tripulante
+[INFO] 19:22:17:432 MONGO/(12514:12514): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:22:17:432 MONGO/(12514:12514): Archivo existente encontrado
+[INFO] 19:22:17:432 MONGO/(12514:12529): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:22:19:828 MONGO/(12514:12525): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:22:19:828 MONGO/(12514:12523): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:22:19:828 MONGO/(12514:12525): Se completo la escritura de caracteres
+[INFO] 19:22:19:829 MONGO/(12514:12523): Se completo la escritura de caracteres
+[INFO] 19:22:19:829 MONGO/(12514:12523): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 19:22:19:829 MONGO/(12514:12523): Se encontro lugar en el ultimo bloque
+[INFO] 19:22:19:829 MONGO/(12514:12523): Se completo la escritura de caracteres
+[INFO] 19:22:19:830 MONGO/(12514:12525): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 19:22:19:830 MONGO/(12514:12525): Se encontro lugar en el ultimo bloque
+[INFO] 19:22:19:830 MONGO/(12514:12525): Se completo la escritura de caracteres
+[INFO] 19:22:37:581 MONGO/(12546:12546): Servidor listo
+[INFO] 19:22:41:622 MONGO/(12546:12546): Conexión establecida con el discordiador
+[INFO] 19:22:41:622 MONGO/(12546:12546): Verificando existencia SuperBloque
+[INFO] 19:22:41:622 MONGO/(12546:12546): SuperBloque no existe, creandolo.
+[INFO] 19:22:41:622 MONGO/(12546:12546): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:22:41:622 MONGO/(12546:12546): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:22:41:628 MONGO/(12546:12546): se escribio el archivo
+[INFO] 19:22:41:628 MONGO/(12546:12546): SuperBloque Generado
+[INFO] 19:22:41:628 MONGO/(12546:12546): Verificando existencia Blocks
+[INFO] 19:22:41:628 MONGO/(12546:12546): Blocks no existe, creandolo
+[INFO] 19:22:41:628 MONGO/(12546:12546): Blocks Generado
+[INFO] 19:22:41:628 MONGO/(12546:12546): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:22:41:628 MONGO/(12546:12546): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:22:41:628 MONGO/(12546:12546): Iniciando el detector de sabotajes
+[INFO] 19:22:41:629 MONGO/(12546:12551): Detector de sabotajes iniciado exitosamente
+[INFO] 19:22:43:708 MONGO/(12546:12546): Discordiador inicio una patota
+[INFO] 19:22:43:708 MONGO/(12546:12546): Discordiador solicito iniciar un tripulante
+[INFO] 19:22:43:708 MONGO/(12546:12546): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:22:43:708 MONGO/(12546:12546): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:22:43:709 MONGO/(12546:12546): Se Genero la Bitacora
+[INFO] 19:22:59:980 MONGO/(12559:12559): Servidor listo
+[INFO] 19:23:00:661 MONGO/(12559:12559): Conexión establecida con el discordiador
+[INFO] 19:23:00:661 MONGO/(12559:12559): Verificando existencia SuperBloque
+[INFO] 19:23:00:661 MONGO/(12559:12559): SuperBloque ya existe
+[INFO] 19:23:00:661 MONGO/(12559:12559): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:23:00:661 MONGO/(12559:12559): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:23:00:841 MONGO/(12559:12559): se escribio el archivo
+[INFO] 19:23:00:841 MONGO/(12559:12559): SuperBloque Generado
+[INFO] 19:23:00:841 MONGO/(12559:12559): Verificando existencia Blocks
+[INFO] 19:23:00:841 MONGO/(12559:12559): Blocks ya existe
+[INFO] 19:23:00:841 MONGO/(12559:12559): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:23:00:841 MONGO/(12559:12559): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:23:00:841 MONGO/(12559:12559): Iniciando el detector de sabotajes
+[INFO] 19:23:00:843 MONGO/(12559:12564): Detector de sabotajes iniciado exitosamente
+[INFO] 19:23:02:331 MONGO/(12559:12559): Discordiador inicio una patota
+[INFO] 19:23:02:332 MONGO/(12559:12559): Discordiador solicito iniciar un tripulante
+[INFO] 19:23:02:332 MONGO/(12559:12559): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:23:02:332 MONGO/(12559:12559): Archivo existente encontrado
+[INFO] 19:23:02:333 MONGO/(12559:12559): Discordiador solicito iniciar un tripulante
+[INFO] 19:23:02:333 MONGO/(12559:12568): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:23:02:333 MONGO/(12559:12559): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:23:02:333 MONGO/(12559:12559): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:23:02:334 MONGO/(12559:12559): Se Genero la Bitacora
+[INFO] 19:23:35:652 MONGO/(12577:12577): Servidor listo
+[INFO] 19:23:36:644 MONGO/(12577:12577): Conexión establecida con el discordiador
+[INFO] 19:23:36:644 MONGO/(12577:12577): Verificando existencia SuperBloque
+[INFO] 19:23:36:644 MONGO/(12577:12577): SuperBloque ya existe
+[INFO] 19:23:36:644 MONGO/(12577:12577): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:23:36:644 MONGO/(12577:12577): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:23:36:677 MONGO/(12577:12577): se escribio el archivo
+[INFO] 19:23:36:677 MONGO/(12577:12577): SuperBloque Generado
+[INFO] 19:23:36:677 MONGO/(12577:12577): Verificando existencia Blocks
+[INFO] 19:23:36:677 MONGO/(12577:12577): Blocks ya existe
+[INFO] 19:23:36:677 MONGO/(12577:12577): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:23:36:677 MONGO/(12577:12577): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:23:36:677 MONGO/(12577:12577): Iniciando el detector de sabotajes
+[INFO] 19:23:36:678 MONGO/(12577:12582): Detector de sabotajes iniciado exitosamente
+[INFO] 19:23:38:499 MONGO/(12577:12577): Discordiador inicio una patota
+[INFO] 19:23:38:499 MONGO/(12577:12577): Discordiador solicito iniciar un tripulante
+[INFO] 19:23:38:499 MONGO/(12577:12577): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:23:38:499 MONGO/(12577:12577): Archivo existente encontrado
+[INFO] 19:23:38:500 MONGO/(12577:12577): Discordiador solicito iniciar un tripulante
+[INFO] 19:23:38:500 MONGO/(12577:12577): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:23:38:500 MONGO/(12577:12577): Archivo existente encontrado
+[INFO] 19:23:38:500 MONGO/(12577:12588): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:23:38:501 MONGO/(12577:12577): Discordiador solicito iniciar un tripulante
+[INFO] 19:23:38:501 MONGO/(12577:12577): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:23:38:501 MONGO/(12577:12577): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:23:38:501 MONGO/(12577:12577): Se Genero la Bitacora
+[INFO] 19:27:43:079 MONGO/(12858:12858): Servidor listo
+[INFO] 19:27:55:967 MONGO/(12858:12858): Conexión establecida con el discordiador
+[INFO] 19:27:55:967 MONGO/(12858:12858): Verificando existencia SuperBloque
+[INFO] 19:27:55:967 MONGO/(12858:12858): SuperBloque no existe, creandolo.
+[INFO] 19:27:55:967 MONGO/(12858:12858): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:27:55:967 MONGO/(12858:12858): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:27:55:972 MONGO/(12858:12858): se escribio el archivo
+[INFO] 19:27:55:972 MONGO/(12858:12858): SuperBloque Generado
+[INFO] 19:27:55:972 MONGO/(12858:12858): Verificando existencia Blocks
+[INFO] 19:27:55:972 MONGO/(12858:12858): Blocks no existe, creandolo
+[INFO] 19:27:55:973 MONGO/(12858:12858): Blocks Generado
+[INFO] 19:27:55:973 MONGO/(12858:12858): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:27:55:973 MONGO/(12858:12858): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:27:55:973 MONGO/(12858:12858): Iniciando el detector de sabotajes
+[INFO] 19:27:55:973 MONGO/(12858:12867): Detector de sabotajes iniciado exitosamente
+[INFO] 19:27:58:805 MONGO/(12858:12858): Discordiador inicio una patota
+[INFO] 19:27:58:806 MONGO/(12858:12858): Discordiador solicito iniciar un tripulante
+[INFO] 19:27:58:806 MONGO/(12858:12858): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:27:58:806 MONGO/(12858:12858): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:27:58:806 MONGO/(12858:12858): Se Genero la Bitacora
+[INFO] 19:27:58:807 MONGO/(12858:12858): Discordiador solicito iniciar un tripulante
+[INFO] 19:27:58:807 MONGO/(12858:12871): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:27:58:807 MONGO/(12858:12858): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:27:58:807 MONGO/(12858:12858): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:27:58:807 MONGO/(12858:12858): Se Genero la Bitacora
+[INFO] 19:27:58:807 MONGO/(12858:12873): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:27:58:808 MONGO/(12858:12858): Discordiador solicito iniciar un tripulante
+[INFO] 19:27:58:808 MONGO/(12858:12858): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:27:58:808 MONGO/(12858:12858): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:27:58:809 MONGO/(12858:12858): Se Genero la Bitacora
+[INFO] 19:27:58:809 MONGO/(12858:12858): Discordiador solicito iniciar un tripulante
+[INFO] 19:27:58:809 MONGO/(12858:12875): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:27:58:810 MONGO/(12858:12858): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:27:58:810 MONGO/(12858:12858): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:27:58:810 MONGO/(12858:12858): Se Genero la Bitacora
+[INFO] 19:27:58:811 MONGO/(12858:12877): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:28:11:781 MONGO/(12858:12871): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:28:11:781 MONGO/(12858:12873): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:28:11:781 MONGO/(12858:12871): Se completo la escritura de caracteres
+[INFO] 19:28:11:781 MONGO/(12858:12873): Se completo la escritura de caracteres
+[INFO] 19:28:11:782 MONGO/(12858:12873): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 19:28:11:782 MONGO/(12858:12871): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 19:28:11:782 MONGO/(12858:12873): Se encontro lugar en el ultimo bloque
+[INFO] 19:28:11:782 MONGO/(12858:12871): Se encontro lugar en el ultimo bloque
+[INFO] 19:28:11:782 MONGO/(12858:12873): Se completo la escritura de caracteres
+[INFO] 19:28:11:782 MONGO/(12858:12871): Se completo la escritura de caracteres
+[INFO] 19:28:12:785 MONGO/(12858:12873): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 7|2
+[INFO] 19:28:12:786 MONGO/(12858:12871): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 19:28:12:786 MONGO/(12858:12871): Se completo la escritura de caracteres
+[INFO] 19:28:12:786 MONGO/(12858:12873): Se completo la escritura de caracteres
+[INFO] 19:28:13:787 MONGO/(12858:12873): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 19:28:13:787 MONGO/(12858:12871): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 19:28:13:787 MONGO/(12858:12871): Se encontro lugar en el ultimo bloque
+[INFO] 19:28:13:787 MONGO/(12858:12871): Se completo la escritura de caracteres
+[INFO] 19:28:13:787 MONGO/(12858:12873): Se encontro lugar en el ultimo bloque
+[INFO] 19:28:13:788 MONGO/(12858:12873): Se completo la escritura de caracteres
+[INFO] 19:28:14:793 MONGO/(12858:12873): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 5|2
+[INFO] 19:28:14:793 MONGO/(12858:12871): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 19:28:14:793 MONGO/(12858:12873): Se encontro lugar en el ultimo bloque
+[INFO] 19:28:14:793 MONGO/(12858:12871): Se encontro lugar en el ultimo bloque
+[INFO] 19:28:14:793 MONGO/(12858:12873): Se completo la escritura de caracteres
+[INFO] 19:28:14:793 MONGO/(12858:12871): Se completo la escritura de caracteres
+[INFO] 19:28:15:796 MONGO/(12858:12871): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 19:28:15:796 MONGO/(12858:12873): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 4|2
+[INFO] 19:28:15:796 MONGO/(12858:12871): Se encontro lugar en el ultimo bloque
+[INFO] 19:28:15:796 MONGO/(12858:12873): Se encontro lugar en el ultimo bloque
+[INFO] 19:28:15:796 MONGO/(12858:12871): Se completo la escritura de caracteres
+[INFO] 19:28:15:796 MONGO/(12858:12873): Se completo la escritura de caracteres
+[INFO] 19:28:16:797 MONGO/(12858:12873): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 3|2
+[INFO] 19:28:16:797 MONGO/(12858:12873): Se encontro lugar en el ultimo bloque
+[INFO] 19:28:16:797 MONGO/(12858:12873): Se completo la escritura de caracteres
+[INFO] 19:28:16:797 MONGO/(12858:12871): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 3|3
+[INFO] 19:28:16:797 MONGO/(12858:12871): Se encontro lugar en el ultimo bloque
+[INFO] 19:28:16:798 MONGO/(12858:12871): Se completo la escritura de caracteres
+[INFO] 19:28:23:021 MONGO/(12858:12858): Discordiador solicito la bitacora del tripulante 1 de la patota 1
+[INFO] 19:28:23:021 MONGO/(12858:12858): 1
+[INFO] 19:28:23:021 MONGO/(12858:12858): 2
+[INFO] 19:28:23:021 MONGO/(12858:12858): 3
+[INFO] 19:30:19:012 MONGO/(12938:12938): Servidor listo
+[INFO] 19:30:30:108 MONGO/(12938:12938): Conexión establecida con el discordiador
+[INFO] 19:30:30:108 MONGO/(12938:12938): Verificando existencia SuperBloque
+[INFO] 19:30:30:108 MONGO/(12938:12938): SuperBloque no existe, creandolo.
+[INFO] 19:30:30:108 MONGO/(12938:12938): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:30:30:108 MONGO/(12938:12938): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:30:30:113 MONGO/(12938:12938): se escribio el archivo
+[INFO] 19:30:30:113 MONGO/(12938:12938): SuperBloque Generado
+[INFO] 19:30:30:113 MONGO/(12938:12938): Verificando existencia Blocks
+[INFO] 19:30:30:113 MONGO/(12938:12938): Blocks no existe, creandolo
+[INFO] 19:30:30:114 MONGO/(12938:12938): Blocks Generado
+[INFO] 19:30:30:114 MONGO/(12938:12938): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:30:30:114 MONGO/(12938:12938): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:30:30:114 MONGO/(12938:12938): Iniciando el detector de sabotajes
+[INFO] 19:30:30:115 MONGO/(12938:12952): Detector de sabotajes iniciado exitosamente
+[INFO] 19:30:34:866 MONGO/(12938:12938): Discordiador inicio una patota
+[INFO] 19:30:34:866 MONGO/(12938:12938): Discordiador solicito iniciar un tripulante
+[INFO] 19:30:34:866 MONGO/(12938:12938): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:30:34:866 MONGO/(12938:12938): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:30:34:867 MONGO/(12938:12938): Se Genero la Bitacora
+[INFO] 19:30:34:867 MONGO/(12938:12956): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:30:34:868 MONGO/(12938:12938): Discordiador solicito iniciar un tripulante
+[INFO] 19:30:34:868 MONGO/(12938:12938): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:30:34:868 MONGO/(12938:12938): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:30:34:868 MONGO/(12938:12938): Se Genero la Bitacora
+[INFO] 19:30:34:868 MONGO/(12938:12958): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:30:34:869 MONGO/(12938:12938): Discordiador solicito iniciar un tripulante
+[INFO] 19:30:34:869 MONGO/(12938:12938): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:30:34:869 MONGO/(12938:12938): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:30:34:869 MONGO/(12938:12938): Se Genero la Bitacora
+[INFO] 19:30:34:869 MONGO/(12938:12960): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:30:34:870 MONGO/(12938:12938): Discordiador solicito iniciar un tripulante
+[INFO] 19:30:34:870 MONGO/(12938:12938): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:30:34:870 MONGO/(12938:12938): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:30:34:870 MONGO/(12938:12938): Se Genero la Bitacora
+[INFO] 19:30:34:870 MONGO/(12938:12962): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:30:39:234 MONGO/(12938:12958): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:30:39:234 MONGO/(12938:12958): Se completo la escritura de caracteres
+[INFO] 19:30:39:234 MONGO/(12938:12956): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:30:39:235 MONGO/(12938:12956): Se completo la escritura de caracteres
+[INFO] 19:30:39:236 MONGO/(12938:12958): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 19:30:39:236 MONGO/(12938:12958): Se encontro lugar en el ultimo bloque
+[INFO] 19:30:39:236 MONGO/(12938:12958): Se completo la escritura de caracteres
+[INFO] 19:30:39:236 MONGO/(12938:12956): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 19:30:39:236 MONGO/(12938:12956): Se encontro lugar en el ultimo bloque
+[INFO] 19:30:39:237 MONGO/(12938:12956): Se completo la escritura de caracteres
+[INFO] 19:30:40:238 MONGO/(12938:12956): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 19:30:40:238 MONGO/(12938:12956): Se completo la escritura de caracteres
+[INFO] 19:30:40:238 MONGO/(12938:12958): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 7|2
+[INFO] 19:30:40:238 MONGO/(12938:12958): Se completo la escritura de caracteres
+[INFO] 19:30:41:240 MONGO/(12938:12956): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 19:30:41:240 MONGO/(12938:12956): Se encontro lugar en el ultimo bloque
+[INFO] 19:30:41:240 MONGO/(12938:12956): Se completo la escritura de caracteres
+[INFO] 19:30:41:240 MONGO/(12938:12958): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 19:30:41:240 MONGO/(12938:12958): Se encontro lugar en el ultimo bloque
+[INFO] 19:30:41:240 MONGO/(12938:12958): Se completo la escritura de caracteres
+[INFO] 19:30:42:242 MONGO/(12938:12956): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 19:30:42:242 MONGO/(12938:12956): Se encontro lugar en el ultimo bloque
+[INFO] 19:30:42:242 MONGO/(12938:12956): Se completo la escritura de caracteres
+[INFO] 19:30:42:242 MONGO/(12938:12958): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 5|2
+[INFO] 19:30:42:242 MONGO/(12938:12958): Se encontro lugar en el ultimo bloque
+[INFO] 19:30:42:242 MONGO/(12938:12958): Se completo la escritura de caracteres
+[INFO] 19:30:43:245 MONGO/(12938:12956): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 19:30:43:245 MONGO/(12938:12956): Se encontro lugar en el ultimo bloque
+[INFO] 19:30:43:245 MONGO/(12938:12956): Se completo la escritura de caracteres
+[INFO] 19:30:43:245 MONGO/(12938:12958): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 4|2
+[INFO] 19:30:43:245 MONGO/(12938:12958): Se encontro lugar en el ultimo bloque
+[INFO] 19:30:43:246 MONGO/(12938:12958): Se completo la escritura de caracteres
+[INFO] 19:30:49:243 MONGO/(12938:12938): Discordiador solicito la bitacora del tripulante 1 de la patota 1
+[INFO] 19:30:49:243 MONGO/(12938:12938): 1
+[INFO] 19:30:49:244 MONGO/(12938:12938): 2
+[INFO] 19:30:49:244 MONGO/(12938:12938): 3
+[INFO] 19:31:16:514 MONGO/(13071:13071): Servidor listo
+[INFO] 19:31:23:698 MONGO/(13071:13071): Conexión establecida con el discordiador
+[INFO] 19:31:23:698 MONGO/(13071:13071): Verificando existencia SuperBloque
+[INFO] 19:31:23:698 MONGO/(13071:13071): SuperBloque no existe, creandolo.
+[INFO] 19:31:23:698 MONGO/(13071:13071): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:31:23:698 MONGO/(13071:13071): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:31:23:849 MONGO/(13071:13071): se escribio el archivo
+[INFO] 19:31:23:849 MONGO/(13071:13071): SuperBloque Generado
+[INFO] 19:31:23:849 MONGO/(13071:13071): Verificando existencia Blocks
+[INFO] 19:31:23:849 MONGO/(13071:13071): Blocks no existe, creandolo
+[INFO] 19:31:23:849 MONGO/(13071:13071): Blocks Generado
+[INFO] 19:31:23:850 MONGO/(13071:13071): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:31:23:850 MONGO/(13071:13071): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:31:23:850 MONGO/(13071:13071): Iniciando el detector de sabotajes
+[INFO] 19:31:23:851 MONGO/(13071:13079): Detector de sabotajes iniciado exitosamente
+[INFO] 19:31:26:090 MONGO/(13071:13071): Discordiador inicio una patota
+[INFO] 19:31:26:090 MONGO/(13071:13071): Discordiador solicito iniciar un tripulante
+[INFO] 19:31:26:090 MONGO/(13071:13071): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:31:26:090 MONGO/(13071:13071): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:31:26:090 MONGO/(13071:13071): Se Genero la Bitacora
+[INFO] 19:31:26:091 MONGO/(13071:13071): Discordiador solicito iniciar un tripulante
+[INFO] 19:31:26:091 MONGO/(13071:13083): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:31:26:091 MONGO/(13071:13071): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:31:26:091 MONGO/(13071:13071): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:31:26:091 MONGO/(13071:13071): Se Genero la Bitacora
+[INFO] 19:31:26:092 MONGO/(13071:13085): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:31:26:092 MONGO/(13071:13071): Discordiador solicito iniciar un tripulante
+[INFO] 19:31:26:092 MONGO/(13071:13071): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:31:26:092 MONGO/(13071:13071): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:31:26:092 MONGO/(13071:13071): Se Genero la Bitacora
+[INFO] 19:31:26:093 MONGO/(13071:13071): Discordiador solicito iniciar un tripulante
+[INFO] 19:31:26:093 MONGO/(13071:13071): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:31:26:093 MONGO/(13071:13087): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:31:26:093 MONGO/(13071:13071): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:31:26:093 MONGO/(13071:13071): Se Genero la Bitacora
+[INFO] 19:31:26:093 MONGO/(13071:13089): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:31:27:961 MONGO/(13071:13083): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:31:27:961 MONGO/(13071:13083): Se completo la escritura de caracteres
+[INFO] 19:31:27:961 MONGO/(13071:13085): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:31:27:962 MONGO/(13071:13085): Se completo la escritura de caracteres
+[INFO] 19:31:27:962 MONGO/(13071:13083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 19:31:27:962 MONGO/(13071:13083): Se encontro lugar en el ultimo bloque
+[INFO] 19:31:27:962 MONGO/(13071:13083): Se completo la escritura de caracteres
+[INFO] 19:31:27:963 MONGO/(13071:13085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 19:31:27:963 MONGO/(13071:13085): Se encontro lugar en el ultimo bloque
+[INFO] 19:31:27:963 MONGO/(13071:13085): Se completo la escritura de caracteres
+[INFO] 19:31:28:964 MONGO/(13071:13083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 19:31:28:964 MONGO/(13071:13085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 7|2
+[INFO] 19:31:28:964 MONGO/(13071:13083): Se completo la escritura de caracteres
+[INFO] 19:31:28:965 MONGO/(13071:13085): Se completo la escritura de caracteres
+[INFO] 19:31:29:966 MONGO/(13071:13083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 19:31:29:966 MONGO/(13071:13083): Se encontro lugar en el ultimo bloque
+[INFO] 19:31:29:966 MONGO/(13071:13083): Se completo la escritura de caracteres
+[INFO] 19:31:29:967 MONGO/(13071:13085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 19:31:29:967 MONGO/(13071:13085): Se encontro lugar en el ultimo bloque
+[INFO] 19:31:29:967 MONGO/(13071:13085): Se completo la escritura de caracteres
+[INFO] 19:31:30:969 MONGO/(13071:13083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 19:31:30:969 MONGO/(13071:13085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 5|2
+[INFO] 19:31:30:969 MONGO/(13071:13083): Se encontro lugar en el ultimo bloque
+[INFO] 19:31:30:970 MONGO/(13071:13083): Se completo la escritura de caracteres
+[INFO] 19:31:30:970 MONGO/(13071:13085): Se encontro lugar en el ultimo bloque
+[INFO] 19:31:30:970 MONGO/(13071:13085): Se completo la escritura de caracteres
+[INFO] 19:31:31:972 MONGO/(13071:13083): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 19:31:31:972 MONGO/(13071:13085): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 4|2
+[INFO] 19:31:31:972 MONGO/(13071:13083): Se encontro lugar en el ultimo bloque
+[INFO] 19:31:31:972 MONGO/(13071:13083): Se completo la escritura de caracteres
+[INFO] 19:31:31:973 MONGO/(13071:13085): Se encontro lugar en el ultimo bloque
+[INFO] 19:31:31:973 MONGO/(13071:13085): Se completo la escritura de caracteres
+[INFO] 19:31:36:362 MONGO/(13071:13071): Discordiador solicito la bitacora del tripulante 1 de la patota 1
+[INFO] 19:31:36:363 MONGO/(13071:13071): 1
+[INFO] 19:31:36:363 MONGO/(13071:13071): 1
+[INFO] 19:33:31:671 MONGO/(13240:13240): Servidor listo
+[INFO] 19:33:37:920 MONGO/(13240:13240): Conexión establecida con el discordiador
+[INFO] 19:33:37:920 MONGO/(13240:13240): Verificando existencia SuperBloque
+[INFO] 19:33:37:920 MONGO/(13240:13240): SuperBloque no existe, creandolo.
+[INFO] 19:33:37:920 MONGO/(13240:13240): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:33:37:920 MONGO/(13240:13240): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:33:37:929 MONGO/(13240:13240): se escribio el archivo
+[INFO] 19:33:37:929 MONGO/(13240:13240): SuperBloque Generado
+[INFO] 19:33:37:929 MONGO/(13240:13240): Verificando existencia Blocks
+[INFO] 19:33:37:929 MONGO/(13240:13240): Blocks no existe, creandolo
+[INFO] 19:33:37:929 MONGO/(13240:13240): Blocks Generado
+[INFO] 19:33:37:930 MONGO/(13240:13240): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:33:37:930 MONGO/(13240:13240): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:33:37:930 MONGO/(13240:13240): Iniciando el detector de sabotajes
+[INFO] 19:33:37:936 MONGO/(13240:13247): Detector de sabotajes iniciado exitosamente
+[INFO] 19:33:40:254 MONGO/(13240:13240): Discordiador inicio una patota
+[INFO] 19:33:40:254 MONGO/(13240:13240): Discordiador solicito iniciar un tripulante
+[INFO] 19:33:40:255 MONGO/(13240:13240): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:33:40:255 MONGO/(13240:13240): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:33:40:255 MONGO/(13240:13240): Se Genero la Bitacora
+[INFO] 19:33:40:255 MONGO/(13240:13251): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:33:40:256 MONGO/(13240:13240): Discordiador solicito iniciar un tripulante
+[INFO] 19:33:40:256 MONGO/(13240:13240): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:33:40:256 MONGO/(13240:13240): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:33:40:256 MONGO/(13240:13240): Se Genero la Bitacora
+[INFO] 19:33:40:257 MONGO/(13240:13253): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:33:40:257 MONGO/(13240:13240): Discordiador solicito iniciar un tripulante
+[INFO] 19:33:40:257 MONGO/(13240:13240): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:33:40:257 MONGO/(13240:13240): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:33:40:257 MONGO/(13240:13240): Se Genero la Bitacora
+[INFO] 19:33:40:258 MONGO/(13240:13257): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:33:40:258 MONGO/(13240:13240): Discordiador solicito iniciar un tripulante
+[INFO] 19:33:40:258 MONGO/(13240:13240): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:33:40:258 MONGO/(13240:13240): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:33:40:258 MONGO/(13240:13240): Se Genero la Bitacora
+[INFO] 19:33:40:259 MONGO/(13240:13259): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:33:43:078 MONGO/(13240:13253): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:33:43:078 MONGO/(13240:13251): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:33:43:079 MONGO/(13240:13253): Se completo la escritura de caracteres
+[INFO] 19:33:43:079 MONGO/(13240:13251): Se completo la escritura de caracteres
+[INFO] 19:33:43:079 MONGO/(13240:13253): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 19:33:43:079 MONGO/(13240:13251): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 19:33:43:080 MONGO/(13240:13253): Se encontro lugar en el ultimo bloque
+[INFO] 19:33:43:080 MONGO/(13240:13251): Se encontro lugar en el ultimo bloque
+[INFO] 19:33:43:080 MONGO/(13240:13253): Se completo la escritura de caracteres
+[INFO] 19:33:43:080 MONGO/(13240:13251): Se completo la escritura de caracteres
+[INFO] 19:33:44:081 MONGO/(13240:13251): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 19:33:44:081 MONGO/(13240:13251): Se completo la escritura de caracteres
+[INFO] 19:33:44:081 MONGO/(13240:13253): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 7|2
+[INFO] 19:33:44:082 MONGO/(13240:13253): Se completo la escritura de caracteres
+[INFO] 19:33:45:082 MONGO/(13240:13251): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 19:33:45:082 MONGO/(13240:13251): Se encontro lugar en el ultimo bloque
+[INFO] 19:33:45:083 MONGO/(13240:13251): Se completo la escritura de caracteres
+[INFO] 19:33:45:083 MONGO/(13240:13253): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 19:33:45:083 MONGO/(13240:13253): Se encontro lugar en el ultimo bloque
+[INFO] 19:33:45:083 MONGO/(13240:13253): Se completo la escritura de caracteres
+[INFO] 19:33:46:084 MONGO/(13240:13251): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 19:33:46:084 MONGO/(13240:13251): Se encontro lugar en el ultimo bloque
+[INFO] 19:33:46:084 MONGO/(13240:13253): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 5|2
+[INFO] 19:33:46:084 MONGO/(13240:13251): Se completo la escritura de caracteres
+[INFO] 19:33:46:084 MONGO/(13240:13253): Se encontro lugar en el ultimo bloque
+[INFO] 19:33:46:084 MONGO/(13240:13253): Se completo la escritura de caracteres
+[INFO] 19:33:47:124 MONGO/(13240:13251): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 19:33:47:124 MONGO/(13240:13253): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 4|2
+[INFO] 19:33:47:124 MONGO/(13240:13251): Se encontro lugar en el ultimo bloque
+[INFO] 19:33:47:124 MONGO/(13240:13251): Se completo la escritura de caracteres
+[INFO] 19:33:47:124 MONGO/(13240:13253): Se encontro lugar en el ultimo bloque
+[INFO] 19:33:47:124 MONGO/(13240:13253): Se completo la escritura de caracteres
+[INFO] 19:33:48:125 MONGO/(13240:13251): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 3|3
+[INFO] 19:33:48:125 MONGO/(13240:13253): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 3|2
+[INFO] 19:33:48:126 MONGO/(13240:13251): Se encontro lugar en el ultimo bloque
+[INFO] 19:33:48:126 MONGO/(13240:13251): Se completo la escritura de caracteres
+[INFO] 19:33:48:126 MONGO/(13240:13253): Se encontro lugar en el ultimo bloque
+[INFO] 19:33:48:126 MONGO/(13240:13253): Se completo la escritura de caracteres
+[INFO] 19:33:49:130 MONGO/(13240:13253): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 3|3
+[INFO] 19:33:49:130 MONGO/(13240:13253): Se encontro lugar en el ultimo bloque
+[INFO] 19:33:49:130 MONGO/(13240:13253): Se completo la escritura de caracteres
+[INFO] 19:34:02:007 MONGO/(13240:13240): Discordiador solicito la bitacora del tripulante 1 de la patota 1
+[INFO] 19:34:02:008 MONGO/(13240:13240): (null)
+[INFO] 19:35:21:565 MONGO/(13416:13416): Servidor listo
+[INFO] 19:35:26:581 MONGO/(13416:13416): Conexión establecida con el discordiador
+[INFO] 19:35:26:582 MONGO/(13416:13416): Verificando existencia SuperBloque
+[INFO] 19:35:26:582 MONGO/(13416:13416): SuperBloque no existe, creandolo.
+[INFO] 19:35:26:582 MONGO/(13416:13416): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:35:26:582 MONGO/(13416:13416): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:35:26:585 MONGO/(13416:13416): se escribio el archivo
+[INFO] 19:35:26:585 MONGO/(13416:13416): SuperBloque Generado
+[INFO] 19:35:26:585 MONGO/(13416:13416): Verificando existencia Blocks
+[INFO] 19:35:26:585 MONGO/(13416:13416): Blocks no existe, creandolo
+[INFO] 19:35:26:585 MONGO/(13416:13416): Blocks Generado
+[INFO] 19:35:26:586 MONGO/(13416:13416): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:35:26:586 MONGO/(13416:13416): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:35:26:586 MONGO/(13416:13416): Iniciando el detector de sabotajes
+[INFO] 19:35:26:587 MONGO/(13416:13423): Detector de sabotajes iniciado exitosamente
+[INFO] 19:35:28:996 MONGO/(13416:13416): Discordiador inicio una patota
+[INFO] 19:35:28:996 MONGO/(13416:13416): Discordiador solicito iniciar un tripulante
+[INFO] 19:35:28:996 MONGO/(13416:13416): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:35:28:996 MONGO/(13416:13416): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:35:28:997 MONGO/(13416:13416): Se Genero la Bitacora
+[INFO] 19:35:28:997 MONGO/(13416:13427): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:35:28:998 MONGO/(13416:13416): Discordiador solicito iniciar un tripulante
+[INFO] 19:35:28:998 MONGO/(13416:13416): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:35:28:998 MONGO/(13416:13416): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:35:28:998 MONGO/(13416:13416): Se Genero la Bitacora
+[INFO] 19:35:28:998 MONGO/(13416:13416): Discordiador solicito iniciar un tripulante
+[INFO] 19:35:28:998 MONGO/(13416:13416): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:35:28:999 MONGO/(13416:13416): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:35:28:999 MONGO/(13416:13416): Se Genero la Bitacora
+[INFO] 19:35:28:999 MONGO/(13416:13429): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:35:28:999 MONGO/(13416:13431): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:35:28:999 MONGO/(13416:13416): Discordiador solicito iniciar un tripulante
+[INFO] 19:35:28:999 MONGO/(13416:13416): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:35:28:999 MONGO/(13416:13416): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:35:29:000 MONGO/(13416:13416): Se Genero la Bitacora
+[INFO] 19:35:29:000 MONGO/(13416:13433): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:35:40:621 MONGO/(13416:13416): Discordiador solicito la bitacora del tripulante 1 de la patota 1
+[INFO] 19:35:40:621 MONGO/(13416:13416): Cantidad de lineas a enviar 1
+[INFO] 19:35:40:621 MONGO/(13416:13416): (null)
+[INFO] 19:37:30:426 MONGO/(13570:13570): Servidor listo
+[INFO] 19:37:31:683 MONGO/(13570:13570): Conexión establecida con el discordiador
+[INFO] 19:37:31:683 MONGO/(13570:13570): Verificando existencia SuperBloque
+[INFO] 19:37:31:683 MONGO/(13570:13570): SuperBloque ya existe
+[INFO] 19:37:31:683 MONGO/(13570:13570): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:37:31:683 MONGO/(13570:13570): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:37:31:728 MONGO/(13570:13570): se escribio el archivo
+[INFO] 19:37:31:728 MONGO/(13570:13570): SuperBloque Generado
+[INFO] 19:37:31:728 MONGO/(13570:13570): Verificando existencia Blocks
+[INFO] 19:37:31:728 MONGO/(13570:13570): Blocks ya existe
+[INFO] 19:37:31:728 MONGO/(13570:13570): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:37:31:728 MONGO/(13570:13570): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:37:31:728 MONGO/(13570:13570): Iniciando el detector de sabotajes
+[INFO] 19:37:31:729 MONGO/(13570:13575): Detector de sabotajes iniciado exitosamente
+[INFO] 19:37:36:545 MONGO/(13570:13570): Discordiador inicio una patota
+[INFO] 19:37:36:545 MONGO/(13570:13570): Discordiador solicito iniciar un tripulante
+[INFO] 19:37:36:546 MONGO/(13570:13570): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:37:36:546 MONGO/(13570:13570): Archivo existente encontrado
+[INFO] 19:37:36:546 MONGO/(13570:13580): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:37:36:546 MONGO/(13570:13570): Discordiador solicito iniciar un tripulante
+[INFO] 19:37:36:547 MONGO/(13570:13570): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:37:36:547 MONGO/(13570:13570): Archivo existente encontrado
+[INFO] 19:37:36:547 MONGO/(13570:13582): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:37:36:547 MONGO/(13570:13570): Discordiador solicito iniciar un tripulante
+[INFO] 19:37:36:547 MONGO/(13570:13570): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:37:36:547 MONGO/(13570:13570): Archivo existente encontrado
+[INFO] 19:37:36:547 MONGO/(13570:13584): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:37:36:548 MONGO/(13570:13570): Discordiador solicito iniciar un tripulante
+[INFO] 19:37:36:548 MONGO/(13570:13570): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:37:36:548 MONGO/(13570:13570): Archivo existente encontrado
+[INFO] 19:37:36:548 MONGO/(13570:13586): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:37:49:354 MONGO/(13678:13678): Servidor listo
+[INFO] 19:37:51:746 MONGO/(13678:13678): Conexión establecida con el discordiador
+[INFO] 19:37:51:746 MONGO/(13678:13678): Verificando existencia SuperBloque
+[INFO] 19:37:51:746 MONGO/(13678:13678): SuperBloque no existe, creandolo.
+[INFO] 19:37:51:746 MONGO/(13678:13678): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:37:51:747 MONGO/(13678:13678): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:37:51:832 MONGO/(13678:13678): se escribio el archivo
+[INFO] 19:37:51:832 MONGO/(13678:13678): SuperBloque Generado
+[INFO] 19:37:51:832 MONGO/(13678:13678): Verificando existencia Blocks
+[INFO] 19:37:51:832 MONGO/(13678:13678): Blocks no existe, creandolo
+[INFO] 19:37:51:832 MONGO/(13678:13678): Blocks Generado
+[INFO] 19:37:51:832 MONGO/(13678:13678): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:37:51:833 MONGO/(13678:13678): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:37:51:833 MONGO/(13678:13678): Iniciando el detector de sabotajes
+[INFO] 19:37:51:833 MONGO/(13678:13683): Detector de sabotajes iniciado exitosamente
+[INFO] 19:37:54:369 MONGO/(13678:13678): Discordiador inicio una patota
+[INFO] 19:37:54:369 MONGO/(13678:13678): Discordiador solicito iniciar un tripulante
+[INFO] 19:37:54:369 MONGO/(13678:13678): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:37:54:369 MONGO/(13678:13678): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:37:54:369 MONGO/(13678:13678): Se Genero la Bitacora
+[INFO] 19:37:54:370 MONGO/(13678:13678): Discordiador solicito iniciar un tripulante
+[INFO] 19:37:54:370 MONGO/(13678:13678): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:37:54:370 MONGO/(13678:13687): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:37:54:370 MONGO/(13678:13678): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:37:54:371 MONGO/(13678:13678): Se Genero la Bitacora
+[INFO] 19:37:54:371 MONGO/(13678:13689): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:37:54:372 MONGO/(13678:13678): Discordiador solicito iniciar un tripulante
+[INFO] 19:37:54:372 MONGO/(13678:13678): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:37:54:372 MONGO/(13678:13678): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:37:54:372 MONGO/(13678:13678): Se Genero la Bitacora
+[INFO] 19:37:54:372 MONGO/(13678:13691): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:37:54:373 MONGO/(13678:13678): Discordiador solicito iniciar un tripulante
+[INFO] 19:37:54:373 MONGO/(13678:13678): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:37:54:373 MONGO/(13678:13678): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:37:54:373 MONGO/(13678:13678): Se Genero la Bitacora
+[INFO] 19:37:54:374 MONGO/(13678:13693): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:38:01:145 MONGO/(13678:13678): Discordiador solicito la bitacora del tripulante 1 de la patota 1
+[INFO] 19:38:01:146 MONGO/(13678:13678): Cantidad de lineas a enviar 1
+[INFO] 19:38:36:985 MONGO/(13704:13704): Servidor listo
+[INFO] 19:38:39:258 MONGO/(13704:13704): Conexión establecida con el discordiador
+[INFO] 19:38:39:258 MONGO/(13704:13704): Verificando existencia SuperBloque
+[INFO] 19:38:39:258 MONGO/(13704:13704): SuperBloque no existe, creandolo.
+[INFO] 19:38:39:258 MONGO/(13704:13704): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:38:39:258 MONGO/(13704:13704): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:38:39:263 MONGO/(13704:13704): se escribio el archivo
+[INFO] 19:38:39:263 MONGO/(13704:13704): SuperBloque Generado
+[INFO] 19:38:39:263 MONGO/(13704:13704): Verificando existencia Blocks
+[INFO] 19:38:39:263 MONGO/(13704:13704): Blocks no existe, creandolo
+[INFO] 19:38:39:263 MONGO/(13704:13704): Blocks Generado
+[INFO] 19:38:39:263 MONGO/(13704:13704): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:38:39:263 MONGO/(13704:13704): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:38:39:264 MONGO/(13704:13704): Iniciando el detector de sabotajes
+[INFO] 19:38:39:264 MONGO/(13704:13709): Detector de sabotajes iniciado exitosamente
+[INFO] 19:38:41:440 MONGO/(13704:13704): Discordiador inicio una patota
+[INFO] 19:38:41:440 MONGO/(13704:13704): Discordiador solicito iniciar un tripulante
+[INFO] 19:38:41:440 MONGO/(13704:13704): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:38:41:440 MONGO/(13704:13704): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:38:41:441 MONGO/(13704:13704): Se Genero la Bitacora
+[INFO] 19:38:41:441 MONGO/(13704:13704): Discordiador solicito iniciar un tripulante
+[INFO] 19:38:41:442 MONGO/(13704:13704): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:38:41:442 MONGO/(13704:13704): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:38:41:442 MONGO/(13704:13704): Se Genero la Bitacora
+[INFO] 19:38:41:442 MONGO/(13704:13713): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:38:41:442 MONGO/(13704:13704): Discordiador solicito iniciar un tripulante
+[INFO] 19:38:41:442 MONGO/(13704:13704): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:38:41:442 MONGO/(13704:13704): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:38:41:443 MONGO/(13704:13704): Se Genero la Bitacora
+[INFO] 19:38:41:443 MONGO/(13704:13715): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:38:41:443 MONGO/(13704:13717): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:38:41:443 MONGO/(13704:13704): Discordiador solicito iniciar un tripulante
+[INFO] 19:38:41:443 MONGO/(13704:13704): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:38:41:443 MONGO/(13704:13704): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:38:41:443 MONGO/(13704:13704): Se Genero la Bitacora
+[INFO] 19:38:41:444 MONGO/(13704:13719): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:38:52:361 MONGO/(13704:13704): Discordiador solicito la bitacora del tripulante 1 de la patota 1
+[INFO] 19:38:52:361 MONGO/(13704:13704): Cantidad de lineas a enviar 1
+[WARNING] 19:38:54:024 MONGO/(13704:13717): La conexión remota se ha desconectado.
+[INFO] 19:38:54:024 MONGO/(13704:13717): Fallo el mensaje
+[INFO] 19:38:58:832 MONGO/(13726:13726): Servidor listo
+[INFO] 19:39:04:169 MONGO/(13726:13726): Conexión establecida con el discordiador
+[INFO] 19:39:04:169 MONGO/(13726:13726): Verificando existencia SuperBloque
+[INFO] 19:39:04:169 MONGO/(13726:13726): SuperBloque no existe, creandolo.
+[INFO] 19:39:04:169 MONGO/(13726:13726): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:39:04:169 MONGO/(13726:13726): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:39:04:200 MONGO/(13726:13726): se escribio el archivo
+[INFO] 19:39:04:200 MONGO/(13726:13726): SuperBloque Generado
+[INFO] 19:39:04:200 MONGO/(13726:13726): Verificando existencia Blocks
+[INFO] 19:39:04:200 MONGO/(13726:13726): Blocks no existe, creandolo
+[INFO] 19:39:04:200 MONGO/(13726:13726): Blocks Generado
+[INFO] 19:39:04:200 MONGO/(13726:13726): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:39:04:200 MONGO/(13726:13726): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:39:04:200 MONGO/(13726:13726): Iniciando el detector de sabotajes
+[INFO] 19:39:04:201 MONGO/(13726:13731): Detector de sabotajes iniciado exitosamente
+[INFO] 19:39:07:119 MONGO/(13726:13726): Discordiador inicio una patota
+[INFO] 19:39:07:120 MONGO/(13726:13726): Discordiador solicito iniciar un tripulante
+[INFO] 19:39:07:120 MONGO/(13726:13726): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:39:07:120 MONGO/(13726:13726): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:39:07:120 MONGO/(13726:13726): Se Genero la Bitacora
+[INFO] 19:39:07:121 MONGO/(13726:13726): Discordiador solicito iniciar un tripulante
+[INFO] 19:39:07:121 MONGO/(13726:13726): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:39:07:121 MONGO/(13726:13726): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:39:07:121 MONGO/(13726:13726): Se Genero la Bitacora
+[INFO] 19:39:07:121 MONGO/(13726:13735): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:39:07:121 MONGO/(13726:13737): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:39:07:121 MONGO/(13726:13726): Discordiador solicito iniciar un tripulante
+[INFO] 19:39:07:122 MONGO/(13726:13726): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:39:07:122 MONGO/(13726:13726): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:39:07:122 MONGO/(13726:13726): Se Genero la Bitacora
+[INFO] 19:39:07:122 MONGO/(13726:13739): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:39:07:122 MONGO/(13726:13726): Discordiador solicito iniciar un tripulante
+[INFO] 19:39:07:123 MONGO/(13726:13726): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:39:07:123 MONGO/(13726:13726): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:39:07:123 MONGO/(13726:13726): Se Genero la Bitacora
+[INFO] 19:39:07:123 MONGO/(13726:13741): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:39:10:455 MONGO/(13726:13735): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:39:10:455 MONGO/(13726:13737): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:39:10:455 MONGO/(13726:13735): Se completo la escritura de caracteres
+[INFO] 19:39:10:455 MONGO/(13726:13737): Se completo la escritura de caracteres
+[INFO] 19:39:10:456 MONGO/(13726:13735): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 19:39:10:456 MONGO/(13726:13737): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 19:39:10:456 MONGO/(13726:13735): Se encontro lugar en el ultimo bloque
+[INFO] 19:39:10:456 MONGO/(13726:13737): Se encontro lugar en el ultimo bloque
+[INFO] 19:39:10:456 MONGO/(13726:13735): Se completo la escritura de caracteres
+[INFO] 19:39:10:456 MONGO/(13726:13737): Se completo la escritura de caracteres
+[INFO] 19:39:11:458 MONGO/(13726:13737): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 7|2
+[INFO] 19:39:11:458 MONGO/(13726:13737): Se completo la escritura de caracteres
+[INFO] 19:39:11:459 MONGO/(13726:13735): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 19:39:11:459 MONGO/(13726:13735): Se completo la escritura de caracteres
+[INFO] 19:39:12:516 MONGO/(13726:13737): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 19:39:12:516 MONGO/(13726:13735): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 19:39:12:517 MONGO/(13726:13737): Se encontro lugar en el ultimo bloque
+[INFO] 19:39:12:517 MONGO/(13726:13735): Se encontro lugar en el ultimo bloque
+[INFO] 19:39:12:517 MONGO/(13726:13737): Se completo la escritura de caracteres
+[INFO] 19:39:12:517 MONGO/(13726:13735): Se completo la escritura de caracteres
+[INFO] 19:39:13:518 MONGO/(13726:13735): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 19:39:13:518 MONGO/(13726:13737): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 5|2
+[INFO] 19:39:13:518 MONGO/(13726:13735): Se encontro lugar en el ultimo bloque
+[INFO] 19:39:13:518 MONGO/(13726:13737): Se encontro lugar en el ultimo bloque
+[INFO] 19:39:13:518 MONGO/(13726:13735): Se completo la escritura de caracteres
+[INFO] 19:39:13:518 MONGO/(13726:13737): Se completo la escritura de caracteres
+[INFO] 19:39:22:832 MONGO/(13726:13726): Discordiador solicito la bitacora del tripulante 1 de la patota 1
+[INFO] 19:39:22:832 MONGO/(13726:13726): Linea 0 de la bitacora 
+[INFO] 19:39:22:832 MONGO/(13726:13726): Linea 1 de la bitacora 
+[INFO] 19:39:22:832 MONGO/(13726:13726): Linea 2 de la bitacora 
+[INFO] 19:39:22:832 MONGO/(13726:13726): Linea 3 de la bitacora 
+[INFO] 19:39:22:832 MONGO/(13726:13726): Linea 4 de la bitacora 
+[INFO] 19:39:22:832 MONGO/(13726:13726): Linea 5 de la bitacora 
+[INFO] 19:39:22:832 MONGO/(13726:13726): Linea 6 de la bitacora 
+[INFO] 19:39:22:832 MONGO/(13726:13726): Linea 7 de la bitacora 
+[INFO] 19:39:22:832 MONGO/(13726:13726): Cantidad de lineas a enviar 1
+[INFO] 19:45:47:792 MONGO/(14031:14031): Servidor listo
+[INFO] 19:45:49:681 MONGO/(14031:14031): Conexión establecida con el discordiador
+[INFO] 19:45:49:681 MONGO/(14031:14031): Verificando existencia SuperBloque
+[INFO] 19:45:49:681 MONGO/(14031:14031): SuperBloque ya existe
+[INFO] 19:45:49:681 MONGO/(14031:14031): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:45:49:681 MONGO/(14031:14031): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:45:49:757 MONGO/(14031:14031): se escribio el archivo
+[INFO] 19:45:49:757 MONGO/(14031:14031): SuperBloque Generado
+[INFO] 19:45:49:757 MONGO/(14031:14031): Verificando existencia Blocks
+[INFO] 19:45:49:757 MONGO/(14031:14031): Blocks ya existe
+[INFO] 19:45:49:757 MONGO/(14031:14031): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:45:49:757 MONGO/(14031:14031): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:45:49:757 MONGO/(14031:14031): Iniciando el detector de sabotajes
+[INFO] 19:45:49:757 MONGO/(14031:14036): Detector de sabotajes iniciado exitosamente
+[INFO] 19:45:52:216 MONGO/(14031:14031): Discordiador inicio una patota
+[INFO] 19:45:52:216 MONGO/(14031:14031): Discordiador solicito iniciar un tripulante
+[INFO] 19:45:52:216 MONGO/(14031:14031): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:45:52:216 MONGO/(14031:14031): Archivo existente encontrado
+[INFO] 19:45:52:217 MONGO/(14031:14031): Discordiador solicito iniciar un tripulante
+[INFO] 19:45:52:217 MONGO/(14031:14031): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:45:52:217 MONGO/(14031:14031): Archivo existente encontrado
+[INFO] 19:45:52:217 MONGO/(14031:14040): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:45:52:217 MONGO/(14031:14031): Discordiador solicito iniciar un tripulante
+[INFO] 19:45:52:217 MONGO/(14031:14042): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:45:52:217 MONGO/(14031:14031): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:45:52:218 MONGO/(14031:14031): Archivo existente encontrado
+[INFO] 19:45:52:218 MONGO/(14031:14044): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:45:52:219 MONGO/(14031:14031): Discordiador solicito iniciar un tripulante
+[INFO] 19:45:52:219 MONGO/(14031:14031): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:45:52:219 MONGO/(14031:14031): Archivo existente encontrado
+[INFO] 19:45:52:219 MONGO/(14031:14046): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:45:54:215 MONGO/(14031:14040): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:45:54:215 MONGO/(14031:14042): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:45:54:215 MONGO/(14031:14040): Se encontro lugar en el ultimo bloque
+[INFO] 19:45:54:215 MONGO/(14031:14042): Se encontro lugar en el ultimo bloque
+[INFO] 19:45:54:215 MONGO/(14031:14042): Se completo la escritura de caracteres
+[INFO] 19:45:54:216 MONGO/(14031:14040): Se completo la escritura de caracteres
+[INFO] 19:45:54:216 MONGO/(14031:14040): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 19:45:54:216 MONGO/(14031:14042): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 19:45:54:216 MONGO/(14031:14040): Se encontro lugar en el ultimo bloque
+[INFO] 19:45:54:216 MONGO/(14031:14042): Se encontro lugar en el ultimo bloque
+[INFO] 19:45:54:216 MONGO/(14031:14040): Se completo la escritura de caracteres
+[INFO] 19:45:54:216 MONGO/(14031:14042): Se completo la escritura de caracteres
+[INFO] 19:46:18:032 MONGO/(14251:14251): Servidor listo
+[INFO] 19:46:22:240 MONGO/(14251:14251): Conexión establecida con el discordiador
+[INFO] 19:46:22:240 MONGO/(14251:14251): Verificando existencia SuperBloque
+[INFO] 19:46:22:240 MONGO/(14251:14251): SuperBloque ya existe
+[INFO] 19:46:22:240 MONGO/(14251:14251): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:46:22:240 MONGO/(14251:14251): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:46:22:244 MONGO/(14251:14251): se escribio el archivo
+[INFO] 19:46:22:244 MONGO/(14251:14251): SuperBloque Generado
+[INFO] 19:46:22:244 MONGO/(14251:14251): Verificando existencia Blocks
+[INFO] 19:46:22:244 MONGO/(14251:14251): Blocks ya existe
+[INFO] 19:46:22:245 MONGO/(14251:14251): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:46:22:245 MONGO/(14251:14251): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:46:22:245 MONGO/(14251:14251): Iniciando el detector de sabotajes
+[INFO] 19:46:22:245 MONGO/(14251:14256): Detector de sabotajes iniciado exitosamente
+[INFO] 19:46:43:215 MONGO/(14265:14265): Servidor listo
+[INFO] 19:46:45:495 MONGO/(14265:14265): Conexión establecida con el discordiador
+[INFO] 19:46:45:496 MONGO/(14265:14265): Verificando existencia SuperBloque
+[INFO] 19:46:45:496 MONGO/(14265:14265): SuperBloque no existe, creandolo.
+[INFO] 19:46:45:496 MONGO/(14265:14265): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 19:46:45:496 MONGO/(14265:14265): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 19:46:45:500 MONGO/(14265:14265): se escribio el archivo
+[INFO] 19:46:45:500 MONGO/(14265:14265): SuperBloque Generado
+[INFO] 19:46:45:500 MONGO/(14265:14265): Verificando existencia Blocks
+[INFO] 19:46:45:500 MONGO/(14265:14265): Blocks no existe, creandolo
+[INFO] 19:46:45:500 MONGO/(14265:14265): Blocks Generado
+[INFO] 19:46:45:500 MONGO/(14265:14265): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 19:46:45:500 MONGO/(14265:14265): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 19:46:45:500 MONGO/(14265:14265): Iniciando el detector de sabotajes
+[INFO] 19:46:45:501 MONGO/(14265:14270): Detector de sabotajes iniciado exitosamente
+[INFO] 19:46:53:542 MONGO/(14265:14265): Discordiador inicio una patota
+[INFO] 19:46:53:542 MONGO/(14265:14265): Discordiador solicito iniciar un tripulante
+[INFO] 19:46:53:542 MONGO/(14265:14265): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 19:46:53:542 MONGO/(14265:14265): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:46:53:543 MONGO/(14265:14265): Se Genero la Bitacora
+[INFO] 19:46:53:544 MONGO/(14265:14265): Discordiador solicito iniciar un tripulante
+[INFO] 19:46:53:544 MONGO/(14265:14265): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 19:46:53:544 MONGO/(14265:14265): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:46:53:544 MONGO/(14265:14265): Se Genero la Bitacora
+[INFO] 19:46:53:544 MONGO/(14265:14265): Discordiador solicito iniciar un tripulante
+[INFO] 19:46:53:544 MONGO/(14265:14265): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 19:46:53:545 MONGO/(14265:14265): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:46:53:545 MONGO/(14265:14265): Se Genero la Bitacora
+[INFO] 19:46:53:545 MONGO/(14265:14265): Discordiador solicito iniciar un tripulante
+[INFO] 19:46:53:545 MONGO/(14265:14265): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 19:46:53:545 MONGO/(14265:14265): Archivos previos no encontrados, Generando bitacora
+[INFO] 19:46:53:545 MONGO/(14265:14265): Se Genero la Bitacora
+[INFO] 19:46:53:546 MONGO/(14265:14282): Iniciado el tripulante 4 de la patota 1
+[INFO] 19:46:53:546 MONGO/(14265:14280): Iniciado el tripulante 3 de la patota 1
+[INFO] 19:46:53:546 MONGO/(14265:14278): Iniciado el tripulante 2 de la patota 1
+[INFO] 19:46:53:546 MONGO/(14265:14276): Iniciado el tripulante 1 de la patota 1
+[INFO] 19:47:03:030 MONGO/(14265:14280): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:47:03:030 MONGO/(14265:14280): Se completo la escritura de caracteres
+[INFO] 19:47:03:030 MONGO/(14265:14276): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 19:47:03:030 MONGO/(14265:14276): Se completo la escritura de caracteres
+[INFO] 19:47:03:030 MONGO/(14265:14280): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 1|0
+[INFO] 19:47:03:031 MONGO/(14265:14280): Se encontro lugar en el ultimo bloque
+[INFO] 19:47:03:031 MONGO/(14265:14280): Se completo la escritura de caracteres
+[INFO] 19:47:03:032 MONGO/(14265:14276): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 19:47:03:032 MONGO/(14265:14276): Se encontro lugar en el ultimo bloque
+[INFO] 19:47:03:032 MONGO/(14265:14276): Se completo la escritura de caracteres
+[INFO] 19:47:04:033 MONGO/(14265:14280): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 2|0
+[INFO] 19:47:04:034 MONGO/(14265:14280): Se completo la escritura de caracteres
+[INFO] 19:47:04:034 MONGO/(14265:14276): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 19:47:04:034 MONGO/(14265:14276): Se completo la escritura de caracteres
+[INFO] 19:47:05:041 MONGO/(14265:14276): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 19:47:05:042 MONGO/(14265:14276): Se encontro lugar en el ultimo bloque
+[INFO] 19:47:05:042 MONGO/(14265:14276): Se completo la escritura de caracteres
+[INFO] 19:47:05:042 MONGO/(14265:14280): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 3|0
+[INFO] 19:47:05:042 MONGO/(14265:14280): Se encontro lugar en el ultimo bloque
+[INFO] 19:47:05:042 MONGO/(14265:14280): Se completo la escritura de caracteres
+[INFO] 19:47:06:044 MONGO/(14265:14276): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 19:47:06:044 MONGO/(14265:14276): Se encontro lugar en el ultimo bloque
+[INFO] 19:47:06:044 MONGO/(14265:14276): Se completo la escritura de caracteres
+[INFO] 19:47:06:044 MONGO/(14265:14280): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 3|1
+[INFO] 19:47:06:044 MONGO/(14265:14280): Se encontro lugar en el ultimo bloque
+[INFO] 19:47:06:044 MONGO/(14265:14280): Se completo la escritura de caracteres
+[INFO] 19:47:07:045 MONGO/(14265:14276): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 19:47:07:045 MONGO/(14265:14276): Se encontro lugar en el ultimo bloque
+[INFO] 19:47:07:045 MONGO/(14265:14276): Se completo la escritura de caracteres
+[INFO] 19:47:07:045 MONGO/(14265:14280): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 3|2
+[INFO] 19:47:07:046 MONGO/(14265:14280): Se encontro lugar en el ultimo bloque
+[INFO] 19:47:07:046 MONGO/(14265:14280): Se completo la escritura de caracteres
+[INFO] 19:47:08:052 MONGO/(14265:14280): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 3|3
+[INFO] 19:47:08:052 MONGO/(14265:14276): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 3|3
+[INFO] 19:47:08:052 MONGO/(14265:14280): Se encontro lugar en el ultimo bloque
+[INFO] 19:47:08:052 MONGO/(14265:14280): Se completo la escritura de caracteres
+[INFO] 19:47:08:052 MONGO/(14265:14276): Se encontro lugar en el ultimo bloque
+[INFO] 19:47:08:052 MONGO/(14265:14276): Se completo la escritura de caracteres
+[INFO] 19:47:14:679 MONGO/(14265:14265): Discordiador solicito la bitacora del tripulante 1 de la patota 1
+[INFO] 19:47:14:679 MONGO/(14265:14265): Linea 0 de la bitacora 
+[INFO] 19:47:14:679 MONGO/(14265:14265): Linea 1 de la bitacora 
+[INFO] 19:47:14:679 MONGO/(14265:14265): Linea 2 de la bitacora 
+[INFO] 19:47:14:679 MONGO/(14265:14265): Linea 3 de la bitacora 
+[INFO] 19:47:14:679 MONGO/(14265:14265): Linea 4 de la bitacora 
+[INFO] 19:47:14:679 MONGO/(14265:14265): Linea 5 de la bitacora 
+[INFO] 19:47:14:679 MONGO/(14265:14265): Linea 6 de la bitacora 
+[INFO] 19:47:14:679 MONGO/(14265:14265): Linea 7 de la bitacora 
+[INFO] 19:47:14:680 MONGO/(14265:14265): Linea 8 de la bitacora 
+[INFO] 19:47:14:680 MONGO/(14265:14265): Linea 9 de la bitacora 
+[INFO] 19:47:14:680 MONGO/(14265:14265): Linea 10 de la bitacora 
+[INFO] 19:47:14:680 MONGO/(14265:14265): Cantidad de lineas a enviar 1
+[INFO] 20:41:21:823 MONGO/(16387:16387): Servidor listo
+[INFO] 20:41:24:992 MONGO/(16387:16387): Conexión establecida con el discordiador
+[INFO] 20:41:24:992 MONGO/(16387:16387): Verificando existencia SuperBloque
+[INFO] 20:41:24:992 MONGO/(16387:16387): SuperBloque ya existe
+[INFO] 20:41:24:992 MONGO/(16387:16387): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 20:41:24:992 MONGO/(16387:16387): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 20:41:24:995 MONGO/(16387:16387): se escribio el archivo
+[INFO] 20:41:24:995 MONGO/(16387:16387): SuperBloque Generado
+[INFO] 20:41:24:995 MONGO/(16387:16387): Verificando existencia Blocks
+[INFO] 20:41:24:996 MONGO/(16387:16387): Blocks ya existe
+[INFO] 20:41:24:996 MONGO/(16387:16387): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 20:41:24:996 MONGO/(16387:16387): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 20:41:24:996 MONGO/(16387:16387): Iniciando el detector de sabotajes
+[INFO] 20:41:24:997 MONGO/(16387:16393): Detector de sabotajes iniciado exitosamente
+[INFO] 20:41:27:511 MONGO/(16387:16387): Discordiador inicio una patota
+[INFO] 20:41:27:511 MONGO/(16387:16387): Discordiador solicito iniciar un tripulante
+[INFO] 20:41:27:511 MONGO/(16387:16387): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 20:41:27:511 MONGO/(16387:16387): Archivo existente encontrado
+[INFO] 20:41:27:512 MONGO/(16387:16398): Iniciado el tripulante 1 de la patota 1
+[INFO] 20:41:27:512 MONGO/(16387:16387): Discordiador solicito iniciar un tripulante
+[INFO] 20:41:27:512 MONGO/(16387:16387): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 20:41:27:512 MONGO/(16387:16387): Archivo existente encontrado
+[INFO] 20:41:27:513 MONGO/(16387:16400): Iniciado el tripulante 2 de la patota 1
+[INFO] 20:41:27:513 MONGO/(16387:16387): Discordiador solicito iniciar un tripulante
+[INFO] 20:41:27:513 MONGO/(16387:16387): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 20:41:27:513 MONGO/(16387:16387): Archivo existente encontrado
+[INFO] 20:41:27:514 MONGO/(16387:16402): Iniciado el tripulante 3 de la patota 1
+[INFO] 20:41:27:514 MONGO/(16387:16387): Discordiador solicito iniciar un tripulante
+[INFO] 20:41:27:514 MONGO/(16387:16387): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 20:41:27:514 MONGO/(16387:16387): Archivo existente encontrado
+[INFO] 20:41:27:514 MONGO/(16387:16404): Iniciado el tripulante 4 de la patota 1
+[INFO] 20:41:41:271 MONGO/(16415:16415): Servidor listo
+[INFO] 20:41:43:904 MONGO/(16415:16415): Conexión establecida con el discordiador
+[INFO] 20:41:43:904 MONGO/(16415:16415): Verificando existencia SuperBloque
+[INFO] 20:41:43:904 MONGO/(16415:16415): SuperBloque no existe, creandolo.
+[INFO] 20:41:43:904 MONGO/(16415:16415): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 20:41:43:904 MONGO/(16415:16415): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 20:41:43:907 MONGO/(16415:16415): se escribio el archivo
+[INFO] 20:41:43:907 MONGO/(16415:16415): SuperBloque Generado
+[INFO] 20:41:43:907 MONGO/(16415:16415): Verificando existencia Blocks
+[INFO] 20:41:43:908 MONGO/(16415:16415): Blocks no existe, creandolo
+[INFO] 20:41:43:908 MONGO/(16415:16415): Blocks Generado
+[INFO] 20:41:43:908 MONGO/(16415:16415): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 20:41:43:908 MONGO/(16415:16415): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 20:41:43:908 MONGO/(16415:16415): Iniciando el detector de sabotajes
+[INFO] 20:41:43:909 MONGO/(16415:16420): Detector de sabotajes iniciado exitosamente
+[INFO] 20:41:45:799 MONGO/(16415:16415): Discordiador inicio una patota
+[INFO] 20:41:45:799 MONGO/(16415:16415): Discordiador solicito iniciar un tripulante
+[INFO] 20:41:45:799 MONGO/(16415:16415): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 20:41:45:799 MONGO/(16415:16415): Archivos previos no encontrados, Generando bitacora
+[INFO] 20:41:45:800 MONGO/(16415:16415): Se Genero la Bitacora
+[INFO] 20:41:45:801 MONGO/(16415:16415): Discordiador solicito iniciar un tripulante
+[INFO] 20:41:45:802 MONGO/(16415:16415): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 20:41:45:801 MONGO/(16415:16424): Iniciado el tripulante 1 de la patota 1
+[INFO] 20:41:45:802 MONGO/(16415:16415): Archivos previos no encontrados, Generando bitacora
+[INFO] 20:41:45:802 MONGO/(16415:16415): Se Genero la Bitacora
+[INFO] 20:41:45:802 MONGO/(16415:16426): Iniciado el tripulante 2 de la patota 1
+[INFO] 20:41:45:803 MONGO/(16415:16415): Discordiador solicito iniciar un tripulante
+[INFO] 20:41:45:803 MONGO/(16415:16415): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 20:41:45:803 MONGO/(16415:16415): Archivos previos no encontrados, Generando bitacora
+[INFO] 20:41:45:803 MONGO/(16415:16415): Se Genero la Bitacora
+[INFO] 20:41:45:804 MONGO/(16415:16415): Discordiador solicito iniciar un tripulante
+[INFO] 20:41:45:804 MONGO/(16415:16428): Iniciado el tripulante 3 de la patota 1
+[INFO] 20:41:45:805 MONGO/(16415:16415): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 20:41:45:805 MONGO/(16415:16415): Archivos previos no encontrados, Generando bitacora
+[INFO] 20:41:45:805 MONGO/(16415:16415): Se Genero la Bitacora
+[INFO] 20:41:45:806 MONGO/(16415:16430): Iniciado el tripulante 4 de la patota 1
+[INFO] 20:41:50:118 MONGO/(16415:16424): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 20:41:50:118 MONGO/(16415:16424): Se completo la escritura de caracteres
+[INFO] 20:41:50:119 MONGO/(16415:16426): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 20:41:50:119 MONGO/(16415:16424): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 20:41:50:119 MONGO/(16415:16424): Se encontro lugar en el ultimo bloque
+[INFO] 20:41:50:119 MONGO/(16415:16426): Se completo la escritura de caracteres
+[INFO] 20:41:50:119 MONGO/(16415:16424): Se completo la escritura de caracteres
+[INFO] 20:41:50:120 MONGO/(16415:16426): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 20:41:50:120 MONGO/(16415:16426): Se encontro lugar en el ultimo bloque
+[INFO] 20:41:50:120 MONGO/(16415:16426): Se completo la escritura de caracteres
+[INFO] 20:41:51:120 MONGO/(16415:16424): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 20:41:51:120 MONGO/(16415:16424): Se completo la escritura de caracteres
+[INFO] 20:41:51:121 MONGO/(16415:16426): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 7|2
+[INFO] 20:41:51:121 MONGO/(16415:16426): Se completo la escritura de caracteres
+[INFO] 20:41:52:124 MONGO/(16415:16424): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 20:41:52:124 MONGO/(16415:16426): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 20:41:52:125 MONGO/(16415:16424): Se encontro lugar en el ultimo bloque
+[INFO] 20:41:52:125 MONGO/(16415:16426): Se encontro lugar en el ultimo bloque
+[INFO] 20:41:52:125 MONGO/(16415:16424): Se completo la escritura de caracteres
+[INFO] 20:41:52:125 MONGO/(16415:16426): Se completo la escritura de caracteres
+[INFO] 20:41:53:136 MONGO/(16415:16424): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 20:41:53:136 MONGO/(16415:16426): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 5|2
+[INFO] 20:41:53:136 MONGO/(16415:16424): Se encontro lugar en el ultimo bloque
+[INFO] 20:41:53:136 MONGO/(16415:16426): Se encontro lugar en el ultimo bloque
+[INFO] 20:41:53:136 MONGO/(16415:16424): Se completo la escritura de caracteres
+[INFO] 20:41:53:136 MONGO/(16415:16426): Se completo la escritura de caracteres
+[INFO] 20:41:54:171 MONGO/(16415:16426): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 4|2
+[INFO] 20:41:54:171 MONGO/(16415:16424): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 20:41:54:172 MONGO/(16415:16426): Se encontro lugar en el ultimo bloque
+[INFO] 20:41:54:172 MONGO/(16415:16424): Se encontro lugar en el ultimo bloque
+[INFO] 20:41:54:172 MONGO/(16415:16424): Se completo la escritura de caracteres
+[INFO] 20:41:54:172 MONGO/(16415:16426): Se completo la escritura de caracteres
+[INFO] 20:41:55:446 MONGO/(16415:16426): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 3|2
+[INFO] 20:41:55:446 MONGO/(16415:16424): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 3|3
+[INFO] 20:41:55:447 MONGO/(16415:16426): Se encontro lugar en el ultimo bloque
+[INFO] 20:41:55:447 MONGO/(16415:16426): Se completo la escritura de caracteres
+[INFO] 20:41:55:447 MONGO/(16415:16424): Se encontro lugar en el ultimo bloque
+[INFO] 20:41:55:447 MONGO/(16415:16424): Se completo la escritura de caracteres
+[INFO] 20:41:56:452 MONGO/(16415:16426): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 3|3
+[INFO] 20:41:56:452 MONGO/(16415:16426): Se encontro lugar en el ultimo bloque
+[INFO] 20:41:56:452 MONGO/(16415:16426): Se completo la escritura de caracteres
+[INFO] 20:41:59:453 MONGO/(16415:16424): EXEC_0 - Tripulante 1 de la patota 1 detuvo ejecucion
+[INFO] 20:41:59:454 MONGO/(16415:16424): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 20:41:59:454 MONGO/(16415:16424): Se encontro lugar en el ultimo bloque
+[INFO] 20:41:59:454 MONGO/(16415:16424): Se completo la escritura de caracteres
+[INFO] 20:41:59:988 MONGO/(16415:16424): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 20:41:59:988 MONGO/(16415:16424): Se encontro lugar en el ultimo bloque
+[INFO] 20:41:59:989 MONGO/(16415:16424): Se completo la escritura de caracteres
+[INFO] 20:42:00:454 MONGO/(16415:16426): EXEC_0 - Tripulante 2 de la patota 1 detuvo ejecucion
+[INFO] 20:42:00:455 MONGO/(16415:16426): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 20:42:00:455 MONGO/(16415:16426): Se encontro lugar en el ultimo bloque
+[INFO] 20:42:00:455 MONGO/(16415:16426): Se completo la escritura de caracteres
+[INFO] 20:42:00:457 MONGO/(16415:16426): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 4|3
+[INFO] 20:42:00:457 MONGO/(16415:16426): Se encontro lugar en el ultimo bloque
+[INFO] 20:42:00:457 MONGO/(16415:16426): Se completo la escritura de caracteres
+[INFO] 20:42:00:990 MONGO/(16415:16424): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 20:42:00:990 MONGO/(16415:16424): Se encontro lugar en el ultimo bloque
+[INFO] 20:42:00:990 MONGO/(16415:16424): Se completo la escritura de caracteres
+[INFO] 20:42:01:459 MONGO/(16415:16426): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 5|3
+[INFO] 20:42:01:459 MONGO/(16415:16426): Se encontro lugar en el ultimo bloque
+[INFO] 20:42:01:459 MONGO/(16415:16426): Se completo la escritura de caracteres
+[INFO] 20:42:02:000 MONGO/(16415:16424): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 20:42:02:001 MONGO/(16415:16424): Se encontro lugar en el ultimo bloque
+[INFO] 20:42:02:001 MONGO/(16415:16424): Se completo la escritura de caracteres
+[INFO] 20:42:02:461 MONGO/(16415:16426): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|3
+[INFO] 20:42:02:461 MONGO/(16415:16426): Se encontro lugar en el ultimo bloque
+[INFO] 20:42:02:461 MONGO/(16415:16426): Se completo la escritura de caracteres
+[INFO] 20:42:03:004 MONGO/(16415:16424): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|2
+[INFO] 20:42:03:004 MONGO/(16415:16424): Se encontro lugar en el ultimo bloque
+[INFO] 20:42:03:005 MONGO/(16415:16424): Se completo la escritura de caracteres
+[INFO] 20:42:03:462 MONGO/(16415:16426): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 20:42:03:462 MONGO/(16415:16426): Se encontro lugar en el ultimo bloque
+[INFO] 20:42:03:462 MONGO/(16415:16426): Se completo la escritura de caracteres
+[INFO] 20:42:04:011 MONGO/(16415:16424): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|1
+[INFO] 20:42:04:011 MONGO/(16415:16424): Se encontro lugar en el ultimo bloque
+[INFO] 20:42:04:011 MONGO/(16415:16424): Se completo la escritura de caracteres
+[INFO] 20:42:04:467 MONGO/(16415:16426): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|1
+[INFO] 20:42:04:468 MONGO/(16415:16426): Se encontro lugar en el ultimo bloque
+[INFO] 20:42:04:468 MONGO/(16415:16426): Se completo la escritura de caracteres
+[INFO] 20:42:05:020 MONGO/(16415:16424): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|0
+[INFO] 20:42:05:020 MONGO/(16415:16424): Se encontro lugar en el ultimo bloque
+[INFO] 20:42:05:020 MONGO/(16415:16424): Se completo la escritura de caracteres
+[INFO] 20:42:05:469 MONGO/(16415:16426): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|0
+[INFO] 20:42:06:027 MONGO/(16415:16426): Se encontro lugar en el ultimo bloque
+[INFO] 20:42:06:027 MONGO/(16415:16426): Se completo la escritura de caracteres
+[INFO] 20:42:07:029 MONGO/(16415:16428): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 20:42:07:029 MONGO/(16415:16428): Se completo la escritura de caracteres
+[INFO] 20:42:07:029 MONGO/(16415:16424): GEN_OX - Tripulante 1 de la patota 1 generando 10 de oxigeno
+[INFO] 20:42:07:029 MONGO/(16415:16424): Buscando archivos de recursos ya existentes
+[INFO] 20:42:07:030 MONGO/(16415:16428): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 1|0
+[INFO] 20:42:07:030 MONGO/(16415:16430): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 20:42:07:030 MONGO/(16415:16428): Se encontro lugar en el ultimo bloque
+[INFO] 20:42:07:030 MONGO/(16415:16428): Se completo la escritura de caracteres
+[INFO] 20:42:07:030 MONGO/(16415:16430): Se completo la escritura de caracteres
+[INFO] 20:42:07:030 MONGO/(16415:16424): Archivos previos no encontrados, Generando metadata
+[INFO] 20:42:07:030 MONGO/(16415:16424): Generando MD5
+[INFO] 20:42:07:031 MONGO/(16415:16430): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 1|0
+[INFO] 20:42:07:032 MONGO/(16415:16430): Se encontro lugar en el ultimo bloque
+[INFO] 20:42:07:032 MONGO/(16415:16430): Se completo la escritura de caracteres
+[INFO] 20:42:07:036 MONGO/(16415:16424): Archivo de metadata generado
+[INFO] 20:46:17:682 MONGO/(16597:16597): Servidor listo
+[INFO] 20:46:19:706 MONGO/(16597:16597): Conexión establecida con el discordiador
+[INFO] 20:46:19:706 MONGO/(16597:16597): Verificando existencia SuperBloque
+[INFO] 20:46:19:706 MONGO/(16597:16597): SuperBloque ya existe
+[INFO] 20:46:19:707 MONGO/(16597:16597): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 20:46:19:707 MONGO/(16597:16597): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 20:46:19:824 MONGO/(16597:16597): se escribio el archivo
+[INFO] 20:46:19:824 MONGO/(16597:16597): SuperBloque Generado
+[INFO] 20:46:19:824 MONGO/(16597:16597): Verificando existencia Blocks
+[INFO] 20:46:19:824 MONGO/(16597:16597): Blocks ya existe
+[INFO] 20:46:19:824 MONGO/(16597:16597): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 20:46:19:825 MONGO/(16597:16597): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 20:46:19:825 MONGO/(16597:16597): Iniciando el detector de sabotajes
+[INFO] 20:46:19:825 MONGO/(16597:16603): Detector de sabotajes iniciado exitosamente
+[INFO] 20:46:21:794 MONGO/(16597:16597): Discordiador inicio una patota
+[INFO] 20:46:21:794 MONGO/(16597:16597): Discordiador solicito iniciar un tripulante
+[INFO] 20:46:21:794 MONGO/(16597:16597): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 20:46:21:794 MONGO/(16597:16597): Archivo existente encontrado
+[INFO] 20:46:21:795 MONGO/(16597:16607): Iniciado el tripulante 1 de la patota 1
+[INFO] 20:46:21:795 MONGO/(16597:16597): Discordiador solicito iniciar un tripulante
+[INFO] 20:46:21:795 MONGO/(16597:16597): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 20:46:21:796 MONGO/(16597:16597): Archivo existente encontrado
+[INFO] 20:46:21:796 MONGO/(16597:16609): Iniciado el tripulante 2 de la patota 1
+[INFO] 20:46:21:796 MONGO/(16597:16597): Discordiador solicito iniciar un tripulante
+[INFO] 20:46:21:797 MONGO/(16597:16597): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 20:46:21:797 MONGO/(16597:16597): Archivo existente encontrado
+[INFO] 20:46:21:797 MONGO/(16597:16611): Iniciado el tripulante 3 de la patota 1
+[INFO] 20:46:21:797 MONGO/(16597:16597): Discordiador solicito iniciar un tripulante
+[INFO] 20:46:21:798 MONGO/(16597:16597): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 20:46:21:798 MONGO/(16597:16597): Archivo existente encontrado
+[INFO] 20:46:21:798 MONGO/(16597:16613): Iniciado el tripulante 4 de la patota 1
+[INFO] 20:46:33:618 MONGO/(16619:16619): Servidor listo
+[INFO] 20:46:35:386 MONGO/(16619:16619): Conexión establecida con el discordiador
+[INFO] 20:46:35:387 MONGO/(16619:16619): Verificando existencia SuperBloque
+[INFO] 20:46:35:387 MONGO/(16619:16619): SuperBloque no existe, creandolo.
+[INFO] 20:46:35:387 MONGO/(16619:16619): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 20:46:35:387 MONGO/(16619:16619): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 20:46:35:401 MONGO/(16619:16619): se escribio el archivo
+[INFO] 20:46:35:401 MONGO/(16619:16619): SuperBloque Generado
+[INFO] 20:46:35:401 MONGO/(16619:16619): Verificando existencia Blocks
+[INFO] 20:46:35:401 MONGO/(16619:16619): Blocks no existe, creandolo
+[INFO] 20:46:35:401 MONGO/(16619:16619): Blocks Generado
+[INFO] 20:46:35:402 MONGO/(16619:16619): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 20:46:35:402 MONGO/(16619:16619): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 20:46:35:402 MONGO/(16619:16619): Iniciando el detector de sabotajes
+[INFO] 20:46:35:403 MONGO/(16619:16624): Detector de sabotajes iniciado exitosamente
+[INFO] 20:46:37:225 MONGO/(16619:16619): Discordiador inicio una patota
+[INFO] 20:46:37:225 MONGO/(16619:16619): Discordiador solicito iniciar un tripulante
+[INFO] 20:46:37:225 MONGO/(16619:16619): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 20:46:37:225 MONGO/(16619:16619): Archivos previos no encontrados, Generando bitacora
+[INFO] 20:46:37:225 MONGO/(16619:16619): Se Genero la Bitacora
+[INFO] 20:46:37:226 MONGO/(16619:16619): Discordiador solicito iniciar un tripulante
+[INFO] 20:46:37:226 MONGO/(16619:16628): Iniciado el tripulante 1 de la patota 1
+[INFO] 20:46:37:227 MONGO/(16619:16619): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 20:46:37:227 MONGO/(16619:16619): Archivos previos no encontrados, Generando bitacora
+[INFO] 20:46:37:227 MONGO/(16619:16619): Se Genero la Bitacora
+[INFO] 20:46:37:227 MONGO/(16619:16630): Iniciado el tripulante 2 de la patota 1
+[INFO] 20:46:37:227 MONGO/(16619:16619): Discordiador solicito iniciar un tripulante
+[INFO] 20:46:37:227 MONGO/(16619:16619): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 20:46:37:227 MONGO/(16619:16619): Archivos previos no encontrados, Generando bitacora
+[INFO] 20:46:37:228 MONGO/(16619:16619): Se Genero la Bitacora
+[INFO] 20:46:37:228 MONGO/(16619:16632): Iniciado el tripulante 3 de la patota 1
+[INFO] 20:46:37:228 MONGO/(16619:16619): Discordiador solicito iniciar un tripulante
+[INFO] 20:46:37:228 MONGO/(16619:16619): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 20:46:37:228 MONGO/(16619:16619): Archivos previos no encontrados, Generando bitacora
+[INFO] 20:46:37:229 MONGO/(16619:16619): Se Genero la Bitacora
+[INFO] 20:46:37:229 MONGO/(16619:16634): Iniciado el tripulante 4 de la patota 1
+[INFO] 20:46:38:600 MONGO/(16619:16628): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 20:46:38:600 MONGO/(16619:16628): Se completo la escritura de caracteres
+[INFO] 20:46:38:601 MONGO/(16619:16630): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 20:46:38:601 MONGO/(16619:16630): Se completo la escritura de caracteres
+[INFO] 20:46:38:601 MONGO/(16619:16630): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 20:46:38:601 MONGO/(16619:16630): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:38:602 MONGO/(16619:16630): Se completo la escritura de caracteres
+[INFO] 20:46:38:602 MONGO/(16619:16628): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 20:46:38:602 MONGO/(16619:16628): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:38:602 MONGO/(16619:16628): Se completo la escritura de caracteres
+[INFO] 20:46:39:603 MONGO/(16619:16630): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 7|2
+[INFO] 20:46:39:603 MONGO/(16619:16628): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 20:46:39:603 MONGO/(16619:16630): Se completo la escritura de caracteres
+[INFO] 20:46:39:603 MONGO/(16619:16628): Se completo la escritura de caracteres
+[INFO] 20:46:40:604 MONGO/(16619:16628): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 20:46:40:604 MONGO/(16619:16630): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 20:46:40:605 MONGO/(16619:16628): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:40:605 MONGO/(16619:16628): Se completo la escritura de caracteres
+[INFO] 20:46:40:606 MONGO/(16619:16630): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:40:606 MONGO/(16619:16630): Se completo la escritura de caracteres
+[INFO] 20:46:41:606 MONGO/(16619:16630): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 5|2
+[INFO] 20:46:41:607 MONGO/(16619:16630): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:41:607 MONGO/(16619:16630): Se completo la escritura de caracteres
+[INFO] 20:46:41:607 MONGO/(16619:16628): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 20:46:41:607 MONGO/(16619:16628): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:41:607 MONGO/(16619:16628): Se completo la escritura de caracteres
+[INFO] 20:46:42:610 MONGO/(16619:16630): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 4|2
+[INFO] 20:46:42:610 MONGO/(16619:16630): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:42:610 MONGO/(16619:16630): Se completo la escritura de caracteres
+[INFO] 20:46:42:610 MONGO/(16619:16628): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 20:46:42:610 MONGO/(16619:16628): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:42:611 MONGO/(16619:16628): Se completo la escritura de caracteres
+[INFO] 20:46:43:618 MONGO/(16619:16630): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 3|2
+[INFO] 20:46:43:618 MONGO/(16619:16630): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:43:618 MONGO/(16619:16630): Se completo la escritura de caracteres
+[INFO] 20:46:43:618 MONGO/(16619:16628): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 3|3
+[INFO] 20:46:43:618 MONGO/(16619:16628): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:43:618 MONGO/(16619:16628): Se completo la escritura de caracteres
+[INFO] 20:46:44:625 MONGO/(16619:16630): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 3|3
+[INFO] 20:46:44:625 MONGO/(16619:16630): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:44:626 MONGO/(16619:16630): Se completo la escritura de caracteres
+[INFO] 20:46:47:666 MONGO/(16619:16628): EXEC_0 - Tripulante 1 de la patota 1 detuvo ejecucion
+[INFO] 20:46:47:666 MONGO/(16619:16628): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 20:46:47:666 MONGO/(16619:16628): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:47:666 MONGO/(16619:16628): Se completo la escritura de caracteres
+[INFO] 20:46:47:667 MONGO/(16619:16628): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 20:46:47:667 MONGO/(16619:16628): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:47:667 MONGO/(16619:16628): Se completo la escritura de caracteres
+[INFO] 20:46:48:669 MONGO/(16619:16630): EXEC_0 - Tripulante 2 de la patota 1 detuvo ejecucion
+[INFO] 20:46:48:669 MONGO/(16619:16628): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 20:46:48:669 MONGO/(16619:16628): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:48:669 MONGO/(16619:16628): Se completo la escritura de caracteres
+[INFO] 20:46:48:670 MONGO/(16619:16630): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 20:46:48:670 MONGO/(16619:16630): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:48:670 MONGO/(16619:16630): Se completo la escritura de caracteres
+[INFO] 20:46:48:670 MONGO/(16619:16630): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 4|3
+[INFO] 20:46:48:670 MONGO/(16619:16630): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:48:671 MONGO/(16619:16630): Se completo la escritura de caracteres
+[INFO] 20:46:49:675 MONGO/(16619:16628): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 20:46:49:675 MONGO/(16619:16628): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:49:676 MONGO/(16619:16628): Se completo la escritura de caracteres
+[INFO] 20:46:49:676 MONGO/(16619:16630): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 5|3
+[INFO] 20:46:49:676 MONGO/(16619:16630): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:49:676 MONGO/(16619:16630): Se completo la escritura de caracteres
+[INFO] 20:46:50:703 MONGO/(16619:16628): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|2
+[INFO] 20:46:50:704 MONGO/(16619:16628): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:50:714 MONGO/(16619:16628): Se completo la escritura de caracteres
+[INFO] 20:46:50:704 MONGO/(16619:16630): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|3
+[INFO] 20:46:50:714 MONGO/(16619:16630): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:50:714 MONGO/(16619:16630): Se completo la escritura de caracteres
+[INFO] 20:46:51:715 MONGO/(16619:16630): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 20:46:51:715 MONGO/(16619:16630): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:51:716 MONGO/(16619:16630): Se completo la escritura de caracteres
+[INFO] 20:46:51:716 MONGO/(16619:16628): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|1
+[INFO] 20:46:51:716 MONGO/(16619:16628): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:51:716 MONGO/(16619:16628): Se completo la escritura de caracteres
+[INFO] 20:46:52:717 MONGO/(16619:16630): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|1
+[INFO] 20:46:52:718 MONGO/(16619:16630): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:52:718 MONGO/(16619:16630): Se completo la escritura de caracteres
+[INFO] 20:46:52:718 MONGO/(16619:16628): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|0
+[INFO] 20:46:52:718 MONGO/(16619:16628): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:52:718 MONGO/(16619:16628): Se completo la escritura de caracteres
+[INFO] 20:46:53:726 MONGO/(16619:16630): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|0
+[INFO] 20:46:53:726 MONGO/(16619:16630): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:53:727 MONGO/(16619:16630): Se completo la escritura de caracteres
+[INFO] 20:46:53:727 MONGO/(16619:16628): GEN_OX - Tripulante 1 de la patota 1 generando 10 de oxigeno
+[INFO] 20:46:53:727 MONGO/(16619:16628): Buscando archivos de recursos ya existentes
+[INFO] 20:46:53:727 MONGO/(16619:16632): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 20:46:53:727 MONGO/(16619:16628): Archivos previos no encontrados, Generando metadata
+[INFO] 20:46:53:727 MONGO/(16619:16628): Generando MD5
+[INFO] 20:46:53:727 MONGO/(16619:16632): Se completo la escritura de caracteres
+[INFO] 20:46:53:728 MONGO/(16619:16632): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 1|0
+[INFO] 20:46:53:729 MONGO/(16619:16632): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:53:729 MONGO/(16619:16632): Se completo la escritura de caracteres
+[INFO] 20:46:53:732 MONGO/(16619:16628): Archivo de metadata generado
+[INFO] 20:46:53:732 MONGO/(16619:16628): Se completo la escritura de caracteres
+[INFO] 20:46:53:732 MONGO/(16619:16628): hola 1
+[INFO] 20:46:53:732 MONGO/(16619:16628): Generando MD5
+[INFO] 20:46:54:729 MONGO/(16619:16634): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 20:46:54:729 MONGO/(16619:16634): Se completo la escritura de caracteres
+[INFO] 20:46:54:729 MONGO/(16619:16632): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 2|0
+[INFO] 20:46:54:729 MONGO/(16619:16632): Se completo la escritura de caracteres
+[INFO] 20:46:54:730 MONGO/(16619:16634): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 1|0
+[INFO] 20:46:54:730 MONGO/(16619:16634): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:54:730 MONGO/(16619:16634): Se completo la escritura de caracteres
+[INFO] 20:46:55:732 MONGO/(16619:16632): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 3|0
+[INFO] 20:46:55:732 MONGO/(16619:16634): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 2|0
+[INFO] 20:46:55:791 MONGO/(16619:16632): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:55:791 MONGO/(16619:16634): Se completo la escritura de caracteres
+[INFO] 20:46:55:791 MONGO/(16619:16632): Se completo la escritura de caracteres
+[INFO] 20:46:56:794 MONGO/(16619:16634): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 3|0
+[INFO] 20:46:56:794 MONGO/(16619:16632): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 3|1
+[INFO] 20:46:56:795 MONGO/(16619:16634): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:56:795 MONGO/(16619:16632): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:56:795 MONGO/(16619:16634): Se completo la escritura de caracteres
+[INFO] 20:46:56:795 MONGO/(16619:16632): Se completo la escritura de caracteres
+[INFO] 20:46:57:793 MONGO/(16619:16630): GEN_OX - Tripulante 2 de la patota 1 generando 10 de oxigeno
+[INFO] 20:46:57:793 MONGO/(16619:16630): Buscando archivos de recursos ya existentes
+[INFO] 20:46:57:793 MONGO/(16619:16630): Archivo existente encontrado
+[INFO] 20:46:57:793 MONGO/(16619:16630): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:57:793 MONGO/(16619:16630): Se completo la escritura de caracteres
+[INFO] 20:46:57:793 MONGO/(16619:16630): hola 1
+[INFO] 20:46:57:793 MONGO/(16619:16630): Generando MD5
+[INFO] 20:46:57:795 MONGO/(16619:16634): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 3|1
+[INFO] 20:46:57:796 MONGO/(16619:16634): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:57:796 MONGO/(16619:16634): Se completo la escritura de caracteres
+[INFO] 20:46:57:796 MONGO/(16619:16632): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 3|2
+[INFO] 20:46:57:796 MONGO/(16619:16632): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:57:796 MONGO/(16619:16632): Se completo la escritura de caracteres
+[INFO] 20:46:58:797 MONGO/(16619:16632): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 3|3
+[INFO] 20:46:58:797 MONGO/(16619:16634): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 3|2
+[INFO] 20:46:58:798 MONGO/(16619:16632): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:58:798 MONGO/(16619:16634): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:58:798 MONGO/(16619:16632): Se completo la escritura de caracteres
+[INFO] 20:46:58:798 MONGO/(16619:16634): Se completo la escritura de caracteres
+[INFO] 20:46:59:807 MONGO/(16619:16634): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 3|3
+[INFO] 20:46:59:807 MONGO/(16619:16634): Se encontro lugar en el ultimo bloque
+[INFO] 20:46:59:807 MONGO/(16619:16634): Se completo la escritura de caracteres
+[WARNING] 20:47:01:528 MONGO/(16619:16634): La conexión remota se ha desconectado.
+[WARNING] 20:47:01:528 MONGO/(16619:16632): La conexión remota se ha desconectado.
+[INFO] 20:47:01:528 MONGO/(16619:16634): Fallo el mensaje
+[INFO] 20:47:01:528 MONGO/(16619:16632): Fallo el mensaje
+[WARNING] 20:47:01:528 MONGO/(16619:16634): La conexión remota se ha desconectado.
+[WARNING] 20:47:01:528 MONGO/(16619:16632): La conexión remota se ha desconectado.
+[INFO] 20:47:01:528 MONGO/(16619:16634): Fallo el mensaje
+[INFO] 20:47:01:528 MONGO/(16619:16632): Fallo el mensaje
+[INFO] 20:48:54:447 MONGO/(16800:16800): Servidor listo
+[INFO] 20:49:06:592 MONGO/(16800:16800): Conexión establecida con el discordiador
+[INFO] 20:49:06:592 MONGO/(16800:16800): Verificando existencia SuperBloque
+[INFO] 20:49:06:592 MONGO/(16800:16800): SuperBloque no existe, creandolo.
+[INFO] 20:49:06:592 MONGO/(16800:16800): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 20:49:06:592 MONGO/(16800:16800): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 20:49:06:596 MONGO/(16800:16800): se escribio el archivo
+[INFO] 20:49:06:596 MONGO/(16800:16800): SuperBloque Generado
+[INFO] 20:49:06:596 MONGO/(16800:16800): Verificando existencia Blocks
+[INFO] 20:49:06:596 MONGO/(16800:16800): Blocks no existe, creandolo
+[INFO] 20:49:06:596 MONGO/(16800:16800): Blocks Generado
+[INFO] 20:49:06:596 MONGO/(16800:16800): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 20:49:06:596 MONGO/(16800:16800): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 20:49:06:596 MONGO/(16800:16800): Iniciando el detector de sabotajes
+[INFO] 20:49:06:597 MONGO/(16800:16806): Detector de sabotajes iniciado exitosamente
+[INFO] 20:49:09:101 MONGO/(16800:16800): Discordiador inicio una patota
+[INFO] 20:49:09:101 MONGO/(16800:16800): Discordiador solicito iniciar un tripulante
+[INFO] 20:49:09:102 MONGO/(16800:16800): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1.ims
+[INFO] 20:49:09:102 MONGO/(16800:16800): Archivos previos no encontrados, Generando bitacora
+[INFO] 20:49:09:102 MONGO/(16800:16800): Se Genero la Bitacora
+[INFO] 20:49:09:103 MONGO/(16800:16810): Iniciado el tripulante 1 de la patota 1
+[INFO] 20:49:09:103 MONGO/(16800:16800): Discordiador solicito iniciar un tripulante
+[INFO] 20:49:09:103 MONGO/(16800:16800): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2.ims
+[INFO] 20:49:09:103 MONGO/(16800:16800): Archivos previos no encontrados, Generando bitacora
+[INFO] 20:49:09:103 MONGO/(16800:16800): Se Genero la Bitacora
+[INFO] 20:49:09:104 MONGO/(16800:16800): Discordiador solicito iniciar un tripulante
+[INFO] 20:49:09:104 MONGO/(16800:16800): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3.ims
+[INFO] 20:49:09:104 MONGO/(16800:16800): Archivos previos no encontrados, Generando bitacora
+[INFO] 20:49:09:104 MONGO/(16800:16800): Se Genero la Bitacora
+[INFO] 20:49:09:104 MONGO/(16800:16814): Iniciado el tripulante 3 de la patota 1
+[INFO] 20:49:09:104 MONGO/(16800:16800): Discordiador solicito iniciar un tripulante
+[INFO] 20:49:09:104 MONGO/(16800:16800): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4.ims
+[INFO] 20:49:09:104 MONGO/(16800:16800): Archivos previos no encontrados, Generando bitacora
+[INFO] 20:49:09:105 MONGO/(16800:16800): Se Genero la Bitacora
+[INFO] 20:49:09:105 MONGO/(16800:16816): Iniciado el tripulante 4 de la patota 1
+[INFO] 20:49:09:105 MONGO/(16800:16812): Iniciado el tripulante 2 de la patota 1
+[INFO] 20:49:10:893 MONGO/(16800:16812): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 20:49:10:893 MONGO/(16800:16810): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 20:49:10:894 MONGO/(16800:16812): Se completo la escritura de caracteres
+[INFO] 20:49:10:894 MONGO/(16800:16810): Se completo la escritura de caracteres
+[INFO] 20:49:10:894 MONGO/(16800:16812): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 20:49:10:894 MONGO/(16800:16810): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 20:49:10:895 MONGO/(16800:16812): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:10:895 MONGO/(16800:16810): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:10:895 MONGO/(16800:16812): Se completo la escritura de caracteres
+[INFO] 20:49:10:895 MONGO/(16800:16810): Se completo la escritura de caracteres
+[INFO] 20:49:11:897 MONGO/(16800:16812): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 7|2
+[INFO] 20:49:11:897 MONGO/(16800:16810): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 20:49:11:898 MONGO/(16800:16810): Se completo la escritura de caracteres
+[INFO] 20:49:11:898 MONGO/(16800:16812): Se completo la escritura de caracteres
+[INFO] 20:49:12:899 MONGO/(16800:16810): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 20:49:12:899 MONGO/(16800:16812): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 20:49:12:900 MONGO/(16800:16810): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:12:900 MONGO/(16800:16812): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:12:900 MONGO/(16800:16810): Se completo la escritura de caracteres
+[INFO] 20:49:12:900 MONGO/(16800:16812): Se completo la escritura de caracteres
+[INFO] 20:49:13:908 MONGO/(16800:16812): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 5|2
+[INFO] 20:49:13:908 MONGO/(16800:16810): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 20:49:13:908 MONGO/(16800:16812): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:13:908 MONGO/(16800:16810): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:13:908 MONGO/(16800:16812): Se completo la escritura de caracteres
+[INFO] 20:49:13:908 MONGO/(16800:16810): Se completo la escritura de caracteres
+[INFO] 20:49:14:911 MONGO/(16800:16812): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 4|2
+[INFO] 20:49:14:912 MONGO/(16800:16810): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 20:49:14:912 MONGO/(16800:16812): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:14:912 MONGO/(16800:16810): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:14:912 MONGO/(16800:16812): Se completo la escritura de caracteres
+[INFO] 20:49:14:912 MONGO/(16800:16810): Se completo la escritura de caracteres
+[INFO] 20:49:15:913 MONGO/(16800:16812): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 3|2
+[INFO] 20:49:15:913 MONGO/(16800:16812): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:15:913 MONGO/(16800:16810): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 3|3
+[INFO] 20:49:15:913 MONGO/(16800:16812): Se completo la escritura de caracteres
+[INFO] 20:49:15:913 MONGO/(16800:16810): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:15:913 MONGO/(16800:16810): Se completo la escritura de caracteres
+[INFO] 20:49:16:915 MONGO/(16800:16812): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 3|3
+[INFO] 20:49:16:915 MONGO/(16800:16812): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:16:915 MONGO/(16800:16812): Se completo la escritura de caracteres
+[INFO] 20:49:19:916 MONGO/(16800:16810): EXEC_0 - Tripulante 1 de la patota 1 detuvo ejecucion
+[INFO] 20:49:19:916 MONGO/(16800:16810): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 20:49:19:916 MONGO/(16800:16810): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:19:916 MONGO/(16800:16810): Se completo la escritura de caracteres
+[INFO] 20:49:19:917 MONGO/(16800:16810): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 20:49:19:917 MONGO/(16800:16810): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:19:917 MONGO/(16800:16810): Se completo la escritura de caracteres
+[INFO] 20:49:20:918 MONGO/(16800:16810): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 20:49:20:918 MONGO/(16800:16810): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:20:918 MONGO/(16800:16810): Se completo la escritura de caracteres
+[INFO] 20:49:20:929 MONGO/(16800:16812): EXEC_0 - Tripulante 2 de la patota 1 detuvo ejecucion
+[INFO] 20:49:20:929 MONGO/(16800:16812): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 20:49:20:930 MONGO/(16800:16812): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:20:930 MONGO/(16800:16812): Se completo la escritura de caracteres
+[INFO] 20:49:20:930 MONGO/(16800:16812): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 4|3
+[INFO] 20:49:20:930 MONGO/(16800:16812): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:20:930 MONGO/(16800:16812): Se completo la escritura de caracteres
+[INFO] 20:49:21:919 MONGO/(16800:16810): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 20:49:21:920 MONGO/(16800:16810): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:21:920 MONGO/(16800:16810): Se completo la escritura de caracteres
+[INFO] 20:49:21:931 MONGO/(16800:16812): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 5|3
+[INFO] 20:49:21:931 MONGO/(16800:16812): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:21:931 MONGO/(16800:16812): Se completo la escritura de caracteres
+[INFO] 20:49:22:924 MONGO/(16800:16810): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|2
+[INFO] 20:49:22:924 MONGO/(16800:16810): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:22:924 MONGO/(16800:16810): Se completo la escritura de caracteres
+[INFO] 20:49:22:933 MONGO/(16800:16812): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|3
+[INFO] 20:49:22:933 MONGO/(16800:16812): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:22:933 MONGO/(16800:16812): Se completo la escritura de caracteres
+[INFO] 20:49:23:926 MONGO/(16800:16810): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|1
+[INFO] 20:49:23:926 MONGO/(16800:16810): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:23:926 MONGO/(16800:16810): Se completo la escritura de caracteres
+[INFO] 20:49:23:934 MONGO/(16800:16812): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 20:49:23:934 MONGO/(16800:16812): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:23:934 MONGO/(16800:16812): Se completo la escritura de caracteres
+[INFO] 20:49:24:928 MONGO/(16800:16810): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|0
+[INFO] 20:49:24:928 MONGO/(16800:16810): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:24:928 MONGO/(16800:16810): Se completo la escritura de caracteres
+[INFO] 20:49:24:935 MONGO/(16800:16812): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|1
+[INFO] 20:49:24:936 MONGO/(16800:16812): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:24:936 MONGO/(16800:16812): Se completo la escritura de caracteres
+[INFO] 20:49:25:930 MONGO/(16800:16814): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 20:49:25:930 MONGO/(16800:16814): Se completo la escritura de caracteres
+[INFO] 20:49:25:930 MONGO/(16800:16810): GEN_OX - Tripulante 1 de la patota 1 generando 10 de oxigeno
+[INFO] 20:49:25:930 MONGO/(16800:16810): Buscando archivos de recursos ya existentes
+[INFO] 20:49:25:930 MONGO/(16800:16810): Archivos previos no encontrados, Generando metadata
+[INFO] 20:49:25:930 MONGO/(16800:16814): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 1|0
+[INFO] 20:49:25:931 MONGO/(16800:16810): Generando MD5
+[INFO] 20:49:25:931 MONGO/(16800:16814): Se encontro lugar en el ultimo bloque
+[INFO] 20:49:25:931 MONGO/(16800:16814): Se completo la escritura de caracteres
+[INFO] 20:49:25:935 MONGO/(16800:16810): anduvo el md5
+[INFO] 20:49:25:935 MONGO/(16800:16810): Archivo de metadata generado
