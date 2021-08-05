@@ -11,6 +11,7 @@ int main() {
 	punto_montaje = config_get_string_value(config, "PUNTO_MONTAJE");
 	block_size = config_get_long_value(config, "BLOCK_SIZE");
 	blocks_amount = config_get_long_value(config, "BLOCKS_AMOUNT");
+	salir_proceso = true;
 
 	int server_fd = crear_conexion_servidor(IP_MONGO, config_get_int_value(config, "PUERTO"), 1);
 
@@ -21,111 +22,115 @@ int main() {
 	}
 
 	log_info(logger, "Servidor listo");
+
 	int socket_discord = esperar_cliente(server_fd);
+
 	log_info(logger, "Conexión establecida con el discordiador");
 
 	mkdir(punto_montaje,0755); //se crea el directorio /FileSystem/
 
-	crear_superBloque();//creo el superBloque (si no esta creado)
-	crear_blocks();
+	if(crear_superBloque() && crear_blocks()) { //creo el superBloque si no esta creado, los bloques y si to-do esta bien continua el programa
 
-	pthread_create(&hilo_actualizador_block,NULL,uso_blocks,&blocks);
+		pthread_create(&hilo_actualizador_block,NULL,uso_blocks,&blocks);
 
-	generar_directorio("/Files");
-	generar_directorio("/Files/Bitacoras");
+		generar_directorio("/Files");
+		generar_directorio("/Files/Bitacoras");
 
-	while(1) {
+		salir_proceso = false;
+	}
+
+	while(!salir_proceso) {
 		log_info(logger, "Esperando información del discordiador");
 
 		t_list* mensaje_in = recibir_mensaje(socket_discord);
 		t_mensaje* mensaje_out;
 
 		if (!validar_mensaje(mensaje_in, logger)) {
-			log_info(logger, "Cliente desconectado dentro del while");
-			close(server_fd);
-			log_destroy(logger);
-			return ERROR_CONEXION;
+			log_error(logger, "Cliente desconectado");
+			salir_proceso = true;
+		} else {
+			switch((int)list_get(mensaje_in, 0)) { // protocolo del mensaje
+				case INIT_S:
+					log_info(logger, "Iniciando el detector de sabotajes");
+					int socket_detector = crear_conexion_servidor(IP_MONGO, 0, 1);
+
+					pthread_create(&hilo_detector_sabotajes, NULL, detector_sabotajes, &socket_detector);
+
+					mensaje_out = crear_mensaje(SND_PO);
+					agregar_parametro_a_mensaje(mensaje_out, (void *)puerto_desde_socket(socket_detector), ENTERO);
+					enviar_mensaje(socket_discord, mensaje_out);
+
+					break;
+				case INIT_P:
+					log_info(logger, "Discordiador inicio una patota");
+
+					id_patota_global++;
+					id_trip_global = 1;
+
+					mensaje_out = crear_mensaje(TODOOK);
+					enviar_mensaje(socket_discord, mensaje_out);
+					break;
+				case INIT_T:
+					log_info(logger, "Discordiador solicito iniciar un tripulante");
+					tripulante* trip = malloc(sizeof(tripulante));
+
+					trip->id_patota = id_patota_global;
+					trip->id_trip = id_trip_global;
+					trip->posicion_x = (int)list_get(mensaje_in, 1);
+					trip->posicion_y = (int)list_get(mensaje_in, 2);
+					trip->socket_discord = crear_conexion_servidor(IP_MONGO, 0, 1);
+
+					char DIR_metadata[150];
+
+					strcpy(DIR_metadata,obtener_directorio("/Files/Bitacoras/Tripulante"));
+					strcat(DIR_metadata,string_itoa(trip->id_trip));
+					strcat(DIR_metadata,".ims");
+					crear_bitacora(DIR_metadata);
+
+					pthread_t hilo_nuevo;
+					pthread_create(&hilo_nuevo, NULL, rutina_trip, trip);
+
+					mensaje_out = crear_mensaje(SND_PO);
+					agregar_parametro_a_mensaje(mensaje_out, (void *)puerto_desde_socket(trip->socket_discord), ENTERO);
+					enviar_mensaje(socket_discord, mensaje_out);
+
+					id_trip_global++;
+					break;
+				case BITA_D:
+					log_info(logger, "Discordiador solicito la bitacora del tripulante %d de la patota %d", (int)list_get(mensaje_in, 1), (int)list_get(mensaje_in, 2));
+
+					mensaje_out = crear_mensaje(BITA_C);
+					char* string_bitacora = string_new();
+					string_bitacora = obtener_bitacora((int)list_get(mensaje_in, 1));
+					char**lineas_bitacora = string_split(string_bitacora,".");
+					int cantidad_lineas = 0;
+
+					while(lineas_bitacora[cantidad_lineas+1] != NULL)
+						cantidad_lineas++;
+
+					agregar_parametro_a_mensaje(mensaje_out, (void*)cantidad_lineas, ENTERO);
+
+					for(int i = 1; 0 <= cantidad_lineas; i++)
+						agregar_parametro_a_mensaje(mensaje_out, (void*)lineas_bitacora[cantidad_lineas], BUFFER);
+
+					enviar_mensaje(socket_discord, mensaje_out);
+					break;
+				default:
+					log_warning(logger, "No entendi el mensaje");
+					break;
+			}
+			liberar_mensaje_in(mensaje_in);
+			liberar_mensaje_out(mensaje_out);
 		}
-
-		switch((int)list_get(mensaje_in, 0)) { // protocolo del mensaje
-			case INIT_S:
-				log_info(logger, "Iniciando el detector de sabotajes");
-				int socket_detector = crear_conexion_servidor(IP_MONGO, 0, 1);
-
-				pthread_t hilo_detector_sabotajes;
-				pthread_create(&hilo_detector_sabotajes, NULL, detector_sabotajes, &socket_detector);
-
-				mensaje_out = crear_mensaje(SND_PO);
-				agregar_parametro_a_mensaje(mensaje_out, (void *)puerto_desde_socket(socket_detector), ENTERO);
-				enviar_mensaje(socket_discord, mensaje_out);
-
-				break;
-			case INIT_P:
-				log_info(logger, "Discordiador inicio una patota");
-
-				id_patota_global++;
-				id_trip_global = 1;
-
-				mensaje_out = crear_mensaje(TODOOK);
-				enviar_mensaje(socket_discord, mensaje_out);
-				break;
-			case INIT_T:
-				log_info(logger, "Discordiador solicito iniciar un tripulante");
-				tripulante* trip = malloc(sizeof(tripulante));
-
-				trip->id_patota = id_patota_global;
-				trip->id_trip = id_trip_global;
-				trip->posicion_x = (int)list_get(mensaje_in, 1);
-				trip->posicion_y = (int)list_get(mensaje_in, 2);
-				trip->socket_discord = crear_conexion_servidor(IP_MONGO, 0, 1);
-
-				char DIR_metadata[150];
-
-				strcpy(DIR_metadata,obtener_directorio("/Files/Bitacoras/Tripulante"));
-				strcat(DIR_metadata,string_itoa(trip->id_trip));
-				strcat(DIR_metadata,".ims");
-				crear_bitacora(DIR_metadata);
-
-				pthread_t hilo_nuevo;
-				pthread_create(&hilo_nuevo, NULL, rutina_trip, trip);
-
-				mensaje_out = crear_mensaje(SND_PO);
-				agregar_parametro_a_mensaje(mensaje_out, (void *)puerto_desde_socket(trip->socket_discord), ENTERO);
-				enviar_mensaje(socket_discord, mensaje_out);
-
-				id_trip_global++;
-				break;
-			case BITA_D:
-
-				log_info(logger, "Discordiador solicito la bitacora del tripulante %d de la patota %d", (int)list_get(mensaje_in, 1), (int)list_get(mensaje_in, 2));
-
-
-				mensaje_out = crear_mensaje(BITA_C);
-				char* string_bitacora = string_new();
-				string_bitacora = obtener_bitacora((int)list_get(mensaje_in, 1));
-				char**lineas_bitacora = string_split(string_bitacora,".");
-				int cantidad_lineas = 0;
-
-				while(lineas_bitacora[cantidad_lineas+1] != NULL)
-				    cantidad_lineas++;
-
-				agregar_parametro_a_mensaje(mensaje_out, (void*)cantidad_lineas, ENTERO);
-
-				for(int i = 1; 0 <= cantidad_lineas; i++)
-					agregar_parametro_a_mensaje(mensaje_out, (void*)lineas_bitacora[cantidad_lineas], BUFFER);
-
-				enviar_mensaje(socket_discord, mensaje_out);
-				break;
-			default:
-				log_warning(logger, "No entendi el mensaje");
-				break;
-		}
-		liberar_mensaje_in(mensaje_in);
-		liberar_mensaje_out(mensaje_out);
 	}
 
 	log_warning(logger, "FINALIZANDO MONGO");
 	free(blocks);
+	close(server_fd);
+	log_destroy(logger);
+	pthread_cancel(hilo_actualizador_block);
+	pthread_cancel(hilo_detector_sabotajes);
+
 	return 0;
 }
 
@@ -257,13 +262,12 @@ void* rutina_trip(void* t) {
 		//free(DIR_Bit_Tripulante);
 	}
 }
-void crear_superBloque(){
+bool crear_superBloque(){
 	log_info(logger, "Verificando existencia SuperBloque");
 
+	bool estado_superbloque = false;
 	char* DIR_superBloque = obtener_directorio("/superBloque.ims");
-
 	FILE* existe = fopen(DIR_superBloque,"r");
-
 	int bitmap_size=roundUp(blocks_amount,8);
 
 	if(existe != NULL)
@@ -276,82 +280,79 @@ void crear_superBloque(){
 
 	int fp = open(DIR_superBloque, O_CREAT | O_RDWR, 0664);
 
-	if(fp==-1){
-		log_info(logger, "No se pudo abrir/generar el archivo");
-		exit(-1);
+	if(fp == -1)
+		log_error(logger, "No se pudo abrir/generar el archivo");
+	else {
+
+		ftruncate(fp,sizeof(uint32_t)*2+bitmap_size);
+
+		void* superBloque = mmap(NULL, sizeof(uint32_t)*2 + bitmap_size, PROT_READ | PROT_WRITE, MAP_SHARED, fp, 0);
+
+		if (superBloque == MAP_FAILED)
+			log_error(logger, "Error al mapear el SuperBloque");
+		else {
+			estado_superbloque = true;
+			bitmap = bitarray_create_with_mode((char*) superBloque+sizeof(int)+sizeof(int), bitmap_size, MSB_FIRST);
+
+			void* prueba = malloc(4);
+
+			memcpy(prueba,&block_size,sizeof(uint32_t));
+			memcpy(superBloque,prueba,sizeof(uint32_t));
+			memcpy(prueba,&blocks_amount,sizeof(uint32_t));
+			memcpy(superBloque+sizeof(uint32_t),prueba,sizeof(uint32_t));
+
+			msync(bitmap->bitarray,bitmap_size,MS_SYNC);
+			msync(superBloque, sizeof(uint32_t)*2 + bitmap_size, MS_SYNC);
+
+			log_info(logger, "se escribio el archivo\n");
+			log_info(logger, "SuperBloque Generado");
+
+			free(prueba);
+		}
 	}
 
-	ftruncate(fp,sizeof(uint32_t)*2+bitmap_size);
-
-	void* superBloque = mmap(NULL, sizeof(uint32_t)*2 + bitmap_size, PROT_READ | PROT_WRITE, MAP_SHARED, fp, 0);
-
-	if (superBloque == MAP_FAILED) {
-		log_error(logger, "Error al mapear el SuperBloque");
-		close(fp);
-	} else {
-		bitmap = bitarray_create_with_mode((char*) superBloque+sizeof(int)+sizeof(int), bitmap_size, MSB_FIRST);
-
-		void* prueba = malloc(4);
-
-		memcpy(prueba,&block_size,sizeof(uint32_t));
-		memcpy(superBloque,prueba,sizeof(uint32_t));
-		memcpy(prueba,&blocks_amount,sizeof(uint32_t));
-		memcpy(superBloque+sizeof(uint32_t),prueba,sizeof(uint32_t));
-
-		msync(bitmap->bitarray,bitmap_size,MS_SYNC);
-		msync(superBloque, sizeof(uint32_t)*2 + bitmap_size, MS_SYNC);
-
-		log_info(logger, "se escribio el archivo\n");
-
-		close(fp);
-		free(prueba);
-
-		log_info(logger, "SuperBloque Generado");
-	}
-
+	close(fp);
+	fclose(existe);
 	free(DIR_superBloque);
+	return estado_superbloque;
 }
 
-void crear_blocks(){
+bool crear_blocks(){
 	log_info(logger, "Verificando existencia Blocks");
 
+	bool estado_bloques = false;
 	char* DIR_blocks = obtener_directorio("/Blocks.ims");
-
 	int size = block_size * blocks_amount;
-
 	FILE* existe= fopen(DIR_blocks,"r");
 
-	if(existe != NULL){
+	if(existe != NULL)
 		log_info(logger, "Blocks ya existe");
-
-		blocks_copy= malloc(size);
-
-		fclose(existe);
-	} else {
+	else {
 		log_info(logger, "Blocks no existe, creandolo");
 
 		int fp = open(DIR_blocks, O_CREAT | O_RDWR, 0666);
 
-		if (fp == -1){
-			log_info(logger, "No se pudo abrir/generar el archivo");
-			exit(-1);
+		if (fp == -1)
+			log_error(logger, "No se pudo abrir/generar el archivo");
+		else {
+			ftruncate(fp, size);
+
+			blocks = mmap(NULL, size, PROT_READ | PROT_WRITE,MAP_SHARED, fp, 0);
+
+			if(blocks == MAP_FAILED)
+				log_error(logger, "Error al mapear Blocks");
+			else {
+				log_info(logger, "Blocks Generado");
+				estado_bloques = true;
+			}
 		}
 
-		ftruncate(fp, size);
-
-		blocks = mmap(NULL, size, PROT_READ | PROT_WRITE,MAP_SHARED, fp, 0);
-
-		if(blocks == MAP_FAILED){
-			log_info(logger, "Error al mapear Blocks");
-			exit(-1);
-		} else {
-			log_info(logger, "Blocks Generado");
-			//blocks_copy= malloc(size); todo verificar
-			close(fp);
-		}
+		close(fp);
 	}
 
+	fclose(existe);
 	free(DIR_blocks);
+	return estado_bloques;
 }
 void* uso_blocks(){//se deberia encargar un hilo de esto?
 	int size=block_size*blocks_amount;

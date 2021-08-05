@@ -28,6 +28,9 @@
 #define ERROR_CONEXION -1
 
 pthread_t hilo_actualizador_block;
+pthread_t hilo_detector_sabotajes;
+
+bool salir_proceso;
 
 t_config* config;
 t_bitarray *bitmap;
@@ -36,7 +39,6 @@ uint32_t block_size;
 uint32_t blocks_amount;
 void* blocks;
 char* punto_montaje;
-
 void* blocks_copy;
 
 pthread_mutex_t actualizar_blocks;
@@ -50,8 +52,8 @@ typedef struct {
 	int socket_discord;
 }tripulante;
 */
-void crear_superBloque();
-void crear_blocks();
+bool crear_superBloque();
+bool crear_blocks();
 void* uso_blocks();
 void crear_metadata(char*, char);
 void crear_bitacora(char*);
