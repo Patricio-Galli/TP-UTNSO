@@ -5,12 +5,7 @@ char* crear_MD5(char caracter_llenado, int cantidad_caracteres){
 	char caracter_string[2];
 	caracter_string[0]=caracter_llenado;
 	caracter_string[1]='\0';
-	//char* bla=string_new();
-	//string_append(&bla,"archivoMD5_");
-	//string_append(&bla,caracter_string);
-	//printf("%s\n",bla);
-	//remove(bla);
-	//free(bla);
+
 	char* caracteres=string_new();
 	string_append(&caracteres,"echo ");
 	for(int i=0; i<cantidad_caracteres; i++){
@@ -67,7 +62,7 @@ void sumar_caracteres(char caracter_llenado, int cantidad_caracteres){
 	else{
 		strcpy(DIR_metadata,obtener_directorio("/Files/Basura.ims"));
 	}
-	crear_metadata(DIR_metadata);
+	crear_metadata(DIR_metadata, caracter_llenado);
 
 	t_config* metadata=config_create(DIR_metadata);
 	int size_original=config_get_int_value(metadata,"SIZE");
@@ -208,7 +203,7 @@ void quitar_caracteres(char caracter_llenado, int cantidad_caracteres){
 				}
 
 		}
-		crear_metadata(DIR_metadata);
+		crear_metadata(DIR_metadata, caracter_llenado);
 		t_config* metadata=config_create(DIR_metadata);
 		int size_original=config_get_int_value(metadata,"SIZE");
 		if((size_original-cantidad_caracteres)<0){

@@ -366,12 +366,8 @@ void* uso_blocks(void* blocks){//se deberia encargar un hilo de esto?
 		//log_info(logger, "Se sincronizo el blocks");
 	}
 }
-void crear_metadata(char* DIR_metadata){
+void crear_metadata(char* DIR_metadata, char caracter_llenado){
 	log_info(logger, "Buscando archivos ya existentes");
-	printf("el directorio de la metadata es %s\n",DIR_metadata);
-	char caracter_llenado;
-	caracter_llenado=DIR_metadata[70];
-	printf("el caracter de llenado es %c\n",caracter_llenado);
 
 	FILE* metadata;
 	metadata=fopen(DIR_metadata,"rb");
@@ -381,6 +377,7 @@ void crear_metadata(char* DIR_metadata){
 		fclose(metadata);
 		return;
 	}
+
 	log_info(logger, "Archivos previos no encontrados, Generando metadata");
 	metadata=fopen(DIR_metadata,"wb");
 	t_config* temp=config_create(DIR_metadata);

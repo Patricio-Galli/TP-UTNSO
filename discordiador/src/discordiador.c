@@ -41,7 +41,6 @@ int main() {
 
 			int socket_sabotaje = crear_conexion_cliente(ip_mongo, puerto);
 
-			pthread_t hilo_detector_sabotaje;
 			pthread_create(&hilo_detector_sabotaje, NULL, detector_sabotaje, &socket_sabotaje);
 		}else
 			log_error(logger, "No se pudo activar el detector de  sabotajes, fallo en el mongo.");
@@ -148,19 +147,34 @@ int main() {
 
 	for(int i = 0; i < list_size(lista_tripulantes); i++) {
 		tripulante* trip = (tripulante*)list_get(lista_tripulantes, i);
+
 		trip->continuar = false;
+		sem_post(&trip->sem_running);
 		sem_post(&trip->sem_running);
 		sem_post(&trip->sem_blocked);
 
-		//pthread_join(trip->hilo);
+		pthread_join(trip->hilo, NULL);
+		log_info(logger,"Cancelado trip %d", trip->id_trip);
 	}
 
-	exit_planificacion();
-	//liberar_tripulantes();
-	//exit_tripulantes();
+	log_info(logger,"Todos los tripulantes cancelados");
 
-	close(socket_ram);
-	close(socket_mongo);
+	exit_planificacion();
+	log_info(logger,"Finalizada la planificacion");
+	exit_sabotajes();
+	log_info(logger,"Finlizado el detector de sabotajes");
+
+	while(!list_is_empty(lista_tripulantes))
+		free((tripulante*)list_remove(lista_tripulantes, 0));
+
+	log_info(logger,"Liberada memoria de todos los tripulantes");
+
+	if(RAM_ACTIVADA)
+		close(socket_ram);
+
+	if(MONGO_ACTIVADO)
+		close(socket_mongo);
+
 	log_destroy(logger);
 	return 0;
 }

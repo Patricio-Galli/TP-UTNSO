@@ -12,7 +12,6 @@ void inicializar_planificador(int grado_multiprocesamiento, char* algoritmo) {
 
 	sem_init(&activar_planificacion, 0, 0);
 	sem_init(&finalizo_sabotaje, 0, 0);
-	sem_init(&fin_bloqueados, 0, 0);
 
 	sem_init(&tripulantes_ready, 0, 0);
 	sem_init(&multiprocesamiento, 0, grado_multiprocesamiento);

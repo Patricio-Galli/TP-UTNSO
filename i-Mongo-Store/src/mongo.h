@@ -50,7 +50,7 @@ typedef struct {
 char* crear_superBloque(char*);
 char* crear_blocks(char*);
 void* uso_blocks(void*);
-void crear_metadata(char*);
+void crear_metadata(char*, char);
 void crear_bitacora(char*);
 char* generar_directorio(char*);
 char* obtener_directorio(char*);

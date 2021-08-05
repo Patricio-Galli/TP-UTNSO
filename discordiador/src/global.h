@@ -79,6 +79,7 @@ int quantum;
 
 pthread_t hilo_planificador;
 pthread_t hilo_planificador_io;
+pthread_t hilo_detector_sabotaje;
 
 t_list* cola_ready;
 t_list* cola_blocked;
@@ -98,6 +99,5 @@ sem_t io_disponible;
 sem_t tripulantes_blocked;
 
 sem_t finalizo_sabotaje;
-sem_t fin_bloqueados;
 
 #endif /* GLOBAL_H_ */

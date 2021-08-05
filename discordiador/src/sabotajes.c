@@ -141,3 +141,9 @@ void resolver_sabotaje(int pos_x, int pos_y, int socket_sabotajes) {
 	t_mensaje* mensaje_fin = crear_mensaje(SABO_F);
 	enviar_y_verificar(mensaje_fin, socket_sabotajes, "Fallo al finalizar resolucion del sabotaje");
 }
+
+void exit_sabotajes() {
+	pthread_cancel(hilo_detector_sabotaje);
+	list_destroy(cola_emergencia);
+	sem_destroy(&finalizo_sabotaje);
+}
