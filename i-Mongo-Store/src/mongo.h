@@ -27,6 +27,8 @@
 #define IP_MONGO "127.0.0.1"
 #define ERROR_CONEXION -1
 
+pthread_t hilo_actualizador_block;
+
 t_config* config;
 t_bitarray *bitmap;
 t_log* logger;
@@ -48,7 +50,7 @@ typedef struct {
 	int socket_discord;
 }tripulante;
 */
-char* crear_superBloque(char*);
+void crear_superBloque(char*);
 char* crear_blocks(char*);
 void* uso_blocks();
 void crear_metadata(char*, char);

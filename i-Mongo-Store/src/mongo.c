@@ -23,96 +23,26 @@ int main() {
 	log_info(logger, "Conexión establecida con el discordiador");
 
 	mkdir(punto_montaje,0755); //se crea el directorio /FileSystem/
-	//creo el superBloque (si no esta creado)
-	char DIR_superBloque[100]; //1
+
+	char DIR_superBloque[100];
 	strcpy(DIR_superBloque,obtener_directorio("/superBloque.ims")); //1
 
-	block_size=config_get_long_value(config, "BLOCK_SIZE");
-	blocks_amount=config_get_long_value(config, "BLOCKS_AMOUNT");
-	crear_superBloque(DIR_superBloque);
+	block_size = config_get_long_value(config, "BLOCK_SIZE");
+	blocks_amount = config_get_long_value(config, "BLOCKS_AMOUNT");
+
+	crear_superBloque(DIR_superBloque);//creo el superBloque (si no esta creado)
+	free(DIR_superBloque);
 
 	char DIR_Blocks[100];
 	strcpy(DIR_Blocks,obtener_directorio("/Blocks.ims"));
 	crear_blocks(DIR_Blocks);
+	free(DIR_Blocks);
 
-	pthread_t hilo_actualizador_block;
 	pthread_create(&hilo_actualizador_block,NULL,uso_blocks,&blocks);
 
-	char DIR_metadata[150];
 	generar_directorio("/Files");
 	generar_directorio("/Files/Bitacoras");
-	//------------------------------pruebas----------------------------------
-	/*
-	int id_tripulante=1;
-	    		strcpy(DIR_metadata,obtener_directorio("/Files/Bitacoras/Tripulante"));
-	    		strcat(DIR_metadata,string_itoa(id_tripulante));
-	    		strcat(DIR_metadata,".ims");
-	    		crear_bitacora(DIR_metadata);
 
-	    		imprimir_bitmap(bitmap);
-	    		printf("sumar 10 oxigenos \n");
-	    		sumar_caracteres('O',10);
-	    		imprimir_bitmap(bitmap);
-	    		printf("consumir 12 oxigenos \n");
-	    		quitar_caracteres('O',12);
-	    		imprimir_bitmap(bitmap);
-	    		//sleep(3);
-	    		printf("sumar 24 comidas \n");
-	    		sumar_caracteres('C',24);
-	    		imprimir_bitmap(bitmap);
-	    		printf("consumir 12 Comidas \n");
-	    		quitar_caracteres('C',12);
-	    		imprimir_bitmap(bitmap);
-	    		//sleep(3);
-	    		printf("sumar 10 basuras \n");
-	    		    		sumar_caracteres('B',10);
-	    		    		imprimir_bitmap(bitmap);
-	    		    		printf("consumir 1 Basura \n");
-	    		    		quitar_caracteres('B',1);
-	    		    		imprimir_bitmap(bitmap);
-	    		 sleep(3);
-	    		tripulante* temp1=malloc(sizeof(tripulante));
-	    		temp1->id_trip=1;temp1->posicion_x=1;temp1->posicion_y=2;temp1->id_patota=1;temp1->socket_discord=2;
-
-	    		//char*DIR_Bit_Tripulante="/home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem2/Files/Bitacoras/Tripulante1.ims";
-
-	    		char*DIR_Bit_Tripulante=string_new();
-	    		string_append(&DIR_Bit_Tripulante,obtener_directorio("/Files/Bitacoras/Tripulante"));
-	    		string_append(&DIR_Bit_Tripulante,string_itoa(temp1->id_trip));
-	    		string_append(&DIR_Bit_Tripulante,".ims");
-
-	    		actualizar_posicion(temp1,3,4,DIR_Bit_Tripulante);
-	    		imprimir_bitmap(bitmap);
-
-	    		comienza_tarea("Sacar basura",DIR_Bit_Tripulante);
-	    		imprimir_bitmap(bitmap);
-
-	    		finaliza_tarea("Sacar basura",DIR_Bit_Tripulante);
-	    		imprimir_bitmap(bitmap);
-
-	    		inicio_sabotaje(DIR_Bit_Tripulante);
-	    		imprimir_bitmap(bitmap);
-
-	    		fin_sabotaje(DIR_Bit_Tripulante);
-	    		imprimir_bitmap(bitmap);
-
-	    		obtener_bitacora(1);
-
-//------------------------------Fin de pruebas----------------------------------
-		//-------------eliminar----------------
-	int server_fd = crear_conexion_servidor(IP_MONGO, config_get_int_value(config, "PUERTO"), 1);
-
-		if(!validar_socket(server_fd, logger)) {
-			close(server_fd);
-			log_destroy(logger);
-			return ERROR_CONEXION;
-		}
-
-		log_info(logger, "Servidor listo");
-		int socket_discord = esperar_cliente(server_fd);
-		log_info(logger, "Conexión establecida con el discordiador");
-		//-----------------------------------------------
-*/
 	while(1) {
 		log_info(logger, "Esperando información del discordiador");
 
@@ -157,6 +87,8 @@ int main() {
 				trip->posicion_x = (int)list_get(mensaje_in, 1);
 				trip->posicion_y = (int)list_get(mensaje_in, 2);
 				trip->socket_discord = crear_conexion_servidor(IP_MONGO, 0, 1);
+
+				char DIR_metadata[150];
 
 				strcpy(DIR_metadata,obtener_directorio("/Files/Bitacoras/Tripulante"));
 				strcat(DIR_metadata,string_itoa(trip->id_trip));
@@ -334,48 +266,55 @@ void* rutina_trip(void* t) {
 		//free(DIR_Bit_Tripulante);
 	}
 }
-char* crear_superBloque(char* DIR_superBloque){
+void crear_superBloque(char* DIR_superBloque){
 	log_info(logger, "Verificando existencia SuperBloque");
-	FILE* existe= fopen(DIR_superBloque,"r");
+
+	FILE* existe = fopen(DIR_superBloque,"r");
+
 	int bitmap_size=roundUp(blocks_amount,8);
-	if(existe != NULL){
+
+	if(existe != NULL)
 		log_info(logger, "SuperBloque ya existe");
-	}
 	else
 		log_info(logger, "SuperBloque no existe, creandolo.");
-	printf("el tamaño del bloque es %d y la cant de bloques es %d \n",block_size,blocks_amount);
-	printf("el directorio del superBloque es %s\n",DIR_superBloque);
+
+	log_info(logger, "el tamaño del bloque es %d y la cant de bloques es %d \n",block_size,blocks_amount);
+	log_info(logger, "el directorio del superBloque es %s\n",DIR_superBloque);
+
 	int fp = open(DIR_superBloque, O_CREAT | O_RDWR, 0664);
 
 	if(fp==-1){
 		log_info(logger, "No se pudo abrir/generar el archivo");
 		exit(-1);
 	}
+
 	ftruncate(fp,sizeof(uint32_t)*2+bitmap_size);
+
 	void* superBloque = mmap(NULL, sizeof(uint32_t)*2 + bitmap_size, PROT_READ | PROT_WRITE, MAP_SHARED, fp, 0);
 
 	if (superBloque == MAP_FAILED) {
 		log_error(logger, "Error al mapear el SuperBloque");
 		close(fp);
-		return 0;
+	} else {
+		bitmap = bitarray_create_with_mode((char*) superBloque+sizeof(int)+sizeof(int), bitmap_size, MSB_FIRST);
+
+		void* prueba = malloc(4);
+
+		memcpy(prueba,&block_size,sizeof(uint32_t));
+		memcpy(superBloque,prueba,sizeof(uint32_t));
+		memcpy(prueba,&blocks_amount,sizeof(uint32_t));
+		memcpy(superBloque+sizeof(uint32_t),prueba,sizeof(uint32_t));
+
+		msync(bitmap->bitarray,bitmap_size,MS_SYNC);
+		msync(superBloque, sizeof(uint32_t)*2 + bitmap_size, MS_SYNC);
+
+		log_info(logger, "se escribio el archivo\n");
+
+		close(fp);
+		free(prueba);
+
+		log_info(logger, "SuperBloque Generado");
 	}
-
-	bitmap = bitarray_create_with_mode((char*) superBloque+sizeof(int)+sizeof(int), bitmap_size, MSB_FIRST);
-
-	void* prueba=malloc(4);
-	memcpy(prueba,&block_size,sizeof(uint32_t));
-	memcpy(superBloque,prueba,sizeof(uint32_t));
-	memcpy(prueba,&blocks_amount,sizeof(uint32_t));
-	memcpy(superBloque+sizeof(uint32_t),prueba,sizeof(uint32_t));
-	msync(bitmap->bitarray,bitmap_size,MS_SYNC);
-	msync(superBloque, sizeof(uint32_t)*2 + bitmap_size, MS_SYNC);
-
-	printf("se escribio el archivo\n");
-	close(fp);
-	free(prueba);
-	char* puntero_SuperBloque=DIR_superBloque;
-	log_info(logger, "SuperBloque Generado");
-	return puntero_SuperBloque;
 }
 char* crear_blocks(char* DIR_blocks){
 	log_info(logger, "Verificando existencia Blocks");
