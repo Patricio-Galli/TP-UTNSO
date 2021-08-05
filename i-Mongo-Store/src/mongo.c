@@ -417,16 +417,20 @@ void crear_bitacora(int id_trip, int id_patota) {
 	char* DIR_bitacora = obtener_directorio("/Files/Bitacoras/Tripulante");
 
 	string_append(&DIR_bitacora,string_itoa(id_trip));
+	//string_append(&DIR_bitacora,"-");
+	//string_append(&DIR_bitacora,string_itoa(id_patota));
 	string_append(&DIR_bitacora,".ims");
 
 	log_info(logger, "Buscando archivos ya existentes en directorio %s",DIR_bitacora);
 
-	FILE* bitacora = fopen(DIR_bitacora,"w+");
+	FILE* bitacora = fopen(DIR_bitacora,"rb");
 
 	if(bitacora != NULL)
 		log_info(logger, "Archivo existente encontrado");
 	else {
 		log_info(logger, "Archivos previos no encontrados, Generando bitacora");
+
+		bitacora = fopen(DIR_bitacora,"w+");
 
 		t_config* temp = config_create(DIR_bitacora);
 
@@ -440,7 +444,6 @@ void crear_bitacora(int id_trip, int id_patota) {
 
 		log_info(logger, "Se Genero la Bitacora");
 	}
-
 	fclose(bitacora);
 }
 char* obtener_directorio(char* nombre) {
