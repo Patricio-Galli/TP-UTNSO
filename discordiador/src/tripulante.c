@@ -125,6 +125,12 @@ void ejecutar_io(tripulante* trip, tareas tarea, int cantidad, int tiempo_io) {
 	log_info(logger,"Tripulante %d blockeado por IO", trip->id_trip);
 	sem_wait(&trip->sem_blocked);
 
+	if(!continuar_planificacion) {
+		log_info(logger,"Tripulante %d pausado", trip->id_trip);
+		sem_wait(&trip->sem_running);
+		log_info(logger,"Tripulante %d reactivado", trip->id_trip);
+	}
+
 	if(trip->continuar) {
 		log_info(logger,"Tripulante %d desbloqueado por IO", trip->id_trip);
 
@@ -183,35 +189,32 @@ void ejecutar_io(tripulante* trip, tareas tarea, int cantidad, int tiempo_io) {
 			}
 		}
 
-		for(int i = 0; i < tiempo_io; i++) {
+		for(int i = 0; i < tiempo_io && trip->continuar; i++) {
 			log_info(logger, "Trip %d ejecuto %d de I/O", trip->id_trip, i+1);
+			sleep(ciclo_CPU);
 
-			if(!trip->continuar)
-				i = tiempo_io;
-			else {
-				sleep(ciclo_CPU);
+			if(hay_sabotaje)
+				sem_wait(&finalizo_sabotaje);
 
-				if(hay_sabotaje)
-					sem_wait(&finalizo_sabotaje);
-
-				if(!continuar_planificacion) {
-					log_info(logger,"Tripulante %d pausado", trip->id_trip);
-					sem_wait(&trip->sem_running);
-					log_info(logger,"Tripulante %d reactivado", trip->id_trip);
-				}
+			if(!continuar_planificacion) {
+				log_info(logger,"Tripulante %d pausado", trip->id_trip);
+				sem_wait(&trip->sem_running);
+				log_info(logger,"Tripulante %d reactivado", trip->id_trip);
 			}
 		}
 
-		trip_block = NULL; //quito al tripulante bloqueado
+		trip_block = NULL;
 		sem_post(&io_disponible);
 
 		if(trip->continuar) {
 			agregar_ready(trip);
 			sem_wait(&trip->sem_running);
-		}
+		} else
+			log_info(logger, "Trip %d quitado de blocked", trip->id_trip);
 
-	} else
-		sem_post(&io_disponible);
+	} else {
+		quitar(trip, cola_blocked);
+	}
 }
 
 void esperar(int tiempo, tripulante* trip) {

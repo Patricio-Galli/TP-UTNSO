@@ -68,6 +68,7 @@ int main() {
 			case INICIAR_PATOTA:
 
 				if (!strcmp(buffer_consola,"ini")) {
+					free(*input);
 					free(input);
 					input = string_split("iniciar_patota 4 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 9|3 9|2", " ");
 				}
@@ -148,13 +149,15 @@ int main() {
 	for(int i = 0; i < list_size(lista_tripulantes); i++) {
 		tripulante* trip = (tripulante*)list_get(lista_tripulantes, i);
 
-		trip->continuar = false;
-		sem_post(&trip->sem_running);
-		sem_post(&trip->sem_running);
-		sem_post(&trip->sem_blocked);
+		if(trip->estado != EXIT) {
+			trip->continuar = false;
+			sem_post(&trip->sem_running);
+			sem_post(&trip->sem_running);
+			sem_post(&trip->sem_blocked);
 
-		pthread_join(trip->hilo, NULL);
-		log_info(logger,"Cancelado trip %d", trip->id_trip);
+			pthread_join(trip->hilo, NULL);
+			log_info(logger,"Cancelado trip %d", trip->id_trip);
+		}
 	}
 
 	log_info(logger,"Todos los tripulantes cancelados");
@@ -279,42 +282,26 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 
 			if(eliminar_trip) {
 				trip->continuar = false;
+				sem_post(&trip->sem_running);
+				sem_post(&trip->sem_running);
+				sem_post(&trip->sem_blocked);
+
+				pthread_join(trip->hilo, NULL);
 
 				switch(trip->estado) {
 					case READY:
-						sem_post(&trip->sem_running);
-
-						if(!continuar_planificacion)
-							sem_post(&trip->sem_running);
-
-						//pthread_join(trip->hilo, NULL);
-						sem_wait(&trip->sem_blocked);
 						quitar(trip, cola_ready);
 						sem_wait(&tripulantes_ready);
 						break;
-					case BLOCKED:
-						sem_post(&trip->sem_blocked);
-
-						if(!continuar_planificacion)
-							sem_post(&trip->sem_running);
-
-						//pthread_join(trip->hilo);
-						sem_wait(&trip->sem_blocked);
-						quitar(trip, cola_blocked);
-						sem_wait(&tripulantes_ready);
 						break;
 					case RUNNING:
-						if(!continuar_planificacion)
-							sem_post(&trip->sem_running);
-
-						//pthread_join(trip->hilo);
-						sem_wait(&trip->sem_blocked);
 						quitar_running(trip);
 						break;
 					default: break;
 				}
 
 				free(list_remove(lista_tripulantes, index));
+
 				log_info(logger,"El tripulante %d de la patota %d ha sido expulsado", id_tripulante, id_patota);
 			}
 		}
