@@ -273,7 +273,7 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 						if(!continuar_planificacion)
 							sem_post(&trip->sem_running);
 
-						//pthread_join(trip->hilo);
+						//pthread_join(trip->hilo, NULL);
 						sem_wait(&trip->sem_blocked);
 						quitar(trip, cola_ready);
 						sem_wait(&tripulantes_ready);
