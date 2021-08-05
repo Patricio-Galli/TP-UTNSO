@@ -50,8 +50,8 @@ typedef struct {
 	int socket_discord;
 }tripulante;
 */
-void crear_superBloque(char*);
-void crear_blocks(char*);
+void crear_superBloque();
+void crear_blocks();
 void* uso_blocks();
 void crear_metadata(char*, char);
 void crear_bitacora(char*);

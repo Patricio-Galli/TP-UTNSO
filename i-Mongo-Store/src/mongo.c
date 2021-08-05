@@ -9,6 +9,8 @@ int main() {
 	logger = log_create("mongo.log", "MONGO", 1, LOG_LEVEL_INFO);
 	config = config_create("imongostore.config");
 	punto_montaje = config_get_string_value(config, "PUNTO_MONTAJE");
+	block_size = config_get_long_value(config, "BLOCK_SIZE");
+	blocks_amount = config_get_long_value(config, "BLOCKS_AMOUNT");
 
 	int server_fd = crear_conexion_servidor(IP_MONGO, config_get_int_value(config, "PUERTO"), 1);
 
@@ -24,19 +26,8 @@ int main() {
 
 	mkdir(punto_montaje,0755); //se crea el directorio /FileSystem/
 
-	char DIR_superBloque[100];
-	strcpy(DIR_superBloque,obtener_directorio("/superBloque.ims")); //1
-
-	block_size = config_get_long_value(config, "BLOCK_SIZE");
-	blocks_amount = config_get_long_value(config, "BLOCKS_AMOUNT");
-
-	crear_superBloque(DIR_superBloque);//creo el superBloque (si no esta creado)
-	free(DIR_superBloque);
-
-	char DIR_Blocks[100];
-	strcpy(DIR_Blocks,obtener_directorio("/Blocks.ims"));
-	crear_blocks(DIR_Blocks);
-	free(DIR_Blocks);
+	crear_superBloque();//creo el superBloque (si no esta creado)
+	crear_blocks();
 
 	pthread_create(&hilo_actualizador_block,NULL,uso_blocks,&blocks);
 
@@ -266,8 +257,10 @@ void* rutina_trip(void* t) {
 		//free(DIR_Bit_Tripulante);
 	}
 }
-void crear_superBloque(char* DIR_superBloque){
+void crear_superBloque(){
 	log_info(logger, "Verificando existencia SuperBloque");
+
+	char* DIR_superBloque = obtener_directorio("/superBloque.ims");
 
 	FILE* existe = fopen(DIR_superBloque,"r");
 
@@ -315,10 +308,15 @@ void crear_superBloque(char* DIR_superBloque){
 
 		log_info(logger, "SuperBloque Generado");
 	}
+
+	free(DIR_superBloque);
 }
 
-void crear_blocks(char* DIR_blocks){
+void crear_blocks(){
 	log_info(logger, "Verificando existencia Blocks");
+
+	char* DIR_blocks = obtener_directorio("/Blocks.ims");
+
 	int size = block_size * blocks_amount;
 
 	FILE* existe= fopen(DIR_blocks,"r");
@@ -352,6 +350,8 @@ void crear_blocks(char* DIR_blocks){
 			close(fp);
 		}
 	}
+
+	free(DIR_blocks);
 }
 void* uso_blocks(){//se deberia encargar un hilo de esto?
 	int size=block_size*blocks_amount;
@@ -465,8 +465,10 @@ void imprimir_bitmap(t_bitarray* bitmap) {
 	char* bits = string_new();
 
 	for(int i = 0; i<blocks_amount ;i++){
-		string_append(&bits,bitarray_test_bit(bitmap, i));
-		string_append(&bits," ");
+		if(bitarray_test_bit(bitmap, i))
+			string_append(&bits, "1 ");
+		else
+			string_append(&bits, "0 ");
 	}
 
 	log_info(logger, "Bitmap: %s", bits);
