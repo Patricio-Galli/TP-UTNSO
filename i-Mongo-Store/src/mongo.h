@@ -32,6 +32,7 @@ t_bitarray *bitmap;
 t_log* logger;
 uint32_t block_size;
 uint32_t blocks_amount;
+void* blocks;
 char* punto_montaje;
 
 void* blocks_copy;
@@ -49,7 +50,7 @@ typedef struct {
 */
 char* crear_superBloque(char*);
 char* crear_blocks(char*);
-void* uso_blocks(void*);
+void* uso_blocks();
 void crear_metadata(char*, char);
 void crear_bitacora(char*);
 char* generar_directorio(char*);
@@ -60,5 +61,6 @@ void* rutina_trip(void* t);
 void* detector_sabotajes(void* s);
 void* rutina_trip(void* t);
 char* obtener_bitacora(int);
+void liberar_input(char** input);
 
 #endif /* MONGO_H_ */

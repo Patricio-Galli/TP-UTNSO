@@ -17,7 +17,7 @@
 #include <utils/utils-mensajes.h>
 
 #define RAM_ACTIVADA 0
-#define MONGO_ACTIVADO 0
+#define MONGO_ACTIVADO 1
 
 //tripulante
 typedef struct {

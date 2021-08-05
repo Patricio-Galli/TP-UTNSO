@@ -143,7 +143,6 @@ int main() {
 		}
 		free(buffer_consola);
 		liberar_input(input);
-
 	}
 
 	for(int i = 0; i < list_size(lista_tripulantes); i++) {
@@ -203,6 +202,7 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 					sprintf(puerto, "%d", (int)list_get(mensaje_in, 1));
 
 					socket_ram_trip = crear_conexion_cliente(ip_ram, puerto);
+					free(puerto);
 				} else
 					log_error(logger, "No se pudo crear al tripulante, no hay suficiente memoria.");
 
@@ -218,6 +218,7 @@ void iniciar_patota(parametros_iniciar_patota* parametros) {
 					sprintf(puerto, "%d", (int)list_get(mensaje_in, 1));
 
 					socket_mongo_trip = crear_conexion_cliente(ip_mongo, puerto);
+					free(puerto);
 				} else
 					log_error(logger, "No se pudo crear al tripulante, fallo en el disco.");
 
@@ -282,9 +283,10 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 
 			if(eliminar_trip) {
 				trip->continuar = false;
-				sem_post(&trip->sem_running);
-				sem_post(&trip->sem_running);
+
 				sem_post(&trip->sem_blocked);
+				sem_post(&trip->sem_running);
+				sem_post(&trip->sem_running);
 
 				pthread_join(trip->hilo, NULL);
 
@@ -357,5 +359,8 @@ void obtener_bitacora(int tripulante, int patota) {
 			}
 		} else
 			log_error(logger, "No se pudo obtener la bitacora solicitada");
+
+		liberar_mensaje_out(mensaje_out);
+		liberar_mensaje_in(mensaje_in);
 	}
 }
