@@ -41,20 +41,31 @@ char* solicitar_tarea(tripulante* trip) {
 		liberar_mensaje_in(mensaje_in);
 	} else {
 		switch(trip->posicion[0]) {
+			case 1:
+				tarea = "ESPERAR;2;3;3";
+				break;
+			case 2:
+				tarea = "GENERAR_OXIGENO 10;3;2;3";
+				break;
 			case 3:
-				tarea = "GENERAR_OXIGENO 10;6;0;4";
+				tarea = "CONSUMIR_OXIGENO 5;4;1;3";
+				break;
+			case 4:
+				tarea = "GENERAR_BASURA 8;5;2;3";
+				break;
+			case 5:
+				tarea = "DESCARTAR_BASURA 6;6;3;3";
 				break;
 			case 6:
-				tarea = "CONSUMIR_OXIGENO 5;8;5;4";
+				tarea = "GENERAR_COMIDA 6;7;2;3";
+				break;
+			case 7:
+				tarea = "CONSUMIR_COMIDA 6;8;1;3";
 				break;
 			case 8:
-				tarea = "DESCARTAR_BASURA 13;13;13;13";
+				tarea = "GENERAR_BASURA 1;9;2;8";
 				break;
-			case 13:
-				break;
-			default:
-				tarea = "ESPERAR;3;3;3";
-				break;
+			default: break;
 		}
 	}
 

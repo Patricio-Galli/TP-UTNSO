@@ -2,6 +2,7 @@
 #define SABOTAJES_H_
 
 #include "global.h"
+#include "mongo.h"
 
 char** ubicaciones_sabotajes;
 int socket_sabotajes, contador_sabotajes;

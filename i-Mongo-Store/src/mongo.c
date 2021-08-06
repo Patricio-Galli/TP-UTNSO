@@ -115,14 +115,15 @@ int main() {
 	pthread_mutex_destroy(&actualizar_blocks);
 	pthread_mutex_destroy(&actualizar_bitmap);
 
-	free(blocks);
-	free(blocks_copy);
+	//free(blocks);
+	//free(blocks_copy);
 	free(punto_montaje);
 
 	close(server_fd);
+	pthread_cancel(hilo_actualizador_block);
 	log_destroy(logger);
 
-	pthread_cancel(hilo_actualizador_block);
+
 
 	return 0;
 }
@@ -227,6 +228,7 @@ void* rutina_trip(void* t) {
 
 	return 0;
 }
+
 bool crear_superBloque(){
 	log_info(logger, "Verificando existencia SuperBloque");
 
@@ -319,12 +321,13 @@ bool crear_blocks(){
 	free(DIR_blocks);
 	return estado_bloques;
 }
-void* uso_blocks() {//se deberia encargar un hilo de esto?
+void* uso_blocks() {
 	int size = block_size * blocks_amount;
 	blocks_copy = malloc(size);
 
 	while(1){
-		sleep(config_get_int_value(config, "TIEMPO_SINCRONIZACION"));
+		//sleep(config_get_int_value(config, "TIEMPO_SINCRONIZACION"));
+		sleep(9999);
 
 		pthread_mutex_lock(&actualizar_blocks);
 			memcpy(blocks,blocks_copy,size);
