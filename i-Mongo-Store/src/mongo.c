@@ -1,10 +1,5 @@
 #include "mongo.h"
 
-t_config* config;
-t_log* logger;
-
-int id_trip_global, id_patota_global = 0;
-
 int main() {
 	logger = log_create("mongo.log", "MONGO", 1, LOG_LEVEL_INFO);
 	config = config_create("imongostore.config");
@@ -12,7 +7,7 @@ int main() {
 	block_size = config_get_long_value(config, "BLOCK_SIZE");
 	blocks_amount = config_get_long_value(config, "BLOCKS_AMOUNT");
 	salir_proceso = true;
-
+	int id_trip_global, id_patota_global = 0;
 
 	int server_fd = crear_conexion_servidor(IP_MONGO, config_get_int_value(config, "PUERTO"), 1);
 
@@ -51,13 +46,8 @@ int main() {
 			switch((int)list_get(mensaje_in, 0)) { // protocolo del mensaje
 				case INIT_S:
 					log_info(logger, "Iniciando el detector de sabotajes");
-					int socket_detector = crear_conexion_servidor(IP_MONGO, 0, 1);
 
-					pthread_create(&hilo_detector_sabotajes, NULL, detector_sabotajes, &socket_detector);
-
-					mensaje_out = crear_mensaje(SND_PO);
-					agregar_parametro_a_mensaje(mensaje_out, (void *)puerto_desde_socket(socket_detector), ENTERO);
-					enviar_mensaje(socket_discord, mensaje_out);
+					inicializar_detector_sabotajes(socket_discord);
 
 					break;
 				case INIT_P:
@@ -68,6 +58,7 @@ int main() {
 
 					mensaje_out = crear_mensaje(TODOOK);
 					enviar_mensaje(socket_discord, mensaje_out);
+					liberar_mensaje_out(mensaje_out);
 					break;
 				case INIT_T:
 					log_info(logger, "Discordiador solicito iniciar un tripulante");
@@ -86,6 +77,7 @@ int main() {
 					mensaje_out = crear_mensaje(SND_PO);
 					agregar_parametro_a_mensaje(mensaje_out, (void *)puerto_desde_socket(trip->socket_discord), ENTERO);
 					enviar_mensaje(socket_discord, mensaje_out);
+					liberar_mensaje_out(mensaje_out);
 
 					id_trip_global++;
 					break;
@@ -108,13 +100,13 @@ int main() {
 
 					enviar_mensaje(socket_discord, mensaje_out);
 					liberar_split(bitacora);
+					liberar_mensaje_out(mensaje_out);
 					break;
 				default:
 					log_warning(logger, "No entendi el mensaje");
 					break;
 			}
-			liberar_mensaje_in(mensaje_in);
-			liberar_mensaje_out(mensaje_out);
+			liberar_mensaje_in(mensaje_in);;
 		}
 	}
 
@@ -131,52 +123,8 @@ int main() {
 	log_destroy(logger);
 
 	pthread_cancel(hilo_actualizador_block);
-	pthread_cancel(hilo_detector_sabotajes);
 
 	return 0;
-}
-
-void* detector_sabotajes(void* s) {
-	int socket_detector = esperar_cliente(*(int *)s);
-	int posicion_x = 8, posicion_y = 8;
-
-	log_info(logger, "Detector de sabotajes iniciado exitosamente");
-
-	while(1) {
-		sleep(9999);
-
-		log_warning(logger, "ENVIANDO SABOTAJE AL DISCORDIDADOR");
-		t_mensaje* mensaje_out = crear_mensaje(SABO_P);
-
-		agregar_parametro_a_mensaje(mensaje_out, (void*)posicion_x, ENTERO);
-		agregar_parametro_a_mensaje(mensaje_out, (void*)posicion_y, ENTERO);
-
-		enviar_mensaje(socket_detector, mensaje_out);
-		liberar_mensaje_out(mensaje_out);
-
-		t_list* mensaje_in = recibir_mensaje(socket_detector);
-
-		mensaje_out = crear_mensaje(TODOOK);
-
-		if((int)list_get(mensaje_in, 0) == SABO_I) {
-			log_info(logger, "Tripulante empezo a resolver el sabotaje");
-			enviar_mensaje(socket_detector, mensaje_out);
-			liberar_mensaje_in(mensaje_in);
-
-			mensaje_in = recibir_mensaje(socket_detector);
-
-			if((int)list_get(mensaje_in, 0) == SABO_F) {
-				log_info(logger, "Tripulante termino de resolver el sabotaje");
-				enviar_mensaje(socket_detector, mensaje_out);
-			}
-
-			liberar_mensaje_in(mensaje_in);
-			liberar_mensaje_out(mensaje_out);
-		}else
-			log_error(logger, "No se pudo resolver el sabotaje");
-
-		sleep(600);
-	}
 }
 
 void* rutina_trip(void* t) {

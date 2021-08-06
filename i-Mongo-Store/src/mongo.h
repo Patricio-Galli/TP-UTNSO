@@ -1,48 +1,9 @@
 #ifndef MONGO_H_
 #define MONGO_H_
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<dirent.h>
-#include<unistd.h>
-
-#include <commons/log.h>
-#include <commons/collections/list.h>
-#include <commons/config.h>
-#include <commons/string.h>
-#include <commons/bitarray.h>
-#include <utils/utils-server.h>
-#include <utils/utils-sockets.h>
-#include <utils/utils-mensajes.h>
-
-#include<sys/stat.h>
-#include<sys/types.h>
-#include<sys/mman.h>
-#include<dirent.h>
-#include<fcntl.h>//open
-#include<pthread.h>
-#include"blocks.h"
-
-#define IP_MONGO "127.0.0.1"
-#define ERROR_CONEXION -1
-
-pthread_t hilo_actualizador_block;
-pthread_t hilo_detector_sabotajes;
-
-bool salir_proceso;
-
-t_config* config;
-t_bitarray *bitmap;
-t_log* logger;
-uint32_t block_size;
-uint32_t blocks_amount;
-void* blocks;
-char* punto_montaje;
-void* blocks_copy;
-
-pthread_mutex_t actualizar_blocks;
-pthread_mutex_t actualizar_bitmap;
+#include "blocks.h"
+#include "global.h"
+#include "sabotajes.h"
 
 bool crear_superBloque();
 bool crear_blocks();
