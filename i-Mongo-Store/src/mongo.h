@@ -4,6 +4,8 @@
 #include "blocks.h"
 #include "global.h"
 #include "sabotajes.h"
+#include "utilidades.h"
+#include "bitacora.h"
 
 bool crear_superBloque();
 bool crear_blocks();
