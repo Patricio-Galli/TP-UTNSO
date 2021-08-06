@@ -40,7 +40,23 @@ void analizador_sabotajes(int senial) {
 		int id_trip = (int)list_get(mensaje_in, 1);
 		int id_patota = (int)list_get(mensaje_in, 2);
 
-		log_info(logger, "El tripulante %d de la patota %d empezo a moverse hacia la ubicacion del sabotaje", id_trip, id_patota);
+		char* DIR_bitacora = obtener_directorio("/Files/Bitacoras/Tripulante");
+		char* mensaje_inicio = string_new();
+		char* id_trip_str = string_itoa(id_trip);
+		char* id_patota_str = string_itoa(id_patota);
+		string_append(&DIR_bitacora,id_trip_str);
+		string_append(&DIR_bitacora,"-");
+		string_append(&DIR_bitacora,id_patota_str);
+		string_append(&DIR_bitacora,".ims");
+
+		string_append(&mensaje_inicio,"El tripulante ");
+		string_append(&mensaje_inicio,id_trip_str);
+		string_append(&mensaje_inicio," de la patota ");
+		string_append(&mensaje_inicio,id_patota_str);
+		string_append(&mensaje_inicio," empezo a moverse hacia la ubicacion del sabotaje.");
+
+		log_info(logger, mensaje_inicio);
+		escribir_mensaje_en_bitacora(mensaje_inicio, DIR_bitacora);
 
 		enviar_mensaje(socket_sabotajes, mensaje_out);
 		liberar_mensaje_in(mensaje_in);
@@ -49,12 +65,22 @@ void analizador_sabotajes(int senial) {
 
 		if((int)list_get(mensaje_in, 0) == SABO_F) {
 			log_info(logger, "El tripulante llego a la ubicacion del sabotaje");
+			escribir_mensaje_en_bitacora("El tripulante llego a la ubicacion del sabotaje.", DIR_bitacora);
 			enviar_mensaje(socket_sabotajes, mensaje_out);
 			//todo RESOLVER SABOTAJE
-		}
+			contador_sabotajes++;
+		} else
+			log_error(logger, "Se Murio");
 
+		free(id_trip_str);
+		free(id_patota_str);
+		free(mensaje_inicio);
+		free(DIR_bitacora);
 		liberar_mensaje_in(mensaje_in);
 		liberar_mensaje_out(mensaje_out);
-	}else
+	}else {
 		log_error(logger, "No se pudo resolver el sabotaje");
+		liberar_mensaje_in(mensaje_in);
+		liberar_mensaje_out(mensaje_out);
+	}
 }

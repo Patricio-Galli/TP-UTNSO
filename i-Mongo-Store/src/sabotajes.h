@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "mongo.h"
+#include "blocks.h"
 
 char** ubicaciones_sabotajes;
 int socket_sabotajes, contador_sabotajes;

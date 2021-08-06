@@ -52,6 +52,9 @@ int seleccionar_trip(t_list* lista) {
 void* detector_sabotaje(void* socket_mongo) {
 	hay_sabotaje = false;
 	int socket_sabotajes = *(int*)socket_mongo;
+	sem_init(&sabotaje_pausado, 0, 0);
+	sem_init(&finalizo_sabotaje, 0, 0);
+
 	while(!salir) {
 		t_list* mensaje_sabotaje = recibir_mensaje(socket_sabotajes);
 
@@ -60,8 +63,14 @@ void* detector_sabotaje(void* socket_mongo) {
 
 			int pos_x = (int)list_get(mensaje_sabotaje, 1);
 			int pos_y = (int) list_get(mensaje_sabotaje, 2);
+			liberar_mensaje_in(mensaje_sabotaje);
 
 			log_warning(logger, "Hubo un sabotaje en %d|%d", pos_x, pos_y);
+
+			if(!continuar_planificacion) {
+				log_warning(logger, "Esperando a que se reanude la planificacion para resolver sabotaje");
+				sem_wait(&sabotaje_pausado);
+			}
 
 			emergency_trips_running();
 			emergency_trips_ready();
@@ -81,12 +90,15 @@ void* detector_sabotaje(void* socket_mongo) {
 				if(trip_block != NULL)				//si hay un tripulante bloqueado le aviso que finalizo
 					sem_post(&finalizo_sabotaje);	//el sabotaje para que contiue trabajando
 
-			}else
-				log_error(logger, "No hay tripulantes en la nave, no se puede resolver el sabotaje");
+			}else {
+				log_error(logger, "No hay tripulantes disponibles para resolver el sabotaje");
+
+				t_mensaje* mensaje_error = crear_mensaje(NO_SPC);
+				enviar_mensaje(socket_sabotajes, mensaje_error);
+				liberar_mensaje_out(mensaje_error);
+			}
 		}else
 			log_warning(logger, "No entendi el mensaje");
-
-		liberar_mensaje_in(mensaje_sabotaje);
 	}
 	return 0;
 }
@@ -146,4 +158,5 @@ void exit_sabotajes() {
 	pthread_cancel(hilo_detector_sabotaje);
 	list_destroy(cola_emergencia);
 	sem_destroy(&finalizo_sabotaje);
+	sem_destroy(&sabotaje_pausado);
 }

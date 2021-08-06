@@ -332,6 +332,9 @@ void iniciar_planificacion() {
 
 		if(trip_block != NULL)
 			sem_post(&trip_block->sem_running);
+
+		if(hay_sabotaje)
+			sem_post(&sabotaje_pausado);
 	}
 }
 

@@ -98,6 +98,7 @@ sem_t tripulantes_ready;
 sem_t io_disponible;
 sem_t tripulantes_blocked;
 
+sem_t sabotaje_pausado;
 sem_t finalizo_sabotaje;
 
 #endif /* GLOBAL_H_ */

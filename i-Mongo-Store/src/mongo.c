@@ -364,8 +364,8 @@ void* uso_blocks() {
 	blocks_copy = malloc(size);
 
 	while(1){
-		//sleep(config_get_int_value(config, "TIEMPO_SINCRONIZACION"));
-		sleep(9999);
+		sleep(config_get_int_value(config, "TIEMPO_SINCRONIZACION"));
+		//sleep(9999);
 
 		pthread_mutex_lock(&actualizar_blocks);
 			memcpy(blocks,blocks_copy,size);
