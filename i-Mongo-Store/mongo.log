@@ -2175,3 +2175,10 @@
 [INFO] 20:05:58:733 MONGO/(27362:27373): Se completo la escritura de caracteres
 [INFO] 20:06:06:990 MONGO/(27362:27362): Discordiador solicito la bitacora del tripulante 1 de la patota 1
 [INFO] 20:06:06:990 MONGO/(27362:27362): Cantidad de lineas a enviar 16
+[WARNING] 20:11:43:951 MONGO/(27362:27373): La conexión remota se ha desconectado.
+[INFO] 20:11:43:953 MONGO/(27362:27373): Finalizo el discordiador
+[WARNING] 20:11:43:951 MONGO/(27362:27371): La conexión remota se ha desconectado.
+[INFO] 20:11:43:953 MONGO/(27362:27371): Finalizo el discordiador
+[WARNING] 20:11:43:951 MONGO/(27362:27362): La conexión remota se ha desconectado.
+[ERROR] 20:11:43:954 MONGO/(27362:27362): Cliente desconectado
+[WARNING] 20:11:43:954 MONGO/(27362:27362): FINALIZANDO MONGO
