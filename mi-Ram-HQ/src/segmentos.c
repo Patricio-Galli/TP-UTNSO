@@ -1,6 +1,24 @@
 #include "segmentos.h"
 
-// uint32_t tamanio_segmento;
+bool iniciar_memoria_segmentada(t_config* config) {
+	memoria_ram.esquema_memoria = SEGMENTACION;
+	memoria_ram.mapa_segmentos = list_create();
+	t_segmento* segmento_memoria = malloc(sizeof(t_segmento));
+	segmento_memoria->n_segmento = 0;
+	segmento_memoria->duenio = 0;
+	segmento_memoria->inicio = 0;
+	segmento_memoria->tamanio = memoria_ram.tamanio_memoria;
+    sem_init(&segmento_memoria->mutex, 0, 1);
+	list_add(memoria_ram.mapa_segmentos, segmento_memoria);
+
+	if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "FF"))
+		memoria_ram.criterio_seleccion = FIRST_FIT;
+	if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "BF"))
+		memoria_ram.criterio_seleccion = BEST_FIT;
+
+    sem_init(&mutex_compactacion, 0, 1);
+	return true;
+}
 
 bool condicion_segmento_libre(void* segmento_memoria) {
     if(((t_segmento*)segmento_memoria)->duenio == 0)
@@ -70,6 +88,7 @@ t_segmento* crear_segmento(uint32_t nuevo_tamanio) {
         ((t_segmento *)iterador->data)->n_segmento++;
     }
     segmento_nuevo->tamanio = nuevo_tamanio;
+    sem_init(&segmento_nuevo->mutex, 0, 1);
     list_destroy(segmentos_validos);
     return segmento_nuevo;
 }
@@ -158,11 +177,18 @@ void realizar_compactacion() {
     uint32_t corrimiento_inicio = 0;
     uint32_t cant_segmentos = list_size(memoria_ram.mapa_segmentos);
     t_link_element* aux_segmento = memoria_ram.mapa_segmentos->head;
+    
+    sem_wait(&mutex_compactacion);
 
     // Espero que todos los tripulantes dejen de ejecutar y bloqueo el acceso a memoria
     for(int i = 0; i < list_size(lista_tripulantes); i++) {
         trip_data* un_trip = (trip_data *)list_get(lista_tripulantes, i);
         sem_wait(un_trip->semaforo_hilo);
+    }
+
+    for(int i = 0; i < list_size(memoria_ram.mapa_segmentos); i++) {
+        t_segmento* un_segmento = (t_segmento *)list_get(memoria_ram.mapa_segmentos, i);
+        sem_wait(&un_segmento->mutex);
     }
 
     // Realizo compactacion
@@ -243,6 +269,12 @@ void realizar_compactacion() {
         trip_data* un_trip = (trip_data *)list_get(lista_tripulantes, i);
         sem_post(un_trip->semaforo_hilo);
     }
+
+    for(int i = 0; i < list_size(memoria_ram.mapa_segmentos); i++) {
+        t_segmento* un_segmento = (t_segmento *)list_get(memoria_ram.mapa_segmentos, i);
+        sem_post(&un_segmento->mutex);
+    }
+    sem_post(&mutex_compactacion);
 }
 
 uint32_t memoria_libre_segmentacion() {
@@ -265,6 +297,32 @@ t_list* seg_tripulantes_de_patota(uint32_t id_patota) {
 	return list_filter(memoria_ram.mapa_segmentos, (*seg_trip_de_patota));
 }
 
+t_list* seg_ordenados_de_patota(uint32_t id_patota) {
+	bool seg_de_patota(void* segmento) {
+		if(((t_segmento*)segmento)->duenio == id_patota) {
+			return true;
+		}
+		else
+			return false;
+	}
+
+    t_list* segmentos_de_patota = list_filter(memoria_ram.mapa_segmentos, (*seg_de_patota));
+    uint32_t nro_segmentos_de_patota = list_size(segmentos_de_patota);
+    t_list* segmentos_ordenados = list_create();
+    // uint32_t  = 0;
+    for (int indice = 0; indice < nro_segmentos_de_patota; indice++) {
+        bool segmento_de_indice(void *segmento) {
+            return ((t_segmento *)segmento)->indice == indice ? true : false;
+        }
+
+        t_segmento* segmento_siguiente = (t_segmento *)list_find(segmentos_de_patota, (*segmento_de_indice));
+        if(segmento_siguiente)
+            list_add(segmentos_ordenados, segmento_siguiente);
+    }
+    list_destroy(segmentos_de_patota);
+	return segmentos_ordenados;
+}
+
 t_segmento* segmento_desde_inicio(uint32_t inicio_segmento) {
     bool segmento_inicio(void* segmento) {
 		if(((t_segmento*)segmento)->inicio == inicio_segmento) {
@@ -280,10 +338,23 @@ t_segmento* segmento_desde_inicio(uint32_t inicio_segmento) {
     return segmento;
 }
 
+uint32_t nro_segmento_desde_inicio(uint32_t inicio_segmento) {
+	t_link_element* iterador = memoria_ram.mapa_segmentos->head;
+	while(((t_segmento *)iterador->data)->inicio != inicio_segmento) {
+		iterador = iterador->next;
+	}
+	return ((t_segmento *)iterador->data)->n_segmento;
+}
+
 uint32_t trip_de_segmento(uint32_t inicio_segmento) {
     bool trip_con_inicio(void * tripulante) {
         return ((trip_data *)tripulante)->inicio == inicio_segmento ? true : false;
     }
 
     return ((trip_data *)list_find(lista_tripulantes, (*trip_con_inicio)))->TID;
+}
+
+void actualizar_ubicacion_tareas(void* segmento, uint32_t nueva_ubicacion) {
+	uint32_t valor_int = nueva_ubicacion;
+	memcpy(segmento + sizeof(int), &valor_int, sizeof(uint32_t));
 }

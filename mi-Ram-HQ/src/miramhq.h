@@ -21,7 +21,7 @@
 #include "patota.h"
 #include "tripulante.h"
 #include "consola.h"
-#include "loggear_pruebas.h"
+#include "logs.h"
 
 #include <errno.h>
 

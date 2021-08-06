@@ -19,12 +19,11 @@ typedef struct {
 } tareas_data;
 
 char* obtener_tarea(uint32_t id_patota, uint32_t nro_tarea);
-char* obtener_tarea_p(void* segmento, tareas_data* tareas, uint32_t nro_tarea);
 
 bool iniciar_patota(uint32_t id_patota, t_list* parametros);
 
-void actualizar_ubicacion_tareas(void* segmento, uint32_t nueva_ubicacion);
-
 void segmentar_pcb_p(uint32_t id_patota, uint32_t cant_tareas, char**);
+
+bool patota_sin_tripulantes(uint32_t id_patota);
 
 #endif /* _INICIO_PATOTA_H_ */

@@ -18,15 +18,10 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros) {
 
 	// Valido que haya memoria desponible en la memoria ram
 	if(memoria_ram.esquema_memoria == SEGMENTACION) {
-		// log_info(logger, "Inicio patota con SEGMENTACION");
-		// log_info(logger, "Memoria libre: %d", memoria_libre_segmentacion());
 		if(TAMANIO_PATOTA + tamanio_bloque_tareas + tamanio_tripulantes > memoria_libre_segmentacion())
 			return false;
 	}
 	if(memoria_ram.esquema_memoria == PAGINACION) {
-		// log_info(logger, "Inicio patota con PAGINACION");
-		// log_info(logger, "Frames necesarios: %d", frames_necesarios(0, TAMANIO_PATOTA + tamanio_bloque_tareas));
-		// log_info(logger, "Marcos logicos disponibles: %d", marcos_logicos_disponibles());
 		if(frames_necesarios(0, TAMANIO_PATOTA + tamanio_bloque_tareas + tamanio_tripulantes) > marcos_logicos_disponibles())
 			return false;
 	}
@@ -67,7 +62,7 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros) {
 	}
 	if(memoria_ram.esquema_memoria == PAGINACION) {
 		// log_info(logger, "ASIGNO FRAMES");
-		asignar_frames_p(id_patota, frames_necesarios(0, TAMANIO_PATOTA + tamanio_bloque_tareas));
+		asignar_frames(id_patota, frames_necesarios(0, TAMANIO_PATOTA + tamanio_bloque_tareas));
 		nueva_patota->inicio_elementos[0] = 0;
 		nueva_patota->inicio_elementos[1] = TAMANIO_PATOTA;
 		// log_info(logger, "SEGMENTO_PCB");
@@ -76,11 +71,6 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros) {
 	}
 	// log_info(logger, "Cree patota");
 	return true;
-}
-
-void actualizar_ubicacion_tareas(void* segmento, uint32_t nueva_ubicacion) {
-	uint32_t valor_int = nueva_ubicacion;
-	memcpy(segmento + sizeof(int), &valor_int, sizeof(uint32_t));
 }
 
 uint32_t creo_segmento_pcb(uint32_t tamanio_pcb, uint32_t id_patota) {
@@ -113,9 +103,8 @@ void segmentar_pcb_p(uint32_t id_patota, uint32_t cant_tareas, char** tareas) {
 	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
 	tareas_data* mis_tareas = (tareas_data *)list_get(lista_tareas, id_patota - 1);
 	uint32_t pagina_actual = 0;
-	// log_info(logger, "Segmento id patota");
+	
 	actualizar_entero_paginacion(id_patota, 0, id_patota);
-	// log_info(logger, "Segmento puntero tareas");
 	actualizar_entero_paginacion(id_patota, sizeof(uint32_t), mi_patota->frames[0] * TAMANIO_PAGINA + TAMANIO_PATOTA);
 
 	log_info(logger, "Patota %d. Valores: %d-%d", id_patota, obtener_entero_paginacion(id_patota, 0), obtener_entero_paginacion(id_patota, 4));
@@ -133,20 +122,27 @@ void segmentar_pcb_p(uint32_t id_patota, uint32_t cant_tareas, char** tareas) {
 		while(bytes_cargados < mis_tareas->tamanio_tareas[i]) {
 			if(bytes_disponibles > mis_tareas->tamanio_tareas[i] - bytes_cargados)
 				bytes_disponibles = mis_tareas->tamanio_tareas[i] - bytes_cargados;
+			
+			t_marco* marco_auxiliar = memoria_ram.mapa_logico[mi_patota->frames[pagina_actual]];	
+			sem_wait(&marco_auxiliar->semaforo_mutex);
 			// log_info(logger, "Tarea %d. Pagina actual: %d, corrimiento: %d", i, pagina_actual, mi_patota->memoria_ocupada % TAMANIO_PAGINA);
+			incorporar_marco(mi_patota->frames[pagina_actual]);
 			memcpy(inicio_marco(mi_patota->frames[pagina_actual]) + (mi_patota->memoria_ocupada % TAMANIO_PAGINA),
 				tareas[i] + bytes_cargados, bytes_disponibles);
+			marco_auxiliar->modificado = true;
+			marco_auxiliar->bit_uso = true;
+			sem_post(&marco_auxiliar->semaforo_mutex);
+
 			bytes_cargados += bytes_disponibles;
 			mi_patota->memoria_ocupada += bytes_disponibles;
-			bytes_disponibles = TAMANIO_PAGINA;
-			memoria_ram.mapa_logico[mi_patota->frames[pagina_actual]]->modificado = true;
+			bytes_disponibles = TAMANIO_PAGINA;			
 			pagina_actual++;
 		}
 
 		// log_info(logger, "Memoria ocupada total: %d, pagina: %d", mi_patota->memoria_ocupada, posicion_compuesta.rem);
 		free(tareas[i]);
 	}
-	// log_info(logger, "Segmentar pcb. Patota %d. Valores: %d-%d", id_patota, obtener_entero_paginacion(id_patota, 0), obtener_entero_paginacion(id_patota, 4));
+	log_info(logger, "Segmentar pcb. Patota %d. Valores: %d-%d", id_patota, obtener_entero_paginacion(id_patota, 0), obtener_entero_paginacion(id_patota, 4));
 	// log_info(logger, "Dejo de iterar");
 	free(tareas);
 }
@@ -158,13 +154,11 @@ char* obtener_tarea(uint32_t id_patota, uint32_t nro_tarea) {
 	#define bytes_necesarios (mis_tareas->tamanio_tareas[nro_tarea])
 	char * tarea = malloc(bytes_necesarios + 1);
 	if(memoria_ram.esquema_memoria == SEGMENTACION) {
+		// TO DO SEMAFOROS
 		memcpy(tarea, memoria_ram.inicio + mi_patota->inicio_elementos[1] + mis_tareas->inicio_tareas[nro_tarea], bytes_necesarios);
 	}
 	if(memoria_ram.esquema_memoria == PAGINACION) {
 		uint32_t inicio_tarea = mi_patota->inicio_elementos[1] + mis_tareas->inicio_tareas[nro_tarea];
-		// for(int i = 0; i < nro_tarea; i++) {
-		// 	inicio_tarea += mis_tareas->
-		// }
 		div_t posicion_compuesta = div(inicio_tarea, TAMANIO_PAGINA);
 		uint32_t bytes_cargados = 0;
 		uint32_t bytes_disponibles = TAMANIO_PAGINA - posicion_compuesta.rem;
@@ -175,7 +169,11 @@ char* obtener_tarea(uint32_t id_patota, uint32_t nro_tarea) {
 		while(bytes_cargados < bytes_necesarios) {
 			if(bytes_disponibles > bytes_necesarios - bytes_cargados)
 				bytes_disponibles = bytes_necesarios - bytes_cargados;
+			t_marco* marco_auxiliar = memoria_ram.mapa_logico[mi_patota->frames[pagina_actual]];
+			sem_wait(&marco_auxiliar->semaforo_mutex);
 			memcpy(tarea + bytes_cargados, inicio_marco(mi_patota->frames[pagina_actual]) + inicio_pagina, bytes_disponibles);
+			marco_auxiliar->bit_uso = true;
+			sem_post(&marco_auxiliar->semaforo_mutex);
 			bytes_cargados += bytes_disponibles;
 			pagina_actual++;
 			bytes_disponibles = TAMANIO_PAGINA;
@@ -188,4 +186,28 @@ char* obtener_tarea(uint32_t id_patota, uint32_t nro_tarea) {
 	char final = '\0';
 	memcpy(tarea + mis_tareas->tamanio_tareas[nro_tarea], &final, 1);
 	return tarea;
+}
+
+bool patota_sin_tripulantes(uint32_t id_patota) {
+	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
+	bool sin_tripulantes = true;
+	for(int i = 2; i < mi_patota->cantidad_elementos; i++) {
+		if(posicion_trip(id_patota, i - 1) != -1) {
+			sin_tripulantes = false;
+			break;
+		}
+	}
+	return sin_tripulantes;
+}
+
+void eliminar_tareas(uint32_t id_patota) {
+	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
+	
+	if(memoria_ram.esquema_memoria == SEGMENTACION) {
+		eliminar_segmento(nro_segmento_desde_inicio(mi_patota->inicio_elementos[1]));
+	}
+	if(memoria_ram.esquema_memoria == PAGINACION) {
+		mi_patota->memoria_ocupada = TAMANIO_PATOTA;
+		reasignar_frames(id_patota);
+	}
 }

@@ -26,7 +26,7 @@ void* rutina_hilos(void* data) {
 	while(cliente_conectado) {
 		mensaje_in = recibir_mensaje(socket_cliente);
 		// log_info(logger, "SOY UN HILO: ENTRO AL SEM_WAIT\n");
-        sem_wait(tripulante->semaforo_hilo);
+        // sem_wait(tripulante->semaforo_hilo);
 		// printf("Sobrevivi al sem_wait\n");
 		switch ((int)list_get(mensaje_in, 0)) {
 		case NEXT_T:
@@ -86,7 +86,7 @@ void* rutina_hilos(void* data) {
 			cliente_conectado = false;
 			break;
 		}
-        sem_post(tripulante->semaforo_hilo);
+        // sem_post(tripulante->semaforo_hilo);
         liberar_mensaje_in(mensaje_in);
 		variable++;
 	}

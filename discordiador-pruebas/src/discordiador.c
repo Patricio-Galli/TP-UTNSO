@@ -120,6 +120,24 @@ int main() {
 		case 22:
 			funcion_consola = EXPULSAR_TRIPULANTE;
 			break;
+		case 23:
+			funcion_consola = EXPULSAR_TRIPULANTE;
+			break;
+		case 24:
+			funcion_consola = EXPULSAR_TRIPULANTE;
+			break;
+		case 25:
+			funcion_consola = INICIAR_PATOTA;
+			break;
+		case 26:
+			funcion_consola = INICIAR_TRIPULANTE;
+			break;
+		case 27:
+			funcion_consola = INICIAR_TRIPULANTE;
+			break;
+		case 28:
+			funcion_consola = INICIAR_TRIPULANTE;
+			break;
 		default:
 			log_info(logger, "No hay más instrucciones");
 			funcion_consola = EXIT_DISCORDIADOR;
@@ -131,24 +149,14 @@ int main() {
 		case INICIAR_PATOTA:
 			log_info(logger, "Iniciar patota. Creando mensaje");
 			mensaje_out = crear_mensaje(INIT_P);
-			if(id_patota_actual == 0) {
-				agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);	// cant_trip
-			}
-			if(id_patota_actual == 1) {
-				agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);	// cant_trip
-			}
-			if(id_patota_actual == 2) {
-				agregar_parametro_a_mensaje(mensaje_out, (void *)1, ENTERO);	// cant_trip
-			}
-			if(id_patota_actual == 3) {
-				agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);	// cant_trip
-			}
-			if(id_patota_actual == 4) {
-				agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);	// cant_trip
-			}
-			if(id_patota_actual == 5) {
-				agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);	// cant_trip
-			}
+			if(id_patota_actual == 0)	agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);
+			if(id_patota_actual == 1)	agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);
+			if(id_patota_actual == 2)	agregar_parametro_a_mensaje(mensaje_out, (void *)1, ENTERO);
+			if(id_patota_actual == 3)	agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);
+			if(id_patota_actual == 4)	agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);
+			if(id_patota_actual == 5)	agregar_parametro_a_mensaje(mensaje_out, (void *)2, ENTERO);
+			if(id_patota_actual == 6)	agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);
+
 			agregar_parametro_a_mensaje(mensaje_out, (void *)3, ENTERO);	// cant_tareas
 			agregar_parametro_a_mensaje(mensaje_out, &tarea1, BUFFER);		// tarea 1
 			agregar_parametro_a_mensaje(mensaje_out, &tarea2, BUFFER);		// tarea 2
@@ -241,10 +249,15 @@ int main() {
 				id_patota = 2;
 				id_trip = 1;
 			}
-			if(variable == 14) {
+			if(variable == 23) {
 				log_info(logger,"Expulsar tripulante 4");
-				id_patota = 2;
-				id_trip = 3;
+				id_patota = 4;
+				id_trip = 1;
+			}
+			if(variable == 24) {
+				log_info(logger,"Expulsar tripulante 5");
+				id_patota = 4;
+				id_trip = 2;
 			}
 			/*if(variable == 18) {
 				log_info(logger,"Expulsar tripulante 5");

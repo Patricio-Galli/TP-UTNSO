@@ -32,7 +32,7 @@ typedef struct {
     bool presencia;
     bool modificado;
     sem_t semaforo_mutex;
-}t_marco;
+} t_marco;
 
 typedef struct {
     void* inicio;
@@ -43,14 +43,17 @@ typedef struct {
     t_list* mapa_segmentos;
     // Paginación
     uint32_t tamanio_pagina;
-    uint32_t tamanio_swap;
-    uint32_t algoritmo_reemplazo;
-    uint32_t puntero_clock;
     t_marco** mapa_logico;
     t_marco** mapa_fisico;
-    t_bitarray* bitmap;
-    FILE* inicio_swap;
-    // char* path_swap; // Extraer del archivo config
+    
+    uint32_t algoritmo_reemplazo;
+    uint32_t puntero_clock;
+    // t_bitarray* bitmap;
+    // FILE* inicio_swap;
+    void* inicio_swap;
+    int fd_swap;
+    uint32_t tamanio_swap;
+    
 } t_memoria_ram;
 
 typedef struct {
@@ -86,6 +89,8 @@ sem_t semaforo_consola;
 sem_t mutex_movimiento;
 sem_t mutex_lista_tripulantes;
 sem_t mutex_segmentacion;
+sem_t mutex_incorporar_marco;
+sem_t mutex_compactacion;
 
 #define TAMANIO_PAGINA memoria_ram.tamanio_pagina
 
