@@ -5,6 +5,9 @@
 #include "utilidades.h"
 #include "blocks.h"
 
+char* crear_bitacora(int id_trip, int id_patota);
+char** obtener_bitacora(int id_trip, int id_patota);
+
 void actualizar_posicion(tripulante*, int, int,char*);
 void comienza_tarea(char*,char*);
 void finaliza_tarea(char*,char*);

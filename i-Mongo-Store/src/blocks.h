@@ -6,6 +6,10 @@
 #include "utilidades.h"
 //#include "bitacora.h"
 
+bool crear_superBloque();
+bool crear_blocks();
+void* uso_blocks();
+
 void sumar_caracteres(char, int);
 void quitar_caracteres(char, int);
 char* proximo_bloque_libre();

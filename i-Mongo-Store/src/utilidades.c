@@ -67,3 +67,45 @@ char* juntar_posiciones(int x, int y){
 
 	return posicion;
 }
+
+void generar_directorio(char* nombre) {
+	char *directorio = obtener_directorio(nombre);
+
+	mkdir(directorio,0755);
+	log_info(logger, "Se genero el directorio:  %s",directorio);
+	free(directorio);
+}
+
+void imprimir_bitmap(t_bitarray* bitmap) {
+	char* bits = string_new();
+
+	for(int i = 0; i<blocks_amount ;i++){
+		if(bitarray_test_bit(bitmap, i))
+			string_append(&bits, "1 ");
+		else
+			string_append(&bits, "0 ");
+	}
+
+	log_info(logger, "Bitmap: %s", bits);
+	free(bits);
+}
+
+char* obtener_directorio(char* nombre) {
+	char* DIR_nombre = string_new();
+
+	string_append(&DIR_nombre,punto_montaje);
+	string_append(&DIR_nombre,nombre);
+
+	return DIR_nombre;
+}
+
+void liberar_split(char** split) {
+	int i = 0;
+
+	while(split[i] != NULL) {
+		free(split[i]);
+		i++;
+	}
+
+	free(split);
+}

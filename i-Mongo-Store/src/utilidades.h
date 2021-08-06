@@ -6,5 +6,9 @@
 char* crear_MD5(char, int);
 int roundUp(int, int);
 char* juntar_posiciones(int, int);
+void generar_directorio(char*);
+char* obtener_directorio(char*);
+void imprimir_bitmap(t_bitarray*);
+void liberar_split(char** split);
 
 #endif /* UTILIDADES_H_ */

@@ -1,5 +1,101 @@
 #include "bitacora.h"
 
+char* crear_bitacora(int id_trip, int id_patota) {
+	char* DIR_bitacora = obtener_directorio("/Files/Bitacoras/Tripulante");
+
+	char* id_trip_str = string_itoa(id_trip);
+	char* id_patota_str = string_itoa(id_patota);
+	string_append(&DIR_bitacora,id_trip_str);
+	string_append(&DIR_bitacora,"-");
+	string_append(&DIR_bitacora,id_patota_str);
+	string_append(&DIR_bitacora,".ims");
+	free(id_trip_str);
+	free(id_patota_str);
+
+	log_info(logger, "Buscando archivos ya existentes en directorio %s",DIR_bitacora);
+
+	FILE* bitacora = fopen(DIR_bitacora,"rb");
+
+	if(bitacora != NULL)
+		log_info(logger, "Archivo existente encontrado");
+	else {
+		log_info(logger, "Archivos previos no encontrados, Generando bitacora");
+		bitacora = fopen(DIR_bitacora,"w+");
+
+		t_config* temp = config_create(DIR_bitacora); //todo pierde memoria aca
+
+		temp->path = string_duplicate(DIR_bitacora);
+		config_set_value(temp,"SIZE","0");
+		config_set_value(temp,"BLOCKS","[]");
+
+		config_save(temp);
+		config_destroy(temp);
+		fclose(bitacora);
+
+		log_info(logger, "Se Genero la Bitacora");
+	}
+
+	fclose(bitacora);
+	return DIR_bitacora;
+}
+
+char** obtener_bitacora(int id_trip, int id_patota) {
+
+	char* DIR_Bit_Tripulante = obtener_directorio("/Files/Bitacoras/Tripulante");
+
+	char* id_trip_str = string_itoa(id_trip);
+	char* id_patota_str = string_itoa(id_patota);
+	string_append(&DIR_Bit_Tripulante,id_trip_str);
+	string_append(&DIR_Bit_Tripulante,"-");
+	string_append(&DIR_Bit_Tripulante,id_patota_str);
+	string_append(&DIR_Bit_Tripulante,".ims");
+	free(id_trip_str);
+	free(id_patota_str);
+
+	FILE* bitacora = fopen(DIR_Bit_Tripulante,"rb");
+
+	if(bitacora != NULL) {
+		fclose(bitacora);
+
+		t_config* bitacora_meta = config_create(DIR_Bit_Tripulante);
+		int size = config_get_int_value(bitacora_meta,"SIZE");
+		char** bloques = config_get_array_value(bitacora_meta,"BLOCKS");
+		char* string_bitacora = string_new();
+		char* temp = malloc(block_size);
+
+		for(int i = 0; i < roundUp(size, block_size)-1; i++) {
+			int desplazamiento = atoi(bloques[i]) * block_size;
+
+			memcpy(temp, blocks + desplazamiento, block_size);// cambiar por blocks original
+			temp[block_size]='\0';
+
+			string_append(&string_bitacora,temp);
+
+			if(i + 2 == roundUp(size,block_size)) {
+				desplazamiento = atoi(bloques[i+1]) *block_size;
+				memcpy(temp, blocks + desplazamiento, size % block_size);
+				temp[size % block_size]='\0';
+				string_append(&string_bitacora,temp);
+			}
+		}
+
+		free(temp);
+
+		char** lineas_bitacora = string_split(string_bitacora,".");
+
+		liberar_split(bloques);
+		free(DIR_Bit_Tripulante);
+		free(string_bitacora);
+		config_destroy(bitacora_meta);
+
+		return lineas_bitacora;
+	} else {
+		log_error(logger, "No existe la bitacora del tripulante %d de la patota %d", id_trip, id_patota);
+		free(DIR_Bit_Tripulante);
+		return NULL;
+	}
+}
+
 //se puede hacer en un switch
 void actualizar_posicion(tripulante* tripulante, int x_nueva, int y_nueva, char* DIR_Bit_Tripulante){
 	int x_anterior = tripulante->posicion_x;

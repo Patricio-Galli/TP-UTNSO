@@ -1,5 +1,115 @@
 #include "blocks.h"
 
+bool crear_superBloque(){
+	log_info(logger, "Verificando existencia SuperBloque");
+
+	bool estado_superbloque = false;
+	char* DIR_superBloque = obtener_directorio("/superBloque.ims");
+	FILE* existe = fopen(DIR_superBloque,"r");
+	int bitmap_size = roundUp(blocks_amount,8);
+
+	if(existe != NULL) {
+		log_info(logger, "SuperBloque ya existe");
+		fclose(existe);
+	}
+	else
+		log_info(logger, "SuperBloque no existe, creandolo.");
+
+	log_info(logger, "el tamaño del bloque es %d y la cant de bloques es %d",block_size,blocks_amount);
+	log_info(logger, "el directorio del superBloque es %s",DIR_superBloque);
+
+	int fp = open(DIR_superBloque, O_CREAT | O_RDWR, 0664);
+
+	if(fp == -1)
+		log_error(logger, "No se pudo abrir/generar el archivo");
+	else {
+		ftruncate(fp,sizeof(uint32_t)*2+bitmap_size);
+
+		void* superBloque = mmap(NULL, sizeof(uint32_t)*2 + bitmap_size, PROT_READ | PROT_WRITE, MAP_SHARED, fp, 0);
+
+		if (superBloque == MAP_FAILED)
+			log_error(logger, "Error al mapear el SuperBloque");
+		else {
+			estado_superbloque = true;
+			bitmap = bitarray_create_with_mode((char*) superBloque+sizeof(int)+sizeof(int), bitmap_size, MSB_FIRST);
+
+			void* prueba = malloc(4);
+
+			memcpy(prueba,&block_size,sizeof(uint32_t));
+			memcpy(superBloque,prueba,sizeof(uint32_t));
+			memcpy(prueba,&blocks_amount,sizeof(uint32_t));
+			memcpy(superBloque+sizeof(uint32_t),prueba,sizeof(uint32_t));
+
+			msync(bitmap->bitarray,bitmap_size,MS_SYNC);
+			msync(superBloque, sizeof(uint32_t)*2 + bitmap_size, MS_SYNC);
+
+			log_info(logger, "se escribio el archivo");
+			log_info(logger, "SuperBloque Generado");
+
+			free(prueba);
+		}
+
+		close(fp);
+	}
+	free(DIR_superBloque);
+	return estado_superbloque;
+}
+
+bool crear_blocks(){
+	log_info(logger, "Verificando existencia Blocks");
+
+	bool estado_bloques = false;
+	char* DIR_blocks = obtener_directorio("/Blocks.ims");
+	int size = block_size * blocks_amount;
+	FILE* existe= fopen(DIR_blocks,"r");
+
+	if(existe != NULL) {
+		log_info(logger, "Blocks ya existe");
+		fclose(existe);
+	} else
+		log_info(logger, "Blocks no existe, creandolo");
+
+	int fp = open(DIR_blocks, O_CREAT | O_RDWR, 0666);
+
+	if (fp == -1)
+		log_error(logger, "No se pudo abrir/generar el archivo");
+	else {
+		ftruncate(fp, size);
+
+		blocks = mmap(NULL, size, PROT_READ | PROT_WRITE,MAP_SHARED, fp, 0);
+
+		if(blocks == MAP_FAILED)
+			log_error(logger, "Error al mapear Blocks");
+		else {
+			log_info(logger, "Blocks Generado");
+			estado_bloques = true;
+		}
+
+		close(fp);
+	}
+
+	free(DIR_blocks);
+	return estado_bloques;
+}
+
+void* uso_blocks() {
+	int size = block_size * blocks_amount;
+	blocks_copy = malloc(size);
+
+	while(1){
+		sleep(config_get_int_value(config, "TIEMPO_SINCRONIZACION"));
+		//sleep(9999);
+
+		pthread_mutex_lock(&actualizar_blocks);
+			memcpy(blocks,blocks_copy,size);
+		pthread_mutex_unlock(&actualizar_blocks);
+
+		msync(blocks,(size), MS_SYNC);
+		//log_info(logger, "Se sincronizo el blocks");
+	}
+	free(blocks_copy);
+}
+
 void sumar_caracteres(char caracter_llenado, int cantidad_caracteres) {
 	char* DIR_metadata;
 
