@@ -3,8 +3,6 @@
 
 #include "global.h"
 #include "mongo.h"
-#include "utilidades.h"
-//#include "bitacora.h"
 
 bool crear_superBloque();
 bool crear_blocks();

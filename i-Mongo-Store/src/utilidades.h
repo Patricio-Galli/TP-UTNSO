@@ -4,6 +4,7 @@
 #include "global.h"
 
 char* crear_MD5(char, int);
+tripulante* obtener_tripulante(int id_trip, int id_patota);
 int roundUp(int, int);
 char* juntar_posiciones(int, int);
 void generar_directorio(char*);

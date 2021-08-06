@@ -30,7 +30,6 @@ char* crear_bitacora(int id_trip, int id_patota) {
 
 		config_save(temp);
 		config_destroy(temp);
-		fclose(bitacora);
 
 		log_info(logger, "Se Genero la Bitacora");
 	}
@@ -40,24 +39,10 @@ char* crear_bitacora(int id_trip, int id_patota) {
 }
 
 char** obtener_bitacora(int id_trip, int id_patota) {
+	tripulante* trip = obtener_tripulante(id_trip, id_patota);
 
-	char* DIR_Bit_Tripulante = obtener_directorio("/Files/Bitacoras/Tripulante");
-
-	char* id_trip_str = string_itoa(id_trip);
-	char* id_patota_str = string_itoa(id_patota);
-	string_append(&DIR_Bit_Tripulante,id_trip_str);
-	string_append(&DIR_Bit_Tripulante,"-");
-	string_append(&DIR_Bit_Tripulante,id_patota_str);
-	string_append(&DIR_Bit_Tripulante,".ims");
-	free(id_trip_str);
-	free(id_patota_str);
-
-	FILE* bitacora = fopen(DIR_Bit_Tripulante,"rb");
-
-	if(bitacora != NULL) {
-		fclose(bitacora);
-
-		t_config* bitacora_meta = config_create(DIR_Bit_Tripulante);
+	if(trip != NULL) {
+		t_config* bitacora_meta = config_create(trip->dir_bitacora);
 		int size = config_get_int_value(bitacora_meta,"SIZE");
 		char** bloques = config_get_array_value(bitacora_meta,"BLOCKS");
 		char* string_bitacora = string_new();
@@ -84,16 +69,13 @@ char** obtener_bitacora(int id_trip, int id_patota) {
 		char** lineas_bitacora = string_split(string_bitacora,".");
 
 		liberar_split(bloques);
-		free(DIR_Bit_Tripulante);
 		free(string_bitacora);
 		config_destroy(bitacora_meta);
 
 		return lineas_bitacora;
-	} else {
-		log_error(logger, "No existe la bitacora del tripulante %d de la patota %d", id_trip, id_patota);
-		free(DIR_Bit_Tripulante);
-		return NULL;
 	}
+
+	return NULL;
 }
 
 //se puede hacer en un switch
