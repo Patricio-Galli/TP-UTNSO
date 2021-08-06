@@ -8,6 +8,7 @@ int main() {
 	blocks_amount = config_get_long_value(config, "BLOCKS_AMOUNT");
 	salir_proceso = true;
 	int id_trip_global, id_patota_global = 0;
+	lista_tripulantes = list_create();
 
 	int server_fd = crear_conexion_servidor(IP_MONGO, config_get_int_value(config, "PUERTO"), 1);
 
@@ -33,6 +34,7 @@ int main() {
 		generar_directorio("/Files/Bitacoras");
 
 		salir_proceso = false;
+		imprimir_bitmap(bitmap);
 	}
 
 	while(!salir_proceso) {
@@ -74,6 +76,8 @@ int main() {
 					pthread_t hilo_nuevo;
 					pthread_create(&hilo_nuevo, NULL, rutina_trip, trip);
 
+					list_add(lista_tripulantes, trip);
+
 					mensaje_out = crear_mensaje(SND_PO);
 					agregar_parametro_a_mensaje(mensaje_out, (void *)puerto_desde_socket(trip->socket_discord), ENTERO);
 					enviar_mensaje(socket_discord, mensaje_out);
@@ -87,19 +91,26 @@ int main() {
 					mensaje_out = crear_mensaje(BITA_C);
 
 					char** bitacora = obtener_bitacora((int)list_get(mensaje_in, 1), (int)list_get(mensaje_in, 2));
-					int cantidad_lineas = 0;
 
-					while(bitacora[cantidad_lineas] != NULL)
-						cantidad_lineas++;
+					if(bitacora != NULL) {
+						int cantidad_lineas = 0;
 
-					log_info(logger, "Cantidad de lineas a enviar %d", cantidad_lineas);
-					agregar_parametro_a_mensaje(mensaje_out, (void*)cantidad_lineas -1, ENTERO);
+						while(bitacora[cantidad_lineas] != NULL)
+							cantidad_lineas++;
 
-					for(int i = 0; i < cantidad_lineas-1; i++)
-						agregar_parametro_a_mensaje(mensaje_out, (void*)bitacora[i], BUFFER);
+						log_info(logger, "Cantidad de lineas a enviar %d", cantidad_lineas -1);
+						agregar_parametro_a_mensaje(mensaje_out, (void*)cantidad_lineas -1, ENTERO);
 
-					enviar_mensaje(socket_discord, mensaje_out);
-					liberar_split(bitacora);
+						for(int i = 0; i < cantidad_lineas-1; i++)
+							agregar_parametro_a_mensaje(mensaje_out, (void*)bitacora[i], BUFFER);
+
+						enviar_mensaje(socket_discord, mensaje_out);
+						liberar_split(bitacora);
+					} else {
+						mensaje_out = crear_mensaje(NO_SPC);
+						enviar_mensaje(socket_discord, mensaje_out);
+					}
+
 					liberar_mensaje_out(mensaje_out);
 					break;
 				default:
@@ -111,6 +122,9 @@ int main() {
 	}
 
 	log_warning(logger, "FINALIZANDO MONGO");
+
+	while(!list_is_empty(lista_tripulantes))
+		free((tripulante*)list_remove(lista_tripulantes, 0));
 
 	pthread_mutex_destroy(&actualizar_blocks);
 	pthread_mutex_destroy(&actualizar_bitmap);
@@ -320,45 +334,7 @@ bool crear_blocks(){
 	free(DIR_blocks);
 	return estado_bloques;
 }
-/*
-bool crear_blocks(){
-	log_info(logger, "Verificando existencia Blocks");
 
-	bool estado_bloques = false;
-	char* DIR_blocks = obtener_directorio("/Blocks.ims");
-	int size = block_size * blocks_amount;
-	FILE* existe= fopen(DIR_blocks,"r");
-
-	if(existe != NULL) {
-		fclose(existe);
-		log_info(logger, "Blocks ya existe");
-		estado_bloques = true;
-	} else {
-		log_info(logger, "Blocks no existe, creandolo");
-
-		int fp = open(DIR_blocks, O_CREAT | O_RDWR, 0666);
-
-		if (fp == -1)
-			log_error(logger, "No se pudo abrir/generar el archivo");
-		else {
-			ftruncate(fp, size);
-
-			blocks = mmap(NULL, size, PROT_READ | PROT_WRITE,MAP_SHARED, fp, 0);
-
-			if(blocks == MAP_FAILED)
-				log_error(logger, "Error al mapear Blocks");
-			else {
-				log_info(logger, "Blocks Generado");
-				estado_bloques = true;
-			}
-		}
-		close(fp);
-	}
-
-	free(DIR_blocks);
-	return estado_bloques;
-}
-*/
 void* uso_blocks() {
 	int size = block_size * blocks_amount;
 	blocks_copy = malloc(size);
@@ -376,6 +352,7 @@ void* uso_blocks() {
 	}
 	free(blocks_copy);
 }
+
 void crear_metadata(char* DIR_metadata, char caracter_llenado){
 	log_info(logger, "Buscando archivos de recursos ya existentes");
 
@@ -430,7 +407,6 @@ char* crear_bitacora(int id_trip, int id_patota) {
 		log_info(logger, "Archivo existente encontrado");
 	else {
 		log_info(logger, "Archivos previos no encontrados, Generando bitacora");
-
 		bitacora = fopen(DIR_bitacora,"w+");
 
 		t_config* temp = config_create(DIR_bitacora); //todo pierde memoria aca
@@ -441,6 +417,7 @@ char* crear_bitacora(int id_trip, int id_patota) {
 
 		config_save(temp);
 		config_destroy(temp);
+		fclose(bitacora);
 
 		log_info(logger, "Se Genero la Bitacora");
 	}
@@ -492,38 +469,48 @@ char** obtener_bitacora(int id_trip, int id_patota) {
 	free(id_trip_str);
 	free(id_patota_str);
 
-	t_config* bitacora_meta = config_create(DIR_Bit_Tripulante);
-	int size = config_get_int_value(bitacora_meta,"SIZE");
-	char** bloques = config_get_array_value(bitacora_meta,"BLOCKS");
-	char* string_bitacora = string_new();
-	char* temp = malloc(block_size);
+	FILE* bitacora = fopen(DIR_Bit_Tripulante,"rb");
 
-	for(int i = 0; i < roundUp(size, block_size)-1; i++) {
-		int desplazamiento = atoi(bloques[i]) * block_size;
+	if(bitacora != NULL) {
+		fclose(bitacora);
 
-		memcpy(temp, blocks + desplazamiento, block_size);// cambiar por blocks original
-		temp[block_size]='\0';
+		t_config* bitacora_meta = config_create(DIR_Bit_Tripulante);
+		int size = config_get_int_value(bitacora_meta,"SIZE");
+		char** bloques = config_get_array_value(bitacora_meta,"BLOCKS");
+		char* string_bitacora = string_new();
+		char* temp = malloc(block_size);
 
-		string_append(&string_bitacora,temp);
+		for(int i = 0; i < roundUp(size, block_size)-1; i++) {
+			int desplazamiento = atoi(bloques[i]) * block_size;
 
-		if(i + 2 == roundUp(size,block_size)) {
-			desplazamiento = atoi(bloques[i+1]) *block_size;
-			memcpy(temp, blocks + desplazamiento, size % block_size);
-			temp[size % block_size]='\0';
+			memcpy(temp, blocks + desplazamiento, block_size);// cambiar por blocks original
+			temp[block_size]='\0';
+
 			string_append(&string_bitacora,temp);
+
+			if(i + 2 == roundUp(size,block_size)) {
+				desplazamiento = atoi(bloques[i+1]) *block_size;
+				memcpy(temp, blocks + desplazamiento, size % block_size);
+				temp[size % block_size]='\0';
+				string_append(&string_bitacora,temp);
+			}
 		}
+
+		free(temp);
+
+		char** lineas_bitacora = string_split(string_bitacora,".");
+
+		liberar_split(bloques);
+		free(DIR_Bit_Tripulante);
+		free(string_bitacora);
+		config_destroy(bitacora_meta);
+
+		return lineas_bitacora;
+	} else {
+		log_error(logger, "No existe la bitacora del tripulante %d de la patota %d", id_trip, id_patota);
+		free(DIR_Bit_Tripulante);
+		return NULL;
 	}
-
-	free(temp);
-
-	char** lineas_bitacora = string_split(string_bitacora,".");
-
-	liberar_split(bloques);
-	free(DIR_Bit_Tripulante);
-	free(string_bitacora);
-	config_destroy(bitacora_meta);
-
-	return lineas_bitacora;
 }
 
 void liberar_split(char** split) {

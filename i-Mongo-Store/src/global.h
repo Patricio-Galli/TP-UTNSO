@@ -41,6 +41,7 @@ typedef struct {
 
 t_config* config;
 t_log* logger;
+t_list* lista_tripulantes;
 
 pthread_t hilo_actualizador_block;//, hilo_detector_sabotajes;
 
