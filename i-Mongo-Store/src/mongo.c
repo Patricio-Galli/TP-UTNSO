@@ -95,18 +95,16 @@ int main() {
 					mensaje_out = crear_mensaje(BITA_C);
 
 					char** bitacora = obtener_bitacora((int)list_get(mensaje_in, 1), (int)list_get(mensaje_in, 2));
-					int cantidad_lineas = 1;
+					int cantidad_lineas = 0;
 
-					while(bitacora[cantidad_lineas] != NULL) //no es cant_lineas -1 porque el primero esta vacio
+					while(bitacora[cantidad_lineas] != NULL)
 						cantidad_lineas++;
 
 					log_info(logger, "Cantidad de lineas a enviar %d", cantidad_lineas);
-					agregar_parametro_a_mensaje(mensaje_out, (void*)cantidad_lineas, ENTERO);
+					agregar_parametro_a_mensaje(mensaje_out, (void*)cantidad_lineas -1, ENTERO);
 
-					for(int i = 1; i < cantidad_lineas; i++) {
-						log_info(logger, "%s", bitacora[i]);
+					for(int i = 0; i < cantidad_lineas-1; i++)
 						agregar_parametro_a_mensaje(mensaje_out, (void*)bitacora[i], BUFFER);
-					}
 
 					enviar_mensaje(socket_discord, mensaje_out);
 					liberar_split(bitacora);
@@ -179,6 +177,8 @@ void* rutina_trip(void* t) {
 	int socket_cliente = esperar_cliente(trip->socket_discord);
 	log_info(logger, "Iniciado el tripulante %d de la patota %d", trip->id_trip, trip->id_patota);
 
+	char* ultima_tarea;
+
 	while(1) {
 		t_mensaje* mensaje_out;
 		t_list* mensaje_in = recibir_mensaje(socket_cliente);
@@ -190,7 +190,8 @@ void* rutina_trip(void* t) {
 			case EXEC_1:
 				log_info(logger, "EXEC_1 - Tripulante %d de la patota %d ejecutando tarea: %s", trip->id_trip, trip->id_patota, (char*)list_get(mensaje_in, 1));
 
-				comienza_tarea((char*)list_get(mensaje_in, 1),trip->dir_bitacora);
+				ultima_tarea = (char*)list_get(mensaje_in, 1);
+				comienza_tarea(ultima_tarea,trip->dir_bitacora);
 
 				mensaje_out = crear_mensaje(TODOOK);
 				enviar_mensaje(socket_cliente, mensaje_out);
@@ -198,6 +199,9 @@ void* rutina_trip(void* t) {
 			case EXEC_0:
 				log_info(logger, "EXEC_0 - Tripulante %d de la patota %d detuvo ejecucion", trip->id_trip, trip->id_patota);
 				mensaje_out = crear_mensaje(TODOOK);
+
+				finaliza_tarea(ultima_tarea, trip->dir_bitacora);
+
 				enviar_mensaje(socket_cliente, mensaje_out);
 				break;
 			case GEN_OX:
@@ -346,18 +350,19 @@ bool crear_blocks(){
 	free(DIR_blocks);
 	return estado_bloques;
 }
-void* uso_blocks(){//se deberia encargar un hilo de esto?
-	int size=block_size*blocks_amount;
-	blocks_copy= malloc(size);
-	while(1){
+void* uso_blocks() {//se deberia encargar un hilo de esto?
+	int size = block_size * blocks_amount;
+	blocks_copy = malloc(size);
 
-	sleep(config_get_int_value(config, "TIEMPO_SINCRONIZACION"));
-	pthread_mutex_lock(&actualizar_blocks);
-		memcpy(blocks_copy,blocks,size);
-	pthread_mutex_unlock(&actualizar_blocks);
-	//log_info(logger, "Se realizo copia de blocks");
-	msync(blocks,(size), MS_SYNC);
-	//log_info(logger, "Se sincronizo el blocks");
+	while(1){
+		sleep(config_get_int_value(config, "TIEMPO_SINCRONIZACION"));
+
+		pthread_mutex_lock(&actualizar_blocks);
+			memcpy(blocks,blocks_copy,size);
+		pthread_mutex_unlock(&actualizar_blocks);
+
+		msync(blocks,(size), MS_SYNC);
+		//log_info(logger, "Se sincronizo el blocks");
 	}
 	free(blocks_copy);
 }
@@ -374,48 +379,20 @@ void crear_metadata(char* DIR_metadata, char caracter_llenado){
 		metadata = fopen(DIR_metadata,"wb");
 		t_config* temp = config_create(DIR_metadata);
 
-		temp->path = DIR_metadata;
-
-		char* md5 = crear_MD5(caracter_llenado,0);
-		log_info(logger, "anduvo el md5");
+		temp->path = string_duplicate(DIR_metadata);
 		char str_caracter_llenado[2] = {caracter_llenado , '\0'};
 
+		char* md5 = crear_MD5(caracter_llenado,0);
 		config_save_in_file(temp, DIR_metadata);
 
 		config_set_value(temp,"SIZE","0");
 		config_set_value(temp,"BLOCK_COUNT","0");
 		config_set_value(temp,"BLOCKS","[]");
-		config_set_value(temp,"CARACTER_LLENADO",str_caracter_llenado);//No me deja poner en "O" la variable caracter_llenado
+		config_set_value(temp,"CARACTER_LLENADO",str_caracter_llenado);
 		config_set_value(temp,"MD5_ARCHIVO",md5);
 		config_save(temp);
 		config_destroy(temp);
 
-		/*
-		if(caracter_llenado == 'O'){
-			md5 = crear_MD5('O',0);
-			config_set_value(temp,"SIZE","0");
-			config_set_value(temp,"BLOCK_COUNT","0");
-			config_set_value(temp,"BLOCKS","[]");
-			config_set_value(temp,"CARACTER_LLENADO","O");//No me deja poner en "O" la variable caracter_llenado
-			config_set_value(temp,"MD5_ARCHIVO",md5);
-			config_save(temp);
-		} else if (caracter_llenado=='C'){
-			md5 = crear_MD5('C',0);
-			config_set_value(temp,"SIZE","0");
-			config_set_value(temp,"BLOCK_COUNT","0");
-			config_set_value(temp,"BLOCKS","[]");
-			config_set_value(temp,"CARACTER_LLENADO","C");
-			config_set_value(temp,"MD5_ARCHIVO",md5);
-			config_save(temp);
-		} else {
-			md5 = crear_MD5('B',0);
-			config_set_value(temp,"SIZE","0");
-			config_set_value(temp,"BLOCK_COUNT","0");
-			config_set_value(temp,"BLOCKS","[]");
-			config_set_value(temp,"CARACTER_LLENADO","B");
-			config_set_value(temp,"MD5_ARCHIVO",md5);
-			config_save(temp);
-		}*/
 		log_info(logger, "Archivo de metadata generado");
 	}
 
@@ -508,17 +485,13 @@ char** obtener_bitacora(int id_trip, int id_patota) {
 		memcpy(temp, blocks + desplazamiento, block_size);// cambiar por blocks original
 		temp[block_size]='\0';
 
-		log_info(logger, "Linea %d de la bitacora %s",i, temp);
-
 		string_append(&string_bitacora,temp);
 
 		if(i + 2 == roundUp(size,block_size)) {
 			desplazamiento = atoi(bloques[i+1]) *block_size;
-			memcpy(temp, blocks_copy + desplazamiento, size % block_size);
+			memcpy(temp, blocks + desplazamiento, size % block_size);
 			temp[size % block_size]='\0';
 			string_append(&string_bitacora,temp);
-
-			log_info(logger, "Linea %d de la bitacora %s",i + 1, temp);
 		}
 	}
 

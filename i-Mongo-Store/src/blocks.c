@@ -1,47 +1,48 @@
 #include "blocks.h"
 
-char* crear_MD5(char caracter_llenado, int cantidad_caracteres){
+char* crear_MD5(char caracter_llenado, int cantidad_caracteres) {
 	log_info(logger, "Generando MD5");
-	char caracter_string[2];
-	caracter_string[0]=caracter_llenado;
-	caracter_string[1]='\0';
+	char caracter_string[2] = {caracter_llenado , '\0'};
 
-	char* caracteres=string_new();
+	char* caracteres = string_new();
 	string_append(&caracteres,"echo ");
-	for(int i=0; i<cantidad_caracteres; i++){
+
+	for(int i=0; i<cantidad_caracteres; i++)
 		string_append(&caracteres,caracter_string);
-	}
+
 	string_append(&caracteres, " | md5sum > archivoMD5_");
 	string_append(&caracteres,caracter_string);
+
 	int md5_result= system(caracteres);
+
 	free(caracteres);
-	if(md5_result>=0){ //> o >= ?
-		//printf("MD5 calculado: ");
+
+	if(md5_result >= 0) { //> o >= ?
 		char* md5;
 		char temp[12]="archivoMD5_";
 		strcat(temp,caracter_string);//genero el archivo MD5 para cada recurso
 		FILE* file = fopen(temp,"r");
+
 		if(file == NULL)
-		{
 			return NULL;
-		}
+
 		fseek(file, 0, SEEK_END);
 		long int size = 32;
 		rewind(file);
 
-		md5= calloc(size + 1, 1);
+		md5 = calloc(size + 1, 1);
 
 		fread(md5,1,size,file);
-		//printf("%s \n",md5);
 		fclose(file);
 		return md5;
 
 	}
 	else
 		log_info(logger, "Fallo al calcular el MD5");
+
 	return("ERROR DE MD5");
 }
-void sumar_caracteres(char caracter_llenado, int cantidad_caracteres){
+void sumar_caracteres(char caracter_llenado, int cantidad_caracteres) {
 	char* DIR_metadata;
 
 	if(caracter_llenado == 'O')
@@ -54,104 +55,122 @@ void sumar_caracteres(char caracter_llenado, int cantidad_caracteres){
 	crear_metadata(DIR_metadata, caracter_llenado);
 
 	t_config* metadata = config_create(DIR_metadata);
-	int size_original=config_get_int_value(metadata,"SIZE");
+	free(DIR_metadata);
+
+	int size_original = config_get_int_value(metadata,"SIZE");
 	int bloques_max;
-	int cantidad_original_bloques=config_get_int_value(metadata,"BLOCK_COUNT");
-	//debo verificar si el ultimo bloque tiene espacio para escribir letras
+	int cantidad_original_bloques = config_get_int_value(metadata,"BLOCK_COUNT");
 
-	char** bloques_anteriores;
-	bloques_anteriores=config_get_array_value(metadata,"BLOCKS");
+	char** bloques_anteriores = config_get_array_value(metadata,"BLOCKS");
 
-	int size_final=size_original+cantidad_caracteres;
+	int size_final = size_original + cantidad_caracteres;
 
-	if(size_original%block_size!=0){
+	if(size_original % block_size != 0) {
 		log_info(logger, "Se encontro lugar en el ultimo bloque");
-		int aux=cantidad_caracteres;
-		cantidad_caracteres=escribir_caracter_en_bloque(caracter_llenado, cantidad_caracteres,bloques_anteriores[cantidad_original_bloques-1],size_original);
-		size_original+=aux-cantidad_caracteres;
+		int aux = cantidad_caracteres;
+		cantidad_caracteres = escribir_caracter_en_bloque(caracter_llenado, cantidad_caracteres, bloques_anteriores[cantidad_original_bloques-1], size_original);
+		size_original += aux-cantidad_caracteres;
 	}
 
-	bloques_max=roundUp(size_final,block_size); //con los caracteres nuevos me fijo cuantos bloques ocuparia
-	int bloques_faltantes=bloques_max-cantidad_original_bloques;
-	if(bloques_faltantes>0){//si ocupo mas bloques de los que tengo asignados, debo agregar mas bloques
+	bloques_max = roundUp(size_final,block_size); //con los caracteres nuevos me fijo cuantos bloques ocuparia
+
+	int bloques_faltantes = bloques_max - cantidad_original_bloques;
+
+	if(bloques_faltantes > 0){//si ocupo mas bloques de los que tengo asignados, debo agregar mas bloques
 		char* bloques_a_agregar= string_new();
+
 		pthread_mutex_lock(&actualizar_bitmap);
-			char* bloque_libre=proximo_bloque_libre();
+			char* bloque_libre = proximo_bloque_libre();
 		pthread_mutex_unlock(&actualizar_bitmap);
 
 		string_append(&bloques_a_agregar,bloque_libre);//agrego el proximo bloque disponible que va a almacenar los caracteres
-		cantidad_caracteres=escribir_caracter_en_bloque(caracter_llenado, cantidad_caracteres,bloque_libre,size_original);
+		cantidad_caracteres = escribir_caracter_en_bloque(caracter_llenado, cantidad_caracteres, bloque_libre, size_original);
+
 		free(bloque_libre);
 		bloques_faltantes--;
-	 //si siguen faltando agregar bloques los agrego
-		for(int i=0;i<bloques_faltantes;i++){
+
+		for(int i = 0; i < bloques_faltantes; i++) { //si siguen faltando agregar bloques los agrego
 			pthread_mutex_lock(&actualizar_bitmap);
-			bloque_libre=proximo_bloque_libre();
+				bloque_libre = proximo_bloque_libre();
 			pthread_mutex_unlock(&actualizar_bitmap);
+
 			string_append(&bloques_a_agregar,",");
 			string_append(&bloques_a_agregar,bloque_libre);
-			cantidad_caracteres=escribir_caracter_en_bloque(caracter_llenado, cantidad_caracteres,bloque_libre,size_original);
+
+			cantidad_caracteres = escribir_caracter_en_bloque(caracter_llenado, cantidad_caracteres, bloque_libre, size_original);
 			free(bloque_libre);
 		}
-		printf("Los bloques a agregar son: %s\n",bloques_a_agregar);
-				//agregar los caracteres al bloque
-	//junto los bloques viejos con los nuevos y lo guardo en la metadata
-		char* bloques_totales=string_new();
-		string_append(&bloques_totales,"[");
-		if(cantidad_original_bloques>0){
+		log_info(logger, "Los bloques a agregar son: %s\n", bloques_a_agregar);
+
+		//agregar los caracteres al bloque
+		//junto los bloques viejos con los nuevos y lo guardo en la metadata
+
+		char* bloques_totales = string_new();
+
+		string_append(&bloques_totales, "[");
+
+		if(cantidad_original_bloques > 0) {
 			string_append(&bloques_totales,bloques_anteriores[0]);
-			for(int i=1;i<cantidad_original_bloques;i++){
-				string_append(&bloques_totales,",");
-				string_append(&bloques_totales,bloques_anteriores[i]);
+
+			for(int i = 1; i < cantidad_original_bloques; i++) {
+				string_append(&bloques_totales, ",");
+				string_append(&bloques_totales, bloques_anteriores[i]);
 			}
 		}
 
-		config_set_value(metadata,"SIZE",string_itoa(size_final));
+		config_set_value(metadata, "SIZE", string_itoa(size_final));
 		liberar_split(bloques_anteriores);
-		//free(bloques_anteriores); //REVISAR MEMCHECK (char**)
-		if(cantidad_original_bloques==0){
+
+		if(cantidad_original_bloques == 0)
 			string_append(&bloques_totales,bloques_a_agregar);
-		}
-		else{
+		else {
 			string_append(&bloques_totales,",");
 			string_append(&bloques_totales,bloques_a_agregar);
 		}
+
 		string_append(&bloques_totales,"]");
-		free(bloques_a_agregar);
-		log_info(logger, "hola 1");
-		printf("Los bloques totales son: %s\n",bloques_totales);
+
+		log_info(logger, "Los bloques totales son: %s",bloques_totales);
+
 		config_set_value(metadata,"BLOCKS",bloques_totales);
-		free(bloques_totales);
 		config_set_value(metadata,"BLOCK_COUNT",string_itoa(bloques_max));//Actualizo la cantidad de bloques
+
+		free(bloques_totales);
+		free(bloques_a_agregar);
 	}
 	else
 		config_set_value(metadata,"SIZE",string_itoa(size_final));
 	//actualizo el MD5
-	char* MD5_nuevo=crear_MD5(caracter_llenado,size_final);
+	char* MD5_nuevo = crear_MD5(caracter_llenado,size_final);
 	config_set_value(metadata,"MD5_ARCHIVO",MD5_nuevo);
 
 	free(MD5_nuevo);
+
 	config_save(metadata);
 	config_destroy(metadata);
 }
 
-void quitar_caracteres(char caracter_llenado, int cantidad_caracteres){
-	char DIR_metadata[90];
-		if(caracter_llenado=='O'){
-			strcpy(DIR_metadata,obtener_directorio("/Files/Oxigeno.ims"));
-		}
-		else if(caracter_llenado=='C'){
-			strcpy(DIR_metadata,obtener_directorio("/Files/Comida.ims"));
-		}
-		else{
-			strcpy(DIR_metadata,obtener_directorio("/Files/Basura.ims"));
-			log_info(logger, "Buscando archivo de basura ya existentes");
-			FILE* metadata;
-			metadata=fopen(DIR_metadata,"rb");
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
-			if(metadata!=NULL){
+void quitar_caracteres(char caracter_llenado, int cantidad_caracteres){
+	char* DIR_metadata;
+
+		if(caracter_llenado=='O')
+			DIR_metadata = obtener_directorio("/Files/Oxigeno.ims");
+
+		else if(caracter_llenado=='C')
+			DIR_metadata = obtener_directorio("/Files/Comida.ims");
+		else {
+			DIR_metadata = obtener_directorio("/Files/Basura.ims");
+
+			log_info(logger, "Buscando archivo de basura ya existentes");
+			FILE* metadata = fopen(DIR_metadata,"rb");
+
+			if(metadata != NULL){
 				log_info(logger, "Archivo existente encontrado");
-				t_config* metadata=config_create(DIR_metadata);
+
+				t_config* metadata = config_create(DIR_metadata);
+
 				int cantidad_caracteres=config_get_int_value(metadata,"SIZE");
 				int cantidad_original_bloques=config_get_int_value(metadata,"BLOCK_COUNT");
 				char** bloques_originales=config_get_array_value(metadata,"BLOCKS");
@@ -254,22 +273,26 @@ char* proximo_bloque_libre(){// busca el prox libre y lo pone en 1
 	log_info(logger, "Todos los bloques estan ocupados");
 	return NULL;
 }
-int escribir_caracter_en_bloque(char caracter_llenado,int cantidad_caracteres,char* bloque_libre,int size){
-	int bloqueALlenar=atoi(bloque_libre);
-	int caract_escritos=0;
-	for(int caracteresEnBloque=size%block_size;caracteresEnBloque<block_size && cantidad_caracteres>0;caracteresEnBloque++){
-		int desplazamiento=bloqueALlenar*block_size+caracteresEnBloque;
+int escribir_caracter_en_bloque(char caracter_llenado, int cantidad_caracteres, char* bloque_libre, int size){
+	int bloqueALlenar = atoi(bloque_libre);
+	int caract_escritos = 0;
+
+	for(int caracteresEnBloque = size % block_size; caracteresEnBloque < block_size && cantidad_caracteres > 0; caracteresEnBloque++) {
+		int desplazamiento = (bloqueALlenar * block_size) + caracteresEnBloque;
+
 		pthread_mutex_lock(&actualizar_blocks);
-				memcpy(blocks_copy+desplazamiento,string_from_format("%c",caracter_llenado),sizeof(char));
+			memcpy(blocks_copy+desplazamiento,string_from_format("%c",caracter_llenado),sizeof(char));
 		pthread_mutex_unlock(&actualizar_blocks);
+
 		caract_escritos++;
 		cantidad_caracteres--;
 	}
-	printf("se escribieron %d\'%c\'\n",caract_escritos,caracter_llenado);
-	if(cantidad_caracteres==0){
+
+	//printf("se escribieron %d\'%c\'\n",caract_escritos,caracter_llenado);
+
+	if(cantidad_caracteres==0)
 		log_info(logger, "Se completo la escritura de caracteres");
-	}
-		//log_info(logger, "Bloque completo");
+
 	return cantidad_caracteres;
 }
 int escribir_caracter_en_bitacora(char* mensaje,int ultima_pos_mensaje,char* bloque_libre,int size){
