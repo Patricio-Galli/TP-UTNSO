@@ -118,8 +118,10 @@ void sumar_caracteres(char caracter_llenado, int cantidad_caracteres) {
 			}
 		}
 
-		config_set_value(metadata, "SIZE", string_itoa(size_final));
+		char* size_final_str = string_itoa(size_final);
+		config_set_value(metadata, "SIZE", size_final_str);
 		liberar_split(bloques_anteriores);
+		free(size_final_str);
 
 		if(cantidad_original_bloques == 0)
 			string_append(&bloques_totales,bloques_a_agregar);
@@ -131,15 +133,20 @@ void sumar_caracteres(char caracter_llenado, int cantidad_caracteres) {
 		string_append(&bloques_totales,"]");
 
 		log_info(logger, "Los bloques totales son: %s",bloques_totales);
+		char* bloques_max_str = string_itoa(bloques_max);
 
 		config_set_value(metadata,"BLOCKS",bloques_totales);
-		config_set_value(metadata,"BLOCK_COUNT",string_itoa(bloques_max));//Actualizo la cantidad de bloques
+		config_set_value(metadata,"BLOCK_COUNT",bloques_max_str);//Actualizo la cantidad de bloques
+		free(bloques_max_str);
 
 		free(bloques_totales);
 		free(bloques_a_agregar);
 	}
-	else
-		config_set_value(metadata,"SIZE",string_itoa(size_final));
+	else {
+		char* size_final_str = string_itoa(size_final);
+		config_set_value(metadata,"SIZE",size_final_str);
+		free(size_final_str);
+	}
 	//actualizo el MD5
 	char* MD5_nuevo = crear_MD5(caracter_llenado,size_final);
 	config_set_value(metadata,"MD5_ARCHIVO",MD5_nuevo);
@@ -155,107 +162,111 @@ void sumar_caracteres(char caracter_llenado, int cantidad_caracteres) {
 void quitar_caracteres(char caracter_llenado, int cantidad_caracteres){
 	char* DIR_metadata;
 
-		if(caracter_llenado=='O')
-			DIR_metadata = obtener_directorio("/Files/Oxigeno.ims");
+	if(caracter_llenado=='O')
+		DIR_metadata = obtener_directorio("/Files/Oxigeno.ims");
+	else if(caracter_llenado=='C')
+		DIR_metadata = obtener_directorio("/Files/Comida.ims");
+	else {
+		DIR_metadata = obtener_directorio("/Files/Basura.ims");
 
-		else if(caracter_llenado=='C')
-			DIR_metadata = obtener_directorio("/Files/Comida.ims");
-		else {
-			DIR_metadata = obtener_directorio("/Files/Basura.ims");
+		log_info(logger, "Buscando archivo de basura ya existentes");
+		FILE* metadata = fopen(DIR_metadata,"rb");
 
-			log_info(logger, "Buscando archivo de basura ya existentes");
-			FILE* metadata = fopen(DIR_metadata,"rb");
+		if(metadata != NULL){
+			log_info(logger, "Archivo existente encontrado");
 
-			if(metadata != NULL){
-				log_info(logger, "Archivo existente encontrado");
+			t_config* metadata = config_create(DIR_metadata);
 
-				t_config* metadata = config_create(DIR_metadata);
-
-				int cantidad_caracteres=config_get_int_value(metadata,"SIZE");
-				int cantidad_original_bloques=config_get_int_value(metadata,"BLOCK_COUNT");
-				char** bloques_originales=config_get_array_value(metadata,"BLOCKS");
-				int temp;
-				for(int i=0;i<cantidad_original_bloques;i++){
-					temp=atoi(bloques_originales[i]);
-					cantidad_caracteres=borrar_caracter_en_bloque(caracter_llenado,cantidad_caracteres,bloques_originales[i],cantidad_caracteres);
-					pthread_mutex_lock(&actualizar_bitmap);
-						bitarray_clean_bit(bitmap,atoi(bloques_originales[i]));
-					pthread_mutex_unlock(&actualizar_bitmap);
-				}
-				if(cantidad_caracteres>0){
-					borrar_caracter_en_bloque(caracter_llenado,cantidad_caracteres,string_itoa(temp-1),config_get_int_value(metadata,"SIZE"));
-				}
-				//free(bloques_originales);
-				liberar_split(bloques_originales);
-				log_info(logger, "Se tiro la basura (se elimino el archivo)");
-				remove(DIR_metadata);
-				return;
-			}
-			else{
-				log_info(logger, "No existe el archivo de basura");
-				return;
-			}
-
-		}
-		crear_metadata(DIR_metadata, caracter_llenado);
-		t_config* metadata=config_create(DIR_metadata);
-		int size_original=config_get_int_value(metadata,"SIZE");
-		if((size_original-cantidad_caracteres)<0){
-			log_info(logger, "Se intentaron quitar mas caracteres de los existentes");
-			cantidad_caracteres=size_original;
-		}
-		int size_final=MAX(0,(size_original-cantidad_caracteres));
-		int bloques_reducidos;
-		int cantidad_original_bloques=config_get_int_value(metadata,"BLOCK_COUNT");
-		bloques_reducidos=roundUp(size_final,block_size); //con los caracteres nuevos me fijo cuantos bloques ocuparia
-		int bloques_sobrantes=cantidad_original_bloques-bloques_reducidos;
-
-		if(bloques_sobrantes>0){//si hay mas bloques de los que necesito, debo sacar bloques}
+			int cantidad_caracteres=config_get_int_value(metadata,"SIZE");
+			int cantidad_original_bloques=config_get_int_value(metadata,"BLOCK_COUNT");
 			char** bloques_originales=config_get_array_value(metadata,"BLOCKS");
-			printf("Los bloques originales son:");// para ver si anda bien
-			for(int i=0;i<cantidad_original_bloques;i++){
-				printf("%s",bloques_originales[i]);
-				printf(",");
-			}printf("\n");
-
-			char* bloques_a_dejar=string_new();
-			string_append(&bloques_a_dejar,"[");
-			printf("BLoques reducidos=%d\n",bloques_reducidos);
-			for(int i=0;i<bloques_reducidos;i++){
-				string_append(&bloques_a_dejar,bloques_originales[i]);
-				if(i+1==bloques_reducidos){;
-					string_append(&bloques_a_dejar,"]");
-				}
-				else
-					string_append(&bloques_a_dejar,",");
-			}
 			int temp;
-			for(int i=bloques_reducidos;i<cantidad_original_bloques;i++){
+			for(int i=0;i<cantidad_original_bloques;i++){
 				temp=atoi(bloques_originales[i]);
-				int aux=cantidad_caracteres;
-				cantidad_caracteres=borrar_caracter_en_bloque(caracter_llenado,cantidad_caracteres,bloques_originales[i],size_original);
-				size_original-=aux-cantidad_caracteres;
+				cantidad_caracteres=borrar_caracter_en_bloque(caracter_llenado,cantidad_caracteres,bloques_originales[i],cantidad_caracteres);
 				pthread_mutex_lock(&actualizar_bitmap);
 					bitarray_clean_bit(bitmap,atoi(bloques_originales[i]));
 				pthread_mutex_unlock(&actualizar_bitmap);
 			}
 			if(cantidad_caracteres>0){
-				borrar_caracter_en_bloque(caracter_llenado,cantidad_caracteres,string_itoa(temp-1),size_original);
+				char* cant_caracteres_str = string_itoa(temp-1);
+				borrar_caracter_en_bloque(caracter_llenado,cantidad_caracteres,cant_caracteres_str,config_get_int_value(metadata,"SIZE"));
+				free(cant_caracteres_str);
 			}
-			printf("los bloques a dejar son %s\n",bloques_a_dejar);
-					//agregar los caracteres al bloque
-			//free(bloques_originales);
+
 			liberar_split(bloques_originales);
-			config_set_value(metadata,"BLOCK_COUNT",string_itoa(bloques_reducidos));//Actualizo la cantidad de bloques
-			config_set_value(metadata,"BLOCKS",bloques_a_dejar);
-			free(bloques_a_dejar);
+			log_info(logger, "Se tiro la basura (se elimino el archivo)");
+			remove(DIR_metadata);
+			free(DIR_metadata);
+			return;
 		}
-		config_set_value(metadata,"SIZE",string_itoa(size_final));
-		char* MD5_nuevo=crear_MD5(caracter_llenado,size_final);
-		config_set_value(metadata,"MD5_ARCHIVO",MD5_nuevo);
-		free(MD5_nuevo);
-		config_save(metadata);
-		config_destroy(metadata);
+		else{
+			log_info(logger, "No existe el archivo de basura");
+			free(DIR_metadata);
+			return;
+		}
+
+	}
+	crear_metadata(DIR_metadata, caracter_llenado);
+	t_config* metadata=config_create(DIR_metadata);
+
+	free(DIR_metadata);
+
+	int size_original=config_get_int_value(metadata,"SIZE");
+	if((size_original-cantidad_caracteres)<0){
+		log_info(logger, "Se intentaron quitar mas caracteres de los existentes");
+		cantidad_caracteres=size_original;
+	}
+	int size_final=MAX(0,(size_original-cantidad_caracteres));
+	int bloques_reducidos;
+	int cantidad_original_bloques=config_get_int_value(metadata,"BLOCK_COUNT");
+	bloques_reducidos=roundUp(size_final,block_size); //con los caracteres nuevos me fijo cuantos bloques ocuparia
+	int bloques_sobrantes=cantidad_original_bloques-bloques_reducidos;
+
+	if(bloques_sobrantes>0){//si hay mas bloques de los que necesito, debo sacar bloques}
+		char** bloques_originales = config_get_array_value(metadata,"BLOCKS");
+		char* bloques_a_dejar = string_new();
+		string_append(&bloques_a_dejar,"[");
+		log_info(logger, "BLoques reducidos = %d",bloques_reducidos);
+		for(int i=0;i<bloques_reducidos;i++){
+			string_append(&bloques_a_dejar,bloques_originales[i]);
+			if(i+1==bloques_reducidos){;
+				string_append(&bloques_a_dejar,"]");
+			}
+			else
+				string_append(&bloques_a_dejar,",");
+		}
+		int temp;
+		for(int i=bloques_reducidos;i<cantidad_original_bloques;i++){
+			temp=atoi(bloques_originales[i]);
+			int aux=cantidad_caracteres;
+			cantidad_caracteres=borrar_caracter_en_bloque(caracter_llenado,cantidad_caracteres,bloques_originales[i],size_original);
+			size_original-=aux-cantidad_caracteres;
+			pthread_mutex_lock(&actualizar_bitmap);
+				bitarray_clean_bit(bitmap,atoi(bloques_originales[i]));
+			pthread_mutex_unlock(&actualizar_bitmap);
+		}
+		if(cantidad_caracteres>0){
+			char* cant_caracteres_str = string_itoa(temp-1);
+			borrar_caracter_en_bloque(caracter_llenado,cantidad_caracteres,string_itoa(temp-1),size_original);
+			free(cant_caracteres_str);
+		}
+		log_info(logger, "los bloques a dejar son %s",bloques_a_dejar);
+				//agregar los caracteres al bloque
+
+		liberar_split(bloques_originales);
+		config_set_value(metadata,"BLOCK_COUNT",string_itoa(bloques_reducidos));//Actualizo la cantidad de bloques
+		config_set_value(metadata,"BLOCKS",bloques_a_dejar);
+		free(bloques_a_dejar);
+	}
+	char* size_final_str = string_itoa(size_final);
+	config_set_value(metadata,"SIZE",size_final_str);
+	free(size_final_str);
+	char* MD5_nuevo=crear_MD5(caracter_llenado,size_final);
+	config_set_value(metadata,"MD5_ARCHIVO",MD5_nuevo);
+	free(MD5_nuevo);
+	config_save(metadata);
+	config_destroy(metadata);
 
 }
 char* proximo_bloque_libre(){// busca el prox libre y lo pone en 1
@@ -279,10 +290,13 @@ int escribir_caracter_en_bloque(char caracter_llenado, int cantidad_caracteres, 
 
 	for(int caracteresEnBloque = size % block_size; caracteresEnBloque < block_size && cantidad_caracteres > 0; caracteresEnBloque++) {
 		int desplazamiento = (bloqueALlenar * block_size) + caracteresEnBloque;
+		char* agregar = string_from_format("%c",caracter_llenado);
 
 		pthread_mutex_lock(&actualizar_blocks);
-			memcpy(blocks_copy+desplazamiento,string_from_format("%c",caracter_llenado),sizeof(char));
+			memcpy(blocks_copy+desplazamiento, agregar, sizeof(char));
 		pthread_mutex_unlock(&actualizar_blocks);
+
+		free(agregar);
 
 		caract_escritos++;
 		cantidad_caracteres--;
@@ -301,16 +315,19 @@ int escribir_caracter_en_bitacora(char* mensaje,int ultima_pos_mensaje,char* blo
 	int i = 0;
 
 	for(int caracteresEnBloque = size%block_size; caracteresEnBloque < block_size && cantidad_caracteres > 0; caracteresEnBloque++){
-		int desplazamiento=bloqueALlenar*block_size+caracteresEnBloque;
+		int desplazamiento = bloqueALlenar * block_size + caracteresEnBloque;
+
+		char* agregar_blocks = string_from_format("%c",mensaje[ultima_pos_mensaje]);
 
 		pthread_mutex_lock(&actualizar_blocks);
-			memcpy(blocks_copy+desplazamiento,string_from_format("%c",mensaje[ultima_pos_mensaje]),sizeof(char));
+			memcpy(blocks_copy+desplazamiento, agregar_blocks, sizeof(char));
 		pthread_mutex_unlock(&actualizar_blocks);
+
+		free(agregar_blocks);
 
 		ultima_pos_mensaje++;
 		cantidad_caracteres--;
 		i++;
-		//free(blocks_copy);
 	}
 
 	if(cantidad_caracteres==0)
@@ -346,21 +363,26 @@ int borrar_caracter_en_bloque(char caracter_llenado,int cantidad_caracteres,char
 	return cantidad_caracteres;
 }
 //se puede hacer en un switch
-void actualizar_posicion(tripulante* tripulante, int x_nueva, int y_nueva,char* DIR_Bit_Tripulante){
-	int x_anterior=tripulante->posicion_x;
-	int y_anterior=tripulante->posicion_y;
-	tripulante->posicion_x=x_nueva;
-	tripulante->posicion_y=y_nueva;
+void actualizar_posicion(tripulante* tripulante, int x_nueva, int y_nueva, char* DIR_Bit_Tripulante){
+	int x_anterior = tripulante->posicion_x;
+	int y_anterior = tripulante->posicion_y;
+	tripulante->posicion_x = x_nueva;
+	tripulante->posicion_y = y_nueva;
 
-	char* mensaje=string_new();
+	char* mensaje = string_new();
+	char* posiciones_viejas = juntar_posiciones(x_anterior, y_anterior);
+	char* posiciones_nuevas = juntar_posiciones(x_nueva, y_nueva);
+
 	string_append(&mensaje,"Se mueve de ");
-	string_append(&mensaje,juntar_posiciones(x_anterior,y_anterior));
+	string_append(&mensaje,posiciones_viejas);
 	string_append(&mensaje," a ");
-	string_append(&mensaje,juntar_posiciones(x_nueva,y_nueva));
+	string_append(&mensaje,posiciones_nuevas);
 	string_append(&mensaje,".");
 	escribir_mensaje_en_bitacora(mensaje,DIR_Bit_Tripulante);
-	//free(tripulante);
+
 	free(mensaje);
+	free(posiciones_viejas);
+	free(posiciones_nuevas);
 }
 void comienza_tarea(char* tarea, char* DIR_Bit_Tripulante){
 
@@ -371,8 +393,8 @@ void comienza_tarea(char* tarea, char* DIR_Bit_Tripulante){
 	escribir_mensaje_en_bitacora(mensaje, DIR_Bit_Tripulante);
 	free(mensaje);
 }
-void finaliza_tarea(char* tarea,char* DIR_Bit_Tripulante){
-	char* mensaje=string_new();
+void finaliza_tarea(char* tarea, char* DIR_Bit_Tripulante){
+	char* mensaje = string_new();
 	string_append(&mensaje,"Finaliza la tarea ");
 	string_append(&mensaje,tarea);
 	string_append(&mensaje,".");
@@ -380,23 +402,30 @@ void finaliza_tarea(char* tarea,char* DIR_Bit_Tripulante){
 	free(mensaje);
 }
 void inicio_sabotaje(char* DIR_Bit_Tripulante){
-	char* mensaje=string_new();
-	string_append(&mensaje,"Se corre en panico hacia la ubicacion del sabotaje.");
-	escribir_mensaje_en_bitacora(mensaje,DIR_Bit_Tripulante);
+	char* mensaje = string_new();
+	string_append(&mensaje, "Se corre en panico hacia la ubicacion del sabotaje.");
+	escribir_mensaje_en_bitacora(mensaje, DIR_Bit_Tripulante);
 	free(mensaje);
 }
 void fin_sabotaje(char* DIR_Bit_Tripulante){
-	char* mensaje=string_new();
-	string_append(&mensaje,"Se resuelve el sabotaje.");
-	escribir_mensaje_en_bitacora(mensaje,DIR_Bit_Tripulante);
+	char* mensaje = string_new();
+	string_append(&mensaje, "Se resuelve el sabotaje.");
+	escribir_mensaje_en_bitacora(mensaje, DIR_Bit_Tripulante);
 	free(mensaje);
 }
 
 char* juntar_posiciones(int x, int y){
-	char* posicion=string_new();
-	string_append(&posicion,string_itoa(x));
-	string_append(&posicion,"|");
-	string_append(&posicion,string_itoa(y));
+	char* posicion = string_new();
+	char* x_str = string_itoa(x);
+	char* y_str = string_itoa(y);
+
+	string_append(&posicion, x_str);
+	string_append(&posicion, "|");
+	string_append(&posicion, y_str);
+
+	free(x_str);
+	free(y_str);
+
 	return posicion;
 }
 
@@ -474,8 +503,10 @@ void escribir_mensaje_en_bitacora(char* mensaje, char* DIR_Bit_Tripulante) {
 			string_append(&bloques_totales,",");
 		}
 
+		char* tamanio_str = string_itoa(size);
 		config_save(metadata);
-		config_set_value(metadata,"SIZE",string_itoa(size));
+		config_set_value(metadata,"SIZE",tamanio_str);
+		free(tamanio_str);
 
 		liberar_split(bloques_anteriores);
 		string_append(&bloques_totales, bloques_a_agregar);

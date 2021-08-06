@@ -119,9 +119,17 @@ int main() {
 	}
 
 	log_warning(logger, "FINALIZANDO MONGO");
+
+	pthread_mutex_destroy(&actualizar_blocks);
+	pthread_mutex_destroy(&actualizar_bitmap);
+
 	free(blocks);
+	free(blocks_copy);
+	free(punto_montaje);
+
 	close(server_fd);
 	log_destroy(logger);
+
 	pthread_cancel(hilo_actualizador_block);
 	pthread_cancel(hilo_detector_sabotajes);
 
@@ -178,85 +186,98 @@ void* rutina_trip(void* t) {
 	log_info(logger, "Iniciado el tripulante %d de la patota %d", trip->id_trip, trip->id_patota);
 
 	char* ultima_tarea;
+	bool continuar = true;
 
-	while(1) {
+	while(continuar) {
 		t_mensaje* mensaje_out;
 		t_list* mensaje_in = recibir_mensaje(socket_cliente);
 
-		if(!validar_mensaje(mensaje_in, logger))
-		log_info(logger, "Fallo el mensaje");
+		if(!validar_mensaje(mensaje_in, logger)) {
+			log_info(logger, "Finalizo el discordiador");
+			continuar = false;
+		} else {
+			switch ((int)list_get(mensaje_in, 0)) {
+				case EXEC_1:
+					log_info(logger, "EXEC_1 - Tripulante %d de la patota %d ejecutando tarea: %s", trip->id_trip, trip->id_patota, (char*)list_get(mensaje_in, 1));
 
-		switch ((int)list_get(mensaje_in, 0)) {
-			case EXEC_1:
-				log_info(logger, "EXEC_1 - Tripulante %d de la patota %d ejecutando tarea: %s", trip->id_trip, trip->id_patota, (char*)list_get(mensaje_in, 1));
+					ultima_tarea = (char*)list_get(mensaje_in, 1);
+					comienza_tarea(ultima_tarea,trip->dir_bitacora);
 
-				ultima_tarea = (char*)list_get(mensaje_in, 1);
-				comienza_tarea(ultima_tarea,trip->dir_bitacora);
+					mensaje_out = crear_mensaje(TODOOK);
+					enviar_mensaje(socket_cliente, mensaje_out);
+					break;
+				case EXEC_0:
+					log_info(logger, "EXEC_0 - Tripulante %d de la patota %d detuvo ejecucion", trip->id_trip, trip->id_patota);
+					mensaje_out = crear_mensaje(TODOOK);
 
-				mensaje_out = crear_mensaje(TODOOK);
-				enviar_mensaje(socket_cliente, mensaje_out);
-				break;
-			case EXEC_0:
-				log_info(logger, "EXEC_0 - Tripulante %d de la patota %d detuvo ejecucion", trip->id_trip, trip->id_patota);
-				mensaje_out = crear_mensaje(TODOOK);
+					finaliza_tarea(ultima_tarea, trip->dir_bitacora);
+					free(ultima_tarea);
 
-				finaliza_tarea(ultima_tarea, trip->dir_bitacora);
+					enviar_mensaje(socket_cliente, mensaje_out);
+					break;
+				case GEN_OX:
+					log_info(logger, "GEN_OX - Tripulante %d de la patota %d generando %d de oxigeno", trip->id_trip, trip->id_patota, (int)list_get(mensaje_in, 1));
 
-				enviar_mensaje(socket_cliente, mensaje_out);
-				break;
-			case GEN_OX:
-				log_info(logger, "GEN_OX - Tripulante %d de la patota %d generando %d de oxigeno", trip->id_trip, trip->id_patota, (int)list_get(mensaje_in, 1));
-				//comienza_tarea("Generando Oxigeno",DIR_Bit_Tripulante);
-				sumar_caracteres('O',(int)list_get(mensaje_in, 1));
-				mensaje_out = crear_mensaje(TODOOK);
-				enviar_mensaje(socket_cliente, mensaje_out);
-				break;
-			case CON_OX:
-				log_info(logger, "CON_OX - Tripulante %d de la patota %d consumiendo %d de oxigeno", trip->id_trip, trip->id_patota, (int)list_get(mensaje_in, 1));
-				//comienza_tarea("Consumiendo Oxigeno",DIR_Bit_Tripulante);
-				quitar_caracteres('O',(int)list_get(mensaje_in, 1));
-				mensaje_out = crear_mensaje(TODOOK);
-				enviar_mensaje(socket_cliente, mensaje_out);
-				break;
-			case GEN_CO:
-				log_info(logger, "GEN_CO - Tripulante %d de la patota %d generando %d de comida", trip->id_trip, trip->id_patota, (int)list_get(mensaje_in, 1));
-				sumar_caracteres('C',(int)list_get(mensaje_in, 1));
-				//comienza_tarea("Generando Comida",DIR_Bit_Tripulante);
-				mensaje_out = crear_mensaje(TODOOK);
-				enviar_mensaje(socket_cliente, mensaje_out);
-				break;
-			case CON_CO:
-				log_info(logger, "CON_CO - Tripulante %d de la patota %d consumiendo %d de comida", trip->id_trip, trip->id_patota, (int)list_get(mensaje_in, 1));
-				quitar_caracteres('C',(int)list_get(mensaje_in, 1));
-				//comienza_tarea("Consumiendo Comida",DIR_Bit_Tripulante);
-				mensaje_out = crear_mensaje(TODOOK);
-				enviar_mensaje(socket_cliente, mensaje_out);
-				break;
-			case GEN_BA:
-				log_info(logger, "GEN_BA - Tripulante %d de la patota %d generando %d de basura", trip->id_trip, trip->id_patota, (int)list_get(mensaje_in, 1));
-				sumar_caracteres('B',(int)list_get(mensaje_in, 1));
-				//comienza_tarea("Generando Basura",DIR_Bit_Tripulante);
-				mensaje_out = crear_mensaje(TODOOK);
-				enviar_mensaje(socket_cliente, mensaje_out);
-				break;
-			case DES_BA:
-				log_info(logger, "DES_BA - Tripulante %d de la patota %d desechando %d de basura", trip->id_trip, trip->id_patota, (int)list_get(mensaje_in, 1));
-				quitar_caracteres('B',(int)list_get(mensaje_in, 1));
-				//comienza_tarea("Desechando Basura",DIR_Bit_Tripulante);
-				mensaje_out = crear_mensaje(TODOOK);
-				enviar_mensaje(socket_cliente, mensaje_out);
-				break;
-			case ACTU_P:
-				log_info(logger, "ACTU_P - Tripulante %d de la patota %d nueva posicion: %d|%d", trip->id_trip, trip->id_patota, (int)list_get(mensaje_in, 1), (int)list_get(mensaje_in, 2));
-				actualizar_posicion(trip,(int)list_get(mensaje_in, 1), (int)list_get(mensaje_in, 2), trip->dir_bitacora);//calcular DIR_Bit_tripulante
-				mensaje_out = crear_mensaje(TODOOK);
-				enviar_mensaje(socket_cliente, mensaje_out);
-				break;
+					sumar_caracteres('O',(int)list_get(mensaje_in, 1));
+
+					mensaje_out = crear_mensaje(TODOOK);
+					enviar_mensaje(socket_cliente, mensaje_out);
+					break;
+				case CON_OX:
+					log_info(logger, "CON_OX - Tripulante %d de la patota %d consumiendo %d de oxigeno", trip->id_trip, trip->id_patota, (int)list_get(mensaje_in, 1));
+
+					quitar_caracteres('O',(int)list_get(mensaje_in, 1));
+
+					mensaje_out = crear_mensaje(TODOOK);
+					enviar_mensaje(socket_cliente, mensaje_out);
+					break;
+				case GEN_CO:
+					log_info(logger, "GEN_CO - Tripulante %d de la patota %d generando %d de comida", trip->id_trip, trip->id_patota, (int)list_get(mensaje_in, 1));
+					sumar_caracteres('C',(int)list_get(mensaje_in, 1));
+
+					mensaje_out = crear_mensaje(TODOOK);
+					enviar_mensaje(socket_cliente, mensaje_out);
+					break;
+				case CON_CO:
+					log_info(logger, "CON_CO - Tripulante %d de la patota %d consumiendo %d de comida", trip->id_trip, trip->id_patota, (int)list_get(mensaje_in, 1));
+
+					quitar_caracteres('C',(int)list_get(mensaje_in, 1));
+
+					mensaje_out = crear_mensaje(TODOOK);
+					enviar_mensaje(socket_cliente, mensaje_out);
+					break;
+				case GEN_BA:
+					log_info(logger, "GEN_BA - Tripulante %d de la patota %d generando %d de basura", trip->id_trip, trip->id_patota, (int)list_get(mensaje_in, 1));
+
+					sumar_caracteres('B',(int)list_get(mensaje_in, 1));
+
+					mensaje_out = crear_mensaje(TODOOK);
+					enviar_mensaje(socket_cliente, mensaje_out);
+					break;
+				case DES_BA:
+					log_info(logger, "DES_BA - Tripulante %d de la patota %d desechando %d de basura", trip->id_trip, trip->id_patota, (int)list_get(mensaje_in, 1));
+
+					quitar_caracteres('B',(int)list_get(mensaje_in, 1));
+
+					mensaje_out = crear_mensaje(TODOOK);
+					enviar_mensaje(socket_cliente, mensaje_out);
+					break;
+				case ACTU_P:
+					log_info(logger, "ACTU_P - Tripulante %d de la patota %d nueva posicion: %d|%d", trip->id_trip, trip->id_patota, (int)list_get(mensaje_in, 1), (int)list_get(mensaje_in, 2));
+
+					actualizar_posicion(trip,(int)list_get(mensaje_in, 1), (int)list_get(mensaje_in, 2), trip->dir_bitacora);
+
+					mensaje_out = crear_mensaje(TODOOK);
+					enviar_mensaje(socket_cliente, mensaje_out);
+					break;
+			}
 		}
 		liberar_mensaje_out(mensaje_out);
 		liberar_mensaje_in(mensaje_in);
-		//free(DIR_Bit_Tripulante);
 	}
+	free(trip->dir_bitacora);
+
+	return 0;
 }
 bool crear_superBloque(){
 	log_info(logger, "Verificando existencia SuperBloque");
@@ -392,6 +413,7 @@ void crear_metadata(char* DIR_metadata, char caracter_llenado){
 		config_set_value(temp,"MD5_ARCHIVO",md5);
 		config_save(temp);
 		config_destroy(temp);
+		free(md5);
 
 		log_info(logger, "Archivo de metadata generado");
 	}
@@ -402,10 +424,14 @@ void crear_metadata(char* DIR_metadata, char caracter_llenado){
 char* crear_bitacora(int id_trip, int id_patota) {
 	char* DIR_bitacora = obtener_directorio("/Files/Bitacoras/Tripulante");
 
-	string_append(&DIR_bitacora,string_itoa(id_trip));
+	char* id_trip_str = string_itoa(id_trip);
+	//char* id_patota_str = string_itoa(id_patota);
+	string_append(&DIR_bitacora,id_trip_str);
 	//string_append(&DIR_bitacora,"-");
-	//string_append(&DIR_bitacora,string_itoa(id_patota));
+	//string_append(&DIR_bitacora,id_patota_str);
 	string_append(&DIR_bitacora,".ims");
+	free(id_trip_str);
+	//free(id_patota_str);
 
 	log_info(logger, "Buscando archivos ya existentes en directorio %s",DIR_bitacora);
 
@@ -418,7 +444,7 @@ char* crear_bitacora(int id_trip, int id_patota) {
 
 		bitacora = fopen(DIR_bitacora,"w+");
 
-		t_config* temp = config_create(DIR_bitacora);
+		t_config* temp = config_create(DIR_bitacora); //todo pierde memoria aca
 
 		temp->path = string_duplicate(DIR_bitacora);
 		config_set_value(temp,"SIZE","0");
@@ -468,10 +494,14 @@ char** obtener_bitacora(int id_trip, int id_patota) {
 
 	char* DIR_Bit_Tripulante = obtener_directorio("/Files/Bitacoras/Tripulante");
 
-	string_append(&DIR_Bit_Tripulante,string_itoa(id_trip));
+	char* id_trip_str = string_itoa(id_trip);
+	//char* id_patota_str = string_itoa(id_patota);
+	string_append(&DIR_Bit_Tripulante,id_trip_str);
 	//string_append(&DIR_Bit_Tripulante,"-");
-	//string_append(&DIR_Bit_Tripulante,string_itoa(id_patota));
+	//string_append(&DIR_Bit_Tripulante,id_patota_str));
 	string_append(&DIR_Bit_Tripulante,".ims");
+	free(id_trip_str);
+	//free(id_patota_str);
 
 	t_config* bitacora_meta = config_create(DIR_Bit_Tripulante);
 	int size = config_get_int_value(bitacora_meta,"SIZE");

@@ -43,15 +43,7 @@ void* blocks_copy;
 
 pthread_mutex_t actualizar_blocks;
 pthread_mutex_t actualizar_bitmap;
-/*
-typedef struct {
-	int posicion_x;
-	int posicion_y;
-	int id_trip;
-	int id_patota;
-	int socket_discord;
-}tripulante;
-*/
+
 bool crear_superBloque();
 bool crear_blocks();
 void* uso_blocks();
