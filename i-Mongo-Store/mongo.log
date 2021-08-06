@@ -6428,3 +6428,257 @@ NING] 23:26:38:007 MONGO/(25137:25151): La conexión remota se ha desconectado.
 [INFO] 00:38:06:512 MONGO/(27974:27993): Finalizo el discordiador
 [ERROR] 00:38:06:515 MONGO/(27974:27974): Cliente desconectado
 [WARNING] 00:38:06:517 MONGO/(27974:27974): FINALIZANDO MONGO
+[INFO] 00:42:13:561 MONGO/(28461:28461): Servidor listo
+[INFO] 00:42:16:538 MONGO/(28461:28461): Conexión establecida con el discordiador
+[INFO] 00:42:16:538 MONGO/(28461:28461): Verificando existencia SuperBloque
+[INFO] 00:42:16:538 MONGO/(28461:28461): SuperBloque no existe, creandolo.
+[INFO] 00:42:16:538 MONGO/(28461:28461): el tamaño del bloque es 16 y la cant de bloques es 160
+[INFO] 00:42:16:538 MONGO/(28461:28461): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 00:42:16:546 MONGO/(28461:28461): se escribio el archivo
+[INFO] 00:42:16:548 MONGO/(28461:28461): SuperBloque Generado
+[INFO] 00:42:16:548 MONGO/(28461:28461): Verificando existencia Blocks
+[INFO] 00:42:16:548 MONGO/(28461:28461): Blocks no existe, creandolo
+[INFO] 00:42:16:548 MONGO/(28461:28461): Blocks Generado
+[INFO] 00:42:16:549 MONGO/(28461:28461): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 00:42:16:549 MONGO/(28461:28461): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 00:42:16:549 MONGO/(28461:28461): Iniciando el detector de sabotajes
+[INFO] 00:42:16:556 MONGO/(28461:28467): Detector de sabotajes iniciado exitosamente
+[INFO] 00:42:18:520 MONGO/(28461:28461): Discordiador inicio una patota
+[INFO] 00:42:18:520 MONGO/(28461:28461): Discordiador solicito iniciar un tripulante
+[INFO] 00:42:18:520 MONGO/(28461:28461): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1-1.ims
+[INFO] 00:42:18:520 MONGO/(28461:28461): Archivos previos no encontrados, Generando bitacora
+[INFO] 00:42:18:521 MONGO/(28461:28461): Se Genero la Bitacora
+[INFO] 00:42:18:521 MONGO/(28461:28461): Discordiador solicito iniciar un tripulante
+[INFO] 00:42:18:521 MONGO/(28461:28471): Iniciado el tripulante 1 de la patota 1
+[INFO] 00:42:18:521 MONGO/(28461:28461): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2-1.ims
+[INFO] 00:42:18:521 MONGO/(28461:28461): Archivos previos no encontrados, Generando bitacora
+[INFO] 00:42:18:522 MONGO/(28461:28461): Se Genero la Bitacora
+[INFO] 00:42:18:522 MONGO/(28461:28473): Iniciado el tripulante 2 de la patota 1
+[INFO] 00:42:18:522 MONGO/(28461:28461): Discordiador solicito iniciar un tripulante
+[INFO] 00:42:18:522 MONGO/(28461:28461): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3-1.ims
+[INFO] 00:42:18:522 MONGO/(28461:28461): Archivos previos no encontrados, Generando bitacora
+[INFO] 00:42:18:523 MONGO/(28461:28461): Se Genero la Bitacora
+[INFO] 00:42:18:523 MONGO/(28461:28475): Iniciado el tripulante 3 de la patota 1
+[INFO] 00:42:18:523 MONGO/(28461:28461): Discordiador solicito iniciar un tripulante
+[INFO] 00:42:18:523 MONGO/(28461:28461): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4-1.ims
+[INFO] 00:42:18:523 MONGO/(28461:28461): Archivos previos no encontrados, Generando bitacora
+[INFO] 00:42:18:523 MONGO/(28461:28461): Se Genero la Bitacora
+[INFO] 00:42:18:524 MONGO/(28461:28477): Iniciado el tripulante 4 de la patota 1
+[INFO] 00:42:20:360 MONGO/(28461:28471): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 00:42:20:360 MONGO/(28461:28473): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 00:42:20:360 MONGO/(28461:28471): Se completo la escritura de caracteres
+[INFO] 00:42:20:360 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:42:20:361 MONGO/(28461:28471): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 8|3
+[INFO] 00:42:20:361 MONGO/(28461:28473): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 8|2
+[INFO] 00:42:20:361 MONGO/(28461:28471): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:20:361 MONGO/(28461:28473): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:20:361 MONGO/(28461:28471): Se completo la escritura de caracteres
+[INFO] 00:42:20:361 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:42:21:364 MONGO/(28461:28471): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 7|3
+[INFO] 00:42:21:364 MONGO/(28461:28473): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 7|2
+[INFO] 00:42:21:364 MONGO/(28461:28471): Se completo la escritura de caracteres
+[INFO] 00:42:21:364 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:42:22:398 MONGO/(28461:28471): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 00:42:22:398 MONGO/(28461:28473): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 00:42:22:399 MONGO/(28461:28471): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:22:399 MONGO/(28461:28473): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:22:399 MONGO/(28461:28471): Se completo la escritura de caracteres
+[INFO] 00:42:22:399 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:42:23:401 MONGO/(28461:28473): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 5|2
+[INFO] 00:42:23:401 MONGO/(28461:28473): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:23:401 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:42:23:401 MONGO/(28461:28471): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 00:42:23:402 MONGO/(28461:28471): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:23:402 MONGO/(28461:28471): Se completo la escritura de caracteres
+[INFO] 00:42:24:460 MONGO/(28461:28473): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 4|2
+[INFO] 00:42:24:461 MONGO/(28461:28473): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:24:461 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:42:24:461 MONGO/(28461:28471): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 00:42:24:461 MONGO/(28461:28471): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:24:461 MONGO/(28461:28471): Se completo la escritura de caracteres
+[INFO] 00:42:25:461 MONGO/(28461:28473): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 3|2
+[INFO] 00:42:25:462 MONGO/(28461:28473): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:25:462 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:42:25:463 MONGO/(28461:28471): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 3|3
+[INFO] 00:42:25:463 MONGO/(28461:28471): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:25:463 MONGO/(28461:28471): Se completo la escritura de caracteres
+[INFO] 00:42:26:469 MONGO/(28461:28473): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 3|3
+[INFO] 00:42:26:470 MONGO/(28461:28473): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:26:470 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:42:29:483 MONGO/(28461:28471): EXEC_0 - Tripulante 1 de la patota 1 detuvo ejecucion
+[INFO] 00:42:29:483 MONGO/(28461:28471): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:29:483 MONGO/(28461:28471): Se completo la escritura de caracteres
+[INFO] 00:42:29:483 MONGO/(28461:28471): EXEC_1 - Tripulante 1 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 00:42:29:483 MONGO/(28461:28471): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:29:484 MONGO/(28461:28471): Se completo la escritura de caracteres
+[INFO] 00:42:29:484 MONGO/(28461:28471): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 4|3
+[INFO] 00:42:29:484 MONGO/(28461:28471): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:29:484 MONGO/(28461:28471): Se completo la escritura de caracteres
+[INFO] 00:42:30:497 MONGO/(28461:28473): EXEC_0 - Tripulante 2 de la patota 1 detuvo ejecucion
+[INFO] 00:42:30:497 MONGO/(28461:28473): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:30:497 MONGO/(28461:28471): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 5|3
+[INFO] 00:42:30:497 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:42:30:497 MONGO/(28461:28471): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:30:498 MONGO/(28461:28471): Se completo la escritura de caracteres
+[INFO] 00:42:30:498 MONGO/(28461:28473): EXEC_1 - Tripulante 2 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 00:42:30:498 MONGO/(28461:28473): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:30:498 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:42:30:499 MONGO/(28461:28473): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 4|3
+[INFO] 00:42:30:499 MONGO/(28461:28473): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:30:499 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:42:31:498 MONGO/(28461:28471): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|3
+[INFO] 00:42:31:498 MONGO/(28461:28471): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:31:499 MONGO/(28461:28471): Se completo la escritura de caracteres
+[INFO] 00:42:31:500 MONGO/(28461:28473): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 5|3
+[INFO] 00:42:31:500 MONGO/(28461:28473): Se encontro lugar en el ultimo bloque
+[INFO] 00:42:31:500 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:43:16:584 MONGO/(28461:28461): Discordiador solicito la bitacora del tripulante 1 de la patota 1
+[INFO] 00:43:16:584 MONGO/(28461:28461): Cantidad de lineas a enviar 13
+[INFO] 00:43:25:310 MONGO/(28461:28471): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|2
+[INFO] 00:43:25:310 MONGO/(28461:28473): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|3
+[INFO] 00:43:25:311 MONGO/(28461:28473): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:25:311 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:43:25:311 MONGO/(28461:28471): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:25:311 MONGO/(28461:28471): Se completo la escritura de caracteres
+[INFO] 00:43:26:312 MONGO/(28461:28473): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|2
+[INFO] 00:43:26:312 MONGO/(28461:28473): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:26:312 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:43:26:315 MONGO/(28461:28471): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|1
+[INFO] 00:43:26:315 MONGO/(28461:28471): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:26:315 MONGO/(28461:28471): Se completo la escritura de caracteres
+[INFO] 00:43:27:313 MONGO/(28461:28473): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|1
+[INFO] 00:43:27:313 MONGO/(28461:28473): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:27:314 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:43:27:316 MONGO/(28461:28471): ACTU_P - Tripulante 1 de la patota 1 nueva posicion: 6|0
+[INFO] 00:43:27:316 MONGO/(28461:28471): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:27:317 MONGO/(28461:28471): Se completo la escritura de caracteres
+[INFO] 00:43:28:314 MONGO/(28461:28473): ACTU_P - Tripulante 2 de la patota 1 nueva posicion: 6|0
+[INFO] 00:43:28:315 MONGO/(28461:28473): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:28:315 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:43:28:318 MONGO/(28461:28475): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 00:43:28:319 MONGO/(28461:28475): Se completo la escritura de caracteres
+[INFO] 00:43:28:319 MONGO/(28461:28471): GEN_OX - Tripulante 1 de la patota 1 generando 10 de oxigeno
+[INFO] 00:43:28:319 MONGO/(28461:28471): Buscando archivos de recursos ya existentes
+[INFO] 00:43:28:319 MONGO/(28461:28471): Archivos previos no encontrados, Generando metadata
+[INFO] 00:43:28:319 MONGO/(28461:28471): Generando MD5
+[INFO] 00:43:28:320 MONGO/(28461:28475): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 1|0
+[INFO] 00:43:28:320 MONGO/(28461:28475): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:28:320 MONGO/(28461:28475): Se completo la escritura de caracteres
+[INFO] 00:43:28:323 MONGO/(28461:28471): Archivo de metadata generado
+[INFO] 00:43:28:323 MONGO/(28461:28471): Se completo la escritura de caracteres
+[INFO] 00:43:28:324 MONGO/(28461:28471): Los bloques a agregar son: 55
+
+[INFO] 00:43:28:324 MONGO/(28461:28471): Los bloques totales son: [55]
+[INFO] 00:43:28:324 MONGO/(28461:28471): Generando MD5
+[INFO] 00:43:29:316 MONGO/(28461:28477): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: ESPERAR;3;3;3
+[INFO] 00:43:29:317 MONGO/(28461:28477): Se completo la escritura de caracteres
+[INFO] 00:43:29:317 MONGO/(28461:28477): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 1|0
+[INFO] 00:43:29:317 MONGO/(28461:28477): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:29:317 MONGO/(28461:28477): Se completo la escritura de caracteres
+[INFO] 00:43:29:322 MONGO/(28461:28475): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 2|0
+[INFO] 00:43:29:322 MONGO/(28461:28475): Se completo la escritura de caracteres
+[INFO] 00:43:29:654 MONGO/(28461:28461): Discordiador inicio una patota
+[INFO] 00:43:29:654 MONGO/(28461:28461): Discordiador solicito iniciar un tripulante
+[INFO] 00:43:29:654 MONGO/(28461:28461): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1-2.ims
+[INFO] 00:43:29:655 MONGO/(28461:28461): Archivos previos no encontrados, Generando bitacora
+[INFO] 00:43:29:655 MONGO/(28461:28461): Se Genero la Bitacora
+[INFO] 00:43:29:655 MONGO/(28461:28461): Discordiador solicito iniciar un tripulante
+[INFO] 00:43:29:655 MONGO/(28461:28461): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2-2.ims
+[INFO] 00:43:29:655 MONGO/(28461:28461): Archivos previos no encontrados, Generando bitacora
+[INFO] 00:43:29:655 MONGO/(28461:28461): Se Genero la Bitacora
+[INFO] 00:43:29:656 MONGO/(28461:28498): Iniciado el tripulante 2 de la patota 2
+[INFO] 00:43:29:656 MONGO/(28461:28461): Discordiador solicito iniciar un tripulante
+[INFO] 00:43:29:656 MONGO/(28461:28496): Iniciado el tripulante 1 de la patota 2
+[INFO] 00:43:29:656 MONGO/(28461:28461): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante3-2.ims
+[INFO] 00:43:29:656 MONGO/(28461:28461): Archivos previos no encontrados, Generando bitacora
+[INFO] 00:43:29:656 MONGO/(28461:28461): Se Genero la Bitacora
+[INFO] 00:43:29:656 MONGO/(28461:28500): Iniciado el tripulante 3 de la patota 2
+[INFO] 00:43:29:656 MONGO/(28461:28461): Discordiador solicito iniciar un tripulante
+[INFO] 00:43:29:657 MONGO/(28461:28461): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante4-2.ims
+[INFO] 00:43:29:657 MONGO/(28461:28461): Archivos previos no encontrados, Generando bitacora
+[INFO] 00:43:29:657 MONGO/(28461:28461): Se Genero la Bitacora
+[INFO] 00:43:29:657 MONGO/(28461:28502): Iniciado el tripulante 4 de la patota 2
+[INFO] 00:43:30:321 MONGO/(28461:28477): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 2|0
+[INFO] 00:43:30:321 MONGO/(28461:28477): Se completo la escritura de caracteres
+[INFO] 00:43:30:323 MONGO/(28461:28475): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 3|0
+[INFO] 00:43:30:323 MONGO/(28461:28475): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:30:323 MONGO/(28461:28475): Se completo la escritura de caracteres
+[INFO] 00:43:31:342 MONGO/(28461:28477): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 3|0
+[INFO] 00:43:31:342 MONGO/(28461:28477): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:31:342 MONGO/(28461:28477): Se completo la escritura de caracteres
+[INFO] 00:43:31:342 MONGO/(28461:28475): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 3|1
+[INFO] 00:43:31:343 MONGO/(28461:28475): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:31:343 MONGO/(28461:28475): Se completo la escritura de caracteres
+[INFO] 00:43:32:342 MONGO/(28461:28473): GEN_OX - Tripulante 2 de la patota 1 generando 10 de oxigeno
+[INFO] 00:43:32:342 MONGO/(28461:28473): Buscando archivos de recursos ya existentes
+[INFO] 00:43:32:342 MONGO/(28461:28473): Archivo existente encontrado
+[INFO] 00:43:32:343 MONGO/(28461:28473): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:32:343 MONGO/(28461:28473): Se completo la escritura de caracteres
+[INFO] 00:43:32:343 MONGO/(28461:28473): Los bloques a agregar son: 68
+
+[INFO] 00:43:32:343 MONGO/(28461:28473): Los bloques totales son: [55,68]
+[INFO] 00:43:32:343 MONGO/(28461:28473): Generando MD5
+[INFO] 00:43:32:344 MONGO/(28461:28477): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 3|1
+[INFO] 00:43:32:344 MONGO/(28461:28477): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:32:344 MONGO/(28461:28475): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 3|2
+[INFO] 00:43:32:344 MONGO/(28461:28477): Se completo la escritura de caracteres
+[INFO] 00:43:32:345 MONGO/(28461:28475): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:32:345 MONGO/(28461:28475): Se completo la escritura de caracteres
+[INFO] 00:43:33:345 MONGO/(28461:28477): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 3|2
+[INFO] 00:43:33:346 MONGO/(28461:28477): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:33:346 MONGO/(28461:28477): Se completo la escritura de caracteres
+[INFO] 00:43:33:346 MONGO/(28461:28475): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 3|3
+[INFO] 00:43:33:346 MONGO/(28461:28475): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:33:346 MONGO/(28461:28475): Se completo la escritura de caracteres
+[INFO] 00:43:34:349 MONGO/(28461:28477): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 3|3
+[INFO] 00:43:34:349 MONGO/(28461:28477): Se encontro lugar en el ultimo bloque
+[INFO] 00:43:34:349 MONGO/(28461:28477): Se completo la escritura de caracteres
+[INFO] 00:44:08:247 MONGO/(28461:28475): EXEC_0 - Tripulante 3 de la patota 1 detuvo ejecucion
+[INFO] 00:44:08:247 MONGO/(28461:28475): Se encontro lugar en el ultimo bloque
+[INFO] 00:44:08:248 MONGO/(28461:28475): Se completo la escritura de caracteres
+[INFO] 00:44:08:253 MONGO/(28461:28475): EXEC_1 - Tripulante 3 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 00:44:08:253 MONGO/(28461:28475): Se encontro lugar en el ultimo bloque
+[INFO] 00:44:08:253 MONGO/(28461:28475): Se completo la escritura de caracteres
+[INFO] 00:44:08:254 MONGO/(28461:28475): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 4|3
+[INFO] 00:44:08:254 MONGO/(28461:28475): Se encontro lugar en el ultimo bloque
+[INFO] 00:44:08:254 MONGO/(28461:28475): Se completo la escritura de caracteres
+[INFO] 00:44:09:248 MONGO/(28461:28477): EXEC_0 - Tripulante 4 de la patota 1 detuvo ejecucion
+[INFO] 00:44:09:248 MONGO/(28461:28477): Se encontro lugar en el ultimo bloque
+[INFO] 00:44:09:248 MONGO/(28461:28477): Se completo la escritura de caracteres
+[INFO] 00:44:09:249 MONGO/(28461:28477): EXEC_1 - Tripulante 4 de la patota 1 ejecutando tarea: GENERAR_OXIGENO 10;6;0;4
+[INFO] 00:44:09:249 MONGO/(28461:28477): Se encontro lugar en el ultimo bloque
+[INFO] 00:44:09:249 MONGO/(28461:28477): Se completo la escritura de caracteres
+[INFO] 00:44:09:250 MONGO/(28461:28477): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 4|3
+[INFO] 00:44:09:250 MONGO/(28461:28477): Se encontro lugar en el ultimo bloque
+[INFO] 00:44:09:250 MONGO/(28461:28477): Se completo la escritura de caracteres
+[INFO] 00:44:09:255 MONGO/(28461:28475): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 5|3
+[INFO] 00:44:09:255 MONGO/(28461:28475): Se encontro lugar en el ultimo bloque
+[INFO] 00:44:09:256 MONGO/(28461:28475): Se completo la escritura de caracteres
+[INFO] 00:44:10:251 MONGO/(28461:28477): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 5|3
+[INFO] 00:44:10:251 MONGO/(28461:28477): Se encontro lugar en el ultimo bloque
+[INFO] 00:44:10:252 MONGO/(28461:28477): Se completo la escritura de caracteres
+[INFO] 00:44:10:257 MONGO/(28461:28475): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 6|3
+[INFO] 00:44:10:257 MONGO/(28461:28475): Se encontro lugar en el ultimo bloque
+[INFO] 00:44:10:257 MONGO/(28461:28475): Se completo la escritura de caracteres
+[INFO] 00:44:11:253 MONGO/(28461:28477): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 6|3
+[INFO] 00:44:11:253 MONGO/(28461:28477): Se encontro lugar en el ultimo bloque
+[INFO] 00:44:11:253 MONGO/(28461:28477): Se completo la escritura de caracteres
+[INFO] 00:44:11:259 MONGO/(28461:28475): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 6|2
+[INFO] 00:44:11:259 MONGO/(28461:28475): Se encontro lugar en el ultimo bloque
+[INFO] 00:44:11:259 MONGO/(28461:28475): Se completo la escritura de caracteres
+[INFO] 00:44:12:255 MONGO/(28461:28477): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 6|2
+[INFO] 00:44:12:255 MONGO/(28461:28477): Se encontro lugar en el ultimo bloque
+[INFO] 00:44:12:255 MONGO/(28461:28477): Se completo la escritura de caracteres
+[INFO] 00:44:12:260 MONGO/(28461:28475): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 6|1
+[INFO] 00:44:12:260 MONGO/(28461:28475): Se encontro lugar en el ultimo bloque
+[INFO] 00:44:12:260 MONGO/(28461:28475): Se completo la escritura de caracteres
+[INFO] 00:44:13:257 MONGO/(28461:28477): ACTU_P - Tripulante 4 de la patota 1 nueva posicion: 6|1
+[INFO] 00:44:13:257 MONGO/(28461:28477): Se encontro lugar en el ultimo bloque
+[INFO] 00:44:13:257 MONGO/(28461:28477): Se completo la escritura de caracteres
+[INFO] 00:44:13:261 MONGO/(28461:28475): ACTU_P - Tripulante 3 de la patota 1 nueva posicion: 6|0
+[INFO] 00:44:13:262 MONGO/(28461:28475): Se encontro lugar en el ultimo bloque
+[INFO] 00:44:13:262 MONGO/(28461:28475): Se completo la escritura de caracteres
+[WARNING] 00:44:13:822 MONGO/(28461:28500): La conexión remota se ha desconectado.
+[WARNING] 00:44:13:822 MONGO/(28461:28461): La conexión remota se ha desconectado.
+[ERROR] 00:44:13:822 MONGO/(28461:28461): Cliente desconectado
+[WARNING] 00:44:13:822 MONGO/(28461:28461): FINALIZANDO MONGO

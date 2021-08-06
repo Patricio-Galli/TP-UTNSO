@@ -425,13 +425,13 @@ char* crear_bitacora(int id_trip, int id_patota) {
 	char* DIR_bitacora = obtener_directorio("/Files/Bitacoras/Tripulante");
 
 	char* id_trip_str = string_itoa(id_trip);
-	//char* id_patota_str = string_itoa(id_patota);
+	char* id_patota_str = string_itoa(id_patota);
 	string_append(&DIR_bitacora,id_trip_str);
-	//string_append(&DIR_bitacora,"-");
-	//string_append(&DIR_bitacora,id_patota_str);
+	string_append(&DIR_bitacora,"-");
+	string_append(&DIR_bitacora,id_patota_str);
 	string_append(&DIR_bitacora,".ims");
 	free(id_trip_str);
-	//free(id_patota_str);
+	free(id_patota_str);
 
 	log_info(logger, "Buscando archivos ya existentes en directorio %s",DIR_bitacora);
 
@@ -495,13 +495,13 @@ char** obtener_bitacora(int id_trip, int id_patota) {
 	char* DIR_Bit_Tripulante = obtener_directorio("/Files/Bitacoras/Tripulante");
 
 	char* id_trip_str = string_itoa(id_trip);
-	//char* id_patota_str = string_itoa(id_patota);
+	char* id_patota_str = string_itoa(id_patota);
 	string_append(&DIR_Bit_Tripulante,id_trip_str);
-	//string_append(&DIR_Bit_Tripulante,"-");
-	//string_append(&DIR_Bit_Tripulante,id_patota_str));
+	string_append(&DIR_Bit_Tripulante,"-");
+	string_append(&DIR_Bit_Tripulante,id_patota_str);
 	string_append(&DIR_Bit_Tripulante,".ims");
 	free(id_trip_str);
-	//free(id_patota_str);
+	free(id_patota_str);
 
 	t_config* bitacora_meta = config_create(DIR_Bit_Tripulante);
 	int size = config_get_int_value(bitacora_meta,"SIZE");
