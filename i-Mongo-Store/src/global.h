@@ -48,7 +48,7 @@ pthread_mutex_t actualizar_blocks, actualizar_bitmap;
 
 t_bitarray *bitmap;
 uint32_t block_size, blocks_amount;
-void* blocks, *blocks_copy;
+void *blocks, *blocks_copy;
 char* punto_montaje;
 
 bool salir_proceso;

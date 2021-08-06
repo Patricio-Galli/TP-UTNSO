@@ -277,13 +277,50 @@ bool crear_superBloque(){
 
 			free(prueba);
 		}
-	}
 
-	close(fp);
+		close(fp);
+	}
 	free(DIR_superBloque);
 	return estado_superbloque;
 }
 
+bool crear_blocks(){
+	log_info(logger, "Verificando existencia Blocks");
+
+	bool estado_bloques = false;
+	char* DIR_blocks = obtener_directorio("/Blocks.ims");
+	int size = block_size * blocks_amount;
+	FILE* existe= fopen(DIR_blocks,"r");
+
+	if(existe != NULL) {
+		log_info(logger, "Blocks ya existe");
+		fclose(existe);
+	} else
+		log_info(logger, "Blocks no existe, creandolo");
+
+	int fp = open(DIR_blocks, O_CREAT | O_RDWR, 0666);
+
+	if (fp == -1)
+		log_error(logger, "No se pudo abrir/generar el archivo");
+	else {
+		ftruncate(fp, size);
+
+		blocks = mmap(NULL, size, PROT_READ | PROT_WRITE,MAP_SHARED, fp, 0);
+
+		if(blocks == MAP_FAILED)
+			log_error(logger, "Error al mapear Blocks");
+		else {
+			log_info(logger, "Blocks Generado");
+			estado_bloques = true;
+		}
+
+		close(fp);
+	}
+
+	free(DIR_blocks);
+	return estado_bloques;
+}
+/*
 bool crear_blocks(){
 	log_info(logger, "Verificando existencia Blocks");
 
@@ -321,6 +358,7 @@ bool crear_blocks(){
 	free(DIR_blocks);
 	return estado_bloques;
 }
+*/
 void* uso_blocks() {
 	int size = block_size * blocks_amount;
 	blocks_copy = malloc(size);
