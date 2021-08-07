@@ -44,16 +44,25 @@ char* crear_MD5(char caracter_llenado, int cantidad_caracteres) {
 	return("ERROR DE MD5");
 }*/
 
-char* crear_MD5(char* bloques_str,int cantidad_bloques) {
-    log_info(logger, "Generando MD5");
-    int largo=string_length(bloques_str);
-    for(int i=1;i<largo;i++){
-        bloques_str[i-1]=bloques_str[1];
-    }
-    bloques_str[largo-2]='\0';
+char* crear_MD5(char* bloques_str, char caracter_llenado, int cantidad_bloques) {
+	log_info(logger, "Generando MD5");
+    int largo = string_length(bloques_str);
+
+    char temp[largo-2];
+
+    for(int i=1;i<largo-1;i++)
+        temp[i-1]=bloques_str[i];
+
+    temp[largo-2]='\0';
+
+    //free(bloques_str);
+    bloques_str = string_duplicate(temp);
+
+    log_info(logger, "Bloques_str: %s", bloques_str);
+
     char** bloques=string_split(bloques_str,",");
 
-	char caracter_string[2] = {bloques[0][0] , '\0'};
+	char caracter_string[2] = {caracter_llenado , '\0'};
 	char* caracteres = string_new();
 	string_append(&caracteres,"echo ");
 

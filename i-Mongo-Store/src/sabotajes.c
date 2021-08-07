@@ -175,7 +175,7 @@ void arreglar_blocks_recursos(char* DIR_metadata){
 	 char* md5_correcto=config_get_string_value(metadata,"MD5_ARCHIVO");
 	 char** bloques=config_get_array_value(metadata,"BLOCKS");
 
-	 char*md5_encontrado=crear_MD5(bloques,cantidad_bloques);
+	 char*md5_encontrado=crear_MD5(bloques, 'A',cantidad_bloques);
 	 int aux=0;
 
 	 if(md5_encontrado!=md5_correcto){

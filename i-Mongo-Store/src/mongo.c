@@ -251,6 +251,7 @@ void crear_metadata(char* DIR_metadata, char caracter_llenado){
 
 	if(metadata != NULL) {
 		log_info(logger, "Archivo existente encontrado");
+		fclose(metadata);
 	} else {
 		log_info(logger, "Archivos previos no encontrados, Generando metadata");
 
@@ -260,7 +261,7 @@ void crear_metadata(char* DIR_metadata, char caracter_llenado){
 		temp->path = string_duplicate(DIR_metadata);
 		char str_caracter_llenado[2] = {caracter_llenado , '\0'};
 
-		char* md5 = crear_MD5(caracter_llenado,0);
+		char* md5 = crear_MD5("[]", caracter_llenado, 0);
 		config_save_in_file(temp, DIR_metadata);
 
 		config_set_value(temp,"SIZE","0");
@@ -273,7 +274,6 @@ void crear_metadata(char* DIR_metadata, char caracter_llenado){
 		free(md5);
 
 		log_info(logger, "Archivo de metadata generado");
+		fclose(metadata);
 	}
-
-	fclose(metadata);
 }

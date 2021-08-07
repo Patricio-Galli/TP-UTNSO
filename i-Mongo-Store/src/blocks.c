@@ -134,7 +134,7 @@ void sumar_caracteres(char caracter_llenado, int cantidad_caracteres) {
 	int size_final = size_original + cantidad_caracteres;
 
 	if(size_original % block_size != 0) {
-		log_info(logger, "Se encontro lugar en el ultimo bloque");
+		log_info(logger, "Se encontro lugar en el ultimo bloque (sumar)");
 		int aux = cantidad_caracteres;
 		cantidad_caracteres = escribir_caracter_en_bloque(caracter_llenado, cantidad_caracteres, bloques_anteriores[cantidad_original_bloques-1], size_original);
 		size_original += aux-cantidad_caracteres;
@@ -200,12 +200,13 @@ void sumar_caracteres(char caracter_llenado, int cantidad_caracteres) {
 
 		string_append(&bloques_totales,"]");
 
-		log_info(logger, "Los bloques totales son: %s",bloques_totales);
+		//log_info(logger, "Los bloques totales son: %s",bloques_totales);
 		char* bloques_max_str = string_itoa(bloques_max);
 
-		char* MD5_nuevo = crear_MD5(bloques_totales, bloques_max);
+		char* MD5_nuevo = crear_MD5(bloques_totales, caracter_llenado, bloques_max);
+
 		config_set_value(metadata,"MD5_ARCHIVO",MD5_nuevo);
-		free(MD5_nuevo);
+		//free(MD5_nuevo);
 
 		config_set_value(metadata,"BLOCKS",bloques_totales);
 		config_set_value(metadata,"BLOCK_COUNT",bloques_max_str);//Actualizo la cantidad de bloques
@@ -300,14 +301,19 @@ void quitar_caracteres(char caracter_llenado, int cantidad_caracteres){
 		char* bloques_a_dejar = string_new();
 		string_append(&bloques_a_dejar,"[");
 		log_info(logger, "BLoques reducidos = %d",bloques_reducidos);
-		for(int i=0;i<bloques_reducidos;i++){
-			string_append(&bloques_a_dejar,bloques_originales[i]);
-			if(i+1==bloques_reducidos){;
-				string_append(&bloques_a_dejar,"]");
+
+		if(bloques_reducidos != 0) {
+			for(int i=0;i<bloques_reducidos;i++){
+				string_append(&bloques_a_dejar,bloques_originales[i]);
+				if(i+1==bloques_reducidos){;
+					string_append(&bloques_a_dejar,"]");
+				}
+				else
+					string_append(&bloques_a_dejar,",");
 			}
-			else
-				string_append(&bloques_a_dejar,",");
-		}
+		}else
+			string_append(&bloques_a_dejar,"]");
+
 		int temp;
 		for(int i=bloques_reducidos;i<cantidad_original_bloques;i++){
 			temp=atoi(bloques_originales[i]);
@@ -326,7 +332,7 @@ void quitar_caracteres(char caracter_llenado, int cantidad_caracteres){
 		log_info(logger, "los bloques a dejar son %s",bloques_a_dejar);
 				//agregar los caracteres al bloque
 
-		char* MD5_nuevo=crear_MD5(bloques_a_dejar,bloques_reducidos);
+		char* MD5_nuevo=crear_MD5(bloques_a_dejar, caracter_llenado, bloques_reducidos);
 		config_set_value(metadata,"MD5_ARCHIVO",MD5_nuevo);
 
 		liberar_split(bloques_originales);
