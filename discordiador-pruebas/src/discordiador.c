@@ -144,6 +144,9 @@ int main() {
 		case 30:
 			funcion_consola = EXPULSAR_TRIPULANTE;
 			break;
+		case 31:
+			funcion_consola = EXPULSAR_TRIPULANTE;
+			break;
 		default:
 			log_info(logger, "No hay más instrucciones");
 			funcion_consola = EXIT_DISCORDIADOR;
@@ -266,14 +269,19 @@ int main() {
 				id_trip = 1;
 			}
 			if(variable == 29) {
-				log_info(logger,"Expulsar tripulante 5");
+				log_info(logger,"Expulsar tripulante 6");
 				id_patota = 4;
 				id_trip = 3;
 			}
 			if(variable == 30) {
-				log_info(logger,"Expulsar tripulante 5");
+				log_info(logger,"Expulsar tripulante 7");
 				id_patota = 4;
 				id_trip = 2;
+			}
+			if(variable == 31) {
+				log_info(logger,"Expulsar tripulante 7");
+				id_patota = 7;
+				id_trip = 3;
 			}
 
 			log_info(logger, "Tripulante a matar: %d - %d", id_patota, id_trip);

@@ -11,7 +11,7 @@
 #include <semaphore.h>
 
 #define IP_RAM "127.0.0.1"
-#define CONSOLA_ACTIVA 1
+#define CONSOLA_ACTIVA 0
 
 #define SEGMENTACION 0
 #define PAGINACION 1
@@ -87,7 +87,7 @@ t_log* logger;
 sem_t semaforo_consola;
 sem_t mutex_movimiento;
 sem_t mutex_lista_tripulantes;
-sem_t mutex_lista_segmentos;
+// sem_t mutex_lista_segmentos;
 sem_t mutex_incorporar_marco;
 sem_t mutex_compactacion;
 

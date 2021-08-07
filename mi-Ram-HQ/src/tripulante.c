@@ -76,9 +76,9 @@ void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante) {
 	uint32_t inicio_tripulante = mi_patota->inicio_elementos[id_tripulante + 1];
 	
 	if(memoria_ram.esquema_memoria == SEGMENTACION) {
-		sem_wait(&mutex_compactacion);
-		eliminar_segmento(nro_segmento_desde_inicio(inicio_tripulante));
-		sem_post(&mutex_compactacion);
+		// sem_wait(&mutex_compactacion);
+		eliminar_segmento(/*nro_*/segmento_desde_inicio(inicio_tripulante));
+		// sem_post(&mutex_compactacion);
 	}
 	if(memoria_ram.esquema_memoria == PAGINACION) {
 		eliminar_tripulante_paginacion(id_patota, id_tripulante);
