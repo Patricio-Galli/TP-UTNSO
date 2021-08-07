@@ -203,6 +203,10 @@ void sumar_caracteres(char caracter_llenado, int cantidad_caracteres) {
 		log_info(logger, "Los bloques totales son: %s",bloques_totales);
 		char* bloques_max_str = string_itoa(bloques_max);
 
+		char* MD5_nuevo = crear_MD5(bloques_totales, bloques_max);
+		config_set_value(metadata,"MD5_ARCHIVO",MD5_nuevo);
+		free(MD5_nuevo);
+
 		config_set_value(metadata,"BLOCKS",bloques_totales);
 		config_set_value(metadata,"BLOCK_COUNT",bloques_max_str);//Actualizo la cantidad de bloques
 		free(bloques_max_str);
@@ -216,10 +220,10 @@ void sumar_caracteres(char caracter_llenado, int cantidad_caracteres) {
 		free(size_final_str);
 	}
 	//actualizo el MD5
-	char* MD5_nuevo = crear_MD5(caracter_llenado,size_final);
-	config_set_value(metadata,"MD5_ARCHIVO",MD5_nuevo);
+	//char* MD5_nuevo = crear_MD5(caracter_llenado,size_final);
+	//config_set_value(metadata,"MD5_ARCHIVO",MD5_nuevo);
 
-	free(MD5_nuevo);
+	//free(MD5_nuevo);
 
 	config_save(metadata);
 	config_destroy(metadata);
@@ -322,6 +326,9 @@ void quitar_caracteres(char caracter_llenado, int cantidad_caracteres){
 		log_info(logger, "los bloques a dejar son %s",bloques_a_dejar);
 				//agregar los caracteres al bloque
 
+		char* MD5_nuevo=crear_MD5(bloques_a_dejar,bloques_reducidos);
+		config_set_value(metadata,"MD5_ARCHIVO",MD5_nuevo);
+
 		liberar_split(bloques_originales);
 		config_set_value(metadata,"BLOCK_COUNT",string_itoa(bloques_reducidos));//Actualizo la cantidad de bloques
 		config_set_value(metadata,"BLOCKS",bloques_a_dejar);
@@ -330,9 +337,9 @@ void quitar_caracteres(char caracter_llenado, int cantidad_caracteres){
 	char* size_final_str = string_itoa(size_final);
 	config_set_value(metadata,"SIZE",size_final_str);
 	free(size_final_str);
-	char* MD5_nuevo=crear_MD5(caracter_llenado,size_final);
-	config_set_value(metadata,"MD5_ARCHIVO",MD5_nuevo);
-	free(MD5_nuevo);
+	//char* MD5_nuevo=crear_MD5(caracter_llenado,size_final);
+	//config_set_value(metadata,"MD5_ARCHIVO",MD5_nuevo);
+	//free(MD5_nuevo);
 	config_save(metadata);
 	config_destroy(metadata);
 

@@ -1,5 +1,6 @@
 #include "utilidades.h"
 
+/*
 char* crear_MD5(char caracter_llenado, int cantidad_caracteres) {
 	log_info(logger, "Generando MD5");
 	char caracter_string[2] = {caracter_llenado , '\0'};
@@ -41,10 +42,17 @@ char* crear_MD5(char caracter_llenado, int cantidad_caracteres) {
 		log_info(logger, "Fallo al calcular el MD5");
 
 	return("ERROR DE MD5");
-}
-/*
-char* crear_MD5(char** bloques,int cantidad_bloques) {
-	log_info(logger, "Generando MD5");
+}*/
+
+char* crear_MD5(char* bloques_str,int cantidad_bloques) {
+    log_info(logger, "Generando MD5");
+    int largo=string_length(bloques_str);
+    for(int i=1;i<largo;i++){
+        bloques_str[i-1]=bloques_str[1];
+    }
+    bloques_str[largo-2]='\0';
+    char** bloques=string_split(bloques_str,",");
+
 	char caracter_string[2] = {bloques[0][0] , '\0'};
 	char* caracteres = string_new();
 	string_append(&caracteres,"echo ");
@@ -73,7 +81,7 @@ char* crear_MD5(char** bloques,int cantidad_bloques) {
 		rewind(file);
 
 		md5 = calloc(size + 1, 1);
-		free(caracter_string);
+		//free(caracter_string);
 		fread(md5,1,size,file);
 		fclose(file);
 		return md5;
@@ -84,7 +92,7 @@ char* crear_MD5(char** bloques,int cantidad_bloques) {
 
 	return "ERROR DE MD5";
 }
-*/
+
 tripulante* obtener_tripulante(int id_trip, int id_patota) {
 	for(int i = 0; i < list_size(lista_tripulantes); i++) {
 		tripulante* trip = (tripulante*)list_get(lista_tripulantes, i);
@@ -163,25 +171,29 @@ void liberar_split(char** split) {
 	free(split);
 }
 
-void calcularBloquesUsadosRecursos(t_bitarray*bitmap_copy,char* DIR_metadata) {
+void calcularBloquesUsadosRecursos(t_bitarray*bitmap_copy,char* DIR_metadata){
 	FILE* existe = fopen(DIR_metadata,"r");
+	printf("aqui toy 4.1\n");
 	if(existe != NULL) {
 		t_config* metadata=config_create(DIR_metadata);
 		char** bloques=config_get_array_value(metadata,"BLOCKS");
 		int block_count=config_get_int_value(metadata,"BLOCK_COUNT");
 		int bitmap_size = roundUp(blocks_amount,8);
-
+		printf("aqui toy 4.2\n");
 		for(int i = 0; i<block_count; i++){
+			printf("aqui toy 4.3\n");
 			bitarray_set_bit(bitmap_copy, atoi(bloques[i]));
 			//msync(bitmap->bitarray, bitmap_size, MS_SYNC);
+			printf("aqui toy 4.4\n");
 		}
+		printf("aqui toy 4.5\n");
 		config_destroy(metadata);
 		liberar_split(bloques);
 		fclose(existe);
 	}
 }
 
-void calcularBloquesUsadosBitacoras(t_bitarray*bitmap_copy,char* DIR_metadata) {
+void calcularBloquesUsadosBitacoras(t_bitarray*bitmap_copy,char* DIR_metadata){
 		t_config* metadata=config_create(DIR_metadata);
 		char** bloques=config_get_array_value(metadata,"BLOCKS");
 		int size=config_get_int_value(metadata,"SIZE");
