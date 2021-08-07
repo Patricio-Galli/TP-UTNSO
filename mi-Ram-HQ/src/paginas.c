@@ -28,6 +28,7 @@ bool iniciar_memoria_paginada(t_config* config) {
 		}
 		marco_auxiliar->duenio = 0;
 		marco_auxiliar->modificado = false;
+        marco_auxiliar->bit_uso = false;
 		sem_init(&marco_auxiliar->semaforo_mutex, 0, 1);
 	}
 	if(!strcmp(config_get_string_value(config, "ALGORITMO_REEMPLAZO"), "LRU"))

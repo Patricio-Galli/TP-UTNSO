@@ -61,15 +61,11 @@ bool iniciar_patota(uint32_t id_patota, t_list* parametros) {
 		nueva_patota->inicio_elementos[1] = creo_segmento_tareas(tamanio_bloque_tareas, id_patota, vtareas, &nueva_patota->inicio_elementos[0]);
 	}
 	if(memoria_ram.esquema_memoria == PAGINACION) {
-		// log_info(logger, "ASIGNO FRAMES");
 		asignar_frames(id_patota, frames_necesarios(0, TAMANIO_PATOTA + tamanio_bloque_tareas));
 		nueva_patota->inicio_elementos[0] = 0;
 		nueva_patota->inicio_elementos[1] = TAMANIO_PATOTA;
-		// log_info(logger, "SEGMENTO_PCB");
 		segmentar_pcb_p(id_patota, cantidad_tareas, vtareas);
-		log_info(logger, "Iniciar_patota. Cant frames: %d. Patota %d. Valores: %d-%d", nueva_patota->cant_frames, id_patota, obtener_entero_paginacion(id_patota, 0), obtener_entero_paginacion(id_patota, 4));
 	}
-	// log_info(logger, "Cree patota");
 	return true;
 }
 
@@ -77,7 +73,7 @@ uint32_t creo_segmento_pcb(uint32_t tamanio_pcb, uint32_t id_patota) {
 	t_segmento* segmento_pcb = crear_segmento(tamanio_pcb);
 	segmento_pcb->duenio = id_patota;
 	segmento_pcb->indice = 0;
-	segmentar_entero(segmento_pcb->inicio, id_patota);
+	actualizar_entero_segmentacion(segmento_pcb, 0, id_patota);
 	return segmento_pcb->inicio;
 }
 
@@ -95,7 +91,7 @@ uint32_t creo_segmento_tareas(uint32_t tamanio_bloque_tareas, uint32_t id_patota
 	free(vector_tareas);
 	
 	*inicio_pcb = segmento_pcb->inicio;
-	segmentar_entero(*inicio_pcb + sizeof(uint32_t), segmento_tareas->inicio);
+	actualizar_entero_segmentacion(segmento_pcb, sizeof(uint32_t), segmento_tareas->inicio);
 	return segmento_tareas->inicio;
 }
 
@@ -125,7 +121,6 @@ void segmentar_pcb_p(uint32_t id_patota, uint32_t cant_tareas, char** tareas) {
 			
 			t_marco* marco_auxiliar = memoria_ram.mapa_logico[mi_patota->frames[pagina_actual]];	
 			sem_wait(&marco_auxiliar->semaforo_mutex);
-			// log_info(logger, "Tarea %d. Pagina actual: %d, corrimiento: %d", i, pagina_actual, mi_patota->memoria_ocupada % TAMANIO_PAGINA);
 			incorporar_marco(mi_patota->frames[pagina_actual]);
 			memcpy(inicio_marco(mi_patota->frames[pagina_actual]) + (mi_patota->memoria_ocupada % TAMANIO_PAGINA),
 				tareas[i] + bytes_cargados, bytes_disponibles);
@@ -204,7 +199,9 @@ void eliminar_tareas(uint32_t id_patota) {
 	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
 	
 	if(memoria_ram.esquema_memoria == SEGMENTACION) {
+		sem_wait(&mutex_compactacion);
 		eliminar_segmento(nro_segmento_desde_inicio(mi_patota->inicio_elementos[1]));
+		sem_post(&mutex_compactacion);
 	}
 	if(memoria_ram.esquema_memoria == PAGINACION) {
 		mi_patota->memoria_ocupada = TAMANIO_PATOTA;

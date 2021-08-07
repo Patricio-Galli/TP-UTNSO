@@ -27,14 +27,10 @@ bool iniciar_memoria_segmentada(t_config* config);
 t_segmento* crear_segmento(uint32_t tamanio_segmento);
 void eliminar_segmento(uint32_t nro_segmento);
 
-void segmentar_caracter(void* memoria, uint32_t posicion, char data);
-void segmentar_entero(uint32_t posicion, uint32_t data);
-void segmentar_string(void* memoria, uint32_t posicion, char* data);
-void segmentar_bloque(void* memoria, uint32_t posicion, void* data, uint32_t tamanio);
-
 t_list* seg_tripulantes_de_patota(uint32_t id_patota);
 t_list* seg_ordenados_de_patota(uint32_t id_patota);
 
+void segmentar_bloque(void* memoria, uint32_t posicion, void* data, uint32_t tamanio);
 void* obtener_bloque_memoria(void* memoria, t_segmento* segmento);
 
 void realizar_compactacion();
@@ -45,5 +41,17 @@ uint32_t nro_segmento_desde_inicio(uint32_t inicio_segmento);
 
 uint32_t trip_de_segmento(uint32_t inicio_segmento);
 void actualizar_ubicacion_tareas(void* segmento, uint32_t nueva_ubicacion);
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+void actualizar_caracter_segmentacion(t_segmento* mi_segmento, uint32_t desplazamiento, char data);
+void actualizar_entero_segmentacion(t_segmento* mi_segmento, uint32_t desplazamiento, uint32_t data);
+void actualizar_string_segmentacion(t_segmento* mi_segmento, uint32_t desplazamiento, char* data);
+void actualizar_bloque_segmentacion(t_segmento* mi_segmento, uint32_t desplazamiento, void* data, uint32_t tamanio);
+
+char obtener_caracter_segmentacion(t_segmento* mi_segmento, uint32_t desplazamiento);
+uint32_t obtener_entero_segmentacion(t_segmento* mi_segmento, uint32_t desplazamiento);
+void* obtener_bloque_segmentacion(t_segmento* mi_segmento);
 
 #endif /* _SEGMENTOS_H_ */

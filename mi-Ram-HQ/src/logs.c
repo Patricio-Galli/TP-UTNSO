@@ -84,7 +84,6 @@ void loggear_tripulantes() {
 			obtener_valor_tripulante(pid, tid, TRIP_IP),
 			inicio,
 			obtener_estado(pid, tid),
-			// 'P',
 			obtener_valor_tripulante(pid, tid, POS_X),
 			obtener_valor_tripulante(pid, tid, POS_Y),
 			obtener_valor_tripulante(pid, tid, INS_POINTER),
@@ -101,23 +100,25 @@ void loggear_prueba_segmentos(uint32_t nro_segmento) {
 
 void loggear_segmento(FILE* archivo, uint32_t nro_segmento, uint32_t nro_segmento_relativo) {
 	t_segmento* segmento = (t_segmento *)list_get(memoria_ram.mapa_segmentos, nro_segmento);
-    fprintf(archivo, "Proceso: %02d    Segmento: %02d    Inicio: 0x%04x    Tam: %db\n", segmento->duenio, nro_segmento_relativo, segmento->inicio, segmento->tamanio);
+    fprintf(archivo, "Proceso: %02d    Segmento: %02d    Inicio: 0x%04X    Tam: %db\n", segmento->duenio, nro_segmento_relativo, segmento->inicio, segmento->tamanio);
 	fprintf(archivo,"\n");
 }
 
 void loggear_segmentos(FILE* archivo) {
 	log_info(logger, "Cantidad de segmentos: %d. Memoria libre: %d", list_size(memoria_ram.mapa_segmentos), memoria_libre_segmentacion());
-	for (int id_patota = 0; id_patota < list_size(lista_patotas); id_patota++) {
-		t_list* lista_segmentos_patota = seg_ordenados_de_patota(id_patota + 1);
-		for(int trip = 0; trip < list_size(lista_segmentos_patota); trip++) {
-			t_segmento* seg_trip = list_get(lista_segmentos_patota, trip);
-			if(archivo == NULL)
-				loggear_prueba_segmentos(seg_trip->n_segmento);
-			else {
+	if(archivo != NULL) {
+		for (int id_patota = 0; id_patota < list_size(lista_patotas); id_patota++) {
+			t_list* lista_segmentos_patota = seg_ordenados_de_patota(id_patota + 1);
+			for(int trip = 0; trip < list_size(lista_segmentos_patota); trip++) {
+				t_segmento* seg_trip = list_get(lista_segmentos_patota, trip);
 				loggear_segmento(archivo, seg_trip->n_segmento, trip);
 			}
 		}
-		
+	}
+	else {
+		for (int id_seg = 0; id_seg < list_size(memoria_ram.mapa_segmentos); id_seg++) {
+			loggear_prueba_segmentos(id_seg);
+		}
 	}
 }
 
@@ -137,12 +138,13 @@ void loggear_marcos_logicos(FILE* archivo) {
 	if(archivo == NULL) {
 		log_info(logger, "Marcos libres fisicos: %d. Marcos libres logicos: %d", marcos_reales_disponibles(), marcos_logicos_disponibles());
 		for (int i = 0; i < (uint32_t)(memoria_ram.tamanio_swap / TAMANIO_PAGINA); i++) {
-			log_info(logger, "Marco logico %d/ fisico: %d/ Duenio: %d/ Presencia: %d/ Modificado: %d",
+			log_info(logger, "ML %d/ MF: %d/ Duenio: %d/ Presencia: %d/ Modificado: %d/ Uso: %d",
 				memoria_ram.mapa_logico[i]->nro_virtual,
 				memoria_ram.mapa_logico[i]->nro_real,
 				memoria_ram.mapa_logico[i]->duenio,
 				memoria_ram.mapa_logico[i]->presencia,
-				memoria_ram.mapa_logico[i]->modificado
+				memoria_ram.mapa_logico[i]->modificado,
+				memoria_ram.mapa_logico[i]->bit_uso
 				);
 		}
 	}
@@ -152,16 +154,16 @@ void loggear_marcos_fisicos(FILE* archivo) {
 	log_info(logger, "Marcos libres fisicos: %d. Marcos libres logicos: %d", marcos_reales_disponibles(), marcos_logicos_disponibles());
 	for (int i = 0; i < (uint32_t)(memoria_ram.tamanio_memoria / TAMANIO_PAGINA); i++) {
 		if(archivo == NULL) {
-			log_info(logger, "Marco logico %d/ fisico: %d/ Duenio: %d/ Presencia: %d/ Modificado: %d",
+			log_info(logger, "ML %2d/ MF: %2d/ Duenio: %2d/ Presencia: %d/ Modificado: %d/ Uso: %d",
 				memoria_ram.mapa_fisico[i]->nro_virtual,
 				memoria_ram.mapa_fisico[i]->nro_real,
 				memoria_ram.mapa_fisico[i]->duenio,
 				memoria_ram.mapa_fisico[i]->presencia,
-				memoria_ram.mapa_fisico[i]->modificado
+				memoria_ram.mapa_fisico[i]->modificado,
+				memoria_ram.mapa_fisico[i]->bit_uso
 				);
 		}
 		else {
-			// log_info(logger, "Loggeo marco físico %d por dump", i);
 			loggear_marco(archivo, i);
 		}
 	}

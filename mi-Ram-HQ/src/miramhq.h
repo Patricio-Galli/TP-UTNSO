@@ -15,6 +15,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <pthread.h>
+#include <signal.h>
 
 #include "memoria_ram.h"
 #include "segmentos.h"
@@ -30,6 +31,9 @@
 pthread_t* iniciar_mapa(bool*);
 bool iniciar_memoria(t_config*);
 void liberar_metadata(t_config* config, int socket_discord);
+
+void signal_compactacion(int sig);
+void signal_dump(int sig);
 
 // void liberar_segmentos();
 // void liberar_patotas();

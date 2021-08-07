@@ -17,8 +17,6 @@ void* rutina_hilos(void* data) {
 	
     uint32_t posicion_x;	// Para consola
 	uint32_t posicion_y;	// Para consola
-	tripulante->semaforo_hilo = malloc(sizeof(sem_t));
-	sem_init(tripulante->semaforo_hilo, 0, 1);
     
 	t_mensaje* mensaje_out;
 	t_list* mensaje_in;

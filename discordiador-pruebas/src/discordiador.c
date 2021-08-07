@@ -138,6 +138,12 @@ int main() {
 		case 28:
 			funcion_consola = INICIAR_TRIPULANTE;
 			break;
+		case 29:
+			funcion_consola = EXPULSAR_TRIPULANTE;
+			break;
+		case 30:
+			funcion_consola = EXPULSAR_TRIPULANTE;
+			break;
 		default:
 			log_info(logger, "No hay más instrucciones");
 			funcion_consola = EXIT_DISCORDIADOR;
@@ -236,34 +242,40 @@ int main() {
 			log_info(logger, "Cree mensaje %d", funcion_consola);
 			if(variable == 20) {
 				log_info(logger,"Expulsar tripulante 1");
-				id_patota = 1;
+				id_patota = 5;
 				id_trip = 1;
 			}
 			if(variable == 21) {
 				log_info(logger,"Expulsar tripulante 2");
-				id_patota = 3;
-				id_trip = 1;
+				id_patota = 5;
+				id_trip = 2;
 			}
 			if(variable == 22) {
 				log_info(logger,"Expulsar tripulante 3");
 				id_patota = 2;
-				id_trip = 1;
+				id_trip = 2;
 			}
 			if(variable == 23) {
 				log_info(logger,"Expulsar tripulante 4");
-				id_patota = 4;
+				id_patota = 2;
 				id_trip = 1;
 			}
 			if(variable == 24) {
 				log_info(logger,"Expulsar tripulante 5");
 				id_patota = 4;
+				id_trip = 1;
+			}
+			if(variable == 29) {
+				log_info(logger,"Expulsar tripulante 5");
+				id_patota = 4;
+				id_trip = 3;
+			}
+			if(variable == 30) {
+				log_info(logger,"Expulsar tripulante 5");
+				id_patota = 4;
 				id_trip = 2;
 			}
-			/*if(variable == 18) {
-				log_info(logger,"Expulsar tripulante 5");
-				agregar_parametro_a_mensaje(mensaje, (void *)2, ENTERO);
-				agregar_parametro_a_mensaje(mensaje, (void *)3, ENTERO);
-			}*/
+
 			log_info(logger, "Tripulante a matar: %d - %d", id_patota, id_trip);
 			t_tripulante* trip_to_kill = tripulante_de_lista(id_patota, id_trip);
 			log_info(logger, "VOy a cancelar el hilo");

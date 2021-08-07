@@ -40,7 +40,10 @@ int main(void) {
 	log_info(logger, "Servidor listo");
 	int socket_discord = esperar_cliente(server_fd);
 	close(server_fd);
+	
 	log_info(logger, "Conexión establecida con el discordiador");
+	signal(SIGUSR1, &signal_dump);
+	signal(SIGUSR2, &signal_compactacion);
 	
 	t_list* mensaje_in;
 	t_mensaje* mensaje_out;
@@ -227,10 +230,12 @@ void liberar_metadata(t_config* config, int socket_discord) {
 
 
 void signal_compactacion(int sig){
-	log_info(logger, "Recibi la senial de compactar, compactando...");
-	realizar_compactacion();
+	log_info(logger, "Recibi la senial de compactacion");
+	if(memoria_ram.esquema_memoria == SEGMENTACION)
+		realizar_compactacion();
 }
 
 void signal_dump(int sig){
+	log_info(logger, "Recibi la senial de dump");
 	dump();
 }
