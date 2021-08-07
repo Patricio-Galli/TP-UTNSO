@@ -62,6 +62,12 @@ int main(void) {
 		mensaje_in = recibir_mensaje(socket_discord);
 		log_info(logger, "Recibir mensaje");
 		if (!validar_mensaje(mensaje_in, logger)) {
+			// liberar_mensaje_in(mensaje_in);
+			// log_info(logger, "Cliente desconectado dentro del while");
+			// close(server_fd);
+			// log_destroy(logger);
+			// // liberar_metadata(config, socket_discord);
+			// return ERROR_CONEXION;
 			break;
 		}
 		
@@ -81,9 +87,6 @@ int main(void) {
 			enviar_mensaje(socket_discord, mensaje_out);
 			liberar_mensaje_out(mensaje_out);		// debe estar fuera del switch
 			nro_tripulante = 1;
-			for(int i = 0; i < 3; i++) {
-				log_info(logger, "Patota %d. Tarea %d: %s.", patota_actual, i, obtener_tarea(patota_actual, i));
-			}
 			break;
 		case INIT_T:
 			log_info(logger, "Discordiador solicitó iniciar_tripulante");
@@ -102,9 +105,6 @@ int main(void) {
 			enviar_mensaje(socket_discord, mensaje_out);
 			liberar_mensaje_out(mensaje_out);
 			nro_tripulante++;
-			// for(int i = 0; i < 3; i++) {
-			// 	log_info(logger, "Patota %d. Tarea %d: %s.", patota_actual, i, obtener_tarea(patota_actual, i));
-			// }
 			break;
 		case ELIM_T:
 			log_info(logger, "Discordiador solicitó expulsar_tripulante");
@@ -130,13 +130,12 @@ int main(void) {
 			break;
 		}
 		liberar_mensaje_in(mensaje_in);
-		// loggear_data();
+		loggear_data();
 	}
     log_info(logger, "Paso a cambiar continuar_consola");
 	*continuar_consola = false;
 	sem_post(&semaforo_consola);
-	
-	loggear_data();
+
 	// liberar_metadata(config, socket_discord);
 	if(CONSOLA_ACTIVA) {
 		pthread_join(*hilo_consola, 0);
@@ -239,5 +238,4 @@ void signal_compactacion(int sig){
 void signal_dump(int sig){
 	log_info(logger, "Recibi la senial de dump");
 	dump();
-	// loggear_marcos_logicos(NULL);
 }

@@ -26,7 +26,8 @@ parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar val
 			valida = false;
 		}
 	}
-/*
+
+	/*
 	char* direccion;
 
 	if(string_starts_with(input[2], "/"))
@@ -42,24 +43,26 @@ parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar val
 	free(direccion);*/
 
 	FILE *archivo_tareas = fopen (input[2], "r");
+
 	if(archivo_tareas != NULL) {
-	char buffer_tarea[40];
-	parametros->cantidad_tareas = 0;
-	parametros->tareas = NULL;
+		char buffer_tarea[40];
+		parametros->cantidad_tareas = 0;
+		parametros->tareas = NULL;
 
-	while (fgets(buffer_tarea, 100, archivo_tareas)) {
-		strtok(buffer_tarea, "\n"); //strtok le saca el \n al string de buffer_tarea que es agregado por fgets al leer del archivo
+		while (fgets(buffer_tarea, 100, archivo_tareas)) {
+			strtok(buffer_tarea, "\n"); //strtok le saca el \n al string de buffer_tarea que es agregado por fgets al leer del archivo
 
-		parametros->tareas = realloc(parametros->tareas, (parametros->cantidad_tareas + 1) * sizeof(char*)); //le agrego a mi vector de tareas[str] un nuevo valor para colocar una nueva tarea
-		parametros->tareas[parametros->cantidad_tareas] = malloc(sizeof(buffer_tarea));
+			parametros->tareas = realloc(parametros->tareas, (parametros->cantidad_tareas + 1) * sizeof(char*)); //le agrego a mi vector de tareas[str] un nuevo valor para colocar una nueva tarea
+			parametros->tareas[parametros->cantidad_tareas] = malloc(sizeof(buffer_tarea));
 
-		memcpy(parametros->tareas[parametros->cantidad_tareas], &buffer_tarea, sizeof(buffer_tarea));
+			memcpy(parametros->tareas[parametros->cantidad_tareas], &buffer_tarea, sizeof(buffer_tarea));
 
-		parametros->cantidad_tareas++;
-	}
+			parametros->cantidad_tareas++;
+		}
 
-	fclose(archivo_tareas);
-	} 
+		fclose(archivo_tareas);
+	} else
+		log_error(logger, "Esta mal la ubicacion del archivo");
 
 	return parametros;
 }

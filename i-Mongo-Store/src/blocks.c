@@ -95,7 +95,6 @@ bool crear_blocks(){
 void* uso_blocks() {
 	int size = block_size * blocks_amount;
 	blocks_copy = malloc(size);
-	log_info(logger, "Se sincronizo el blocks");
 
 	while(1){
 		sleep(config_get_int_value(config, "TIEMPO_SINCRONIZACION"));

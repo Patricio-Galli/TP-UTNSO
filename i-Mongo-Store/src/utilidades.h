@@ -13,7 +13,7 @@ char* obtener_directorio(char*);
 void imprimir_bitmap(t_bitarray*);
 void liberar_split(char** split);
 
-void calcularBloquesUsadosRecursos(t_bitarray* bitmap_copy,char* DIR_metadata, void* superBloque);
-void calcularBloquesUsadosBitacoras(t_bitarray* bitmap_copy,char* DIR_metadata, void* superBloque);
+void calcularBloquesUsadosRecursos(t_bitarray*bitmap_copy, char* DIR_metadata);
+void calcularBloquesUsadosBitacoras(t_bitarray*bitmap_copy, char* DIR_metadata);
 
 #endif /* UTILIDADES_H_ */

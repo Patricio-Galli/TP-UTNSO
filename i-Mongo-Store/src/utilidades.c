@@ -180,69 +180,40 @@ void liberar_split(char** split) {
 	free(split);
 }
 
-void calcularBloquesUsadosRecursos(t_bitarray* bitmap_copy,char* DIR_metadata, void* superBloque) {
-    FILE* existe = fopen(DIR_metadata,"r");
-    if(existe != NULL) {
-        t_config* metadata=config_create(DIR_metadata);
-        char** bloques=config_get_array_value(metadata,"BLOCKS");
-        int block_count=config_get_int_value(metadata,"BLOCK_COUNT");
-        int bitmap_size = roundUp(blocks_amount,8);
-        bool esElMismo=true;
-        for(int i = 0; i<block_count; i++){
-        //    bitarray_clean_bit(bitmap_copy,1);
-        //    msync(bitmap_copy->bitarray,bitmap_size,MS_SYNC);
-        //    imprimir_bitmap(bitmap_copy);
-            if(!bitarray_test_bit(bitmap_copy,atoi(bloques[i]))){
-                esElMismo=false;
-                break;
-            }
-        }
-            if(!esElMismo){
-                log_info(logger, "Se saboteo el Bitmap del archivo de SuperBloque. Solucionando sabotaje...");
-                for(int i = 0; i<block_count; i++){
-                bitarray_set_bit(bitmap_copy, atoi(bloques[i]));
-                msync(bitmap_copy->bitarray,bitmap_size,MS_SYNC);
-                msync(superBloque, sizeof(uint32_t)*2 + bitmap_size, MS_SYNC);
-                }
-                log_info(logger, "Sabotaje solucionado");
-                imprimir_bitmap(bitmap_copy);
-                return;
-            }else
-                log_info(logger, "El Bitmap del SuperBloque no se vio afectado por el sabotaje.");
-
-        config_destroy(metadata);
-        liberar_split(bloques);
-        fclose(existe);
-    }
+void calcularBloquesUsadosRecursos(t_bitarray*bitmap_copy,char* DIR_metadata){
+	FILE* existe = fopen(DIR_metadata,"r");
+	printf("aqui toy 4.1\n");
+	if(existe != NULL) {
+		t_config* metadata=config_create(DIR_metadata);
+		char** bloques=config_get_array_value(metadata,"BLOCKS");
+		int block_count=config_get_int_value(metadata,"BLOCK_COUNT");
+		int bitmap_size = roundUp(blocks_amount,8);
+		printf("aqui toy 4.2\n");
+		for(int i = 0; i<block_count; i++){
+			printf("aqui toy 4.3\n");
+			bitarray_set_bit(bitmap_copy, atoi(bloques[i]));
+			//msync(bitmap->bitarray, bitmap_size, MS_SYNC);
+			printf("aqui toy 4.4\n");
+		}
+		printf("aqui toy 4.5\n");
+		config_destroy(metadata);
+		liberar_split(bloques);
+		fclose(existe);
+	}
 }
 
-void calcularBloquesUsadosBitacoras(t_bitarray* bitmap_copy,char* DIR_metadata, void* superBloque) {
-        t_config* metadata=config_create(DIR_metadata);
-        char** bloques=config_get_array_value(metadata,"BLOCKS");
-        int size=config_get_int_value(metadata,"SIZE");
-        int block_count=roundUp(size,block_size);
-        int bitmap_size = roundUp(blocks_amount,8);
-        bool esElMismo=true;
-                for(int i = 0; i<block_count; i++){
+void calcularBloquesUsadosBitacoras(t_bitarray*bitmap_copy,char* DIR_metadata){
+		t_config* metadata=config_create(DIR_metadata);
+		char** bloques=config_get_array_value(metadata,"BLOCKS");
+		int size=config_get_int_value(metadata,"SIZE");
+		int block_count=roundUp(size,block_size);
+		int bitmap_size = roundUp(blocks_amount,8);
 
+		for(int i = 0; i<block_count; i++){
+			bitarray_set_bit(bitmap_copy, atoi(bloques[i]));
+			//msync(bitmap->bitarray, bitmap_size, MS_SYNC);
+		}
+		config_destroy(metadata);
+		liberar_split(bloques);
 
-                    if(!bitarray_test_bit(bitmap_copy,atoi(bloques[i]))){
-                        esElMismo=false;
-                        break;
-                    }
-                }
-                    if(!esElMismo){
-                        log_info(logger, "Se saboteo el Bitmap del archivo de SuperBloque. Solucionando sabotaje...");
-                        for(int i = 0; i<block_count; i++){
-                        bitarray_set_bit(bitmap_copy, atoi(bloques[i]));
-                        msync(bitmap_copy->bitarray,bitmap_size,MS_SYNC);
-                        msync(superBloque, sizeof(uint32_t)*2 + bitmap_size, MS_SYNC);
-                        }
-                        log_info(logger, "Sabotaje solucionado");
-                        return;
-                    }else
-                        log_info(logger, "El Bitmap del SuperBloque no se vio afectado por el sabotaje.");
-
-                config_destroy(metadata);
-                liberar_split(bloques);
 }

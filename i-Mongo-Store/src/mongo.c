@@ -37,19 +37,6 @@ int main() {
 		//imprimir_bitmap(bitmap);
 	}
 
-	/*//pruebas
-		printf("sumar 20 oxigenos \n");
-			sumar_caracteres('O',20);
-
-			printf("sumar 24 comidas \n");
-			sumar_caracteres('C',24);
-
-			printf("sumar 28 basuras \n");
-			sumar_caracteres('B',28);
-
-			arreglar_size_recursos("/home/utnso/tp-2021-1c-cualquier-cosa-main/i-Mongo-Store/Filesystem/Files/Oxigeno.ims");
-	*/
-
 	while(!salir_proceso) {
 		t_list* mensaje_in = recibir_mensaje(socket_discord);
 		t_mensaje* mensaje_out;
@@ -251,20 +238,7 @@ void* rutina_trip(void* t) {
 		liberar_mensaje_out(mensaje_out);
 		liberar_mensaje_in(mensaje_in);
 	}
-	char* DIR_bitacora_old = obtener_directorio("/Files/Bitacoras/Tripulante");
-
-	char* id_trip_str = string_itoa(trip->id_trip);
-	char* id_patota_str = string_itoa(trip->id_patota);
-	string_append(&DIR_bitacora_old,id_trip_str);
-	string_append(&DIR_bitacora_old,"-");
-	string_append(&DIR_bitacora_old,id_patota_str);
-	string_append(&DIR_bitacora_old,"_old.ims");
-	free(id_trip_str);
-	free(id_patota_str);
-
-	rename(trip->dir_bitacora,DIR_bitacora_old);
-	free(DIR_bitacora_old);
-	free(trip->dir_bitacora);
+	free(trip->dir_bitacora);//cambiarle el nombre al archivo para que se mantenga el bitmap
 
 
 	return 0;

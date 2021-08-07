@@ -38,7 +38,6 @@ void* rutina_hilos(void* data) {
 				// IP valido
 				// tarea_nueva = obtener_tarea_p(memoria_ram.inicio + segmento_patota->inicio_elementos[1], segmento_tareas, ip);
 				tarea_nueva = obtener_tarea(tripulante->PID, ip);
-				log_info(logger, "IP: %d. Tarea a enviar: %s", ip, tarea_nueva);
 				actualizar_valor_tripulante(tripulante->PID, tripulante->TID, INS_POINTER, ip + 1);
 				mensaje_out = crear_mensaje(TASK_T);
 				agregar_parametro_a_mensaje(mensaje_out, tarea_nueva, BUFFER);

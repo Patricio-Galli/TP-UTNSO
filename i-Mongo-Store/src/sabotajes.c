@@ -42,7 +42,7 @@ void analizador_sabotajes(int senial) {
 		tripulante* trip = obtener_tripulante(id_trip, id_patota);
 
 		log_info(logger, "El tripulante %d de la patota %d esta yendo a la ubicacion del sabotaje", id_trip, id_patota);
-		//inicio_sabotaje(trip->dir_bitacora);
+		inicio_sabotaje(trip->dir_bitacora);
 
 		enviar_mensaje(socket_sabotajes, mensaje_out);
 		liberar_mensaje_in(mensaje_in);
@@ -50,31 +50,10 @@ void analizador_sabotajes(int senial) {
 		mensaje_in = recibir_mensaje(socket_sabotajes);
 
 		if((int)list_get(mensaje_in, 0) == SABO_F) {
-			log_warning(logger, "El tripulante llego a la ubicacion del sabotaje");
+			log_info(logger, "El tripulante llego a la ubicacion del sabotaje");
 			fin_sabotaje(trip->dir_bitacora);
 			enviar_mensaje(socket_sabotajes, mensaje_out);
-
-			arreglar_BlockCount_superBloque();
-			arreglar_Bitmap_superBloque();
-
-			char* direccion = obtener_directorio("/Files/Oxigeno.ims");
-			arreglar_blocks_recursos(direccion);
-			arreglar_size_recursos(direccion);
-			arreglar_blockcount_recursos(direccion);
-			free(direccion);
-
-			direccion = obtener_directorio("/Files/Comida.ims");
-			arreglar_blocks_recursos(direccion);
-			arreglar_size_recursos(direccion);
-			arreglar_blockcount_recursos(direccion);
-			free(direccion);
-
-			direccion = obtener_directorio("/Files/Basura.ims");
-			arreglar_blocks_recursos(direccion);
-			arreglar_size_recursos(direccion);
-			arreglar_blockcount_recursos(direccion);
-			free(direccion);
-
+			//todo RESOLVER SABOTAJE
 			contador_sabotajes++;
 		} else
 			log_error(logger, "Se Murio");
@@ -89,7 +68,7 @@ void analizador_sabotajes(int senial) {
 }
 
 //////////////////////////////////FUNCIONES RESOLVEDORAS////////////////////////////////
-
+/*
 void arreglar_BlockCount_superBloque(){
 	char* DIR_SuperBLoque=string_new();
 	string_append(&DIR_SuperBLoque,obtener_directorio("/superBloque.ims"));
@@ -131,33 +110,56 @@ void arreglar_BlockCount_superBloque(){
 }
 
 void arreglar_Bitmap_superBloque(){
-    char* DIR_SuperBLoque=string_new();
-    printf("aqui toy 1\n");
-    string_append(&DIR_SuperBLoque,obtener_directorio("/superBloque.ims"));
-    int superBlock_file = open(DIR_SuperBLoque, O_CREAT | O_RDWR, 0664);
-    int bitmap_size = roundUp(blocks_amount,8);
+	char* DIR_SuperBLoque=string_new();
+	printf("aqui toy 1\n");
+	string_append(&DIR_SuperBLoque,obtener_directorio("/superBloque.ims"));
+	int superBlock_file = open(DIR_SuperBLoque, O_CREAT | O_RDWR, 0664);
+	int bitmap_size = roundUp(blocks_amount,8);
     void* superBloque = mmap(NULL, 8, PROT_READ | PROT_WRITE, MAP_SHARED, superBlock_file, 0);
     printf("aqui toy 2\n");
     t_bitarray* bitmap_copy;
-
+    //memcpy(&bitmap_copy, 2*(sizeof(uint32_t))+superBloque,bitmap_size);
     bitmap_copy = bitarray_create_with_mode((char*) superBloque+sizeof(int)+sizeof(int), bitmap_size, MSB_FIRST);
     printf("aqui toy 3\n");
-    char* Dir_metadata = obtener_directorio("/Files/Oxigeno.ims");
-    calcularBloquesUsadosRecursos(bitmap_copy,Dir_metadata,superBloque);
+    t_bitarray* bitmap_correcto = bitarray_create_with_mode((char*) superBloque+sizeof(int)+sizeof(int), bitmap_size, MSB_FIRST);
+    printf("aqui toy 4\n");
+    char*Dir_metadata=obtener_directorio("/Files/Oxigeno.ims");
+    calcularBloquesUsadosRecursos(bitmap_correcto,Dir_metadata);
     free(Dir_metadata);
     Dir_metadata=obtener_directorio("/Files/Comida.ims");
-    calcularBloquesUsadosRecursos(bitmap_copy,Dir_metadata,superBloque);
+    calcularBloquesUsadosRecursos(bitmap_correcto,Dir_metadata);
     free(Dir_metadata);
     Dir_metadata=obtener_directorio("/Files/Basura.ims");
-    calcularBloquesUsadosRecursos(bitmap_copy,Dir_metadata,superBloque);
-    free(Dir_metadata);
-	/*
-    for(int i = 0; i < list_size(lista_tripulantes); i++) {
-        printf("aqui toy 6\n");//////////////////////////////////////////////////////////////////////////ROMPIO ACA
-            tripulante* trip = (tripulante*)list_get(lista_tripulantes, i);
-            calcularBloquesUsadosBitacoras(bitmap_copy,trip->dir_bitacora,superBloque);
-        }*/
+	calcularBloquesUsadosRecursos(bitmap_correcto,Dir_metadata);
+	free(Dir_metadata);
+	printf("aqui toy 5\n");
+	for(int i = 0; i < list_size(lista_tripulantes); i++) {
+		printf("aqui toy 6\n");
+	        tripulante* trip = (tripulante*)list_get(lista_tripulantes, i);
+	        calcularBloquesUsadosRecursos(bitmap_correcto,trip->dir_bitacora);
+	    }
+	printf("aqui toy 7\n");
+	 //imprimir_bitmap(bitmap_correcto);
+	bool esElMismo=true;
+	for(int i = 0; i<bitmap_size; i++){
+		if(bitarray_test_bit(bitmap_copy, i) == bitarray_test_bit(bitmap_correcto, i)){
+			esElMismo=false;
+			break;
+		}
 
+	}
+	if(!esElMismo){
+		log_info(logger, "Se saboteo el SIZE del archivo de SuperBloque. Solucionando sabotaje...");
+		bitmap_copy=bitmap_correcto;
+		msync(bitmap_copy->bitarray,bitmap_size,MS_SYNC);
+		msync(superBloque, sizeof(uint32_t)*2 + bitmap_size, MS_SYNC);
+
+		close(superBlock_file);
+		free(DIR_SuperBLoque);
+		log_info(logger, "Sabotaje solucionado");
+		return;
+	}else
+    	log_info(logger, "El Bitmap del SuperBloque no se vio afectado por el sabotaje.");
     close(superBlock_file);
     free(DIR_SuperBLoque);
     //liberar sb??
@@ -171,7 +173,7 @@ void arreglar_blocks_recursos(char* DIR_metadata){
 	 char* string_caracter_llenado=config_get_string_value(metadata,"CARACTER_LLENADO");
 	 char caracter_llenado=string_caracter_llenado[0];
 	 char* md5_correcto=config_get_string_value(metadata,"MD5_ARCHIVO");
-	 char* bloques=config_get_string_value(metadata,"BLOCKS");
+	 char** bloques=config_get_array_value(metadata,"BLOCKS");
 
 	 char*md5_encontrado=crear_MD5(bloques, 'A',cantidad_bloques);
 	 int aux=0;
@@ -182,7 +184,7 @@ void arreglar_blocks_recursos(char* DIR_metadata){
 		 int caracteres_a_agregar=size;
 
 		 for(int i = 0; i<cantidad_bloques && caracteres_a_agregar>0;i++){
-			 caracteres_a_agregar = escribir_caracter_en_bloque(caracter_llenado, caracteres_a_agregar, bloques, aux);
+			 caracteres_a_agregar = escribir_caracter_en_bloque(caracter_llenado, caracteres_a_agregar, bloques[i], aux);
 			 aux=size-caracteres_a_agregar;
 		 }
 		 log_info(logger, "Archivos restaurados");
@@ -190,42 +192,34 @@ void arreglar_blocks_recursos(char* DIR_metadata){
 		 free(string_caracter_llenado);
 		 free(md5_correcto);
 		 free(md5_encontrado);
-		 //liberar_split(bloques);
+		 liberar_split(bloques);
 	 }
 	 else
 	     log_info(logger, "El Blocks del archivo de Recursos no se vio afectado por el sabotaje.");
 
 }
-
 void arreglar_size_recursos(char* DIR_metadata){
-	t_config* metadata = config_create(DIR_metadata);
-
-	char** bloques = config_get_array_value(metadata,"BLOCKS");
-	char* bloques_str = config_get_string_value(metadata,"BLOCKS");
-
-	int size_encontrado = config_get_int_value(metadata,"SIZE");
-	int cantidad_bloques = config_get_int_value(metadata,"BLOCK_COUNT");
-	char* string_caracter_llenado = config_get_string_value(metadata,"CARACTER_LLENADO");
-
-	char caracter_llenado = string_caracter_llenado[0];
-	int bloque_a_vereificar = atoi(bloques[cantidad_bloques-1]);
-	int desplazamiento = bloque_a_vereificar * block_size;
-	int size_correcto = (cantidad_bloques-1) * block_size; //el ultimo debo revisar cuantos caracteres tiene escritos}
-	char caracter=caracter_llenado;
-	int aux=0;
-
-	log_error(logger, "Size encontrado: %d de %c - Bloques: %s - a verificar: %d",size_encontrado, caracter_llenado, bloques_str, bloque_a_vereificar);
-
-	while(caracter == caracter_llenado){
-		 desplazamiento++;
+	t_config* metadata=config_create(DIR_metadata);
+	 char** bloques=config_get_array_value(metadata,"BLOCKS");
+	 int size_encontrado=config_get_int_value(metadata,"SIZE");
+	 printf("size encontrado: %d",size_encontrado);
+	 int cantidad_bloques=config_get_int_value(metadata,"BLOCK_COUNT");
+	 char* string_caracter_llenado=config_get_string_value(metadata,"CARACTER_LLENADO");
+	 char caracter_llenado=string_caracter_llenado[0];
+	 int size_correcto=(cantidad_bloques-1)*block_size; //el ultimo debo revisar cuantos caracteres tiene escritos}
+	 char caracter=caracter_llenado;
+	 int bloque_a_vereificar= atoi(bloques[cantidad_bloques-1]);
+	 int aux=0;
+	 while(caracter==caracter_llenado){
+			printf("aqui toy\n");
+		 int desplazamiento =bloque_a_vereificar * block_size + aux;
 		 memcpy(&caracter, blocks_copy + desplazamiento, sizeof(char));
 		 aux++;
-	}
-	//aux--;
+	 }//aux--;
 	size_correcto+=aux;
-	log_error(logger, "size encontrado: %d",size_correcto);
+	 printf("size encontrado: %d",size_correcto);
 	if(size_encontrado != size_correcto){
-		log_error(logger, "Se saboteo el SIZE del archivo de recursos. Solucionando sabotaje...");
+		 log_info(logger, "Se saboteo el SIZE del archivo de recursos. Solucionando sabotaje...");
 		 char* str_size_correcto=string_itoa(size_correcto);
 		 config_set_value(metadata,"SIZE",str_size_correcto);
 		 config_save(metadata);
@@ -234,43 +228,10 @@ void arreglar_size_recursos(char* DIR_metadata){
 		 free(str_size_correcto);
 	}else
 	     log_info(logger, "El Size del archivo de Recursos no se vio afectado por el sabotaje.");
+	printf("aqui toy 6\n");
+
+
 }
-/*
-void arreglar_size_recursos(char* DIR_metadataa){
-    char* DIR_metadata="/home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Oxigeno.ims";
-    t_config* metadata=config_create(DIR_metadata);
-     char** bloques=config_get_array_value(metadata,"BLOCKS");
-     int size_encontrado=config_get_int_value(metadata,"SIZE");
-
-     log_warning(logger,"size encontrado: %d",size_encontrado);
-     int cantidad_bloques=config_get_int_value(metadata,"BLOCK_COUNT");
-     char* string_caracter_llenado=config_get_string_value(metadata,"CARACTER_LLENADO");
-     char caracter_llenado=string_caracter_llenado[0];
-     int size_correcto=(cantidad_bloques-1)*block_size; //el ultimo debo revisar cuantos caracteres tiene escritos}
-     char caracter=caracter_llenado;
-     int bloque_a_vereificar= atoi(bloques[cantidad_bloques-1]);
-     int aux=0;
-     while(caracter==caracter_llenado){
-         int desplazamiento = bloque_a_vereificar * block_size + aux;
-         memcpy(&caracter, blocks_copy + desplazamiento, sizeof(char));
-         aux++;
-     }
-     aux--;
-    size_correcto+=aux;
-    log_warning(logger,"size correcto: %d",size_correcto);
-    if(size_encontrado != size_correcto){
-         log_info(logger, "Se saboteo el SIZE del archivo de recursos. Solucionando sabotaje...");
-         char* str_size_correcto=string_itoa(size_correcto);
-         config_set_value(metadata,"SIZE",str_size_correcto);
-         config_save(metadata);
-         log_info(logger, "Sabotaje solucionado");
-         config_destroy(metadata);
-         free(str_size_correcto);
-    }else
-         log_info(logger, "El Size del archivo de Recursos no se vio afectado por el sabotaje.");
-
-}*/
-
 void arreglar_blockcount_recursos(char* DIR_metadata){
 	t_config* metadata=config_create(DIR_metadata);
 	 char** bloques=config_get_array_value(metadata,"BLOCKS");
@@ -292,4 +253,4 @@ void arreglar_blockcount_recursos(char* DIR_metadata){
 	 }
 	 else
 	 	 log_info(logger, "El BlockCount del archivo de Recursos no se vio afectado por el sabotaje.");
-}
+}*/

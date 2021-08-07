@@ -91,7 +91,6 @@ tripulante* trip_block;
 pthread_mutex_t mutex_cola_ready;
 pthread_mutex_t mutex_tripulantes_running;
 pthread_mutex_t mutex_cola_blocked;
-pthread_mutex_t tripulantes_exit;
 
 sem_t activar_planificacion;
 sem_t multiprocesamiento;

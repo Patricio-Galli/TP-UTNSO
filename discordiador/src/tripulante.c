@@ -47,16 +47,6 @@ void* rutina_tripulante(void* t) {
 
 		quitar_running(trip);
 		actualizar_estado(trip, EXIT);
-/*
-		t_mensaje* mensaje_out = crear_mensaje(ELIM_T);
-
-		agregar_parametro_a_mensaje(mensaje_out, (void*)trip->id_trip, ENTERO);
-		agregar_parametro_a_mensaje(mensaje_out, (void*)trip->id_patota, ENTERO);
-
-		pthread_mutex_lock(&tripulantes_exit);
-		enviar_y_verificar(mensaje_out, socket_ram, "No se pudo expulsar al tripulante.");
-		pthread_mutex_unlock(&tripulantes_exit);*/
-
 	} else
 		sem_post(&trip->sem_blocked);
 
