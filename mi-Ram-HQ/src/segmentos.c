@@ -16,7 +16,7 @@ bool iniciar_memoria_segmentada(t_config* config) {
 	if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "BF"))
 		memoria_ram.criterio_seleccion = BEST_FIT;
 
-    sem_init(&mutex_lista_segmentos, 0, 1);
+    // sem_init(&mutex_lista_segmentos, 0, 1);
     sem_init(&mutex_compactacion, 0, 1);
 	return true;
 }
@@ -94,8 +94,9 @@ t_segmento* crear_segmento(uint32_t nuevo_tamanio) {
     return segmento_nuevo;
 }
 
-void eliminar_segmento(uint32_t nro_segmento) {
-    t_segmento* segmento = list_get(memoria_ram.mapa_segmentos, nro_segmento);
+void eliminar_segmento(/*uint32_t nro_segmento*/t_segmento* segmento) {
+    sem_wait(&mutex_compactacion);
+    // t_segmento* segmento = list_get(memoria_ram.mapa_segmentos, nro_segmento);
     t_segmento* segmento_anterior;
     t_segmento* segmento_siguiente;
     bool compactar_segmento_anterior = false;
@@ -103,14 +104,14 @@ void eliminar_segmento(uint32_t nro_segmento) {
 
     segmento->duenio = 0;
 
-    if(nro_segmento > 0) {
-        segmento_anterior = list_get(memoria_ram.mapa_segmentos, nro_segmento - 1);
+    if(segmento->n_segmento > 0) {
+        segmento_anterior = list_get(memoria_ram.mapa_segmentos, segmento->n_segmento - 1);
         if(segmento_anterior->duenio == 0) {
             compactar_segmento_anterior = true;
         }
     }
-    if (nro_segmento < list_size(memoria_ram.mapa_segmentos) - 1) {
-        segmento_siguiente = list_get(memoria_ram.mapa_segmentos, nro_segmento + 1);
+    if (segmento->n_segmento < list_size(memoria_ram.mapa_segmentos) - 1) {
+        segmento_siguiente = list_get(memoria_ram.mapa_segmentos, segmento->n_segmento + 1);
         if(segmento_siguiente->duenio == 0) {
             compactar_segmento_siguiente = true;
         }
@@ -118,23 +119,29 @@ void eliminar_segmento(uint32_t nro_segmento) {
     t_link_element* iterador = memoria_ram.mapa_segmentos->head;
     if (compactar_segmento_siguiente) {
         segmento->tamanio += segmento_siguiente->tamanio;
+        
         free(list_remove(memoria_ram.mapa_segmentos, segmento_siguiente->n_segmento));  // REVISAR FREE
+        
         // list_remove(memoria_ram.mapa_segmentos, segmento_siguiente->n_segmento);
         for(int i = 0; i < segmento->n_segmento; i++) {
             iterador = iterador->next;
         }
         iterador = iterador->next;
-        while (iterador->next != NULL) {
+        if(iterador) {
+            while (iterador->next != NULL) {
+                ((t_segmento *)iterador->data)->n_segmento--;
+                iterador = iterador->next;
+            }
             ((t_segmento *)iterador->data)->n_segmento--;
-            iterador = iterador->next;
         }
-        ((t_segmento *)iterador->data)->n_segmento--;
     }
     
     iterador = memoria_ram.mapa_segmentos->head;
     if (compactar_segmento_anterior) {
         segmento_anterior->tamanio += segmento->tamanio;
+        // sem_wait(&mutex_compactacion);
         free(list_remove(memoria_ram.mapa_segmentos, segmento->n_segmento));            // REVISAR FREE
+        // sem_post(&mutex_compactacion);
         // list_remove(mapa_segmentos, segmento->n_segmento);
         for(int i = 0; i < segmento_anterior->n_segmento; i++) {
             iterador = iterador->next;
@@ -146,6 +153,7 @@ void eliminar_segmento(uint32_t nro_segmento) {
         }
         ((t_segmento *)iterador->data)->n_segmento--;
     }
+    sem_post(&mutex_compactacion);
 }
 
 void segmentar_bloque(void* memoria, uint32_t posicion, void* data, uint32_t tamanio) {
@@ -311,10 +319,12 @@ t_segmento* segmento_desde_inicio(uint32_t inicio_segmento) {
 		else
 			return false;
 	}
-    sem_wait(&mutex_lista_segmentos);
+    // sem_wait(&mutex_lista_segmentos);
+    sem_wait(&mutex_compactacion);
     t_list* mi_segmento = list_filter(memoria_ram.mapa_segmentos, (*segmento_inicio));
     t_segmento* segmento = (t_segmento *)list_get(mi_segmento, 0);
-    sem_post(&mutex_lista_segmentos);
+    // sem_post(&mutex_lista_segmentos);
+    sem_post(&mutex_compactacion);
     list_destroy(mi_segmento);
     return segmento;
 }

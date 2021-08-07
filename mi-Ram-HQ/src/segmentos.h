@@ -25,7 +25,7 @@ typedef struct {
 bool iniciar_memoria_segmentada(t_config* config);
 
 t_segmento* crear_segmento(uint32_t tamanio_segmento);
-void eliminar_segmento(uint32_t nro_segmento);
+void eliminar_segmento(/*uint32_t nro_segmento*/t_segmento* segmento);
 
 t_list* seg_tripulantes_de_patota(uint32_t id_patota);
 t_list* seg_ordenados_de_patota(uint32_t id_patota);

@@ -41,11 +41,7 @@ bool iniciar_memoria_paginada(t_config* config) {
 	memoria_ram.fd_swap = open(config_get_string_value(config, "PATH_SWAP"), O_RDWR);
 	ftruncate(memoria_ram.fd_swap, memoria_ram.tamanio_swap);
     sem_init(&mutex_incorporar_marco, 0, 1);
-    // memoria_ram.inicio_swap = mmap(NULL, memoria_ram.tamanio_swap, PROT_WRITE, MAP_PRIVATE, memoria_ram.fd_swap, 0);
-
-	// char memoria_vacia[memoria_ram.tamanio_swap];
-	// memset(memoria_vacia, 0, memoria_ram.tamanio_swap);
-	// fwrite(memoria_vacia, 1, memoria_ram.tamanio_swap, memoria_ram.fd_swap);
+    
 	return true;
 }
 
@@ -78,7 +74,7 @@ t_marco* obtener_marco_libre_fisico() {
     for(int i = 0; i < memoria_ram.tamanio_memoria / TAMANIO_PAGINA; i++) {
         if (memoria_ram.mapa_fisico[i]->duenio == 0) {
             marco_disponible = memoria_ram.mapa_fisico[i];
-            // sem_wait(&marco_disponible->semaforo_mutex);
+            sem_wait(&marco_disponible->semaforo_mutex);
             break;
         }
     }
@@ -90,7 +86,7 @@ t_marco* obtener_marco_libre_virtual() {
     for(int i = 0; i < memoria_ram.tamanio_swap / TAMANIO_PAGINA; i++) {
         if (memoria_ram.mapa_logico[i]->duenio == 0) {
             marco_disponible = memoria_ram.mapa_logico[i];
-            // sem_wait(&marco_disponible->semaforo_mutex);
+            sem_wait(&marco_disponible->semaforo_mutex);
             break;
         }
     }
@@ -102,18 +98,23 @@ uint32_t frames_necesarios(uint32_t memoria_libre_ultimo_frame, uint32_t tamanio
     uint32_t cant_frames = (div(tamanio, TAMANIO_PAGINA)).quot;
     if((div(tamanio, TAMANIO_PAGINA)).rem > memoria_libre_ultimo_frame)
         cant_frames++;
+    // log_info(logger, "DETERMINO %d frames necesarios. TAMANIO %d. Mem libre %d", cant_frames, tamanio, memoria_libre_ultimo_frame);
     return cant_frames; 
 }
 
 void asignar_frames(uint32_t id_patota, uint32_t cant_frames) {
-    if(cant_frames == 0)    return ;
+    if(cant_frames == 0) {
+        // log_info(logger, "No asigno nada");
+        return ;
+    }    
 
     patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
+    sem_wait(&mi_patota->mutex_frames);
     if(mi_patota->cant_frames > 0)
         mi_patota->frames = realloc(mi_patota->frames, (cant_frames + mi_patota->cant_frames) * sizeof(t_marco *));
     else
         mi_patota->frames = calloc(cant_frames, sizeof(t_marco *));
-    
+    sem_post(&mi_patota->mutex_frames);
     uint32_t nro_frames_asignados = 0;
 
     while(cant_frames > nro_frames_asignados) {
@@ -127,14 +128,17 @@ void asignar_frames(uint32_t id_patota, uint32_t cant_frames) {
             nuevo_marco = obtener_marco_libre_virtual();
         }
         if(nuevo_marco == NULL) log_warning(logger, "Obtuve marco NULL");
-        log_info(logger, "Marcos libres: reales %d/ virtuales%d", marcos_reales_disponibles(), marcos_logicos_disponibles());
+        // log_info(logger, "Marcos libres: reales %d/ virtuales%d", marcos_reales_disponibles(), marcos_logicos_disponibles());
         nuevo_marco->duenio = id_patota;
         nro_frames_asignados++;
+        sem_wait(&mi_patota->mutex_frames);
         mi_patota->frames[mi_patota->cant_frames] = nuevo_marco->nro_virtual;
+        sem_post(&mi_patota->mutex_frames);
         mi_patota->cant_frames++;
-        log_info(logger, "Asigno frame. Cant frames de la patota: %d", mi_patota->cant_frames);
+        sem_post(&nuevo_marco->semaforo_mutex);
+        // log_info(logger, "Asigno frame. Cant frames de la patota: %d", mi_patota->cant_frames);
     }
-    log_info(logger, "Asigne frames");
+    // log_info(logger, "Asigne %d frames", cant_frames);
 }
 
 void borrar_marco(uint32_t nro_marco) {
@@ -185,11 +189,12 @@ void incorporar_marco(uint32_t nro_marco) {
         log_info(logger, "Hago backup del marco");
         hacer_backup_marco(marco_descartable->nro_virtual);
     }
-    log_info(logger, "Modifico marco viejo y actualizo nuevo");
+    // log_info(logger, "Modifico marco viejo y actualizo nuevo");
     marco_descartable->presencia = false;
     marco_descartable->modificado = false;
     marco_incorporado->nro_real = marco_descartable->nro_real;
     marco_incorporado->presencia = true;
+    marco_incorporado->modificado = false;
     sem_post(&marco_descartable->semaforo_mutex);
 
     lseek(memoria_ram.fd_swap, marco_incorporado->nro_virtual * TAMANIO_PAGINA, SEEK_SET);
@@ -223,28 +228,6 @@ t_marco* reemplazo_por_clock(uint32_t nro_marco) {
     return marco_encontrado;
 }
 
-// uint32_t* valor_entero;
-    // char* valor_char;
-    // switch(tipo) {
-    //     case ENTERO:
-    //         valor_entero = malloc(sizeof(uint32_t));
-    //         *valor_entero = (void *)valor;
-    //         bytes_necesarios = sizeof(uint32_t);
-    //         data = valor_entero;
-    //         break;
-    //     case CARACTER:
-    //         valor_char = malloc(sizeof(char));
-    //         *valor_char = (void *)valor;
-    //         bytes_necesarios = sizeof(char);
-    //         data = valor_char;
-    //         break;
-    //     case BUFFER:
-    //         // data = valor;
-    //         bytes_necesarios = strlen(valor);
-    //         data = realloc(valor, bytes_necesarios);
-    //         break;
-    // }
-
 void actualizar_entero_paginacion(uint32_t id_patota, uint32_t desplazamiento, uint32_t valor) {
     patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
     div_t posicion_compuesta = div(desplazamiento, TAMANIO_PAGINA);
@@ -256,18 +239,23 @@ void actualizar_entero_paginacion(uint32_t id_patota, uint32_t desplazamiento, u
     uint32_t data = valor;
     uint32_t inicio_pagina = posicion_compuesta.rem;
     while(bytes_cargados < bytes_necesarios) {
-        t_marco* marco_auxiliar = memoria_ram.mapa_logico[mi_patota->frames[pagina_actual]];
+        sem_wait(&mi_patota->mutex_frames);
+        uint32_t nro_marco_logico = mi_patota->frames[pagina_actual];
+        t_marco* marco_auxiliar = memoria_ram.mapa_logico[nro_marco_logico];
+        sem_post(&mi_patota->mutex_frames);
+        // log_info(logger, "Nro_marco_logico: %d", nro_marco_logico);
         if(bytes_disponibles > bytes_necesarios - bytes_cargados)
             bytes_disponibles = bytes_necesarios - bytes_cargados;
         
         sem_wait(&marco_auxiliar->semaforo_mutex);
-        incorporar_marco(mi_patota->frames[pagina_actual]);
-        memcpy(inicio_marco(mi_patota->frames[pagina_actual]) + inicio_pagina, &data, bytes_disponibles);
+        incorporar_marco(nro_marco_logico);
+        // log_info(logger, "Inserto entero en %d", inicio_marco_logico(mi_patota->frames[pagina_actual]) + inicio_pagina);
+        memcpy(inicio_marco(nro_marco_logico) + inicio_pagina, &data, bytes_disponibles);
         marco_auxiliar->modificado = true;
         marco_auxiliar->bit_uso = true;
         sem_post(&marco_auxiliar->semaforo_mutex);
-        log_warning(logger, "Incorpore marco. Obtengo dato paginacion");
-        log_info(logger, "Data: %d", obtener_entero_paginacion(id_patota, desplazamiento));
+        // log_warning(logger, "Incorpore marco. Obtengo dato paginacion");
+        // log_info(logger, "Data: %d", obtener_entero_paginacion(id_patota, desplazamiento));
         
         bytes_cargados += bytes_disponibles;
         bytes_disponibles = TAMANIO_PAGINA;
@@ -291,12 +279,17 @@ uint32_t obtener_entero_paginacion(uint32_t id_patota, uint32_t desplazamiento) 
     uint32_t inicio_pagina = posicion_compuesta.rem;
     while(bytes_cargados < bytes_necesarios) {
         // log_info(logger, "Bytes cargados %d, Bytes necesarios %d", bytes_cargados, bytes_necesarios);
-        t_marco* marco_auxiliar = memoria_ram.mapa_logico[mi_patota->frames[pagina_actual]];
+        sem_wait(&mi_patota->mutex_frames);
+        uint32_t nro_marco_logico = mi_patota->frames[pagina_actual];
+        sem_post(&mi_patota->mutex_frames);
+        
+        t_marco* marco_auxiliar = memoria_ram.mapa_logico[nro_marco_logico];
+
         if(bytes_disponibles > bytes_necesarios - bytes_cargados)
             bytes_disponibles = bytes_necesarios - bytes_cargados;
         sem_wait(&marco_auxiliar->semaforo_mutex);
-        incorporar_marco(mi_patota->frames[pagina_actual]);
-        memcpy(&data, inicio_marco(mi_patota->frames[pagina_actual]) + inicio_pagina, bytes_disponibles);
+        incorporar_marco(nro_marco_logico);
+        memcpy(&data, inicio_marco(nro_marco_logico) + inicio_pagina, bytes_disponibles);
         marco_auxiliar->bit_uso = true;
         sem_post(&marco_auxiliar->semaforo_mutex);
         
@@ -316,14 +309,14 @@ void* obtener_bloque_paginacion(uint32_t id_patota, uint32_t desplazamiento, uin
     uint32_t bytes_disponibles = TAMANIO_PAGINA - posicion_compuesta.rem;
     uint32_t pagina_actual = posicion_compuesta.quot;
     uint32_t bytes_necesarios = tamanio;
-    log_info(logger, "actualizar_entero. Pagina %d, inicio_pagina: %d", pagina_actual, posicion_compuesta.rem);
+    // log_info(logger, "actualizar_entero. Pagina %d, inicio_pagina: %d", pagina_actual, posicion_compuesta.rem);
 
     void* data = malloc(tamanio);
-    log_info(logger, "Tamanio bloque %d, tamanio data %d", tamanio, sizeof(*data));
+    // log_info(logger, "Tamanio bloque %d, tamanio data %d", tamanio, sizeof(*data));
     uint32_t inicio_pagina = posicion_compuesta.rem;
     while(bytes_cargados < bytes_necesarios) {
         t_marco* marco_auxiliar = memoria_ram.mapa_logico[mi_patota->frames[pagina_actual]];
-        log_info(logger, "Bytes cargados %d, Bytes necesarios %d", bytes_cargados, bytes_necesarios);
+        // log_info(logger, "Bytes cargados %d, Bytes necesarios %d", bytes_cargados, bytes_necesarios);
         if(bytes_disponibles > bytes_necesarios - bytes_cargados)
             bytes_disponibles = bytes_necesarios - bytes_cargados;
         // log_info(logger, "Pagina actual %d. Frames de patota %d. Tamanio vector %d", pagina_actual, mi_patota->cant_frames, sizeof(mi_patota->frames[0]));
@@ -379,10 +372,20 @@ void actualizar_bloque_paginacion(uint32_t id_patota, uint32_t desplazamiento, v
 
 void reasignar_frames(uint32_t id_patota) {
     patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
+    // sem_wait(&mi_patota->frames[0])
     while(frames_necesarios(0, mi_patota->memoria_ocupada) < mi_patota->cant_frames) {
-		borrar_marco(mi_patota->frames[mi_patota->cant_frames - 1]);
+        sem_wait(&mi_patota->mutex_frames);
+        uint32_t nro_marco = mi_patota->frames[mi_patota->cant_frames - 1];
+        sem_post(&mi_patota->mutex_frames);
+        
+        sem_wait(&mutex_incorporar_marco);
+        // t_marco *un_marco = memoria_ram.mapa_logico[nro_marco];
+        borrar_marco(nro_marco);
 		mi_patota->cant_frames--;
+        sem_wait(&mi_patota->mutex_frames);
 		mi_patota->frames = realloc(mi_patota->frames, mi_patota->cant_frames * sizeof(uint32_t *));
+        sem_post(&mi_patota->mutex_frames);
+        sem_wait(&mutex_incorporar_marco);
 	}
 }
 

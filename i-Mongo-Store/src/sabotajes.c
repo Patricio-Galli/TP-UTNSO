@@ -151,12 +151,12 @@ void arreglar_Bitmap_superBloque(){
     Dir_metadata=obtener_directorio("/Files/Basura.ims");
     calcularBloquesUsadosRecursos(bitmap_copy,Dir_metadata,superBloque);
     free(Dir_metadata);
-
+	/*
     for(int i = 0; i < list_size(lista_tripulantes); i++) {
         printf("aqui toy 6\n");//////////////////////////////////////////////////////////////////////////ROMPIO ACA
             tripulante* trip = (tripulante*)list_get(lista_tripulantes, i);
             calcularBloquesUsadosBitacoras(bitmap_copy,trip->dir_bitacora,superBloque);
-        }
+        }*/
 
     close(superBlock_file);
     free(DIR_SuperBLoque);
