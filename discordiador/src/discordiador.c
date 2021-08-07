@@ -57,6 +57,7 @@ int main() {
 	continuar_planificacion = true;
 	ciclo_CPU = atoi(config_get_string_value(config, "RETARDO_CICLO_CPU"));
 	quantum = atoi(config_get_string_value(config, "QUANTUM"));
+	parametros_iniciar_patota* parametros;
 
 	inicializar_planificador(
 		atoi(config_get_string_value(config, "GRADO_MULTITAREA")),
@@ -76,7 +77,7 @@ int main() {
 				}*/
 
 
-				parametros_iniciar_patota* parametros = obtener_parametros(input);
+				parametros = obtener_parametros(input);
 				loggear_parametros(parametros);
 
 				if(RAM_ACTIVADA || MONGO_ACTIVADO) {
