@@ -49,6 +49,8 @@ int main() {
 		liberar_mensaje_in(mensaje_activacion_in);
 	}
 
+	pthread_mutex_init(&tripulantes_exit, NULL);
+
 	lista_tripulantes = list_create();
 	salir = false;
 	planificacion_inicializada = false;
@@ -66,12 +68,13 @@ int main() {
 
 		switch(mapStringToEnum(input[0])) {
 			case INICIAR_PATOTA:
-
+				/*
 				if (!strcmp(buffer_consola,"ini")) {
 					free(*input);
 					free(input);
-					input = string_split("iniciar_patota 2 tareas.txt 1|3 1|2", " ");
-				}
+					input = string_split("iniciar_patota 2 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 1|3 1|2", " ");
+				}*/
+
 
 				parametros_iniciar_patota* parametros = obtener_parametros(input);
 				loggear_parametros(parametros);
@@ -176,6 +179,8 @@ int main() {
 
 	if(MONGO_ACTIVADO)
 		close(socket_mongo);
+
+	pthread_mutex_destroy(&tripulantes_exit, NULL);
 
 	log_destroy(logger);
 	return 0;

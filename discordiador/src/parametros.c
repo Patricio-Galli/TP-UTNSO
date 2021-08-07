@@ -26,7 +26,7 @@ parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar val
 			valida = false;
 		}
 	}
-
+/*
 	char* direccion;
 
 	if(string_starts_with(input[2], "/"))
@@ -39,7 +39,9 @@ parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar val
 
 	log_info(logger, "Direccion tareas: %s", direccion);
 	FILE *archivo_tareas = fopen (direccion, "r");
-	free(direccion);
+	free(direccion);*/
+
+	FILE *archivo_tareas = fopen (input[2], "r");
 	char buffer_tarea[40];
 	parametros->cantidad_tareas = 0;
 	parametros->tareas = NULL;
