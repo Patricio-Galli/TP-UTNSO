@@ -42,6 +42,7 @@ parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar val
 	free(direccion);*/
 
 	FILE *archivo_tareas = fopen (input[2], "r");
+	if(archivo_tareas != NULL) {
 	char buffer_tarea[40];
 	parametros->cantidad_tareas = 0;
 	parametros->tareas = NULL;
@@ -58,6 +59,7 @@ parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar val
 	}
 
 	fclose(archivo_tareas);
+	} 
 
 	return parametros;
 }

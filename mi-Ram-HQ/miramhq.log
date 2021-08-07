@@ -1,0 +1,37 @@
+[INFO] 12:46:23:041 Mi-RAM-HQ/(28847:28847): CONSOLA ACTIVA
+[INFO] 12:46:23:041 Mi-RAM-HQ/(28847:28847): Servidor listo
+[INFO] 12:46:23:043 Mi-RAM-HQ/(28847:28848): ENTRO AL WHILE DE CONSOLA
+[INFO] 12:47:22:360 Mi-RAM-HQ/(28847:28847): Conexión establecida con el discordiador
+[INFO] 12:47:22:360 Mi-RAM-HQ/(28847:28847): Esperando información del discordiador
+[INFO] 12:48:00:198 Mi-RAM-HQ/(28847:28847): Recibir mensaje
+[WARNING] 12:48:00:198 Mi-RAM-HQ/(28847:28847): La conexión remota se ha desconectado.
+[INFO] 12:48:00:198 Mi-RAM-HQ/(28847:28847): Paso a cambiar continuar_consola
+[INFO] 12:48:00:198 Mi-RAM-HQ/(28847:28847): NUEVOS RESULTADOS
+[INFO] 12:48:00:198 Mi-RAM-HQ/(28847:28847): Cantidad de segmentos: 1. Memoria libre: 1000
+[INFO] 12:48:00:198 Mi-RAM-HQ/(28847:28847): SEGMENTO 1/Duenio: 0/Indice: 149079472/Inicio: 0/Tamanio: 1000
+[INFO] 12:48:00:198 Mi-RAM-HQ/(28847:28847): Lista de patotas: 0
+[INFO] 12:48:00:198 Mi-RAM-HQ/(28847:28847): Lista de tripulantes activos: 0
+[INFO] 12:48:00:198 Mi-RAM-HQ/(28847:28848): SEM_WAIT CONSOLA: 0
+[INFO] 12:48:00:198 Mi-RAM-HQ/(28847:28848): Paso a destruir la consola
+[INFO] 12:48:00:198 Mi-RAM-HQ/(28847:28847): Creo un archivo con el nombre Dump_07-08-21_12-48-00.dmp
+
+[INFO] 12:48:00:199 Mi-RAM-HQ/(28847:28847): Cantidad de segmentos: 1. Memoria libre: 1000
+[INFO] 12:49:54:053 Mi-RAM-HQ/(28958:28958): CONSOLA ACTIVA
+[INFO] 12:49:54:053 Mi-RAM-HQ/(28958:28958): Servidor listo
+[INFO] 12:49:54:055 Mi-RAM-HQ/(28958:28959): ENTRO AL WHILE DE CONSOLA
+[INFO] 12:50:00:533 Mi-RAM-HQ/(28958:28958): Conexión establecida con el discordiador
+[INFO] 12:50:00:533 Mi-RAM-HQ/(28958:28958): Esperando información del discordiador
+[INFO] 12:50:29:109 Mi-RAM-HQ/(28958:28958): Recibir mensaje
+[INFO] 12:50:29:109 Mi-RAM-HQ/(28958:28958): Discordiador solicitó iniciar_patota. Cant tripulantes: 3
+[INFO] 12:50:29:109 Mi-RAM-HQ/(28958:28958): Hay memoria disponible
+[INFO] 12:50:29:109 Mi-RAM-HQ/(28958:28958): Cree estructura patota
+[INFO] 12:50:29:109 Mi-RAM-HQ/(28958:28958): Patota 1. Tarea 0: ARREGLAR_REACTOR;7;2;5.
+[INFO] 12:50:29:109 Mi-RAM-HQ/(28958:28958): Patota 1. Tarea 1: BARRER;7;7;5.
+[INFO] 12:50:29:109 Mi-RAM-HQ/(28958:28958): Patota 1. Tarea 2: SALUDAR;2;7;1.
+[INFO] 12:50:29:109 Mi-RAM-HQ/(28958:28958): Patota 1. Tarea 0: ARREGLAR_REACTOR;7;2;5.
+[INFO] 12:50:29:109 Mi-RAM-HQ/(28958:28958): Patota 1. Tarea 1: BARRER;7;7;5.
+[INFO] 12:50:29:109 Mi-RAM-HQ/(28958:28958): Patota 1. Tarea 2: SALUDAR;2;7;1.
+[INFO] 12:50:29:109 Mi-RAM-HQ/(28958:28958): Esperando información del discordiador
+[INFO] 12:50:29:110 Mi-RAM-HQ/(28958:28958): Recibir mensaje
+[INFO] 12:50:29:110 Mi-RAM-HQ/(28958:28958): Discordiador solicitó iniciar_tripulante
+[INFO] 12:50:29:110 Mi-RAM-HQ/(28958:28958): Entro a iniciar_tripulante

@@ -1,0 +1,49 @@
+[INFO] 12:46:28:672 MONGO/(28849:28849): Servidor listo
+[INFO] 12:47:22:360 MONGO/(28849:28849): Conexión establecida con el discordiador
+[INFO] 12:47:22:360 MONGO/(28849:28849): Verificando existencia SuperBloque
+[INFO] 12:47:22:360 MONGO/(28849:28849): SuperBloque no existe, creandolo.
+[INFO] 12:47:22:360 MONGO/(28849:28849): el tamaño del bloque es 16 y la cant de bloques es 16384
+[INFO] 12:47:22:360 MONGO/(28849:28849): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 12:47:22:397 MONGO/(28849:28849): se escribio el archivo
+[INFO] 12:47:22:397 MONGO/(28849:28849): SuperBloque Generado
+[INFO] 12:47:22:397 MONGO/(28849:28849): Verificando existencia Blocks
+[INFO] 12:47:22:397 MONGO/(28849:28849): Blocks no existe, creandolo
+[INFO] 12:47:22:397 MONGO/(28849:28849): Blocks Generado
+[INFO] 12:47:22:397 MONGO/(28849:28849): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 12:47:22:397 MONGO/(28849:28881): Se sincronizo el blocks
+[INFO] 12:47:22:397 MONGO/(28849:28849): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 12:47:22:398 MONGO/(28849:28849): Iniciando el detector de sabotajes
+[INFO] 12:47:22:398 MONGO/(28849:28849): Detector de sabotajes iniciado exitosamente
+[WARNING] 12:48:00:195 MONGO/(28849:28849): La conexión remota se ha desconectado.
+[ERROR] 12:48:00:195 MONGO/(28849:28849): Cliente desconectado
+[WARNING] 12:48:00:195 MONGO/(28849:28849): FINALIZANDO MONGO
+[INFO] 12:49:55:421 MONGO/(28960:28960): Servidor listo
+[INFO] 12:50:00:533 MONGO/(28960:28960): Conexión establecida con el discordiador
+[INFO] 12:50:00:533 MONGO/(28960:28960): Verificando existencia SuperBloque
+[INFO] 12:50:00:533 MONGO/(28960:28960): SuperBloque ya existe
+[INFO] 12:50:00:533 MONGO/(28960:28960): el tamaño del bloque es 16 y la cant de bloques es 16384
+[INFO] 12:50:00:533 MONGO/(28960:28960): el directorio del superBloque es /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/superBloque.ims
+[INFO] 12:50:00:534 MONGO/(28960:28960): se escribio el archivo
+[INFO] 12:50:00:534 MONGO/(28960:28960): SuperBloque Generado
+[INFO] 12:50:00:534 MONGO/(28960:28960): Verificando existencia Blocks
+[INFO] 12:50:00:534 MONGO/(28960:28960): Blocks ya existe
+[INFO] 12:50:00:535 MONGO/(28960:28960): Blocks Generado
+[INFO] 12:50:00:535 MONGO/(28960:28960): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files
+[INFO] 12:50:00:535 MONGO/(28960:28960): Se genero el directorio:  /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras
+[INFO] 12:50:00:535 MONGO/(28960:28960): Iniciando el detector de sabotajes
+[INFO] 12:50:00:535 MONGO/(28960:29061): Se sincronizo el blocks
+[INFO] 12:50:00:535 MONGO/(28960:28960): Detector de sabotajes iniciado exitosamente
+[INFO] 12:50:29:109 MONGO/(28960:28960): Discordiador inicio una patota
+[INFO] 12:50:29:459 MONGO/(28960:28960): Discordiador solicito iniciar un tripulante
+[INFO] 12:50:29:459 MONGO/(28960:28960): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante1-1.ims
+[INFO] 12:50:29:459 MONGO/(28960:28960): Archivos previos no encontrados, Generando bitacora
+[INFO] 12:50:29:460 MONGO/(28960:28960): Se Genero la Bitacora
+[INFO] 12:50:29:460 MONGO/(28960:28960): Discordiador solicito iniciar un tripulante
+[INFO] 12:50:29:460 MONGO/(28960:28960): Buscando archivos ya existentes en directorio /home/utnso/tp-2021-1c-cualquier-cosa/i-Mongo-Store/Filesystem/Files/Bitacoras/Tripulante2-1.ims
+[INFO] 12:50:29:460 MONGO/(28960:28960): Archivos previos no encontrados, Generando bitacora
+[INFO] 12:50:29:460 MONGO/(28960:28960): Se Genero la Bitacora
+[INFO] 12:50:29:461 MONGO/(28960:29108): Iniciado el tripulante 2 de la patota 1
+[INFO] 12:50:29:461 MONGO/(28960:29106): Iniciado el tripulante 1 de la patota 1
+[WARNING] 12:50:29:461 MONGO/(28960:28960): La conexión remota se ha desconectado.
+[ERROR] 12:50:29:461 MONGO/(28960:28960): Cliente desconectado
+[WARNING] 12:50:29:461 MONGO/(28960:28960): FINALIZANDO MONGO
