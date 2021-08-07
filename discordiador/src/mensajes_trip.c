@@ -36,7 +36,7 @@ char* solicitar_tarea(tripulante* trip) {
 			log_warning(logger, "FALLO EN MENSAJE CON HILO RAM\n");
 		else if((int)list_get(mensaje_in, 0) == TASK_T)
 			tarea = (char*)list_get(mensaje_in, 1);
-
+		log_warning(logger, "Tarea: %s", tarea);
 		liberar_mensaje_out(mensaje_out);
 		liberar_mensaje_in(mensaje_in);
 	} else {

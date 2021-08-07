@@ -37,7 +37,9 @@ void* rutina_tripulante(void* t) {
 
 	while(trip->continuar && strcmp(tarea, "no_task") != 0) {
 		ejecutar(tarea, trip);
-		tarea = solicitar_tarea(trip);
+
+		if(trip->continuar)
+			tarea = solicitar_tarea(trip);
 	}
 
 	if(trip->continuar) {
@@ -50,6 +52,11 @@ void* rutina_tripulante(void* t) {
 
 	sem_destroy(&trip->sem_blocked);
 	sem_destroy(&trip->sem_running);
+
+	// t_mensaje* mensaje_out = crear_mensaje(INIT_P);
+	// agregar_parametro_a_mensaje(mensaje_out, (void*)trip->id_trip, ENTERO);
+	// agregar_parametro_a_mensaje(mensaje_out, (void*)trip->id_patota, ENTERO);
+	// enviar_mensaje(socket_ram, mensaje_out);
 
 	return 0;
 }

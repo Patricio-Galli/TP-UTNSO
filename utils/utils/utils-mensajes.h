@@ -43,7 +43,7 @@ typedef enum {
 	
 	ACTU_P,	// Actualizar posición
 		// ACTU_T | posicion_x [int] | posicion_y [int]
-	
+
 	ACTU_E,	// Actualizar estado
 		// ACTU_T | estado [char]
 	
@@ -56,17 +56,13 @@ typedef enum {
 	BITA_D,	// Obtener bitácora
 		// BITA_D | id_trip [int] | id_patota [int]
 	
-	BITA_T,	// Actualizar bitácora
-		// Por definir
-	
 	BITA_C,	// Mostrar Bitácora
 		// BITA_C | cant_lineas [int] | (líneas)
 	
-	TAR_ES,	// Tarea E/S
-		// Por definir
-	
 	SABO_P,	// Nuevo Sabotaje
 		// SABO_P | id_patota [int] | id_trip [int] | posicion_x [int] | posicion_y [int]
+	SABO_I,
+	SABO_F,
 	
 	TODOOK,	// Validación correcta
 		// TODOOK
@@ -83,15 +79,15 @@ typedef enum {
 	ER_SOC,	// Error al recibir mensaje, el socket remoto se desconectó
 		// ER_SOC
 	// ADAPTANDO CON DISCORDIADOR
+	INIT_S,
+	EXEC_1,
+	EXEC_0,
 	GEN_OX,
 	CON_OX,
 	GEN_CO,
 	CON_CO,
 	GEN_BA,
-	DES_BA,
-	EXEC_1,
-	INIT_S,
-	EXEC_0,
+	DES_BA
 } protocolo_msj;
 
 typedef enum {

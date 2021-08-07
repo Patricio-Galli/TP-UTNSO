@@ -65,6 +65,7 @@ typedef struct {
     uint32_t memoria_ocupada;
     uint32_t cant_frames;
     uint32_t* frames;
+    sem_t mutex_frames;
 } patota_data;
 
 typedef struct {
@@ -90,6 +91,7 @@ sem_t mutex_lista_tripulantes;
 // sem_t mutex_lista_segmentos;
 sem_t mutex_incorporar_marco;
 sem_t mutex_compactacion;
+// sem_t }
 
 #define TAMANIO_PAGINA memoria_ram.tamanio_pagina
 

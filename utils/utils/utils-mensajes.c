@@ -100,20 +100,14 @@ t_list* recibir_mensaje(int socket) {
 			list_add(lista_parametros, recibir_parametro(socket, BUFFER));
 		}
 		break;
-	
-	case SABO_P:
-		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
-		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
-		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
-		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
-		break;
-	
+
 	case SHOW_T:
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		break;
-	
+	case SABO_I:
+	case SABO_P:
 	case INIT_T:
 	case DATA_T:
 	case ELIM_T:
@@ -121,13 +115,6 @@ t_list* recibir_mensaje(int socket) {
 	case BITA_D:
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
 		list_add(lista_parametros, recibir_parametro(socket, ENTERO));
-		break;
-
-	case ER_RCV:
-		// printf("ERROR ER_RCV\n");
-		break;
-	case ER_SOC:
-		// printf("ERROR ER_SOC\n");
 		break;
 	
 	case GEN_OX:
@@ -145,7 +132,15 @@ t_list* recibir_mensaje(int socket) {
 	case TASK_T:
 		list_add(lista_parametros, recibir_parametro(socket, BUFFER));
 		break;
+
+	case ER_RCV:
+		// printf("ERROR ER_RCV\n");
+		break;
+	case ER_SOC:
+		// printf("ERROR ER_SOC\n");
+		break;
 	
+	case SABO_F:
 	case INIT_S:
 	case EXEC_0:
 	case NEW_PO:
@@ -153,18 +148,7 @@ t_list* recibir_mensaje(int socket) {
 	case TODOOK:
 	case NO_SPC:
 	case ER_MSJ:
-		break;
-
-	case BITA_T:
-		// por definir
-		break;
-	
-	case TAR_ES:
-		// por definir
-		break;
-	
 	default:
-		// return NULL;
 		break;
 	}
 	return lista_parametros;
@@ -175,6 +159,10 @@ void liberar_mensaje_out(t_mensaje* mensaje) {
 	free(mensaje->buffer);
 	free(mensaje);
 }
+
+/*static void destruir_buffer(void* elemento) {
+	free(elemento);
+}*/
 
 void liberar_mensaje_in(t_list* mensaje) {
 	protocolo_msj protocolo = (protocolo_msj)list_remove(mensaje, 0);
@@ -209,8 +197,6 @@ void liberar_mensaje_in(t_list* mensaje) {
 	case ER_MSJ:
 	case ER_RCV:
 	case ER_SOC:
-	case BITA_T:
-	case TAR_ES:
 		// printf("CUAL\n");
 		list_destroy(mensaje);
 		// printf("CUAL\n");

@@ -5,7 +5,8 @@ uint32_t creo_segmento_tcb(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uin
 int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uint32_t pos_y) {
 	patota_data* patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
 
-	#define espacio_ocupado_ultimo_frame (patota->memoria_ocupada % memoria_ram.tamanio_pagina)
+	uint32_t espacio_ocupado_ultimo_frame = patota->memoria_ocupada % TAMANIO_PAGINA;
+	if(espacio_ocupado_ultimo_frame == 0)	espacio_ocupado_ultimo_frame = TAMANIO_PAGINA;
 
 	uint32_t inicio_pcb;
 	
@@ -27,6 +28,9 @@ int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uin
 	}
 	if(memoria_ram.esquema_memoria == PAGINACION) {
 		asignar_frames(id_patota, frames_necesarios(TAMANIO_PAGINA - espacio_ocupado_ultimo_frame, TAMANIO_TRIPULANTE));
+		// log_info(logger, "Espacio libre último frame %d", espacio_ocupado_ultimo_frame);
+		// log_info(logger, "Frames de patota %d. Frames necesarios de patota %d", patota->cant_frames, frames_necesarios(0, id_trip * TAMANIO_TRIPULANTE + TAMANIO_PATOTA + 71));
+		// log_info(logger, "Memoria ocupada hasta ahora: %d", patota->memoria_ocupada);
 		patota->inicio_elementos[id_trip + 1] = patota->memoria_ocupada;
 		nuevo_trip->inicio = patota->memoria_ocupada;
 		patota->memoria_ocupada += TAMANIO_TRIPULANTE;
@@ -138,10 +142,14 @@ char obtener_estado(uint32_t id_patota, uint32_t id_tripulante) {
 	if(memoria_ram.esquema_memoria == PAGINACION) {
 		div_t posicion_compuesta = div(inicio_logico_tripulante, memoria_ram.tamanio_pagina);
 		uint32_t pagina_actual = posicion_compuesta.quot;
-		marco_auxiliar = memoria_ram.mapa_logico[mi_patota->frames[pagina_actual]];
+		sem_wait(&mi_patota->mutex_frames);
+		uint32_t nro_marco_auxiliar = mi_patota->frames[pagina_actual];
+		marco_auxiliar = memoria_ram.mapa_logico[nro_marco_auxiliar];
+		sem_post(&mi_patota->mutex_frames);
+		
 		sem_wait(&marco_auxiliar->semaforo_mutex);
-		incorporar_marco(mi_patota->frames[posicion_compuesta.quot]);
-		inicio_tripulante = inicio_marco(mi_patota->frames[posicion_compuesta.quot]/*posicion_compuesta.quot*/) + posicion_compuesta.rem;
+		incorporar_marco(nro_marco_auxiliar);
+		inicio_tripulante = inicio_marco(nro_marco_auxiliar) + posicion_compuesta.rem;
 		memcpy(&valor_char, inicio_tripulante + sizeof(uint32_t), sizeof(char));
 		marco_auxiliar->bit_uso = true;
 		sem_post(&marco_auxiliar->semaforo_mutex);
@@ -151,8 +159,9 @@ char obtener_estado(uint32_t id_patota, uint32_t id_tripulante) {
 
 void actualizar_valor_tripulante(uint32_t id_patota, uint32_t id_trip, para_trip nro_parametro, uint32_t nuevo_valor) {
 	patota_data* mi_patota = (patota_data *)list_get(lista_patotas, id_patota - 1);
-	uint32_t inicio_tripulante = mi_patota->inicio_elementos[id_trip + 1];
 	
+	uint32_t inicio_tripulante = mi_patota->inicio_elementos[id_trip + 1];
+	// log_info(logger, "Actualizo valor. Inicio tripulante: %d", inicio_tripulante);
 	uint32_t desplazamiento = desplazamiento_parametro_trip(nro_parametro);
 
 	if(memoria_ram.esquema_memoria == SEGMENTACION) {
@@ -176,12 +185,15 @@ void actualizar_estado(uint32_t id_patota, uint32_t id_tripulante, char nuevo_va
 		if(memoria_ram.esquema_memoria == PAGINACION) {
 			div_t posicion_compuesta = div(inicio_logico_tripulante, memoria_ram.tamanio_pagina);
 			uint32_t pagina_actual = posicion_compuesta.quot;
-			marco_auxiliar = memoria_ram.mapa_logico[mi_patota->frames[pagina_actual]];
+			sem_wait(&mi_patota->mutex_frames);
+			uint32_t nro_marco_auxiliar = mi_patota->frames[pagina_actual];
+			marco_auxiliar = memoria_ram.mapa_logico[nro_marco_auxiliar];
+			sem_post(&mi_patota->mutex_frames);
 			char valor = nuevo_valor;
 
 			sem_wait(&marco_auxiliar->semaforo_mutex);
-			incorporar_marco(mi_patota->frames[posicion_compuesta.quot]);
-			inicio_tripulante = inicio_marco(mi_patota->frames[posicion_compuesta.quot]/*posicion_compuesta.quot*/) + posicion_compuesta.rem;
+			incorporar_marco(nro_marco_auxiliar);
+			inicio_tripulante = inicio_marco(nro_marco_auxiliar) + posicion_compuesta.rem;
 			memcpy(inicio_tripulante + sizeof(uint32_t), &valor, sizeof(char));
 			sem_post(&marco_auxiliar->semaforo_mutex);
 		}

@@ -347,9 +347,9 @@ void* rutina_hilos(void* mi_tripulante) {
 
 	t_list* mensaje_in = recibir_mensaje(((t_tripulante *)mi_tripulante)->socket);
 	liberar_mensaje_in(mensaje_in);
-	while(1) {
-		sleep(10000);
-	}
+	// while(1) {
+	// 	sleep(10000);
+	// }
 
 	while(1) {
 		if(!((t_tripulante *)mi_tripulante)->vivir)

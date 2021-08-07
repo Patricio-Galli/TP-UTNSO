@@ -138,6 +138,7 @@ void loggear_marcos_logicos(FILE* archivo) {
 	if(archivo == NULL) {
 		log_info(logger, "Marcos libres fisicos: %d. Marcos libres logicos: %d", marcos_reales_disponibles(), marcos_logicos_disponibles());
 		for (int i = 0; i < (uint32_t)(memoria_ram.tamanio_swap / TAMANIO_PAGINA); i++) {
+			sem_wait(&memoria_ram.mapa_logico[i]->semaforo_mutex);
 			log_info(logger, "ML %d/ MF: %d/ Duenio: %d/ Presencia: %d/ Modificado: %d/ Uso: %d",
 				memoria_ram.mapa_logico[i]->nro_virtual,
 				memoria_ram.mapa_logico[i]->nro_real,
@@ -146,6 +147,7 @@ void loggear_marcos_logicos(FILE* archivo) {
 				memoria_ram.mapa_logico[i]->modificado,
 				memoria_ram.mapa_logico[i]->bit_uso
 				);
+			sem_wait(&memoria_ram.mapa_logico[i]->semaforo_mutex);
 		}
 	}
 }
@@ -175,9 +177,9 @@ void loggear_data() {
 		loggear_segmentos(NULL);
 	}
 	if(memoria_ram.esquema_memoria == PAGINACION) {
-		loggear_marcos_logicos(NULL);
+		// loggear_marcos_logicos(NULL);
 	}
     loggear_patotas();
     loggear_tripulantes();
-	// dump();
+	dump();
 }

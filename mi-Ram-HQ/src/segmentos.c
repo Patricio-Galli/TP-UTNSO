@@ -127,11 +127,13 @@ void eliminar_segmento(/*uint32_t nro_segmento*/t_segmento* segmento) {
             iterador = iterador->next;
         }
         iterador = iterador->next;
-        while (iterador->next != NULL) {
+        if(iterador) {
+            while (iterador->next != NULL) {
+                ((t_segmento *)iterador->data)->n_segmento--;
+                iterador = iterador->next;
+            }
             ((t_segmento *)iterador->data)->n_segmento--;
-            iterador = iterador->next;
         }
-        ((t_segmento *)iterador->data)->n_segmento--;
     }
     
     iterador = memoria_ram.mapa_segmentos->head;

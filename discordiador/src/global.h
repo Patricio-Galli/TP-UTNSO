@@ -16,8 +16,11 @@
 #include <utils/utils-sockets.h>
 #include <utils/utils-mensajes.h>
 
-#define RAM_ACTIVADA 0
-#define MONGO_ACTIVADO 1
+#define RAM_ACTIVADA 1
+#define MONGO_ACTIVADO 0
+
+// int socket_ram = 0;
+// sem_t mutex_socket_ram;
 
 //tripulante
 typedef struct {

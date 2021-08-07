@@ -8,6 +8,7 @@ int main() {
 	ip_mongo = config_get_string_value(config, "IP_I_MONGO_STORE");
 
 	if(RAM_ACTIVADA) {
+		// sem_init(&mutex_socket_ram, 0, 1);
 		socket_ram = crear_conexion_cliente(ip_ram,	config_get_string_value(config, "PUERTO_MI_RAM_HQ"));
 
 		if(!validar_socket(socket_ram, logger)) {
@@ -70,7 +71,7 @@ int main() {
 				if (!strcmp(buffer_consola,"ini")) {
 					free(*input);
 					free(input);
-					input = string_split("iniciar_patota 2 /home/utnso/tp-2021-1c-cualquier-cosa/tareas.txt 1|3 1|2", " ");
+					input = string_split("iniciar_patota 2 tareas.txt 1|3 1|2", " "); 
 				}
 
 				parametros_iniciar_patota* parametros = obtener_parametros(input);
@@ -280,6 +281,9 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 			}
 
 			if(eliminar_trip) {
+				if(RAM_ACTIVADA)
+					log_info(logger, "La ram acepto la expulsion");
+
 				trip->continuar = false;
 
 				sem_post(&trip->sem_blocked);
@@ -287,6 +291,9 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 				sem_post(&trip->sem_running);
 
 				pthread_join(trip->hilo, NULL);
+
+				if(RAM_ACTIVADA)
+					log_info(logger, "Hilo cancelado desp de acepcion de ram");
 
 				switch(trip->estado) {
 					case READY:
@@ -299,6 +306,9 @@ void expulsar_tripulante(int id_tripulante, int id_patota) {
 						break;
 					default: break;
 				}
+
+				if(RAM_ACTIVADA)
+					log_info(logger, "Eliminado de colas desp de expulsion con ram");
 
 				free(list_remove(lista_tripulantes, index));
 

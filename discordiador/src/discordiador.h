@@ -11,6 +11,7 @@
 
 int id_patota_actual = 1;
 int socket_ram = 0, socket_mongo = 0;
+// int socket_mongo = 0;
 char *ip_ram, *ip_mongo;
 
 bool planificacion_inicializada;
