@@ -238,7 +238,8 @@ void* rutina_trip(void* t) {
 		liberar_mensaje_out(mensaje_out);
 		liberar_mensaje_in(mensaje_in);
 	}
-	free(trip->dir_bitacora);
+	free(trip->dir_bitacora);//cambiarle el nombre al archivo para que se mantenga el bitmap
+
 
 	return 0;
 }

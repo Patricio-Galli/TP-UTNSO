@@ -1,63 +1,6 @@
 #include "miramhq.h"
 
-// int variable = 1;
-
-void loggear_data(/*t_log* logger*/) {
-	log_info(logger, "NUEVOS RESULTADOS");
-	if(memoria_ram.esquema_memoria == SEGMENTACION) {
-		log_info(logger, "Cantidad de segmentos: %d. Memoria libre: %d", list_size(memoria_ram.mapa_segmentos), memoria_libre_segmentacion());
-		for (int i = 0; i < list_size(memoria_ram.mapa_segmentos); i++) {
-			log_info(logger, "SEGMENTO %d/Duenio: %d/Indice: %d/Inicio: %d/Tamanio: %d",
-				((t_segmento *)list_get(memoria_ram.mapa_segmentos, i))->n_segmento + 1,
-				((t_segmento *)list_get(memoria_ram.mapa_segmentos, i))->duenio,
-				((t_segmento *)list_get(memoria_ram.mapa_segmentos, i))->indice,
-				((t_segmento *)list_get(memoria_ram.mapa_segmentos, i))->inicio,
-				((t_segmento *)list_get(memoria_ram.mapa_segmentos, i))->tamanio
-				);
-		}
-	}
-	if(memoria_ram.esquema_memoria == PAGINACION) {
-
-	}
-	
-	log_info(logger, "Lista de patotas: %d", list_size(lista_patotas));
-	
-	uint32_t inicio;
-	uint32_t pid;
-	uint32_t tid;
-	uint32_t pnt_tareas;
-	
-	for(int i = 0; i < list_size(lista_patotas); i++) {
-		log_info(logger, "Patota %d. PID: %d; Puntero a PCB: %d; Puntero a tareas: %d", i + 1,
-			((patota_data *)(uint32_t)list_get(lista_patotas, i))->PID,
-			((patota_data *)(uint32_t)list_get(lista_patotas, i))->inicio_elementos[0],
-			((patota_data *)(uint32_t)list_get(lista_patotas, i))->inicio_elementos[1]);
-
-		inicio = ((patota_data *)(uint32_t)list_get(lista_patotas, i))->inicio_elementos[0];
-		memcpy(&pid, memoria_ram.inicio + inicio, sizeof(uint32_t));
-		memcpy(&pnt_tareas, memoria_ram.inicio + inicio + sizeof(uint32_t), sizeof(uint32_t));
-		log_info(logger, "PID: %d; Puntero a tareas: %d", pid, pnt_tareas);
-	}
-
-	log_info(logger, "Lista de tripulantes activos: %d", list_size(lista_tripulantes));
-	for(int i = 0; i < lista_tripulantes->elements_count; i++) {
-		inicio = ((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->inicio;
-		pid = ((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->PID;
-		tid = ((trip_data *)(uint32_t)list_get(lista_tripulantes, i))->TID;
-		log_info(logger, "TID: %d; inicio: %d; estado: %c; pos_x: %d; pos_y: %d; IP: %d; Punt PCB: %d",
-			obtener_valor_tripulante(pid, tid, TRIP_IP),
-			inicio,
-			obtener_estado(pid, tid),
-			obtener_valor_tripulante(pid, tid, POS_X),
-			obtener_valor_tripulante(pid, tid, POS_Y),
-			obtener_valor_tripulante(pid, tid, INS_POINTER),
-			obtener_valor_tripulante(pid, tid, PCB_POINTER)
-			);
-	}
-}
-
 int main(void) {
-	// t_log* logger;
 	if(CONSOLA_ACTIVA)
 		logger = log_create("miramhq.log", "Mi-RAM-HQ", 0, LOG_LEVEL_INFO);
 	else
@@ -73,10 +16,6 @@ int main(void) {
 		log_info(logger, "FALLO EN EL ARCHIVO DE CONFIGURACIÓN");
 		return 0;
 	}
-	else {
-		log_info(logger, "PAGINACION ACEPTADA CORRECTAMENTE");
-		// return 0;
-	}
 	
 	sem_init(&semaforo_consola, 0, 0);
 	sem_init(&mutex_movimiento, 0, 1);
@@ -91,7 +30,6 @@ int main(void) {
 	}
 
 	int server_fd = crear_conexion_servidor(IP_RAM,	config_get_int_value(config, "PUERTO"), 1);
-	// data_socket(server_fd, logger);
 
 	if(!validar_socket(server_fd, logger)) {
 		close(server_fd);
@@ -102,7 +40,10 @@ int main(void) {
 	log_info(logger, "Servidor listo");
 	int socket_discord = esperar_cliente(server_fd);
 	close(server_fd);
+	
 	log_info(logger, "Conexión establecida con el discordiador");
+	signal(SIGUSR1, &signal_dump);
+	signal(SIGUSR2, &signal_compactacion);
 	
 	t_list* mensaje_in;
 	t_mensaje* mensaje_out;
@@ -119,30 +60,26 @@ int main(void) {
 	while(conexion_activa_discord == true) {
 		log_info(logger, "Esperando información del discordiador");
 		mensaje_in = recibir_mensaje(socket_discord);
+		log_info(logger, "Recibir mensaje");
 		if (!validar_mensaje(mensaje_in, logger)) {
-			liberar_mensaje_in(mensaje_in);
-			log_info(logger, "Cliente desconectado dentro del while");
-			close(server_fd);
-			log_destroy(logger);
-			// liberar_memoria(config, socket_discord, hilo_consola);
-			return ERROR_CONEXION;
+			// liberar_mensaje_in(mensaje_in);
+			// log_info(logger, "Cliente desconectado dentro del while");
+			// close(server_fd);
+			// log_destroy(logger);
+			// // liberar_metadata(config, socket_discord);
+			// return ERROR_CONEXION;
+			break;
 		}
 		
 		switch((int)list_get(mensaje_in, 0)) { // protocolo del mensaje
 		case INIT_P:
-			log_info(logger, "Discordiador solicitó iniciar_patota");
+			log_info(logger, "Discordiador solicitó iniciar_patota. Cant tripulantes: %d", (int)list_get(mensaje_in, 1));
 			patota_actual++;
 			inicio_correcto = iniciar_patota(patota_actual, mensaje_in);
-			
 			if(!inicio_correcto) {
 				mensaje_out = crear_mensaje(NO_SPC);
-				if(memoria_ram.esquema_memoria == PAGINACION) {
-					liberar_memoria(config, socket_discord, hilo_consola);
-					return ERROR_CONEXION;
-				}
 				patota_actual--;
 			}
-				
 			else {
 				mensaje_out = crear_mensaje(TODOOK);
 			}
@@ -150,11 +87,6 @@ int main(void) {
 			enviar_mensaje(socket_discord, mensaje_out);
 			liberar_mensaje_out(mensaje_out);		// debe estar fuera del switch
 			nro_tripulante = 1;
-			for(int i = 0; i < ((tareas_data *)list_get(lista_tareas, patota_actual - 1))->cant_tareas; i++) {
-				log_info(logger, "Tarea %d: '%s'", i, obtener_tarea(memoria_ram.inicio + ((patota_data *)list_get(lista_patotas, patota_actual - 1))->inicio_elementos[1], (tareas_data *)list_get(lista_tareas, patota_actual - 1), i));
-				log_info(logger, "Inicio tarea: %d, Tamanio tarea: %d", ((tareas_data *)list_get(lista_tareas, patota_actual - 1))->inicio_tareas[i], ((tareas_data *)list_get(lista_tareas, patota_actual - 1))->tamanio_tareas[i]);
-			}
-			// printf("Tarea 1: '%s' no me la container\n", memoria_ram.inicio + ((patota_data *)list_get(lista_patotas, patota_actual - 1))->inicio_elementos[1]);
 			break;
 		case INIT_T:
 			log_info(logger, "Discordiador solicitó iniciar_tripulante");
@@ -162,7 +94,6 @@ int main(void) {
 			uint32_t posicion_y = (uint32_t)list_get(mensaje_in, 2);
 			log_info(logger, "Entro a iniciar_tripulante");
 			int puerto = iniciar_tripulante(nro_tripulante, patota_actual, posicion_x, posicion_y);
-			log_info(logger, "Resolvi iniciar_tripulante");
 			if(puerto == 0) {
 				mensaje_out = crear_mensaje(NO_SPC);
 			}
@@ -183,6 +114,11 @@ int main(void) {
 			mensaje_out = crear_mensaje(TODOOK);
 			enviar_mensaje(socket_discord, mensaje_out);
 			liberar_mensaje_out(mensaje_out);
+			
+			// if(patota_sin_tripulantes(id_patota)) {
+			// 	// eliminar_tareas(id_patota);
+			// }
+
 			break;
 		case 64:
 			log_info(logger, "Cliente desconectado 64");
@@ -194,26 +130,17 @@ int main(void) {
 			break;
 		}
 		liberar_mensaje_in(mensaje_in);
-		loggear_data(/*logger*/);
+		loggear_data();
 	}
     log_info(logger, "Paso a cambiar continuar_consola");
 	*continuar_consola = false;
 	sem_post(&semaforo_consola);
 
-	liberar_memoria(config, socket_discord, hilo_consola);
-	// log_info(logger, "Segmentos");
-	// liberar_segmentos();
-	// log_info(logger, "Patotas");
-	// liberar_patotas();
-	// log_info(logger, "Tareas");    // Rompe
-	// // liberar_tareas();
-	// log_info(logger, "Tripulantes");
-	// liberar_tripulantes();
-	// log_info(logger, "Consola");
-	// if(CONSOLA_ACTIVA) {
-	// 	pthread_join(*hilo_consola, 0);
-	// 	free(hilo_consola);
-	// }
+	// liberar_metadata(config, socket_discord);
+	if(CONSOLA_ACTIVA) {
+		pthread_join(*hilo_consola, 0);
+		free(hilo_consola);
+	}
 	// log_info(logger, "Recibi la consola");
 	// config_destroy(config);
 	// log_destroy(logger);
@@ -270,66 +197,6 @@ void liberar_tripulantes() {
 	// list_destroy_and_destroy_elements(lista_patotas, destruir_tripulante);
 }
 
-pthread_t* iniciar_mapa(bool* continuar_consola) {
-	pthread_t* hilo_consola = malloc(sizeof(pthread_t));
-	pthread_create(hilo_consola, NULL, dibujar_mapa, (void *)continuar_consola);
-	return hilo_consola;
-}
-
-bool iniciar_memoria_segmentada(t_config* config) {
-	// sem_init(&mutex_segmentacion, 0, 1);
-	memoria_ram.esquema_memoria = SEGMENTACION;
-	memoria_ram.mapa_segmentos = list_create();
-	t_segmento* segmento_memoria = malloc(sizeof(t_segmento));
-	segmento_memoria->n_segmento = 0;
-	segmento_memoria->duenio = 0;
-	segmento_memoria->inicio = 0;
-	segmento_memoria->tamanio = memoria_ram.tamanio_memoria;
-	list_add(memoria_ram.mapa_segmentos, segmento_memoria);
-
-	if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "FF"))
-		memoria_ram.criterio_seleccion = FIRST_FIT;
-	if(!strcmp(config_get_string_value(config, "CRITERIO_SELECCION"), "BF"))
-		memoria_ram.criterio_seleccion = BEST_FIT;
-	return true;
-}
-
-bool iniciar_memoria_paginada(t_config* config) {
-	memoria_ram.esquema_memoria = PAGINACION;
-	memoria_ram.tamanio_pagina = config_get_int_value(config, "TAMANIO_PAGINA");
-	memoria_ram.tamanio_swap = config_get_int_value(config, "TAMANIO_SWAP");
-	uint32_t frames_en_memoria = memoria_ram.tamanio_memoria / memoria_ram.tamanio_pagina;
-	uint32_t frames_totales = (/*memoria_ram.tamanio_memoria + */memoria_ram.tamanio_swap) / memoria_ram.tamanio_pagina;
-	if(memoria_ram.tamanio_memoria % memoria_ram.tamanio_pagina + memoria_ram.tamanio_swap % memoria_ram.tamanio_pagina > 0)
-		return false;
-	
-	log_info(logger, "Estoy en paginación, con entrada valida. Nro frames: %d:%d", frames_en_memoria, frames_totales);
-	memoria_ram.mapa_fisico = calloc(frames_en_memoria, memoria_ram.tamanio_pagina);
-	// memset(memoria_ram.mapa_fisico, 0, sizeof(memoria_ram.mapa_fisico));
-	memoria_ram.mapa_logico = calloc(frames_totales, memoria_ram.tamanio_pagina);
-	// memset(memoria_ram.mapa_logico, 0, sizeof(memoria_ram.mapa_logico));
-	for(int i = 0; i < frames_totales; i++) {
-		t_marco* marco_auxiliar = malloc(sizeof(t_marco));
-		memoria_ram.mapa_logico[i] = marco_auxiliar;
-		marco_auxiliar->nro_virtual = i;	// TO CLEAN
-		if(i < frames_en_memoria)
-			marco_auxiliar->nro_real = i;
-		marco_auxiliar->duenio = 0;
-		// marco_auxiliar->espacio_libre = memoria_ram.tamanio_memoria;
-		marco_auxiliar->presencia = false;
-		marco_auxiliar->modificado = false;
-	}
-	if(!strcmp(config_get_string_value(config, "ALGORITMO_REEMPLAZO"), "LRU"))
-		memoria_ram.algoritmo_reemplazo = LRU;
-	if(!strcmp(config_get_string_value(config, "ALGORITMO_REEMPLAZO"), "CLOCK"))
-		memoria_ram.algoritmo_reemplazo = CLOCK;     
-	memoria_ram.inicio_swap = fopen(config_get_string_value(config, "PATH_SWAP"), "wb");
-	char memoria_vacia[memoria_ram.tamanio_swap];
-	memset(memoria_vacia, 0, memoria_ram.tamanio_swap);
-	fwrite(memoria_vacia, 1, memoria_ram.tamanio_swap, memoria_ram.inicio_swap);
-	return true;
-}
-
 bool iniciar_memoria(t_config* config) {
 	memoria_ram.tamanio_memoria = config_get_int_value(config, "TAMANIO_MEMORIA");
 	memoria_ram.inicio = malloc(memoria_ram.tamanio_memoria);
@@ -340,40 +207,12 @@ bool iniciar_memoria(t_config* config) {
 	}
 	if(!strcmp(esquema_memoria, "PAGINACION")) {
 		inicio_correcto = iniciar_memoria_paginada(config);
-		// memoria_ram.esquema_memoria = PAGINACION;
-		// memoria_ram.tamanio_pagina = config_get_int_value(config, "TAMANIO_PAGINA");
-		// memoria_ram.tamanio_swap = config_get_int_value(config, "TAMANIO_SWAP");
-		// uint32_t frames_en_memoria = memoria_ram.tamanio_memoria / memoria_ram.tamanio_pagina;
-		// uint32_t frames_totales = (memoria_ram.tamanio_memoria + memoria_ram.tamanio_swap) / memoria_ram.tamanio_pagina;
-		// if(memoria_ram.tamanio_memoria % memoria_ram.tamanio_pagina + memoria_ram.tamanio_swap % memoria_ram.tamanio_pagina > 0)
-		// 	return 0;
-		// log_info(logger, "Estoy en paginación, con entrada valida. Nro frames: %d:%d", frames_en_memoria, frames_totales);
-		// memoria_ram.mapa_fisico = calloc(frames_en_memoria, memoria_ram.tamanio_pagina);
-		// // memset(memoria_ram.mapa_fisico, 0, sizeof(memoria_ram.mapa_fisico));
-		// memoria_ram.mapa_logico = calloc(frames_totales, memoria_ram.tamanio_pagina);
-		// // memset(memoria_ram.mapa_logico, 0, sizeof(memoria_ram.mapa_logico));
-		// for(int i = 0; i < frames_totales; i++) {
-		// 	t_marco* marco_auxiliar = malloc(sizeof(t_marco));
-		// 	memoria_ram.mapa_logico[i] = marco_auxiliar;
-		// 	marco_auxiliar->nro_virtual = i;	// TO CLEAN
-		// 	if(i < frames_en_memoria)
-		// 		marco_auxiliar->nro_real = i;
-		// 	marco_auxiliar->duenio = 0;
-		// 	// marco_auxiliar->espacio_libre = memoria_ram.tamanio_memoria;
-		// 	marco_auxiliar->presencia = false;
-		// 	marco_auxiliar->modificado = false;
-		// }
-		// if(!strcmp(config_get_string_value(config, "ALGORITMO_REEMPLAZO"), "LRU"))
-		// 	memoria_ram.algoritmo_reemplazo = LRU;
-		// if(!strcmp(config_get_string_value(config, "ALGORITMO_REEMPLAZO"), "CLOCK"))
-		// 	memoria_ram.algoritmo_reemplazo = CLOCK;     
-		// memoria_ram.inicio_swap = fopen(config_get_string_value(config, "PATH_SWAP"), "wb");
 	}
 	free(esquema_memoria);
 	return inicio_correcto;
 }
 
-void liberar_memoria(t_config* config, int socket_discord, pthread_t* hilo_consola) {
+void liberar_metadata(t_config* config, int socket_discord) {
 	log_info(logger, "Segmentos");
 	liberar_segmentos();
 	log_info(logger, "Patotas");
@@ -383,12 +222,20 @@ void liberar_memoria(t_config* config, int socket_discord, pthread_t* hilo_conso
 	log_info(logger, "Tripulantes");
 	liberar_tripulantes();
 	log_info(logger, "Consola");
-	if(CONSOLA_ACTIVA) {
-		pthread_join(*hilo_consola, 0);
-		free(hilo_consola);
-	}
 	log_info(logger, "Recibi la consola");
 	config_destroy(config);
 	log_destroy(logger);
 	close(socket_discord);
+}
+
+
+void signal_compactacion(int sig){
+	log_info(logger, "Recibi la senial de compactacion");
+	if(memoria_ram.esquema_memoria == SEGMENTACION)
+		realizar_compactacion();
+}
+
+void signal_dump(int sig){
+	log_info(logger, "Recibi la senial de dump");
+	dump();
 }

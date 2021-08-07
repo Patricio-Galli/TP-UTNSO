@@ -27,7 +27,19 @@ parametros_iniciar_patota* obtener_parametros(char** input) {//todo realizar val
 		}
 	}
 
-	FILE *archivo_tareas = fopen (input[2], "r");
+	char* direccion;
+
+	if(string_starts_with(input[2], "/"))
+		direccion = input[2];
+	else {
+		direccion = string_new();
+		string_append(&direccion, "/home/utnso/tp-2021-1c-cualquier-cosa/");
+		string_append(&direccion, input[2]);
+	}
+
+	log_info(logger, "Direccion tareas: %s", direccion);
+	FILE *archivo_tareas = fopen (direccion, "r");
+	free(direccion);
 	char buffer_tarea[40];
 	parametros->cantidad_tareas = 0;
 	parametros->tareas = NULL;

@@ -1,5 +1,5 @@
 #include "utilidades.h"
-/*
+
 char* crear_MD5(char caracter_llenado, int cantidad_caracteres) {
 	log_info(logger, "Generando MD5");
 	char caracter_string[2] = {caracter_llenado , '\0'};
@@ -42,7 +42,7 @@ char* crear_MD5(char caracter_llenado, int cantidad_caracteres) {
 
 	return("ERROR DE MD5");
 }
-*/
+/*
 char* crear_MD5(char** bloques,int cantidad_bloques) {
 	log_info(logger, "Generando MD5");
 	char caracter_string[2] = {bloques[0][0] , '\0'};
@@ -84,7 +84,7 @@ char* crear_MD5(char** bloques,int cantidad_bloques) {
 
 	return "ERROR DE MD5";
 }
-
+*/
 tripulante* obtener_tripulante(int id_trip, int id_patota) {
 	for(int i = 0; i < list_size(lista_tripulantes); i++) {
 		tripulante* trip = (tripulante*)list_get(lista_tripulantes, i);

@@ -30,11 +30,11 @@ typedef struct {
     uint32_t inicio;
     int socket;
     pthread_t* hilo;        // Creo que no hace falta
-    sem_t* semaforo_hilo;   // Para realizar compactacion (se usa el mismo para dump)
 } trip_data;
 
 int iniciar_tripulante(uint32_t id_trip, uint32_t id_patota, uint32_t pos_x, uint32_t pos_y);
 void eliminar_tripulante(uint32_t id_patota, uint32_t id_tripulante);
+void eliminar_tripulante_paginacion(uint32_t id_patota, uint32_t id_tripulante);
 
 uint32_t obtener_valor_tripulante(uint32_t id_patota, uint32_t id_trip, para_trip nro_parametro);
 void actualizar_valor_tripulante(uint32_t id_patota, uint32_t id_trip, para_trip nro_parametro, uint32_t nuevo_valor);
@@ -46,6 +46,8 @@ trip_data* tripulante_de_lista(uint32_t id_patota, uint32_t id_trip);
 int posicion_trip(uint32_t id_patota, uint32_t id_trip);
 
 void liberar_tripulante(trip_data* trip_to_kill);
-uint32_t nro_segmento_tripulante(uint32_t);
+// uint32_t nro_segmento_tripulante(uint32_t);
+
+uint32_t desplazamiento_parametro_trip(para_trip parametro);
 
 #endif /* _TRIPULANTE_H_ */

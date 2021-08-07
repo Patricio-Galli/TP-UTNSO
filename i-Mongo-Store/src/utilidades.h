@@ -3,8 +3,8 @@
 
 #include "global.h"
 
-//char* crear_MD5(char, int);
-char* crear_MD5(char** bloques,int cantidad_bloques);
+char* crear_MD5(char, int);
+//char* crear_MD5(char** bloques,int cantidad_bloques);
 tripulante* obtener_tripulante(int id_trip, int id_patota);
 int roundUp(int, int);
 char* juntar_posiciones(int, int);

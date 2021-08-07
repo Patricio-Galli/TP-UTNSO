@@ -5,7 +5,7 @@ void* rutina_hilos(void* data) {
 	// log_info(logger, "HOLA MUNDO, SOY UN HILO %d", variable);
 	int variable = 0;
     trip_data* tripulante = (trip_data *)data;
-	patota_data* segmento_patota = (patota_data *)list_get(lista_patotas, tripulante->PID - 1);
+	// patota_data* segmento_patota = (patota_data *)list_get(lista_patotas, tripulante->PID - 1);
 	tareas_data* segmento_tareas = (tareas_data *)list_get(lista_tareas, tripulante->PID - 1);
 	uint32_t ip;
 	char* tarea_nueva;
@@ -17,8 +17,6 @@ void* rutina_hilos(void* data) {
 	
     uint32_t posicion_x;	// Para consola
 	uint32_t posicion_y;	// Para consola
-	tripulante->semaforo_hilo = malloc(sizeof(sem_t));
-	sem_init(tripulante->semaforo_hilo, 0, 1);
     
 	t_mensaje* mensaje_out;
 	t_list* mensaje_in;
@@ -26,7 +24,7 @@ void* rutina_hilos(void* data) {
 	while(cliente_conectado) {
 		mensaje_in = recibir_mensaje(socket_cliente);
 		// log_info(logger, "SOY UN HILO: ENTRO AL SEM_WAIT\n");
-        sem_wait(tripulante->semaforo_hilo);
+        // sem_wait(tripulante->semaforo_hilo);
 		// printf("Sobrevivi al sem_wait\n");
 		switch ((int)list_get(mensaje_in, 0)) {
 		case NEXT_T:
@@ -38,7 +36,8 @@ void* rutina_hilos(void* data) {
 			}
 			else {
 				// IP valido
-				tarea_nueva = obtener_tarea(memoria_ram.inicio + segmento_patota->inicio_elementos[1], segmento_tareas, ip);
+				// tarea_nueva = obtener_tarea_p(memoria_ram.inicio + segmento_patota->inicio_elementos[1], segmento_tareas, ip);
+				tarea_nueva = obtener_tarea(tripulante->PID, ip);
 				actualizar_valor_tripulante(tripulante->PID, tripulante->TID, INS_POINTER, ip + 1);
 				mensaje_out = crear_mensaje(TASK_T);
 				agregar_parametro_a_mensaje(mensaje_out, tarea_nueva, BUFFER);
@@ -85,7 +84,7 @@ void* rutina_hilos(void* data) {
 			cliente_conectado = false;
 			break;
 		}
-        sem_post(tripulante->semaforo_hilo);
+        // sem_post(tripulante->semaforo_hilo);
         liberar_mensaje_in(mensaje_in);
 		variable++;
 	}
@@ -116,7 +115,7 @@ void* rutina_hilos(void* data) {
     // sem_destroy(tripulante->semaforo_hilo);
 	// free(tripulante->semaforo_hilo);
 	// free(tripulante);
-	log_info(logger, "ME MUEROOOOOO %d\n", variable);
+	// log_info(logger, "ME MUEROOOOOO %d\n", variable);
 	return 0;
 }
 

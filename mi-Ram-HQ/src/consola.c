@@ -2,6 +2,12 @@
 
 char id_actual = '0';
 
+pthread_t* iniciar_mapa(bool* continuar_consola) {
+	pthread_t* hilo_consola = malloc(sizeof(pthread_t));
+	pthread_create(hilo_consola, NULL, dibujar_mapa, (void *)continuar_consola);
+	return hilo_consola;
+}
+
 void* dibujar_mapa(void* continuar_consola) {
     NIVEL* nivel;
     bool* continuar = (bool *)continuar_consola;

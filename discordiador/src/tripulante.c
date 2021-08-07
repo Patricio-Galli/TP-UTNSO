@@ -37,7 +37,9 @@ void* rutina_tripulante(void* t) {
 
 	while(trip->continuar && strcmp(tarea, "no_task") != 0) {
 		ejecutar(tarea, trip);
-		tarea = solicitar_tarea(trip);
+
+		if(trip->continuar)
+			tarea = solicitar_tarea(trip);
 	}
 
 	if(trip->continuar) {

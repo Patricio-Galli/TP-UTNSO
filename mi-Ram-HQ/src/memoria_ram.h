@@ -11,7 +11,7 @@
 #include <semaphore.h>
 
 #define IP_RAM "127.0.0.1"
-#define CONSOLA_ACTIVA 1
+#define CONSOLA_ACTIVA  1
 
 #define SEGMENTACION 0
 #define PAGINACION 1
@@ -30,8 +30,9 @@ typedef struct {
     bool bit_uso;   // CLOCK
     // uint32_t espacio_libre;
     bool presencia;
-    bool modificado;    
-}t_marco;
+    bool modificado;
+    sem_t semaforo_mutex;
+} t_marco;
 
 typedef struct {
     void* inicio;
@@ -42,14 +43,17 @@ typedef struct {
     t_list* mapa_segmentos;
     // Paginación
     uint32_t tamanio_pagina;
-    uint32_t tamanio_swap;
-    uint32_t algoritmo_reemplazo;
-    uint32_t puntero_clock;
     t_marco** mapa_logico;
     t_marco** mapa_fisico;
-    t_bitarray* bitmap;
-    FILE* inicio_swap;
-    // char* path_swap; // Extraer del archivo config
+    
+    uint32_t algoritmo_reemplazo;
+    uint32_t puntero_clock;
+    // t_bitarray* bitmap;
+    // FILE* inicio_swap;
+    // void* inicio_swap;
+    int fd_swap;
+    uint32_t tamanio_swap;
+    
 } t_memoria_ram;
 
 typedef struct {
@@ -57,7 +61,6 @@ typedef struct {
     uint32_t cantidad_elementos;
     uint32_t* inicio_elementos;
     // Segmentacion
-    // uint32_t* tabla_segmentos;    // Su tamanio depende de la cantidad de tripulantes
     // Paginacion
     uint32_t memoria_ocupada;
     uint32_t cant_frames;
@@ -84,7 +87,9 @@ t_log* logger;
 sem_t semaforo_consola;
 sem_t mutex_movimiento;
 sem_t mutex_lista_tripulantes;
-sem_t mutex_segmentacion;
+sem_t mutex_lista_segmentos;
+sem_t mutex_incorporar_marco;
+sem_t mutex_compactacion;
 
 #define TAMANIO_PAGINA memoria_ram.tamanio_pagina
 
