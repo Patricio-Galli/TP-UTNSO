@@ -180,7 +180,7 @@ int main() {
 	if(MONGO_ACTIVADO)
 		close(socket_mongo);
 
-	pthread_mutex_destroy(&tripulantes_exit, NULL);
+	pthread_mutex_destroy(&tripulantes_exit);
 
 	log_destroy(logger);
 	return 0;
